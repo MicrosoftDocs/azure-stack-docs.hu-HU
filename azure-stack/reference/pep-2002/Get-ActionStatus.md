@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f7300224d6b512361c978c33a2f599dfb9a1d852
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 35d857ff8f118e587246f6d10d7f1453b9dec193
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562684"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487265"
 ---
 # <a name="get-actionstatus"></a>Get-ActionStatus
 
@@ -30,7 +30,7 @@ A művelethez tartozó legújabb művelet állapotának beolvasása a megadott f
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 ```
 Get-ActionStatus -FunctionName "Start-SecretRotation"
 ```
@@ -82,6 +82,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

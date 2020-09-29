@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b078158bebf83835e4a0a0eb6d92ba90b4679ca9
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: dac1902747c79b68116c0341f50c47c3e0998c0f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173965"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488790"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Az Azure Stack hub identitás-szolgáltatóinak áttekintése
 
@@ -51,12 +51,12 @@ A felhasználók és csoportok létrehozása és kezelése a használt identitá
 
 Azure Stack hub felhasználói fiókjai:
 
-- A a *\@Felhasználónév tartományának* formátumában jönnek létre. Bár a AD FS leképezi a felhasználói fiókokat egy Active Directory példányra, a AD FS nem támogatja a * \\ \<tartomány>\\ \<alias>* formátum használatát.
+- A a *Felhasználónév \@ tartományának* formátumában jönnek létre. Bár a AD FS leképezi a felhasználói fiókokat egy Active Directory példányra, a AD FS nem támogatja a *\\\<domain>\\\<alias>* formátum használatát.
 - Beállítható a többtényezős hitelesítés használatára.
 - Csak arra a könyvtárra korlátozódik, amelyre először regisztrálnak, amely a szervezet címtára.
-- A helyszíni címtárakból is importálható. További információ: a [helyszíni címtárak integrálása Azure Active Directorysal](/azure/active-directory/connect/active-directory-aadconnect).
+- A helyszíni címtárakból is importálható. További információ: a  [helyszíni címtárak integrálása Azure Active Directorysal](/azure/active-directory/connect/active-directory-aadconnect).
 
-Amikor bejelentkezik a szervezet felhasználói portálján, a *https:\//Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be admin@contoso.comvan jelentkezve, a felhasználói portálra való bejelentkezéshez használt URL-cím a következő\/lesz: https:/Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Amikor bejelentkezik a szervezet felhasználói portálján, a *https: \/ /Portal.local.azurestack.external* URL-címet használja. Az Azure Stack hub portálra való bejelentkezéskor, amely nem az Azure Stack hub regisztrálásához használt tartományba esik, a Azure Stack hub regisztrálásához használt tartománynevet hozzá kell fűzni a portál URL-címéhez. Ha például Azure Stack hub regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be van jelentkezve admin@contoso.com , a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https: \/ /Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Vendégfelhasználók
 
@@ -64,7 +64,7 @@ A vendég felhasználók olyan más címtárbeli bérlők felhasználói fiókja
 
 A vendég felhasználók meghívásához a Felhőbeli operátorok és a felhasználók használhatják az [Azure ad B2B-együttműködést](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). A meghívott felhasználók hozzáférést kapnak a címtárhoz, az erőforrásokhoz és az alkalmazásokhoz, és megtarthatja a saját erőforrásai és adatai feletti irányítást.
 
-Vendég felhasználóként bejelentkezhet egy másik szervezet címtár-bérlőbe. Ehhez fűzze hozzá a szervezet címtárának nevét a portál URL-címéhez. Ha például a contoso-szervezethez tartozik, és be szeretne jelentkezni a fabrikam-címtárba, használja a https:\//Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Vendég felhasználóként bejelentkezhet egy másik szervezet címtár-bérlőbe. Ehhez fűzze hozzá a szervezet címtárának nevét a portál URL-címéhez. Ha például a contoso-szervezethez tartozik, és be szeretne jelentkezni a fabrikam-címtárba, használja a https: \/ /Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="apps"></a>Alkalmazások
 
@@ -137,7 +137,7 @@ Alkalmazások és felhasználók esetében a Azure Stack hub architektúráját 
 |Réteg    |A rétegek közötti hitelesítés  |
 |---------|---------|
 |Eszközök és ügyfelek, például a felügyeleti portál     | Az Azure Stack hub-ban lévő erőforrások eléréséhez vagy módosításához az eszközök és az ügyfelek egy [JSON web token](/azure/active-directory/develop/active-directory-token-and-claims) használatával helyezik el a Azure Resource Manager hívását. <br>Azure Resource Manager ellenőrzi JSON Web Token a kiállított jogkivonat *jogcímeit* , és megtekinti a felhasználó vagy a szolgáltatásnév Azure stack hubhoz való engedélyezésének szintjét. |
-|Azure Resource Manager és az alapvető szolgáltatásai     |Azure Resource Manager kommunikál az erőforrás-szolgáltatókkal, hogy átvigye a kommunikációt a felhasználóktól. <br> Az átvitelek [Azure Resource Manager sablonokon](/azure-stack/user/azure-stack-arm-templates)keresztül *közvetlen, kényszerített* hívásokat vagy *deklaratív* hívásokat használnak.|
+|Azure Resource Manager és az alapvető szolgáltatásai     |Azure Resource Manager kommunikál az erőforrás-szolgáltatókkal, hogy átvigye a kommunikációt a felhasználóktól. <br> Az átvitelek [Azure Resource Manager sablonokon](../user/azure-stack-arm-templates.md)keresztül *közvetlen, kényszerített* hívásokat vagy *deklaratív* hívásokat használnak.|
 |Erőforrás-szolgáltatók     |Az erőforrás-szolgáltatóknak átadott hívások biztonsága tanúsítványalapú hitelesítéssel történik. <br>A Azure Resource Manager és az erőforrás-szolgáltató egy API-n keresztül marad a kommunikációban. Az erőforrás-szolgáltató a Azure Resource Managertól kapott összes hívás esetében érvényesíti a hívást a tanúsítvánnyal.|
 |Infrastruktúra és üzleti logika     |Az erőforrás-szolgáltatók az üzleti logikával és az infrastruktúrával kommunikálnak az általuk választott hitelesítési mód használatával. Az Azure Stack hub szolgáltatással szállított alapértelmezett erőforrás-szolgáltatók Windows-hitelesítéssel védik a kommunikációt.|
 
@@ -147,10 +147,10 @@ Alkalmazások és felhasználók esetében a Azure Stack hub architektúráját 
 
 Az identitás-szolgáltatóval való hitelesítéshez és a JSON Web Token fogadásához a következő információk szükségesek:
 
-1. **Az Identity rendszer (Authority) URL-címe**: az a URL-cím, amelyen az identitás-szolgáltató elérhető. Például *https:\//login.Windows.net*.
+1. **Az Identity rendszer (Authority) URL-címe**: az a URL-cím, amelyen az identitás-szolgáltató elérhető. Például *https: \/ /login.Windows.net*.
 2. **Azure Resource Manager alkalmazás-azonosító URI-ja**: az identitás-szolgáltatónál regisztrált Azure Resource Manager egyedi azonosítója. Emellett minden Azure Stack hub-telepítéshez egyedi.
 3. **Hitelesítő adatok**: az identitás-szolgáltatóval történő hitelesítéshez használt hitelesítő adatok.
-4. **Azure Resource Manager URL-címe**: az URL-cím a Azure Resource Manager szolgáltatás helye. Például *https\/:/Management.Azure.com* vagy *\/https:/Management.local.azurestack.external*.
+4. **Azure Resource Manager URL-címe**: az URL-cím a Azure Resource Manager szolgáltatás helye. Például *https: \/ /Management.Azure.com* vagy *https: \/ /Management.local.azurestack.external*.
 
 Ha egy rendszerbiztonsági tag (az ügyfél, az alkalmazások vagy a felhasználó) hitelesítési kérelmet küld az erőforrásokhoz való hozzáféréshez, a kérelemnek tartalmaznia kell a következőket:
 
@@ -188,9 +188,9 @@ Az Azure Stack hub használatával végzett hitelesítés Azure PowerShell haszn
 
 ### <a name="authenticate-with-azure-cli"></a>Hitelesítés az Azure CLI-vel
 
-További információ a Azure Stack hub használatával végzett hitelesítés Azure PowerShell használatáról: [Az Azure CLI telepítése és konfigurálása az Azure stack hub használatával történő használathoz](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+További információ a Azure Stack hub használatával végzett hitelesítés Azure PowerShell használatáról: [Az Azure CLI telepítése és konfigurálása az Azure stack hub használatával történő használathoz](../user/azure-stack-version-profiles-azurecli2.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Identitás-architektúra](azure-stack-identity-architecture.md)
 - [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)

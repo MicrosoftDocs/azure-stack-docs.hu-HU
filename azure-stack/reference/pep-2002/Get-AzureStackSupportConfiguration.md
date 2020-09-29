@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 710201cc045b356037a54e6f7f0eeee63284b0d6
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 97f6bd0fb751885a2a4a4553aba0d7a9329e5458
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487226"
 ---
 # <a name="get-azurestacksupportconfiguration"></a>Get-AzureStackSupportConfiguration
 
@@ -30,7 +30,7 @@ Támogatási szolgáltatás konfigurációs beállításai.
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 Az alábbi példa beolvassa a regisztráció részleteit, ha a bélyegző regisztrálva van vagy más null értékű.
 
 ```
@@ -71,9 +71,9 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="notes"></a>Megjegyzések
+## <a name="notes"></a>Jegyzetek
 A támogatásához a virtuális gépnek internetkapcsolatra van szüksége.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

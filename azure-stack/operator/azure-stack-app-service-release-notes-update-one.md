@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847758"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489623"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service Azure Stack hub Update 1 kibocsátási megjegyzései
 
@@ -29,7 +29,7 @@ Az Azure Stack hub Update 1 Build számának App Service **69.0.13698.9**.
 ## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \*. SSO. appservice.\< régió\>. \<tartománynév\>. \<bővítmény\>**
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
@@ -47,7 +47,7 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
 - **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
     - A **.net Core 2,0** -támogatás hozzáadva.
-    - **Node. js** -verziók hozzáadva:
+    - **Node.JS** verziók hozzáadva:
         - 6.11.2
         - 6.11.5
         - 7.10.1
@@ -99,7 +99,7 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
 - Probléma Azure Stack hub főtanúsítványának integrált rendszerből való beolvasása során.
 
-    A Get-AzureStackRootCert. ps1 hibája miatt az ügyfelek nem tudják lekérni az Azure Stack hub főtanúsítványát, amikor a parancsfájlt olyan gépen futtatják, amelyen nincs telepítve a főtanúsítvány. A szkript már újra megjelent, ami megoldja a problémát. [Töltse le a frissített segítő szkripteket itt](https://aka.ms/appsvconmashelpers). Ha továbbra is problémákat tapasztal a főtanúsítvány frissített parancsfájllal történő beolvasásakor, forduljon az ügyfélszolgálathoz.
+    A Get-AzureStackRootCert.ps1 hibája miatt az ügyfelek nem tudják lekérni a Azure Stack hub főtanúsítványát, amikor olyan gépen futtatják a parancsfájlt, amelyen nincs telepítve a főtanúsítvány. A szkript már újra megjelent, ami megoldja a problémát. [Töltse le a frissített segítő szkripteket itt](https://aka.ms/appsvconmashelpers). Ha továbbra is problémákat tapasztal a főtanúsítvány frissített parancsfájllal történő beolvasásakor, forduljon az ügyfélszolgálathoz.
 
 ## <a name="known-issues-with-the-update-process"></a>A frissítési folyamattal kapcsolatos ismert problémák
 
@@ -203,9 +203,9 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1802 kibocsátási megjegyzései](azure-stack-update-1903.md) dokumentációját
+Tekintse meg az [Azure stack Hub 1802 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
 - További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

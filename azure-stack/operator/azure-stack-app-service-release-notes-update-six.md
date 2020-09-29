@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 974b338ff7da9bd4442d4aadc02d475bd01686df
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 932686cb52e7aa2a1aa1c948e1ab5d5469d4bf30
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489589"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
 
@@ -78,7 +78,7 @@ A Azure Stack hub Update 6 Azure App Service a következő javításokat és jav
 ## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
 
 > [!IMPORTANT]
-> Ha a App Service erőforrás-szolgáltatót egy SQL always on-példánnyal adta meg, akkor [a appservice_hosting és a appservice_metering adatbázisokat hozzá kell adnia egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+> Ha a App Service erőforrás-szolgáltatót egy SQL always on-példánnyal adta meg, akkor [a appservice_hosting és a appservice_metering adatbázisokat hozzá kell adnia egy rendelkezésre állási csoporthoz](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 ## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
@@ -98,7 +98,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](/azure-stack/operator/release-notes?view=azs-1908)dokumentációját.
+Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](./release-notes.md?view=azs-1908)dokumentációját.
 
 ## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a bérlők számára a Azure Stack hub-on Azure App Service alkalmazások üzembe helyezése során
 

@@ -1,5 +1,5 @@
 ---
-title: App Service helyreállítás Azure Stack hub-on
+title: Az App Service helyreállítása az Azure Stack Hubon
 description: További információ a Azure Stack hub App Serviceának vész-helyreállításáról.
 author: bryanla
 ms.topic: article
@@ -7,14 +7,14 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701683"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489759"
 ---
-# <a name="app-service-recovery-on-azure-stack-hub"></a>App Service helyreállítás Azure Stack hub-on
+# <a name="app-service-recovery-on-azure-stack-hub"></a>Az App Service helyreállítása az Azure Stack Hubon
 
 Ez a témakör útmutatást nyújt a App Service vész-helyreállítással kapcsolatos műveletek elvégzéséhez.
 
@@ -39,7 +39,7 @@ Miután felkészítette [a SQL Server példányt](azure-stack-app-service-before
 3. Győződjön meg arról, hogy mindkét App Service adatbázis visszaállítása sikeres volt, és lépjen ki SQL Server Management Studio.
 
 > [!NOTE]
-> A feladatátvételi fürtszolgáltatás meghibásodása miatti helyreállításról a [feladatátvételi fürt példányának meghibásodása esetén](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)című témakörben talál további információt. 
+> A feladatátvételi fürtszolgáltatás meghibásodása miatti helyreállításról a [feladatátvételi fürt példányának meghibásodása esetén](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)című témakörben talál további információt. 
 
 ## <a name="restore-the-app-service-file-share-content"></a>A App Service fájlmegosztás tartalmának visszaállítása
 A [fájlkiszolgáló](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) a app Service fájlmegosztás üzemeltetése után történő előkészítése után vissza kell állítania a bérlői fájlmegosztás tartalmát a biztonsági másolatból. A fájlok az újonnan létrehozott App Service fájlmegosztás helyére való másolásához tetszőleges módszert használhat. Ha ezt a példát a fájlkiszolgálón futtatja, a PowerShell és a Robocopy használatával csatlakozhat egy távoli megosztáshoz, és átmásolja a fájlokat a megosztásba:
@@ -60,7 +60,7 @@ A App Service-adatbázisok és a fájlmegosztás tartalmának visszaállítása 
 1. Jelentkezzen be a App Service Controller **CN0-VM** virtuális gépre **roleadmin** -ként a app Service telepítésekor megadott jelszó használatával. 
     > [!TIP]
     > Az RDP-kapcsolatok engedélyezéséhez módosítania kell a virtuális gép hálózati biztonsági csoportját. 
-2. Másolja a **SystemSecrets. JSON** fájlt helyileg a vezérlő virtuális gépre. A következő lépésben meg kell adnia a fájl elérési útját `$pathToExportedSecretFile` paraméterként.
+2. Másolja a **SystemSecrets.JS** fájlt helyileg a vezérlő virtuális gépre. A következő lépésben meg kell adnia a fájl elérési útját `$pathToExportedSecretFile` paraméterként.
 3. A következő parancsok futtatásával emelt szintű PowerShell-konzol ablakban állíthatja vissza App Service szerepköröket és szolgáltatásokat:
 
     ```powershell
@@ -104,5 +104,5 @@ Az Azure Stack hub App Service nem támogatja a bérlői felhasználói alkalmaz
 6. Váltson át az **áttekintésre**.
 7. Indítsa újra az alkalmazást. Több próbálkozást is igénybe vehet az összes hiba törléséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Az Azure Stack hub App Service áttekintése](azure-stack-app-service-overview.md)

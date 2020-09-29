@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81244077"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488722"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack hub Datacenter DNS-integráció
 
@@ -25,11 +25,11 @@ A Azure Stack hub telepítésekor a DNS szolgáltatással kapcsolatos fontos inf
 
 |Mező  |Leírás  |Példa|
 |---------|---------|---------|
-|Régió|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
+|Region|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
 |Külső tartomány neve|Az Azure Stack hub üzembe helyezéséhez használni kívánt zóna neve.|`cloud.fabrikam.com`|
 |Belső tartomány neve|Az Azure Stack hub infrastruktúra-szolgáltatásaihoz használt belső zóna neve. A címtár-szolgáltatás integrált és magánjellegű (nem érhető el az Azure Stack hub üzembe helyezésén kívül).|`azurestack.local`|
 |DNS-továbbítók|Azok a DNS-kiszolgálók, amelyek a DNS-lekérdezések, a DNS-zónák és a Azure Stack hub rendszeren kívül futtatott rekordok továbbítására szolgálnak a vállalati intraneten vagy a nyilvános interneten. A DNS-továbbító értékét a telepítés után a [ **set-AzSDnsForwarder** parancsmaggal](#editing-dns-forwarder-ips) módosíthatja. 
-|Elnevezési előtag (nem kötelező)|Az a névadási előtag, amelyre az Azure Stack hub-infrastruktúra szerepkör-példányához tartozó számítógépnévnek szüksége van.  Ha nincs megadva, az alapértelmezett érték `azs`.|`azs`|
+|Elnevezési előtag (nem kötelező)|Az a névadási előtag, amelyre az Azure Stack hub-infrastruktúra szerepkör-példányához tartozó számítógépnévnek szüksége van.  Ha nincs megadva, az alapértelmezett érték `azs` .|`azs`|
 
 A Azure Stack hub központi telepítésének teljes tartományneve (FQDN) és a végpontok a régió paraméter és a külső tartománynév paraméter kombinációja. Az előző táblázatban szereplő példák értékeit használva a Azure Stack hub központi telepítésének teljes tartományneve a következő lesz:
 
@@ -43,9 +43,9 @@ Ilyenek például a központi telepítés egyes végpontjai a következő URL-c�
 
 Ha ezt a példát DNS-névteret szeretné használni egy Azure Stack hub-telepítéshez, a következő feltételek szükségesek:
 
-- A zóna `fabrikam.com` a névfeloldási követelményektől függően egy tartományregisztráló, egy belső vállalati DNS-kiszolgáló vagy mindkettő regisztrálva van.
-- Az alárendelt tartomány `cloud.fabrikam.com` létezik a zónában `fabrikam.com`.
-- A zónákat `fabrikam.com` üzemeltető DNS-kiszolgálók és `cloud.fabrikam.com` a Azure stack hub üzemelő példányból érhetők el.
+- A zóna a névfeloldási `fabrikam.com` követelményektől függően egy tartományregisztráló, egy belső vállalati DNS-kiszolgáló vagy mindkettő regisztrálva van.
+- Az alárendelt tartomány `cloud.fabrikam.com` létezik a zónában `fabrikam.com` .
+- A zónákat üzemeltető DNS-kiszolgálók `fabrikam.com` és `cloud.fabrikam.com` a Azure stack hub üzemelő példányból érhetők el.
 
 Ahhoz, hogy fel tudja oldani a Azure Stack hub-végpontok és-példányok DNS-neveit Azure Stack hub-on kívülről, integrálnia kell azokat a DNS-kiszolgálókat, amelyek a Azure Stack hub külső DNS-zónáját futtatják a használni kívánt szülő zónát futtató DNS-kiszolgálókkal.
 
@@ -76,7 +76,7 @@ Azure Stack hub mind a mérvadó, mind a rekurzív DNS-kiszolgálókat tartalmaz
 
 ## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>Külső DNS-nevek feloldása Azure Stack hubhoz
 
-Az Azure Stack hub-on kívüli végpontok DNS-neveinek feloldásához\.(például: www Bing.com) olyan DNS-kiszolgálókat kell megadnia, amelyekkel Azure stack hub olyan DNS-kérelmek továbbítására használható, amelyek esetében a Azure stack hub nem mérvadó. Központi telepítés esetén a Azure Stack hub által küldött kérelmeket a központi telepítési munkalapon kell megadni (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül a Azure Stack hub üzembe helyezése sikertelen lesz. A DNS-továbbító értékeit a telepítés után a [ **set-AzSDnsForwarder** parancsmaggal](#editing-dns-forwarder-ips) módosíthatja. 
+Az Azure Stack hub-on kívüli végpontok DNS-neveinek feloldásához (például: www \. Bing.com) olyan DNS-kiszolgálókat kell megadnia, amelyekkel Azure stack hub olyan DNS-kérelmek továbbítására használható, amelyek esetében a Azure stack hub nem mérvadó. Központi telepítés esetén a Azure Stack hub által küldött kérelmeket a központi telepítési munkalapon kell megadni (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül a Azure Stack hub üzembe helyezése sikertelen lesz. A DNS-továbbító értékeit a telepítés után a [ **set-AzSDnsForwarder** parancsmaggal](#editing-dns-forwarder-ips) módosíthatja. 
 
 ### <a name="configure-conditional-dns-forwarding"></a>Feltételes DNS-továbbítás konfigurálása
 
@@ -125,28 +125,28 @@ A minták értékeit használva a DNS-kiszolgálók teljes tartománynevei a kö
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-Ezek az információk az összes Azure Stack hub központi telepítésének végén is létrejönnek egy nevű `AzureStackStampInformation.json`fájlban. Ez a fájl az üzembe helyezési virtuális gép `C:\CloudDeployment\logs` mappájában található. Ha nem biztos abban, hogy milyen értékeket használt a Azure Stack hub központi telepítéshez, itt állíthatja be az értékeket.
+Ezek az információk az összes Azure Stack hub központi telepítésének végén is létrejönnek egy nevű fájlban `AzureStackStampInformation.json` . Ez a fájl az `C:\CloudDeployment\logs` üzembe helyezési virtuális gép mappájában található. Ha nem biztos abban, hogy milyen értékeket használt a Azure Stack hub központi telepítéshez, itt állíthatja be az értékeket.
 
-Ha az üzembe helyezési virtuális gép már nem érhető el vagy nem érhető el, az értékeket az emelt szintű végponthoz való csatlakozással és a `Get-AzureStackStampInformation` PowerShell-parancsmag futtatásával szerezheti be. További információ: [privilegizált végpont](azure-stack-privileged-endpoint.md).
+Ha az üzembe helyezési virtuális gép már nem érhető el vagy nem érhető el, az értékeket az emelt szintű végponthoz való csatlakozással és a PowerShell-parancsmag futtatásával szerezheti be `Get-AzureStackStampInformation` . További információ: [privilegizált végpont](azure-stack-privileged-endpoint.md).
 
-## <a name="setting-up-conditional-forwarding-to-azure-stack-hub"></a>Feltételes továbbítás beállítása Azure Stack hubhoz
+## <a name="setting-up-conditional-forwarding-to-azure-stack-hub"></a>Az Azure Stack Hubra történő feltételes továbbítás beállítása
 
 Az Azure Stack hub és a DNS-infrastruktúra integrálásának legegyszerűbb és legbiztonságosabb módja a zóna feltételes továbbítása a szülő zónát futtató kiszolgálóról. Ez a módszer akkor javasolt, ha közvetlen vezérléssel látja el a Azure Stack hub külső DNS-névtérhez tartozó szülő zónát futtató DNS-kiszolgálókat.
 
-Ha nem tudja, hogyan végezheti el a feltételes továbbítást a DNS-sel, tekintse meg a következő TechNet-cikket: [feltételes továbbító kiosztása egy tartománynévhez](https://technet.microsoft.com/library/cc794735)vagy a DNS-megoldás dokumentációja.
+Ha nem tudja, hogyan végezheti el a feltételes továbbítást a DNS-sel, tekintse meg a következő TechNet-cikket: [feltételes továbbító kiosztása egy tartománynévhez](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794735(v=ws.10))vagy a DNS-megoldás dokumentációja.
 
 Olyan esetekben, amikor a külső Azure Stack hub DNS-zónáját úgy adta meg, hogy a vállalati tartománynévhez hasonló gyermektartomány legyen, a feltételes továbbítás nem használható. A DNS-delegálást konfigurálni kell.
 
 Példa:
 
-- Vállalati DNS-tartománynév:`contoso.com`
-- Azure Stack hub külső DNS-tartományneve:`azurestack.contoso.com`
+- Vállalati DNS-tartománynév: `contoso.com`
+- Azure Stack hub külső DNS-tartományneve: `azurestack.contoso.com`
 
 ## <a name="editing-dns-forwarder-ips"></a>DNS-továbbító IP-címeinek szerkesztése
 
-A DNS-továbbító IP-címei az Azure Stack hub üzembe helyezése során állíthatók be. Ha azonban a továbbítói IP-címeket valamilyen okból frissíteni kell, az értékeket a privilegizált végponthoz való csatlakozással és a `Get-AzSDnsForwarder` PowerShell- `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` parancsmagok futtatásával módosíthatja. További információ: [privilegizált végpont](azure-stack-privileged-endpoint.md).
+A DNS-továbbító IP-címei az Azure Stack hub üzembe helyezése során állíthatók be. Ha azonban a továbbítói IP-címeket valamilyen okból frissíteni kell, az értékeket a privilegizált végponthoz való csatlakozással és a `Get-AzSDnsForwarder` PowerShell-parancsmagok futtatásával módosíthatja `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` . További információ: [privilegizált végpont](azure-stack-privileged-endpoint.md).
 
-## <a name="delegating-the-external-dns-zone-to-azure-stack-hub"></a>A külső DNS-zóna delegálása Azure Stack hubhoz
+## <a name="delegating-the-external-dns-zone-to-azure-stack-hub"></a>A külső DNS-zóna delegálása az Azure Stack Hubba
 
 Ahhoz, hogy a DNS-nevek feloldhatók legyenek Azure Stack hub-telepítésen kívülről, be kell állítania a DNS-delegálást.
 
@@ -154,6 +154,6 @@ Minden tartományregisztráló a saját DNS-kezelési eszközeit használja a ta
 
 A legtöbb DNS-regisztráló megköveteli, hogy legalább két DNS-kiszolgálót adjon meg a delegálás befejezéséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Tűzfal-integráció](azure-stack-firewall.md)

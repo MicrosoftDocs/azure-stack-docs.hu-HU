@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fad5223778bb49b20d3af86f781c6864c9bdc8c9
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 438cb152ed3e058800d36382185ea1b369625cf1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487057"
 ---
 # <a name="get-storagejob"></a>Get-StorageJob
 
@@ -192,7 +192,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="inputs"></a>Bemenetek
+## <a name="inputs"></a>Bevitelek
 
 ### <a name="systemstring"></a>System.String[]
 
@@ -204,6 +204,6 @@ Accept wildcard characters: False
 
 ### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_storagejob"></a>Microsoft. Management. Infrastructure. CimInstance # ROOT/Microsoft/Windows/Storage/MSFT_StorageJob
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

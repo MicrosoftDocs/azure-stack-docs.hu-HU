@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 27e7073d2b266cb5fa8c7c36739219bc29660e87
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374595"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489708"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service Azure Stack hub Update 8 kibocsátási megjegyzései
 
@@ -102,10 +102,10 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
 - Az SQL-fürt feladatátvétele az előző aktív csomópontra.
 
-## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
+## <a name="post-deployment-steps"></a>Üzembe helyezés után lépések
 
 > [!IMPORTANT]
-> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 ## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
@@ -130,7 +130,7 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
     > [!IMPORTANT]
     > Ez az eljárás körülbelül 5-10 percet vesz igénybe. Ez az eljárás a meglévő adatbázis-bejelentkezési munkamenetek leölését foglalja magában. Tervezze meg a Azure App Service áttelepítését és érvényességének ellenőrzését Azure Stack hub-on az áttelepítés után.
 
-    1. [AppService-adatbázisok (appservice_hosting és appservice_metering) hozzáadása egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+    1. [AppService-adatbázisok (appservice_hosting és appservice_metering) hozzáadása egy rendelkezésre állási csoporthoz](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
     1. A tárolt adatbázis engedélyezése.
 
@@ -298,7 +298,7 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](azure-stack-release-notes-1907.md)dokumentációját.
+Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-2002)dokumentációját.
 
 ## <a name="next-steps"></a>Következő lépések
 

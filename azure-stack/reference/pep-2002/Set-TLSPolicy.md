@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: a662ccbc76d25a936bd91bfe7ec499458c538321
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 8c6d4f69435e3bd81c74225d4051809a7511bfc1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562695"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86485882"
 ---
 # <a name="set-tlspolicy"></a>Set-TLSPolicy
 
@@ -55,6 +55,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

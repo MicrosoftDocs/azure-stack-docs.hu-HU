@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 62cccdb235432f6ca870605e061be2c2c0dac74a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819262"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488552"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -96,7 +96,7 @@ A szolgáltatások biztosítása mellett az operátorok rendszeres kötelessége
 
 ## <a name="what-to-tell-your-users"></a>Mit kell tudniuk a felhasználóknak
 
-Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak Azure Stack hub szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes lehet biztosítani a felhasználók számára, [Azure stack hub felhasználói dokumentációra](/azure-stack/user/)irányíthatja a felhasználókat.
+Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak Azure Stack hub szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes lehet biztosítani a felhasználók számára, [Azure stack hub felhasználói dokumentációra](../user/index.yml)irányíthatja a felhasználókat.
 
 **Ismerje meg, hogyan dolgozhat a szolgáltatásokkal Azure Stack központban**
 
@@ -139,6 +139,6 @@ Minden más esetben lépjen kapcsolatba Microsoft ügyfélszolgálata.
 
 A ASDK a támogatással kapcsolatos kérdéseket is megteheti a [Microsoft fórumokon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). A fórumok beszerzéséhez válassza a Súgó és támogatás ikont (kérdőjel) a felügyeleti portál jobb felső sarkában, majd válassza a **Súgó + támogatás**lehetőséget, majd válassza az MSDN- **fórumok** lehetőséget a **támogatás** szakaszban. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Területi felügyelet Azure Stack központban](azure-stack-region-management.md)

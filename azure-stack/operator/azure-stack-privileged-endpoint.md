@@ -7,16 +7,17 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.custom: conteperfq4
+ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158350"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488246"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
-Azure Stack hub-kezelőként a legtöbb napi felügyeleti feladathoz a felügyeleti portál, a PowerShell vagy a Azure Resource Manager API-k használhatók. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlkezelés nem engedélyezett.
+Azure Stack hub-kezelőként a legtöbb napi felügyeleti feladathoz a felügyeleti portál, a PowerShell vagy a Azure Resource Manager API-k használhatók. Néhány kevésbé gyakori művelet esetében azonban a *Kiemelt jogosultságú végpontot* (PEP) kell használnia. A PEP egy előre konfigurált távoli PowerShell-konzol, amely elegendő képességet biztosít a szükséges feladatok elvégzéséhez. A végpont [PowerShell-JEA (elég felügyelet)](/powershell/scripting/learn/remoting/jea/overview) használ, hogy csak korlátozott számú parancsmagot tegyen elérhetővé. A PEP eléréséhez és a parancsmagok korlátozott készletének meghívásához egy alacsony jogosultsági szintű fiókot kell használni. Nincs szükség rendszergazdai fiókra. A további biztonság érdekében a parancsfájlkezelés nem engedélyezett.
 
 A következő feladatok elvégzéséhez használhatja a PEP-t:
 
@@ -40,7 +41,7 @@ Az IP-címet az Azure Stack hub felügyeleti portálján is megtalálhatja. Nyis
 Az emelt szintű végpont futtatásakor be kell állítania az aktuális kulturális környezet beállítását `en-US` , máskülönben a test-AzureStack vagy a Get-AzureStackLog parancsmagok nem a várt módon fognak működni.
 
 > [!NOTE]
-> Biztonsági okokból szükség van arra, hogy csak a hardveres életciklus-gazdagépen futó megerősített virtuális gépről, vagy egy dedikált és biztonságos számítógépről, például egy emelt [szintű hozzáférési munkaállomásról](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)kapcsolódjon a PEP-hez. A hardveres életciklus-gazdagép eredeti konfigurációja nem módosítható az eredeti konfigurációjától (beleértve az új szoftverek telepítését), vagy a PEP-hez való kapcsolódáshoz használt konfigurációt.
+> Biztonsági okokból szükség van arra, hogy csak a hardveres életciklus-gazdagépen futó megerősített virtuális gépről, vagy egy dedikált és biztonságos számítógépről, például egy emelt [szintű hozzáférési munkaállomásról](/windows-server/identity/securing-privileged-access/privileged-access-workstations)kapcsolódjon a PEP-hez. A hardveres életciklus-gazdagép eredeti konfigurációja nem módosítható az eredeti konfigurációjától (beleértve az új szoftverek telepítését), vagy a PEP-hez való kapcsolódáshoz használt konfigurációt.
 
 1. Hozza létre a bizalmi kapcsolatot.
 
@@ -113,7 +114,7 @@ Az emelt szintű végpont futtatásakor be kell állítania az aktuális kultur�
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>A Kiemelt végpont használata 
 
-A fent említettek szerint a PEP egy [PowerShell-JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a hiba a várt viselkedés.
+A fent említettek szerint a PEP egy [PowerShell-JEA](/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a hiba a várt viselkedés.
 
 Ha például egy adott parancsmag paramétereinek listáját szeretné lekérni, futtassa a következő parancsot:
 
@@ -121,7 +122,7 @@ Ha például egy adott parancsmag paramétereinek listáját szeretné lekérni,
     Get-Command <cmdlet_name> -Syntax
 ```
 
-Azt is megteheti, hogy az [**import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) parancsmag használatával importálja az összes PEP-parancsmagot a helyi számítógép aktuális munkamenetére. A PEP-parancsmagok és-függvények mostantól elérhetők a helyi gépen, a TAB befejezéssel együtt, és általánosságban a parancsfájlok. A **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** modult is futtathatja a parancsmagra vonatkozó utasítások áttekintéséhez.
+Azt is megteheti, hogy az [**import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) parancsmag használatával importálja az összes PEP-parancsmagot a helyi számítógép aktuális munkamenetére. A PEP-parancsmagok és-függvények mostantól elérhetők a helyi gépen, a TAB befejezéssel együtt, és általánosságban a parancsfájlok. A **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** modult is futtathatja a parancsmagra vonatkozó utasítások áttekintéséhez.
 
 Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a következő lépéseket:
 
@@ -172,7 +173,7 @@ Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a köv
 
 ## <a name="close-the-privileged-endpoint-session"></a>Az emelt szintű végpont munkamenetének lezárása
 
- Ahogy azt korábban említettük, a PEP a PowerShell-munkamenetben elvégezhető összes műveletet (és a hozzá tartozó kimenetet) naplózza. A-munkamenetet a parancsmag használatával kell lezárva `Close-PrivilegedEndpoint` . Ez a parancsmag helyesen zárja le a végpontot, és átviszi a naplófájlokat egy külső fájlmegosztást a megőrzéshez.
+ Ahogy azt korábban említettük, a PEP a PowerShell-munkamenetben elvégezhető összes műveletet (és a hozzá tartozó kimenetet) naplózza. A-munkamenetet a parancsmag használatával kell lezárva  `Close-PrivilegedEndpoint` . Ez a parancsmag helyesen zárja le a végpontot, és átviszi a naplófájlokat egy külső fájlmegosztást a megőrzéshez.
 
 A végpont-munkamenet lezárása:
 
@@ -199,5 +200,5 @@ Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztás
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Azure Stack hub diagnosztikai eszközök](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack hub diagnosztikai eszközök](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
 - [Azure Stack hub privilegizált végpontjának referenciája](../reference/pep-2002/index.md)

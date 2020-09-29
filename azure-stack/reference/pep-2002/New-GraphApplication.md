@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e9bd1d8fa51108f6384b29f33cf6cc0ea8cc166e
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: b0a9aeb2e7ec1035f24d89409f5fa23ef13500fb
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563014"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486614"
 ---
 # <a name="new-graphapplication"></a>Új – GraphApplication
 
@@ -31,7 +31,7 @@ Meghívja a New-GraphApplicationGroup on AD FS új alkalmazás AD FS gépen val�
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 ```
 New-GraphApplication -Name $ApplicationName -ClientRedirectUris $redirectUri -ClientCertificates $certificate
 ```
@@ -39,7 +39,7 @@ New-GraphApplication -Name $ApplicationName -ClientRedirectUris $redirectUri -Cl
 ## <a name="parameters"></a>Paraméterek
 
 ### <a name="-name"></a>-Name
-Az alkalmazás neve, amely legfeljebb 50 karakter hosszú lehet, a függvény a következőt `Azurestack-$Name-$({guid}::{NewGuid}())`fogja módosítani:, és visszaadja.
+Az alkalmazás neve, amely legfeljebb 50 karakter hosszú lehet, a függvény a következőt fogja módosítani `Azurestack-$Name-$({guid}::{NewGuid}())` :, és visszaadja.
 
 ```yaml
 Type: Object
@@ -113,6 +113,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

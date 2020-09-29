@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: d7e7ff712e1d8f7c062d7b3a7f38d97b80085e31
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 34e25cafddde8b39077ae82bbc74b363c251a06b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563190"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487243"
 ---
 # <a name="get-azurestacklog"></a>Get-AzureStackLog
 
@@ -258,7 +258,7 @@ Accept wildcard characters: False
 ```
 
 ### <a name="-performvmlogrecovery"></a>-PerformVMLogRecovery
-A `Off`, a, a `OffCritical` `Paused` `PausedCritical` virtuális gépek WindowsEvents-naplójának helyreállítása
+A, a, a `Off` `OffCritical` `Paused` `PausedCritical` virtuális gépek WindowsEvents-naplójának helyreállítása
 
 ```yaml
 Type: SwitchParameter
@@ -287,6 +287,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

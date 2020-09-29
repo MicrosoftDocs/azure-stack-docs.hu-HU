@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: b29b5963326a49b5e74c786f22b53e20e32c2bd6
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 449c1dac3e983aacefe4d69581ee854239d435ae
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489606"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
@@ -75,7 +75,7 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
   - [2019-08 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **A felhasználói portálon mostantól engedélyezhető a hozzáférési korlátozások**:
-  - A felhasználók mostantól a web/API/functions alkalmazásaihoz hozzáférési korlátozásokat állíthatnak be a közzétett dokumentációnak megfelelően – [Azure app Service hozzáférési korlátozásokat](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+  - A felhasználók mostantól a web/API/functions alkalmazásaihoz hozzáférési korlátozásokat állíthatnak be a közzétett dokumentációnak megfelelően – [Azure app Service hozzáférési korlátozásokat](/azure/app-service/app-service-ip-restrictions).
   
   > [!NOTE]
   > Az Azure Stack hub Azure App Service nem támogatja a szolgáltatási végpontokat.
@@ -95,10 +95,10 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 
   **Meglévő** Központi telepítések – Ha módosította a vezérlő beállítását, az érték **false** értékről **Letiltva** értékűre változik, és az **igaz** érték korábbi értéke **automatikus**lesz.
 
-## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
+## <a name="post-deployment-steps"></a>Üzembe helyezés után lépések
 
 > [!IMPORTANT]
-> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 ## <a name="known-issues-post-installation"></a>Ismert problémák (telepítés után)
 
@@ -118,7 +118,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](azure-stack-release-notes-1907.md) dokumentációját
+Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
 
 ## <a name="next-steps"></a>Következő lépések
 

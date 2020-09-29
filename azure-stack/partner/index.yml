@@ -1,40 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Stack hub-partner dokumentációja
+summary: Ismerje meg, hogyan érvényesítheti a hardvert Azure Stack hub üzemeltetéséhez. A szolgáltatásként történő érvényesítés olyan natív Azure-szolgáltatás, amely a Microsofttal közös mérnöki ajánlatoknak minősülő megoldási partnereink általi használatra készült.
 metadata:
-  title: 'Azure Stack hub partner D\documentation – oktatóanyagok, API-R\reference'
-  description: 'Ismerje meg, hogyan érvényesítheti a hardvert Azure Stack hub üzemeltetéséhez. A szolgáltatásként történő érvényesítés egy natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik közös mérnöki Azure Stack hub-ajánlatokat biztosítanak a Microsoft számára.'
-  services: azure-stack
-  author: mattbriggs
-  manager: femila
+  title: Azure Stack hub-partner
+  description: Ismerje meg, hogyan érvényesítheti a hardvert Azure Stack hub üzemeltetéséhez. A szolgáltatásként történő érvényesítés olyan natív Azure-szolgáltatás, amely a Microsofttal közös mérnöki ajánlatoknak minősülő megoldási partnereink általi használatra készült.
   ms.service: azure-stack
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: partner
   ms.topic: landing-page
-  ms.date: 07/25/2018
+  author: mattbriggs
   ms.author: mabrigg
-  ms.reviewer: johnhas
-abstract:
-  description: 'Az érvényesítés szolgáltatással ellenőrizhető, hogy a hardvert Azure Stack hubhoz kívánja-e használni. A szolgáltatás egy olyan natív Azure-szolgáltatás, amelyet olyan megoldási partnereink használhatnak, akik a Microsofttal közös mérnöki Azure Stack hub-ajánlatokat biztosítanak.'
-sections:
-  - title: 5 perces rövid útmutatók
-    items:
-      - type: paragraph
-        text: 'Megtudhatja, hogyan használhatja az érvényesítést szolgáltatási portálként a hardveren végzett tesztek ütemezett ellenőrzéséhez.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/i_account-management.svg
-            text: Az érvényesítés a szolgáltatás-portálon az első teszt beütemezhetés céljából
-            href: azure-stack-vaas-schedule-test-pass.md
-  - title: Részletes útmutatók
-    items:
-      - type: paragraph
-        text: 'Ismerje meg, hogyan érvényesítheti Azure Stack hub hardverét.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">Új Azure Stack hub-megoldás érvényesítése</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-csomagok ellenőrzése</a>
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Szoftverfrissítések érvényesítése a Microsofttól</a>
+  ms.date: 06/22/2020
+  ms.openlocfilehash: 1e1deb2af682bbe732d374873e0b0ccbd292fce7
+  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.translationtype: MT
+  ms.contentlocale: hu-HU
+  ms.lasthandoff: 06/22/2020
+  ms.locfileid: "85197021"
+landingContent:
+- title: Az érvényesítés Azure Stack hub szolgáltatásként való ellenőrzése
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Mi az érvényesítés szolgáltatásként?
+      url: azure-stack-vaas-overview.md
+  - linkListType: whats-new
+    links:
+    - text: Kibocsátási megjegyzések
+      url: azure-stack-vaas-release-notes.md
+- title: Bevezetés
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Ismerje meg, hogyan használhatja az érvényesítést szolgáltatás-portálként
+      url: azure-stack-vaas-schedule-test-pass.md
+    - text: Megoldás ellenőrzése
+      url: azure-stack-vaas-validate-solution-new.md
+- title: Használat
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Új Azure Stack hub-megoldás érvényesítése
+      url: azure-stack-vaas-validate-solution-new.md
+    - text: OEM-csomagok ellenőrzése
+      url: azure-stack-vaas-validate-oem-package.md
+    - text: Szoftverfrissítések érvényesítése a Microsofttól
+      url: azure-stack-vaas-validate-microsoft-updates.md
+    - text: A szolgáltatás érvényesítésének megoldása
+      url: azure-stack-vaas-troubleshoot.md
+  - linkListType: concept
+    links:
+    - text: Fő fogalmak
+      url: azure-stack-vaas-key-concepts.md
+    - text: Ajánlott eljárások
+      url: azure-stack-vaas-best-practice.md
+    - text: Gyakori paraméterek
+      url: azure-stack-vaas-parameters.md

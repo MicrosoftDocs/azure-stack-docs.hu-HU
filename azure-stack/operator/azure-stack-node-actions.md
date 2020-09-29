@@ -1,5 +1,5 @@
 ---
-title: Az egység csomópont-műveleteinek méretezése Azure Stack központban
+title: Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
 author: IngridAtMicrosoft
 ms.topic: how-to
@@ -7,14 +7,14 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e78b396822c86c9785ddecc691f57c27afeb6fcd
-ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
+ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730713"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488334"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Az egység csomópont-műveleteinek méretezése Azure Stack központban
+# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 
 Ez a cikk azt ismerteti, hogyan lehet megtekinteni egy méretezési egység állapotát. Megtekintheti az egység csomópontjait. Futtathat olyan csomópont-műveleteket, mint a bekapcsolás, a kikapcsolás, a Leállítás, a kiürítés, a folytatás és a javítás. Ezeket a csomópontokat jellemzően a részek cseréjekor, vagy a csomópontok helyreállításához használhatja.
 
@@ -48,7 +48,7 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 
 | Állapot | Leírás |
 |----------------------|-------------------------------------------------------------------|
-| Fut | A csomópont aktívan részt vesz a skálázási egységben. |
+| Futó | A csomópont aktívan részt vesz a skálázási egységben. |
 | Leállítva | A csomópont nem érhető el. |
 | Hozzáadása | A csomópontot aktívan felveszik a méretezési egységbe. |
 | Javítása | A csomópont aktívan javítás alatt áll. |
@@ -62,7 +62,7 @@ Ez akkor fordulhat elő, ha a háló erőforrás-szolgáltatói szerepkör-gyors
 
 A következő lépések alkalmazása előtt győződjön meg arról, hogy jelenleg nincs folyamatban a művelet. Frissítse a végpontot a környezetének megfelelően.
 
-1. Nyissa meg a PowerShellt, és adja hozzá Azure Stack hub-környezetét. Ehhez [Azure stack hub PowerShell-t kell telepíteni](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) a számítógépre.
+1. Nyissa meg a PowerShellt, és adja hozzá Azure Stack hub-környezetét. Ehhez [Azure stack hub PowerShell-t kell telepíteni](./azure-stack-powershell-install.md) a számítógépre.
 
    ```powershell
    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
@@ -101,7 +101,7 @@ Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **
 
 A **Leállítás** művelet kikapcsolja a csomópontot. Ez ugyanaz, mint a főkapcsoló gomb megnyomása. Nem küld leállítási jelet az operációs rendszernek. A tervezett leállítási műveletekhez először mindig próbálja meg a leállítási műveletet.
 
-Ezt a műveletet általában akkor kell használni, ha egy csomópont lefagyott állapotban van, és a továbbiakban nem válaszol a kérelmekre.
+Ezt a műveletet általában akkor kell használni, ha egy csomópont már nem válaszol a kérelmekre.
 
 A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
@@ -111,7 +111,7 @@ A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú Power
 
 Ha nem valószínű, hogy a leállítási művelet nem működik, próbálja megismételni a műveletet, és ha másodszor is használja a BMC webes felületet, akkor próbálkozzon újra.
 
-További információ: [stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
+További információ: [stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
 ## <a name="start"></a>Indítás
 
@@ -125,7 +125,7 @@ Az indítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerS
 
 Ha nem valószínű, hogy az indítási művelet nem működik, próbálja megismételni a műveletet. Ha a művelet második alkalommal meghiúsul, használja helyette a BMC webes felületét.
 
-További információ: [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
+További információ: [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
 ## <a name="drain"></a>Kiürítési
 
@@ -142,7 +142,7 @@ A kiürítési művelet futtatásához nyisson meg egy rendszergazda jogú Power
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-További információ: [disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
+További információ: [disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
 ## <a name="resume"></a>Folytatás
 
@@ -154,7 +154,7 @@ A folytatás művelet futtatásához nyisson meg egy rendszergazda jogú PowerSh
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-További információ: [enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+További információ: [enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Javítás
 
@@ -162,7 +162,7 @@ További információ: [enable-AzsScaleUnitNode](https://docs.microsoft.com/powe
 > A belső vezérlőprogram-simítás kritikus fontosságú a cikkben ismertetett művelet sikeressége szempontjából. Ha ez a lépés hiányzik, a rendszer instabillá válhat, ami csökkenti a teljesítményt, a biztonsági fenyegetéseket vagy a hibát, amikor Azure Stack hub Automation üzembe helyezi az operációs rendszert. A hardver cseréjekor mindig tekintse meg a hardveres partner dokumentációját, és győződjön meg arról, hogy az alkalmazott belső vezérlőprogram megfelel az [Azure stack hub felügyeleti portálján](azure-stack-updates.md)megjelenő OEM-verziónak.<br><br>
 További információt és a partneri dokumentációra mutató hivatkozásokat a [hardver-összetevők cseréje](azure-stack-replace-component.md)című témakörben talál.
 
-| Hardveres partner | Régió | URL-cím |
+| Hardveres partner | Region | URL-cím |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Kibocsátási megjegyzések a Microsoft Azure Stack hub-hoz készült Cisco integrált rendszerhez](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
@@ -202,8 +202,8 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Az Azure Stack PowerShell telepítése](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
-- [Tudnivalók a Azure Stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
-- [Csomópont-hozzáadási műveletek figyelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)
+- [Az Azure Stack PowerShell telepítése](./azure-stack-powershell-install.md)
+- [Tudnivalók a Azure Stack hub Fabric-kezelő modulról](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Csomópont-hozzáadási műveletek figyelése](./azure-stack-add-scale-node.md#monitor-add-node-operations)

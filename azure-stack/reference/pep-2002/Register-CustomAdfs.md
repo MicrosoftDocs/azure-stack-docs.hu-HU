@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: fd40c3930705d450d7e48b373f209b6e2ce7d218
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 743b8f5d8f1a2a6cb9f6e44fc61510a5da394ef6
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562948"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486563"
 ---
 # <a name="register-customadfs"></a>Regisztráció – CustomAdfs
 
@@ -32,12 +32,12 @@ Parancsfájl az egyéni Active Directory összevonási szolgáltatás (AD FS) re
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 ```
 Register-CustomAdfs -CustomAdfsName "Contoso" -CustomADFSFederationMetadataEndpointUri "https://adfs.contoso.com/federationmetadata/2007-06/federationmetadata.xml"  -TimeoutInSecs 1000
 ```
 
-### <a name="example-2"></a>2. példa
+### <a name="example-2"></a>2\. példa
 ```
 Register-CustomAdfs -CustomAdfsName "Contoso" -CustomADFSFederationMetadataFile "c:\temp\FederationMetadata.xml" -TimeoutInSecs 1000
 ```
@@ -148,6 +148,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

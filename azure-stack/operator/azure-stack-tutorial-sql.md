@@ -8,18 +8,18 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630986"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487719"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Magasan elérhető SQL-adatbázisok létrehozása Azure Stack hub-vel
 
 Azure Stack hub-kezelőként beállíthatja a kiszolgálói virtuális gépeket SQL Server-adatbázisok üzemeltetéséhez. Ha az SQL-üzemeltetési kiszolgálót Azure Stack hub hozza létre és felügyeli, akkor az SQL-szolgáltatásra előfizetett felhasználók könnyedén létrehozhatnak SQL-adatbázisokat.
 
-Ez a cikk bemutatja, hogyan használható egy Azure Stack hub gyors üzembe helyezési sablon egy [SQL Server AlAlwaysOnon rendelkezésre állási csoport](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)létrehozásához, Azure stack hub SQL üzemeltetési kiszolgálóként való hozzáadásához, majd egy magasan elérhető SQL-adatbázis létrehozásához.
+Ez a cikk bemutatja, hogyan használható egy Azure Stack hub gyors üzembe helyezési sablon egy [SQL Server AlAlwaysOnon rendelkezésre állási csoport](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)létrehozásához, Azure stack hub SQL üzemeltetési kiszolgálóként való hozzáadásához, majd egy magasan elérhető SQL-adatbázis létrehozásához.
 
 Ismertetett témák:
 
@@ -37,7 +37,7 @@ A Kezdés előtt győződjön meg arról, hogy a [SQL Server erőforrás-szolgá
 
 - Windows Server 2016 Datacenter.
 - SQL Server 2016 SP1 vagy SP2 (Enterprise, standard vagy Developer) a Windows Server 2016 Server rendszerképén. 
-- [SQL Server IaaS-bővítmény](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.3.20180 vagy újabb verziója. Az SQL IaaS bővítmény telepíti a szükséges összetevőket, amelyekre szükség van a piactér SQL Server minden Windows-verzióhoz tartozó elemhez. Lehetővé teszi az SQL-specifikus beállítások konfigurálását az SQL-alapú virtuális gépeken (VM). Ha a bővítmény nincs telepítve a helyi piactéren, az SQL kiépítés sikertelen lesz.
+- [SQL Server IaaS-bővítmény](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.3.20180 vagy újabb verziója. Az SQL IaaS bővítmény telepíti a szükséges összetevőket, amelyekre szükség van a piactér SQL Server minden Windows-verzióhoz tartozó elemhez. Lehetővé teszi az SQL-specifikus beállítások konfigurálását az SQL-alapú virtuális gépeken (VM). Ha a bővítmény nincs telepítve a helyi piactéren, az SQL kiépítés sikertelen lesz.
 - [Egyéni parancsfájl-bővítmény a Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 vagy újabb verziójához. Az egyéni szkriptek bővítménye egy eszköz, amellyel automatikusan elindítható a telepítés utáni virtuális gépek testreszabási feladatai.
 - A [PowerShell kívánt állapot-konfiguráció (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 vagy újabb verziója. A DSC a Windows PowerShell egyik felügyeleti platformja, amely lehetővé teszi a szoftveres szolgáltatások konfigurációs információinak üzembe helyezését és kezelését. A platform emellett azt a környezetet is kezeli, amelyben ezek a szolgáltatások futnak.
 
@@ -91,7 +91,7 @@ Az ebben a szakaszban ismertetett lépések segítségével telepítse a SQL Ser
 
 ### <a name="enable-automatic-seeding"></a>Automatikus előkészítés engedélyezése
 
-A sablon sikeres üzembe helyezése és az SQL alAlwaysONon rendelkezésre állási csoport konfigurálása után engedélyeznie kell a rendelkezésre állási csoportban a SQL Server minden egyes példányán az [automatikus](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) betöltést.
+A sablon sikeres üzembe helyezése és az SQL alAlwaysONon rendelkezésre állási csoport konfigurálása után engedélyeznie kell a rendelkezésre állási csoportban a SQL Server minden egyes példányán az [automatikus](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) betöltést.
 
 Ha automatikus beültetést tartalmazó rendelkezésre állási csoportot hoz létre, a SQL Server automatikusan létrehozza a másodlagos replikákat a csoportban lévő összes adatbázishoz anélkül, hogy más manuális beavatkozásra lenne szükség. Ez a mérték biztosítja a AlwaysOn-adatbázisok magas rendelkezésre állását.
 
@@ -124,7 +124,7 @@ Másodlagos SQL-példányok esetén:
 
 ### <a name="configure-contained-database-authentication"></a>Tárolt adatbázis-hitelesítés konfigurálása
 
-Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítés](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítés](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Ezekkel a parancsokkal állíthatja be a rendelkezésre állási csoportba tartozó egyes SQL Server-példányok tárolt adatbázis-hitelesítési kiszolgáló beállítását:
 

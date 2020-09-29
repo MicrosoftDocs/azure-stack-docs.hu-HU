@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819250"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487872"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -48,7 +48,7 @@ A TLS 1,2 Azure Stack hub külső végpontokon való betartatásával kapcsolato
 
 ## <a name="secret-management"></a>Titkos kód kezelése
 
-Azure Stack hub-infrastruktúra a működéséhez számos titkot, például jelszavakat és tanúsítványokat használ. A belső szolgáltatásfiókok által társított jelszavak többsége 24 óránként automatikusan el lesz forgatva, mert [csoportosan felügyelt szolgáltatásfiókok (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), a közvetlenül a belső tartományvezérlő által felügyelt tartományi fiók típusa.
+Azure Stack hub-infrastruktúra a működéséhez számos titkot, például jelszavakat és tanúsítványokat használ. A belső szolgáltatásfiókok által társított jelszavak többsége 24 óránként automatikusan el lesz forgatva, mert [csoportosan felügyelt szolgáltatásfiókok (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), a közvetlenül a belső tartományvezérlő által felügyelt tartományi fiók típusa.
 
 Azure Stack hub-infrastruktúra 4096 bites RSA-kulcsokat használ az összes belső tanúsítványához. A külső végpontokhoz ugyanaz a kulcs hosszúságú tanúsítvány is használható. A titkokkal és a tanúsítvány elforgatásával kapcsolatos további információkért tekintse meg a [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)című témakört.
 
@@ -59,7 +59,7 @@ Az Azure Stack Hub a Windows Server legújabb biztonsági funkcióit használja.
 A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hitelesített kód szerepel a Microsoft által meghatározott szabályzatban megadott engedélyezett szoftverek listáján. Ez azt jelenti, hogy csak az Azure Stack hub-infrastruktúrában való futtatásra jóváhagyott szoftverek hajthatók végre. A rendszer blokkol minden jogosulatlan kód futtatására tett kísérletet, és ilyen esetben riasztást küld. Az Azure Stack Hub a felhasználói módú kódintegritást (UMCI) és a hipervizor-kódintegritást (HVCI) egyaránt kényszeríti.
 
 A WDAC szabályzat emellett megakadályozza, hogy a harmadik féltől származó ügynökök vagy szoftverek fussanak az Azure Stack hub-infrastruktúrában.
-A WDAC kapcsolatos további információkért tekintse meg a [Windows Defender alkalmazás-vezérlés és a kód integritásának virtualizálás-alapú védelme](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)című témakört.
+A WDAC kapcsolatos további információkért tekintse meg a [Windows Defender alkalmazás-vezérlés és a kód integritásának virtualizálás-alapú védelme](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)című témakört.
 
 ## <a name="credential-guard"></a>Credential Guard
 
@@ -105,7 +105,7 @@ Az értékelések a következő szabványokat tartalmazzák:
 
 A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/azurestackcompliance)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub biztonsági vezérlőinek konfigurálása](azure-stack-security-configuration.md)
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)

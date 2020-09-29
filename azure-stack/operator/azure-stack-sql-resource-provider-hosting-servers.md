@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294681"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487906"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Üzemeltető kiszolgálók hozzáadása az SQL típusú erőforrás-szolgáltatóhoz
 
@@ -41,7 +41,7 @@ SQL üzemeltetési kiszolgáló hozzáadása előtt tekintse át a következő k
 
 Az SQL IaaS virtuálisgép-lemezképek a piactér felügyeleti funkciójával érhetők el. Ezek a lemezképek ugyanazok, mint az Azure-ban elérhető SQL virtuális gépek.
 
-Győződjön meg arról, hogy mindig letölti az **SQL IaaS-bővítmény** legújabb verzióját, mielőtt üzembe helyezi az SQL virtuális gépet egy Marketplace-elemmel. A IaaS-bővítmény és a kapcsolódó portál továbbfejlesztése további funkciókat is biztosít, például az automatikus javítást és a biztonsági mentést. További információ erről a bővítményről: [felügyeleti feladatok automatizálása Azure-beli virtuális gépeken a SQL Server Agent bővítménnyel](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Győződjön meg arról, hogy mindig letölti az **SQL IaaS-bővítmény** legújabb verzióját, mielőtt üzembe helyezi az SQL virtuális gépet egy Marketplace-elemmel. A IaaS-bővítmény és a kapcsolódó portál továbbfejlesztése további funkciókat is biztosít, például az automatikus javítást és a biztonsági mentést. További információ erről a bővítményről: [felügyeleti feladatok automatizálása Azure-beli virtuális gépeken a SQL Server Agent bővítménnyel](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 > [!NOTE]
 > Az SQL IaaS bővítmény _szükséges_ a piactéren található összes SQL-lemezképhez. Ha nem letöltötte a bővítményt, a virtuális gép üzembe helyezése sikertelen lesz. A Linux-alapú SQL VM-rendszerképekkel nem használható.
@@ -58,7 +58,7 @@ Létrehozhat olyan rendszergazdai felhasználót, amely alacsonyabb jogosultság
 * Adatbázis: létrehozás, módosítás, tárolás (csak always on), drop, Backup
 * Rendelkezésre állási Csoport: adatbázis módosítása, csatlakoztatása, hozzáadása/eltávolítása
 * Bejelentkezés: létrehozás, kijelölés, módosítás, eldobás, visszavonás
-* Select Operations \[:\]Master. \[sys\]. \[availability_group_listeners\] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases \[,\]Master. \[sys\]. \[dm_os_sys_memory\], SERVERPROPERTY, \[Master\]. \[sys\]. \[availability_groups\] (AlwaysOn), sys. master_files
+* Select Operations: \[ Master \] . \[ sys \] . \[ availability_group_listeners \] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[ Master \] . \[ sys \] . \[ dm_os_sys_memory \] , SERVERPROPERTY, \[ Master \] . \[ sys \] . \[ availability_groups \] (AlwaysOn), sys. master_files
 
 ### <a name="additional-security-information"></a>További biztonsági információk
 
@@ -66,7 +66,7 @@ A következő információk további biztonsági útmutatást nyújtanak:
 
 * Minden Azure Stack hub-tároló titkosítva van a BitLocker használatával, így a Azure Stack hub-on található bármely SQL-példány titkosított BLOB-tárolót fog használni.
 * Az SQL erőforrás-szolgáltató teljes mértékben támogatja a TLS 1,2-et. Győződjön meg arról, hogy az SQL RP-n keresztül felügyelt SQL Server _csak_ a TLS 1,2 használatára van konfigurálva, és az RP alapértelmezett értéke a következő lesz:. A SQL Server összes támogatott verziója támogatja a TLS 1,2-t. További információ: [TLS 1,2-támogatás Microsoft SQL Server számára](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* A **ForceEncryption** beállítás megadásával biztosíthatja, hogy az összes SQL Server-alapú kommunikáció mindig titkosítva legyen a SQL Server konfigurációkezelő használatával. További információ: [a kiszolgáló konfigurálása titkosított kapcsolatok kényszerítésére](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* A **ForceEncryption** beállítás megadásával biztosíthatja, hogy az összes SQL Server-alapú kommunikáció mindig titkosítva legyen a SQL Server konfigurációkezelő használatával. További információ: [a kiszolgáló konfigurálása titkosított kapcsolatok kényszerítésére](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
 * Gondoskodjon arról, hogy minden ügyfélalkalmazás egy titkosított kapcsolaton keresztül is kommunikáljon.
 * Az RP úgy van konfigurálva, hogy megbízzon a SQL Server példányok által használt tanúsítványokban.
 
@@ -106,15 +106,15 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
 
 Az SQL always on-példányok konfigurálása további lépéseket igényel, és három virtuális gépet (vagy fizikai gépeket) igényel. Ez a cikk azt feltételezi, hogy már rendelkezik az Always On rendelkezésre állási csoportok alapos megismerésével. További információkért tekintse át a következő cikkeket:
 
-* [SQL Server always on rendelkezésre állási csoportok bemutatása Azure-beli virtuális gépeken](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On rendelkezésre állási csoportok (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [SQL Server always on rendelkezésre állási csoportok bemutatása Azure-beli virtuális gépeken](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On rendelkezésre állási csoportok (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > Az SQL-adapter erőforrás-szolgáltatója _csak_ az SQL 2016 SP1 Enterprise vagy újabb példányokat támogatja az Always On rendelkezésre állási csoportokhoz. Ehhez az adapter-konfigurációhoz új SQL-funkciók szükségesek, például automatikus előkészítés.
 
 ### <a name="automatic-seeding"></a>Automatikus előkészítés
 
-Az egyes rendelkezésre állási csoportokon engedélyezni kell az [automatikus Kivetést](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server minden egyes példánya esetében.
+Az egyes rendelkezésre állási csoportokon engedélyezni kell az [automatikus Kivetést](/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server minden egyes példánya esetében.
 
 Ha engedélyezni szeretné az automatikus betöltést az összes példányon, szerkessze és futtassa a következő SQL-parancsot az elsődleges replikán minden másodlagos példány esetében:
 
@@ -136,7 +136,7 @@ A másodlagos csomópontokon futtassa a következő SQL-parancsot:
 
 ### <a name="configure-contained-database-authentication"></a>Tárolt adatbázis-hitelesítés konfigurálása
 
-Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítési kiszolgáló konfigurációs beállítása](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítési kiszolgáló konfigurációs beállítása](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési kiszolgáló beállítást az egyes példányok esetében:
 
@@ -179,9 +179,9 @@ A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportok
 
 A SKU akár egy órát is igénybe vehet, hogy megjelenjenek a portálon. A felhasználók nem tudnak adatbázist létrehozni, amíg az SKU teljesen létre nem jön.
 
-Az SKU szerkesztéséhez lépjen a **minden szolgáltatás** > **SQL-adapterek** > **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  >  **SQL-adapterek**  >  **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A már nem szükséges SKU törléséhez lépjen a **minden szolgáltatás** > **SQL-adapterek** > **SKU**-ra. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
+A már nem szükséges SKU törléséhez lépjen a **minden szolgáltatás**  >  **SQL-adapterek**  >  **SKU**-ra. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
 > Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.
@@ -193,6 +193,6 @@ Terveket és ajánlatokat hozhat létre, amelyekkel elérhetővé teheti az SQL-
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Adatbázisok hozzáadása](azure-stack-sql-resource-provider-databases.md)

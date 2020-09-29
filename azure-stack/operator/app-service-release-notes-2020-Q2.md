@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 57cdd5ed496d0792f2d36f1e12d5fb8fce1d4370
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861401"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489742"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
 
@@ -88,7 +88,7 @@ A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javít�
   | --- | --- |
   | Tartományvezérlő | Standard_A4_v2-(4 mag, 8192 MB) |
   | Kezelés | Standard_D3_v2-(4 mag, 14336 MB) |
-  | Közzétevő | Standard_A2_v2 – (2 mag, 4096 MB) |
+  | Publisher | Standard_A2_v2 – (2 mag, 4096 MB) |
   | Előtér | Standard_A4_v2-(4 mag, 8192 MB) |
   | Megosztott feldolgozók | Standard_A4_v2-(4 mag, 8192 MB) |
   | Kisméretű dedikált feldolgozó | Standard_A1_v2-(1 mag, 2048 MB) |
@@ -116,10 +116,10 @@ A ASDK-telepítések esetében a példányokat lekicsinyítheti alacsonyabb SKU-
 
 Tekintse át a [frissítés ismert problémáit](#known-issues-update) , és végezze el a szükséges műveleteket.
 
-## <a name="post-deployment-steps"></a>Üzembe helyezés utáni lépések
+## <a name="post-deployment-steps"></a>Üzembe helyezés után lépések
 
 > [!IMPORTANT]
-> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
+> Ha megadta a App Service erőforrás-szolgáltatót egy SQL always on példánnyal, [fel kell vennie a appservice_hosting és a appservice_metering adatbázist egy rendelkezésre állási csoportba](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) , és szinkronizálnia kell az adatbázisokat, hogy megakadályozza a szolgáltatás elvesztését egy adatbázis-feladatátvétel esetén.
 
 ## <a name="known-issues-update"></a>Ismert problémák (frissítés)
 
@@ -223,7 +223,7 @@ A szkriptnek a következő feltételekkel kell futnia
 
 App Service végrehajtja a tartomány tulajdonjogának ellenőrzését a nyilvános DNS-végpontokon, mivel az egyéni tartományok nem támogatottak a leválasztott forgatókönyvekben.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack áttekintése](azure-stack-app-service-overview.md).
 - További információ a Azure Stack App Service telepítésének előkészítéséről: [mielőtt megkezdi a Azure Stack app Serviceének](azure-stack-app-service-before-you-get-started.md)megkezdését.

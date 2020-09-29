@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: b06ab0601616f8c089d7bcf90526dae97a8c6e5f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848047"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489538"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service Azure Stack hub Update 2 kibocsátási megjegyzései
 
@@ -29,7 +29,7 @@ A App Service Azure Stack hub Update 2 Build száma **72.0.13698.10**.
 ## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \*. SSO. appservice.\< régió\>. \<tartománynév\>. \<bővítmény\>**
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
@@ -45,7 +45,7 @@ A Azure App Service on Azure Stack hub Update 2 a következő javításokat és 
 
 - **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
   - A .NET-keretrendszer 4.7.1 hozzáadva
-  - **Node. js** -verziók hozzáadva:
+  - **Node.JS** verziók hozzáadva:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
     - NodeJS 8.10.0
@@ -55,11 +55,11 @@ A Azure App Service on Azure Stack hub Update 2 a következő javításokat és 
   - A .NET Core-összetevők frissítése a nyilvános felhőben Azure App Service konzisztens.
   - Frissített kudu
 
-- Üzembe helyezési pontok automatikus cseréje engedélyezve – [automatikus felcserélés beállítása](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap).
+- Üzembe helyezési pontok automatikus cseréje engedélyezve – [automatikus felcserélés beállítása](/azure/app-service/deploy-staging-slots#configure-auto-swap).
 
 - Az éles környezetben való tesztelés engedélyezve van – [Bevezetés az éles környezetben végzett tesztelésbe](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).
 
-- Azure Functions-proxyk engedélyezve – [a Azure functions-proxyk használata](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
+- Azure Functions-proxyk engedélyezve – [a Azure functions-proxyk használata](/azure/azure-functions/functions-proxies).
 
 - A App Service felügyeleti bővítmény UX-támogatása a következőhöz lett hozzáadva:
   - Titkos kód elforgatása
@@ -85,9 +85,9 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](azure-stack-update-1903.md) dokumentációját
+Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
 - További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

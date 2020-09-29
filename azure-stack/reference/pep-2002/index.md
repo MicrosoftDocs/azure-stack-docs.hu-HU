@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 218aff04912abcce97cf0f3568b6bff1321b4cba
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 76eb340da04e9254bcf8d8a626822c65362f44d2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563267"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486036"
 ---
 # <a name="azure-stack-hub-privileged-endpoint-reference"></a>Azure Stack hub privilegizált végpontjának referenciája
 
@@ -67,6 +67,6 @@ A PowerShell Azure Stack rendszerjogosultságú végpont (PEP) egy előre konfig
 | [Test-AzureStack](Test-AzureStack.md) | Azure Stack állapotának ellenőrzése. |
 | [Zárolás feloldása – SupportSession](Unlock-SupportSession.md) | Nincs leírás. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ: Azure Stack hub Kiemelt jogosultságokkal rendelkező végpontja, [Azure stack-ban található privilegizált végpont használata](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ: Azure Stack hub Kiemelt jogosultságokkal rendelkező végpontja, [Azure stack-ban található privilegizált végpont használata](../../operator/azure-stack-privileged-endpoint.md).

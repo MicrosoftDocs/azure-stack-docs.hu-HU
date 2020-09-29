@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f3f623c549ffd5707c9bfb470532fbb380f5c6a7
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 410677e223f097e99492b287150178d0c61b230c
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486937"
 ---
 # <a name="get-syslogclient"></a>Get-SyslogClient
 
@@ -27,7 +27,7 @@ Get-SyslogClient [-AsJob]
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 ```
 Get-SyslogClient
 ```
@@ -48,6 +48,6 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

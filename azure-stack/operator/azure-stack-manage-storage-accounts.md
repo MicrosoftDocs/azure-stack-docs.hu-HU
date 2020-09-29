@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630929"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488654"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 
@@ -28,9 +28,9 @@ A régióban található Storage-fiókok listáját Azure Stack központban teki
 
    ![Azure Stack hub Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
-Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
+Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található  **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
 
-OR
+VAGY
 
 Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrheti és** kérheti le.
 
@@ -123,7 +123,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
 **Kapacitás visszaigénylése a PowerShell használatával:**
 
 1. Győződjön meg arról, hogy van Azure PowerShell telepítve és konfigurálva. Ha nem, kövesse az alábbi utasításokat: 
-   * A legújabb Azure PowerShell verziójának telepítéséhez és az Azure-előfizetéshez való hozzárendeléséhez tekintse meg a [Azure PowerShell telepítése és konfigurálása](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)című témakört.
+   * A legújabb Azure PowerShell verziójának telepítéséhez és az Azure-előfizetéshez való hozzárendeléséhez tekintse meg a [Azure PowerShell telepítése és konfigurálása](/powershell/azure/)című témakört.
    Azure Resource Manager parancsmagokkal kapcsolatos további információkért lásd: [Azure PowerShell használata a Azure Resource Manager használatával](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Futtassa a következő parancsmagokat:
 
@@ -135,7 +135,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-További információ: [Azure stack hub PowerShell dokumentációja](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+További információ: [Azure stack hub PowerShell dokumentációja](/powershell/azure/azure-stack/overview).
  
 
 ## <a name="next-steps"></a>Következő lépések

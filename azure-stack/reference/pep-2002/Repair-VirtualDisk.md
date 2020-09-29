@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ef7fa22c00b11f93ff39e0ce03fa91383c2cffc7
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: d6aedfb0b45bbc450322b24c81b3b576b6d512a3
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562915"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86486410"
 ---
 # <a name="repair-virtualdisk"></a>Javítás – VirtualDisk
 
@@ -177,7 +177,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="inputs"></a>Bemenetek
+## <a name="inputs"></a>Bevitelek
 
 ### <a name="systemstring"></a>System.String[]
 
@@ -190,6 +190,6 @@ Accept wildcard characters: False
 ### <a name="microsoftmanagementinfrastructureciminstancerootmicrosoftwindowsstoragemsft_virtualdisk"></a>Microsoft. Management. Infrastructure. CimInstance # ROOT/Microsoft/Windows/Storage/MSFT_VirtualDisk
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

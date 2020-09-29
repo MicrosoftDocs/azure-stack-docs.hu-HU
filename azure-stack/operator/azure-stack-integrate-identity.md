@@ -7,12 +7,13 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.custom: conteperfq4
+ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908595"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488620"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -31,7 +32,7 @@ A hitelesítés az identitás egyik része. A szerepköralapú hozzáférés-vez
 
 A meglévő AD FS a fiók biztonsági jogkivonat-szolgáltatása (STS), amely jogcímeket küld az Azure Stack hub AD FS (az erőforrás STS) számára. Azure Stack központban az Automation létrehozza a jogcím-szolgáltatói megbízhatóságot a meglévő AD FS metaadat-végpontján.
 
-A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack hub VIP-végpontját a minta `https://adfs.<Region>.<ExternalFQDN>/`használatával lehet létrehozni.
+A meglévő AD FSon konfigurálni kell egy függő entitás megbízhatóságát. Ezt a lépést az Automation nem hajtja végre, és az operátornak kell konfigurálnia. A AD FS Azure Stack hub VIP-végpontját a minta használatával lehet létrehozni `https://adfs.<Region>.<ExternalFQDN>/` .
 
 A függő entitás megbízhatóságának konfigurációjában a Microsoft által biztosított jogcím-átalakítási szabályok konfigurálására is szükség van.
 
@@ -63,7 +64,7 @@ Active Directory több hellyel rendelkező üzemelő példányok esetében konfi
 
 Adja hozzá az Azure Stack hub [nyilvános VIP hálózati](azure-stack-network.md#public-vip-network) alhálózatát az Azure stack hub-hoz legközelebb lévő Active Directory-helyhez. Tegyük fel például, hogy a Active Directory két hellyel rendelkezik: Seattle és Redmond. Ha Azure Stack hub üzembe helyezése a Seattle-beli helyen történik, az Azure Stack hub nyilvános VIP hálózati alhálózatát a Seattle Active Directory webhelyére kell felvennie.
 
-Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely topológiájának megtervezése](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely topológiájának megtervezése](/windows-server/identity/ad-ds/plan/designing-the-site-topology).
 
 > [!Note]  
 > Ha a Active Directory egyetlen helyből áll, akkor kihagyhatja ezt a lépést. Ha rendelkezik egy Catch-alhálózattal, ellenőrizze, hogy az Azure Stack hub nyilvános VIP-alhálózata nem része-e.
@@ -113,7 +114,7 @@ Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portoka
 
 Az Azure Stack hub Graph szolgáltatása a következő protokollokat és portokat használja a célként megadott Active Directory való kommunikációhoz:
 
-|Típus|Port|Protocol (Protokoll)|
+|Típus|Port|Protokoll|
 |---------|---------|---------|
 |LDAP|389|TCP & UDP|
 |LDAP SSL|636|TCP|
@@ -127,8 +128,8 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |Paraméter|Üzembe helyezési munkalap paramétere|Leírás|Példa|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https:\//AD01.contoso.com/federationmetadata/2007-06/federationmetadata.XML |
-|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincs|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https: \/ /ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincsenek|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
@@ -219,7 +220,7 @@ A Súgó parancsfájlt a GitHubon [Azure stack Hub-eszközökről](https://githu
 
 Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lépéseket:
 
-1. Másolja az alábbi tartalmat egy. txt fájlba (például c:\ClaimIssuanceRules.txt mentve) az adatközpont AD FS példányán vagy a farm tagján:
+1. Másolja az alábbi tartalmat egy. txt fájlba (például az c:\ClaimIssuanceRules.txt néven mentett) az adatközpont AD FS példányára vagy a farm tagjára:
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -259,7 +260,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    ```
 
     > [!Note]  
-    > Előfordulhat, hogy a Windows beépített hitelesítés (WIA) által támogatott felhasználói ügynök sztringek elavultak a AD FS központi telepítéséhez, és frissítésre lehet szükség a legújabb ügyfelek támogatásához. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br><br>Az űrlapalapú hitelesítési házirend engedélyezésének lépései a [hitelesítési házirendek konfigurálása](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben olvashatók.
+    > Előfordulhat, hogy a Windows beépített hitelesítés (WIA) által támogatott felhasználói ügynök sztringek elavultak a AD FS központi telepítéséhez, és frissítésre lehet szükség a legújabb ügyfelek támogatásához. A WIA által támogatott felhasználói ügynök sztringek frissítésével kapcsolatos további információkért tekintse meg az [intranetes űrlapalapú hitelesítés konfigurálása a WIA-t nem támogató eszközök esetében című](/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)cikket.<br><br>Az űrlapalapú hitelesítési házirend engedélyezésének lépései a [hitelesítési házirendek konfigurálása](/windows-server/identity/ad-fs/operations/configure-authentication-policies)című cikkben olvashatók.
 
 3. A függő entitás megbízhatóságának hozzáadásához futtassa a következő Windows PowerShell-parancsot a AD FS példányán vagy egy farm tagján. Ügyeljen arra, hogy frissítse a AD FS végpontot, és mutasson az 1. lépésben létrehozott fájlra.
 
@@ -290,7 +291,7 @@ Ha úgy dönt, hogy manuálisan futtatja a parancsokat, kövesse az alábbi lép
    **AD FS 2002 és újabb rendszerekhez**
 
    > [!NOTE]
-   > Ha az ügyfél `Add-ADFSRelyingPartyTrust` birtokolt ADFS-gazdagépen/farmon végez végrehajtást, először győződjön meg arról, hogy a TLS 1.2 kényszerítve van az ADFS-gazdagépen/farmon, és a kísérlet a következő hibaüzenetet eredményezi:
+   > Ha `Add-ADFSRelyingPartyTrust` az ügyfél birtokolt ADFS-gazdagépen/farmon végez végrehajtást, először győződjön meg arról, hogy a TLS 1.2 kényszerítve van az ADFS-gazdagépen/farmon, és a kísérlet a következő hibaüzenetet eredményezi:
 
 `Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
@@ -340,7 +341,7 @@ Ha olyan hiba történik, amely egy olyan állapotban hagyja a környezetet, aho
 
 ### <a name="collecting-additional-logs"></a>További naplók gyűjtése
 
-Ha a parancsmagok bármelyike meghibásodik, a `Get-Azurestacklogs` parancsmag használatával további naplókat is gyűjthet.
+Ha a parancsmagok bármelyike meghibásodik, a parancsmag használatával további naplókat is gyűjthet `Get-Azurestacklogs` .
 
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsokat:
 
@@ -355,6 +356,6 @@ Ha a parancsmagok bármelyike meghibásodik, a `Get-Azurestacklogs` parancsmag h
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Külső monitorozási megoldások integrálása](azure-stack-integrate-monitor.md)

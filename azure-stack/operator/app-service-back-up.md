@@ -1,5 +1,5 @@
 ---
-title: App Service biztonsági mentése Azure Stack központban
+title: Az App Service biztonsági mentése az Azure Stack Hubon
 description: Megtudhatja, hogyan készíthet biztonsági másolatot a App Servicesról Azure Stack hub-on.
 author: bryanla
 ms.topic: article
@@ -7,14 +7,14 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701479"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489793"
 ---
-# <a name="back-up-app-service-on-azure-stack-hub"></a>App Service biztonsági mentése Azure Stack központban
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Az App Service biztonsági mentése az Azure Stack Hubon
 
 Ez a dokumentum útmutatást nyújt a App Service Azure Stack hub-beli biztonsági mentéséről.
 
@@ -34,13 +34,13 @@ Az App Service-titkok biztonsági mentését az adminisztrációs portálon vég
 
 1. Jelentkezzen be a Azure Stack hub felügyeleti portálján a szolgáltatás-rendszergazdaként.
 
-2. Keresse meg **app Service** -> **titkokat**. 
+2. Keresse meg **app Service**  ->  **titkokat**. 
 
 3. Válassza a **titkos kulcsok letöltése**lehetőséget.
 
    ![A titkok letöltése Azure Stack hub felügyeleti portálján](./media/app-service-back-up/download-secrets.png)
 
-4. Ha a titkok készen állnak a letöltésre, kattintson a **Save (Mentés** ) gombra, és tárolja a app Service Secrets (**SystemSecrets. JSON**) fájlt biztonságos helyen. 
+4. Ha a titkok készen állnak a letöltésre, kattintson a **Save (Mentés** ) gombra, és tárolja a app Service Secrets (**SystemSecrets.JSon**) fájlt biztonságos helyen. 
 
    ![Titkok mentése Azure Stack hub felügyeleti portálján](./media/app-service-back-up/save-secrets.png)
 
@@ -61,7 +61,7 @@ Ha manuálisan szeretné biztonsági másolatot készíteni ezekről az adatbáz
   ```
 
 > [!NOTE]
-> Ha SQL AlwaysOn-adatbázisokról kell biztonsági mentést készítenie, kövesse [az alábbi utasításokat](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Ha SQL AlwaysOn-adatbázisokról kell biztonsági mentést készítenie, kövesse [az alábbi utasításokat](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
 
 Miután az összes adatbázis biztonsági mentése sikeres volt, másolja a. bak fájlokat egy biztonságos helyre a App Service Secrets információval együtt.
 
@@ -80,5 +80,5 @@ robocopy $source $destination
 net use $destination /delete
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [App Service visszaállítása Azure Stack központban](app-service-recover.md)

@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703315"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489283"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
 
@@ -42,7 +42,7 @@ Ugyanebben a PowerShell-munkamenetben szerkessze a következő PowerShell-szkrip
 | `$frequencyInHours` | Az órák gyakorisága határozza meg, hogy milyen gyakran jönnek létre a biztonsági másolatok. Az alapértelmezett érték 12. A Scheduler legfeljebb 12 és legalább 4 értéket támogat.|
 | `$retentionPeriodInDays` | A megőrzési időtartam napokban határozza meg, hogy a biztonsági másolatok hány napja maradnak meg a külső helyen. Az alapértelmezett érték 7. A Scheduler legfeljebb 14 és minimum 2 értéket támogat. A megőrzési időtartamnál régebbi biztonsági mentések automatikusan törlődnek a külső helyről.|
 | `$encryptioncertpath` | A 1901-es és újabb verzióira vonatkozik. A paraméter a Azure Stack hub modul 1,7-es és újabb verzióiban érhető el. A titkosítási tanúsítvány elérési útja megadja a fájl elérési útját. Az adattitkosításhoz használt nyilvános kulccsal rendelkező CER-fájl. |
-| `$encryptionkey` | A Build 1811-es vagy korábbi verziójára vonatkozik. A paraméter Azure Stack hub-modul 1,6-es vagy korábbi verziójában érhető el. A titkosítási kulcs az adattitkosításhoz használatos. Új kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) parancsmagot. |
+| `$encryptionkey` | A Build 1811-es vagy korábbi verziójára vonatkozik. A paraméter Azure Stack hub-modul 1,6-es vagy korábbi verziójában érhető el. A titkosítási kulcs az adattitkosításhoz használatos. Új kulcs létrehozásához használja a [New-AzsEncryptionKeyBase64](/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) parancsmagot. |
 |     |     |
 
 ### <a name="enable-backup-on-1901-and-later-using-certificate"></a>Biztonsági mentés engedélyezése a 1901-es és újabb verziókban a tanúsítvány használatával
@@ -137,7 +137,7 @@ Ha az infrastruktúra biztonsági mentése a 1901-es frissítés előtt lett kon
 A modul helyes verziójának telepítésével kapcsolatos további információkért tekintse meg az [Azure stack hub PowerShell telepítése](azure-stack-powershell-install.md) című témakört.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a biztonsági másolatok futtatásáról: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 

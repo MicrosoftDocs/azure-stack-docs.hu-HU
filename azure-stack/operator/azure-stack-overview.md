@@ -7,16 +7,17 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.custom: conteperfq4
+ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605635"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488416"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
 
-Az Azure Stack hub az Azure egy bővítménye, amely lehetővé teszi az alkalmazások helyszíni környezetben való futtatását, valamint az adatközpontban elérhető Azure-szolgáltatások nyújtását. Az egységes felhőalapú platformmal a szervezetek az üzleti követelmények alapján, a technológiai korlátozások alapján nem üzleti döntéseket hozhatnak.
+Az Azure Stack Hub az Azure egyik bővítménye, amellyel helyszíni környezetben futtathatja az alkalmazásokat, és biztosíthatja az Azure-szolgáltatásokat az adatközpontban. Az egységes felhőalapú platformmal a szervezetek az üzleti követelmények alapján, a technológiai korlátozások alapján nem üzleti döntéseket hozhatnak.
 
 ## <a name="why-use-azure-stack-hub"></a>Miért érdemes Azure Stack hubot használni?
 
@@ -38,7 +39,7 @@ Az Azure Stack hub az iparági szabványoknak megfelelő hardverre épül, és u
 
 Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltatásokat a távoli helyekhez vagy időszakos kapcsolatokhoz, az internetről leválasztva biztosítson. Olyan hibrid megoldásokat hozhat létre, amelyek helyileg dolgozzák fel az adatokat Azure Stack hub-ban, majd az Azure-ban összesítve további feldolgozást és elemzést végeznek. Végezetül, mivel Azure Stack hub a helyszínen van telepítve, az egyes szabályozási vagy házirend-követelmények kielégítésével a felhőalapú alkalmazások helyszíni üzembe helyezése a kód módosítása nélkül is megváltoztatható.
 
-## <a name="deployment-options"></a>Üzembe helyezési beállítások
+## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
 
 A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével.
 
@@ -67,13 +68,13 @@ Azure Stack hub ugyanazt az operatív modellt használja, mint az Azure. Egy Azu
 
 ![Azure Stack hub-feladatok szerepköreit bemutató diagram](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
-Azure Stack hub a felügyeleti portál, a felhasználói portál vagy a [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)segítségével kezelhető. Az Azure Stack hub-portálok mindegyike Azure Resource Manager különálló példányaival támogatott. Az **Azure stack hub-operátor** a felügyeleti portál használatával felügyeli az Azure stack hub-t, és olyan műveleteket hajthat végre, mint például a bérlői ajánlatok létrehozása és az integrált rendszer állapotának és figyelésének állapota. A felhasználói portál önkiszolgáló élményt biztosít a felhőalapú erőforrások, például a virtuális gépek, a Storage-fiókok és a webalkalmazások felhasználásához.
+Azure Stack hub a felügyeleti portál, a felhasználói portál vagy a [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)segítségével kezelhető. Az Azure Stack hub-portálok mindegyike Azure Resource Manager különálló példányaival támogatott. Az **Azure stack hub-operátor** a felügyeleti portál használatával felügyeli az Azure stack hub-t, és olyan műveleteket hajthat végre, mint például a bérlői ajánlatok létrehozása és az integrált rendszer állapotának és figyelésének állapota. A felhasználói portál önkiszolgáló élményt biztosít a felhőalapú erőforrások, például a virtuális gépek, a Storage-fiókok és a webalkalmazások felhasználásához.
 
 > Az Azure Stack hub felügyeleti portál használatával történő kezelésével kapcsolatos további információkért tekintse meg a [Azure stack hub felügyeleti portáljának](azure-stack-manage-portals.md)használatának első lépéseit.
 
-Azure Stack hub-kezelőként a [virtuális gépeket](azure-stack-tutorial-tenant-vm.md), [webalkalmazásokat](azure-stack-app-service-overview.md), valamint a rendelkezésre álló [SQL Server](azure-stack-tutorial-sql.md)és a [MySQL-kiszolgáló](azure-stack-tutorial-mysql.md) adatbázisait is továbbíthatja. A SharePoint, az Exchange és más rendszereken a Azure Stack hub gyors üzembe helyezési [Azure Resource Manager sablonjaival](https://github.com/Azure/AzureStack-QuickStart-Templates) is elvégezheti a telepítést.
+Azure Stack hub-kezelőként a [virtuális gépeket](./tutorial-offer-services.md?view=azs-2002), [webalkalmazásokat](azure-stack-app-service-overview.md), valamint a rendelkezésre álló [SQL Server](azure-stack-tutorial-sql.md)és a [MySQL-kiszolgáló](azure-stack-tutorial-mysql.md) adatbázisait is továbbíthatja. A SharePoint, az Exchange és más rendszereken a Azure Stack hub gyors üzembe helyezési [Azure Resource Manager sablonjaival](https://github.com/Azure/AzureStack-QuickStart-Templates) is elvégezheti a telepítést.
 
-Az operátorok a [felügyeleti portál](azure-stack-manage-portals.md) vagy a [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)használatával felügyelhetik Azure stack hubot. Azure Stack hub-t úgy konfigurálhatja, hogy a szolgáltatásokat a bérlők számára a csomagok, kvóták, ajánlatok és előfizetések használatával [kézbesítse](service-plan-offer-subscription-overview.md) . A bérlői felhasználók több ajánlatra is fizethetnek. Az ajánlatok egy vagy több csomaggal rendelkezhetnek, a csomagok pedig egy vagy több szolgáltatással rendelkezhetnek. A kezelők is kezelhetik a kapacitást, és reagálnak a riasztásokra.
+Az operátorok a [felügyeleti portál](azure-stack-manage-portals.md) vagy a [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)használatával felügyelhetik Azure stack hubot. Azure Stack hub-t úgy konfigurálhatja, hogy a szolgáltatásokat a bérlők számára a csomagok, kvóták, ajánlatok és előfizetések használatával [kézbesítse](service-plan-offer-subscription-overview.md) . A bérlői felhasználók több ajánlatra is fizethetnek. Az ajánlatok egy vagy több csomaggal rendelkezhetnek, a csomagok pedig egy vagy több szolgáltatással rendelkezhetnek. A kezelők is kezelhetik a kapacitást, és reagálnak a riasztásokra.
 
 A felhasználók a kezelő által kínált szolgáltatásokat használják. A felhasználók üzembe helyezhetik, felügyelhetik és kezelhetik a előfizetett szolgáltatásokat, például a webalkalmazásokat, a tárolókat és a virtuális gépeket. A felhasználók a felhasználói portál vagy a PowerShell használatával felügyelhetik Azure Stack hubot.
 
@@ -89,7 +90,7 @@ Három alapvető IaaS erőforrás-szolgáltató létezik:
 
 - **Számítás**: a számítási erőforrás-szolgáltató lehetővé teszi, hogy Azure stack hub-bérlők saját virtuális gépeket hozzanak létre. A számítási erőforrás-szolgáltató a virtuális gépek és a virtuálisgép-bővítmények létrehozását is lehetővé teszi. A virtuálisgép-bővítmény szolgáltatás a Windows-és Linux-alapú virtuális gépek IaaS funkcióit segíti elő. A számítási erőforrás-szolgáltató segítségével például Linux rendszerű virtuális gépet építhet ki, és a telepítés során bash-parancsfájlokat futtathat a virtuális gép konfigurálásához.
 - **Hálózati erőforrás-szolgáltató**: a hálózati erőforrás-szolgáltató számos szoftver által meghatározott hálózatkezelési (Sdn) és hálózati Function VIRTUALIZATION (NFV) funkciót biztosít a privát felhőhöz. A hálózati erőforrás-szolgáltató használatával olyan erőforrásokat hozhat létre, mint például a szoftveres terheléselosztó, a nyilvános IP-címek, a hálózati biztonsági csoportok és a virtuális hálózatok.
-- **Tárolási erőforrás-szolgáltató**: a tárolási erőforrás-szolgáltató négy Azure-konzisztens tárolási szolgáltatást biztosít: [blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage), [üzenetsor](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage), [tábla](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)és [Key Vault](https://docs.microsoft.com/azure/key-vault/) Fiókkezelés a titkok felügyeletét és naplózását, például jelszavakat és tanúsítványokat. A Storage erőforrás-szolgáltató egy tárolási Felhőbeli felügyeleti szolgáltatást is kínál, amely megkönnyíti az Azure-konzisztens tárolási szolgáltatások szolgáltatói felügyeletét. Az Azure Storage rugalmasságot biztosít a nagy mennyiségű strukturálatlan adat tárolásához és lekéréséhez, például dokumentumok és médiafájlok Azure-Blobokkal való ellátásához, valamint strukturált NoSQL-alapú adattároláshoz az Azure Tables használatával.
+- **Tárolási erőforrás-szolgáltató**: a tárolási erőforrás-szolgáltató négy Azure-konzisztens tárolási szolgáltatást biztosít: [blob](/azure/storage/common/storage-introduction#blob-storage), [üzenetsor](/azure/storage/common/storage-introduction#queue-storage), [tábla](/azure/storage/common/storage-introduction#table-storage)és [Key Vault](/azure/key-vault/) Fiókkezelés a titkok felügyeletét és naplózását, például jelszavakat és tanúsítványokat. A Storage erőforrás-szolgáltató egy tárolási Felhőbeli felügyeleti szolgáltatást is kínál, amely megkönnyíti az Azure-konzisztens tárolási szolgáltatások szolgáltatói felügyeletét. Az Azure Storage rugalmasságot biztosít a nagy mennyiségű strukturálatlan adat tárolásához és lekéréséhez, például dokumentumok és médiafájlok Azure-Blobokkal való ellátásához, valamint strukturált NoSQL-alapú adattároláshoz az Azure Tables használatával.
 
 ### <a name="optional-resource-providers"></a>Választható erőforrás-szolgáltatók
 
@@ -99,7 +100,7 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 - **SQL Server**: a [SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider.md) használatával Azure stack hub szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server példánnyal, Ön és a felhasználók létrehozhatnak adatbázisokat a Felhőbeli natív alkalmazásokhoz, az SQL-t használó webhelyekhez és az SQL-t használó egyéb munkaterhelésekhez.
 - **MySQL-kiszolgáló**: a MySQL- [kiszolgáló erőforrás-szolgáltatójának](azure-stack-mysql-resource-provider-deploy.md) használatával tegye elérhetővé a mysql-adatbázisokat Azure stack hub-szolgáltatásként. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2019 Server Core virtuális gépen.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 

@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696957"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487736"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 
@@ -24,10 +24,10 @@ Az Azure Stack hub-operátorok esetében a telemetria értékes betekintést ny�
 > [!NOTE]
 > Azure Stack hub-t úgy is konfigurálhat, hogy a használati adatokat továbbítsa az Azure-nak a számlázáshoz. Ez a többcsomópontos Azure Stack hub-ügyfelek esetében szükséges, akik fizetési díjas számlázást választanak. A használati jelentéseket a telemetria-től függetlenül kell vezérelni, és nem szükséges a több csomópontot használó ügyfelek számára, akik kiválasztják a kapacitás modellt vagy Azure Stack Development Kit felhasználók számára. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl használatával](azure-stack-usage-reporting.md).
 
-Azure Stack hub telemetria a Windows Server 2016 csatlakoztatott felhasználói felületén és a telemetria összetevőn alapul. Ez az összetevő a [Windows esemény-nyomkövetés (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) TraceLogging technológiát használja az események és adatok összegyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Ilyen Azure Stack hub-összetevők például a következő szolgáltatók: hálózati erőforrás, tárolási erőforrás, figyelési erőforrás és frissítési erőforrás. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL protokollal titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja az adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
+Azure Stack hub telemetria a Windows Server 2016 csatlakoztatott felhasználói felületén és a telemetria összetevőn alapul. Ez az összetevő a [Windows esemény-nyomkövetés (ETW)](/windows/win32/tracelogging/trace-logging-about) TraceLogging technológiát használja az események és adatok összegyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Ilyen Azure Stack hub-összetevők például a következő szolgáltatók: hálózati erőforrás, tárolási erőforrás, figyelési erőforrás és frissítési erőforrás. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL protokollal titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja az adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
 
 > [!IMPORTANT]
-> A telemetria-adatfolyam engedélyezéséhez a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz kapcsolódik a `https://v10.events.data.microsoft.com`következő helyen:. A csatlakoztatott felhasználói élmény és telemetria összetevő a konfigurációs adatok `https://settings-win.data.microsoft.com` letöltéséhez is csatlakozik. Más diagnosztikai adatszolgáltatások `https://watson.telemetry.microsoft.com` csatlakoznak a hibajelentéshez.
+> A telemetria-adatfolyam engedélyezéséhez a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz kapcsolódik a következő helyen: `https://v10.events.data.microsoft.com` . A csatlakoztatott felhasználói élmény és telemetria összetevő a `https://settings-win.data.microsoft.com` konfigurációs adatok letöltéséhez is csatlakozik. Más diagnosztikai adatszolgáltatások csatlakoznak `https://watson.telemetry.microsoft.com` a hibajelentéshez.
 
 ## <a name="privacy-considerations"></a>Adatvédelmi megfontolások
 
@@ -71,7 +71,7 @@ Csak biztonsági adatként. Az operációs rendszer biztonságának megőrzésé
 **1 (alapszintű)**</br>
 Biztonsági adatok és alapvető állapot-és minőségi adatok. Alapvető eszközbeállítások, beleértve a minőséggel kapcsolatos adatokat, az alkalmazások kompatibilitását, az alkalmazások használati adatait és a **biztonsági** szintről származó adatokat. A telemetria szintjének alapszintű értékre állításával Azure Stack hub-telemetria. Az ezen a szinten összegyűjtött adatok a következők:
 
-- *Alapvető eszközbeállítások* , amely a natív és virtuális Windows Server 2016-példányok típusait és konfigurációit ismerteti az ökoszisztémában. Az érintett műveletek közé tartoznak az alábbiak:
+- *Alapvető eszközbeállítások* , amely a natív és virtuális Windows Server 2016-példányok típusait és konfigurációit ismerteti az ökoszisztémában. Ide tartoznak az alábbiak:
 
   - Számítógép-attribútumok, például OEM és modell.
   - Hálózati attribútumok, például a hálózati adapterek száma és sebessége.
@@ -117,12 +117,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Az üzembe helyezést követően a telemetria engedélyezéséhez vagy letiltásához hozzáféréssel kell rendelkeznie a ERCS virtuális gépeken elérhető privilegizált végponthoz (PEP).
 
-- Engedélyezés:`Set-Telemetry -Enable`
-- A letiltáshoz:`Set-Telemetry -Disable`
+- Engedélyezés: `Set-Telemetry -Enable`
+- A letiltáshoz: `Set-Telemetry -Disable`
 
 PARAMÉTER részletei:
-- `.PARAMETER Enable`– A telemetria-adatok feltöltésének bekapcsolása
-- `.PARAMETER Disable`– A telemetria-adatok feltöltésének kikapcsolása  
+- `.PARAMETER Enable` – A telemetria-adatok feltöltésének bekapcsolása
+- `.PARAMETER Disable` – A telemetria-adatok feltöltésének kikapcsolása  
 
 **Parancsfájl a telemetria engedélyezéséhez:**
 
@@ -152,6 +152,6 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub regisztrálása az Azure-ban](azure-stack-registration.md)
