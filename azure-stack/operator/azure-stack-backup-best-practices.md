@@ -1,5 +1,5 @@
 ---
-title: Infrastructure Backup az Azure Stack hub szolgáltatás ajánlott eljárásai
+title: Infrastructure Backup szolgáltatás – ajánlott eljárások – Azure Stack hub
 description: Az adatvesztés enyhítése érdekében az Azure Stack hub üzembe helyezése és kezelése során kövesse ezeket az ajánlott eljárásokat, ha végzetes hiba történt.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700510"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573122"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup Service – ajánlott eljárások
 
@@ -53,6 +53,7 @@ A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault
 ### <a name="backups"></a>Biztonsági másolatok
 
  - A biztonsági mentési feladatok a rendszer futása közben futnak, így nincs leállás a kezelési élmények vagy a felhasználói alkalmazások esetében. A biztonsági mentési feladatok 20-40 percet vesznek igénybe egy ésszerű terhelés alá tartozó megoldás esetében.
+ - Az automatikus biztonsági mentések nem indulnak el a javítás, a frissítés és a cserélhető művelet során. Az ütemezett biztonsági mentések feladatai alapértelmezés szerint ki lesznek hagyva. A biztonsági mentésekre vonatkozó igény szerinti kérések ezen műveletek során is blokkolva vannak.    
  - A SZÁMÍTÓGÉPGYÁRTÓ által megadott utasításokat, a hálózati kapcsolók manuális biztonsági mentését, valamint a hardveres életciklus-gazdagépet (HLH) ugyanazon a biztonsági mentési megosztáson kell tárolni, ahol a Infrastructure Backup vezérlő tárolja a vezérlési sík biztonsági mentési információit. Érdemes lehet kapcsoló-és HLH-konfigurációkat tárolni a régió mappában. Ha több Azure Stack hub-példánya van ugyanabban a régióban, érdemes lehet azonosítót használni a méretezési egységhez tartozó minden egyes konfigurációhoz.
 
 ### <a name="folder-names"></a>Mappák nevei
@@ -65,26 +66,29 @@ A biztonsági másolat megosztását például a fileserver01.contoso.com AzSBac
 Teljes tartománynév: contoso.com  
 Régió: NYC
 
-
+```console
     \\fileserver01.contoso.com\AzSBackups
     \\fileserver01.contoso.com\AzSBackups\contoso.com
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
+```
 
 A MASBackup mappa a Azure Stack hub tárolja a biztonsági másolati adatbázisokat. Ne használja ezt a mappát a saját adatai tárolásához. A számítógépgyártók nem használhatják ezt a mappát az összes biztonsági mentési érték tárolására.
 
 A számítógépgyártóknak javasoljuk, hogy a régió mappájában tárolja az összetevőinek biztonsági mentési adatait. A hálózati kapcsolók, a hardveres életciklus-állomás (HLH) és így tovább is tárolhatók a saját almappájában. Például:
 
+```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
+```
 
 ### <a name="monitoring"></a>Figyelés
 
 A rendszer a következő riasztásokat támogatja:
 
-| Riasztás                                                   | Leírás                                                                                     | Kockázatcsökkentés                                                                                                                                |
+| Riasztás                                                   | Leírás                                                                                     | Szervizelés                                                                                                                                |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | A biztonsági mentés nem sikerült, mert a fájlmegosztás kapacitása nem működik. | A fájlmegosztás nem kapacitású, és a biztonságimásolat-vezérlő nem tudja exportálni a biztonságimásolat-fájlokat a helyre. | Vegyen fel további tárolókapacitást, és próbálkozzon újra a biztonsági mentéssel. A meglévő biztonsági másolatok törlése (az elsőtől kezdve) szabadítson fel lemezterületet.                    |
 | Csatlakozási problémák miatt nem sikerült a biztonsági mentés.             | A Azure Stack hub és a fájlmegosztás közötti hálózat problémákba ütközik.                          | Oldja meg a hálózati problémát, és próbálkozzon újra a biztonsági mentéssel.                                                                                            |
@@ -92,7 +96,7 @@ A rendszer a következő riasztásokat támogatja:
 | A biztonsági mentés hitelesítési probléma miatt nem sikerült.               | Előfordulhat, hogy probléma van a hitelesítő adatokkal vagy a hitelesítést befolyásoló hálózati problémával.    | Képezze le a megosztást egy másik számítógépről, hogy a megosztás elérhető legyen. Előfordulhat, hogy frissítenie kell a hitelesítő adatokat, ha már nem érvényesek. |
 | A biztonsági mentés általános hiba miatt nem sikerült.                    | A sikertelen kérést egy átmeneti probléma okozhatja. Próbálkozzon újra a biztonsági mentéssel.                    | Hívja a támogatási szolgálatot.                                                                                                                               |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Tekintse át a [Infrastructure Backup szolgáltatás](azure-stack-backup-reference.md)hivatkozási anyagát.
 

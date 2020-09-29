@@ -3,22 +3,22 @@ title: N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas
 description: Ismerje meg, hogyan futtathat egy N szintű alkalmazást több Azure Stack hub-régióban a magas rendelkezésre állás érdekében.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659883"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572375"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 
 Ez a hivatkozási architektúra bevált eljárásokat mutat be az N szintű alkalmazások több Azure Stack hub-régióban való futtatásához a rendelkezésre állás és a robusztus vész-helyreállítási infrastruktúra biztosítása érdekében. Ebben a dokumentumban Traffic Manager a magas rendelkezésre állás eléréséhez, de ha Traffic Manager nem az Ön környezetének előnyben részesített döntése, akkor egy magas rendelkezésre állású terheléselosztó is behelyettesíthető a alkalmazásba.
 
-> [!Note]  
+> [!NOTE]  
 > Vegye figyelembe, hogy az alábbi architektúrában használt Traffic Manager konfigurálni kell az Azure-ban, és a Traffic Manager profil konfigurálásához használt végpontokat nyilvánosan irányítható IP-címekre kell beállítani.
 
 ## <a name="architecture"></a>Architektúra
@@ -29,15 +29,15 @@ Ez az architektúra az [N szintű alkalmazásban SQL Server](iaas-architecture-w
 
 -   **Elsődleges és másodlagos régiók**. Használjon két régiót a magas rendelkezésre állás eléréséhez. Az egyik ebben az esetben az elsődleges régió. A másik a feladatátvétel során használt régió.
 
--   **Azure Traffic Manager**. A [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) az egyik régió felé irányítja a beérkező kérelmeket. A normál működés során a rendszer az elsődleges régió felé irányítja a kérelmeket. Ha az adott régió nem érhető el, a Traffic Manager átadj a feladatokat a másodlagos régiónak. További információt a következő szakaszban talál: [A Traffic Manager konfigurációja](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+-   **Azure Traffic Manager**. A [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) az egyik régió felé irányítja a beérkező kérelmeket. A normál működés során a rendszer az elsődleges régió felé irányítja a kérelmeket. Ha az adott régió nem érhető el, a Traffic Manager átadj a feladatokat a másodlagos régiónak. További információt a következő szakaszban talál: [A Traffic Manager konfigurációja](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
 
--   **Erőforráscsoportok**. Hozzon létre külön [erőforráscsoportot](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) az elsődleges régióhoz, a másodlagos régióhoz. Ennek köszönhetően rugalmasan, egyetlen erőforráskészletként kezelheti az egyes régiókat, például ismételten üzembe helyezhet egy régiót a másik eltávolítása nélkül. [Kapcsolja össze az erőforráscsoportokat](https://docs.microsoft.com/azure/resource-group-link-resources), hogy egy lekérdezés futtatásával listázhassa az alkalmazás összes erőforrását.
+-   **Erőforráscsoportok**. Hozzon létre külön [erőforráscsoportot](/azure/azure-resource-manager/resource-group-overview) az elsődleges régióhoz, a másodlagos régióhoz. Ennek köszönhetően rugalmasan, egyetlen erőforráskészletként kezelheti az egyes régiókat, például ismételten üzembe helyezhet egy régiót a másik eltávolítása nélkül. [Kapcsolja össze az erőforráscsoportokat](/azure/resource-group-link-resources), hogy egy lekérdezés futtatásával listázhassa az alkalmazás összes erőforrását.
 
 -   **Virtuális hálózatok**. Hozzon létre külön virtuális hálózatot az egyes régiókban. Ügyeljen arra, hogy a címterek ne legyenek átfedésben.
 
--   **SQL Server always on rendelkezésre állási csoport**. Az SQL Server használata esetén az [SQL Server Always On rendelkezésre állási csoportok](https://msdn.microsoft.com/library/hh510230.aspx) használata javasolt a magas rendelkezésre állás érdekében. Hozzon létre egyetlen rendelkezésre állási csoportot, amely mindkét régióban tartalmazza az SQL Server-példányokat.
+-   **SQL Server always on rendelkezésre állási csoport**. Az SQL Server használata esetén az [SQL Server Always On rendelkezésre állási csoportok](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) használata javasolt a magas rendelkezésre állás érdekében. Hozzon létre egyetlen rendelkezésre állási csoportot, amely mindkét régióban tartalmazza az SQL Server-példányokat.
 
--   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
+-   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
 
 ## <a name="recommendations"></a>Javaslatok
 
@@ -57,9 +57,9 @@ Ez a referenciaarchitektúra a készenléti kiszolgálóval konfigurált aktív/
 
 A Traffic Manager konfigurálásakor vegye figyelembe a következő szempontokat:
 
--   **Útválasztás**. A Traffic Manager többféle [útválasztási algoritmust](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) támogat. A cikkben leírt forgatókönyvhöz a *prioritásos* útválasztást (régebbi nevén *feladatátvétel esetén használt* útválasztás) használja. Ezzel a beállítással a Traffic Manager az összes kérelmet az elsődleges régió felé irányítja, kivétel akkor, ha az nem elérhető. Ebben az esetben automatikusan átadja a feladatokat a másodlagos régiónak. Lásd: [A feladatátvétel esetén használt útválasztás konfigurálása](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
+-   **Útválasztás**. A Traffic Manager többféle [útválasztási algoritmust](/azure/traffic-manager/traffic-manager-routing-methods) támogat. A cikkben leírt forgatókönyvhöz a *prioritásos* útválasztást (régebbi nevén *feladatátvétel esetén használt* útválasztás) használja. Ezzel a beállítással a Traffic Manager az összes kérelmet az elsődleges régió felé irányítja, kivétel akkor, ha az nem elérhető. Ebben az esetben automatikusan átadja a feladatokat a másodlagos régiónak. Lásd: [A feladatátvétel esetén használt útválasztás konfigurálása](/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
 
--   **Állapot**-mintavétel. A Traffic Manager HTTP- (vagy HTTPS-) [mintavételt](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) használ az egyes régiók rendelkezésre állásának monitorozására. A mintavétel 200-as HTTP-választ vár egy megadott URL-címhez. Ajánlott eljárásként hozzon létre egy olyan végpontot, amely az alkalmazás általános állapotáról ad jelentést, és ezt a végpontot használja az állapotmintához. Ellenkező esetben előfordulhat, hogy a mintavétel megfelelően működő végpontot jelent, miközben az alkalmazás kritikus fontosságú részei valójában hibásak. További információ: állapot- [végpont figyelési mintája](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+-   **Állapot**-mintavétel. A Traffic Manager HTTP- (vagy HTTPS-) [mintavételt](/azure/traffic-manager/traffic-manager-monitoring) használ az egyes régiók rendelkezésre állásának monitorozására. A mintavétel 200-as HTTP-választ vár egy megadott URL-címhez. Ajánlott eljárásként hozzon létre egy olyan végpontot, amely az alkalmazás általános állapotáról ad jelentést, és ezt a végpontot használja az állapotmintához. Ellenkező esetben előfordulhat, hogy a mintavétel megfelelően működő végpontot jelent, miközben az alkalmazás kritikus fontosságú részei valójában hibásak. További információ: állapot- [végpont figyelési mintája](/azure/architecture/patterns/health-endpoint-monitoring).
 
 Amikor a Traffic Manager átadja a feladatokat, az alkalmazás egy ideig nem lesz elérhető a felhasználók számára. Ez az időtartam a következő tényezőktől függ:
 
@@ -67,13 +67,13 @@ Amikor a Traffic Manager átadja a feladatokat, az alkalmazás egy ideig nem les
 
 -   A DNS-kiszolgálóknak frissíteniük kell az IP-címhez tartozó gyorsítótárazott DNS-rekordokat. Ez a DNS élettartamától (TTL) függ. Az alapértelmezett TTL 300 másodperc (5 perc), de ezt az értéket a Traffic Manager-profil létrehozásakor konfigurálhatja.
 
-Részletek: [A Traffic Manager monitorozásának ismertetése](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+Részletek: [A Traffic Manager monitorozásának ismertetése](/azure/traffic-manager/traffic-manager-monitoring).
 
 Ha a Traffic Manager feladatátvételt hajt végre, automatikus feladat-visszavétel megvalósítása helyett a manuális feladat-visszavételt ajánlunk. Ellenkező esetben előfordulhat, hogy egyes esetekben az alkalmazás oda-vissza váltogat a régiók között. A feladat-visszavétel előtt ellenőrizze, hogy az alkalmazás minden alrendszere működik-e.
 
 Vegye figyelembe, hogy a Traffic Manager alapértelmezés szerint automatikusan végrehajtja a feladat-visszavételt. Ennek megelőzéséhez manuálisan csökkentse az elsődleges régió prioritását a feladatátvétel után. Tegyük fel például, hogy az elsődleges régió 1-es prioritású, a második pedig 2-es. A feladatátvétel után az automatikus visszavétel megelőzéséhez állítsa az elsődleges régió prioritását 3-asra. Ha készen áll a váltásra, a vissza, frissítse a prioritást 1-re.
 
-A következő [Azure CLI](https://docs.microsoft.com/cli/azure/)-parancsot frissíti a prioritást:
+A következő [Azure CLI](/cli/azure/)-parancsot frissíti a prioritást:
 
 ```cli  
 az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
@@ -105,15 +105,15 @@ Az rendelkezésre állási csoport konfigurálása:
 
 -   Minden tartományvezérlőhöz rendeljen egy statikus IP-címet.
 
--   Hozzon létre [VPN-](https://docs.microsoft.com/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways) t a két virtuális hálózat közötti kommunikáció engedélyezéséhez.
+-   Hozzon létre [VPN-](./azure-stack-vpn-gateway-about-vpn-gateways.md) t a két virtuális hálózat közötti kommunikáció engedélyezéséhez.
 
--   Minden egyes virtuális hálózat esetében adja hozzá a tartományvezérlők IP-címeit (mindkét régióból) a DNS-kiszolgáló listájához. Ezt az alábbi CLI-paranccsal teheti meg. További információ: [DNS-kiszolgálók módosítása](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+-   Minden egyes virtuális hálózat esetében adja hozzá a tartományvezérlők IP-címeit (mindkét régióból) a DNS-kiszolgáló listájához. Ezt az alábbi CLI-paranccsal teheti meg. További információ: [DNS-kiszolgálók módosítása](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
     ```cli
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Hozzon létre egy [Windows Server feladatátvételi fürtszolgáltatást](https://msdn.microsoft.com/library/hh270278.aspx) (WSFC) fürtöt, amely mindkét régióban tartalmazza SQL Server-példányokat.
+-   Hozzon létre egy [Windows Server feladatátvételi fürtszolgáltatást](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) (WSFC) fürtöt, amely mindkét régióban tartalmazza SQL Server-példányokat.
 
 -   Hozzon létre egy SQL Server Always On rendelkezésre állási csoportot, amely tartalmazza az elsődleges és a másodlagos régió SQL Server-példányait. Ennek lépéseit az [Always On rendelkezésre állási csoport kiterjesztése távoli Azure adatközpontra (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217) című cikkben találja.
 
@@ -123,7 +123,7 @@ Az rendelkezésre állási csoport konfigurálása:
 
     -   Helyezzen egy vagy több másodlagos replikát a másodlagos régióba. Ezeket a teljesítmény érdekében *aszinkron* véglegesítés használatára konfigurálja. (Ellenkező esetben az összes T-SQL-tranzakciónak várnia kell, míg az adatok körbeérnek a hálózaton a másodlagos régióig.)
 
-> [!Note]  
+> [!NOTE]  
 > Az aszinkron véglegesített replikák nem támogatják az automatikus feladatátvételt.
 
 ## <a name="availability-considerations"></a>Rendelkezésre állási szempontok
@@ -134,10 +134,10 @@ A Traffic Manager a rendszer egyik lehetséges meghibásodási pontja. Ha a Traf
 
 Az SQL Server-fürt esetében két feladatátvételi forgatókönyvet kell figyelembe venni:
 
--   Az összes SQL Server-adatbázisreplika meghibásodik az elsődleges régióban. Ez például regionális kimaradás során fordulhat elő. Ebben az esetben manuálisan kell elvégeznie a rendelkezésre állási csoport feladatátvételét, annak ellenére, hogy a Traffic Manager az előtérben automatikusan elvégzi a feladatátvételt. Kövesse a [Kényszerített manuális feladatátvétel elvégzése SQL Server rendelkezésre állási csoporton](https://msdn.microsoft.com/library/ff877957.aspx) című cikk lépéseit. A cikk leírja, hogyan végezhető kényszerített feladatátvétel az SQL Server Management Studio, a Transact-SQL vagy a PowerShell használatával az SQL Server 2016-ban.
+-   Az összes SQL Server-adatbázisreplika meghibásodik az elsődleges régióban. Ez például regionális kimaradás során fordulhat elő. Ebben az esetben manuálisan kell elvégeznie a rendelkezésre állási csoport feladatátvételét, annak ellenére, hogy a Traffic Manager az előtérben automatikusan elvégzi a feladatátvételt. Kövesse a [Kényszerített manuális feladatátvétel elvégzése SQL Server rendelkezésre állási csoporton](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) című cikk lépéseit. A cikk leírja, hogyan végezhető kényszerített feladatátvétel az SQL Server Management Studio, a Transact-SQL vagy a PowerShell használatával az SQL Server 2016-ban.
 
     > [!Warning]  
-    > A kényszerített feladatátvétel esetében adatvesztés fordulhat elő. Amint az elsődleges régió újra elérhetővé válik, készítsen pillanatfelvételt az adatbázisról, és használja a [tablediff](https://msdn.microsoft.com/library/ms162843.aspx) parancsot a különbségek megkereséséhez.
+    > A kényszerített feladatátvétel esetében adatvesztés fordulhat elő. Amint az elsődleges régió újra elérhetővé válik, készítsen pillanatfelvételt az adatbázisról, és használja a [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15) parancsot a különbségek megkereséséhez.
 
 -   A Traffic Manager átadja a feladatokat a másodlagos régiónak, de az elsődleges SQL Server-adatbázisreplika továbbra is elérhető marad. Például előfordulhat, hogy az előtérréteg meghibásodik, de ez nincs hatással az SQL Servert futtató virtuális gépekre. Ebben az esetben a rendszer átirányítja az internetes forgalmat a másodlagos régióba, és ez a régió továbbra is csatlakozhat az elsődleges replikához. Ekkor azonban nagyobb lesz a késés, mivel az SQL Server-kapcsolatoknak több régión kell áthaladniuk. Ebben a helyzetben manuálisan kell végrehajtania a feladatátvételt az alábbiak szerint:
 
@@ -169,6 +169,6 @@ Tesztelje a rendszer meghibásodásokkal szembeni rugalmasságát. Alább talál
 
 Mérje meg a helyreállítási időtartamokat, és győződjön meg róla, hogy azok megfelelnek az üzleti követelményeinek. Több hibaállapot kombinációját is tesztelje.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](https://docs.microsoft.com/azure/architecture/patterns).
+- Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

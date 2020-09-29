@@ -1,5 +1,5 @@
 ---
-title: MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
+title: MySQL erőforrás-szolgáltató karbantartási műveletei – Azure Stack hub
 description: Megtudhatja, hogyan tarthatja karban a MySQL erőforrás-szolgáltató szolgáltatást Azure Stack hub-ban.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698725"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572663"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
@@ -35,7 +35,7 @@ A Defender-definíciók frissítéséhez kövesse az alábbi lépéseket:
 
     A definíciók lapon görgessen le a "a definíciók manuális letöltése és telepítése" elemre. Töltse le a "Windows Defender Antivirus for Windows 10 és a Windows 8,1" 64 bites fájlt.
 
-    Másik lehetőségként használja [ezt a közvetlen hivatkozást](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) a fpam-fe. exe fájl letöltéséhez/futtatásához.
+    Másik lehetőségként [ezt a közvetlen hivatkozást](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) használhatja a fpam-fe.exe fájl letöltéséhez/futtatásához.
 
 2. Nyisson meg egy PowerShell-munkamenetet a MySQL erőforrás-szolgáltatói adapter virtuális gépe karbantartási végpontján.
 
@@ -83,7 +83,7 @@ $session | Remove-PSSession
 
 ```
 
-## <a name="secrets-rotation"></a>Titkok rotációja
+## <a name="secrets-rotation"></a>Titkos kulcsok rotálása
 
 *Ezek az utasítások csak Azure Stack hub integrált rendszerekre vonatkoznak.*
 
@@ -92,6 +92,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 - Az [üzembe helyezés során megadott](azure-stack-pki-certs.md)külső SSL-tanúsítvány.
 - Az erőforrás-szolgáltató virtuális gép helyi rendszergazdai fiókjának jelszava az üzembe helyezés során.
 - Erőforrás-szolgáltató diagnosztikai felhasználói (dbadapterdiag) jelszava.
+- (verzió: >= 1.1.47.0) Key Vault az üzembe helyezés során generált tanúsítvány.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell-példák a titkok elforgatására
 
@@ -105,8 +106,8 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd `  
-    -VMLocalCredential $localCreds
-
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **A diagnosztikai felhasználó jelszavának módosítása:**
@@ -117,7 +118,6 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DiagnosticsUserPassword  $passwd
-
 ```
 
 **A virtuális gép helyi rendszergazdai fiók jelszavának módosítása:**
@@ -128,7 +128,6 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -VMLocalCredential $localCreds
-
 ```
 
 **Módosítsa az SSL-tanúsítvány jelszavát:**
@@ -140,29 +139,40 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd
-
 ```
 
-### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider. ps1 paraméterek
+**Key Vault tanúsítvány jelszavának módosítása:**
 
-|Paraméter|Leírás|
-|-----|-----|
-|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|
-|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|
-|PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|
-|DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|
-|VMLocalCredential|A helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|
-|DefaultSSLCertificatePassword|Az alapértelmezett SSL-tanúsítvány (* pfx) jelszava.|
-|DependencyFilesLocalPath|Függőségi fájlok helyi elérési útja|
-|     |     |
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
+### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 paraméterek
+
+|Paraméter|Leírás|Megjegyzés|
+|-----|-----|-----|
+|AzureEnvironment|Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud**használatával.|Választható|
+|AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|Kötelező|
+|CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|Kötelező|
+|PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|Kötelező|Választható|
+|DiagnosticsUserPassword|A diagnosztikai felhasználói fiók jelszava.|Választható|
+|VMLocalCredential|A helyi rendszergazdai fiók a MySQLAdapter virtuális gépen.|Választható|
+|DefaultSSLCertificatePassword|Az alapértelmezett SSL-tanúsítvány (*. pfx) jelszava.|Választható|
+|DependencyFilesLocalPath|Függőségi fájlok helyi elérési útja|Választható|
+|KeyVaultPfxPassword|Az adatbázis-adapter Key Vault tanúsítványának létrehozásához használt jelszó.|Választható|
+|     |     |     |
 
 ### <a name="known-issues"></a>Ismert problémák
 
 **Kérdés**<br>
 A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
-**Megkerülő megoldás:**<br>
-A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, mentés a C:\Logs.-ben
+**Workaround**<br>
+A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, a C:\Logs.-ben mentett adatokat.
 
 ## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók gyűjtése
 
@@ -222,7 +232,7 @@ $session | Remove-PSSession
 
 A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL erőforrás-szolgáltatói adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt a MySQL erőforrás-szolgáltató működési eseménynaplóinak és az IIS-naplóknak a hibaelhárítási és naplózási célokra való összegyűjtéséhez
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 
 2. A bal oldali ablaktáblán válassza a **virtuális gépek** lehetőséget, keresse meg a MySQL erőforrás-szolgáltatói adapter virtuális gépet, és válassza ki a virtuális gépet.
 
@@ -230,7 +240,7 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL
    
    ![A diagnosztikai beállítások keresése](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/\* Operational!** lehetőséget a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!** lehetőséget a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
 
    ![Eseménynaplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
@@ -244,6 +254,6 @@ Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A MySQL erőforrás-szolgáltató eltávolítása](azure-stack-mysql-resource-provider-remove.md)

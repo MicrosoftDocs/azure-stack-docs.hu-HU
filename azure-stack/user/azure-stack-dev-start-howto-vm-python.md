@@ -3,16 +3,16 @@ title: Python-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális 
 description: Python-webalkalmazás üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 59c6d473a3ac07d82ae40dedc0ff2b719ee51807
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79313010"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571813"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Python-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -26,7 +26,7 @@ Ez a cikk a Python 3. x verzióját használja egy virtuális környezetben egy 
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protocol (Protokoll) | Leírás |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -34,7 +34,7 @@ Ez a cikk a Python 3. x verzióját használja egy virtuális környezetben egy 
     | 3389 | RDP | Választható. A RDP protokoll (RDP) lehetővé teszi, hogy a távoli asztali kapcsolat grafikus felhasználói felületet használjon a gépen.   |
     | 5000, 8000 | Egyéni | A lombik webes keretrendszere által a fejlesztés során használt portok. Üzemi kiszolgálók esetében a 80-es és a 443-os adatforgalmat irányítja át. |
 
-## <a name="install-python"></a>Telepítse a Pythont
+## <a name="install-python"></a>A Python telepítése
 
 1. Csatlakozzon a virtuális géphez az SSH-ügyfél használatával. Útmutatásért lásd: [kapcsolat SSH-n keresztül a PuTTY használatával](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty).
 2. A virtuális gépen a bash-parancssorba írja be a következő parancsot:
@@ -93,7 +93,7 @@ Ez a cikk a Python 3. x verzióját használja egy virtuális környezetben egy 
 
 1. Csatlakozzon a virtuális géphez az SSH-munkamenetben. A CTRL + C billentyűkombináció beírásával állítsa le a kiszolgálót.
 
-2. Adja meg a következő parancsokat:
+2. Írja be a következő parancsokat:
 
     ```bash  
     deactivate
@@ -109,7 +109,7 @@ Ez a cikk a Python 3. x verzióját használja egy virtuális környezetben egy 
     flask run -h 0.0.0.0
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

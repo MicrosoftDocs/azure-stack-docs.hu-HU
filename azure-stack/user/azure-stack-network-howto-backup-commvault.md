@@ -1,5 +1,5 @@
 ---
-title: A virtuális gép biztonsági mentése Azure Stack-hubhoz a CommVault használatával
+title: Virtuális gép biztonsági mentése a CommVault-mel Azure Stack hub-on
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a virtuális gépről Azure Stack hub-on a CommVault.
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 390c6fdb3268dee90b0928b5a280d60c08c1e7fa
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742505"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571881"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -22,7 +22,7 @@ Ez a cikk végigvezeti a CommVault élő szinkronizálás konfigurálásán, és
 
 A következő ábra a teljes megoldást mutatja be, amikor a CommVault használatával készít biztonsági mentést a virtuális gépekről.
 
-![](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
+![A diagram bemutatja, hogyan használhatók az CommVault az Azure stackből egy másik verembe vagy az Azure-felhőbe való replikáláshoz.](./media/azure-stack-network-howto-backup-commvault/bcdr-commvault-overall-arc.png)
 
 Ebben a cikkben a következőket fogja megtekinteni:
 
@@ -32,21 +32,21 @@ Ebben a cikkben a következőket fogja megtekinteni:
 
 3. Konfigurálja a CommVault a forrás Azure Stack hub-példányon, és vegyen fel virtuális gépeket a forrás Azure Stack hubhoz a virtuálisgép-csoportba.
 
-4. Konfigurálja a CommVault LifeSync.
+4. A CommVault élő szinkronizálásának konfigurálása.
 
 Az Azure Stack hub-beli virtuális gépek Azure-felhőbe vagy más Azure Stack hubhoz való ellátásához letöltheti és felkínálhatja a kompatibilis partneri virtuálisgép-rendszerképeket is. Ez a cikk bemutatja a virtuális gépek védelmét a CommVault Live Sync szolgáltatással.
 
 Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fog kinézni:
 
-![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
+![Az ábrán egy COMMVAULT VSA-proxytól származó adatútvonal látható a Azure Stack hub 1 Azure Stack hub 2 csomópontján, amely egy olyan helyreállítási virtuális géppel rendelkezik, amely az 1. hubhoz való biztonsági mentéshez szükséges.](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
-## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>A CommVault virtuális gép létrehozása a CommVault Marketplace-elemmel
+## <a name="create-the-commvault-vm-from-the-commvault-marketplace-item"></a>A CommVault virtuális gép létrehozása a CommVault Marketplace-elemből
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza **az erőforrás** > **létrehozása számítási** > **CommVault**lehetőséget.
+2. Válassza **az erőforrás létrehozása**  >  **számítási**  >  **CommVault**lehetőséget.
 
-    > [!Note]  
+    > [!NOTE]  
     > Ha a CommVault nem érhető el, forduljon a felhő üzemeltetőjéhez.
 
     ![Virtuális gép létrehozása](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
@@ -55,7 +55,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
 
     a. Adjon meg egy **nevet**.
 
-    b. Válassza a **normál HHD**lehetőséget.
+    b. Válassza a **standard HDD**lehetőséget.
     
     c. Adjon meg egy **felhasználónevet**.
     
@@ -65,17 +65,17 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     f. Válasszon egy **előfizetést** a biztonsági mentéshez.
     
-    g. Válasszon ki egy **erőforráscsoportot**.
+    : Válasszon ki egy **erőforráscsoportot**.
     
     h. Válassza ki az Azure Stack hub **helyét** . Ha ASDK használ, válassza a **helyi**lehetőséget.
     
-    i. Kattintson az **OK** gombra.
+    i. Válassza az **OK** lehetőséget.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
+    ![Az "irányítópult > új > virtuális gép létrehozása > méret választása" párbeszédpanel megjeleníti a virtuális gép méretezési lehetőségeinek listáját.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
 
 4. Válassza ki a CommVault virtuális gép méretét. A biztonsági mentéshez használt virtuális gép méretének legalább 10 GB RAM-nak és 100 GB tárhellyel kell lennie.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
+    ![A virtuális gép létrehozásához használandó beállításokat a "irányítópult > új > virtuális gép > beállításainak létrehozása" párbeszédpanel mutatja.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
 
 5. Válassza ki a CommVault virtuális gép beállításait.
 
@@ -91,7 +91,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     f. Hagyja meg a virtuális gépet az **Alapszintű** hálózati biztonsági csoportban.
     
-    g. Nyissa meg a HTTP (80), HTTPS (443), SSH (22) és RDP (3389) portot.
+    : Nyissa meg a HTTP (80), HTTPS (443), SSH (22) és RDP (3389) portot.
     
     h. Válassza a **nincsenek kiterjesztések**lehetőséget.
     
@@ -101,13 +101,13 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     k. Hagyja meg az alapértelmezett **diagnosztikai Storage-fiókot**.
     
-    l. Kattintson az **OK** gombra.
+    l. Válassza az **OK** lehetőséget.
 
-6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Kattintson az **OK** gombra.
+6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Válassza az **OK** lehetőséget.
 
 ## <a name="get-your-service-principal"></a>Az egyszerű szolgáltatás beszerzése
 
-Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő táblázat tartalmazza azokat az információkat, amelyeknek a CommVault az Azure Stack központban kell beállítania.
+Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő táblázat tartalmazza azokat az információkat, amelyeknek a CommVault az Azure Stack központban kell beállítania.
 
 | Elem | Leírás | Forrás |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,20 +124,20 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 2. Telepítse Azure Stack hub PowerShell-t és Azure Stack hub-eszközöket a CommVault virtuális gépre.
 
-    a. Az Azure Stack hub PowerShell telepítésével kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
-    b. Azure Stack hub-eszközök telepítésére vonatkozó utasításokért lásd: [Azure stack hub-eszközök letöltése a githubról](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
+    a. Az Azure Stack hub PowerShell telepítésével kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    b. Azure Stack hub-eszközök telepítésére vonatkozó utasításokért lásd: [Azure stack hub-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
-3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **CommVault** > **CommVault Commcell-konzol**elemet.
+3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **CommVault**  >  **CommVault Commcell-konzol**elemet.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
+    ![A Commcell-konzolon van egy navigációs ablaktábla a bal oldalon, amely a Commcell böngésző címmel rendelkezik. A jobb oldali ablaktábla egy Első lépések füles lapot jelenít meg.](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
 4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **felhő**lehetőséget.
 
 5. Adja hozzá a Storage-készlet nevét. Kattintson a **Tovább** gombra.
 
-6. Válassza a**Felhőbeli tároló** **létrehozása** > lehetőséget.
+6. Válassza **Create**a  >  **Felhőbeli tároló**létrehozása lehetőséget.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
+    ![A StorageDevice # párbeszédpanel az általános Többlapos oldalt jeleníti meg a létrehozandó tárolóeszköz megadására szolgáló különböző listával és szövegmezővel.](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
 7. Válassza ki a felhőalapú szolgáltatót. Ebben az eljárásban egy második Azure Stack hubot fogunk használni egy másik helyen. Válassza a Microsoft Azure Storage lehetőséget.
 
@@ -145,7 +145,7 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 9. Adja meg a Storage-fiókjához tartozó hozzáférési adatokat. Itt megtalálhatja az Azure Storage-fiók beállításával kapcsolatos utasításokat. Hozzáférési információk:
 
-    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https:\//backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
+    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https: \/ /backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
     
     -   **Fiók neve**: használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
     
@@ -157,7 +157,7 @@ Tudnia kell, hogy az Identity Manager az Azure AD vagy az AD DFS. A következő 
 
 10. Hozzon létre egy Microsoft Azure Stack hub-ügyfelet [egy Microsoft Azure stack hub-ügyfél létrehozásához](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) szükséges utasítások követésével
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
+    ![A Azure Stack-ügyfél létrehozása párbeszédpanel tartalmazza a-ügyfél jellemzőinek megadására szolgáló listát és szövegmezőket.](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
 11. Válassza ki azokat a virtuális gépeket vagy erőforráscsoportokat, amelyeknek védelemmel kell ellátnia a biztonsági mentési szabályzatot.
 
@@ -173,21 +173,21 @@ Két lehetőség érhető el. Dönthet úgy, hogy replikálja a módosításokat
 
 2. Az CommVault Live Sync konfigurálásának lépéseiért lásd: [Microsoft Azure stack hub élő szinkronizálásának replikációja](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm).
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
+    ![A Commcell-konzol megjeleníti a "VM-Kr-CVLT > ügyfélszámítógépek > ASIC Azure Stack > Virtual Server > Azure stack > defaultBackupSet" lapot. Az oldalon található off stack Protection helyi menüjében élő szinkronizálási > konfigurációs beállítás található.](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
 3. Az élő szinkronizálás konfigurálása során meg kell adnia a cél Azure Stack hub és a virtuális kiszolgáló ügynökének részleteit.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
+    ![A kikapcsolt verem védelme varázsló élő szinkronizálási lehetőségeinek cél lépése a virtualizációs ügyfél és a proxykiszolgáló megadására szolgáló lista mezői.](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
 4. Folytassa a konfigurációt, és adja hozzá azt a célként megadott Storage-fiókot, ahol a replika-lemezek lesznek tárolva, a replika virtuális gépeket tartalmazó erőforráscsoport (ok) és a replika virtuális gépekhez csatolni kívánt név.
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
+    ![A virtuális gépek kikapcsolásához a stack Protection varázsló élő szinkronizálási lehetőségeinek Virtual Machines lépése lehetővé teszi a virtuális gépek hozzáadását és eltávolítását.](./media/azure-stack-network-howto-backup-commvault/live-sync-3.png)
 
-5. A virtuális gép méretét és a hálózati beállításokat úgy is megváltoztathatja, hogy az egyes virtuális gépek mellett a **configure (Konfigurálás** ) lehetőséget választja.
+5. A virtuális gép méretét és a hálózati beállításokat úgy is megváltoztathatja, hogy az egyes virtuális gépek mellett a  **configure (Konfigurálás** ) lehetőséget választja.
 
 6. A replikálás gyakoriságának beállítása a cél Azure Stack hubhoz
 
-    ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
+    ![Az élő szinkronizálási lehetőségek az alügyfél kikapcsolt verem védelméhez varázslójának feladatok beállításai lépésével megadhatja a biztonsági mentési ütemtervet.](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
 7. A konfiguráció mentéséhez tekintse át a beállításokat. A rendszer ekkor létrehozza a helyreállítási környezetet, és a replikáció a kiválasztott intervallum szerint kezdődik.
 
@@ -196,16 +196,16 @@ Két lehetőség érhető el. Dönthet úgy, hogy replikálja a módosításokat
 
 Az CommVault Live Sync lehetővé teszi, hogy a gépeket az eredeti Azure Stack hub-ban folytatott műveletek folytatása érdekében feladatátvételt hajtson végre az egyik Azure Stack hub-ról egy másikra. A munkafolyamat automatizált és naplózva van.
 
-![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
+![A felügyeleti konzol replikációs figyelő lapja nem jelenít meg a replikálási RPO panel különböző alablaktáblájához tartozó adatmennyiséget. A replikálási figyelő ablaktáblán két virtuális gép látható. Mindegyikhez van egy sor replikációs információ.](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
 Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási Azure Stack hubhoz, és válasszon egy tervezett vagy nem tervezett feladatátvételt. A tervezett feladatátvétel akkor megfelelő, ha a helyreállítási helyen végzett műveletek folytatása előtt idő van az éles környezet leállítására. A tervezett feladatátvétel leállítja az éles virtuális gépeket, a végső módosításokat replikálja a helyreállítási helyre, és a legújabb értékekkel online állapotba helyezi a helyreállítási virtuális gépeket, és alkalmazza a virtuális gép méretét és a hálózati konfigurációt az élő szinkronizálás konfigurálása során. A nem tervezett feladatátvétel megkísérli leállítani az éles virtuális gépeket, de folytatja, ha az éles környezet nem érhető el, és egyszerűen a helyreállítási virtuális gépeket online állapotba helyezi a virtuális gépre alkalmazott utolsó fogadott replikációs adatkészlettel, valamint a korábban kiválasztott mérettel és hálózati konfigurációval. Az alábbi képek egy nem tervezett feladatátvételt mutatnak be, amelyben a helyreállítási virtuális gépek online állapotba kerültek a CommVault Live Sync használatával.
 
-![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
+![A "feladat összegzése" a vész-helyreállítási eseményekre vonatkozó információkat jeleníti meg, beleértve a típust, a prioritást, a "kezdési időt" és a "befejezési időt".](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
+![Az Events (események) nevű lista egyetlen eseményt mutat be, amelyet "DR-előkészítési feladatoknak" neveztek le. Erre az eseményre vonatkozóan más információk is rendelkezésre állnak.](./media/azure-stack-network-howto-backup-commvault/fail-over-2.png)
 
-![](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
+![A fázis részletei című lista hat eseményt mutat be négy gépen. Minden esetben a fázis neve, az állapot, a kezdési idő és a befejezési idő szerepel. A fázisok nevei kikapcsolva, bekapcsolva, a szinkronizálás letiltása és a post művelet.](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

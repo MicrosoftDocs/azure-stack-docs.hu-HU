@@ -1,18 +1,18 @@
 ---
-title: Erőforrások replikálása több Azure Stack hub-előfizetésen keresztül
+title: Erőforrások replikálása több Azure Stack hub-előfizetés között
 description: Ismerje meg, hogyan replikálhatja az erőforrásokat az Azure Stack hub-előfizetés replikátor-készletének használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173913"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571694"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -26,21 +26,21 @@ Az Azure-előfizetési replikátor modulárisnak lett tervezve. Ez az eszköz eg
 
 Az alapvető processzor a következő három parancsfájlból áll:
 
-- **resource_retriever. ps1**
+- **resource_retriever.ps1**
 
     - Mappákat hoz létre a kimeneti fájlok tárolásához.
 
     - Környezet beállítása a forrás-előfizetésre.
 
-    - Lekéri az erőforrásokat, és átadja azokat a **resource_processor. ps1**-nek.
+    - Lekéri az erőforrásokat, és átadja azokat a **resource_processor.ps1**.
 
-- **resource_processor. ps1**
+- **resource_processor.ps1**
 
-    - Feldolgozza **resource_retriever. ps1**által átadott erőforrást.
+    - Feldolgozza **resource_retriever.ps1**által átadott erőforrást.
 
     - Meghatározza, hogy melyik testreszabott processzort kell használni, és átadja az erőforrásokat.
 
-- **post_process. ps1**
+- **post_process.ps1**
 
     - A post feldolgozza a testreszabott processzor által létrehozott kimenetet, hogy előkészítse a cél előfizetésben való üzembe helyezést.
 
@@ -48,13 +48,13 @@ Az alapvető processzor a következő három parancsfájlból áll:
 
 A három szkript egy szabványos módon vezérli az adatok áramlását, így nagyobb rugalmasságot biztosít. További erőforrások támogatásának hozzáadásával például nem kell megváltoztatnia az alapprocesszorban található kódokat.
 
-A fent említett testreszabott processzorok olyan `ps1` fájlok, amelyek egy bizonyos típusú erőforrás feldolgozását írják le. A testreszabott processzorok neve mindig az erőforrás típusú adattípussal van elnevezve. Tegyük fel például `$vm` , hogy a virtuális gép objektuma `$vm`fut. A típus hozama `Microsoft.Compute/virtualMachines`. Ez azt jelenti, hogy egy virtuális gép processzora megnevezett `virtualMachines_processor.ps1`, a névnek pontosan úgy kell lennie, ahogy az erőforrás-metaadatokban jelenik meg, ahogyan az a fő processzor határozza meg, hogy melyik testreszabott processzort használja.
+A fent említett testreszabott processzorok olyan fájlok, amelyek `ps1` egy bizonyos típusú erőforrás feldolgozását írják le. A testreszabott processzorok neve mindig az erőforrás típusú adattípussal van elnevezve. Tegyük fel például, hogy `$vm` a virtuális gép objektuma fut `$vm` . A típus hozama `Microsoft.Compute/virtualMachines` . Ez azt jelenti, hogy egy virtuális gép processzora megnevezett `virtualMachines_processor.ps1` , a névnek pontosan úgy kell lennie, ahogy az erőforrás-metaadatokban jelenik meg, ahogyan az a fő processzor határozza meg, hogy melyik testreszabott processzort használja.
 
-Egy testreszabott processzor azt diktálja, hogy az erőforrást hogyan kell replikálni annak meghatározásával, hogy milyen információk fontosak, és hogy az információk hogyan legyenek kihúzva az erőforrás-metaadatokból. A testreszabott processzor Ezután elvégzi az összes kibontott adatmennyiséget, és felhasználja egy Azure Resource Manager sablonnal együtt használt Parameters-fájl létrehozásához, hogy az erőforrást a cél előfizetésben telepítse. Ezt a paramétert a **Parameter_Files** a post_process. ps1 által feldolgozott post után tárolja a rendszer.
+Egy testreszabott processzor azt diktálja, hogy az erőforrást hogyan kell replikálni annak meghatározásával, hogy milyen információk fontosak, és hogy az információk hogyan legyenek kihúzva az erőforrás-metaadatokból. A testreszabott processzor Ezután elvégzi az összes kibontott adatmennyiséget, és felhasználja egy Azure Resource Manager sablonnal együtt használt Parameters-fájl létrehozásához, hogy az erőforrást a cél előfizetésben telepítse. Ezt a paramétert a **Parameter_Files** a post_process.ps1 által feldolgozott post után tárolja.
 
-A replikátor-fájl struktúrájában a **Standardized_ARM_Templates**nevű mappa található. A forrás-környezettől függően az üzemelő példányok ezen szabványosított Azure Resource Manager-sablonok valamelyikét fogják használni, vagy egy testreszabott Azure Resource Manager sablont kell létrehozni. Ebben az esetben a testreszabott processzornak meg kell hívnia egy Azure Resource Manager sablon-generátort. A korábban elindított példában a virtuális gépekhez tartozó Azure Resource Manager sablon-generátor neve **virtualMachines_ARM_Template_Generator. ps1**néven szerepel. A Azure Resource Manager sablon-generátor felelős egy testreszabott Azure Resource Manager sablon létrehozásához, amely alapján az adott erőforrás metaadataiban található információk alapján kell létrehoznia. Ha például a virtuális gép erőforrásához metaadatok vannak megadva, hogy az egy rendelkezésre állási csoport tagja, akkor a Azure Resource Manager template Generator létrehoz egy kódot tartalmazó Azure Resource Manager sablont, amely megadja annak a rendelkezésre állási csoportnak az AZONOSÍTÓját, amely a virtuális gép részét képezi. Így amikor a virtuális gépet üzembe helyezi az új előfizetésre, automatikusan bekerül a rendelkezésre állási csoportba az üzembe helyezés után. Ezeket a testreszabott Azure Resource Manager sablonokat a **Standardized_ARM_Templates** mappában található **Custom_ARM_Templates** mappában tárolja a rendszer. A post_processor. ps1 feladata annak megállapítása, hogy egy üzemelő példány egy szabványosított Azure Resource Manager sablont vagy egy testreszabott alkalmazást használ-e, és létrehozza-e a megfelelő központi telepítési kódot.
+A replikátor-fájl struktúrájában a **Standardized_ARM_Templates**nevű mappa található. A forrás-környezettől függően az üzemelő példányok ezen szabványosított Azure Resource Manager-sablonok valamelyikét fogják használni, vagy egy testreszabott Azure Resource Manager sablont kell létrehozni. Ebben az esetben a testreszabott processzornak meg kell hívnia egy Azure Resource Manager sablon-generátort. A korábban elindított példában a virtuális gépekhez tartozó Azure Resource Manager sablon-generátor neve **virtualMachines_ARM_Template_Generator.ps1**nevet kapta. A Azure Resource Manager sablon-generátor felelős egy testreszabott Azure Resource Manager sablon létrehozásához, amely alapján az adott erőforrás metaadataiban található információk alapján kell létrehoznia. Ha például a virtuális gép erőforrásához metaadatok vannak megadva, hogy az egy rendelkezésre állási csoport tagja, akkor a Azure Resource Manager template Generator létrehoz egy kódot tartalmazó Azure Resource Manager sablont, amely megadja annak a rendelkezésre állási csoportnak az AZONOSÍTÓját, amely a virtuális gép részét képezi. Így amikor a virtuális gépet üzembe helyezi az új előfizetésre, automatikusan bekerül a rendelkezésre állási csoportba az üzembe helyezés után. Ezeket a testreszabott Azure Resource Manager sablonokat a **Standardized_ARM_Templates** mappában található **Custom_ARM_Templates** mappában tárolja a rendszer. A post_processor.ps1 feladata annak megállapítása, hogy egy központi telepítés egy szabványosított Azure Resource Manager sablont vagy egy testreszabott, valamint a hozzá tartozó központi telepítési kódot kívánja-e használni.
 
-A **post-Process. ps1** parancsfájl feladata a paraméterek fájljainak törlése és a felhasználó által az új erőforrások üzembe helyezéséhez használt parancsfájlok létrehozása. A tisztítási fázisban a parancsfájl a forrás-előfizetési AZONOSÍTÓra, a bérlői AZONOSÍTÓra és a helyre mutató összes hivatkozást lecseréli a megfelelő célértékek alapján. Ezután kiírja a paramétereket tartalmazó fájlt a **Parameter_Files** mappába. Ezután meghatározza, hogy a feldolgozás alatt álló erőforrás testreszabott Azure Resource Manager sablont használ-e, vagy sem, és létrehozza a megfelelő központi telepítési kódot, amely a **New-AzureRmResourceGroupDeployment** parancsmagot használja. A rendszer Ezután hozzáadja a telepítési kódot a **Deployment_Files** mappában tárolt **DeployResources. ps1** nevű fájlhoz. Végül a parancsfájl meghatározza azt az erőforráscsoportot, amelyhez az erőforrás tartozik, és a **DeployResourceGroups. ps1** parancsfájlban ellenőrzi, hogy az erőforráscsoport üzembe helyezési kódja már létezik-e. Ha nem, akkor a parancsfájlhoz hozzá kell adnia egy kódot az erőforráscsoport üzembe helyezéséhez, ha ez nem történik meg.
+A parancsfájl **post-process.ps1** felelős a paraméterek fájljainak tisztításához és a felhasználó által az új erőforrások üzembe helyezéséhez használt parancsfájlok létrehozásához. A tisztítási fázisban a parancsfájl a forrás-előfizetési AZONOSÍTÓra, a bérlői AZONOSÍTÓra és a helyre mutató összes hivatkozást lecseréli a megfelelő célértékek alapján. Ezután kiírja a paramétereket tartalmazó fájlt a **Parameter_Files** mappába. Ezután meghatározza, hogy a feldolgozás alatt álló erőforrás testreszabott Azure Resource Manager sablont használ-e, vagy sem, és létrehozza a megfelelő központi telepítési kódot, amely a **New-AzureRmResourceGroupDeployment** parancsmagot használja. A rendszer Ezután hozzáadja a telepítési kódot a **Deployment_Files** mappában tárolt **DeployResources.ps1** nevű fájlhoz. Végül a parancsfájl meghatározza azt az erőforráscsoportot, amelyhez az erőforrás tartozik, és a **DeployResourceGroups.ps1** parancsfájlban ellenőrzi, hogy az erőforráscsoport üzembe helyezési kódja már létezik-e. Ha nem, akkor a parancsfájlhoz hozzá kell adnia egy kódot az erőforráscsoport üzembe helyezéséhez, ha ez nem történik meg.
 
 ### <a name="dynamic-api-retrieval"></a>Dinamikus API-lekérés
 
@@ -62,7 +62,7 @@ Az eszköz beépített dinamikus API-beolvasási szolgáltatásának része, hog
 
 ![API-lekérések ábrája](./media/azure-stack-network-howto-backup-replicator/image1.png)
 
-Az API-beolvasás ábrája **resource_processor. ps1**-ben.
+A **resource_processor.ps1**API-lekérésének ábrája.
 
 Azonban előfordulhat, hogy a cél-előfizetés erőforrás-szolgáltatójának API-verziója régebbi, mint a forrás-előfizetés, és nem támogatja a forrás-előfizetéshez megadott verziót. Ebben az esetben a rendszer a központi telepítés futtatásakor hibát jelez. Ennek megoldásához frissítse a cél előfizetésben lévő erőforrás-szolgáltatókat, hogy azok megfeleljenek a forrás-előfizetésben szereplőknek.
 
@@ -72,18 +72,18 @@ Az eszközhöz a **Parallel**nevű paraméter szükséges. Ez a paraméter egy l
 
 ## <a name="add-additional-resource-types"></a>További erőforrástípusok hozzáadása
 
-Az új erőforrástípusok hozzáadása egyszerű. A fejlesztőnek létre kell hoznia egy testreszabott processzort, valamint egy Azure Resource Manager sablont vagy egy Azure Resource Manager sablon-generátort. A befejezést követően a fejlesztőnek hozzá kell adnia az erőforrástípust a **$resourceType** paraméterhez és a **$resourceTypes** tömbhöz a resource_retriever. ps1 ValidateSet. Az erőforrástípus a **$resourceTypes** tömbhöz való hozzáadásakor a megfelelő sorrendben kell hozzáadni. A tömb sorrendje határozza meg, hogy az erőforrások milyen sorrendben lesznek telepítve, ezért ne feledje, hogy a függőségek megmaradnak. Végül, ha a testreszabott processzor egy Azure Resource Manager sablon-generátort használ, hozzá kell adnia az erőforrástípus nevét a **$customTypes** tömbhöz **post_process. ps1**-ben.
+Az új erőforrástípusok hozzáadása egyszerű. A fejlesztőnek létre kell hoznia egy testreszabott processzort, valamint egy Azure Resource Manager sablont vagy egy Azure Resource Manager sablon-generátort. A befejezést követően a fejlesztőnek hozzá kell adnia az erőforrástípust a **$resourceType** paraméter és a **$resourceTypes** tömb ValidateSet az resource_retriever.ps1ban. Az erőforrástípus a **$resourceTypes** tömbhöz való hozzáadásakor a megfelelő sorrendben kell hozzáadni. A tömb sorrendje határozza meg, hogy az erőforrások milyen sorrendben lesznek telepítve, ezért ne feledje, hogy a függőségek megmaradnak. Végül, ha a testreszabott processzor egy Azure Resource Manager template Generatort használ, az erőforrástípus nevét fel kell vennie a **$customTypes** tömbbe **post_process.ps1**.
 
 ## <a name="run-azure-subscription-replicator"></a>Azure-előfizetési replikátor futtatása
 
-Az Azure-előfizetési replikátor (v3) eszköz futtatásához el kell indítania a resource_retriever. ps1 eszközt, amely az összes paramétert megadja. A **resourceType** paraméterrel lehetőség van az **összes** adattípus kiválasztására. Ha az **összes** ki van választva, a resource_retriever. ps1 feldolgozza az összes erőforrást egy sorrendben, hogy a központi telepítés Mikor fusson, a rendszer először a függő erőforrásokat telepíti. Ha például a virtuális gépek előtt üzembe helyezi a virtuális hálózatok-ket, a virtuális gépekhez VNet van szükség ahhoz, hogy megfelelően üzembe lehessen helyezni őket.
+Az Azure-előfizetési replikátor (v3) eszköz futtatásához el kell indítania resource_retriever.ps1t, és meg kell adnia az összes paramétert. A **resourceType** paraméterrel lehetőség van az **összes** adattípus kiválasztására. Ha az **összes** ki van választva, resource_retriever.ps1 az összes erőforrást feldolgozza egy sorrendben, hogy a központi telepítés Mikor fusson, a rendszer először a függő erőforrásokat telepíti. Ha például a virtuális gépek előtt üzembe helyezi a virtuális hálózatok-ket, a virtuális gépekhez VNet van szükség ahhoz, hogy megfelelően üzembe lehessen helyezni őket.
 
 Ha a parancsfájl végrehajtása befejeződött, három új mappa, **Deployment_Files**, **Parameter_Files**és **Custom_ARM_Templates**jelenik meg.
 
- > [!Note]  
+ > [!NOTE]  
  > A generált parancsfájlok bármelyikének futtatása előtt be kell állítania a megfelelő környezetet, és be kell jelentkeznie a cél előfizetésbe (az új Azure Stack hub for ex esetében), és a munkakönyvtárat a **Deployment_Files** mappába kell beállítania.
 
-Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1**fájlt fog tárolni. A DeployResourceGroups. ps1 futtatása az erőforráscsoportok telepítését végzi. A DeployResources. ps1 futtatása a feldolgozott összes erőforrást üzembe helyezi. Abban az esetben, ha az eszköz az **összes** vagy a **Microsoft. számítás/virtualMachines** erőforrás-típussal lett végrehajtva, a DeployResources. ps1 megkéri a felhasználót, hogy adjon meg egy virtuálisgép-rendszergazdai jelszót, amelyet az összes virtuális gép létrehozásához használni fog.
+Deployment_Files két fájlt fog tárolni **DeployResourceGroups.ps1** és **DeployResources.ps1**. A DeployResourceGroups.ps1 végrehajtása az erőforráscsoportok központi telepítését végzi. A DeployResources.ps1 végrehajtása a feldolgozott összes erőforrást telepíti. Abban az esetben, ha az eszköz az **összes** vagy a **Microsoft. számítási/virtualMachines** erőforrás-típussal lett végrehajtva, DeployResources.ps1 megkéri a felhasználót, hogy adjon meg egy virtuálisgép-rendszergazdai jelszót, amelyet az összes virtuális gép létrehozásához használni fog.
 
 ### <a name="example"></a>Példa
 
@@ -91,22 +91,22 @@ Deployment_Files két, **DeployResourceGroups. ps1** és **DeployResources. ps1*
 
     ![A szkript futtatása](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Ne felejtse el konfigurálni a forrás evironment és a PS-példány előfizetési környezetét. 
 
 2.  Tekintse át az újonnan létrehozott mappákat:
 
     ![A mappák áttekintése](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre**, telepítse az erőforráscsoportot (futtassa az DeployResourceGroups. ps1 parancsfájlt), majd indítsa el az erőforrás-telepítést (futtassa a DeployResources. ps1 parancsfájlt).
+3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre**, telepítse az erőforráscsoportot (futtassa a DeployResourceGroups.ps1 parancsfájlt), majd indítsa el az erőforrás-telepítést (futtassa a DeployResources.ps1 szkriptet).
 
     ![A központi telepítés konfigurálása és elindítása](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-4.  Az `Get-Job` állapot ellenõrzéséhez futtassa a parancsot. Get-Job | A Receive-Job az eredményeket fogja visszaadni.
+4.  `Get-Job`Az állapot ellenõrzéséhez futtassa a parancsot. Get-Job | A Receive-Job az eredményeket fogja visszaadni.
 
-## <a name="clean-up"></a>A fölöslegessé vált elemek eltávolítása
+## <a name="clean-up"></a>A feleslegessé vált elemek eltávolítása
 
-A replicatorV3 mappában található egy **cleanup_generated_items. ps1** nevű fájl, amely eltávolítja a **Deployment_Files**, a **Parameter_Files**és a **Custom_ARM_Templates** mappát és annak teljes tartalmát.
+A replicatorV3 mappában található egy **cleanup_generated_items.ps1** nevű fájl, amely eltávolítja a **Deployment_Files**, a **Parameter_Files**és a **Custom_ARM_Templates** mappát és annak teljes tartalmát.
 
 ## <a name="subscription-replicator-operations"></a>Előfizetés-replikációs műveletek
 
@@ -170,7 +170,7 @@ Ha az eszközt az **összes** erőforrás-típussal futtatja, a replikálás és
             -Hálózati biztonsági csoport konfigurálása  
             – Rendelkezésre állási csoport konfigurációja  
 
-> [!Note]  
+> [!NOTE]  
 > Csak felügyelt lemezeket hoz létre az operációsrendszer-lemez és az adatlemezek számára. Jelenleg nem támogatott a Storage-fiókok használata 
 
 ### <a name="limitations"></a>Korlátozások
@@ -183,6 +183,6 @@ Ha Azure Stack a kereskedelmi Azure-ból a kereskedelmi Azure-ba vagy egy előfi
 
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

@@ -1,17 +1,17 @@
 ---
-title: Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on
+title: Virtuális gép üzembe helyezése biztonságos tárolt tanúsítvánnyal Azure Stack hub-on
 description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet rá tanúsítványokat Azure Stack hub kulcstartójának használatával
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744869"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571830"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on
 
@@ -44,7 +44,7 @@ A következő lépések azt írják le, hogy milyen folyamat szükséges a tanú
 
 ## <a name="create-a-key-vault-secret"></a>Key Vault-titok létrehozása
 
-A következő szkript egy. pfx formátumú tanúsítványt hoz létre, létrehoz egy kulcstartót, és a Key vaultban tárolja a tanúsítványt titkos kulcsként.
+A következő szkript egy. pfx formátumú tanúsítványt hoz létre, létrehoz egy kulcstartót, és a Key vaultban tárolja a tanúsítványt titkos kulcsként. A titok értékének a következőnek kell `contentType` lennie: `pfx` .
 
 > [!IMPORTANT]
 > A `-EnabledForDeployment` Key Vault létrehozásakor a paramétert kell használnia. Ez a paraméter biztosítja, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
@@ -181,7 +181,7 @@ Az alábbi példa bemutatja, hogyan tilthatja le a tanúsítványokat. A `VaultN
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault elérésének engedélyezése az alkalmazás számára](azure-stack-key-vault-sample-app.md)

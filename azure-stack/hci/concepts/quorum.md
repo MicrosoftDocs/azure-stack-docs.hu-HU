@@ -1,20 +1,20 @@
 ---
-title: A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben
+title: A fürt és a készlet Kvórumának megismerése – Azure Stack HCI
 description: A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben Közvetlen tárolóhelyekban, konkrét példákkal a bonyolult feladatra.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/21/2020
+ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025677"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572123"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben
 
->A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 A [Windows Server feladatátvételi fürtszolgáltatás](/windows-server/failover-clustering/failover-clustering-overview) magas rendelkezésre állást biztosít a munkaterhelések számára. Ezek az erőforrások akkor tekinthetők nagyon elérhetőnek, ha az erőforrásokat futtató csomópontok vannak. a fürthöz azonban általában több mint felet kell futtatni, ami a *kvórumnak*is ismert.
 
@@ -35,7 +35,7 @@ Az alábbi táblázat áttekintést nyújt a fürt Kvórumának eredményeiről 
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | 50/50                               | Nem                                                | Nem                                                 |
 | 2 + tanú  | Igen                                 | Nem                                                | Nem                                                 |
-| 3            | Igen                                 | 50/50                                             | Nem                                                 |
+| 3            | Yes                                 | 50/50                                             | No                                                 |
 | 3 + tanúsító  | Igen                                 | Igen                                               | Nem                                                 |
 | 4            | Igen                                 | Igen                                               | 50/50                                              |
 | 4 + tanúsító  | Igen                                 | Igen                                               | Igen                                                |
@@ -59,7 +59,7 @@ A fürt két módon teheti meg a páratlan *szavazatok teljes számát* :
 1. Először is felteheti *az egyiket* , ha egy további szavazással felvesz egy *tanúsító* . Ehhez felhasználói beállításra van szükség.
 2. Az is előfordulhat, hogy *az egyik a* nem szerencsés csomópontok szavazásának nullázása (ha szükséges, automatikusan történik).
 
-Amikor a túlélő csomópontok sikeresen ellenőrzik a *többséget*, a *többség* definíciója frissül, hogy csak a túlélők közé tartozik. Ez lehetővé teszi, hogy a fürt elveszítse az egyik csomópontot, majd egy másikat, majd egy másikat és így tovább. Az egymást követő meghibásodások utáni *szavazatok teljes számát* a ***dinamikus kvórumnak***nevezzük.  
+Amikor a túlélő csomópontok sikeresen ellenőrzik a *többséget*, a *többség* definíciója frissül, hogy csak a túlélők közé tartozik. Ez lehetővé teszi, hogy a fürt elveszítse az egyik csomópontot, majd egy másikat, majd egy másikat és így tovább. Az egymást követő meghibásodások utáni *szavazatok teljes számát* a ***dinamikus kvórumnak***nevezzük.
 
 ### <a name="dynamic-witness"></a>Dinamikus tanúsító
 
@@ -74,7 +74,7 @@ A dinamikus kvórum dinamikus tanúsító szerkezettel működik az alábbiakban
 - Ha páros számú csomópont és tanúsító **is** van, akkor *a tanú szavaz*, így a teljes összeg páratlan.
 - Ha **páratlan** számú csomóponttal és tanúval rendelkezik, *a tanúsító nem szavaz*.
 
-A dinamikus kvórum lehetővé teszi, hogy egy szavazatot dinamikusan rendeljen egy csomóponthoz, hogy elkerülje a szavazatok többségét, és lehetővé tegye, hogy a fürt egyetlen csomóponttal fusson (az utolsó ember állóként ismert). Vegyük példaként egy négy csomópontos fürtöt. Tegyük fel, hogy a kvórum 3 szavazatot igényel. 
+A dinamikus kvórum lehetővé teszi, hogy egy szavazatot dinamikusan rendeljen egy csomóponthoz, hogy elkerülje a szavazatok többségét, és lehetővé tegye, hogy a fürt egyetlen csomóponttal fusson (az utolsó ember állóként ismert). Vegyük példaként egy négy csomópontos fürtöt. Tegyük fel, hogy a kvórum 3 szavazatot igényel.
 
 Ebben az esetben a fürt leállt, ha két csomópontot vesztett el.
 
@@ -140,7 +140,7 @@ Az összes csomópont és a tanú szavazata, így a *többséget* összesen **5 
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
 - Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **Igen**.
-- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**. 
+- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**.
 
 #### <a name="five-nodes-and-beyond"></a>Öt csomópont és azon kívül.
 Minden csomópont szavaz, vagy csak egy szavazatot, bármi is legyen az egész páratlan. Közvetlen tárolóhelyek a kettőnél több csomópontot nem tud kezelni, ezért ezen a ponton nincs szükség tanúsító vagy hasznos elemre.
@@ -149,7 +149,7 @@ Minden csomópont szavaz, vagy csak egy szavazatot, bármi is legyen az egész p
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
 - Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **Igen**.
-- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**. 
+- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**.
 
 Most, hogy megértettük, hogyan működik a kvórum, tekintsük át a kvórum tanúinak típusait.
 
@@ -189,25 +189,25 @@ A készlet kvóruma azonban eltérően működik a fürt kvórumán, a következ
 
 ### <a name="examples"></a>Példák
 
-#### <a name="four-nodes-with-a-symmetrical-layout"></a>Négy csomópont szimmetrikus elrendezéssel. 
+#### <a name="four-nodes-with-a-symmetrical-layout"></a>Négy csomópont szimmetrikus elrendezéssel.
 A 16 meghajtó mindegyike egy szavazattal rendelkezik, a két csomópont pedig egy szavazattal is rendelkezik (mivel ez a készlet erőforrás-tulajdonos). A *többséget* összesen **16 szavazat**határozza meg. Ha a három és négy csomópont leáll, a túlélő részhalmaz 8 meghajtóval és a készlet erőforrás-tulajdonosával rendelkezik, amely 9/16 szavazat. Így a készlet életben marad.
 
 ![Készlet kvóruma 1](media/quorum/pool-1.png)
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
 - Egy kiszolgáló meghibásodása esetén is fennmaradhat, majd egy másik: **Igen**.
-- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**. 
+- Egyszerre két kiszolgáló meghibásodását képes túlélni: **Igen**.
 
-#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Négy csomópont szimmetrikus elrendezéssel és meghajtó meghibásodásával. 
+#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Négy csomópont szimmetrikus elrendezéssel és meghajtó meghibásodásával.
 A 16 meghajtó mindegyike egy szavazattal rendelkezik, a 2. csomópont pedig egy szavazattal is rendelkezik (mivel ez a készlet erőforrás-tulajdonosa). A *többséget* összesen **16 szavazat**határozza meg. Először is, a 7. meghajtó leáll. Ha a három és négy csomópont leáll, a túlélő részhalmaz 7 meghajtóval és a készlet erőforrás-tulajdonosával rendelkezik, amely 8/16 szavazat. Így a készlet nem rendelkezik a többséggel, és leáll.
 
 ![Készlet 2. kvóruma](media/quorum/pool-2.png)
 
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat: **Igen**.
 - Egyetlen kiszolgálóhiba esetén is fennmaradhat, majd egy másik: **nem**.
-- Egyszerre két kiszolgáló meghibásodását képes túlélni: **nem**. 
+- Egyszerre két kiszolgáló meghibásodását képes túlélni: **nem**.
 
-#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Négy csomópont nem szimmetrikus elrendezéssel. 
+#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Négy csomópont nem szimmetrikus elrendezéssel.
 A 24 meghajtó mindegyike egy szavazattal rendelkezik, a két csomópont pedig egy szavazattal is rendelkezik (mivel ez a készlet erőforrás-tulajdonos). A *többséget* összesen **24 szavazattal**határozzuk meg. Ha a három és négy csomópont leáll, a túlélő részhalmaz 8 meghajtóval és a készlet erőforrás-tulajdonosával rendelkezik, amely 9/24 szavazat. Így a készlet nem rendelkezik a többséggel, és leáll.
 
 ![Pool-kvórum 3](media/quorum/pool-3.png)
@@ -219,12 +219,12 @@ A 24 meghajtó mindegyike egy szavazattal rendelkezik, a két csomópont pedig e
 ### <a name="pool-quorum-recommendations"></a>Pool kvórum javaslatai
 
 - Győződjön meg arról, hogy a fürt minden csomópontja szimmetrikus (mindegyik csomópont azonos számú meghajtóval rendelkezik)
-- Engedélyezze a háromutas tükrözést vagy a kettős paritást, hogy el tudja viselni a csomópontok hibáit, és a virtuális lemezeket online állapotban tartsa. 
+- Engedélyezze a háromutas tükrözést vagy a kettős paritást, hogy el tudja viselni a csomópontok hibáit, és a virtuális lemezeket online állapotban tartsa.
 - Ha a kettőnél több csomópont van, vagy két csomópont, és egy másik csomóponton lévő lemez nem érhető el, előfordulhat, hogy a kötetek nem férnek hozzá az összes adat mindhárom példányához, ezért offline állapotba kerülhetnek, és nem érhetők el. Javasoljuk, hogy a-kiszolgálókat a köteten lévő összes adatmennyiség rugalmasságának biztosítása érdekében a lehető leggyorsabban hozza vissza vagy cserélje le a lemezeket.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információkat a következő cikkekben talál:
 
 - [Kvórum konfigurálása és kezelése](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Felhőbeli tanúsító üzembe helyezése](/windows-server/failover-clustering/deploy-cloud-witness)
+- [Tanúsító fürt beállítása](../deploy/witness.md)

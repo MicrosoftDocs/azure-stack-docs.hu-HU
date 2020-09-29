@@ -1,5 +1,5 @@
 ---
-title: A Event Hubs kapacitásának megtervezése Azure Stack hub-ban
+title: A Event Hubs kapacitásának megtervezése Azure Stack központban
 description: Megtudhatja, hogyan tervezheti meg a Azure Stack hub Event Hubs erőforrás-szolgáltatójának kapacitását.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 71bc2a58dd3420aad1672c431f3c5114364980c4
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605662"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572153"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>A Event Hubs kapacitásának megtervezése Azure Stack hub-ban
 
@@ -29,7 +29,7 @@ A felhasználóknak létre kell hozniuk Event Hubs fürtöket az üzleti követe
 - Egy 1 CU Event Hubs-fürt által használt összes mag.
 - Az egyéb erőforrások, például a virtuálisgép-tárolók, a memória-és a Storage-fiókok felhasználásához szükséges hozzávetőleges kapacitás.
 
-| | Virtuális gép típusa | Fürtcsomópontok | Magok száma virtuális gépenként/csomópont | Magok összesen | VM-tároló | Memory (Memória) | Tárfiókok | Nyilvános IP-címek |
+| | Virtuális gép típusa | Fürtcsomópontok | Magok száma virtuális gépenként/csomópont | Magok összesen | VM-tároló | Memória | Storage-fiókok | Nyilvános IP-címek |
 |-|---------|-------|-------------------|-------------|------------|--------|------------------|---|
 | **1 CU Event Hubs fürt** | [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) | 5 | 2 | 10 | 500 GiB | 70 GiB | 4 | 1 |
 
@@ -40,9 +40,9 @@ Az összes Event Hubs-fürt [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) vir
 
 ## <a name="resource-provider-resource-consumption"></a>Erőforrás-szolgáltató erőforrásainak felhasználása  
 
-Az erőforrás-felhasználás a Event Hubs erőforrás-szolgáltató állandó, és független a felhasználók által létrehozott fürtök számával vagy méretétől. Az alábbi táblázat a Azure Stack hub Event Hubs erőforrás-szolgáltatójának alapvető kihasználtságát, valamint az erőforrás-használat további erőforrásainak megközelítőlegi felhasználását mutatja be. A Event Hubs erőforrás-szolgáltató [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) virtuálisgép-típust használ a telepítéshez.
+Az erőforrás-felhasználás a Event Hubs erőforrás-szolgáltató állandó, és független a felhasználók által létrehozott fürtök számával vagy méretétől. Az alábbi táblázat a Azure Stack hub Event Hubs erőforrás-szolgáltatójának alapvető kihasználtságát, valamint az erőforrás-használat további erőforrásainak megközelítőlegi felhasználását mutatja be. A Event Hubs erőforrás-szolgáltató [D2_V2](../user/azure-stack-vm-sizes.md#dv2-series) virtuálisgép-típust használ a telepítéshez.
 
-|                                  | Virtuális gép típusa | Fürtcsomópontok | Cores | VM-tároló | Memory (Memória) | Tárfiókok | Nyilvános IP-címek |
+|                                  | Virtuális gép típusa | Fürtcsomópontok | Cores | VM-tároló | Memória | Storage-fiókok | Nyilvános IP-címek |
 |----------------------------------|---------|---------------|-------|------------|--------|------------------|------------|
 | **Erőforrás-szolgáltató Event Hubs** | D2_V2   | 3     | 6     | 300 GiB | 21 GiB | 2 | 1 |
 
@@ -55,21 +55,16 @@ A Event Hubs szolgáltatás által felhasznált teljes kapacitás magában fogla
 
 Az alábbi táblázat a különböző konfigurációk Event Hubs teljes felhasználását mutatja, függetlenül attól, hogy a kvóta kezeli-e őket. Ezek a számok az erőforrás-szolgáltatón alapulnak, és Event Hubs a fent bemutatott fürtök felhasználását. Ezeket a példákat használva könnyedén kiszámíthatja a teljes Azure Stack hub-használatot más központi telepítési méreteknél.
 
-|                                      | Cores | VM-tároló | Memory (Memória)  | Tárfiókok | Összes tárhely\* | Nyilvános IP-címek\*\* |
+|                                      | Cores | VM-tároló | Memória  | Storage-fiókok | Összes tárhely\* | Nyilvános IP-címek\*\* |
 |--------------------------------------|-------|------------|---------|------------------|---------------|------------|
 | **1 – CU-fürt + erőforrás-szolgáltató** | 16    | 800 GiB    | 91 GiB  | 6                | változó    | 2 |
 | **2 – CU-fürt + erőforrás-szolgáltató** | 26    | 1,3 TB     | 161 GiB | 10               | változó    | 2 |
 | **4 – CU-fürt + erőforrás-szolgáltató** | 46    | 2,3 TB     | 301 GiB | 18               | változó    | 2 |
 
-\*A bejövő adatblokk (üzenet/esemény) sebessége és az üzenetek megőrzése két fontos tényező, amelyek hozzájárulnak Event Hubs-fürtök által használt tárterülethez. Ha például az üzenet megőrzésének értéke 7 nap az Event hub létrehozásakor, az üzenetek pedig 1MB/s sebességgel lesznek betöltve, a használatban lévő hozzávetőleges tárterület 604 GB (1 MB x 60 másodperc x 60 perc x 24 óra X 7 nap). Ha a rendszer 7 napos adatmegőrzési sebességgel 20 MB/s sebességű üzenetet továbbít, a megközelítőleges tárterület-felhasználás 12TB. Ügyeljen arra, hogy a tárolási kapacitás felhasználásának teljes megértése érdekében vegye figyelembe a bejövő adatforgalom és a megőrzési idő értéket.
+\* A bejövő adatblokk (üzenet/esemény) sebessége és az üzenetek megőrzése két fontos tényező, amelyek hozzájárulnak Event Hubs-fürtök által használt tárterülethez. Ha például az üzenet megőrzésének értéke 7 nap az Event hub létrehozásakor, az üzenetek pedig 1MB/s sebességgel lesznek betöltve, a használatban lévő hozzávetőleges tárterület 604 GB (1 MB x 60 másodperc x 60 perc x 24 óra X 7 nap). Ha a rendszer 7 napos adatmegőrzési sebességgel 20 MB/s sebességű üzenetet továbbít, a megközelítőleges tárterület-felhasználás 12TB. Ügyeljen arra, hogy a tárolási kapacitás felhasználásának teljes megértése érdekében vegye figyelembe a bejövő adatforgalom és a megőrzési idő értéket.
 
-\*\*A nyilvános IP-címek az [előfizetés részeként megadott hálózati kvótából](azure-stack-quota-types.md#network-quota-types)lesznek felhasználva.
+\*\* A nyilvános IP-címek az [előfizetés részeként megadott hálózati kvótából](azure-stack-quota-types.md#network-quota-types)lesznek felhasználva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A telepítési folyamat megkezdése előtt végezze el a [Event Hubs telepítésének Előfeltételeit Azure stack hub-on](event-hubs-rp-prerequisites.md).
-
-
-
-
-

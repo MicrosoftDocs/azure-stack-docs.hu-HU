@@ -1,17 +1,17 @@
 ---
-title: Azure Stack hub Azure Monitor támogatott mérőszámai
+title: Azure Monitor támogatott metrikák Azure Stack hub-on
 description: Az Azure Stack hub Azure Monitor támogatott metrikáinak megismerése.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2a200939dd987ba11edcd5fbca516c3fc6566dbd
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4a7847c7ff1b9fb56eab132412ab229b90b78b15
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661018"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571643"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack hub Azure Monitor támogatott mérőszámai
 
@@ -21,25 +21,25 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Százalékos processzorhasználat | Százalékos processzorhasználat | Százalék | Átlag | A virtuális gép (ek) által jelenleg használt lefoglalt számítási egységek százalékos aránya. | Nincsenek méretek |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft. Storage/storageAccounts
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Felhasznált kapacitás | Bájt | Átlag | A fiók felhasznált kapacitása. | Nincsenek méretek |
 | Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
 | Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
 | Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
 | SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
 | Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | BLOB kapacitása | Bájt | Összesen | A Storage-fiók Blob service által felhasznált tárterület mérete bájtban kifejezve. | BlobType |
 | BlobCount | Blobok száma | Darabszám | Összesen | A Storage-fiók Blob serviceban található Blobok száma. | BlobType |
@@ -47,13 +47,13 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 | Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
 | Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
 | Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
 | SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
 | Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Tábla kapacitása | Bájt | Átlag | A Storage-fiók Table service által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
 | TableCount | Táblák száma | Darabszám | Átlag | A Storage-fiók Table serviceban található táblák száma. | Nincsenek méretek |
@@ -61,13 +61,13 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 | Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
 | Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
 | Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
 | SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
 | Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
 
-| Metrika | Metrika megjelenítendő neve | Unit (Egység) | Aggregáció típusa | Leírás | Dimenziók |
+| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Várólista kapacitása | Bájt | Átlag | A Storage-fiók Queue szolgáltatás által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
 | QueueCount | Várólista száma | Darabszám | Átlag | A Storage-fiók Queue szolgáltatás várólistáinak száma. | Nincsenek méretek |
@@ -75,10 +75,10 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 | Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
 | Bejövő forgalom | Bejövő forgalom | Bájt | Összesen | A bejövő adatforgalom mennyisége bájtban kifejezve. Ez a szám magában foglalja a külső ügyfél és az Azure Storage közötti bejövő forgalmat, valamint az Azure-on belüli beáramlást is. | GeoType, ApiName |
 | Kimenő forgalom | Kimenő forgalom | Bájt | Összesen | A kimenő adatforgalom mennyisége bájtban kifejezve. Ez a szám a külső ügyfél Azure Storage-ba való bejutását, valamint az Azure-ban való kijutást is magában foglalja. Ennek eredményeképpen ez a szám nem tükrözi a számlázható kimenő forgalmat. | GeoType, ApiName |
-| SuccessServerLatency | Sikeres kiszolgálói kérések késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
+| SuccessServerLatency | Sikerességi kiszolgáló késése | Ezredmásodpercben | Átlag | Az Azure Storage által a sikeres kérések feldolgozásához használt átlagos késés ezredmásodpercben. Ez az érték nem tartalmazza a AverageE2ELatency megadott hálózati késést. | GeoType, ApiName |
 | SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
 | Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ az [Azure monitor Azure stack hub](azure-stack-metrics-azure-data.md)-ról.

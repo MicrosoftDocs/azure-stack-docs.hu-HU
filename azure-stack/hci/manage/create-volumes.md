@@ -3,20 +3,20 @@ title: Kötetek létrehozása Azure Stack HCI-ben
 description: Kötetek létrehozása Azure Stack HCI-ben a Windows felügyeleti központ és a PowerShell használatával.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: b195a55314935282f43f99bf02bda1d2bc298b54
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 09/10/2020
+ms.openlocfilehash: aa0da05ba1cac74cf558a28627962e61c1418a73
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78370408"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010849"
 ---
-# <a name="creating-volumes-in-azure-stack-hci"></a>Kötetek létrehozása Azure Stack HCI-ben
+# <a name="create-volumes-in-azure-stack-hci"></a>Kötetek létrehozása Azure Stack HCI-ben
 
-> A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör azt ismerteti, hogyan hozhat létre köteteket egy közvetlen tárolóhelyek-fürtön a Windows felügyeleti központ és a Windows PowerShell használatával, hogyan dolgozhat a köteteken található fájlokkal, valamint hogyan engedélyezhető az deduplikálás és a kötetek tömörítése.
+Ez a témakör azt ismerteti, hogyan hozhat létre köteteket egy Azure stack HCI-fürtön a Windows felügyeleti központ és a Windows PowerShell használatával, hogyan dolgozhat a köteteken található fájlokkal, valamint hogyan engedélyezhető az deduplikálás és a kötetek tömörítése. A kötetek létrehozásával és a kiterjesztett fürtök replikálásának beállításával kapcsolatos további információkért lásd a [kiterjesztett kötetek létrehozása](create-stretched-volumes.md)című témakört.
 
 ## <a name="create-a-three-way-mirror-volume"></a>Háromutas tükrözési kötet létrehozása
 
@@ -74,19 +74,7 @@ Tekintse meg a kötetek megnyitásával és a fájlok hozzáadásával kapcsolat
 
 A rendszer köteten kezeli a deduplikálás és a tömörítést. A deduplikálás és a tömörítés egy utómunka modellt használ, ami azt jelenti, hogy a megtakarítás addig nem fog megjelenni, amíg nem fut. Ha igen, minden fájlon működni fog, még azok is, amelyek korábban voltak.
 
-1. A Windows felügyeleti központban kapcsolódjon egy Közvetlen tárolóhelyek fürthöz, majd válassza a **kötetek** elemet az **eszközök** ablaktáblán.
-2. A **kötetek** lapon válassza a **leltár** lapot.
-3. A kötetek listájában válassza ki a kezelni kívánt kötet nevét.
-4. A kötet részletei lapon kattintson a **deduplikálás és a tömörítés**elemre.
-5. A **deduplikálás engedélyezése** panelen válassza a deduplikálás módot.
-
-    A bonyolult beállítások helyett a Windows felügyeleti központ lehetővé teszi, hogy a kész profilok közül válassza a különböző munkaterhelésekhez. Ha nem biztos a dolgában, használja az alapértelmezett beállítást.
-
-6. Válassza az **Engedélyezés** lehetőséget.
-
-Tekintse meg a deduplikálás és a tömörítés bekapcsolásának gyors videóját.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
+További információ: a [kötetek titkosításának engedélyezése, a deduplikálás és a tömörítés](volume-encryption-deduplication.md)
 
 ## <a name="create-volumes-using-windows-powershell"></a>Kötetek létrehozása a Windows PowerShell használatával
 
@@ -145,11 +133,11 @@ New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 Ennyi az egész! Több kötet létrehozásához szükség szerint ismételje meg a műveletet.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-A Közvetlen tárolóhelyek további tárolási kezelési feladatainak végrehajtásához lásd még:
+A kapcsolódó témakörökhöz és az egyéb tárolási felügyeleti feladatokhoz lásd még:
 
 - [Közvetlen tárolóhelyek áttekintése](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Kötetek tervezése Közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/plan-volumes)
-- [Kötetek kiterjesztése a Közvetlen tárolóhelyekban](/windows-server/storage/storage-spaces/resize-volumes)
-- [Kötetek törlése Közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/delete-volumes)
+- [Kötetek megtervezése](../concepts/plan-volumes.md)
+- [Kötetek kiterjesztése](extend-volumes.md)
+- [Kötetek törlése](delete-volumes.md)

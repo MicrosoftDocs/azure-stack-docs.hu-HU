@@ -1,17 +1,17 @@
 ---
-title: Linuxos virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
+title: Linux rendszerű virtuális gép létrehozása a PowerShell-lel Azure Stack hub-ban
 description: Hozzon létre egy linuxos virtuális gépet Azure Stack hub PowerShell használatával.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: af4cad0c4078fb117c6067300b14a2feb8f86729
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660499"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573921"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rövid útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -31,7 +31,7 @@ A Azure Stack hub PowerShell használatával létrehozhat egy Ubuntu Server 16,0
 
 * A (z) *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
+## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
 
 Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Erőforráscsoport létrehozásához futtassa a következő kódrészletet: 
 
@@ -393,7 +393,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Az NGINX kezdőlapjának megtekintése
 
-Ha telepítette az NGINX-webkiszolgálót, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címe segítségével érheti el a webkiszolgálót. Nyisson meg egy webböngészőt, és ```http://<public IP address>```nyissa meg a következőt:.
+Ha telepítette az NGINX-webkiszolgálót, és a 80-es port meg van nyitva a virtuális gépen, a virtuális gép nyilvános IP-címe segítségével érheti el a webkiszolgálót. Nyisson meg egy webböngészőt, és nyissa meg a következőt: ```http://<public IP address>``` .
 
 ![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
@@ -405,6 +405,6 @@ A [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azur
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Linux Server-alapú virtuális gépet telepített. Az Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért tekintse meg a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

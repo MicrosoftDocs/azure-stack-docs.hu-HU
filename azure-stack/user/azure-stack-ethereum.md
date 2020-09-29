@@ -7,12 +7,12 @@ ms.date: 06/03/2019
 ms.topic: tutorial
 ms.reviewer: seyadava
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: a0a13af01fc539788d76377f357ca28db9b05234
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: 514baec95a83ef8cc04391e61c37f144ebfaf643
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77703077"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571915"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Ethereum blockchain-hálózat üzembe helyezése Azure Stack hub-on
 
@@ -89,8 +89,8 @@ A Consortium Leader-sablon konfigurálja az első tag hálózati lábnyomát.
     TXSTORAGEACCOUNTTYPE | A tranzakciós csomópontok tárolási teljesítménye. | | Standard_LRS
     BASEURL | Az alap URL-cím, amelyből beolvashatók a központi telepítési sablonok. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
-7. Kattintson az **OK** gombra.
-8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
+7. Válassza az **OK** lehetőséget.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az  **erőforráscsoport helyét**.
     
     ![Vezető telepítési paraméterek](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
@@ -139,8 +139,8 @@ A Leader üzembe helyezésének ellenőrzéséhez lépjen a vezető rendszergazd
     CONNECTIONSHAREDKEY | A konzorciumi hálózat azon tagjai között, amelyek kapcsolatot hoznak létre, előre elkészített titok. | |
     BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
-7. Kattintson az **OK** gombra.
-8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
+7. Válassza az **OK** lehetőséget.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az  **erőforráscsoport helyét**.
 
     Paraméter neve | Leírás | Megengedett értékek | Mintaérték
     ---------------|-------------|----------------|-------------
@@ -187,8 +187,8 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
     HELY | Az Azure Stack hub-környezet helye. | | helyi
     BASEURL | A sablon alap URL-címe. | Ha testre szeretné szabni a központi telepítési sablonokat, használja az alapértelmezett értéket. | 
 
-7. Kattintson az **OK** gombra.
-8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az **erőforráscsoport helyét**.
+7. Válassza az **OK** lehetőséget.
+8. Az **Egyéni telepítés**területen válassza az **előfizetés**, az **erőforráscsoport**és az  **erőforráscsoport helyét**.
     
     ![Központi telepítési paraméterek összekötése](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
@@ -202,8 +202,8 @@ Ez a sablon létrehoz egy, a vezető és egy távoli tag közötti kapcsolatokat
 
 Az üzembe helyezés befejezése után néhány percet vesz igénybe, hogy a vezető és a tag is megkezdje a kommunikációt. A központi telepítés ellenőrzéséhez frissítse a tag felügyeleti webhelyét. A tag csomópontjainak állapotának futnia kell.
 
-![A telepítés ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
+![Az üzemelő példány ellenőrzése](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a Ethereum és az Azure-ról: [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/).

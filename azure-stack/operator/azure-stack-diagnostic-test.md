@@ -1,5 +1,5 @@
 ---
-title: A rendszerállapot ellenőrzéséhez használja a Azure Stack hub érvényesítési eszközét
+title: Rendszerállapot ellenőrzése az Azure Stack hub ellenőrző eszközével
 description: Megtudhatja, hogyan ellenőrizheti a rendszerállapotot az Azure Stack hub érvényesítési eszközével.
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 40a916a282f4808d9897cc5c23ea953739b0a0cf
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819482"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572935"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack hub rendszerállapotának ellenőrzése
 
@@ -232,8 +232,8 @@ Adja meg a Debug paramétert a parancs részletes kimenetének lekéréséhez:
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Ha többet szeretne megtudni az Azure Stack hub diagnosztikai eszközeiről és a naplózási problémákról, tekintse meg a [Azure stack hub diagnosztikai eszközök](azure-stack-diagnostic-log-collection-overview-tzl.md)című témakört.
+Ha többet szeretne megtudni az Azure Stack hub diagnosztikai eszközeiről és a naplózási problémákról, tekintse meg a [Azure stack hub diagnosztikai eszközök](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)című témakört.
 
 További információ a hibaelhárításról: [Microsoft Azure stack hub hibaelhárítása](azure-stack-troubleshooting.md).

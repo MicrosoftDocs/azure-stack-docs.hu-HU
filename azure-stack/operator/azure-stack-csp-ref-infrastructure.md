@@ -1,18 +1,18 @@
 ---
-title: A Azure Stack hub felhőalapú megoldás-szolgáltatóinak használati jelentési infrastruktúrája
+title: Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára – Azure Stack hub
 description: A felhőalapú megoldás-szolgáltató (CSP) által kiszolgált bérlők használatának nyomon követésére használt használati jelentési infrastruktúra ismertetése.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 2a154390f3d3aef4af93d12899a6a658be41d884
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742376"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573050"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Használati jelentéskészítési infrastruktúra felhőalapú megoldás-szolgáltatók számára
 
@@ -35,13 +35,13 @@ A kereskedelemben használt Azure Stack hub-mérőszámokról és azok árairól
 
 A Azure Stack hub használati és számlázási feltételeit a következő feltételek és fogalmak használják:
 
-| Időtartam | Meghatározás |
+| Időszak | Definíció |
 | --- | --- |
 | Közvetlen CSP-partner | A közvetlen CSP-partner közvetlenül a Microsofttól kapja meg az Azure-t és Azure Stack hub-használatot, és az ügyfeleket közvetlenül számlázza. |
 | Közvetett CSP | A közvetett viszonteladók egy közvetett szolgáltatóval (más néven terjesztővel) működnek. A viszonteladók végfelhasználók toborzása; a közvetett szolgáltató a Microsofttal számlázási kapcsolatot tart fenn, kezeli az ügyfelek számlázását, és további szolgáltatásokat nyújt, mint például a terméktámogatás. |
 | Végfelhasználó | A végfelhasználók az alkalmazások és az Azure Stack hub-on futó egyéb munkaterhelések tulajdonában lévő vállalkozások és kormányzati szervek. |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a CSP programról: [felhőalapú megoldások](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg [a használat és a számlázás Azure stack hub-ban](azure-stack-billing-and-chargeback.md)című témakört.

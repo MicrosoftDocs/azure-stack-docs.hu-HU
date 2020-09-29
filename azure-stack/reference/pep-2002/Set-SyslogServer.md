@@ -1,5 +1,5 @@
 ---
-title: Azure Stack hub PrivilegedEndpoint Kiemelt jogosultságú végpontja
+title: Set-SyslogServer
 description: Hivatkozás a PowerShell Azure Stack privilegizált végpont – Bezárás – PrivilegedEndpoint
 author: mattbriggs
 ms.topic: reference
@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 1b0df5892149d8cd351e3a222b11cf63c9d37759
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 328862a4d6d598781a88597ea1d03fbaf50a4885
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562706"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742686"
 ---
 # <a name="set-syslogserver"></a>Set-SyslogServer
 
@@ -29,18 +29,18 @@ Set-SyslogServer [-Remove] [[-ServerName] <Object>] [-NoEncryption] [-SkipCertif
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 
 ```
 Set-SyslogServer -ServerName <FQDN or IP address of Syslog server>
 ```
 
-### <a name="example-2"></a>2. példa
+### <a name="example-2"></a>2\. példa
 ```
 -NoEncryption
 ```
 
-### <a name="example-3"></a>3. példa
+### <a name="example-3"></a>3\. példa
 ```
 -SkipCertificateCheck
 ```
@@ -183,6 +183,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

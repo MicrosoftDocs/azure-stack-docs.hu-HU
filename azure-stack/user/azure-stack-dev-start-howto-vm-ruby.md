@@ -1,5 +1,5 @@
 ---
-title: Ruby-alkalmazás üzembe helyezése egy virtuális gépen Azure Stack hub-ban
+title: Ruby-alkalmazás üzembe helyezése a virtuális gépen Azure Stack hub-ban
 description: Ruby-alkalmazás üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146835"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573972"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Ruby-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -26,7 +26,7 @@ Ez a cikk a Ruby és a Ruby on Rails webes keretrendszer használatát ismerteti
 
 2. A virtuálisgép-hálózat ablaktáblán győződjön meg arról, hogy a következő portok elérhetők:
 
-    | Port | Protokoll | Description |
+    | Port | Protokoll | Leírás |
     | --- | --- | --- |
     | 80 | HTTP | Hypertext Transfer Protocol (HTTP) az a protokoll, amelyet a weblapok kiszolgálókról történő kézbesítéséhez használtak. Az ügyfelek HTTP-n keresztül csatlakoznak a DNS-név vagy IP-cím használatával. |
     | 443 | HTTPS | A Hypertext Transfer Protocol Secure (HTTPS) a HTTP olyan biztonságos verziója, amelynek biztonsági tanúsítványra van szüksége, és lehetővé teszi az adatok titkosított átvitelét. |
@@ -65,7 +65,7 @@ Ez a cikk a Ruby és a Ruby on Rails webes keretrendszer használatát ismerteti
     sudo gem install bundler
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > A Ruby on Rails-függőségek telepítésekor előfordulhat, hogy többször is futtatnia kell a parancsot `sudo gem install bundler` . Ha a telepítés sikertelen, tekintse át a hibák naplóit, és oldja meg a problémákat.
 
 4. Ellenőrizze a telepítést. Ha továbbra is csatlakozik a virtuális géphez az SSH-munkamenetben, írja be a következő parancsot:

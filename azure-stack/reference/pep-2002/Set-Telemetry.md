@@ -1,5 +1,5 @@
 ---
-title: Azure Stack hub PrivilegedEndpoint Kiemelt jogosultságú végpontja
+title: Set-telemetria
 description: Hivatkozás a PowerShell Azure Stack privilegizált végpont – Bezárás – PrivilegedEndpoint
 author: mattbriggs
 ms.topic: reference
@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 948d8771be47ca9a594da75d8e4d138ceb6b894c
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ad20bb8ab278e1cb6f46d4fb245ea31b3e00f61a
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563443"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742678"
 ---
 # <a name="set-telemetry"></a>Set-telemetria
 
@@ -32,12 +32,12 @@ Pontosabban, ez a parancsmag konfigurálja a tartományi csoportházirendet úgy
 
 ## <a name="examples"></a>Példák
 
-### <a name="example-1"></a>1. példa
+### <a name="example-1"></a>1\. példa
 ```
 Set-Telemetry -Enable
 ```
 
-### <a name="example-2"></a>2. példa
+### <a name="example-2"></a>2\. példa
 ```
 Set-Telemetry -Disable
 ```
@@ -89,6 +89,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

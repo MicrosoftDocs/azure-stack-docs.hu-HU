@@ -1,5 +1,5 @@
 ---
-title: SQL Server ajánlott eljárások az Azure Stack hub teljesítményének optimalizálásához.
+title: Azure Stack hub SQL Server teljesítményének optimalizálása
 description: Ez a cikk az SQL Server ajánlott eljárásait ismerteti a teljesítmény növeléséhez és a SQL Server Azure Stack hub-beli virtuális gépeken való optimalizálásához.
 author: bryanla
 ms.topic: article
@@ -7,28 +7,28 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ec1a5b07498e380eeef3989df1185537afef360f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704845"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573768"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
 
 Ez a cikk az SQL Server ajánlott eljárásait ismerteti a SQL Server optimalizálásához és a teljesítmény javításához Microsoft Azure Stack hub virtuális gépeken (VM). SQL Server Azure Stack hub-alapú virtuális gépeken való futtatásakor használja ugyanazt az adatbázis-teljesítmény-hangolási lehetőséget, amely a helyszíni kiszolgálói környezetben SQL Serverre vonatkozik. Egy Azure Stack hub-felhőben található viszonyítási adatbázis teljesítménye számos tényezőtől függ, többek között a virtuális gép méretétől és az adatlemezek konfigurációjától.
 
-SQL Server lemezképek létrehozásakor [érdemes lehet virtuális gépeket kiépíteni a Azure stack hub portálon](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Töltse le az SQL IaaS bővítményt a piactér-felügyeletből a Azure Stack hub felügyeleti portálon, és töltse le az Ön által választott SQL Server VM képeket. Ezek közé tartoznak a SQL Server 2016 SP1, SQL Server 2016 SP2 és SQL Server 2017.
+SQL Server lemezképek létrehozásakor [érdemes lehet virtuális gépeket kiépíteni a Azure stack hub portálon](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Töltse le az SQL IaaS bővítményt a piactér-felügyeletből a Azure Stack hub felügyeleti portálon, és töltse le az Ön által választott SQL Server VM képeket. Ezek közé tartoznak a SQL Server 2016 SP1, SQL Server 2016 SP2 és SQL Server 2017.
 
 > [!NOTE]  
 > Míg a cikk leírja, hogyan kell kiépíteni egy SQL Server VMt a globális Azure Portal használatával, az útmutató az Azure Stack hubhoz is vonatkozik a következő eltérésekkel: az SSD nem érhető el az operációsrendszer-lemezhez, és kisebb különbségek vannak a tárolási konfigurációban.
 
-A virtuálisgép-lemezképekben a SQL Server csak a saját licenc használata (BYOL) használatával használható. A Windows Server esetében az alapértelmezett licencelési modell az utólagos elszámolású (TB). A virtuális gépen futó Windows Server-licencelési modell részletes ismertetését a [Windows server Azure stack hub Marketplace-en – gyakori kérdések](https://docs.microsoft.com/azure-stack/operator/azure-stack-windows-server-faq#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server)című cikkben találja.  
+A virtuálisgép-lemezképekben a SQL Server csak a saját licenc használata (BYOL) használatával használható. A Windows Server esetében az alapértelmezett licencelési modell az utólagos elszámolású (TB). A virtuális gépen futó Windows Server-licencelési modell részletes ismertetését a [Windows server Azure stack hub Marketplace-en – gyakori kérdések](../operator/azure-stack-windows-server-faq.md#what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server)című cikkben találja.  
 
 A Azure Stack hub-beli virtuális gépek SQL Server *legjobb* teljesítményének beszerzése a cikk középpontjában áll. Ha a számítási feladat kevésbé igényes, előfordulhat, hogy nem igényel minden javasolt optimalizálást. A javaslatok kiértékelése során vegye figyelembe a teljesítményre vonatkozó igényeket és a számítási feladatok mintáit.
 
 > [!NOTE]  
-> Az Azure-beli virtuális gépek SQL Server teljesítményével kapcsolatos útmutatásért tekintse meg [ezt a cikket](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
+> Az Azure-beli virtuális gépek SQL Server teljesítményével kapcsolatos útmutatásért tekintse meg [ezt a cikket](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
 ## <a name="checklist-for-sql-server-best-practices"></a>Ellenőrzőlista az SQL Serverhez – ajánlott eljárások
 
@@ -98,7 +98,7 @@ Azt javasoljuk, hogy adatlemezként tárolja a TempDB, mivel az adatlemezek legf
 
 - **Lemezek csíkozása:** További átviteli sebesség esetén további adatlemezeket adhat hozzá, és a lemezek csíkozását is használhatja. A szükséges adatlemezek számának meghatározásához elemezze a naplófájlokhoz szükséges IOPS, valamint az adatai és a TempDB fájljait. Figyelje meg, hogy az IOPS-korlátok a virtuálisgép-sorozat családján alapuló adatlemezek, és nem a virtuális gép méretétől függenek. A hálózati sávszélesség korlátai azonban a virtuális gép méretétől függenek. További részletekért tekintse meg a [virtuális gépek méreteit Azure stack központban](azure-stack-vm-sizes.md) . Használja az alábbi irányelveket:
 
-  - A Windows Server 2012-es vagy újabb verzióiban a [tárolóhelyek](https://technet.microsoft.com/library/hh831739.aspx) a következő irányelvekkel használhatók:
+  - A Windows Server 2012-es vagy újabb verzióiban a [tárolóhelyek](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)) a következő irányelvekkel használhatók:
 
     1. Az adattárház-feldolgozási feladatokhoz adja meg az adattárolási munkaterhelések (OLTP) és a 256 KB (262 144 bájt) közötti 65 536 64 átfedést az adatraktározási számítási feladatok esetében, hogy elkerülje a teljesítményre gyakorolt hatást a partíció helytelen igazítása miatt. Ezt a PowerShell-lel kell beállítani.
 
@@ -123,14 +123,14 @@ Azt javasoljuk, hogy adatlemezként tárolja a TempDB, mivel az adatlemezek legf
 
 ## <a name="io-guidance"></a>I/O-útmutatás
 
-- Érdemes lehet engedélyezni az azonnali fájl inicializálását, hogy csökkentse a kezdeti fájl lefoglalásához szükséges időt. Az azonnali fájl inicializálásának kihasználásához adja meg a SQL Server (MSSQLSERVER) szolgáltatásfiókot a **SE_MANAGE_VOLUME_NAME** , és vegye fel a **kötet-karbantartási feladatok elvégzése** biztonsági szabályzatba. Ha SQL Server platform-rendszerképet használ az Azure-hoz, a rendszer nem adja hozzá az alapértelmezett szolgáltatásfiókot (**NT Service\MSSQLSERVER**) a **kötet-karbantartási feladatok végrehajtása** biztonsági házirendhez. Más szóval az azonnali fájl inicializálása nincs engedélyezve egy SQL Server Azure platform-rendszerképben. Miután hozzáadta a SQL Server szolgáltatásfiókot a **kötet-karbantartási feladatok elvégzése** biztonsági házirendhez, indítsa újra a SQL Server szolgáltatást. Ennek a funkciónak a használatához biztonsági megfontolásokat lehet használni. További információ: [adatbázisfájlok inicializálása](https://msdn.microsoft.com/library/ms175935.aspx).
+- Érdemes lehet engedélyezni az azonnali fájl inicializálását, hogy csökkentse a kezdeti fájl lefoglalásához szükséges időt. Az azonnali fájl inicializálásának kihasználásához adja meg a SQL Server (MSSQLSERVER) szolgáltatásfiókot a **SE_MANAGE_VOLUME_NAME** , és vegye fel a **kötet-karbantartási feladatok elvégzése** biztonsági szabályzatba. Ha SQL Server platform-rendszerképet használ az Azure-hoz, a rendszer nem adja hozzá az alapértelmezett szolgáltatásfiókot (**NT Service\MSSQLSERVER**) a **kötet-karbantartási feladatok végrehajtása** biztonsági házirendhez. Más szóval az azonnali fájl inicializálása nincs engedélyezve egy SQL Server Azure platform-rendszerképben. Miután hozzáadta a SQL Server szolgáltatásfiókot a **kötet-karbantartási feladatok elvégzése** biztonsági házirendhez, indítsa újra a SQL Server szolgáltatást. Ennek a funkciónak a használatához biztonsági megfontolásokat lehet használni. További információ: [adatbázisfájlok inicializálása](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15).
 - Az **automatikus növekedés váratlan** növekedést mutat. Az automatikus növekedéssel nem kezelheti az adatait, és napi rendszerességgel elvégezheti a naplózást. Ha az automatikus növekedés használatban van, a **méret** kapcsoló használatával növelje a fájl előzetes növekedését.
 - Ügyeljen arra, hogy a szükségtelen terhelés elkerülése érdekében az **AutoShrink** le legyen tiltva, ami negatív hatással lehet a teljesítményre.
-- Alapértelmezett biztonsági mentési és adatbázisfájl-tárolóhelyek beállítása. Használja az ebben a cikkben szereplő javaslatokat, és végezze el a módosításokat a kiszolgáló tulajdonságai ablakban. Útmutatásért lásd: az adatfájlok [és naplófájlok alapértelmezett helyeinek megtekintése vagy módosítása (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx). A következő képernyőképen látható, hol végezheti el a módosításokat:
+- Alapértelmezett biztonsági mentési és adatbázisfájl-tárolóhelyek beállítása. Használja az ebben a cikkben szereplő javaslatokat, és végezze el a módosításokat a kiszolgáló tulajdonságai ablakban. Útmutatásért lásd: az adatfájlok [és naplófájlok alapértelmezett helyeinek megtekintése vagy módosítása (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15). A következő képernyőképen látható, hol végezheti el a módosításokat:
 
     > ![Az alapértelmezett helyszínek megtekintése és módosítása](./media/sql-server-vm-considerations/image1.png)
 
-- Az i/o és a lapozási tevékenységek csökkentéséhez engedélyezze a zárolt lapokat. További információ: [a zárolási lapok engedélyezése a memóriában (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
+- Az i/o és a lapozási tevékenységek csökkentéséhez engedélyezze a zárolt lapokat. További információ: [a zárolási lapok engedélyezése a memóriában (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
 
 - Vegye figyelembe az adatfájlok tömörítését Azure Stack hub-ba való átvitelkor, beleértve a biztonsági mentéseket is.
 
@@ -140,7 +140,7 @@ Néhány üzemelő példány további teljesítménybeli előnyöket érhet el f
 
 - **Biztonsági mentés az Azure** **Storage** -ba. Azure Stack hub-alapú virtuális gépeken futó SQL Server biztonsági mentésének készítésekor SQL Server biztonsági mentést használhat az URL-címre. Ez a funkció SQL Server 2012 SP1 CU2 kezdődően érhető el, és ajánlott a csatlakoztatott adatlemezekre történő biztonsági mentéshez.
 
-    Ha az Azure Storage szolgáltatással készít biztonsági mentést vagy visszaállítást, kövesse az [SQL Server biztonsági mentés az URL-címekkel kapcsolatos ajánlott eljárásokat, valamint](https://msdn.microsoft.com/library/jj919149.aspx) a [Microsoft Azure tárolt biztonsági](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)másolatokból történő hibaelhárítási és visszaállítási javaslatokat. Ezeket a biztonsági mentéseket a [SQL Server Azure-beli virtuális gépeken történő automatikus biztonsági mentésével](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)is automatizálhatja.
+    Ha az Azure Storage szolgáltatással készít biztonsági mentést vagy visszaállítást, kövesse az [SQL Server biztonsági mentés az URL-címekkel kapcsolatos ajánlott eljárásokat, valamint](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) a [Microsoft Azure tárolt biztonsági](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)másolatokból történő hibaelhárítási és visszaállítási javaslatokat. Ezeket a biztonsági mentéseket a [SQL Server Azure-beli virtuális gépeken történő automatikus biztonsági mentésével](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)is automatizálhatja.
 
 -   **Biztonsági mentés Azure Stack hub-tárolóba.** Az Azure Storage-ba történő biztonsági mentéshez hasonló módon készíthet biztonsági mentést Azure Stack hub-tárolóba. Ha SQL Server Management Studioon (SSMS) belül készít biztonsági másolatot, manuálisan kell megadnia a konfigurációs adatokat. A SSMS nem használható a tároló vagy a közös hozzáférési aláírás létrehozásához. A SSMS csak az Azure-előfizetésekhez csatlakozik, Azure Stack hub-előfizetésekhez nem. Ehelyett létre kell hoznia a Storage-fiókot, a tárolót és a közös hozzáférésű aláírást az Azure Stack hub-portálon vagy a PowerShell-lel.
 
@@ -152,6 +152,6 @@ Néhány üzemelő példány további teljesítménybeli előnyöket érhet el f
 
     Miután beállította és konfigurálta a biztonsági mentési célhelyet SQL Serverban, biztonsági mentést készíthet a Azure Stack hub blob Storage-ba.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Szolgáltatások használata vagy alkalmazások kiépítése Azure Stack hubhoz](azure-stack-considerations.md)

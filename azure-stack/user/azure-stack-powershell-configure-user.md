@@ -1,18 +1,18 @@
 ---
 title: Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
-description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
+description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel az interaktív prompt vagy az írási parancsfájlok használatához.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111785"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574023"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 
@@ -36,7 +36,7 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
 - **Azure AD-bérlő neve**  
   Az Azure Stack hub felügyeletéhez használt Azure AD-bérlő neve. Például: yourdirectory.onmicrosoft.com.
 - **Azure Resource Manager végpont**  
-  A Azure Stack Development Kit esetében ez az érték a következőre van beállítva: https://management.local.azurestack.external . Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
+  A Azure Stack Development Kit esetében ez az érték a következőre van beállítva: `https://management.local.azurestack.external` . Ha ezt az értéket szeretné lekérni Azure Stack hub integrált rendszerek esetében, forduljon a szolgáltatóhoz.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
@@ -74,6 +74,8 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
+
 ## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
 Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell használatával a Azure Stack hub erőforrásainak létrehozásához. Tesztként hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. Futtassa a következő parancsot egy "MyResourceGroup" nevű erőforráscsoport létrehozásához:
@@ -86,5 +88,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)
 - [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
-- [Azure Stack hub PowerShell-modul referenciája](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- [Azure Stack hub PowerShell-modul referenciája](/powershell/azure/azure-stack/overview)
 - Ha be szeretné állítani a PowerShellt a felhőalapú kezelői környezethez, tekintse meg az [Azure stack hub-kezelő PowerShell-környezetének konfigurálása](../operator/azure-stack-powershell-configure-admin.md) című cikket.

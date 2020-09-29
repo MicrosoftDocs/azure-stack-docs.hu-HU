@@ -1,18 +1,18 @@
 ---
-title: Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
+title: Azure Stack hub integrálása a figyelési megoldásokkal a syslog forwarding használatával
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot a figyelési megoldásokkal a syslog forwarding használatával.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/15/2020
+ms.openlocfilehash: 465db777fd26d3186eb46623b928b6a63e5dc71e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699422"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572748"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -234,11 +234,13 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
 * Name: <PEP Task Name>
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
+* Who: account used to connect to the PEP
+* WhichIP: IP address of the device used to connect to the PEP
 ```
 
 Az emelt szintű végpont eseményeinek táblázata:
 
-| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Severity |
+| Esemény | PEP-esemény azonosítója | A PEP-feladat neve | Súlyosság |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -255,13 +257,13 @@ Az emelt szintű végpont eseményeinek táblázata:
 
 A PEP súlyossági táblázata:
 
-| Severity | Szint | Numerikus érték |
+| Súlyosság | Szint | Numerikus érték |
 |----------|-------| ----------------|
 |0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF-megfeleltetés a helyreállítási végpont eseményeihez
@@ -271,11 +273,13 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
+* Who: account used to connect to the REP
+* WhichIP: IP address of the device used to connect to the REP
 ```
 
 A helyreállítási végpont eseményeinek táblázata:
 
-| Esemény | REP-esemény azonosítója | REP-feladat neve | Severity |
+| Esemény | REP-esemény azonosítója | REP-feladat neve | Súlyosság |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -286,13 +290,13 @@ A helyreállítási végpont eseményeinek táblázata:
 
 REP súlyossági táblázat:
 
-| Severity | Szint | Numerikus érték |
+| Súlyosság | Szint | Numerikus érték |
 |----------|-------| ----------------|
 |0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows-események CEF-leképezése
@@ -312,7 +316,7 @@ Windows-események súlyossági táblázata:
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
@@ -354,7 +358,7 @@ Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 
 Riasztások súlyossági táblázata:
 
-| Severity | Szint |
+| Súlyosság | Szint |
 |----------|-------|
 |0|Nem definiált|
 |10|Kritikus|
@@ -364,7 +368,7 @@ Egyéni bővítmények táblázata Azure Stack központban létrehozott riasztá
 
 | Egyéni bővítmény neve | Példa | 
 |-----------------------|---------|
-|MasEventDescription|Leírás: A \< \<TestDomain\>készült tesztfelhasználó\> felhasználói fiók. Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a következő https://aka.ms/azurestacklogfilestémakör útmutatása alapján:.
+|MasEventDescription|Leírás: A \<TestUser\> rendszer létrehoz egy felhasználói fiókot \<TestDomain\> . Ez egy lehetséges biztonsági kockázat. --SZERVIZELÉS: forduljon az ügyfélszolgálathoz. A probléma megoldásához az ügyfél segítségére van szükség. Ne próbálja meg elhárítani ezt a problémát segítség nélkül. A támogatási kérés megnyitása előtt indítsa el a naplófájlok gyűjtésének folyamatát a következő témakör útmutatása alapján: https://aka.ms/azurestacklogfiles .
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF lezárt riasztások leképezése
 
@@ -379,6 +383,6 @@ Az alábbi példa egy CEF adattartalommal rendelkező syslog-üzenetet mutat be:
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack Hub|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Karbantartási szabályzat](azure-stack-servicing-policy.md)

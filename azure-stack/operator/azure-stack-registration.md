@@ -8,13 +8,14 @@ ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
+ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e21b3a68d17f07006997b70eb1ff3dfa22bad229
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819558"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038828"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -98,12 +99,7 @@ A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell m
 > [!NOTE]
 > A Capacity-alapú számlázási modell használatával Azure Stack hub-regisztrációk esetében módosítania kell az egyedi nevet, ha az éves előfizetések lejárta után az újbóli regisztráció lejár, kivéve, ha [törli a lejárt regisztrációt](#renew-or-change-registration) , és újra regisztrálja magát az Azure-ban.
 
-Az Azure Stack hub központi telepítésének felhőalapú AZONOSÍTÓjának meghatározásához nyissa meg a PowerShellt rendszergazdaként egy olyan számítógépen, amely hozzáfér a Kiemelt végponthoz, futtassa a következő parancsokat, majd jegyezze fel a **CloudID** értéket:
-
-```powershell
-Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation
-```
+A Azure Stack hub központi telepítésének felhőalapú AZONOSÍTÓjának meghatározásához tekintse meg a [Felhőbeli azonosító megkeresése](azure-stack-find-cloud-id.md)című témakört.
 
 ::: zone pivot="state-connected"
 ## <a name="register-with-pay-as-you-use-billing"></a>Regisztráció a használaton kívüli számlázással
@@ -128,7 +124,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
    >[!Note]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot:`Remove-AzureRmAccount-Scope Process`
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process`
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -361,7 +357,7 @@ A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
 
 A következő információk szükségesek a [felügyeleti portálról](#verify-azure-stack-hub-registration) a regisztráció megújításához vagy módosításához:
 
-| Felügyeleti portál | Parancsmag paraméter | Megjegyzések | 
+| Felügyeleti portál | Parancsmag paraméter | Jegyzetek | 
 |-----|-----|-----|
 | REGISZTRÁCIÓS ELŐFIZETÉS AZONOSÍTÓJA | Előfizetés | Az előző regisztráció során használt előfizetés-azonosító |
 | REGISZTRÁCIÓS ERŐFORRÁSCSOPORT | ResourceGroupName | Az az erőforráscsoport, amelyben az előző regisztrációs erőforrás létezik |
@@ -553,6 +549,6 @@ Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy
    Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

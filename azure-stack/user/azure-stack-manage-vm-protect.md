@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146937"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742702"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 
@@ -71,9 +71,9 @@ A biztonsági mentési termékek védik a IaaS virtuális gépek konfigurációj
 > [!Important]  
 > A lemezes Pillanatképek használata jelenleg nem támogatott a futó állapotban lévő virtuális gépek esetében. Egy futó virtuális géphez csatolt lemez pillanatképének létrehozása csökkentheti a teljesítményt, vagy befolyásolhatja az operációs rendszer vagy alkalmazás rendelkezésre állását a virtuális gépen. Javasoljuk, hogy a vendég-ügynök használatával megvédje az alkalmazást, ha a tervezett állásidő nem lehetséges. 
 
-### <a name="vms-in-a-scale-set-or-availability-group"></a>Virtuális gépek egy méretezési csoport vagy rendelkezésre állási csoportban
+### <a name="vms-in-a-scale-set-or-availability-set"></a>Méretezési csoport vagy rendelkezésre állási csoportba tartozó virtuális gépek
 
-A méretezési csoportokban vagy a rendelkezésre állási csoportban lévő virtuális gépeket, amelyek nem minősülnek ideiglenes erőforrásnak, nem szabad biztonsági mentést készíteni a virtuálisgép-szinten, különösen akkor, ha az alkalmazás állapota nem megfelelő. A méretezési vagy rendelkezésre állási csoportokban üzembe helyezett állapot-nyilvántartó alkalmazások esetében érdemes megfontolni az alkalmazásadatok (például egy adatbázis vagy kötet) védelmét a tárolóban. 
+A méretezési csoportokban vagy a rendelkezésre állási csoportban lévő virtuális gépeket, amelyek nem minősülnek ideiglenes erőforrásnak, nem szabad biztonsági mentést készíteni a virtuálisgép-szinten, különösen akkor, ha az alkalmazás állapota nem megfelelő. A méretezési vagy rendelkezésre állási csoportokban üzembe helyezett állapot-nyilvántartó alkalmazások esetében érdemes lehet védeni az alkalmazásadatok védelmét (például egy adatbázis vagy kötet egy tárolóban). 
 
 ### <a name="replicationmanual-failover"></a>Replikáció/manuális feladatátvétel
 
@@ -83,7 +83,7 @@ Ezzel a módszerrel az alkalmazást egy felhőben helyezik üzembe, és a rendsz
  
 ### <a name="high-availabilityautomatic-failover"></a>Magas rendelkezésre állás/automatikus feladatátvétel
 
-Olyan állapot nélküli alkalmazások esetében, amelyek csak néhány másodpercet vagy akár néhány percet is igénybe vehetnek, vegye figyelembe a magas rendelkezésre állási konfigurációt. A magas rendelkezésre állású alkalmazások úgy vannak kialakítva, hogy több helyen legyenek üzembe helyezhetők aktív/aktív topológiában, ahol az összes példány képes a kérelmek kiszolgálására. Helyi hardverhiba esetén a Azure Stack hub-infrastruktúra magas rendelkezésre állást valósít meg a fizikai hálózaton két felső szintű rack kapcsoló használatával. Számítási szintű hibák esetén Azure Stack hub több csomópontot használ egy méretezési egységben. A virtuális gépek szintjén a méretezési csoportokat a tartalék tartományokkal együtt használva biztosíthatja, hogy a csomópont-meghibásodások ne használják az alkalmazást. Ugyanezt az alkalmazást egy másodlagos helyre kell telepíteni ugyanabban a konfigurációban. Ahhoz, hogy az alkalmazás aktív/aktív legyen, a terheléselosztó vagy a DNS használatával a kérelmeket az összes rendelkezésre álló példányra irányíthatja.
+Olyan állapot nélküli alkalmazások esetében, amelyek csak néhány másodpercet vagy akár néhány percet is igénybe vehetnek, vegye figyelembe a magas rendelkezésre állási konfigurációt. A magas rendelkezésre állású alkalmazások úgy vannak kialakítva, hogy több helyen legyenek üzembe helyezhetők aktív/aktív topológiában, ahol az összes példány képes a kérelmek kiszolgálására. Helyi hardverhiba esetén a Azure Stack hub-infrastruktúra magas rendelkezésre állást valósít meg a fizikai hálózaton két felső szintű rack kapcsoló használatával. Számítási szintű hibák esetén Azure Stack hub több csomópontot használ egy méretezési egységben, és automatikusan feladatátvételt hajt végre a virtuális gépen. A virtuális gép szintjén olyan méretezési csoportokat vagy virtuális gépeket használhat a rendelkezésre állási csoportokban, amelyek biztosítják, hogy a csomópont-meghibásodások ne tudják leállítani az alkalmazást. Ugyanezt az alkalmazást egy másodlagos helyre kell telepíteni ugyanabban a konfigurációban. Ahhoz, hogy az alkalmazás aktív/aktív legyen, a terheléselosztó vagy a DNS használatával a kérelmeket az összes rendelkezésre álló példányra irányíthatja.
 
 ### <a name="no-recovery"></a>Nincs helyreállítás
 
@@ -95,13 +95,13 @@ Fontos szempontok az Azure Stack hub üzembe helyezéséhez:
 
 |     | Ajánlás | Megjegyzések |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Virtuális gépek biztonsági mentése/visszaállítása az adatközpontban már üzembe helyezett külső biztonsági mentési célra | Ajánlott | Használja ki a meglévő biztonsági mentési infrastruktúrát és az üzemeltetési képességeket. Ügyeljen arra, hogy a biztonsági mentési infrastruktúrát úgy méretezi, hogy az készen álljon a további virtuálisgép-példányok elleni védelemre. Ügyeljen arra, hogy a biztonsági mentési infrastruktúra ne legyen közel a forráshoz. A virtuális gépeket visszaállíthatja a forrás Azure Stack hubhoz, egy másodlagos Azure Stack hub-példányra vagy az Azure-ra. |
-| Virtuális gépek biztonsági mentése/visszaállítása a Azure Stack hub számára dedikált külső biztonsági mentési célra | Ajánlott | Új biztonsági mentési infrastruktúrát vásárolhat, vagy kiépítheti az Azure Stack hub dedikált biztonsági mentési infrastruktúráját. Ügyeljen arra, hogy a biztonsági mentési infrastruktúra ne legyen közel a forráshoz. A virtuális gépeket visszaállíthatja a forrás Azure Stack hubhoz, egy másodlagos Azure Stack hub-példányra vagy az Azure-ra. |
-| Virtuális gépek biztonsági mentése/visszaállítása közvetlenül a globális Azure-ba vagy egy megbízható szolgáltatóhoz | Ajánlott | A biztonsági mentések a globális Azure-ban vagy egy megbízható szolgáltatóban tárolhatók, feltéve, hogy megfelel az adatvédelmi és szabályozási követelményeknek. Ideális esetben a szolgáltató a Azure Stack hub-t is futtatja, így a visszaállítás során konzisztens lesz a működési élményben. |
-| Virtuális gépek replikálása vagy feladatátvétele egy külön Azure Stack hub-példányba | Ajánlott | A feladatátvételi esetben egy második Azure Stack hub-felhőnek teljesen működőképesnek kell lennie, hogy el tudja kerülni a kiterjesztett alkalmazások leállását. |
-| Virtuális gépek replikálása/feladatátvétele közvetlenül az Azure-ba vagy egy megbízható szolgáltatóhoz | Ajánlott | Ha az adatvédelmet és a szabályozást is kielégíti, az adatokat a globális Azure-ba vagy egy megbízható szolgáltatóba replikálhatja. Ideális esetben a szolgáltató a Azure Stack hub-t is futtatja, így a feladatátvétel után konzisztens lesz a működési élményben. |
-| Telepítsen egy biztonsági mentési célt ugyanarra a Azure Stack hubhoz, amely az ugyanazon biztonsági mentési cél által védett összes alkalmazást is üzemelteti. | Önálló cél: nem ajánlott </br> A biztonsági másolatok külső replikálására szolgáló cél: ajánlott | Ha Azure Stack hub-on helyez üzembe egy biztonságimásolat-berendezést (az operatív visszaállítás optimalizálásához), gondoskodnia kell arról, hogy a rendszer folyamatosan másolja az összes adatforrást egy külső biztonsági mentési helyre. |
-| Fizikai biztonsági mentési berendezés üzembe helyezése ugyanabba az állványba, ahol a Azure Stack hub-megoldás telepítve van | Nem támogatott | Jelenleg nem csatlakoztatható más eszközök az eredeti megoldás részét nem képező rack-kapcsolók tetejéhez. |
+|**Virtuális gépek biztonsági mentése/visszaállítása az adatközpontban már üzembe helyezett külső biztonsági mentési célra**| Ajánlott | Használja ki a meglévő biztonsági mentési infrastruktúrát és az üzemeltetési képességeket. Ügyeljen arra, hogy a biztonsági mentési infrastruktúrát úgy méretezi, hogy az készen álljon a további virtuálisgép-példányok elleni védelemre. Ügyeljen arra, hogy a biztonsági mentési infrastruktúra ne legyen közel a forráshoz. A virtuális gépeket visszaállíthatja a forrás Azure Stack hubhoz, egy másodlagos Azure Stack hub-példányra vagy az Azure-ra. |
+|**Virtuális gépek biztonsági mentése/visszaállítása a Azure Stack hub számára dedikált külső biztonsági mentési célra**| Ajánlott | Új biztonsági mentési infrastruktúrát vásárolhat, vagy kiépítheti az Azure Stack hub dedikált biztonsági mentési infrastruktúráját. Ügyeljen arra, hogy a biztonsági mentési infrastruktúra ne legyen közel a forráshoz. A virtuális gépeket visszaállíthatja a forrás Azure Stack hubhoz, egy másodlagos Azure Stack hub-példányra vagy az Azure-ra. |
+|**Virtuális gépek biztonsági mentése/visszaállítása közvetlenül a globális Azure-ba vagy egy megbízható szolgáltatóhoz**| Ajánlott | A biztonsági mentések a globális Azure-ban vagy egy megbízható szolgáltatóban tárolhatók, feltéve, hogy megfelel az adatvédelmi és szabályozási követelményeknek. Ideális esetben a szolgáltató a Azure Stack hub-t is futtatja, így a visszaállítás során konzisztens lesz a működési élményben. |
+|**Virtuális gépek replikálása vagy feladatátvétele egy külön Azure Stack hub-példányba**| Ajánlott | A feladatátvételi esetben egy második Azure Stack hub-felhőnek teljesen működőképesnek kell lennie, hogy el tudja kerülni a kiterjesztett alkalmazások leállását. |
+|**Virtuális gépek replikálása/feladatátvétele közvetlenül az Azure-ba vagy egy megbízható szolgáltatóhoz**| Ajánlott | Ha az adatvédelmet és a szabályozást is kielégíti, az adatokat a globális Azure-ba vagy egy megbízható szolgáltatóba replikálhatja. Ideális esetben a szolgáltató a Azure Stack hub-t is futtatja, így a feladatátvétel után konzisztens lesz a működési élményben. |
+|**Telepítsen egy biztonsági mentési célt ugyanarra a Azure Stack hubhoz, amely az ugyanazon biztonsági mentési cél által védett összes alkalmazást is üzemelteti.**| Önálló cél: nem ajánlott </br> A biztonsági másolatok külső replikálására szolgáló cél: ajánlott | Ha Azure Stack hub-on helyez üzembe egy biztonságimásolat-berendezést (az operatív visszaállítás optimalizálásához), gondoskodnia kell arról, hogy a rendszer folyamatosan másolja az összes adatforrást egy külső biztonsági mentési helyre. |
+|**Fizikai biztonsági mentési berendezés üzembe helyezése ugyanabba az állványba, ahol a Azure Stack hub-megoldás telepítve van**| Nem támogatott | Jelenleg nem csatlakoztatható más eszközök az eredeti megoldás részét nem képező rack-kapcsolók tetejéhez. |
 
 ## <a name="next-steps"></a>Következő lépések
 
@@ -111,11 +111,11 @@ Ez a cikk az Azure Stack hub-on üzembe helyezett felhasználói virtuális gép
 - [A folyamatos üzletmenet és a vészhelyreállítás megfontolandó szempontjai](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
- - [Fájlok és alkalmazások biztonsági mentése a Azure Stack hub Azure Backup használatával](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Azure Stack hub Azure Backup Server támogatása](https://docs.microsoft.com/azure/backup/ ) 
+ - [Fájlok és alkalmazások biztonsági mentése a Azure Stack hub Azure Backup használatával](/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Stack hub Azure Backup Server támogatása](/azure/backup/ ) 
  
  ### <a name="azure-site-recovery"></a>Azure Site Recovery
- - [Azure Stack hub Azure Site Recovery támogatása](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Azure Stack hub Azure Site Recovery támogatása](/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>Partneri termékek
  - [Azure Stack hub Datacenter Integration partner ökoszisztémájának Adatlapja](https://aka.ms/azurestackbcdrpartners)

@@ -1,5 +1,5 @@
 ---
-title: Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
+title: Datacenter-integráció tervezése Azure Stack hub integrált rendszerekhez
 description: Ismerje meg, hogyan tervezhet és készíthet elő adatközpont-integrációt Azure Stack hub integrált rendszerekkel.
 author: IngridAtMicrosoft
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80638207"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573033"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -25,7 +25,7 @@ Azure Stack hub telepítéséhez a telepítés megkezdése előtt meg kell adnia
 
 A szükséges információk megkeresése és összegyűjtése során előfordulhat, hogy a hálózati környezetbe be kell állítania néhány üzembe helyezés előtti konfigurációs módosítást. Ezek a változások közé tartozhatnak az Azure Stack hub-megoldás IP-címeinek megőrzése, valamint az útválasztók, kapcsolók és tűzfalak konfigurálása az új Azure Stack hub-megoldási kapcsolókhoz való kapcsolódás előkészítéséhez. Győződjön meg arról, hogy a tárgy szakembere a tervezéshez szükséges.
 
-## <a name="capacity-planning-considerations"></a>Kapacitás-tervezési szempontok
+## <a name="capacity-planning-considerations"></a>Kapacitástervezési szempontok
 
 Amikor kiértékel egy Azure Stack hub-megoldást a beszerzéshez, olyan hardverkonfiguráció-beállításokat tesz elérhetővé, amelyek közvetlen hatással vannak az Azure Stack hub-megoldás általános kapacitására. Ezek közé tartozik a CPU, a memória sűrűsége, a tárolási konfiguráció és a megoldás összesített mérete (például a kiszolgálók száma) klasszikus lehetőségei. A hagyományos virtualizációs megoldástól eltérően az összetevők egyszerű aritmetikaa nem alkalmazható a felhasználható kapacitás meghatározására. Az első ok az, hogy Azure Stack hub a megoldásban az infrastruktúra vagy a felügyeleti összetevők üzemeltetésére szolgál. A második ok az, hogy a megoldás szoftverének egy része a rugalmasság támogatásához van fenntartva, így a megoldás szoftverének frissítése a bérlői munkaterhelések megszakadásának minimalizálásával történik.
 
@@ -72,7 +72,7 @@ További információ a licencelési modellekről: [Microsoft Azure stack hub cs
 
 ## <a name="naming-decisions"></a>Elnevezési döntések
 
-Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, különösen a régió nevét és a külső tartománynevet. A Azure stack hub nyilvános végpontok számára történő központi telepítésének külső teljes tartományneve (FQDN) a következő két név kombinációja: &lt; *régió*&gt;. &lt; *fqdn*FQDN&gt;. Például: *East.Cloud.fabrikam.com*. Ebben a példában a Azure Stack hub portálok a következő URL-címeken lesznek elérhetők:
+Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, különösen a régió nevét és a külső tartománynevet. A Azure Stack hub nyilvános végpontok számára történő központi telepítésének külső teljes tartományneve (FQDN) a következő két név kombinációja: &lt; *régió* &gt; . &lt; *FQDN* &gt; . Például: *East.Cloud.fabrikam.com*. Ebben a példában a Azure Stack hub portálok a következő URL-címeken lesznek elérhetők:
 
 - `https://portal.east.cloud.fabrikam.com`
 - `https://adminportal.east.cloud.fabrikam.com`
@@ -82,9 +82,9 @@ Gondolja át, hogyan szeretné megtervezni az Azure Stack hub-névteret, külön
 
 A következő táblázat összefoglalja ezeket a tartománynév-elnevezési döntéseket.
 
-| Name (Név) | Leírás |
+| Név | Leírás |
 | -------- | ------------- |
-|Régió neve | Az első Azure Stack hub-régió neve. Ez a név a Azure Stack hub által felügyelt nyilvános virtuális IP-címek (VIP) teljes tartománynevének részeként használatos. A régió neve általában egy fizikai hely azonosítója, például egy adatközpont helye.<br><br>A régió neve csak betűkből és számokból állhat, 0-9 között. A speciális karakterek (például `-`, `#`stb.) nem engedélyezettek.| 
+|Régió neve | Az első Azure Stack hub-régió neve. Ez a név a Azure Stack hub által felügyelt nyilvános virtuális IP-címek (VIP) teljes tartománynevének részeként használatos. A régió neve általában egy fizikai hely azonosítója, például egy adatközpont helye.<br><br>A régió neve csak betűkből és számokból állhat, 0-9 között. A speciális karakterek (például `-` , `#` stb.) nem engedélyezettek.| 
 | Külső tartomány neve | A külső virtuális IP-címekkel rendelkező végpontokhoz tartozó tartománynévrendszer (DNS) zóna neve. A nyilvános VIP-címek teljes tartománynevében használatos. | 
 | Magánhálózati (belső) tartomány neve | A Azure Stack hub infrastruktúra-kezeléshez létrehozott tartományának (és belső DNS-zónájának) neve.
 | | |
@@ -111,7 +111,7 @@ Meg kell adnia egy IP-címet az időszinkronizálási kiszolgálóhoz. Bár az i
 
 Hibrid felhőalapú forgatókönyvek esetén meg kell terveznie, hogyan szeretné csatlakoztatni Azure Stack hubot az Azure-hoz. Az Azure-beli virtuális hálózatok két támogatott módszerrel csatlakoztathatók Azure Stack hubhoz:
 
-- **Helyek közötti**kapcsolat: virtuális MAGÁNHÁLÓZATI (VPN) kapcsolat IPSec (IKE v1 és IKE v2) használatával. Az ilyen típusú kapcsolathoz VPN-eszköz vagy Útválasztás és távelérés szolgáltatás (RRAS) szükséges. További információ az Azure-beli VPN-átjárókkal kapcsolatban: [about VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Az alagúton keresztüli kommunikáció titkosított és biztonságos. A sávszélességet azonban az alagút maximális átviteli sebessége korlátozza (100-200 Mbps).
+- **Helyek közötti**kapcsolat: virtuális MAGÁNHÁLÓZATI (VPN) kapcsolat IPSec (IKE v1 és IKE v2) használatával. Az ilyen típusú kapcsolathoz VPN-eszköz vagy Útválasztás és távelérés szolgáltatás (RRAS) szükséges. További információ az Azure-beli VPN-átjárókkal kapcsolatban: [about VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). Az alagúton keresztüli kommunikáció titkosított és biztonságos. A sávszélességet azonban az alagút maximális átviteli sebessége korlátozza (100-200 Mbps).
 
 - **Kimenő NAT**: alapértelmezés szerint a Azure stack hub összes virtuális gépe kimenő NAT-kapcsolaton keresztül fog csatlakozni a külső hálózatokhoz. Az Azure Stack hub-ban létrehozott minden egyes virtuális hálózathoz hozzá lesz rendelve egy nyilvános IP-cím. Azt határozza meg, hogy a virtuális gép közvetlenül van-e hozzárendelve nyilvános IP-cím, vagy egy nyilvános IP-címmel rendelkező terheléselosztó mögött van-e kimenő hozzáférése kimenő NAT-kapcsolaton keresztül, a virtuális hálózat VIP-je használatával. Ez a módszer csak a virtuális gép által kezdeményezett és külső hálózatokra (Internet vagy intranet) szánt kommunikációra használható. Nem használható a virtuális géppel kívülről való kommunikációra.
 
@@ -129,7 +129,7 @@ A hibrid kapcsolatok esetében fontos figyelembe venni, hogy milyen típusú kö
 
 A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveket a profik, a hátrányok és a használati esetek között.
 
-| Forgatókönyv | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
+| Használati eset | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
 | -- | -- | --| -- | --|
 | Önálló bérlői Azure Stack hub, intranetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. Egyszerűen megvalósítható; nincs szükség átjáróra. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Vállalati üzemelő példányok, ahol az összes bérlő egyformán megbízható.<br><br>Olyan vállalatok, amelyek rendelkeznek Azure ExpressRoute-áramkörrel az Azure-ban. |
 | Több-bérlős Azure Stack hub, intranetes telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
@@ -139,7 +139,7 @@ A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveke
 
 ### <a name="using-expressroute"></a>A ExpressRoute használata
 
-Az [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) -on keresztül csatlakoztathatja Azure stack hubot az Azure-hoz mind az egybérlős intranetes, mind a több-bérlős környezetben. Szüksége lesz egy kiépített ExpressRoute-áramkörre [egy kapcsolati szolgáltatón](https://docs.microsoft.com/azure/expressroute/expressroute-locations)keresztül.
+Az [ExpressRoute](/azure/expressroute/expressroute-introduction) -on keresztül csatlakoztathatja Azure stack hubot az Azure-hoz mind az egybérlős intranetes, mind a több-bérlős környezetben. Szüksége lesz egy kiépített ExpressRoute-áramkörre [egy kapcsolati szolgáltatón](/azure/expressroute/expressroute-locations)keresztül.
 
 Az alábbi ábrán egy egybérlős forgatókönyv ExpressRoute látható (ahol az "ügyfél kapcsolata" a ExpressRoute áramkör).
 
@@ -198,10 +198,10 @@ A Linux vagy a Windows IaaS virtuális gépek biztonsági mentéséhez olyan biz
 
 Ha egy másodlagos helyre szeretné replikálni az alkalmazásokat, és vészhelyzet esetén az alkalmazás feladatátvételét koordinálja, használhat Azure Site Recovery vagy támogatott harmadik féltől származó termékeket. Emellett a natív replikálást támogató alkalmazások, például a Microsoft SQL Server is képesek replikálni az adatfájlokat egy másik helyre, ahol az alkalmazás fut.
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>Tudjon meg többet
 
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
 - Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

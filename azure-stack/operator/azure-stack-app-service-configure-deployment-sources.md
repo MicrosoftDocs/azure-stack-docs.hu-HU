@@ -1,5 +1,5 @@
 ---
-title: Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
+title: App Services telepítési források konfigurálása – Azure Stack hub
 description: Megtudhatja, hogyan konfigurálhatja az üzembe helyezési forrásokat (git, GitHub, BitBucket, DropBox és OneDrive) Azure Stack hub App Services.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: f679f4a609f7be2798a664dc4a748e56f8b0d2fb
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 2766c495087d32dba1162d2354b9b0a8ea673afb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374899"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573258"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Központi telepítési források konfigurálása App Serviceshoz Azure Stack hub-on
 
@@ -36,11 +36,11 @@ A helyi git mellett a következő verziókövetés-szolgáltatók is támogatott
 
     ![App Service erőforrás-szolgáltató rendszergazdai forrásának vezérlési konfigurációja][2]
 
-## <a name="configure-github"></a>GitHub konfigurálása
+## <a name="configure-github"></a>A GitHub konfigurálása
 
 A feladat elvégzéséhez GitHub-fiókkal kell rendelkeznie. Személyes fiók helyett érdemes lehet egy fiókot használni a szervezet számára.
 
-1. Jelentkezzen be a GitHubba, nyissa meg a következőt: https://www.github.com/settings/developers , majd válassza **az új alkalmazás regisztrálása**lehetőséget.
+1. Jelentkezzen be a GitHubba, nyissa meg a következőt: <https://www.github.com/settings/developers> , majd válassza **az új alkalmazás regisztrálása**lehetőséget.
 
     ![GitHub – új alkalmazás regisztrálása][3]
 
@@ -96,7 +96,7 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz kapcsolódó Microsoft-fiók kel
 > [!NOTE]
 > A OneDrive for Business-fiókok jelenleg nem támogatottak.
 
-1. Lépjen be, https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm és jelentkezzen be Microsoft-fiók használatával.
+1. Lépjen be, <https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm> és jelentkezzen be Microsoft-fiók használatával.
 2. **Az alkalmazások**területen válassza **az alkalmazás hozzáadása**lehetőséget.
 
     ![OneDrive-alkalmazások][10]
@@ -129,7 +129,7 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz kapcsolódó Microsoft-fiók kel
 > [!NOTE]
 > A feladat elvégzéséhez DropBox-fiókkal kell rendelkeznie. Személyes fiók helyett érdemes lehet egy fiókot használni a szervezet számára.
 
-1. Nyissa meg a t, https://www.dropbox.com/developers/apps és jelentkezzen be a Dropbox-fiókja hitelesítő adataival.
+1. Nyissa meg a t, <https://www.dropbox.com/developers/apps> és jelentkezzen be a Dropbox-fiókja hitelesítő adataival.
 2. Válassza az **Alkalmazás létrehozása** lehetőséget.
 
     ![Dropbox-alkalmazások][14]
@@ -154,7 +154,7 @@ A feladat elvégzéséhez egy OneDrive-fiókhoz kapcsolódó Microsoft-fiók kel
 
 ## <a name="next-steps"></a>Következő lépések
 
-A felhasználók mostantól használhatják a központi telepítési forrásokat olyan dolgokhoz, mint a [folyamatos üzembe helyezés](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), a [helyi git-telepítés](https://docs.microsoft.com/azure/app-service/deploy-local-git)és a [Felhőbeli mappák szinkronizálása](https://docs.microsoft.com/azure/app-service/deploy-content-sync).
+A felhasználók mostantól használhatják a központi telepítési forrásokat olyan dolgokhoz, mint a [folyamatos üzembe helyezés](/azure/app-service/deploy-continuous-deployment), a [helyi git-telepítés](/azure/app-service/deploy-local-git)és a [Felhőbeli mappák szinkronizálása](/azure/app-service/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

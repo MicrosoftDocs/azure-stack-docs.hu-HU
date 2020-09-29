@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f010700c86e4481063528bd1148d7898e8bd17fe
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111880"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573819"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Azure Stack hub virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával
 
@@ -74,7 +74,7 @@ Az előző parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t (Unif
 
 Módosítsa a `azuredeploy.parameters.json` fájlt a környezeti értékek alapján. A különleges érdekű paraméterek a tár neve, a tár erőforráscsoport és a titkos URI (az előző szkript által generált). Az alábbi fájl egy példa egy paraméter fájlra.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>A azuredeploy. Parameters. JSON fájl frissítése
+## <a name="update-the-azuredeployparametersjson-file"></a>A fájl azuredeploy.parameters.jsfrissítése
 
 Frissítse a `azuredeploy.parameters.json` fájlt a kulcstároló URI-ja, a secretName, a virtuálisgép-értékek adminUsername alapján a környezetében. A következő JSON-fájl egy példát mutat be a sablon paramétereinek fájljára:
 

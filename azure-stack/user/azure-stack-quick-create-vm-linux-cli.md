@@ -1,17 +1,17 @@
 ---
-title: Linuxos virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
+title: Linux rendszerű virtuális gép létrehozása az Azure CLI-vel Azure Stack hub-ban
 description: Hozzon létre egy linuxos virtuális gépet az Azure CLI használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9cb3a448d708a70d70705cd8ea6230f17816726a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: b7b016d377267c9032a79c1e0f04bd1ac65e4185
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111680"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571536"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Linux Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
@@ -96,7 +96,7 @@ Ha telepítette az NGINX-webkiszolgálót, és a 80-es portot nyitja meg a virtu
 
 ![Az NGINX webkiszolgáló kezdőlapja](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Erőforrások felszabadítása
+## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
 Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Group delete](/cli/azure/group#az-group-delete) paranccsal távolíthatja el őket. Futtassa az alábbi parancsot:
 

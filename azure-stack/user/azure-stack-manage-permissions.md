@@ -1,5 +1,5 @@
 ---
-title: A Azure Stack hub erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel
+title: Erőforrás-hozzáférés kezelése Azure Stack központban szerepköralapú hozzáférés-vezérléssel
 description: Megtudhatja, hogyan kezelheti a szerepköralapú hozzáférés-vezérlés (RBAC) engedélyeit rendszergazdaként vagy bérlőként Azure Stack központban.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2f633e44b4646659a888df85e51450147104710e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1002f45b51f4a70ddbadb8230df6e98f591fcbb6
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703978"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573751"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>A Azure Stack hub erőforrásaihoz való hozzáférés kezelése szerepköralapú hozzáférés-vezérléssel
 
@@ -72,6 +72,6 @@ A következő lépések azt ismertetik, hogyan lehet engedélyeket beállítani 
 
 7. Kattintson a **Mentés** gombra.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Szolgáltatásnevek létrehozása](../operator/azure-stack-create-service-principals.md)

@@ -1,5 +1,5 @@
 ---
-title: Előfizetés létrehozása Azure Stack hub ajánlatával
+title: Előfizetés létrehozása az Azure Stack hub ajánlatával
 description: Ismerje meg, hogyan hozhat létre új előfizetést Azure Stack hub ajánlatával, majd tesztelje az ajánlatot egy teszt virtuális géppel.
 author: bryanla
 ms.topic: tutorial
@@ -7,12 +7,12 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: ef1f26c9929292b235a79037b792c18d84a824b0
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704896"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572561"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Oktatóanyag: előfizetés létrehozása és tesztelése Azure Stack hub-ban
 
@@ -37,7 +37,7 @@ Ha felhasználóként szeretne előfizetni az ajánlatra, jelentkezzen be az Azu
 
    ![Előfizetés beszerzése](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Ezután válassza az **ajánlat** lehetőséget, hogy az **ajánlat választása** szakaszban válassza ki az elérhető ajánlatok egyikét. Ezután válassza a **Létrehozás**lehetőséget.
+2. A **Megjelenítendő név** mezőben adja meg az előfizetés nevét. Ezután válassza az **ajánlat** lehetőséget, hogy az **ajánlat választása** szakaszban válassza ki az elérhető ajánlatok egyikét. Ezután válassza a **Létrehozás** elemet.
 
    ![Ajánlat létrehozása](media/azure-stack-subscribe-services/create-subscription.png)
 
@@ -74,7 +74,7 @@ Ha bejelentkezett a felhasználói portálra, tesztelje az ajánlatot úgy, hogy
 > [!NOTE]
 > A virtuális gép üzembe helyezése néhány percet vesz igénybe.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [Virtuális gép létrehozása közösségi sablonból](azure-stack-create-vm-template.md)

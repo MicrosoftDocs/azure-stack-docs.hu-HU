@@ -1,18 +1,18 @@
 ---
-title: Azure Stack hub PrivilegedEndpoint Kiemelt jogosultságú végpontja
-description: Hivatkozás a PowerShell Azure Stack privilegizált végpont – Bezárás – PrivilegedEndpoint
+title: Start-SecretRotation privilegizált Endpoint parancsmag Azure Stack hubhoz
+description: A PowerShell Azure Stack hub privilegizált végpontjának referenciája – Start-SecretRotation
 author: mattbriggs
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 07/29/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: b61955c6fce760654430b999c3b393e9093db535
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 8a3dee9ad26c37626c0f3383b874f149be4fac01
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563454"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742615"
 ---
 # <a name="start-secretrotation"></a>Start – SecretRotation
 
@@ -27,12 +27,12 @@ Start-SecretRotation [-PathAccessCredential <Object>] [-ReRun] [-CertificatePass
 ```
 
 ## <a name="description"></a>Leírás
-Meghívja a titkos kód elforgatási folyamatát.
+Meghívja a Secret rotációs folyamatot egy Azure Stack hub rendszer infrastruktúra-titkaihoz. Alapértelmezés szerint csak a külső hálózati infrastruktúra-végpontok tanúsítványait forgatja. További részletekért tekintse [meg a titkok Elforgatása Azure stack központban](../../operator/azure-stack-rotate-secrets.md) című témakört.
 
 ## <a name="parameters"></a>Paraméterek
 
 ### <a name="-internal"></a>– Belső
- 
+A belső hálózati infrastruktúra-végpontok titkainak elforgatása.
 
 ```yaml
 Type: SwitchParameter
@@ -85,6 +85,8 @@ Ettől eltérő lehet a kezdeti központi telepítési időpontban megadott ered
 A pfx-fájlokat a megfelelő HITELESÍTÉSSZOLGÁLTATÓI jelszóval hozza létre újra.
 
 Használat::
+
+```console
     # Rotates external certificates only
     Start-SecretRotation -PfxFilesPath \<String\> -PathAccessCredential \<PSCredential\> -CertificatePassword \<SecureString\>
 
@@ -96,6 +98,7 @@ Használat::
 
     # Reruns external certificates only
     Start-SecretRotation -ReRun
+```
 
 ```yaml
 Type: Object
@@ -139,6 +142,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).

@@ -1,17 +1,18 @@
 ---
 title: Alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez
-description: Megtudhatja, hogyan használhatja az alkalmazás identitását Azure Stack hub-erőforrások eléréséhez. Az alkalmazás identitása használható szerepköralapú hozzáférés-vezérléssel a bejelentkezéshez és az erőforrásokhoz való hozzáféréshez.
+description: Megtudhatja, hogyan érheti el Azure Stack hub-erőforrásokat egy alkalmazás-identitás használatával, amely a bejelentkezéshez és az erőforrásokhoz való hozzáféréshez használható szerepköralapú hozzáférés-vezérléssel.
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.custom: contperfq4
+ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666413"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573139"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -53,7 +54,7 @@ Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást,
 2. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció**lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.
-5. Az **átirányítási URI**területen válassza a **web** lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
+5. Az **átirányítási URI**területen válassza a **web**  lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
 6. Az értékek beállítása után válassza a **regisztráció**lehetőséget. Ekkor létrejön az alkalmazás regisztrálása, és megjelenik az **Áttekintés** oldal.
 7. Másolja az **alkalmazás azonosítóját** az alkalmazás kódjában való használatra. Ezt az értéket ügyfél-AZONOSÍTÓnak is nevezzük.
 8. Az ügyfél titkos kulcsának létrehozásához válassza a **tanúsítványok & titkok** lapot. Válassza az **Új titkos ügyfélkód** lehetőséget.
@@ -337,11 +338,11 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 3. Válassza ki a **Access Control (iam)** lapot, amely univerzális a RBAC támogató összes erőforráson.
 4. Válassza a **+ Hozzáadás** lehetőséget
 5. A **szerepkör**területen válassza ki az alkalmazáshoz hozzárendelni kívánt szerepkört.
-6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack- \<YourAppName\> - \<ClientId\> *ként jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz: *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
+6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack- \<YourAppName\> - \<ClientId\> *ként jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz:  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
 7. Miután megtalálta az alkalmazást, jelölje ki, és a **kijelölt tagok**területen fog megjelenni.
 8. A szerepkör hozzárendelésének befejezéséhez kattintson a **Mentés** gombra.
 
-     [![Szerepkör kiosztása](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
+     [![Szerepkör hozzárendelése](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
 9. Ha elkészült, az alkalmazás megjelenik az aktuális hatókörhöz rendelt rendszerbiztonsági tag listájában a megadott szerepkörhöz.
 
@@ -352,5 +353,5 @@ Most, hogy megadta az alkalmazás identitását, és engedélyezte azt az erőfo
 ## <a name="next-steps"></a>Következő lépések
 
 [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)  
-[Azure Active Directory dokumentáció](https://docs.microsoft.com/azure/active-directory)  
-[Active Directory összevonási szolgáltatások](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
+[Azure Active Directory dokumentáció](/azure/active-directory)  
+[Active Directory összevonási szolgáltatások](/windows-server/identity/active-directory-federation-services)

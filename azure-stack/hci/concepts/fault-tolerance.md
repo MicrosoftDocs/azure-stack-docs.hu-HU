@@ -1,20 +1,20 @@
 ---
-title: Hibatűrés és a tárolási hatékonyság a Azure Stack HCI-ben
+title: Hibatűrés és tárolási hatékonyság – Azure Stack HCI
 description: Közvetlen tárolóhelyek rugalmassági lehetőségeinek megvitatása, beleértve a tükrözést és a paritást.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/21/2020
+ms.openlocfilehash: 140427df807c1fbe048615a6642a888d0516475c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025699"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572246"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Hibatűrés és a tárolási hatékonyság a Azure Stack HCI-ben
 
->A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Ez a témakör bemutatja a Közvetlen tárolóhelyek rendelkezésre álló rugalmassági lehetőségeket, és ismerteti a méretezési követelményeket, a tárolási hatékonyságot, valamint az egyes eszközök általános előnyeit és kompromisszumait. Emellett néhány használati útmutatót is tartalmaz a kezdéshez, és néhány nagyszerű dokumentumra, blogra és további tartalomra hivatkozik, ahol további információt talál.
 
@@ -28,7 +28,7 @@ Ahogy a RAID esetében, a tárolóhelyek többféleképpen is megtehetik ezt, am
 
 ## <a name="mirroring"></a>Tükrözés
 
-A tükrözések hibatűrést biztosítanak, ha az összes adattal több példányt tart. Ez leginkább hasonlít a RAID-1-re. Az adatszalagos tárolás és az azokhoz tartozó információk nem triviálisak ( [ebben a blogban](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/) további információkat talál), de feltétlenül igaz, hogy a tükrözést használó összes tárolt információ teljes egészében, többször is megírásra kerül. A rendszer minden egyes példányt különböző fizikai hardverre (különböző kiszolgálókon lévő különböző meghajtókra) ír, amelyeket feltételez, hogy egymástól függetlenül meghibásodik.
+A tükrözések hibatűrést biztosítanak, ha az összes adattal több példányt tart. Ez leginkább hasonlít a RAID-1-re. Az adatszalagos tárolás és az azokhoz tartozó információk nem triviálisak ( [ebben a blogban](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959) további információkat talál), de feltétlenül igaz, hogy a tükrözést használó összes tárolt információ teljes egészében, többször is megírásra kerül. A rendszer minden egyes példányt különböző fizikai hardverre (különböző kiszolgálókon lévő különböző meghajtókra) ír, amelyeket feltételez, hogy egymástól függetlenül meghibásodik.
 
 A tárolóhelyek a tükrözés két változatát kínálja – "kétirányú" és "háromutas".
 
@@ -84,11 +84,11 @@ A merevlemez-meghajtók (HDD) esetében a csoport mérete négy szimbólum; a sz
 
 ![helyi újjáépítés – kódok](media/fault-tolerance/local-reconstruction-codes-180px.png)
 
-Azt javasoljuk, hogy ezt a részletesen olvasható [, a helyi újjáépítési kódok különböző meghibásodási forgatókönyveket kezelő, és miért vonzó](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/), a saját [Claus Joergensen](https://twitter.com/clausjor).
+Azt javasoljuk, hogy ezt a részletesen olvasható [, a helyi újjáépítési kódok különböző meghibásodási forgatókönyveket kezelő, és miért vonzó](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB), a saját [Claus Joergensen](https://twitter.com/clausjor).
 
 ## <a name="mirror-accelerated-parity"></a>Tükrözött, gyorsított paritás
 
-Egy Közvetlen tárolóhelyek kötet lehet a Mirror és a part paritás. Először a tükrözött részbe írja a földet, és később fokozatosan áthelyezi a paritási részbe. Ennek hatására a [tükrözés a törlési kódolás felgyorsítására használatos](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/).
+Egy Közvetlen tárolóhelyek kötet lehet a Mirror és a part paritás. Először a tükrözött részbe írja a földet, és később fokozatosan áthelyezi a paritási részbe. Ennek hatására a [tükrözés a törlési kódolás felgyorsítására használatos](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 A háromutas tükrözés és a kettős paritás együttes létrehozásához legalább négy tartalék tartományra van szükség, amely négy kiszolgálót jelent.
 
@@ -126,7 +126,7 @@ Ez a szakasz összefoglalja a Közvetlen tárolóhelyek rendelkezésre álló ru
 
 Ez a táblázat a kettős paritású és a helyi újjáépítési kódok tárolási hatékonyságát mutatja a hibrid telepítések esetében, amelyek merevlemez-meghajtókat (HDD) és SSD-meghajtókat egyaránt tartalmaznak.
 
-|    Tartalék tartományok      |    Elrendezés           |    Hatékonyság   |
+|    Tartalék tartományok      |    Layout           |    Hatékonyság   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -148,7 +148,7 @@ Ez a táblázat a kettős paritású és a helyi újjáépítési kódok tárol�
 
 Ez a táblázat a kettős paritású és helyi újraépítési kódok tárolási hatékonyságát mutatja minden olyan Flash-telepítés esetén, amely kizárólag SSD-meghajtókat tartalmaz. A paritásos elrendezés nagyobb méretű csoportokat használhat, és jobb tárolási hatékonyságot érhet el egy teljes Flash konfigurációban.
 
-|    Tartalék tartományok      |    Elrendezés           |    Hatékonyság   |
+|    Tartalék tartományok      |    Layout           |    Hatékonyság   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -174,18 +174,18 @@ Ha csak két kiszolgálóval rendelkezik, javasoljuk, hogy használjon háromuta
 
 Ez a hat példa azt mutatja be, hogy milyen háromutas tükrözést és/vagy kettős paritást **tud** viselni.
 
-- **1.** egy meghajtó elveszett (beleértve a gyorsítótár-meghajtókat is)
-- **2.** egy kiszolgáló elveszett
+- **1.**    egy meghajtó elveszett (beleértve a gyorsítótár-meghajtókat is)
+- **2.**    egy kiszolgáló elveszett
 
 ![hibatűrés – példák-1 és-2](media/fault-tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.** egy kiszolgáló és egy meghajtó elveszett
-- **4.** két meghajtó elveszett különböző kiszolgálókon
+- **3.**    egy kiszolgáló és egy meghajtó elveszett
+- **4.**    két meghajtó elveszett különböző kiszolgálókon
 
 ![hibatűrési példák – 3 és 4 közötti](media/fault-tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.** a kettőnél több meghajtó is elveszett, amíg a legtöbb esetben a két kiszolgáló érintett
-- **6.** két kiszolgáló elveszett
+- **5.**    a kettőnél több meghajtó is elveszett, amíg a legtöbb esetben a két kiszolgáló érintett
+- **6.**    két kiszolgáló elveszett
 
 ![hibatűrés – példák-5 és-6](media/fault-tolerance/Fault-Tolerance-Example-56.png)
 
@@ -202,14 +202,14 @@ Ez a hat példa azt mutatja be, hogy milyen háromutas tükrözést és/vagy ket
 
 ## <a name="usage"></a>Használat
 
-Tekintse meg [a kötetek létrehozását a közvetlen tárolóhelyekban](/windows-server/storage/storage-spaces/create-volumes).
+Tekintse meg a [kötetek létrehozása](../manage/create-volumes.md)eszközt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A cikkben említett témakörökkel kapcsolatos további információkért tekintse meg a következőket:
 
 - [Kódolások törlése az Azure-ban a Microsoft Research használatával](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Helyi újjáépítési kódok és felgyorsuló paritású kötetek](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Kötetek a Storage Management API-ban](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Helyi újjáépítési kódok és felgyorsuló paritású kötetek](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [Kötetek a Storage Management API-ban](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Storage hatékonysági bemutató a Microsoft Ignite 2016-ban](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
 - [A kapacitás-kalkulátor előzetes verziója Közvetlen tárolóhelyek](https://aka.ms/s2dcalc)
