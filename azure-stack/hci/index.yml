@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: A HCI dokumentációjának Azure Stack
-summary: A Azure Stack HCI egy hiperkonvergens Windows Server 2019-fürt, amely ellenőrzött hardvert használ a helyileg virtualizált számítási feladatok futtatásához, így az ügyfelek könnyedén összevonják az öregedési infrastruktúrát, és csatlakozhatnak az Azure for Cloud Serviceshez.
+summary: Azure Stack HCI egy hiperkonvergens-fürt, amely ellenőrzött hardvert használ a virtualizált munkaterhelések helyszíni futtatásához, így az ügyfelek könnyedén összevonják az öregedési infrastruktúrát, és csatlakozhatnak az Azure for Cloud Serviceshez.
 metadata:
   title: A HCI dokumentációjának Azure Stack
-  description: Azure Stack HCI egy hiperkonvergens Windows Server 2019-fürt, amely érvényesített hardvert használ a virtualizált munkaterhelések helyszíni futtatásához.
+  description: A Azure Stack HCI olyan hiperkonvergens-fürt, amely érvényesített hardvert használ a virtualizált munkaterhelések helyszíni futtatásához.
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 04/17/2020
-  ms.openlocfilehash: f277947b8de05c0a038c01bf9ab994510aa95b4f
-  ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
+  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 04/17/2020
-  ms.locfileid: "81624958"
+  ms.lasthandoff: 07/22/2020
+  ms.locfileid: "86891968"
 landingContent:
 - title: Tudnivalók a Azure Stack HCI-ről
   linkLists:
@@ -25,33 +25,89 @@ landingContent:
     links:
     - text: Azure Stack HCI használata a Windows felügyeleti központtal
       url: get-started.md
-- title: Azure Stack HCI kezelése
+- title: Azure Stack HCI üzembe helyezése
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Előkészületek
+      url: deploy/before-you-start.md
+    - text: A Azure Stack HCI operációs rendszer üzembe helyezése
+      url: deploy/operating-system.md
+    - text: Fürt létrehozása
+      url: deploy/create-cluster.md
+    - text: Tanúsító fürt beállítása
+      url: deploy/witness.md
+    - text: Regisztrálás az Azure-ban
+      url: deploy/register-with-azure.md
+    - text: Azure Stack HCI-fürt ellenőrzése
+      url: deploy/validate.md
+- title: Tárhely kezelése
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Kötetek létrehozása
       url: manage/create-volumes.md
+    - text: Kifeszített kötetek létrehozása
+      url: manage/create-stretched-volumes.md
     - text: Kötetek kiterjesztése
       url: manage/extend-volumes.md
     - text: Kötetek törlése
       url: manage/delete-volumes.md
     - text: Meghajtók cseréje
       url: manage/replace-drives.md
-    - text: Monitorozás az Azure Monitorral
-      url: manage/azure-monitor.md
-    - text: GPU csatlakoztatása Linux rendszerű virtuális géphez
-      url: manage/attach-gpu-to-linux-vm.md
+- title: Virtuális gépek kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Virtuális gépek kezelése a Windows felügyeleti központtal
+      url: manage/vm.md
+    - text: Virtuális gépek kezelése a PowerShell-lel
+      url: manage/vm-powershell.md
+    - text: Virtuálisgép-affinitási szabályok beállítása
+      url: deploy/before-you-start.md
+- title: A fürt kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Fürt kezelése a Windows felügyeleti központtal
+      url: manage/cluster.md
+    - text: Fürt kezelése a PowerShell-lel
+      url: manage/cluster-powershell.md
+    - text: Kiszolgálók hozzáadása vagy eltávolítása
+      url: manage/add-cluster.md
+    - text: Fürt frissítése
+      url: manage/update-cluster.md
+    - text: Nyelvek módosítása
+      url: manage/vm-powershell.md
 - title: Azure Stack HCI-fogalmak
   linkLists:
   - linkListType: concept
     links:
+    - text: Kifeszített fürtök
+      url: concepts/stretched-clusters.md
+    - text: Számlázás
+      url: concepts/billing.md
+    - text: Frissítések és frissítések
+      url: concepts/updates.md
     - text: Meghajtók kiválasztása
       url: concepts/choose-drives.md
     - text: Kötetek megtervezése
       url: concepts/plan-volumes.md
-    - text: A gyorsítótár megismerése
-      url: concepts/cache.md
     - text: Hibatűrés és a tárolás hatékonysága
       url: concepts/fault-tolerance.md
-    - text: Fürt-és tárolási készlet kvóruma
-      url: concepts/quorum.md
+    - text: Biztonsági szempontok
+      url: concepts/security.md
+- title: Csatlakozás az Azure szolgáltatáshoz
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: A Windows felügyeleti központ regisztrálása az Azure-ban
+      url: manage/register-windows-admin-center.md
+    - text: Az Azure Site Recovery használata
+      url: manage/azure-site-recovery.md
+    - text: Monitorozás az Azure Monitorral
+      url: manage/azure-monitor.md
+    - text: Az Azure hálózati adapter használata
+      url: manage/use-azure-network-adapter.md
+    - text: Az Azure Backup használata
+      url: manage/use-azure-backup.md

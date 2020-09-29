@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d8a97ea33b810c258e81ed42ace9a571f5de7bfd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695359"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489861"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>Speciális ASDK-értékelési feladatok
 Miután megismerte az alapszintű Azure Stack Development Kit (ASDK) szolgáltatás funkcióit és képességeit, a fejlettebb forgatókönyvek kivizsgálása révén mélyebben megismerheti Azure Stack további ismereteket. Ezek a speciális értékelési feladatok teljes mértékben dokumentálva vannak a Azure Stack kezelő dokumentációjában.
@@ -28,13 +28,13 @@ A [Azure stack delegált ajánlatok](../operator/azure-stack-delegated-provider.
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>SQL-adatbázisok elérhetővé tétele a Azure Stack-felhasználók számára
 Azure Stack kezelőként létrehozhat olyan ajánlatokat, amelyek lehetővé teszik a felhasználók (bérlők) számára, hogy olyan SQL-adatbázisokat hozzanak létre, amelyeket használhatnak a felhőalapú alkalmazásaikkal, webhelyeivel és munkaterhelésekkel. Ha ezeket az egyéni, igény szerinti felhőalapú adatbázisokat a felhasználók számára biztosítja, időt és erőforrásokat takaríthat meg.
 
-Az SQL Server erőforrás-szolgáltatói adapter használatával az [SQL-adatbázisok elérhetővé válnak a Azure stack-felhasználók](../operator/azure-stack-tutorial-sql-server.md) számára Azure stack-szolgáltatásként. Az erőforrás-szolgáltató telepítése után egy vagy több SQL Server példányhoz kell csatlakoznia.
+Az SQL Server erőforrás-szolgáltatói adapter használatával az [SQL-adatbázisok elérhetővé válnak a Azure stack-felhasználók](../operator/azure-stack-sql-resource-provider.md?view=azs-2002) számára Azure stack-szolgáltatásként. Az erőforrás-szolgáltató telepítése után egy vagy több SQL Server példányhoz kell csatlakoznia.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Webes és API-alkalmazások elérhetővé tétele a Azure Stack-felhasználók számára
 Azure Stack operátorként olyan ajánlatokat hozhat létre, amelyek lehetővé teszik a felhasználók (bérlők) számára Azure Functions és webes és API-alkalmazások létrehozását. Ha hozzáférést biztosít ezen igény szerinti és felhőalapú alkalmazásokhoz a felhasználók számára, akkor időt és erőforrásokat takaríthat meg.
 
-Telepítse a App Service erőforrás-szolgáltatót a [webes és API-alkalmazások elérhetővé tételéhez a Azure stack felhasználók](../operator/azure-stack-tutorial-app-service.md)számára.
+Telepítse a App Service erőforrás-szolgáltatót a [webes és API-alkalmazások elérhetővé tételéhez a Azure stack felhasználók](../operator/azure-stack-app-service-overview.md?view=azs-2002)számára.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [További információ a szolgáltatások Azure Stack integrált rendszerekkel való ellátásáról](../operator/service-plan-offer-subscription-overview.md)

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá Kubernetes a Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: 092d73339eb2ea733cb0fb67404bf52cc9539343
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: e2edda983e6fd554b2ff76a526b476318b31a6f5
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630763"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250180"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes hozzáadása Azure Stack hub Marketplace-hez
 
@@ -66,7 +66,7 @@ Adja hozzá a következő Ubuntu Server-rendszerképet a Azure Stack hub Marketp
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `Ubuntu Server` (igen) kifejezést.
+1. Írja be a következő szöveget: `Ubuntu Server`.
 
 1. Válassza ki a kiszolgáló legújabb verzióját. Ellenőrizze a teljes verziót, és győződjön meg arról, hogy a legújabb verzióval rendelkezik:
     - **Közzétevő**: Canonical
@@ -86,7 +86,7 @@ Adja hozzá a Kubernetes a Azure Stack hub piactérről:
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `Custom Script for Linux` (igen) kifejezést.
+1. Írja be a következő szöveget: `Custom Script for Linux`.
 
 1. Válassza ki a parancsfájlt a következő profillal:
    - **Ajánlat**: egyéni parancsfájl a Linux 2,0-hez
@@ -106,7 +106,7 @@ Adja hozzá a Kubernetes a Azure Stack hub piactérről:
 
 1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
 
-1. Írja be a `Kubernetes` (igen) kifejezést.
+1. Írja be a következő szöveget: `Kubernetes`.
 
 1. Válassza a(z) `Kubernetes Cluster` lehetőséget.
 

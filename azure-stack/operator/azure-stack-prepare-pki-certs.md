@@ -1,27 +1,131 @@
 ---
 title: Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 titleSuffix: Azure Stack Hub
-description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack hub integrált rendszerek üzembe helyezéséhez vagy a titkok megforgatásához egy meglévő Azure Stack hub-környezetben.
+description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack hub üzembe helyezéséhez vagy a titkok elforgatásához.
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367954"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724897"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 
-Az [Ön által választott hitelesítésszolgáltatótól (CA) kapott](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack hub tanúsítványára vonatkozó követelményeknek megfelelő tulajdonságokkal.
+A [hitelesítésszolgáltatótól beszerzett](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack hub tanúsítványára vonatkozó követelményeknek megfelelő tulajdonságokkal.
 
-## <a name="prepare-certificates-for-deployment"></a>Tanúsítványok előkészítése központi telepítéshez
+Ebből a cikkből megtudhatja, hogyan importálhat, csomagolhat és érvényesítheti a tanúsítványokat Azure Stack hub üzembe helyezésének vagy a titkok rotációjának előkészítéséhez. 
 
-A következő lépések végrehajtásával előkészítheti és érvényesítheti az Azure Stack hub PKI-tanúsítványait, amelyeket egy új Azure Stack hub-környezet telepítéséhez vagy a titkok egy meglévő Azure Stack hub-környezetben való elforgatásához fog használni.
+## <a name="prerequisites"></a>Előfeltételek
+
+A rendszernek meg kell felelnie a következő előfeltételeknek, mielőtt a PKI-tanúsítványokat becsomagolja egy Azure Stack hub telepítéséhez:
+
+- A hitelesítésszolgáltatótól visszaadott tanúsítványok tárolása egyetlen címtárban,. cer formátumban történik (egyéb konfigurálható formátumok, például. CERT,. SST vagy. pfx).
+- Windows 10 vagy Windows Server 2016 vagy újabb
+- Használja ugyanazt a rendszerét, amely a tanúsítvány-aláírási kérést generálta (kivéve, ha a PFXs-be előre csomagolt tanúsítványra van megcélozva).
+
+Folytassa a megfelelő [előkészítési tanúsítványok (Azure stack Readiness-ellenőrző)](#prepare-certificates-azure-stack-readiness-checker) vagy a [tanúsítványok előkészítése (manuális lépések)](#prepare-certificates-manual-steps) szakaszban.
+
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>Tanúsítványok előkészítése (Azure Stack Readiness-ellenőrző)
+
+Ezekkel a lépésekkel a Azure Stack készenléti ellenőrző PowerShell-parancsmagok használatával csomagolhatja ki a tanúsítványokat:
+
+1. Telepítse az Azure Stack Readiness-ellenőrző modult egy PowerShell-parancssorból (5,1 vagy újabb) a következő parancsmag futtatásával:
+
+    ```powershell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ```
+2. A tanúsítványfájl **elérési útjának** megadása. Például:
+
+    ```powershell  
+        $Path = "$env:USERPROFILE\Documents\AzureStack"
+    ```
+
+3. Deklarálja a **pfxPassword**. Például:
+
+    ```powershell  
+        $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
+    ```
+4. Állapítsa meg azt a **ExportPath** , amelybe az eredményül kapott PFXs exportálni fogja. Például:
+
+    ```powershell  
+        $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
+    ```
+
+5. Tanúsítványok konvertálása Azure Stack hub-tanúsítványokra. Például:
+
+    ```powershell  
+        ConvertTo-AzsPFX -Path $Path -pfxPassword $pfxPassword -ExportPath $ExportPath
+    ```
+8.  Tekintse át a kimenetet:
+
+    ```powershell  
+    ConvertTo-AzsPFX v1.2005.1286.272 started.
+
+    Stage 1: Scanning Certificates
+        Path: C:\Users\[*redacted*]\Documents\AzureStack Filter: CER Certificate count: 11
+        adminmanagement_east_azurestack_contoso_com_CertRequest_20200710235648.cer
+        adminportal_east_azurestack_contoso_com_CertRequest_20200710235645.cer
+        management_east_azurestack_contoso_com_CertRequest_20200710235644.cer
+        portal_east_azurestack_contoso_com_CertRequest_20200710235646.cer
+        wildcard_adminhosting_east_azurestack_contoso_com_CertRequest_20200710235649.cer
+        wildcard_adminvault_east_azurestack_contoso_com_CertRequest_20200710235642.cer
+        wildcard_blob_east_azurestack_contoso_com_CertRequest_20200710235653.cer
+        wildcard_hosting_east_azurestack_contoso_com_CertRequest_20200710235652.cer
+        wildcard_queue_east_azurestack_contoso_com_CertRequest_20200710235654.cer
+        wildcard_table_east_azurestack_contoso_com_CertRequest_20200710235650.cer
+        wildcard_vault_east_azurestack_contoso_com_CertRequest_20200710235647.cer
+
+    Detected ExternalFQDN: east.azurestack.contoso.com
+
+    Stage 2: Exporting Certificates
+        east.azurestack.contoso.com\Deployment\ARM Admin\ARMAdmin.pfx
+        east.azurestack.contoso.com\Deployment\Admin Portal\AdminPortal.pfx
+        east.azurestack.contoso.com\Deployment\ARM Public\ARMPublic.pfx
+        east.azurestack.contoso.com\Deployment\Public Portal\PublicPortal.pfx
+        east.azurestack.contoso.com\Deployment\Admin Extension Host\AdminExtensionHost.pfx
+        east.azurestack.contoso.com\Deployment\KeyVaultInternal\KeyVaultInternal.pfx
+        east.azurestack.contoso.com\Deployment\ACSBlob\ACSBlob.pfx
+        east.azurestack.contoso.com\Deployment\Public Extension Host\PublicExtensionHost.pfx
+        east.azurestack.contoso.com\Deployment\ACSQueue\ACSQueue.pfx
+        east.azurestack.contoso.com\Deployment\ACSTable\ACSTable.pfx
+        east.azurestack.contoso.com\Deployment\KeyVault\KeyVault.pfx
+
+    Stage 3: Validating Certificates.
+
+    Validating east.azurestack.contoso.com-Deployment-AAD certificates in C:\Users\[*redacted*]\Documents\AzureStack\east.azurestack.contoso.com\Deployment 
+
+    Testing: KeyVaultInternal\KeyVaultInternal.pfx
+    Thumbprint: E86699****************************4617D6
+        PFX Encryption: OK
+        Expiry Date: OK
+        Signature Algorithm: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Length: OK
+        Parse PFX: OK
+        Private Key: OK
+        Cert Chain: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ARM Public\ARMPublic.pfx
+        ...
+    Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    ConvertTo-AzsPFX Completed
+    ```
+    > [!NOTE]
+    > A további használathoz használja a Get-Help ConvertTo-AzsPFX-Full (további használat) beállítást, például tiltsa le az érvényesítést, illetve a különböző tanúsítvány-formátumok szűrését.
+
+    A sikeres ellenőrzési tanúsítványokat a további lépések nélkül lehet üzembe helyezésre vagy rotációra feltüntetni.
+
+## <a name="prepare-certificates-manual-steps"></a>Tanúsítványok előkészítése (manuális lépések)
+
+Ezekkel a lépésekkel az új Azure Stack hub PKI-tanúsítványokhoz tartozó tanúsítványokat manuális lépések használatával csomagolhatja ki.
 
 ### <a name="import-the-certificate"></a>A tanúsítvány importálása
 
@@ -39,7 +143,7 @@ A következő lépések végrehajtásával előkészítheti és érvényesíthet
 
    ![A tanúsítványtároló konfigurálása a tanúsítványok importálásához](./media/prepare-pki-certs/3.png)
 
-   a. Ha PFX-t importál, egy további párbeszédablak jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként. Ez lehetővé teszi, hogy a kulcsok egy későbbi időpontban történő biztonsági mentésére vagy továbbítására legyen** lehetőség. Kattintson a **Tovább** gombra.
+   a. Ha PFX-t importál, egy további párbeszédablak jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként.** lehetőség, amely lehetővé teszi a kulcsok későbbi biztonsági mentését vagy továbbítását. Kattintson a **Tovább** gombra.
 
    ![Kulcs megjelölése exportálhatóként](./media/prepare-pki-certs/2.png)
 
@@ -54,7 +158,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 1. Nyissa meg a Microsoft Management Console-t. A Windows 10-es konzol megnyitásához kattintson a jobb gombbal a **Start menü** **Futtatás**parancsára, majd írja be az **MMC** parancsot, majd nyomja le az ENTER billentyűt.
 
-2. Válassza a **fájl** > **beépülő modul hozzáadása/eltávolítása**elemet, majd válassza a **tanúsítványok** lehetőséget, és válassza a **Hozzáadás**lehetőséget.
+2. Válassza a **fájl**  >  **beépülő modul hozzáadása/eltávolítása**elemet, majd válassza a **tanúsítványok** lehetőséget, és válassza a **Hozzáadás**lehetőséget.
 
     ![Tanúsítványkezelő beépülő modul hozzáadása a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-2.png)
 
@@ -62,9 +166,9 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
     ![Fiók kiválasztása a tanúsítványok hozzáadása beépülő modulhoz a Microsoft Management Console-ban](./media/prepare-pki-certs/mmc-3.png)
 
-4. Tallózással keresse meg a **tanúsítványok** > **vállalati megbízhatósági** > **tanúsítványának helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
+4. Tallózással keresse meg a **tanúsítványok**  >  **vállalati megbízhatósági**  >  **tanúsítványának helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
 
-5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek** > **minden feladat** > **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
+5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek**  >  **minden feladat**  >  **Exportálás**lehetőséget. Kattintson a **Tovább** gombra.
 
    > [!NOTE]
    > Attól függően, hogy hány Azure Stack hub-tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
@@ -83,7 +187,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 8. Válassza a **jelszó** lehetőséget, és adja meg a tanúsítványok jelszavát. Hozzon létre egy jelszót, amely megfelel a következő jelszó-összetettségi követelményeknek:
 
     * Legalább nyolc karakter hosszúnak kell lennie.
-    * Legalább hármat a következők közül: nagybetűs, kisbetűk, 0-9, speciális karakterek, alfabetikus karakter, amely nem nagybetűs vagy kisbetűs.
+    * A következő karakterek legalább hármat tartalmazhatnak: nagybetűs, kisbetűk, 0-9, speciális karakterek, alfabetikus karakter, amely nem nagybetűs vagy kisbetűs.
 
     Jegyezze fel ezt a jelszót. Ezt fogja használni központi telepítési paraméterként.
 
@@ -91,8 +195,8 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 10. Válassza ki az exportálandó PFX-fájl nevét és helyét. Kattintson a **Tovább** gombra.
 
-11. Válassza a **Finish** (Befejezés) elemet.
+11. Válassza a **Befejezés** lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md)

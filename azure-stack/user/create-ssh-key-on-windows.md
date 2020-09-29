@@ -1,18 +1,18 @@
 ---
-title: Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális hálózatán
-description: Megtudhatja, hogyan helyezhet üzembe egy Kubernetes-fürtöt egy egyéni virtuális hálózaton Azure Stack hub-on.
+title: SSH-kulcs létrehozása Linux rendszeren Azure Stack hub-on
+description: Megtudhatja, hogyan hozhat létre SSH-kulcsot Linux rendszeren Azure Stack hub-on
 author: mattbriggs
 ms.topic: article
-ms.date: 2/28/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
-ms.reviewer: waltero
+ms.reviewer: sijuman
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 8b6ddaa6dab41cccce5759622ec15f4e5e886956
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250741"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>SSH-kulcs létrehozása Linux rendszeren Azure Stack hub-on
 
@@ -21,7 +21,7 @@ Egy Windows rendszerű gépen létrehozhat egy SSH-kulcsot (Secure Shell) a Linu
 ## <a name="open-bash-on-windows"></a>Bash megnyitása Windows rendszeren
 
 1. Ha a számítógépen nincs telepítve a Linux rendszerhez készült Windows alrendszer, telepítse az "[Ubuntu Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)rendszeren.  
-    A Linux rendszerhez készült Windows alrendszer használatával kapcsolatos további információkért tekintse meg a [Linux Windows alrendszere dokumentációját](https://docs.microsoft.com/windows/wsl/about).
+    A Linux rendszerhez készült Windows alrendszer használatával kapcsolatos további információkért tekintse meg a [Linux Windows alrendszere dokumentációját](/windows/wsl/about).
 
 2. Írja be az **Ubuntu** elemet az eszköztárban, és válassza a **Megnyitás**lehetőséget.
 
@@ -84,15 +84,15 @@ Egy Windows rendszerű gépen létrehozhat egy SSH-kulcsot (Secure Shell) a Linu
     aignia880qOtQrvNEvyhgZOM5oDhgE3IJ username@machine
     ```
 
-4. Másolja a szöveget `ssh-rsa [...]` a következőre: `username@machinename`. Győződjön meg arról, hogy a szöveg nem tartalmaz kocsivissza értéket. Ezt a szöveget használhatja a virtuális gép vagy a Kubernetes-fürt az AK-motor használatával történő létrehozásakor.
+4. Másolja a szöveget a következőre: `ssh-rsa [...]` `username@machinename` . Győződjön meg arról, hogy a szöveg nem tartalmaz kocsivissza értéket. Ezt a szöveget használhatja a virtuális gép vagy a Kubernetes-fürt az AK-motor használatával történő létrehozásakor.
 
-5. Ha Windows rendszerű gépen van, akkor a ** \\ \\wsl $** használatával érheti el a Linux-fájljait.
+5. Ha Windows rendszerű gépen van, akkor a ** \\ \\ wsl $** használatával érheti el a Linux-fájljait.
 
-    1. Írja `\\wsl$` be az eszköztárát. A terjesztést megnyitó alapértelmezett ablak.
+    1. Írja be az `\\wsl$` eszköztárát. A terjesztést megnyitó alapértelmezett ablak.
 
-    2. Keresse meg a `\\wsl$\Ubuntu\home\<username>` következőt:, és keresse meg a nyilvános és a titkos kulcsot, és mentse egy biztonságos helyre.
+    2. Keresse meg a következőt: `\\wsl$\Ubuntu\home\<username>` , és keresse meg a nyilvános és a titkos kulcsot, és mentse egy biztonságos helyre.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 - [Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása az Azure Stack hub portál használatával](azure-stack-quick-linux-portal.md)

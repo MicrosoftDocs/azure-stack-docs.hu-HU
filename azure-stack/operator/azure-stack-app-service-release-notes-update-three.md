@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: e2b53b4b99b02267a6f88b22a2ee373695445081
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848064"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250197"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service Azure Stack hub Update 3 kibocsátási megjegyzései
 
@@ -75,7 +75,7 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
 >
 >
 
-1. [AppService-adatbázisok (appservice_hosting és appservice_metering) hozzáadása egy rendelkezésre állási csoporthoz](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. [AppService-adatbázisok (appservice_hosting és appservice_metering) hozzáadása egy rendelkezésre állási csoporthoz](/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. A tárolt adatbázis engedélyezése.
     ```sql
@@ -126,9 +126,9 @@ Azon ügyfelek számára, akik egy tárolt adatbázisba kívánnak migrálni a m
             GO  
 
             /********[appservice_hosting] Migration End********/
-    '''
+    ```
 
-1. Migrate logins to contained database users.
+1. Bejelentkezések migrálása a tárolt adatbázis-felhasználók számára.
 
     ```sql
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
@@ -190,7 +190,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 Tekintse meg az Azure Stack hub 1807 kibocsátási megjegyzései dokumentációját.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A Azure App Service áttekintését lásd: [Azure App Service Azure stack hub – áttekintés](azure-stack-app-service-overview.md).
 - További információ a App Service telepítésének előkészítéséről Azure Stack hub-on: [app Service üzembe helyezésének előfeltételei az Azure stack hub-on](azure-stack-app-service-before-you-get-started.md).

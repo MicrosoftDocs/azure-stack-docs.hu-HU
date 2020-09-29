@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan használhatja a SQL Server erőforrás-szolgáltatót az SQL-adatbázisok szolgáltatásként való használatára Azure Stack hub-ban.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c0f599d8a63f0a1ea16e5a39303391cb1b0790a0
+ms.sourcegitcommit: 8079220917523ab9ddb824e4bba3e9b091f38a9f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697144"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661588"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>SQL-adatbázisok használata Azure Stack hub-on
 
@@ -28,6 +28,7 @@ Az SQL-erőforrás-szolgáltató telepítése előtt megfontolandó korlátozás
 - Az Azure Stack hub-operátor felelős az SQL Database-kiszolgálók és-gazdagépek üzembe helyezéséhez, frissítéséhez, biztonságossá tételéhez, konfigurálásához és karbantartásához. Az RP szolgáltatás nem biztosít gazdagép-és adatbázis-kiszolgálói példányok kezelési funkcióit.
 - A különböző előfizetésekben lévő különböző felhasználók adatbázisai ugyanazon az adatbázis-kiszolgálói példányon találhatók. Az RP nem biztosít semmilyen mechanizmust az adatbázisok különböző gazdagépeken vagy adatbázis-kiszolgálói példányokon való elkülönítéséhez.
 - Az RP nem biztosít jelentéskészítést az adatbázisok bérlői használatára vonatkozóan.
+- A globális Azure-ban csak egy SQL üzemeltetési kiszolgáló helyezhető át egy másik előfizetésbe. Azure Stack hub nem támogatja az SQL üzemeltetési kiszolgálók másik előfizetésbe való áthelyezését.
 
 A helyi környezetekben a hagyományos SQL Server számítási feladatokhoz a Azure Stack hub-beli virtuális gép SQL Server használata javasolt.
 
@@ -44,6 +45,6 @@ Létre kell hoznia legalább egy SQL Server példányt, vagy hozzáférést kell
 > [!NOTE]
 > Azure Stack hub integrált rendszerekre telepített kiszolgálókat a bérlői előfizetésből kell létrehozni. Nem hozhatók létre az alapértelmezett szolgáltatói előfizetésből. A felhasználókat a felhasználói portálról vagy a PowerShell használatával kell létrehozni a megfelelő bejelentkezéssel. Minden üzemeltetési kiszolgáló számlázható virtuális gépek, és licencekkel kell rendelkeznie. A szolgáltatás rendszergazdája a bérlői előfizetés tulajdonosa lehet.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az SQL Server erőforrás-szolgáltató adapter üzembe helyezése](azure-stack-sql-resource-provider-deploy.md)

@@ -3,15 +3,15 @@ title: Az Azure Stack hub Key Vault bemutatása
 description: Ismerje meg, hogyan kezeli a Key Vault a kulcsokat és a titkokat Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/10/2020
 ms.author: sethm
-ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9842d0aa2892218b9d3e8ef527df8f83574487b8
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.lastreviewed: 08/10/2020
+ms.openlocfilehash: 7387778055a50b138766cc7f8c416b206f4b9db9
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666464"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501075"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Az Azure Stack hub Key Vault bemutatása
 
@@ -39,7 +39,7 @@ Azure Stack hub-előfizetéssel bárki létrehozhat és használhat kulcstartók
 * Engedélyezze, hogy a felhasználók vagy alkalmazások hozzáférjenek a kulcstartóhoz, így a kulcsok és a titkos kódok is kezelhetők vagy felhasználhatók.
 * A kulcshasználat konfigurálása (például aláírás vagy titkosítás).
 
-A kezelő ezt követően egységes erőforrás-azonosítókat (URI-ket) biztosít a fejlesztők számára az alkalmazásokból való meghíváshoz. A kezelők a kulcshasználat naplózási adataival is biztosíthatják a biztonsági rendszergazdákat.
+A kezelő ezt követően egységes erőforrás-azonosítókat (URI-ket) biztosít a fejlesztők számára az alkalmazásokból való meghíváshoz.
 
 A fejlesztők a kulcsokat API-k használatával közvetlenül is kezelhetik. További információ: [Key Vault fejlesztői útmutatója](/azure/key-vault/key-vault-developers-guide).
 

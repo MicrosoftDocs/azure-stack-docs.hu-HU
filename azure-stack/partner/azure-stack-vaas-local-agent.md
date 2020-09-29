@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan helyezheti üzembe a helyi ügynököt Azure Stack hub érvényesítéséhez szolgáltatásként.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661276"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764783"
 ---
 # <a name="deploy-the-local-agent"></a>A helyi ügynök üzembe helyezése
 
@@ -79,7 +79,7 @@ Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
     ```
 
 > [!Note]  
-> `Install-VaaSPrerequisites`a parancsmag nagyméretű virtuálisgép-lemezképfájlokat tölt le. Ha lassú a hálózati sebesség, letöltheti a fájlokat a helyi fájlkiszolgálón, és manuálisan is hozzáadhat virtuálisgép-lemezképeket a tesztelési environemnt. További információ: [lassú hálózati kapcsolat kezelése](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
+> `Install-VaaSPrerequisites` a parancsmag nagyméretű virtuálisgép-lemezképfájlokat tölt le. Ha lassú a hálózati sebesség, letöltheti a fájlokat a helyi fájlkiszolgálón, és manuálisan is hozzáadhat virtuálisgép-lemezképeket a tesztelési environemnt. További információ: [lassú hálózati kapcsolat kezelése](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity).
 
 **Paraméterek**
 
@@ -96,13 +96,13 @@ Győződjön meg arról, hogy a gép megfelel a következő feltételeknek:
 
 A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá kell férnie az Azure Stack hub-végpontokhoz, ellenkező esetben a tesztek nem fognak működni. Ha az alaprendszer-kezelő helyi ügynököt használja, használja az ügynököt futtató gépet. A következő ellenőrzések futtatásával ellenőrizheti, hogy a számítógépe rendelkezik-e hozzáféréssel a Azure Stack hub-végpontokhoz:
 
-1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash-rendszerhéjat, és futtassa `<EXTERNALFQDN>` a következő parancsot, és cserélje le a-környezet külső teljes tartománynevére (FQDN):
+1. Győződjön meg arról, hogy az alapszintű URI elérhető. Nyisson meg egy parancssort vagy bash-rendszerhéjat, és futtassa a következő parancsot, és cserélje le a- `<EXTERNALFQDN>` környezet külső teljes tartománynevére (FQDN):
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. Nyisson meg egy böngészőt, `https://adminportal.<EXTERNALFQDN>` és lépjen a lehetőségre, és győződjön meg arról, hogy a Mas portál elérhető.
+2. Nyisson meg egy böngészőt, és lépjen a `https://adminportal.<EXTERNALFQDN>` lehetőségre, és győződjön meg arról, hogy a Mas portál elérhető.
 
 3. Jelentkezzen be az Azure AD szolgáltatás-rendszergazda nevével és jelszavával, amely a tesztelési fázis létrehozásakor van megadva.
 
@@ -132,11 +132,11 @@ A tesztek távoli műveleteket futtatnak. A teszteket futtató gépnek hozzá ke
     | --- | --- |
     | `CloudAdminUserName` | A Felhőbeli rendszergazda felhasználó, aki elérheti és futtathatja az engedélyezett parancsokat a Kiemelt végponton belül. Például: AzusreStack\CloudAdmin. További információért lásd: [a közös munkafolyamat-paraméterek az Varga](azure-stack-vaas-parameters.md) -hoz című témakörben. |
     | `CloudAdminPassword` | A Felhőbeli rendszergazdai fiók jelszava.|
-    | `VaaSUserId` | Az Azure Stack hub ellenőrzési portálján való bejelentkezéshez használt felhasználói azonosító. Például: UserName\@contoso.com). |
+    | `VaaSUserId` | Az Azure Stack hub ellenőrzési portálján való bejelentkezéshez használt felhasználói azonosító. Például: UserName \@ contoso.com). |
     | `VaaSTenantId` | Azure AD-bérlő azonosítója az érvényesítés szolgáltatásként regisztrált Azure-fiókhoz. |
 
     > [!Note]  
-    > Az ügynök futtatásakor az aktuális munkakönyvtárnak a Task Engine Host végrehajtható fájljának, a **Microsoft. VaaSOnPrem. TaskEngineHost. exe** helynek kell lennie.
+    > Ha futtatja az ügynököt, az aktuális munkakönyvtárnak a Task Engine Host végrehajtható fájljának helyének kell lennie, **Microsoft.VaaSOnPrem.TaskEngineHost.exe.**
 
 Ha nem jelenik meg a jelentett hibák, akkor a helyi ügynök sikeres volt. A konzol ablakban a következő példában szereplő szöveg jelenik meg.
 
@@ -146,7 +146,7 @@ Ha nem jelenik meg a jelentett hibák, akkor a helyi ügynök sikeres volt. A ko
 
 Az ügynököket a neve egyedileg azonosítja. Alapértelmezés szerint a a gép FQDN-nevét használja az indítás helyétől kezdve. Kis méretűre kell állítani az ablakot, hogy elkerülje a véletlen kijelölést az ablakon, mivel a fókusz megváltoztatásával szünetelteti az összes többi műveletet.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)
 - [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)

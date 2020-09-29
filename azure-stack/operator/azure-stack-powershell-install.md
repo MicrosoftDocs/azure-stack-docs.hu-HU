@@ -3,16 +3,16 @@ title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 08/04/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.lastreviewed: 08/04/2020
+ms.openlocfilehash: 246554e669bfac47fb8f65845a1addbf786cc11d
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106941"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865183"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
@@ -24,12 +24,14 @@ Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack hub köz�
 
 Azure Stack hub-kompatibilis PowerShell-modulokat az internethez csatlakoztatott, részben csatlakoztatott vagy leválasztott helyzetekben is telepítheti. Ez a cikk részletesen ismerteti ezeket a forgatókönyveket.
 
+Az Azure Stack hub AzureRM moduljait egy Docker-tárolóban is futtathatja. Útmutatásért lásd: [a Docker használata a PowerShell Azure stack hubhoz való futtatásához](../user/azure-stack-powershell-user-docker.md).
+
 ## <a name="1-verify-your-prerequisites"></a>1. Ellenőrizze az előfeltételeket
 
 Az Azure Stack hub és a PowerShell-AzureRM modul használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
 - **PowerShell 5,1-es verzió** <br>
-A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,1-rel, kövesse a [Windows PowerShell telepítése](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
+A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,1-rel, kövesse a [Windows PowerShell telepítése](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
 
   > [!Note]
   > A PowerShell 5,1 használatához Windows rendszerű gép szükséges.
@@ -75,7 +77,7 @@ A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávol
 
     Ha olyan hibát talál, mint például a "a modul már használatban van", akkor a modulokat használó PowerShell-munkameneteket, majd futtassa újra a fenti szkriptet.
 
-2. Törölje az összes olyan mappát, amely `Azure`a `Az` - `Azs.` val kezdődik `C:\Program Files\WindowsPowerShell\Modules` , `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` vagy a és a mappákból. A mappák törlése eltávolítja a meglévő PowerShell-modulokat.
+2. Törölje az összes olyan mappát, amely a-val kezdődik `Azure` , `Az` vagy `Azs.` a `C:\Program Files\WindowsPowerShell\Modules` és a `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` mappákból. A mappák törlése eltávolítja a meglévő PowerShell-modulokat.
 
 ## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4. csatlakozás: a PowerShell telepítése Azure Stack hubhoz internetkapcsolattal
 
@@ -88,7 +90,7 @@ Futtassa a következő PowerShell-szkriptet a modulok fejlesztői munkaállomás
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002-es vagy újabb verziója esetén:
 
-Felhasználói AzureRm-modulok vagy az előzetes verziójú modulok is lehetnek. Az az modulok használatához Azure Stack hub 2002 és a legújabb gyorsjavítás szükséges.
+Használhat felhasználói AzureRm-modulokat vagy az előzetes verziójú modulokat is. Az az modulok használatához Azure Stack hub 2002 és a legújabb gyorsjavítás szükséges.
 
 Az az előzetes verziójú modulok használatához kövesse a [PowerShell telepítése az modulban](powershell-install-az-module.md)című témakör útmutatását.
 
@@ -98,7 +100,7 @@ Install-Module -Name AzureRM.BootStrapper
 
 # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
 Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.1
+Install-Module -Name AzureStack -RequiredVersion 1.8.2
 ```
 
 ::: moniker-end
@@ -144,7 +146,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-Ha a telepítés sikeres, a `AzureRm` és `AzureStack` a modulok megjelennek a kimenetben.
+Ha a telepítés sikeres, a `AzureRm` és a `AzureStack` modulok megjelennek a kimenetben.
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5. leválasztva: a PowerShell telepítése internetkapcsolat nélkül
 
@@ -174,7 +176,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.1
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 ::: moniker-end
 
@@ -223,9 +225,9 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
 
-3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
+3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a `AzureStack` AzureRM és a modulokat ebből a tárházból:
+4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a AzureRM és a `AzureStack` modulokat ebből a tárházból:
 
    ```powershell
    # requires -Version 5
@@ -267,7 +269,26 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="known-issue"></a>Ismert probléma
+
+###  <a name="method-get_serializationsettings-error"></a>Metódus get_SerializationSettings hiba 
+
+- Ok: a PowerShell az Module és a PowerShell AzureRM modulok nem kompatibilisek.
+
+    A következő hiba azt jelzi, hogy a AzureRM modulok és az az modulok betöltődik ugyanabban a munkamenetben: 
+
+    ```powershell  
+    >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
+    not have an implementation.
+    ```
+
+- Szervizelés: távolítsa el az ütköző modulokat. 
+
+  Ha a AzureRM-modulokat szeretné használni, távolítsa el az az modulokat. Vagy távolítsa el a AzureRM, ha az az modulokat szeretné használni. Zárjuk be a PowerShell-munkamenetet, és távolítsa el az az vagy a AzureRM modult. 
+  
+  [Az Azure stack hub PowerShell-modulok meglévő verzióinak eltávolításához](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)útmutatást talál.
+
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

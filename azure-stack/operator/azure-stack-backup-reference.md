@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
-ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
+ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84301028"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939293"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
@@ -75,30 +75,15 @@ A követelmények a következők:
 
 #### <a name="smb-encryption"></a>SMB-titkosítás
 
-**1907 és azon túl**
+::: moniker range=">=azs-1907"
 
 A Infrastructure Backup szolgáltatás támogatja a biztonsági mentési adat átvitelét egy külső tárolóhelyre, amelyen engedélyezve van az SMB-titkosítás a kiszolgáló oldalán. Ha a kiszolgáló nem támogatja az SMB-titkosítást, vagy nincs engedélyezve a funkció, Infrastructure Backup szolgáltatás visszakerül a titkosítatlan adatforgalomra. A külső tárolási helyre helyezett biztonsági mentési adatok mindig inaktív állapotban vannak, és nem függenek az SMB-titkosítástól.
+
+::: moniker-end
 
 #### <a name="storage-location-sizing"></a>Tárolási hely méretezése
 
 Javasoljuk, hogy naponta kétszer készítsen biztonsági mentést, és a biztonsági mentések legfeljebb hét napján maradjanak. Ez az alapértelmezett viselkedés, ha engedélyezi az infrastruktúra biztonsági mentését Azure Stack központban.
-
-**1907 és azon túl**
-
-***Az Azure AD Identity Provider szolgáltatáshoz csatlakoztatottrendszer***
-
-| Környezeti skála | A biztonsági mentés tervezett mérete | A szükséges lemezterület teljes mennyisége |
-|-------------------|--------------------------|--------------------------------|
-| 4-16 csomópontok/ASDK   | 1 GB                     | 20 GB                          |
-
-***A vállalati AD-identitás-szolgáltatóhoz csatlakozó rendszer az ADFS-n keresztül***
-
-| Környezeti skála | A biztonsági mentés tervezett mérete | A szükséges lemezterület teljes mennyisége |
-|-------------------|--------------------------|--------------------------------|
-| 4-16 csomópont        | 20 GB                    | 280 GB                        |
-| AZURE STACK FEJLESZTŐI KÉSZLET (ASDK)              | 10 GB                    | 140 GB                        |
-
-**1907 előtti**
 
 | Környezeti skála | A biztonsági mentés tervezett mérete | A szükséges lemezterület teljes mennyisége |
 |-------------------|--------------------------|--------------------------------|

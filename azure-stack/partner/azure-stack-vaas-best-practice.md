@@ -3,17 +3,17 @@ title: A Azure Stack érvényesítésének ajánlott eljárásai
 description: Ismerje meg a szolgáltatásként történő érvényesítés ajánlott eljárásait.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cfb2e4d71f821c23dd076842a0b4f3963a5599cc
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 176f944b449ca2dabb6424965f78693d00e7cdce
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661262"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764382"
 ---
 # <a name="azure-stack-validation-best-practices"></a>A Azure Stack érvényesítésének ajánlott eljárásai
 
@@ -45,6 +45,6 @@ Egységes elnevezési konvenció használata az összes, az Hozzon létre péld�
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

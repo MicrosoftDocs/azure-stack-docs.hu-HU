@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 56782d79483f544dc019b4c162ed9af1a1163e4b
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
+ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111238"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810796"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -61,8 +61,7 @@ Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure 
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
-> [!Note]  
-> AD FS csak a felhasználói identitásokkal való interaktív hitelesítést támogatja. Ha egy hitelesítőadat-objektumra van szükség, akkor egy egyszerű szolgáltatásnevet (SPN) kell használnia. További információ az Azure Stack hub és a AD FS identitás-kezelési szolgáltatásként való beállításáról: [AD FS alkalmazás identitásának kezelése](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity).
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
 ## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
@@ -76,4 +75,4 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Sablonok fejlesztése Azure stack hub számára](../user/azure-stack-develop-templates.md).
 - [Sablonok üzembe helyezése a PowerShell](../user/azure-stack-deploy-template-powershell.md)-lel.
-  - [Azure stack hub-modul referenciája](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
+  - [Azure stack hub-modul referenciája](/powershell/azure/azure-stack/overview).

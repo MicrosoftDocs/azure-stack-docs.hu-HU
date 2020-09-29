@@ -3,20 +3,20 @@ title: Kötetek törlése Azure Stack HCI-ben
 description: Kötetek törlése Azure Stack HCI-ben a Windows felügyeleti központ és a PowerShell használatával.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 03/17/2020
-ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511895"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866522"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Kötetek törlése Azure Stack HCI-ben
 
-> A következőkre vonatkozik: Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör útmutatást nyújt a kötetek [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) -fürtön való törléséhez a Windows felügyeleti központon keresztül.
+Ez a témakör útmutatást nyújt a kötetek Azure Stack HCI-fürtön való törléséhez a Windows felügyeleti központ használatával.
 
 Tekintse meg a Windows felügyeleti központot használó kötetek törlésének rövid videóját.
 
@@ -33,7 +33,7 @@ Tekintse meg a Windows felügyeleti központot használó kötetek törlésének
 
 A **Remove-VirtualDisk** parancsmag használatával törölheti közvetlen tárolóhelyek köteteit. Ezzel a parancsmaggal törölheti a **VirtualDisk** objektumot, és visszaküldheti a **VirtualDisk** objektumot közzétevő tárolóhoz használt területet.
 
-Először indítsa el a PowerShellt a felügyeleti számítógépen, és futtassa a **Get-VirtualDisk** parancsmagot a **CimSession** paraméterrel, amely egy közvetlen tárolóhelyek-fürt vagy-kiszolgáló csomópontjának neve, például *clustername.microsoft.com*: 
+Először indítsa el a PowerShellt a felügyeleti számítógépen, és futtassa a **Get-VirtualDisk** parancsmagot a **CimSession** paraméterrel, amely egy közvetlen tárolóhelyek-fürt vagy-kiszolgáló csomópontjának neve, például *clustername.microsoft.com*:
 
 ```PowerShell
 Get-VirtualDisk -CimSession clustername.microsoft.com
@@ -54,10 +54,10 @@ A rendszer felszólítja, hogy erősítse meg, hogy végre szeretné hajtani a m
    > [!WARNING]
    > Ez nem helyreállítható művelet. Ez a példa véglegesen töröl egy **VirtualDisk** kötet objektumot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A további alapvető tárolási felügyeleti feladatokkal kapcsolatos részletes útmutatásért lásd még:
 
-- [Kötetek tervezése Közvetlen tárolóhelyek](../concepts/plan-volumes.md)
-- [Kötetek létrehozása a Közvetlen tárolóhelyekban](create-volumes.md)
-- [Kötetek kiterjesztése a Közvetlen tárolóhelyekban](extend-volumes.md)
+- [Kötetek megtervezése](../concepts/plan-volumes.md)
+- [Kötetek létrehozása](create-volumes.md)
+- [Kötetek kiterjesztése](extend-volumes.md)

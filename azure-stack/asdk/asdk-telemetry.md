@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80362189"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489963"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack telemetria
 
@@ -23,10 +23,10 @@ Azure Stack operátorként a telemetria értékes betekintést biztosíthat a v�
 > [!NOTE]
 > A Azure Stack konfigurálható úgy is, hogy a használati adatokat az Azure-ba továbbítsa a számlázáshoz. Ez olyan többcsomópontos Azure Stack ügyfelek esetében szükséges, akik az utólagos használatú számlázást választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek a többcsomópontos ügyfelek számára, akik kiválasztják a kapacitás modellt vagy a Azure Stack Development Kit (ASDK) felhasználók számára. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl használatával](../operator/azure-stack-usage-reporting.md).
 
-Azure Stack telemetria a *Windows Server 2016 csatlakoztatott felhasználói felületén és a Telemetr*y összetevőn alapul, amely a [Windows esemény-nyomkövetés (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) nyomkövetési naplózási technológiát használja a telemetria-események és-adatok gyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a naplózási technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Azure Stack összetevők közé tartoznak például a hálózati erőforrás-szolgáltató, a tárolási erőforrás-szolgáltató, a figyelés erőforrás-szolgáltatója és az erőforrás-szolgáltató frissítése. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL használatával titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja a telemetria adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
+Azure Stack telemetria a *Windows Server 2016 csatlakoztatott felhasználói felületén és a Telemetr*y összetevőn alapul, amely a [Windows esemény-nyomkövetés (ETW)](/windows/win32/tracelogging/trace-logging-about) nyomkövetési naplózási technológiát használja a telemetria-események és-adatok gyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a naplózási technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Azure Stack összetevők közé tartoznak például a hálózati erőforrás-szolgáltató, a tárolási erőforrás-szolgáltató, a figyelés erőforrás-szolgáltatója és az erőforrás-szolgáltató frissítése. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL használatával titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja a telemetria adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
 
 > [!NOTE]
-> A telemetria-adatfolyamok támogatásához a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik, `https://v10.vortex-win.data.microsoft.com` és a konfigurációs `https://settings-win.data.microsoft.com` adatok letöltésére is.
+> A telemetria-adatfolyamok támogatásához a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik, `https://v10.vortex-win.data.microsoft.com` és a `https://settings-win.data.microsoft.com` konfigurációs adatok letöltésére is.
 
 ## <a name="privacy-considerations"></a>Adatvédelmi megfontolások
 A ETW szolgáltatás a telemetria-adatküldést a védett felhőalapú tárolóba irányítja. A legalacsonyabb jogosultsági szintű útmutatók a telemetria-adatbázisokhoz való hozzáférésének elve. Csak az érvényes üzleti igényekkel rendelkező Microsoft-munkatársak férhetnek hozzá a telemetria-adatbázishoz. A Microsoft nem osztja meg az ügyfél személyes adatait harmadik felekkel, kivéve az ügyfél belátása szerint vagy a [Azure stack adatvédelmi nyilatkozatban](https://privacy.microsoft.com/PrivacyStatement)leírt korlátozott célokra. Üzleti jelentéseket osztunk meg olyan számítógépgyártókkal és partnerekkel, amelyek összesített, anonim telemetria-adatokat tartalmaznak. Az adatmegosztási döntéseket egy belső Microsoft-csapat végzi, beleértve az adatvédelmi, jogi és adatkezelési érdekelt feleket.
@@ -100,8 +100,8 @@ A Windows és a Azure Stack telemetria kikapcsolása letiltja az SQL-telemetria.
 ### <a name="enable-or-disable-telemetry-after-deployment"></a>Telemetria engedélyezése vagy letiltása az üzembe helyezés után
 
 Az üzembe helyezést követően a telemetria engedélyezéséhez vagy letiltásához hozzáféréssel kell rendelkeznie a ERCS virtuális gépeken elérhető privilegizált végponthoz (PEP).
-1.  Engedélyezés:`Set-Telemetry -Enable`
-2.  A letiltáshoz:`Set-Telemetry -Disable`
+1.  Engedélyezés: `Set-Telemetry -Enable`
+2.  A letiltáshoz: `Set-Telemetry -Disable`
 
 PARAMÉTER részletei:
 > . PARAMÉTER engedélyezése – a telemetria-adatok feltöltésének bekapcsolása
@@ -134,5 +134,5 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK elindítása és leállítása](asdk-start-stop.md)

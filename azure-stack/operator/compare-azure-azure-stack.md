@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Megismerheti a globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségeket.
 author: justinha
 ms.topic: overview
-ms.date: 05/03/2019
+ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f71367c86dcb360297fed7250e3a5dfb4bd6beda
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772439"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866156"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségek
 
@@ -29,9 +29,9 @@ Microsoft Azure a Cloud Services egyre bővülő készlete, amely segít a szerv
 
 A globális Azure több mint 100 szolgáltatást kínál a világszerte 54 régiókban. A globális Azure-szolgáltatások legfrissebb listáját a [*régiók által elérhető termékek*](https://azure.microsoft.com/regions/services)között tekintheti meg. Az Azure-ban elérhető szolgáltatások kategória szerint vannak felsorolva, és azt is, hogy általánosan elérhetők vagy előzetes verzióban érhetők el.
 
-A globális Azure-szolgáltatásokkal kapcsolatos további információkért lásd: [Ismerkedés az Azure](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1)-ban.
+A globális Azure-szolgáltatásokkal kapcsolatos további információkért lásd: [Ismerkedés az Azure](/azure/?panel=get-started1&pivot=get-started)-ban.
 
-## <a name="azure-stack-hub"></a>Azure Stack hub
+## <a name="azure-stack-hub"></a>Azure Stack Hub
 
 Azure Stack hub az Azure kiterjesztése, amely a felhő-számítástechnika rugalmasságát és innovációját teszi lehetővé a helyszíni környezetben. A helyszínen üzembe helyezett Azure Stack hub lehetővé teszi az Azure konzisztens szolgáltatások biztosítását az internethez (és az Azure-hoz), vagy az internetkapcsolat nélküli, leválasztott környezetekben. A Azure Stack hub ugyanazokat az alapul szolgáló technológiákat használja, mint a globális Azure, amely magában foglalja az infrastruktúra-szolgáltatás (IaaS), a szolgáltatott szoftver (SaaS) és az opcionális platform-szolgáltatás (a szolgáltatás) funkcióinak alapvető összetevőit. Ilyen képességek:
 
@@ -40,7 +40,7 @@ Azure Stack hub az Azure kiterjesztése, amely a felhő-számítástechnika ruga
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Piactér
-- Containers
+- Tárolók
 - Felügyeleti eszközök (csomagok, ajánlatok, RBAC stb.)
 
 Az Azure Stack hub Péter képességei nem kötelezőek, mert Azure Stack hub nem a Microsoft által üzemeltetett, hanem ügyfeleink által működtetett. Ez azt jelenti, hogy bármely olyan Pásti-szolgáltatást kínálhat, amelyet a végfelhasználók számára kíván elkészíteni, ha készen áll arra, hogy elvonta az alapul szolgáló infrastruktúrát és folyamatokat. Az Azure Stack hub azonban több opcionális, például App Service, SQL-adatbázist és MySQL-adatbázist is tartalmaz. Ezek erőforrás-szolgáltatóként érkeznek, így több-bérlős használatra készek, a standard szintű Azure Stack hub-frissítésekkel együtt, amelyek láthatók a Azure Stack hub portálon, és jól integrálva van az Azure Stack hub-val.
@@ -68,15 +68,9 @@ További információ az Azure Stack hub-ról: [Mi az Azure stack hub](azure-sta
 
 ## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-[Azure stack HCI](../hci/overview.md) -megoldások lehetővé teszik a helyszíni virtuális gépek futtatását, és az Azure-hoz való egyszerű hiperkonvergens-infrastruktúra (HCI) megoldással való kapcsolódást. Felhőalapú alkalmazásokat hozhat létre és futtathat a helyszíni konzisztens Azure-szolgáltatásokkal a szabályozási vagy technikai követelmények teljesítése érdekében. A helyszíni virtualizált alkalmazások futtatása mellett Azure Stack HCI lehetővé teszi az öregedő kiszolgáló-infrastruktúra cseréjét és összevonását, valamint az Azure for Cloud Serviceshez való kapcsolódást a Windows felügyeleti központtal.
+A [Azure stack HCI](../hci/overview.md) olyan hiperkonvergens-fürt, amely érvényesített hardverrel futtatja a virtualizált Windows-és Linux-munkaterheléseket a helyszínen, és egyszerűen kapcsolódhat az Azure-hoz a felhőalapú biztonsági mentés, helyreállítás és monitorozás érdekében. Kezdetben a Windows Server 2019-alapú, Azure Stack HCI-t mostantól Azure-szolgáltatásként, előfizetéses licencelési modellel és beépített hibrid funkciókkal küldi el. Habár Azure Stack HCI a Windows Server rendszerrel megegyező központi operációsrendszer-összetevőkön alapul, ez egy teljesen új termékcsalád, amely a legjobb virtualizációs gazdagépre összpontosít.
 
-Azure Stack HCI a Hyper-V és a Közvetlen tárolóhelyek által vezérelt, ellenőrzött HCI-megoldásokat biztosít a Windows Server 2019 szoftveresen definiált adatközpont (SDDC) használatával. A Windows felügyeleti központ a következő Azure-szolgáltatásokhoz való felügyelethez és integrált hozzáférésekhez használható:
-
-- Azure Backup
-- Azure Site Recovery
-- Azure Monitor és frissítés
-
-Az Azure-szolgáltatások frissített listájához, amelyhez Azure Stack HCI-t csatlakoztathatja, lásd: a [Windows Server csatlakoztatása az Azure Hybrid Serviceshez](https://docs.microsoft.com/windows-server/azure-hybrid-services/index).
+Azure Stack HCI az optimális teljesítmény és megbízhatóság érdekében a Microsoft által érvényesített hardvert használ egy OEM-partnertől. A megoldások támogatják az olyan technológiák támogatását, mint például a NVMe-meghajtók, az állandó memória és a távoli közvetlen memória-hozzáférés (RDMA).
 
 ### <a name="example-use-cases-for-azure-stack-hci"></a>Példa a Azure Stack HCI használati eseteire
 
@@ -86,11 +80,11 @@ Az Azure-szolgáltatások frissített listájához, amelyhez Azure Stack HCI-t c
 - Üzleti szempontból kritikus fontosságú infrastruktúra
 - Alacsonyabb árú tárolás
 - Magas rendelkezésre állás és vész-helyreállítás a felhőben
-- Vállalati alkalmazások, például SQL Server
+- Vállalati alkalmazások virtualizálása, például SQL Server
 
 Látogasson el a [Azure stack HCI webhelyére](https://azure.microsoft.com/overview/azure-stack/hci/) , ahol megtekintheti a Microsoft partnerei által jelenleg elérhető 70 és Azure stack HCI-megoldásokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub adminisztrációs alapjai](azure-stack-manage-basics.md)
 

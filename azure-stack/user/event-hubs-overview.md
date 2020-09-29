@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614382"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566413"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Az Azure Stack hub Event Hubs áttekintése
 
@@ -42,7 +42,7 @@ Olyan hibrid megoldásokat hozhat létre, amelyek helyileg töltik fel és dolgo
 
 A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltatási paritást kínálnak. Ez a paritás azt jelenti, hogy az SDK-k, minták, PowerShell, CLI és portálok hasonló élményt nyújtanak, néhány különbséggel. A következő táblázat összefoglalja, hogy a szolgáltatások rendelkezésre állása milyen magas szintű különbségeket tartalmaz a kiadások között.  
 
-| Szolgáltatás | Event Hubs Azure Stack központban | Azure Event Hubs |
+| Funkció | Event Hubs az Azure Stack Hubon | Azure Event Hubs |
 |-|-|-|-|
 | Kezelői rendszergazdai élmény | ✔ | ✘ |
 | Kafka-támogatás | ✔ | ✔ |
@@ -66,7 +66,7 @@ Az [azure Event Hubs dokumentációja](/azure/event-hubs/) a Event Hubs mindkét
 
 ### <a name="operator-documentation"></a>Kezelői dokumentáció 
  
-Ha többet szeretne megtudni a Event Hubs Azure Stack hub-kezelői felülettel kapcsolatban, tekintse meg a [Event Hubs operátor dokumentációját](/azure-stack/operator/event-hubs-rp-overview). Ez a dokumentáció a következő tevékenységekkel kapcsolatos információkat tartalmazza:
+Ha többet szeretne megtudni a Event Hubs Azure Stack hub-kezelői felülettel kapcsolatban, tekintse meg a [Event Hubs operátor dokumentációját](../operator/event-hubs-rp-overview.md). Ez a dokumentáció a következő tevékenységekkel kapcsolatos információkat tartalmazza:
 
 - Event Hubs telepítése.
 - Event Hubs elérhetővé tétele a felhasználók számára.
@@ -74,7 +74,7 @@ Ha többet szeretne megtudni a Event Hubs Azure Stack hub-kezelői felülettel k
 - Naplók gyűjtése.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha Event Hubs nem érhető el az előfizetésben, akkor a rendszergazdával együttműködve [telepítse a Event Hubst Azure stack hub erőforrás-szolgáltatón](../operator/event-hubs-rp-overview.md).
 

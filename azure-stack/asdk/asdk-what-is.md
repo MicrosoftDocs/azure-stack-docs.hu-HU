@@ -7,15 +7,15 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 197d1b47b3127b21f3b843a77a57642894270a71
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 38aaf52936d09c999765118e36bfcde909409cdd
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819237"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489912"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Mi a Azure Stack Development Kit (ASDK)?
-A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](/azure-stack/operator).
+A [Microsoft Azure stack hub integrált rendszereinek](../operator/azure-stack-overview.md) mérete 4-16 csomópontokból áll, és a hardvereszközök és a Microsoft közösen támogatja őket. Azure Stack hub integrált rendszerek használatával új forgatókönyveket engedélyezhet az éles számítási feladatokhoz. Ha Ön Azure Stack hub-kezelő, aki felügyeli az integrált rendszerek infrastruktúráját, és szolgáltatásokat kínál, tekintse meg az [operátori dokumentációt](../operator/index.yml).
 
 A ASDK az Azure Stack hub egycsomópontos telepítése, amelyet **ingyenesen**letöltheti és használhatja. Minden ASDK-összetevő telepítve van egy olyan virtuális gépre (VM), amely egyetlen gazdagépen fut, és meg kell felelnie a [minimális hardverkövetelmények követelményeinek](asdk-deploy-considerations.md#hardware). A ASDK célja, hogy olyan környezetet biztosítson, amelyben kiértékelheti Azure Stack hub-t, és modern alkalmazásokat fejleszthet API-k használatával, és az Azure-t *nem éles* környezetben lehet kialakítani. 
 
@@ -70,5 +70,5 @@ Jelenleg a következő kiegészítő platform-szolgáltatásként nyújtott szol
 Azure Stack hub további Azure-szolgáltatások támogatását is támogatja. Ha többet szeretne megtudni az Azure Stack hub-ról, tekintse meg a [Azure stack ütemtervet](https://azure.microsoft.com/updates/?query=azure%20stack%20hub).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 Az Azure Stack hub kiértékelésének megkezdéséhez először le kell [töltenie a legújabb ASDK](asdk-download.md) , és elő kell készítenie a ASDK-gazdagépet. Ezután telepítheti a ASDK, és bejelentkezhet a rendszergazda és a felhasználói portálra az Azure Stack hub használatának megkezdéséhez.

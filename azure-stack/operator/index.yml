@@ -10,12 +10,12 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 04/13/2020
-  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
-  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.openlocfilehash: e344e301c9fa5d83caa03a857e529a43266b4cdb
+  ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 04/14/2020
-  ms.locfileid: "81274089"
+  ms.lasthandoff: 07/24/2020
+  ms.locfileid: "87133571"
 landingContent:
 - title: Az Azure Stack hub ismertetése
   linkLists:
@@ -24,13 +24,13 @@ landingContent:
     - text: Mi az Azure Stack hub?
       url: azure-stack-overview.md
     - text: Mi az Azure Stack HCI?
-      url: azure-stack-hci-overview.md
+      url: ../hci/overview.md
   - linkListType: whats-new
     links:
     - text: Biztonsági frissítések
-      url: azure-stack-release-notes-security-updates.md
+      url: ./release-notes-security-updates.md?view=azs-2002
     - text: Kibocsátási megjegyzések
-      url: azure-stack-release-notes-1908.md
+      url: ./release-notes.md?view=azs-2002
     - text: Azure Stack hub Capacity Planner
       url: azure-stack-capacity-planning-overview.md
 - title: Bevezetés
@@ -59,6 +59,8 @@ landingContent:
       url: azure-stack-powershell-download.md
     - text: Az Azure Stack PowerShell telepítése
       url: azure-stack-powershell-install.md
+    - text: A PowerShell futtatása a Docker használatával
+      url: ../user/azure-stack-powershell-user-docker.md
     - text: Kapcsolat Azure Stack PowerShell-lel
       url: azure-stack-powershell-configure-admin.md
     - text: A Azure Stack Development Kit letöltése (ASDK)
@@ -78,12 +80,12 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Ajánlat létrehozása virtuális géphez
-      url: azure-stack-tutorial-tenant-vm.md
+      url: ./tutorial-offer-services.md?view=azs-2002
     - text: Magasan elérhető MySQL-adatbázis létrehozása
       url: azure-stack-tutorial-mysql.md
     - text: Alkalmazások létrehozása bármilyen platformhoz
       url: azure-stack-app-service-overview.md
-- title: Azure Stack hub kezelése
+- title: Az Azure Stack Hub kezelése
   linkLists:
   - linkListType: how-to-guide
     links:

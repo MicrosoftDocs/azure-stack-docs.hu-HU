@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 88013fbde291d05daa41adf0c65db563c867ff5a
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780683"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074298"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -73,12 +73,14 @@ A következő táblázat felsorolja a támogatott titkosítási algoritmusokat �
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
-| DH-csoport                                             | ECP384, ECP256, DHGroup24, DHGroup14, DHGroup2, DHGroup1                 |
+| DH-csoport                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | IPsec-titkosítás                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nincs |
-| IPsec-integritás                                      | GCMASE256, GCMAES192, GCMAES128                                          |
+| IPsec-integritás                                      | GCMAES256, GCMAES192, GCMAES128                                          |
 | PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, nincs                  |
 | Gyorsmódú biztonsági társítás élettartama                                       | (Nem kötelező: Ha nincs megadva, az alapértelmezett értékek szerepelnek)<br />                         Másodperc (egész szám; min. 300/alapértelmezett érték: 27000 másodperc)<br />                         KB (egész szám; min. 1024/alapértelmezett érték: 102400000 KB) |
 | Forgalomválasztó                                     | A házirend-alapú forgalmi választókat Azure Stack hub nem támogatja.         |
+
+\* Ezek a paraméterek csak a 2002-es és újabb verziókon érhetők el. 
 
 - A helyszíni VPN-eszköz konfigurációjának meg kell egyezniük velük, vagy tartalmazniuk kell az alábbi, az Azure IPsec/IKE-házirendben megadott algoritmusokat és paramétereket:
 
@@ -111,6 +113,8 @@ A következő táblázat felsorolja az egyéni házirend által támogatott megf
 | 19                   | ECP256    | ECP256        | 256 bites ECP   |
 | 20                   | ECP384    | ECP384        | 384 bites ECP   |
 | 24                   | DHGroup24 | PFS24         | 2048 bites MODP |
+
+\* Ezek a paraméterek csak a 2002-es és újabb verziókon érhetők el. 
 
 További információ: [RFC3526](https://tools.ietf.org/html/rfc3526) és [RFC5114](https://tools.ietf.org/html/rfc5114).
 
@@ -313,6 +317,6 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távolítva a kapcsolatban.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az Azure Stack Hub VPN Gateway-konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

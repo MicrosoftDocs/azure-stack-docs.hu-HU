@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan kezelheti a teszteket az Azure Stack hub ellenőrzési portálján.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 68c3ec6dadd71c5e72ecf0c9efa3592f9c4f9ec7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 28791e9687dead6a571097e23258fb5b6aff1200
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661228"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764766"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Tesztek monitorozása és kezelése az alapkonfiguráció-portálon
 
@@ -67,7 +67,7 @@ Minden ütemezett tesztelési példány a következő információkat jeleníti 
 | Létrehozva | A teszt ütemezésének időpontja. |
 | Első lépések | A teszt elindításának időpontja. |
 | Időtartam | A teszt futtatásának időtartama. |
-| status | A teszt állapota vagy eredménye. A végrehajtás előtti vagy folyamatban lévő állapotok a következők: `Pending`, `Running`. A terminál állapota a következők `Cancelled`: `Failed`, `Aborted`, `Succeeded`,. |
+| Állapot | A teszt állapota vagy eredménye. A végrehajtás előtti vagy folyamatban lévő állapotok a következők: `Pending` , `Running` . A terminál állapota a következők: `Cancelled` ,, `Failed` `Aborted` , `Succeeded` . |
 | Ügynök neve | Annak az ügynöknek a neve, amely a tesztet futtatta. |
 | Összes művelet | A teszt során megkísérelt műveletek teljes száma. |
 | Átadott műveletek | A teszt során sikeres műveletek száma. |
@@ -85,7 +85,7 @@ A helyi menüben válassza az **információk megtekintése** lehetőséget a te
 | -- | -- |
 | Teszt neve | A teszt neve. |
 | Teszt verziója | A teszt verziója. |
-| Közzétevő | A teszt közzétevője. |
+| Publisher | A teszt közzétevője. |
 | Kategória |  A teszt célja. |
 | Megcélzott szolgáltatások | A tesztelt Azure Stack hub-szolgáltatások. |
 | Leírás | A teszt leírása. |
@@ -112,7 +112,7 @@ A teszt során végrehajtott műveletek részletes állapotának megtekintéséh
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Befejezett tesztelési példány naplóinak letöltése
 
-A helyi menüből válassza a **naplók letöltése** lehetőséget, hogy `.zip` letöltse a naplók kimenetét a tesztek végrehajtása során. Ez a művelet csak a befejezett tesztek esetében érhető el, ami azt jelenti, `Cancelled`hogy az állapota `Failed` `Aborted`:,, vagy. `Succeeded`
+A helyi menüből válassza a **naplók letöltése** lehetőséget, hogy letöltse `.zip` a naplók kimenetét a tesztek végrehajtása során. Ez a művelet csak a befejezett tesztek esetében érhető el, ami azt jelenti, hogy az állapota:,, `Cancelled` `Failed` `Aborted` vagy `Succeeded` .
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Tesztelési példány újraütemezett vagy tesztelési tervének beosztása
 
@@ -134,12 +134,12 @@ A teszt-átadási munkafolyamatban a tesztelési példányok **átütemezése** 
 
 #### <a name="cancel-a-test-instance"></a>Tesztelési példány megszakítása
 
-Az ütemezett teszt megszakítható, `Pending` ha állapota vagy. `Running`  
+Az ütemezett teszt megszakítható, ha állapota `Pending` vagy `Running` .  
 
 1. A helyi menüből válassza a **Mégse** lehetőséget a tesztelési példány megszakítására vonatkozó kérdés megnyitásához.
 
 1. A tesztelési példány megszakításához válassza a **Küldés** lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)

@@ -3,16 +3,16 @@ title: Azure Stack hub-szolgáltató erőforrás-használati API
 description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack hub használati adatait.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c360123e5393b328e8e5e800ddac283739f89b7b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 0e167bdfeb0685b8b4612e887b904d010ffd666b
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661337"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250775"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
@@ -28,7 +28,7 @@ A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásá
 
 Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos**, **közreműködő**vagy **olvasó** szerepkört a szolgáltató előfizetésében.
 
-| Módszer | Kérés URI-ja |
+| Metódus | Kérés URI-ja |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
@@ -36,16 +36,16 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 
 | Argumentum | Leírás |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a ( `https://adminmanagement.{domain-name}`z) formátumban van. Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external`. |
+| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://adminmanagement.{domain-name}` . Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external` . |
 | `subId` |Annak a felhasználónak az előfizetés-azonosítója, aki a hívást kezdeményezi. |
-| `reportedStartTime` |A lekérdezés kezdési időpontja. Az értéknek `DateTime` az egyezményes VILÁGIDŐ (UTC) és az óra elején kell lennie; például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például `2015-06-16T18%3a53%3a11%2b00%3a00Z`, ha a kettőspont megmenekül, `%3a` és a plusz megmenekül `%2b` , hogy URI-barát legyen. |
-| `reportedEndTime` |A lekérdezés befejezési időpontja. A rájuk vonatkozó korlátozások erre `reportedStartTime` az argumentumra is érvényesek. Az érték `reportedEndTime` nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
+| `reportedStartTime` |A lekérdezés kezdési időpontja. Az értéknek az `DateTime` egyezményes világidő (UTC) és az óra elején kell lennie, például: 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például, `2015-06-16T18%3a53%3a11%2b00%3a00Z` Ha a kettőspont megmenekül, `%3a` és a plusz megmenekül, hogy `%2b` URI-barát legyen. |
+| `reportedEndTime` |A lekérdezés befejezési időpontja. A rájuk vonatkozó korlátozások `reportedStartTime` erre az argumentumra is érvényesek. Az érték `reportedEndTime` nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
 | `aggregationGranularity` |Opcionális paraméter, amely két különálló lehetséges értékkel rendelkezik: **naponta** és **óránként**. Az értékek azt sugallják, hogy az egyik napi részletességgel adja vissza az adatokat, a másik pedig óradíjas megoldás. A **napi** beállítás az alapértelmezett. |
 | `subscriberId` |Előfizetés azonosítója. A szűrt adatlekérdezéshez a szolgáltató közvetlen bérlője előfizetés-AZONOSÍTÓjának megadása szükséges. Ha nincs megadva előfizetés-azonosító paraméter, a hívás az összes szolgáltató közvetlen bérlője használati adatait adja vissza. |
-| `api-version` |A kérelem elvégzéséhez használt protokoll verziója. Ez az érték a következőre van beállítva: `2015-06-01-preview`. |
+| `api-version` |A kérelem elvégzéséhez használt protokoll verziója. Ez az érték a következőre van beállítva: `2015-06-01-preview` . |
 | `continuationToken` |A rendszer a használati API-szolgáltató utolsó hívásával lekért tokent. Erre a tokenre akkor van szükség, ha a válasz nagyobb, mint 1 000 sor. A folyamat könyvjelzőként működik. Ha a jogkivonat nincs jelen, az adatok a nap vagy az óra elejétől kezdve, az átadott részletesség alapján kerülnek beolvasásra. |
 
-### <a name="response"></a>Válasz
+### <a name="response"></a>Reagálás
 
 ```http
 GET
@@ -90,7 +90,7 @@ meterID1",
 |`usageEndTime`|Azon használati gyűjtő UTC-befejezési időpontja, amelyhez ez a használati összesítés tartozik. |
 |`instanceData` |Példány részleteinek kulcs-érték párok (új formátumban):<br> `resourceUri`: Teljes körű erőforrás-azonosító, amely magában foglalja az erőforráscsoportot és a példány nevét. <br> `location`: Az a régió, amelyben a szolgáltatást futtatták. <br> `tags`: A felhasználó által megadott erőforrás-címkék. <br> `additionalInfo`: További információ a felhasznált erőforrásról; például az operációs rendszer verziója vagy a rendszerkép típusa. |
 |`quantity`|Az adott időkeretben bekövetkezett erőforrás-felhasználás mennyisége. |
-|`meterId` |A felhasznált erőforrás egyedi azonosítója (más néven `ResourceID`). |
+|`meterId` |A felhasznált erőforrás egyedi azonosítója (más néven `ResourceID` ). |
 
 ## <a name="retrieve-usage-information"></a>Használati adatok beolvasása
 
@@ -112,17 +112,17 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>Az összes bérlői használat visszaküldése aktív felhasználók számára
 
-| Módszer | Kérés URI-ja |
+| Metódus | Kérés URI-ja |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Törölt vagy aktív bérlő használatának visszaküldése
 
-| Módszer | Kérés URI-ja |
+| Metódus | Kérés URI-ja |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Bérlői erőforrás-használati API-referenciák](azure-stack-tenant-resource-usage-api.md)
 - [Használattal kapcsolatos gyakori kérdések](azure-stack-usage-related-faq.md)

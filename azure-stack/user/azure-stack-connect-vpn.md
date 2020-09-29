@@ -1,20 +1,20 @@
 ---
-title: Azure Stack hub csatlakozása az Azure-hoz VPN használatával
+title: Az Azure Stack Hub csatlakoztatása az Azure-hoz VPN használatával
 description: Virtuális hálózatok összekapcsolhatók az Azure-beli virtuális hálózatokkal a VPN használatával a Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 07/23/2020
 ms.author: sethm
-ms.reviewer: scottnap
+ms.reviewer: TBD
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643589"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133758"
 ---
-# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Azure Stack hub csatlakozása az Azure-hoz VPN használatával
+# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>Az Azure Stack Hub csatlakoztatása az Azure-hoz VPN használatával
 
 Ez a cikk azt ismerteti, hogyan lehet helyek közötti VPN-t létrehozni egy virtuális hálózat Azure Stack hub-beli virtuális hálózathoz való összekapcsolásához az Azure-ban.
 
@@ -35,7 +35,7 @@ A következő ábra azt mutatja be, hogy a kapcsolódási konfigurációnak hogy
 
 A hálózati konfigurációval kapcsolatos példák táblázat a cikkben szereplő példákhoz használt értékeket jeleníti meg. Ezeket az értékeket használhatja, vagy megtekintheti őket, hogy jobban megértse a cikkben szereplő példákat:
 
-|   |Azure Stack hub|Azure|
+| Érték   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |Virtuális hálózat neve     |AZS – VNet|AzureVNet |
 |Virtuális hálózat címtartománya |10.1.0.0/16|10.100.0.0/16|
@@ -119,9 +119,9 @@ Mivel az IPSec-házirendek Azure Stack hub alapértelmezett paraméterei módosu
 1. Egyéni szabályzat létrehozása:
 
    ```powershell
-     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
-     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
-     -SADataSizeKilobytes 102400000 
+   $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
    ```
 
 2. Alkalmazza a házirendet a kapcsolódásra:
@@ -147,7 +147,7 @@ Most hozzon létre egy virtuális GÉPET az Azure-ban, és helyezze a virtuális
    * A **AzureVnet** virtuális hálózat van kiválasztva.
    * Az alhálózat beállítása **10.100.0.0/24**.
 
-   Kattintson az **OK** gombra.
+   Válassza az **OK** lehetőséget.
 
 9. Tekintse át a beállításokat az **Összefoglalás** szakaszban, majd kattintson az **OK gombra**.
 
@@ -202,7 +202,7 @@ A szolgáltatás-rendszergazda bejelentkezhet felhasználóként a felhasználó
 
 ### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
-Azure Stack hub *helyi hálózati átjárójának* fogalma egy kicsit eltér az Azure-beli környezetekben.
+Azure Stack hub *helyi hálózati átjárójának* fogalma nem azonos az Azure-beli üzemelő példányokkal.
 
 Egy Azure-beli üzembe helyezés esetén a helyi hálózati átjáró egy helyszíni (felhasználói hely) fizikai eszköz, amely az Azure-beli virtuális hálózati átjáróhoz csatlakozik. Azure Stack hub-ban azonban a kapcsolatok mindkét végpontja virtuális hálózati átjáró.
 
@@ -245,7 +245,7 @@ A VPN-kapcsolat vizsgálatához hozzon létre két virtuális gépet: egy az Azu
 5. Írjon be egy érvényes felhasználónevet és jelszót. Ezzel a fiókkal jelentkezhet be a virtuális gépre a létrehozása után.
 6. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**, majd kattintson **az OK gombra**.
 7. A **méret** szakaszban ehhez a példányhoz válassza ki a virtuális gép méretét, majd válassza a **kiválasztás**lehetőséget.
-8. A **Beállítások** szakaszban fogadja el az alapértelmezett értékeket. Győződjön meg arról, hogy a **AZS-VNet** virtuális hálózat van kiválasztva. Ellenőrizze, hogy az alhálózat **10.1.0.0/24**értékre van-e állítva. Ezután kattintson az **OK** gombra.
+8. A **Beállítások** szakaszban fogadja el az alapértelmezett értékeket. Győződjön meg arról, hogy a **AZS-VNet** virtuális hálózat van kiválasztva. Ellenőrizze, hogy az alhálózat **10.1.0.0/24**értékre van-e állítva. Ezután válassza az **OK** gombot.
 
 9. Az **Összefoglalás** szakaszban tekintse át a beállításokat, majd kattintson az **OK gombra**.
 
@@ -256,8 +256,8 @@ A helyek közötti kapcsolat létrejötte után ellenőrizze, hogy mindkét irá
 * Jelentkezzen be az Azure Stack hub-ban létrehozott virtuális gépre, és Pingelje meg a virtuális gépet az Azure-ban.
 * Jelentkezzen be az Azure-ban létrehozott virtuális gépre, és Pingelje a virtuális gépet Azure Stack hub-ban.
 
->[!NOTE]
->Annak ellenőrzéséhez, hogy a helyek közötti kapcsolaton keresztül küld forgalmat, Pingelje a virtuális gép közvetlen IP-címét (DIP) a távoli alhálózaton, ne pedig a VIP-t.
+> [!NOTE]
+> Annak ellenőrzéséhez, hogy a helyek közötti kapcsolaton keresztül küld forgalmat, Pingelje a virtuális gép közvetlen IP-címét (DIP) a távoli alhálózaton, ne pedig a VIP-t.
 
 ### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Jelentkezzen be Azure Stack hub felhasználói virtuális gépén
 
@@ -316,6 +316,6 @@ Ha tudni szeretné, hogy mennyi adat halad át a helyek közötti kapcsolaton ke
 
     ![Be-és kimenő adatterületek](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-* [Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz](azure-stack-solution-pipeline.md)
+* [Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

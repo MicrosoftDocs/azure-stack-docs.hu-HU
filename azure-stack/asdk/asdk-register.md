@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 4795b7abbd5c1f0dd9dfc1c3064aefa9371725a2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490014"
 ---
 # <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
 
@@ -102,7 +102,7 @@ A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és n
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A (z) `$FilePathForRegistrationToken` paraméterrel létrehozott fájlból vagy szövegből is másolhatja a fájlt.
+Mentse ezt a regisztrációs jogkivonatot az internethez csatlakoztatott számítógépen való használatra. A (z) paraméterrel létrehozott fájlból vagy szövegből is másolhatja a fájlt `$FilePathForRegistrationToken` .
 
 ### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
@@ -209,7 +209,7 @@ Az aktiválás befejezésekor a következőhöz hasonló üzenetnek kell megjele
 
 A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrációja sikeres volt-e. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján érhető el.
 
-1. Jelentkezzen be a Azure Stack felügyeleti portálra `https://adminportal.local.azurestack.external`.
+1. Jelentkezzen be a Azure Stack felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
 2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
 
@@ -218,9 +218,9 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható** vagy **nem regisztrálható**. Ha regisztrálva van, megjeleníti a Azure Stack regisztrálásához használt Azure-előfizetés AZONOSÍTÓját, valamint a regisztrációs erőforráscsoportot és a nevet is.
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
-Az **ugyanahhoz az előfizetéshez** tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+Az **ugyanahhoz az előfizetéshez** tartozó erőforráscsoportok közötti regisztrációs erőforrás áthelyezése támogatott. Az erőforrások új erőforráscsoporthoz való áthelyezésével kapcsolatos további információkért lásd: [erőforrások áthelyezése új erőforráscsoporthoz vagy előfizetésbe](/azure/azure-resource-manager/resource-group-move-resources).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub Marketplace-elem hozzáadása](../operator/azure-stack-marketplace.md)

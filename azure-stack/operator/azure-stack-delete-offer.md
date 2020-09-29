@@ -7,12 +7,12 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 3c8c8b424d6ce555b19f4a77dbb8275b731f488e
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 3ceea390376610ca1354a1b015ca91a5edd096e5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836133"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566294"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>Kvóták, csomagok, ajánlatok és előfizetések törlése
 
@@ -53,19 +53,20 @@ Emellett a csomag nem távolítható el az előfizetésből, ha az adott erőfor
 
 ## <a name="edit-and-delete-a-quota"></a>Kvóta szerkesztése és törlése
 
-A meglévő kvótákat a felügyeleti portálon tekintheti meg és szerkesztheti: válassza a **régió felügyelete**lehetőséget, majd válassza ki a megfelelő erőforrás-szolgáltatót, majd válassza a **kvóták**lehetőséget. Bizonyos erőforrás-szolgáltatók kvótái is törölhetők.
+A meglévő kvótákat a felügyeleti portálon tekintheti meg és szerkesztheti: válassza a **régió felügyelete**lehetőséget, majd válassza ki a megfelelő erőforrás-szolgáltatót, majd válassza a  **kvóták**lehetőséget. Bizonyos erőforrás-szolgáltatók kvótái is törölhetők.
 
 ![Kvóták törlése Azure Stack hub felügyeleti portálján](media/azure-stack-delete-offer/delsub3.png)
 
 A REST API-kkal néhány kvótát is törölhet:
 
-- [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
+- [Számítás](/rest/api/azurestack/quotas/delete)
 - [Hálózat](/rest/api/azurestack/quotas%20(network)/delete)
+- [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > A kvóta nem törölhető, ha vannak olyan aktuális csomagok, amelyek használják azt. Először törölnie kell a kvótára hivatkozó csomagot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Előfizetések létrehozása](azure-stack-subscribe-plan-provision-vm.md)
 - [Virtuális gép kiépítése](../user/azure-stack-create-vm-template.md)

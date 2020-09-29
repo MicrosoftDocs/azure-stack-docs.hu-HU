@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b3cbaff12c4d4decb0d7204fa558dd5690fe638
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112016"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490167"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
@@ -30,19 +30,19 @@ Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
 
 ## <a name="configure-an-azure-ad-tenant"></a>Azure AD-bérlő konfigurálása
 
-Az Azure AD-bérlő használatával regisztrálhat egy szervezetet, és hitelesítheti a felhasználókat az Azure-ban. A partner a bérlő szerepköralapú hozzáférés-vezérlési (RBAC) funkcióit fogja használni, hogy a partner szervezeten belül kik is használhatják az Varga-t. További információkért lásd: [Mi az az Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+Az Azure AD-bérlő használatával regisztrálhat egy szervezetet, és hitelesítheti a felhasználókat az Azure-ban. A partner a bérlő szerepköralapú hozzáférés-vezérlési (RBAC) funkcióit fogja használni, hogy a partner szervezeten belül kik is használhatják az Varga-t. További információkért lásd: [Mi az az Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Bérlő létrehozása
 
 Hozzon létre egy olyan bérlőt, amelyet a szervezete használni fog az Varga szolgáltatások eléréséhez. Adjon meg egy leíró nevet (például: `ContosoVaaS@onmicrosoft.com` ).
 
-1. Hozzon létre egy Azure AD-bérlőt a [Azure Portalban](https://portal.azure.com), vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
+1. Hozzon létre egy Azure AD-bérlőt a [Azure Portalban](https://portal.azure.com), vagy használjon egy meglévő bérlőt. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](/azure/active-directory/get-started-azure-ad). -->
 
 2. Vegye fel a szervezet tagjait a bérlőbe. Ezeknek a felhasználóknak a feladata a szolgáltatás használata a tesztek megtekintéséhez vagy megadásához. Ha befejezte a regisztrációt, megadhatja a felhasználók hozzáférési szintjét.
 
     A következő szerepkörök egyikének hozzárendelésével engedélyezheti a bérlőben lévő felhasználók számára a műveletek futtatását az Varga-ban:
 
-    | Szerepkör neve | Description |
+    | Szerepkör neve | Leírás |
     |---------------------|------------------------------------------|
     | Tulajdonos | Teljes hozzáféréssel rendelkezik az összes erőforráshoz. |
     | Olvasó | Megtekintheti az összes erőforrást, de nem hozható létre és nem kezelhető. |
@@ -64,11 +64,11 @@ Ez a folyamat engedélyezi a bérlőnek az **Azure stack hub Validation Service*
 
 1. Küldje el az alábbi adatokat a bérlőről a Microsoftnak a következő címen: [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) .
 
-    | Adatok | Description |
+    | Adatok | Leírás |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Szervezetnév | A hivatalos szervezet neve. |
     | Azure AD-bérlői könyvtár neve | Az Azure AD-bérlő könyvtárának neve regisztrálva van. |
-    | Azure AD-bérlői címtár azonosítója | A címtárhoz tartozó Azure AD-bérlői könyvtár GUID-azonosítója. További információ az Azure AD-bérlői címtár AZONOSÍTÓjának megkereséséről: a [bérlő azonosítójának beolvasása](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
+    | Azure AD-bérlői címtár azonosítója | A címtárhoz tartozó Azure AD-bérlői könyvtár GUID-azonosítója. További információ az Azure AD-bérlői címtár AZONOSÍTÓjának megkereséséről: a [bérlő azonosítójának beolvasása](/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in). |
 
 2. Várjon, amíg a Azure Stack hub ellenőrzési csapata megerősíti, hogy a bérlő használhatja-e a Azure Stack hub ellenőrzési portálját.
 

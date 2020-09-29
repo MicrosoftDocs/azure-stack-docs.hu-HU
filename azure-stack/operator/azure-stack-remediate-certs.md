@@ -8,22 +8,22 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367794"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724846"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 
-Az ebben a cikkben található információk segítséget nyújt a Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák megismerésében és megoldásában. Felderítheti a problémákat, amikor az Azure Stack hub Readiness-ellenőrző eszközt használja a [Azure stack hub PKI-tanúsítványok ellenőrzéséhez](azure-stack-validate-pki-certs.md). Az eszköz ellenőrzi, hogy a tanúsítványok megfelelnek-e az Azure Stack hub központi telepítésének PKI-követelményeinek, és Azure Stack hub titkos elforgatását, majd az eredményeket egy [report. JSON fájlba](azure-stack-validation-report.md)naplózza.  
+Az ebben a cikkben található információk segítséget nyújt a Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák megismerésében és megoldásában. Felderítheti a problémákat, amikor az Azure Stack hub Readiness-ellenőrző eszközt használja a [Azure stack hub PKI-tanúsítványok ellenőrzéséhez](azure-stack-validate-pki-certs.md). Az eszköz ellenőrzi, hogy a tanúsítványok megfelelnek-e az Azure Stack hub központi telepítésének PKI-követelményeinek, és Azure Stack hub titkos elforgatását, majd az eredményeket egy [report.jsfájlba](azure-stack-validation-report.md)naplózza.  
 
 ## <a name="pfx-encryption"></a>PFX-titkosítás
 
 **Probléma** – a pfx titkosítás nem TRIPLEDES – SHA1.
 
-A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javítása** . Ez az alapértelmezett titkosítás minden Windows 10-ügyfél esetében a tanúsítvány beépülő modulból vagy a használatával `Export-PFXCertificate`történő exportáláskor.
+A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javítása** . Ez az alapértelmezett titkosítás minden Windows 10-ügyfél esetében a tanúsítvány beépülő modulból vagy a használatával történő exportáláskor `Export-PFXCertificate` .
 
 ## <a name="read-pfx"></a>PFX olvasása
 
@@ -45,19 +45,19 @@ A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javí
 
 **Probléma** – a titkos kulcs hiányzik, vagy nem tartalmazza a helyi gép attribútumát.  
 
-**Javítás** – az a számítógép, amely a CSR-t generálta, majd exportálja újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése az üzembe helyezéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)című cikkben ismertetett lépések segítségével. Ezek a lépések a helyi számítógép tanúsítványtárolóból történő exportálást is tartalmazzák.
+**Javítás** – az a számítógép, amely a CSR-t generálta, majd exportálja újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése az üzembe helyezéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)című cikkben ismertetett lépések segítségével. Ezek a lépések a helyi számítógép tanúsítványtárolóból történő exportálást is tartalmazzák.
 
 ## <a name="certificate-chain"></a>Tanúsítványlánc
 
 **Probléma** – a tanúsítványlánc nem fejeződött be.  
 
-**Javítás** – a tanúsítványoknak teljes tanúsítványláncot kell tartalmazniuk. Exportálja újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítésre](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**.
+**Javítás** – a tanúsítványoknak teljes tanúsítványláncot kell tartalmazniuk. Exportálja újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítésre](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**.
 
 ## <a name="dns-names"></a>DNS-nevek
 
-**Probléma** – a tanúsítvány **DNSNameList** nem tartalmazza az Azure stack hub szolgáltatás végpontjának nevét vagy egy érvényes helyettesítő karaktert. A helyettesítő karakteres egyezések csak a DNS-név bal szélső névterére érvényesek. Például `*.region.domain.com` a csak a esetében `portal.region.domain.com`érvényes, nem. `*.table.region.domain.com`
+**Probléma** – a tanúsítvány **DNSNameList** nem tartalmazza az Azure stack hub szolgáltatás végpontjának nevét vagy egy érvényes helyettesítő karaktert. A helyettesítő karakteres egyezések csak a DNS-név bal szélső névterére érvényesek. Például a `*.region.domain.com` csak a esetében érvényes `portal.region.domain.com` , nem `*.table.region.domain.com` .
 
-**Javítás** – a Azure stack hub-tanúsítványok aláírási kérelmének létrehozásával újragenerálja a CSR-t a megfelelő DNS-nevekkel a Azure stack hub-végpontok támogatásához. Küldje el újra a CSR-t egy hitelesítésszolgáltatótól. Ezután kövesse az [Azure stack hub PKI-tanúsítványok előkészítése az üzembe helyezéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) című témakör lépéseit, és exportálja a tanúsítványt a CSR-t létrehozó gépről.  
+**Javítás** – a Azure stack hub-tanúsítványok aláírási kérelmének létrehozásával újragenerálja a CSR-t a megfelelő DNS-nevekkel a Azure stack hub-végpontok támogatásához. Küldje el újra a CSR-t egy hitelesítésszolgáltatótól. Ezután kövesse az [Azure stack hub PKI-tanúsítványok előkészítése az üzembe helyezéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) című témakör lépéseit, és exportálja a tanúsítványt a CSR-t létrehozó gépről.  
 
 ## <a name="key-usage"></a>Kulcshasználat
 
@@ -75,13 +75,13 @@ A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javí
 
 **Probléma** – a tanúsítványlánc sorrendje helytelen.  
 
-**Javítsa** újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment) című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**. Győződjön meg arról, hogy csak a levél tanúsítvány van kiválasztva exportáláshoz.
+**Javítsa** újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker) című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**. Győződjön meg arról, hogy csak a levél tanúsítvány van kiválasztva exportáláshoz.
 
 ## <a name="other-certificates"></a>Egyéb tanúsítványok
 
 **Probléma** – a pfx-csomag olyan tanúsítványokat tartalmaz, amelyek nem a levél tanúsítványát vagy a tanúsítványlánc részét képezik.  
 
-**Javítsa** újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**. Győződjön meg arról, hogy csak a levél tanúsítvány van kiválasztva exportáláshoz.
+**Javítsa** újra a tanúsítványt a [Azure stack hub PKI-tanúsítványok előkészítése a központi telepítéshez](azure-stack-prepare-pki-certs.md#prepare-certificates-azure-stack-readiness-checker)című témakör lépéseit követve, és jelölje be az **összes tanúsítvány belefoglalása a tanúsítási útvonalba lehetőséget, ha lehetséges**. Győződjön meg arról, hogy csak a levél tanúsítvány van kiválasztva exportáláshoz.
 
 ## <a name="fix-common-packaging-issues"></a>Gyakori csomagolási problémák elhárítása
 
@@ -116,7 +116,7 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Cserélje `PFXpassword` le a-t a tényleges jelszóra:
+2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Cserélje le `PFXpassword` a-t a tényleges jelszóra:
 
    ```powershell
    $password = Read-Host -Prompt PFXpassword -AsSecureString
@@ -124,8 +124,8 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
 
 3. A PowerShell-parancssorból futtassa a következő parancsot egy új PFX-fájl exportálásához:
 
-   - A `-PfxPath`esetében Itt adhatja meg a pfx-fájl elérési útját. Az alábbi példában az elérési út a `.\certificates\ssl.pfx`következő:.
-   - A `-ExportPFXPath`(z) esetében adja meg az exportálandó pfx-fájl helyét és nevét. Az alábbi példában az elérési út a `.\certificates\ssl_new.pfx`következő:
+   - A esetében `-PfxPath` itt adhatja meg a pfx-fájl elérési útját. Az alábbi példában az elérési út a következő: `.\certificates\ssl.pfx` .
+   - A (z) esetében `-ExportPFXPath` adja meg az EXPORTÁLANDÓ pfx-fájl helyét és nevét. Az alábbi példában az elérési út a következő `.\certificates\ssl_new.pfx` :
 
    ```powershell
    Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
@@ -144,6 +144,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [További információ a Azure Stack hub biztonságáról](azure-stack-rotate-secrets.md)

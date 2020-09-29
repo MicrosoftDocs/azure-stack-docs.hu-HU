@@ -3,16 +3,16 @@ title: Azure Stack hub által támogatott virtuálisgép-méretek
 description: A Azure Stack hub által támogatott virtuálisgép-méretek referenciája.
 author: mattbriggs
 ms.topic: reference
-ms.date: 03/23/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80152190"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250758"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
 
@@ -31,7 +31,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 > [!NOTE]
 > *Alapszintű A* A [virtuális gépek méretezési csoportjai](../operator/azure-stack-compute-add-scalesets.md) (VMSS) a portálon keresztül jönnek létre a virtuálisgép-méretekkel. Ezzel a mérettel rendelkező VMSS létrehozásához használja a PowerShellt vagy a sablont.
 
-|Méret – Size\Name |vCPU     |Memory (Memória) | Ideiglenes lemez max. mérete | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége: (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemez maximális átviteli sebessége (IOPS) | Hálózati adapterek maximális száma |    
+|Méret – Size\Name |vCPU     |Memória | Ideiglenes lemez max. mérete | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége: (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemez maximális átviteli sebessége (IOPS) | Hálózati adapterek maximális száma |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |
@@ -43,7 +43,7 @@ Az általános célú virtuálisgép-méretek kiegyensúlyozott processzor-memó
 |Méret     |vCPU     |Memória (GiB) | Ideiglenes tároló (GiB)  | OPERÁCIÓSRENDSZER-lemez maximális átviteli sebessége (IOPS) | Maximális Temp Storage-átviteli sebesség (IOPS) | Adatlemezek maximális száma/átviteli sebesség (IOPS) | Hálózati adapterek maximális száma |    
 |----------------|--|------|----|----|----|-------|---------|
 |**Standard_A0** |1 |0.768 |20  |500 |500 |1x500  |2 |
-|**Standard_A1** |1 |1.75  |70  |500 |500 |2x500  |2 |
+|**Standard_A1** |1 |1,75  |70  |500 |500 |2x500  |2 |
 |**Standard_A2** |2 |3.5   |135 |500 |500 |4x500  |2 |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 |
 |**Standard_A4** |8 |14    |605 |500 |500 |16x500 |4 |
@@ -176,6 +176,6 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32/32x2300  |8 |
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub VM-funkciók](azure-stack-vm-considerations.md)

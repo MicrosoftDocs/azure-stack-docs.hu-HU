@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: c320b0fa20746da3e14a3cb4af2c8fcd1a9775ea
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819382"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489827"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
@@ -29,7 +29,7 @@ Az Azure Stack kezelésekor figyelembe kell vennie néhány fiókra vonatkozó s
 |Helyi rendszergazda (.\Rendszergazda)|ASDK-gazda rendszergazdája|ASDK-gazda rendszergazdája|
 |AzureStack\AzureStackAdmin|ASDK-gazda rendszergazdája<br><br>A Azure Stack felügyeleti portálra való bejelentkezéshez használható.<br><br>Hozzáférés Service Fabric gyűrűk megtekintéséhez és felügyeletéhez|ASDK-gazda rendszergazdája<br><br>Nincs hozzáférése a Azure Stack felügyeleti portálhoz<br><br>Hozzáférés Service Fabric gyűrűk megtekintéséhez és felügyeletéhez<br><br>Az alapértelmezett szolgáltatói előfizetés (DPS) már nem tulajdonosa|
 |AzureStack\CloudAdmin|A jogosultsági szintű végponton belül elérheti és futtathatja az engedélyezett parancsokat|A jogosultsági szintű végponton belül elérheti és futtathatja az engedélyezett parancsokat<br><br>Nem lehet bejelentkezni a ASDK-gazdagépre<br><br>Az alapértelmezett szolgáltatói előfizetés tulajdonosa (DPS)|
-|Az Azure AD globális rendszergazdája|A telepítés során használatban van<br><br>Az alapértelmezett szolgáltatói előfizetés tulajdonosa (DPS)|Nem értelmezhető|
+|Az Azure AD globális rendszergazdája|A telepítés során használatban van<br><br>Az alapértelmezett szolgáltatói előfizetés tulajdonosa (DPS)|Nem alkalmazható|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Milyen eszközöket használhatok a felügyelethez?
@@ -38,7 +38,7 @@ A Azure Stack kezelésére a Azure Stack felügyeleti portál `https://adminport
 A Azure Stack a Azure Resource Manager használja a mögöttes üzembe helyezési, felügyeleti és szervezeti mechanizmusként. Ha Azure Stack fogja kezelni a felhasználókat, és segítségre van szüksége a felhasználók támogatásához, ismerkedjen meg a Azure Resource Managerokkal. További információt a Első lépések Azure Resource Manager tanulmányban való elolvasásával [foglalkozó](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)témakörben olvashat.
 
 ## <a name="your-typical-responsibilities"></a>Tipikus feladatai
-A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. A ASDK segítségével megtudhatja, hogy mely szolgáltatásokat ajánljuk, és hogyan teheti elérhetővé ezeket a szolgáltatásokat [csomagok, ajánlatok és kvóták létrehozásával](../operator/azure-stack-tutorial-tenant-vm.md). Emellett elemeket is hozzá kell adnia a piactérhez, például a virtuális gépekhez (VM). A legegyszerűbb módszer, ha a [Piactéri elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból Azure Stackba tölti le.
+A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. A ASDK segítségével megtudhatja, hogy mely szolgáltatásokat ajánljuk, és hogyan teheti elérhetővé ezeket a szolgáltatásokat [csomagok, ajánlatok és kvóták létrehozásával](../operator/tutorial-offer-services.md?view=azs-2002). Emellett elemeket is hozzá kell adnia a piactérhez, például a virtuális gépekhez (VM). A legegyszerűbb módszer, ha a [Piactéri elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból Azure Stackba tölti le.
 
 > [!NOTE]
 > A csomagok, ajánlatok és szolgáltatások teszteléséhez használja a felhasználói portált, `https://portal.local.azurestack.external` ne pedig a felügyeleti portált `https://adminportal.local.azurestack.external` .
@@ -58,6 +58,5 @@ A fórumokat a felügyeleti portál jobb felső sarkában található **Súgó**
 > [!IMPORTANT]
 > Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK üzembe helyezése](asdk-install.md)
-

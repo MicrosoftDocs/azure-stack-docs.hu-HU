@@ -3,16 +3,16 @@ title: Azure Stack hub identitás-architektúrája
 description: Ismerje meg az Azure Stack hub identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
 author: BryanLa
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/20/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.lastreviewed: 07/20/2020
+ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848234"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566192"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack hub identitás-architektúrája
 
@@ -24,16 +24,17 @@ A választott identitás-szolgáltató korlátozhatja a beállításokat, beleé
 
 |Képesség vagy forgatókönyv        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Csatlakozik az internethez     |Igen       |Optional|
+|Csatlakozik az internethez     |Yes       |Választható|
 |Több-bérlős támogatás támogatása     |Igen       |Nem      |
-|Ajánlati elemek a piactéren |Igen       |Igen (az [Offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) eszköz használatát igényli)|
+|Ajánlati elemek a piactéren |Yes       |Igen (az [Offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) eszköz használatát igényli)|
 |Active Directory-hitelesítési tár támogatása (ADAL) |Igen |Igen|
 |Támogatás olyan eszközökhöz, mint az Azure CLI, a Visual Studio és a PowerShell  |Igen |Igen|
 |Egyszerű szolgáltatás létrehozása a Azure Portal     |Igen |Nem|
 |Egyszerű szolgáltatások létrehozása tanúsítványokkal      |Igen |Igen|
 |Egyszerű szolgáltatás létrehozása a Secrets (kulcsok) használatával    |Igen |Igen|
 |Az alkalmazások használhatják a Graph szolgáltatást           |Igen |Nem|
-|Az alkalmazások használhatják az Identitáskezelő szolgáltatást a bejelentkezéshez |Igen |Igen (az alkalmazásoknak a helyszíni AD FS-példányokkal való összevonása szükségesek) |
+|Az alkalmazások használhatják az Identitáskezelő szolgáltatást a bejelentkezéshez |Yes |Igen (az alkalmazásoknak a helyszíni AD FS-példányokkal való összevonása szükségesek) |
+| Felügyelt rendszeridentitások | Nem | Nem |
 
 ## <a name="topologies"></a>Topológiák
 
@@ -94,7 +95,7 @@ Ez a topológia a következő jellemzőkkel rendelkezik:
   - A felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányban történik.
   - Az alkalmazások egyszerű szolgáltatásait és regisztrációit a beépített Active Directory-példány kezeli.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az identitások áttekintése](azure-stack-identity-overview.md)
 - [Adatközpont-integráció – identitás](azure-stack-integrate-identity.md)

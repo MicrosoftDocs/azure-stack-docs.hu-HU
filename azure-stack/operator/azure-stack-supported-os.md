@@ -1,21 +1,21 @@
 ---
-title: Azure Stack hub által támogatott vendég operációs rendszerek
+title: Az Azure Stack Hub által támogatott vendég operációs rendszerek
 titleSuffix: Azure Stack
 description: Ismerje meg, hogy mely vendég operációs rendszerek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 17af4430f84f744a6ff4c8994ff453939fadb747
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661245"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250299"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack hub által támogatott vendég operációs rendszerek
+# <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Az Azure Stack Hub által támogatott vendég operációs rendszerek
 
 ## <a name="windows"></a>Windows
 
@@ -48,28 +48,28 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 >
 > a [Cloud-init](https://cloud-init.io/) a Azure Stack hub 1910-es vagy újabb verziójában támogatott.
 
-| Disztribúció | Leírás | Közzétevő | Azure Stack hub piactér |
+| Disztribúció | Leírás | Publisher | Azure Stack hub piactér |
 | --- | --- | --- | --- |
-| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
-| CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
-| CentOS-alapú 7.3 | 64 bites | Gazember hullám | Igen |
-| ClearLinux | 64 bites | ClearLinux.org | Igen |
-| CoreOS Linux (stabil) |  64 bites | CoreOS | Igen |
-| Debian 8 "Megbéklyóz" | 64 bites | credativ |  Igen |
-| Debian 9 "stretch" | 64 bites | credativ | Igen |
+| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Yes |
+| CentOS-alapú 7,5 | 64 bites | Gazember hullám | Yes |
+| CentOS-alapú 7.3 | 64 bites | Gazember hullám | Yes |
+| ClearLinux | 64 bites | ClearLinux.org | Yes |
+| CoreOS Linux (stabil) |  64 bites | CoreOS | Yes |
+| Debian 8 "Megbéklyóz" | 64 bites | credativ |  Yes |
+| Debian 9 "stretch" | 64 bites | credativ | Yes |
 | Oracle Linux | 64 bites | Oracle | Igen |
 | Red Hat Enterprise Linux 7,1 (és újabb verziók) | 64 bites | Red Hat | Saját rendszerkép használata |
-| SLES 11SP4 | 64 bites | SUSE | Igen |
-| SLES 12SP3 | 64 bites | SUSE | Igen |
-| Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
-| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
+| SLES 11SP4 | 64 bites | SUSE | Yes |
+| SLES 12SP3 | 64 bites | SUSE | Yes |
+| Ubuntu 14,04 – LTS | 64 bites | Canonical | Yes |
+| Ubuntu 16,04 – LTS | 64 bites | Canonical | Yes |
+| Ubuntu 18,04 – LTS | 64 bites | Canonical | Yes |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
 - [Marketplace-elemek letöltése](azure-stack-download-azure-marketplace-item.md)  
-- [Marketplace-elem létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
+- [Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

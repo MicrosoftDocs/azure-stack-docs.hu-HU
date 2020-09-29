@@ -3,22 +3,22 @@ title: Azure Stack hub csatlakoztatása az Azure-hoz az ExpressRoute használat�
 description: Megtudhatja, hogyan csatlakoztathat virtuális hálózatokat Azure Stack hub-ban az Azure-beli virtuális hálózatokhoz az ExpressRoute használatával.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605693"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250401"
 ---
-# <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure Stack hub összekötése az Azure-ba az Azure ExpressRoute
+# <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Az Azure Stack Hub csatlakoztatása az Azure-hoz Azure ExpressRoute használatával
 
 Ez a cikk azt ismerteti, hogyan csatlakoztathat egy Azure Stack hub virtuális hálózatot egy Azure-beli virtuális hálózathoz egy [Microsoft Azure ExpressRoute](/azure/expressroute/) közvetlen kapcsolat használatával.
 
-Ez a cikk oktatóanyagként használható, és a példák használatával is beállíthatja ugyanazt a tesztkörnyezet. Vagy használhatja a cikket útmutatóként, amely végigvezeti a saját ExpressRoute-környezet beállításán.
+Ez a cikk oktatóanyagként használható, és a példák használatával is beállíthatja ugyanazt a tesztkörnyezet. Vagy elolvashatja a cikket olyan bemutatóként, amely végigvezeti Önt a saját ExpressRoute-környezet beállításán.
 
 ## <a name="overview-assumptions-and-prerequisites"></a>Áttekintés, feltételezések és előfeltételek
 
@@ -95,7 +95,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
    |Mező  |Érték  |
    |---------|---------|
-   |Name (Név)     |Tenant1VNet1         |
+   |Név     |Tenant1VNet1         |
    |Címtér     |10.1.0.0/16|
    |Alhálózat neve     |Tenant1-Sub1|
    |Alhálózati címtartomány     |10.1.1.0/24|
@@ -104,7 +104,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 
     * Az **erőforráscsoport**területen válassza az **új létrehozása** lehetőséget egy új erőforráscsoport létrehozásához, vagy ha már rendelkezik ilyennel, válassza a **meglévő használata**lehetőséget.
     * Ellenőrizze az alapértelmezett **helyet**.
-    * Kattintson a **Létrehozás**gombra.
+    * Kattintson a **Létrehozás** lehetőségre.
     * Választható Kattintson **a rögzítés az irányítópulton**elemre.
 
 #### <a name="create-the-gateway-subnet"></a>Az átjáróalhálózat létrehozása
@@ -127,7 +127,7 @@ A következő eljárásokkal hozhatja létre a szükséges hálózati erőforrá
 1. Válassza a **nyilvános IP-cím**lehetőséget, majd **válassza a nyilvános IP-cím**lehetőséget, majd kattintson az **új létrehozása**lehetőségre.
 1. A név mezőbe írja be a **GW1-pip** **nevet** , majd kattintson az **OK**gombra.
 1. Az **VPN típusa** mezőben alapértelmezés szerint a **Útvonalalapú** lehetőség van kiválasztva. Ne módosítsa ezt a beállítást.
-1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Létrehozás**gombra.
+1. Ellenőrizze, hogy az **Előfizetés** és a **Hely** mező értéke helyes-e. Kattintson a **Létrehozás** lehetőségre.
 
 #### <a name="create-the-local-network-gateway"></a>A helyi hálózati átjáró létrehozása
 
@@ -146,7 +146,7 @@ A helyi hálózati átjáró erőforrás a VPN-kapcsolat másik végén találha
    > [!IMPORTANT]
    > Ez a példa azt feltételezi, hogy statikus útvonalakat használ a helyek közötti VPN-kapcsolathoz az Azure Stack hub-átjáró és a ExpressRoute-útválasztó között.
 
-1. Ellenőrizze, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** helyes-e. Ezután válassza a **Létrehozás**lehetőséget.
+1. Ellenőrizze, hogy az **előfizetés**, az **erőforráscsoport**és a **hely** helyes-e. Ezután válassza a **Létrehozás** elemet.
 
 #### <a name="create-the-connection"></a>A kapcsolat létrehozása
 
@@ -183,7 +183,7 @@ A VPN-kapcsolaton keresztüli adatforgalom teszteléséhez a virtuális gépekne
 
 1. A **virtuális gép létrehozása**területen válassza az **alapismeretek**lehetőséget, majd írja be a **VM01** **nevet**.
 1. Érvényes felhasználónevet és jelszót adjon meg. Ezt a fiókot fogja használni a virtuális gépre való bejelentkezéshez a létrehozás után.
-1. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Kattintson az **OK** gombra.
+1. Adja meg az **előfizetést**, az **erőforráscsoportot**és a **helyet**. Válassza az **OK** lehetőséget.
 1. A **méret kiválasztása**területen válasszon egy virtuálisgép-méretet ehhez a példányhoz, majd válassza a **kiválasztás**lehetőséget.
 1. A **Beállítások**területen ellenőrizze, hogy:
 
@@ -223,7 +223,7 @@ Az útválasztó az Útválasztás és távelérés szolgáltatás (RRAS) szerep
    Get-NetNatExternalAddress
    ```
 
-1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet, `External BGPNAT address` és `Internal IP address` cserélje le a következő példában szereplő értékeket:
+1. A NAT konfigurálásához másolja és szerkessze a következő PowerShell-szkriptet. Szerkessze a szkriptet, és cserélje le a `External BGPNAT address` `Internal IP address` következő példában szereplő értékeket:
 
    * *Külső BGPNAT-címek* esetén használja a 10.10.0.62
    * *Belső IP-cím* használata 192.168.102.1
@@ -595,10 +595,10 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolódáson, megkeresh
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra, és válassza az **összes erőforrás**lehetőséget.
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.
 1. Válassza ki a **ConnectToAzure** -összekötőt a listából.
-1. A **kapcsolatok** > **áttekintése**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
+1. A **kapcsolatok**  >  **áttekintése**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
 
    ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-[Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz](../user/azure-stack-solution-pipeline.md)
+[Alkalmazások telepítése az Azure-ba és Azure Stack hubhoz](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

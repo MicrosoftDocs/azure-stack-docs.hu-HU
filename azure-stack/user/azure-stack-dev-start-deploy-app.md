@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: f162a244e97d2346851ff4b13b6bdd04033e33fb
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: fa94f2bb29b75a2fcbbdbc7707a69d9ba2f8d0cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146852"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567603"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack hub általános telepítései
 
@@ -36,4 +36,4 @@ A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack
 ## <a name="next-steps"></a>Következő lépések
 
 - [Fejlesztési környezet beállítása Azure stack központban](azure-stack-dev-start.md).
-- [Folyamatos integrációs/folyamatos szállítási (CI/CD) folyamat beállítása Azure stack hub-ban](azure-stack-solution-pipeline.md).
+- [Folyamatos integrációs/folyamatos szállítási (CI/CD) folyamat beállítása Azure stack hub-ban](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops).

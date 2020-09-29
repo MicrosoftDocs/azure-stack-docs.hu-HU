@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111863"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564768"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric-fürt üzembe helyezése Azure Stack központban
 
 Az Azure Marketplace **Service Fabric-fürtjével** biztonságos Service Fabric-fürtöt helyezhet üzembe az Azure stack hub szolgáltatásban. 
 
-További információ a Service Fabric használatáról: az Azure- [Service Fabric áttekintése](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) és a [Service Fabric-fürtök biztonsági forgatókönyvei](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) az Azure dokumentációjában.
+További információ a Service Fabric használatáról: az Azure- [Service Fabric áttekintése](/azure/service-fabric/service-fabric-overview) és a [Service Fabric-fürtök biztonsági forgatókönyvei](/azure/service-fabric/service-fabric-cluster-security) az Azure dokumentációjában.
 
-Az Azure Stack hub Service Fabric-fürtje nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack központban a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)használatával.
+Az Azure Stack hub Service Fabric-fürtje nem a Microsoft. ServiceFabric erőforrás-szolgáltatót használja. Ehelyett Azure Stack központban a Service Fabric-fürt egy virtuálisgép-méretezési csoport egy előre telepített szoftverrel a [kívánt állapot-konfiguráció (DSC)](/powershell/scripting/dsc/overview/overview)használatával.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -29,13 +29,13 @@ A Service Fabric-fürt telepítéséhez a következők szükségesek:
    A Service Fabric telepítésekor a Key Vaulthoz hozzáadott X. 509 kiszolgálói tanúsítvány. 
    - A tanúsítványhoz tartozó **CN-** nek meg kell egyeznie a létrehozott Service Fabric-fürt teljes tartománynevével (FQDN). 
    - A tanúsítvány formátumának PFX-nek kell lennie, mivel a nyilvános és a titkos kulcs is kötelező. 
-     Lásd a kiszolgálóoldali tanúsítvány létrehozásához [szükséges követelményeket](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) .
+     Lásd a kiszolgálóoldali tanúsítvány létrehozásához [szükséges követelményeket](/azure/service-fabric/service-fabric-cluster-security) .
 
      > [!NOTE]  
      > Tesztelési célból az X. 509 kiszolgálói tanúsítvány önaláírt tanúsítványát is használhatja. Az önaláírt tanúsítványoknak nem kell megegyezniük a fürt teljes tartománynevével.
 
 1. **Rendszergazdai ügyféltanúsítvány**  
-   Ez az a tanúsítvány, amelyet az ügyfél a Service Fabric-fürt hitelesítésére használ, amely önaláírt lehet. Tekintse meg az ügyfél-tanúsítvány létrehozásához [szükséges követelményeket](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) .
+   Ez az a tanúsítvány, amelyet az ügyfél a Service Fabric-fürt hitelesítésére használ, amely önaláírt lehet. Tekintse meg az ügyfél-tanúsítvány létrehozásához [szükséges követelményeket](/azure/service-fabric/service-fabric-cluster-security) .
 
 1. **A következő elemeknek elérhetőknek kell lenniük az Azure Stack hub piactéren:**
     - **Windows server 2016** – a sablon a windows Server 2016 rendszerképet használja a fürt létrehozásához.  
@@ -125,8 +125,8 @@ További információ: [a Azure stack Hub Key Vault kezelése a PowerShell](azur
     A leválasztott Azure Stack hubhoz való központi telepítéshez vagy a Service Fabric egy másik verziójának telepítéséhez töltse le a Service Fabric központi telepítési csomagot és a hozzá tartozó futtatókörnyezet-csomagot, és működtesse egy Azure Stack hub-blobon. Adja meg ezeket az értékeket a **Service Fabric központi telepítési csomag URL-címéhez** és a **Service Fabric futtatókörnyezet-csomag URL-** mezőihez.
     > [!NOTE]  
     > A Service Fabric és a hozzá tartozó SDK legújabb kiadása között kompatibilitási problémák léptek fel. A probléma megoldása érdekében adja meg a következő paramétereket a központi telepítési csomag URL-címéhez és a futásidejű csomag URL-címéhez. A központi telepítések egyébként nem fognak működni.
-    > - Service Fabric központi telepítési csomag URL-címe:<https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
-    > - Service Fabric futásidejű csomag URL-címe:<https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
+    > - Service Fabric központi telepítési csomag URL-címe: <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
+    > - Service Fabric futásidejű csomag URL-címe: <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
     > A leválasztott központi telepítések esetében töltse le ezeket a csomagokat a megadott helyről, és helyileg tárolja egy Azure Stack hub-blobon.
 
@@ -188,7 +188,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 1. A Service Fabric Explorer URL-címének és az ügyfél-kapcsolódási végpontnak a megkereséséhez tekintse át a Template deployment eredményét.
 
-1. Nyissa meg a <https://*FQDN*:19080> URL-címet a böngészőben. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
+1. Nyissa meg a `https://*FQDN*:19080` URL-címet a böngészőben. Cserélje le a *teljes tartománynevet* a Service Fabric-fürt teljes tartománynevére a 2. lépésben.   
    Ha önaláírt tanúsítványt használt, a rendszer figyelmeztetést kap arról, hogy a kapcsolatok nem biztonságosak. A webhely folytatásához válassza a **További információk**lehetőséget, majd lépjen a **weblapra**. 
 
 1. A helyhez való hitelesítéshez ki kell választania a használni kívánt tanúsítványt. Válassza a **további lehetőségek**lehetőséget, válassza ki a megfelelő tanúsítványt, majd kattintson az **OK** gombra a Service Fabric Explorerhoz való kapcsolódáshoz. 
@@ -199,7 +199,7 @@ A Service Fabric-fürtöt a Service Fabric Explorer vagy a Service Fabric PowerS
 
 ### <a name="use-service-fabric-powershell"></a>A Service Fabric PowerShell használata
 
-1. Telepítse a *Microsoft Azure Service FABRIC SDK* -t a [fejlesztési környezet előkészítése a Windowsban](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) az Azure Service Fabric dokumentációjában.  
+1. Telepítse a *Microsoft Azure Service FABRIC SDK* -t a [fejlesztési környezet előkészítése a Windowsban](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) az Azure Service Fabric dokumentációjában.  
 
 1. A telepítés befejezése után konfigurálja a rendszerkörnyezeti változókat annak biztosítására, hogy a Service Fabric parancsmagok elérhetők legyenek a PowerShellből.  
     

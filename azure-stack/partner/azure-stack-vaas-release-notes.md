@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: A Azure Stack hub érvényesítésének kibocsátási megjegyzései szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c5aa3342acd37708231720663d10eacc7c2388b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661181"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764630"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
@@ -40,7 +40,7 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
   - Hibajavítás a számítási teszthez – TestVMOperations
 
 - Ismert problémák:
-  - Vegye vaashelp@microsoft.com fel a kapcsolatot, ha az alábbi tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
+  - Vegye fel vaashelp@microsoft.com a kapcsolatot, ha az alábbi tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
@@ -52,7 +52,7 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
   - Az Varga PowerShell bővítmény frissítése: a csomag-ellenőrzési munkafolyamat automatizálása mostantól támogatott. A bővítmény használatára vonatkozó részletes információkért tekintse meg Azure Stack hub Varga automatizálása a PowerShell-lel című témakört.
 
 - Ismert problémák:
-  - Vegye vaashelp@microsoft.com fel a kapcsolatot, ha az alábbi tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
+  - Vegye fel vaashelp@microsoft.com a kapcsolatot, ha az alábbi tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
 
@@ -64,20 +64,20 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
 - Tartalmi frissítések tesztelése:
   - Havi Azure Stack hub frissítésének ellenőrzése (verzió: 5.1.46.0-> 5.1.49.0).
   - OEM kiterjesztési csomag ellenőrzése (5.1.46.0-> 5.1.49.0).
-  - A 5.1.46.0 eredményei megmaradtak. Ha sikeresen futtatta a 5.1.46.0-t, akkor vaashelp@microsoft.com az eredmények elküldésekor értesítést kap.
+  - A 5.1.46.0 eredményei megmaradtak. Ha sikeresen futtatta a 5.1.46.0-t, akkor az vaashelp@microsoft.com eredmények elküldésekor értesítést kap.
 
 - Hibajavítások
   - Kijavítva a hiba, ahol a Azure Stack hub frissítésének ellenőrzése nem sikerült, ha az Update. zip speciális karaktereket tartalmaz.
 
 - Ismert problémák
-  - Az mstest. exe nem található. Megkerülő megoldás:
+  - Ha mstest.exe nem található, a rendszer nem ellenőrzi az alapkonfigurációt. Megkerülő megoldás:
     1. CTRL + C az ügynök a PowerShell-ablakban.
-    1. Írja be a mstest. exe fájlt annak ellenőrzéséhez, hogy a mstest. exe egy felismert program.
-    1. Ha a mstest. exe nem ismerhető fel, akkor a jelenlegi PowerShell-ablak bezárásához.
+    1. A mstest.exe beírásával ellenőrizze, hogy a mstest.exe felismert program-e.
+    1. Ha mstest.exe nem ismerhető fel, akkor a jelenlegi PowerShell-ablak bezárásához.
     1. Kattintson a Start gombra (ne a PowerShell elemre a tálcán), keresse meg a PowerShellt, és nyissa meg rendszergazdaként.
-    1. Írja be a mstest. exe parancsot, és ellenőrizze, hogy az elérhető-e parancsként.
+    1. Írja be mstest.exe, és ellenőrizze, hogy elérhető-e parancsként.
     1. Indítsa újra az ügynököt, és futtassa újra a tesztet.
-  - Időnként a Cloud szimulációs motor a virtuális gépekkel \*kapcsolatos tesztek során hibát jelez. Az vaashelp@microsoft.com újrafuttatási kísérlet előtt lépjen kapcsolatba.
+  - Időnként a Cloud szimulációs motor a virtuális gépekkel kapcsolatos tesztek során hibát jelez \* . vaashelp@microsoft.comAz újrafuttatási kísérlet előtt lépjen kapcsolatba.
 
 
 2019 október 29.
@@ -96,7 +96,7 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
 - A felhőalapú szimulációs motor az OEM-csomag érvényesítési munkafolyamatában és az Azure Stack hub frissítési munkafolyamatában (5.1.30.0-> 5.1.46.0) megköveteli, hogy a tesztek a következő sorrendben legyenek ütemezve: havonta Azure Stack hub Update ellenőrzési teszt, OEM-bővítmény-ellenőrzési teszt, és végül a Cloud szimulációs motor.
 - Varga-ügynök frissítése: a frissített Varga ügynök mostantól a Azure Stack hub felhőalapú rendszergazdai hitelesítő adataival kérdezi le a bélyegzőt, hogy lekérdezze a bélyegző adatait, hogy automatikusan töltse fel a munkafolyamatokat.
 
-    Ehhez a frissítéshez az összes ügynök frissítése és újraindítása szükséges. A következő utasításokat követve frissítheti az Varga-ügynököt:https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
+    Ehhez a frissítéshez az összes ügynök frissítése és újraindítása szükséges. A következő utasításokat követve frissítheti az Varga-ügynököt: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - Az Varga portál felhasználói felületének frissítése: az ügynök kiválasztása tábla a tesztek ütemezése ablaktábla fölé került, hogy megkönnyítse a tesztelést.
 
     A feladatok ütemezésekor már nem szükséges megadnia a Stamp-adatokat, ha az adatbázis-ügynökök megfelelően frissültek.
@@ -126,7 +126,7 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 1. Futtassa az OEM-frissítést a szokásos módon.
 2. Tesztelje a AzureStack a csomag sikeres alkalmazása után, és mentse a kimenetet.
 3. A teszt megszakítása.
-4. Küldje el VaaSHelp@microsoft.com a mentett kimenetet, hogy megkapja a Futtatás eredményét.
+4. Küldje el a mentett kimenetet, VaaSHelp@microsoft.com hogy megkapja a Futtatás eredményét.
 
 ## <a name="version-402"></a>4.0.2 verziója
 
@@ -140,7 +140,7 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 
 - Az alapkövetelmények:
 
-    `Install-VaaSPrerequisites`a továbbiakban nincs szükség a Felhőbeli rendszergazdai hitelesítő adatokra. Ha a parancsmag legújabb verzióját futtatja, tekintse meg a [helyi ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) című témakört az előfeltételek telepítéséhez szükséges átdolgozott parancsokhoz. Íme a parancsok:
+    `Install-VaaSPrerequisites` a továbbiakban nincs szükség a Felhőbeli rendszergazdai hitelesítő adatokra. Ha a parancsmag legújabb verzióját futtatja, tekintse meg a [helyi ügynök letöltése és telepítése](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) című témakört az előfeltételek telepítéséhez szükséges átdolgozott parancsokhoz. Íme a parancsok:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -157,7 +157,7 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 
 - Az előfeltételeket és a VHD-frissítéseket:
 
-    `Install-VaaSPrerequisites`a mostantól megköveteli a Felhőbeli rendszergazdai hitelesítő adatok megadását a csomag érvényesítése során. A [helyi ügynök letöltésére és telepítésére](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) szolgáló dokumentáció a következő kóddal frissült:
+    `Install-VaaSPrerequisites` a mostantól megköveteli a Felhőbeli rendszergazdai hitelesítő adatok megadását a csomag érvényesítése során. A [helyi ügynök letöltésére és telepítésére](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent) szolgáló dokumentáció a következő kóddal frissült:
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -178,7 +178,7 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 
 - PowerShell Automation frissítése:
 
-    Olyan PowerShell- `LaunchVaaSTests` parancsfájlok módosításai történtek, amelyek a parancsfájl-csomagok legújabb verzióját igénylik. A parancsfájl-kezelési csomag legújabb verziójának telepítésével kapcsolatos utasításokért tekintse meg [a test pass munkafolyamat elindítása](azure-stack-vaas-automate-with-powershell.md) című témakört.
+    Olyan PowerShell-parancsfájlok módosításai történtek, `LaunchVaaSTests` amelyek a parancsfájl-csomagok legújabb verzióját igénylik. A parancsfájl-kezelési csomag legújabb verziójának telepítésével kapcsolatos utasításokért tekintse meg [a test pass munkafolyamat elindítása](azure-stack-vaas-automate-with-powershell.md) című témakört.
 
 - Érvényesítés szolgáltatás-portálként:
 
@@ -194,6 +194,6 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 
     Az egyes funkciókra vonatkozó célzott visszajelzések megadásának lehetősége már elérhető a test pass munkafolyamatban. A `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0` teszt ellenőrzi, hogy vannak-e konkrét frissítések alkalmazva, majd visszajelzéseket gyűjt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)

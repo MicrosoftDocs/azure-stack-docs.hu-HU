@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack hub ellenőrzésének áttekintése szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c42c9029e1e1292865f0da239d3dafcb78e5543
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 777a87094f9e950da5a301ec328d253cb5f7a7c1
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661216"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764715"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Mi az a Azure Stack hub szolgáltatásként való érvényesítése?
 
@@ -43,7 +43,7 @@ További információ: [szoftverfrissítések érvényesítése a Microsofttól]
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Digitálisan aláírt megoldási partner csomagjainak beolvasása
 
-A Azure Stack hub frissítéseinek ellenőrzése mellett a partnerek a csomag- **ellenőrzési** munkafolyamattal érvényesítik a frissítéseket a számítógépgyártói testreszabási csomagokba. Ezek a frissítések Azure Stack hub-Partner-specifikus illesztőprogramokat, belső vezérlőprogramot és más, az Azure Stack hub szoftver telepítése során használt szoftvereket tartalmazzák. Telepítse az érvényesíteni kívánt csomagot az Azure Stack hub szoftver aktuális verzióján legalább a támogatott minimális méretű megoldás használatával. A rendszer a tesztek végrehajtása előtt elküldi a csomagot az Varga számára. Ha a tesztek sikeresek, [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) értesítse, hogy a csomag befejezte a tesztelést, és digitálisan alá kell írnia az Azure stack hub digitális aláírásával. A Microsoft aláírja a csomagot, és értesíti a Azure Stack hub-partnert arról, hogy a csomag letölthető a Azure Stack hub ellenőrzési portálján.
+A Azure Stack hub frissítéseinek ellenőrzése mellett a partnerek a csomag- **ellenőrzési** munkafolyamattal érvényesítik a frissítéseket a számítógépgyártói testreszabási csomagokba. Ezek a frissítések Azure Stack hub-Partner-specifikus illesztőprogramokat, belső vezérlőprogramot és más, az Azure Stack hub szoftver telepítése során használt szoftvereket tartalmazzák. Telepítse az érvényesíteni kívánt csomagot az Azure Stack hub szoftver aktuális verzióján legalább a támogatott minimális méretű megoldás használatával. A rendszer a tesztek végrehajtása előtt elküldi a csomagot az Varga számára. Ha a tesztek sikeresek, értesítse, [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) hogy a csomag befejezte a tesztelést, és digitálisan alá kell írnia az Azure stack hub digitális aláírásával. A Microsoft aláírja a csomagot, és értesíti a Azure Stack hub-partnert arról, hogy a csomag letölthető a Azure Stack hub ellenőrzési portálján.
 
 További információ: OEM- [csomagok ellenőrzése](azure-stack-vaas-validate-oem-package.md).
 
@@ -61,7 +61,7 @@ További információ: gyors útmutató [: az első teszt elvégzéséhez haszn�
 | [OEM-csomag ellenőrzése](azure-stack-vaas-validate-oem-package.md) | OEM kiterjesztési csomag ellenőrzése<br>Felhőalapú szimulációs motor |
 | [Havi frissítés ellenőrzése](azure-stack-vaas-validate-microsoft-updates.md) | Havi Azure Stack hub frissítésének ellenőrzése<br>Felhőalapú szimulációs motor<br> |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

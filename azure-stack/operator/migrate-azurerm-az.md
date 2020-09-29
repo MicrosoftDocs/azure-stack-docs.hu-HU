@@ -4,22 +4,22 @@ description: A AzureRM modulban található parancsfájlok áttelepítésének l
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 08/24/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bcfd4b467013a6f207efa37bc02917d3800e3eb0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395145"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764749"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrálás a AzureRM-ről a Azure PowerShell az Azure Stack hub-ban
 
 Az Az modul a funkciók tekintetében paritásban van az AzureRM modullal, de rövidebb és egységesebb parancsmagneveket használ.
 Az AzureRM-parancsmagokhoz írt szkriptek nem működnek automatikusan az új modullal. Az áttérés megkönnyítése érdekében az Az olyan eszközöket nyújt, amelyekkel futtathatja az AzureRM-et használó meglévő szkripteket. Az új parancskészletekre való áttérés soha nem egyszerű, ebben a cikkben azonban segítünk megismerkedni az új modulra való átállás alapjaival.
 
-Az AzureRM és az Az közötti kompatibilitástörő változások teljes listáját [az Az 1.0.0 migrálási útmutatójában](https://docs.microsoft.com/powershell/azure/migrate-az-1.0.0) találja.
+Az AzureRM és az Az közötti kompatibilitástörő változások teljes listáját [az Az 1.0.0 migrálási útmutatójában](/powershell/azure/migrate-az-1.0.0) találja.
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Az AzureRM telepített verzióinak megtekintése
 
@@ -43,7 +43,7 @@ Az Azure PowerShell Az modul telepítéséhez hajtsa végre az alábbi lépések
 
 * __Ajánlott__: [távolítsa el a AzureRM modult](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Győződjön meg róla, hogy az AzureRM _összes_ telepített verzióját eltávolítja, és nem csak a legutóbbi verziót.
-* [Az Az modul telepítése](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Az Az modul telepítése](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>Az AzureRM kompatibilitási aliasok engedélyezése 
 
@@ -74,11 +74,11 @@ Van néhány kivétel is ez alól a szabály alól, amelyeket érdemes figyelemb
 
 | AzureRM modul | Az modul | Módosult a parancsmag utótagja? |
 |----------------|-----------|------------------------|
-| AzureRM.Profile | Az.Accounts | Igen |
-| AzureRM.Insights | Az.Monitor | Igen |
-| AzureRM.Tags | Az.Resources | Nem |
-| AzureRM.UsageAggregates | Az.Billing | Nem |
-| AzureRM.Consumption | Az.Billing | Nem |
+| AzureRM.Profile | Az.Accounts | Yes |
+| AzureRM.Insights | Az.Monitor | Yes |
+| AzureRM.Tags | Az.Resources | No |
+| AzureRM.UsageAggregates | Az.Billing | No |
+| AzureRM.Consumption | Az.Billing | No |
 
 ## <a name="summary"></a>Összefoglalás
 
@@ -92,7 +92,7 @@ Ez a dokumentum részletes információkat tartalmaz az AzureRM 6.x és az új A
 
 Ez a szakasz részletesen bemutatja az Az modul újratervezésének részét képező általános kompatibilitástörő változásokat.
 
-### <a name="cmdlet-noun-prefix-changes"></a>A parancsmag főnévi előtagjának változásai
+### <a name="cmdlet-noun-prefix-changes"></a>A parancsmag főnévi előtagjának módosításai
 
 Az AzureRM modulban a parancsmagok az `AzureRM` vagy az `Azure` főnévi előtagot használták.  Az Az egyszerűsíti és normalizálja a parancsmagok nevét, így minden parancsmag főnévi előtagja „Az” lesz. Például:
 
@@ -225,7 +225,7 @@ E szolgáltatások eszközeit már nem támogatja aktívan a rendszer.  Azt java
 
 Az Az Windows PowerShell 5.1-gyel történő használatához szükséges a .NET-keretrendszer 4.7.2 telepítése. A PowerShell Core 6.x vagy újabb verziójának használatához nincs szükség a .NET-keretrendszerre.
 
-### <a name="temporary-removal-of-user-login-using-pscredential"></a>A felhasználói bejelentkezés ideiglenes eltávolítása a PSCredential használatával
+### <a name="temporary-removal-of-user-login-using-pscredential"></a>Felhasználói bejelentkezés ideiglenes eltávolítása a PSCredential használatával
 
 A .NET Standard hitelesítési folyamatának változásai miatt ideiglenesen eltávolítjuk a PSCredential használatával történő felhasználói bejelentkezés lehetőségét. A funkció a Windows PowerShell 5.1 2019. január 15-én megjelenő verziójában válik ismét elérhetővé. Erről részletesen [ebben a GitHub-cikkben](https://github.com/Azure/azure-powershell/issues/7430) olvashat.
 
@@ -391,7 +391,7 @@ $task.Wait()
 
 - A `PSAppServicePlan`, `PSCertificate`, `PSCloningInfo` és `PSSite` objektum elavult tulajdonságai el lettek távolítva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a Azure Stack hub PowerShell-ről: Ismerkedés [a PowerShell-lel Azure stack hub-ban](../user/azure-stack-powershell-overview.md)
 - Telepítse a PowerShell az modult, lásd: a [PowerShell telepítése az Azure stack hub](powershell-install-az-module.md) -hoz

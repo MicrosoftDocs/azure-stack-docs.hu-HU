@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111811"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567042"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
 
@@ -22,9 +22,9 @@ Ez a cikk segítséget nyújt az Azure Stack hub-ban használt PowerShell-modulo
 
 | API | PowerShell-dokumentáció | REST-referencia |
 | --- | --- | --- |
-| Globális Azure Resource Manager | [Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](https://docs.microsoft.com/rest/api/) |
+| Globális Azure Resource Manager | [Azure PowerShell-modulok](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [REST API böngésző](/rest/api/) |
 | Azure Stack hub Resource Manager | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) | [API-verziók profiljainak kezelése Azure Stack hub-ban](azure-stack-version-profiles.md) |
-| Azure Stack hub rendszergazdai végpontok | [Azure Stack hub felügyeleti modul](https://docs.microsoft.com/powershell/azure/azure-stack/overview) | [REST API Browser-Azure Stack hub](https://docs.microsoft.com/rest/api/?term=Azure%20Azure%20Stack%20Admin) |
+| Azure Stack hub rendszergazdai végpontok | [Azure Stack hub felügyeleti modul](/powershell/azure/azure-stack/overview) | [REST API Browser-Azure Stack hub](/rest/api/?term=Azure Azure Stack Admin) |
 | Azure Stack hub privilegizált végpontja | [A rendszerjogosultságú végpont használata Azure Stack központban](../operator/azure-stack-privileged-endpoint.md) | |
 
 Minden csatoló a globális Azure-ban vagy Azure Stack hub-ban található erőforrás-szolgáltatót. Az erőforrás-szolgáltatók lehetővé teszik az Azure képességeit. Az Azure számítási erőforrás-szolgáltatója például programozott hozzáférést biztosít a virtuális gépek létrehozásához és kezeléséhez, valamint az azokhoz kapcsolódó erőforrásokhoz.
@@ -39,7 +39,7 @@ A következő blokk diagram a PowerShell-modulok készletei közötti kapcsolato
 
 ### <a name="global-azure"></a>Globális Azure
 
-Azure PowerShell olyan parancsmagokat tartalmaz, amelyek a Azure Resource Manager aktuális verzióját használják az Azure-erőforrásokkal való munkavégzéshez. Azure PowerShell a .NET Standard verziót használja, ami azt jelenti, hogy a PowerShell-verziókat Windows, macOS és Linux rendszeren is használhatja. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure PowerShell olyan parancsmagokat tartalmaz, amelyek a Azure Resource Manager aktuális verzióját használják az Azure-erőforrásokkal való munkavégzéshez. Azure PowerShell a .NET Standard verziót használja, ami azt jelenti, hogy a PowerShell-verziókat Windows, macOS és Linux rendszeren is használhatja. Az Azure PowerShell az Azure Cloud Shellben is elérhető. További információért lásd [az Azure PowerShell használatának első lépéseit](/powershell/azure/get-started-azureps).
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack hub Resource Manager
 

@@ -3,16 +3,16 @@ title: Ügyfél számlázása és jóváírása Azure Stack központban
 description: Ismerje meg, hogyan történik a Azure Stack hub-felhasználók számlázása az erőforrás-használatért, és hogy a számlázási adatok hogyan érhetők el az elemzéshez és a jóváíráshoz.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 9606f5ec17826e4fc339ebad5b4439829bd828cc
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 890d685bcd6922c02373e7dbe02310e1e2f2bd1f
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772548"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250316"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Használat és számlázás Azure Stack központban
 
@@ -28,7 +28,7 @@ Azure Stack hub minden erőforrás-szolgáltatója erőforrás-használat alapj�
 
 Ha [regisztrálta Azure stack hub-példányát az Azure](azure-stack-registration.md)-ban, Azure stack hub úgy van konfigurálva, hogy a használati adatokat az Azure Commerce szolgáltatásba küldje. Miután feltöltötte az adatokat az Azure-ba, elérheti azt a számlázási portálon vagy az Azure Resource használati API-k használatával. További információ arról, hogy milyen használati adatokat jelentettek az Azure-ban: [használati adatok jelentése](azure-stack-usage-reporting.md).  
 
-A következő képen a használati folyamat legfontosabb összetevői láthatók:
+Az alábbi ábrán a használati folyamat legfontosabb összetevői láthatók:
 
 ![Használati folyamat](media/azure-stack-billing-and-chargeback/usagepipeline.svg)
 
@@ -49,7 +49,7 @@ Az Azure Stack hub használatával több-bérlős felhőalapú megoldás-szolgá
 
 Minden ügyfél identitását egy másik Azure Active Directory (Azure AD) bérlő képviseli. Azure Stack hub támogatja az egyes Azure AD-bérlők egy CSP-előfizetésének hozzárendelését. Bérlőket és előfizetéseket adhat hozzá az alap Azure Stack hub-regisztrációhoz. Az alapszintű regisztráció minden Azure Stack hub-példány esetében elkészült. Ha egy előfizetés nincs regisztrálva a bérlő számára, akkor a felhasználó továbbra is használhatja Azure Stack hub-t, és a használatuk az alapregisztrációhoz használt előfizetéshez lesz küldve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Regisztrálás Azure Stack hubhoz](azure-stack-registration.md)
 - [Azure Stack hub használati adatok jelentése az Azure-ba](azure-stack-usage-reporting.md)
