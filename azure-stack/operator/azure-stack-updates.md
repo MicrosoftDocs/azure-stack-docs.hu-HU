@@ -3,23 +3,23 @@ title: Frissítések kezelése
 description: Ismerje meg, hogyan kezelheti a frissítéseket Azure Stack hub-ban
 author: sethmanheim
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 09/25/2020
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367223"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése az Azure Stack Hubban
 
 A teljes és expressz frissítések, gyorsjavítások, valamint az eredeti berendezésgyártó (OEM) illesztőprogram-és belső vezérlőprogram-frissítései a Azure Stack hub naprakészen tartanak. Ez a cikk ismerteti a frissítések különböző típusait, a megjelenésük időpontját, valamint azt, hogy hol talál további információkat a jelenlegi kiadásról.
 
-> [!Note]  
-> Azure Stack hub-frissítési csomagokat nem alkalmazhat a Azure Stack Development Kitra (ASDK). A frissítési csomagok integrált rendszerekhez készültek. További információ: [a ASDK újratelepítése](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
+> [!NOTE]  
+> Azure Stack hub-frissítési csomagokat nem alkalmazhat a Azure Stack Development Kitra (ASDK). A frissítési csomagok integrált rendszerekhez készültek. További információ: [a ASDK újratelepítése](../asdk/asdk-redeploy.md).
 
 ## <a name="update-package-types"></a>Frissítési csomagok típusai
 
@@ -33,7 +33,9 @@ Az integrált rendszerek három különböző típusú frissítési csomaggal re
 
     Az **expressz** frissítési csomagok hatóköre, és nem frissíti a mögöttes fizikai gazdagép operációs rendszereit.
 
-- **Azure stack hub-gyorsjavítások**. A Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti. A gyorsjavításokat ugyanúgy letöltheti és telepítheti, mint a Azure Stack hub normál teljes frissítési csomagjait. A gyorsjavítások kumulatívak, és percek alatt telepíthetők.
+- **Azure stack hub-gyorsjavítások**. A Microsoft [gyorsjavításokat biztosít Azure stack hubhoz](azure-stack-servicing-policy.md#hotfixes) , amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti. A gyorsjavításokat ugyanúgy letöltheti és telepítheti, mint a Azure Stack hub normál teljes frissítési csomagjait. A gyorsjavítások kumulatívak, és percek alatt telepíthetők.
+
+   A Build 2005-es verziójától kezdve, amikor új főverzióra frissít (például: 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
 
 - **OEM hardver – gyártó által megadott frissítések**. Azure Stack hub hardveres partnerei felelősek a hardveres belső vezérlőprogram és az illesztőprogram-frissítési csomagok végpontok közötti karbantartási életciklusának (beleértve az útmutatást is). Emellett a Azure Stack hub Hardware-partnerek saját és útmutatást nyújtanak a hardveres életciklus-gazdagépen található összes szoftverhez és hardverhez. Az OEM hardvergyártó a saját letöltési helyén tárolja ezeket a frissítési csomagokat.
 
@@ -41,13 +43,13 @@ Az integrált rendszerek három különböző típusú frissítési csomaggal re
 
 A frissítések három típusát a következő lépésszám bocsátja ki:
 
-- **Azure stack hub-szoftverfrissítések**. A Microsoft általában havonta frissíti a szoftverfrissítési csomagokat.
+- **Azure stack hub-szoftverfrissítések**. A Microsoft évente több teljes és expressz szoftverfrissítési csomagot bocsát ki.
 
-- **Azure stack hub-gyorsjavítások**. A gyorsjavítások időérzékeny kiadások, amelyeket bármikor fel lehet szabadítani.
+- **Azure stack hub-gyorsjavítások**. A gyorsjavítások időérzékeny kiadások, amelyeket bármikor fel lehet szabadítani. Ha az egyik főverzióról a másikra frissít (például 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban.
 
 - **OEM hardver gyártó által megadott frissítések**. Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket.
 
-Ha továbbra is támogatást szeretne kapni, a Azure Stack hub-környezetet egy támogatott Azure Stack hub-szoftverrel kell megtartania. További információ: [Azure stack hub karbantartási szabályzata](azure-stack-update-servicing-policy.md).
+Ha továbbra is támogatást szeretne kapni, a Azure Stack hub-környezetet egy támogatott Azure Stack hub-szoftverrel kell megtartania. További információ: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md).
 
 ## <a name="how-to-know-an-update-is-available"></a>Hogyan tudhatom meg, hogy elérhető egy frissítés?
 
@@ -69,6 +71,8 @@ A főverzióról a főverzióra történő frissítésnek lépésről lépésre 
 
 Ha például az Azure Stack hub-környezete 1908. x, és a legújabb elérhető frissítési verzió a 2002. x, akkor a 1908-1910, majd a 2002-ra kell frissítenie.
 
+A Build 2005-es verziójától kezdve, amikor új főverzióra frissít (például: 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban.
+
 ### <a name="hotfixes-within-major-versions"></a>Gyorsjavítások a főbb verziókon belül
 
 Ugyanazon a főverziószámon belül Azure Stack hub több gyorsjavítást is kiszabadíthat. A gyorsjavítások összegző jellegűek; a legújabb gyorsjavítási csomag tartalmazza az adott verzióhoz tartozó összes korábbi gyorsjavítást. További információ: [gyorsjavítások](azure-stack-servicing-policy.md#hotfixes).
@@ -79,11 +83,11 @@ Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépés
 
 ![Azure Stack hub frissítési folyamata](./media/azure-stack-updates/azure-stack-update-process.svg)
 
-1. **Tervezze meg a frissítést**.
+1. **A frissítés megtervezése**
 
-    Készítse elő a Azure Stack hub-t, hogy a lehető legzökkenőmentesebb legyen a frissítési folyamat, hogy minimális hatással legyen a felhasználókra. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. Győződjön meg arról, hogy az [Azure stack hub frissítés előtti ellenőrzőlistájának](release-notes-checklist.md) **összes** lépését követve ellenőrizze, hogy elvégezte-e a frissítés alkalmazásához szükséges lépéseket. Ügyeljen arra is, hogy a megfelelő karbantartási időszakot ütemezze az alkalmazott frissítési típushoz.
+    Készítse elő a Azure Stack hub-t, hogy a lehető legzökkenőmentesebb legyen a frissítési folyamat, hogy minimális hatással legyen a felhasználókra. Értesítse a felhasználókat a lehetséges szolgáltatások leállásáról, majd kövesse a példány frissítésre való előkészítésének lépéseit. Ügyeljen arra, hogy kövesse az [Azure stack hub frissítés előtti ellenőrzőlistájának](release-notes-checklist.md) összes lépését, és győződjön meg arról, hogy elvégezte a frissítés alkalmazásához szükséges előfeltételeket. Ügyeljen arra is, hogy a megfelelő karbantartási időszakot ütemezze az alkalmazott frissítési típushoz.
 
-2. **Töltse fel és készítse elő a frissítési csomagot**.
+2. **A frissítési csomag feltöltése és előkészítése**
 
     Az internethez csatlakoztatott Azure Stack hub-környezetek esetében a rendszer automatikusan importálja a központi szoftverfrissítéseket és gyorsjavításokat a rendszerbe Azure Stack, és előkészíti azokat a frissítésre.
 
@@ -91,9 +95,9 @@ Ha már tudja, hogy rendelkezik frissítéssel, alkalmazza a következő lépés
 
     Az összes OEM-frissítési csomagot manuálisan importálja a környezetbe, függetlenül az Azure Stack hub rendszer internetkapcsolatával. A frissítési csomag importálásával és előkészítésével kapcsolatos további lépésekért lásd: [Azure stack hub-frissítési csomag feltöltése és előkészítése](azure-stack-update-prepare-package.md).
 
-3. **Alkalmazza a frissítést**.
+3. **A frissítés alkalmazása**
 
-    Alkalmazza a frissítést a Azure Stack hub **Update (frissítés** ) paneljén. A frissítés során figyelje meg és hárítsa el a frissítési folyamatot. További információ: [Azure stack hub frissítésének alkalmazása](azure-stack-apply-updates.md).
+    Alkalmazza a frissítést a Azure Stack hub portál **frissítés** paneljén. A frissítés során figyelje meg és hárítsa el a frissítési folyamatot. További információ: [Azure stack hub frissítésének alkalmazása](azure-stack-apply-updates.md).
 
 ## <a name="the-update-resource-provider"></a>Az erőforrás-szolgáltató frissítése
 

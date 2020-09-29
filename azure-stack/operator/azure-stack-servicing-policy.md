@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub karbantartási szabályzatát, valamint azt, hogyan tarthat egy integrált rendszer támogatott állapotú.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636835"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367257"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -21,11 +21,11 @@ Ez a cikk ismerteti az Azure Stack hub integrált rendszerek karbantartási szab
 
 ## <a name="download-update-packages-for-integrated-systems"></a>Frissítési csomagok letöltése az integrált rendszerekhez
 
-A Microsoft a teljes havi frissítési csomagokat és a gyorsjavítási csomagokat is kibocsátja a konkrét problémák megoldására.
+A Microsoft a teljes frissítési csomagokat és a gyorsjavítási csomagokat is felszabadítja az adott problémák megoldásához.
 
-A havi frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeket manuálisan is letöltheti az [Azure stack hub Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload). Ha a skálázási egység csatlakoztatva van, a frissítés **elérhetőként**automatikusan megjelenik a felügyeleti portálon. A teljes, havi frissítési csomagok minden kiadásban jól dokumentálva vannak. Az egyes kiadásokkal kapcsolatos további információkért kattintson a jelen cikk [frissítési csomag kiadási lépésszám](#update-package-release-cadence) szakaszának bármelyik kiadására.
+A teljes frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeket manuálisan is letöltheti az [Azure stack hub Updates Downloader eszközzel](https://aka.ms/azurestackupdatedownload). Ha a skálázási egység csatlakoztatva van, a frissítés **elérhetőként**automatikusan megjelenik a felügyeleti portálon. Az egyes kiadásokkal kapcsolatos további információkért kattintson a jelen cikk [frissítési csomag kiadási lépésszám](#update-package-release-cadence) szakaszának bármelyik kiadására.
 
-A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack hub gyorsjavítási 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack hub-operátorok letöltik az. XML,. bin és. exe fájlokat, és importálják azokat a [frissítések alkalmazása a Azure stack hub-ban](azure-stack-apply-updates.md)című témakörben leírtak alapján. A csatlakoztatott méretezési egységekkel rendelkező Azure Stack hub-operátorok automatikusan megjelennek a felügyeleti portálon az üzenet **frissítése lehetőséggel**.
+A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack hub gyorsjavítási 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack hub-kezelők letöltheti az. XML és a. zip fájlokat, és importálhatja azokat a [frissítések alkalmazása a Azure stack hub-ban](azure-stack-apply-updates.md)című eljárással. A csatlakoztatott méretezési egységekkel rendelkező Azure Stack hub-operátorok automatikusan megjelennek a felügyeleti portálon az üzenet **frissítése lehetőséggel**.
 
 Ha a méretezési egység nincs csatlakoztatva, és értesítést szeretne kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára, amely minden kiadásban fel van tüntetve.
 
@@ -39,42 +39,40 @@ Az integrált rendszerek két típusú frissítési csomaggal rendelkeznek:
 
 ## <a name="update-package-release-cadence"></a>A csomag kiadási ritmusának frissítése
 
-A Microsoft havi ütemben várja a szoftverfrissítési csomagok kiadását. Előfordulhat azonban, hogy egy hónapon belül több vagy nem rendelkezik frissítési kiadással. Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket.
+A Microsoft az év során többször is kiadja a szoftverfrissítési csomagokat.
+
+Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket. A hardver legújabb frissítéseiről érdeklődjön a SZÁMÍTÓGÉPGYÁRTÓnál.
 
 A frissítések tervezésével és kezelésével, valamint az aktuális verzió meghatározásával kapcsolatos további információkért tekintse meg a frissítések [kezelése című témakörben](azure-stack-updates.md)található dokumentációt.
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
+- [Azure Stack hub 2005 frissítése](/azure-stack/operator/release-notes?view=azs-2005)
 - [Azure Stack hub 2002 frissítése](/azure-stack/operator/release-notes?view=azs-2002)
 - [Azure Stack hub 1910 frissítése](/azure-stack/operator/release-notes?view=azs-1910)
-- [Azure Stack hub 1908 frissítése](/azure-stack/operator/release-notes?view=azs-1908)
-- [Azure Stack hub 1907 frissítése](/azure-stack/operator/release-notes?view=azs-1907)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Alkalmanként a Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely részletezi a gyorsjavításban tárgyalt problémákat.
+Alkalmanként a Microsoft gyorsjavításokat biztosít Azure Stack hubhoz, amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Minden gyorsjavítást egy megfelelő Microsoft Tudásbázis (KB) című cikk bocsát ki, amely részletezi a gyorsjavításban tárgyalt problémákat.
 
-A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azure Stack hub normál teljes frissítési csomagjai. Azonban a teljes frissítéstől eltérően a gyorsjavítások percek alatt telepíthetők. Javasoljuk, hogy a gyorsjavítások telepítésekor Azure Stack hub-operátorok állítsanak be karbantartási időszakokat. A gyorsjavítások frissítik a Azure Stack hub-felhő verzióját, így könnyen megállapíthatja, hogy a gyorsjavítás alkalmazása megtörtént-e. Külön gyorsjavítást biztosítanak a Azure Stack hub minden olyan verziójához, amely továbbra is támogatott. **Egy adott iterációhoz tartozó egyes gyorsjavítások kumulatívak, és az ugyanazon verzióhoz tartozó korábbi gyorsjavításokat is tartalmazzák.** A megfelelő Tudásbázis-cikkben további információt talál egy adott gyorsjavítás alkalmazhatóságáról. Tekintse meg a kibocsátási megjegyzések hivatkozásait az előző szakaszban.
+A Build 2005-es verziójától kezdve, amikor új főverzióra frissít (például: 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
+
+A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azure Stack hub normál teljes frissítési csomagjai. Azonban a teljes frissítéstől eltérően a gyorsjavítások percek alatt telepíthetők. Javasoljuk, hogy a gyorsjavítások telepítésekor Azure Stack hub-operátorok állítsanak be karbantartási időszakokat. A gyorsjavítások frissítik a Azure Stack hub-felhő verzióját, így könnyen megállapíthatja, hogy a gyorsjavítás alkalmazása megtörtént-e. Külön gyorsjavítást biztosítanak a Azure Stack hub minden olyan verziójához, amely továbbra is támogatott. **Egy adott iterációhoz tartozó egyes gyorsjavítások kumulatívak, és az ugyanazon verzióhoz tartozó korábbi gyorsjavításokat is tartalmazzák.** A megfelelő TUDÁSBÁZIS-cikkben további információt talál egy adott gyorsjavítás alkalmazhatóságáról. Tekintse meg a kibocsátási megjegyzések hivatkozásait az előző szakaszban.
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
-- [Azure Stack hub 1910 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
-- [Azure Stack hub 1908 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
-- [Azure Stack hub 1907 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
+- [Azure Stack hub 2005 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
+- [Azure Stack hub 1910 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
 
-::: moniker range="azs-2002"
-
 > [!IMPORTANT]  
-> A Azure Stack hub 2002-es frissítésével a Microsoft átmenetileg kiterjeszti Azure Stack hub támogatási szabályzatának utasításait. A COVID-19-re válaszoló világbeli ügyfelekkel dolgozunk, akik fontos döntéseket hozhatnak a Azure Stack hub-rendszerekkel kapcsolatban, hogyan frissülnek és felügyelnek, és ennek eredményeképpen gondoskodnak arról, hogy az adatközpont üzleti műveletei továbbra is megfelelően működjenek. Ügyfeleink támogatásában a Microsoft egy ideiglenes támogatási szabályzatot kínál, amely három korábbi frissítési verziót tartalmaz. Ennek eredményeképpen az újonnan kiadott 2002-es frissítés és a három korábbi frissítési verzió (például a 1910, az 1908 és az 1907) közül bármelyiket támogatja a rendszer.
-
-::: moniker-end
+> Az Azure Stack hub 2002-es [kiadásával](release-notes.md?view=azs-2002) , valamint a világ azon tagjainak támogatásával, akik válaszolnak a COVID-19-re, és akik fontos döntéseket hozhatnak Azure stack hub-rendszerekkel kapcsolatban, a Microsoft átmenetileg kiterjesztheti a támogatási szabályzatot, hogy tartalmazza az előző három korábbi frissítési verziót (N-3). A 2005-es kiadással további 45 nap (a 2020. szeptember 25. között) folytatjuk ezt a bővítményt. Ennek eredményeképpen az újonnan kiadott 2005-es frissítés és a három korábbi frissítési verzió (2002, 1910 és 1908, vagy N-3) közül bármelyiket támogatja a rendszer. Ezen 45 nap után (2020. szeptember 25. után) visszatérünk a standard támogatási szabályzatba, ami azt jelenti, hogy a támogatott verziók a következő lesz: 2005, 2002 és 1910, vagy N-2.
 
 Ahhoz, hogy a Azure Stack hub-példány továbbra is támogatott állapotban maradjon, a példánynak a legutóbb kiadott frissítési verziót kell futtatnia, vagy futtatnia kell a két korábbi frissítési verzió valamelyikét.
 
-A gyorsjavítások nem tekintendők jelentős frissítési verzióknak. Ha a Azure Stack hub-példánya *több mint két frissítés*mögött van, akkor az nem felel meg a megfelelőségnek. A támogatás fogadásához legalább a támogatott verzióra kell frissítenie.
+A gyorsjavítások nem tekintendők jelentős frissítési verzióknak. Ha a Azure Stack hub-példánya több mint két frissítés mögött van, akkor az nem felel meg a megfelelőségnek. A támogatás fogadásához legalább a támogatott verzióra kell frissítenie.
 
 Ha például a legújabb elérhető verzió a 1904, és az előző két frissítési csomag a 1903-es és a 1902-as verziót is támogatja, a 1902 és az 1903 is továbbra is támogatott. A 1901 azonban nem támogatott. A házirend akkor is igaz, ha egy hónap vagy kettő nem rendelkezik kiadással. Ha például az aktuális kiadás 1807, és nem volt 1806-es kiadás, az előző két, 1805-as és 1804-es frissítési csomag továbbra is támogatott.
 
@@ -88,7 +86,7 @@ Az erőforrás-szolgáltató kompatibilitásával kapcsolatos további informác
 
 ## <a name="get-support"></a>Támogatás kérése
 
-Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
+Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nagyvállalati ügyfelek követik az [Azure-támogatási kérelem létrehozása](/azure/azure-supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től. További információ: [Azure-támogatással kapcsolatos gyakori kérdések](https://azure.microsoft.com/support/faq/).
 
 A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Stack hub adatainak helyreállítása a Infrastructure Backup szolgáltatással
+title: Azure Stack hub-adatok helyreállítása a Infrastructure Backup szolgáltatással
 description: Megtudhatja, hogyan készíthet biztonsági mentést és visszaállítást Azure Stack hub konfigurációs és szolgáltatási adatairól a Infrastructure Backup szolgáltatás használatával.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703281"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367240"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Azure Stack hub adatainak helyreállítása a Infrastructure Backup szolgáltatással
 
@@ -29,7 +29,7 @@ A biztonsági mentési szolgáltatás engedélyezése előtt ellenőrizze, hogy 
 
 A szolgáltatás a következő funkciókat tartalmazza:
 
-| Szolgáltatás                                            | Leírás                                                                                                                                                |
+| Funkció                                            | Leírás                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Biztonsági mentési infrastruktúra-szolgáltatások                     | A biztonsági mentés koordinálása a Azure Stack hub infrastruktúra-szolgáltatásainak egy részhalmazán keresztül. Vészhelyzet esetén az újratelepítés részeként visszaállíthatók az adatmennyiség. |
 | Az exportált biztonsági mentési adatmennyiség tömörítése és titkosítása | A biztonsági mentési információk tömörítése és titkosítása a rendszer által a rendszergazda által biztosított külső tárolóhelyre való exportálás előtt történik.                |
@@ -40,14 +40,14 @@ A szolgáltatás a következő funkciókat tartalmazza:
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>A Infrastructure Backup szolgáltatás követelményeinek ellenőrzése
 
 - **Tárolási hely**  
-  A Azure Stack hub-ból elérhető fájlmegosztás szükséges, amely hét biztonsági mentést is tartalmazhat. Az egyes biztonsági másolatok körülbelül 10 GB méretűek. A megosztásnak képesnek kell lennie 140 GB biztonsági mentés tárolására. További információ a Infrastructure Backup szolgáltatás tárolási helyének kiválasztásáról: a [biztonsági mentési vezérlőre vonatkozó követelmények](azure-stack-backup-reference.md#backup-controller-requirements).
+  Egy olyan fájlmegosztás szükséges, amely Azure Stack hub-ból érhető el, amely 14 biztonsági mentést tartalmaz. Az egyes biztonsági másolatok körülbelül 10 GB méretűek. A fájlmegosztás 140 GB-nyi biztonsági mentést képes tárolni. További információ a Infrastructure Backup szolgáltatás tárolási helyének kiválasztásáról: a [biztonsági mentési vezérlőre vonatkozó követelmények](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Hitelesítő adatok**  
   Szüksége lesz egy tartományi felhasználói fiókra és a hitelesítő adatokra. Használhatja például az Azure Stack hub rendszergazdai hitelesítő adatait.
 - **Titkosítási tanúsítvány**  
   A biztonságimásolat-fájlok titkosítása a tanúsítvány nyilvános kulcsával történik. Ügyeljen arra, hogy a tanúsítványt biztonságos helyen tárolja. 
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Megtudhatja, hogyan [engedélyezheti az Azure stack hub biztonsági mentését a felügyeleti portálról](azure-stack-backup-enable-backup-console.md).
 
