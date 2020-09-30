@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: b4f79281987b425b907126081e74ce32bf9ee14d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948951"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519386"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -83,7 +83,7 @@ A tűzfal URL-címére vonatkozó kivételek a Windows felügyeleti központ sz�
 
 | URL-cím        | Port | Szolgáltatás | Jegyzetek |
 | ---------- | ---- | --- | ---- |
-https://get.helm.sh/  | 443 | Ügynök letöltése, WAC | A Helm bináris fájljainak letöltésére használatos 
+https://helm.sh/blog/get-helm-sh/  | 443 | Ügynök letöltése, WAC | A Helm bináris fájljainak letöltésére használatos 
 https://storage.googleapis.com/  | 443 | Felhőbeli init | Kubernetes bináris fájljainak letöltése 
 https://azurecliprod.blob.core.windows.net/ | 443 | Felhőbeli init | Bináris fájlok és tárolók letöltése 
 https://aka.ms/installazurecliwindows | 443 | WAC | Az Azure CLI letöltése 
@@ -95,7 +95,7 @@ ecpacr.azurecr.io | 443 | Kubernetes | Tároló lemezképének letöltése
 
 Az Azure Kubernetes Service a következő tárolási implementációkat támogatja az Azure Stack HCI-ben: 
 
-|  Name                         | Tárhelytípusa | Szükséges kapacitás |
+|  Név                         | Tárhelytípusa | Szükséges kapacitás |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack HCI-fürt          | CSV          | 1 TB              |
 | Egy csomópontos Azure Stack HCI | Közvetlenül csatlakoztatott tároló | 500 GB|
@@ -123,7 +123,7 @@ A Windows felügyeleti központ átjáróját futtató gépnek a következőket 
  - Regisztrálva az Azure-ban
  - Ugyanabban a tartományban, mint a Azure Stack HCI-fürt
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 
 Miután teljesítette a fenti előfeltételeket, beállíthat egy Azure Kubernetes Service hostt Azure Stack HCI-re a következő használatával:
  - [Windows felügyeleti központ](setup.md)

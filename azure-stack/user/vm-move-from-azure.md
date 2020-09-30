@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609830"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519419"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Virtuális gép áthelyezése az Azure-ból Azure Stack hubhoz
 
@@ -48,7 +48,7 @@ Kövesse a [Windows VHD letöltése az Azure-ból](/azure/virtual-machines/windo
 
 - A Linux rendszerű virtuális gép letöltése előtt kövesse az útmutató a [linuxos virtuális gép létrehozása egyéni lemezről az Azure CLI-vel](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm) című cikk "virtuális gép előkészítése" című szakaszának útmutatását.
 - Kövesse az Azure-beli [linuxos virtuális merevlemez letöltése](/azure//virtual-machines/windows/download-vhd) a virtuális merevlemez előkészítéséhez és letöltéséhez című cikkben ismertetett lépéseket.
-- Egy speciális VHD esetében ügyeljen arra, hogy a használatával "csatolás" szemantikat használjon `-CreateOption Attach` . A cikkből megtudhatja, hogyan [hozhat létre virtuális gépet egy meglévő felügyelt operációsrendszer-lemezzel a PowerShell (Windows) használatával](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks).
+- Egy speciális VHD esetében ügyeljen arra, hogy a használatával "csatolás" szemantikat használjon `-CreateOption Attach` . A cikkből megtudhatja, hogyan [hozhat létre virtuális gépet egy meglévő felügyelt operációsrendszer-lemezzel a PowerShell (Windows) használatával](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks).
 
 #### <a name="linux---generalized"></a>[Linux – általánosított](#tab/lin-gen)
 
@@ -109,6 +109,6 @@ Az egyéni lemezképek két formában jelennek meg: **specializált** és **ált
 
 [!INCLUDE [Create the image in Azure Stack Hub](../includes/user-compute-create-image.md)]
 ---
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Virtuális gép áthelyezése Azure Stack hub-ra – áttekintés](vm-move-overview.md)
