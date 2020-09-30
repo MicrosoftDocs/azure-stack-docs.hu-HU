@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az SQL erőforrás-szolgáltató karbantartási műveleteit Azure Stack hub-on.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364830"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572823"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -130,7 +130,7 @@ A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-sz
 
 A virtuális gép operációs rendszerének frissítéséhez használja az alábbi módszerek egyikét.
 
-- Telepítse a legújabb erőforrás-szolgáltatói csomagot egy jelenleg javított Windows Server 2016 Core rendszerképpel.
+- Telepítse a legújabb erőforrás-szolgáltatói csomagot egy aktuálisan javított virtuálisgép-rendszerkép használatával.
 - Telepítsen egy Windows Update csomagot az erőforrás-szolgáltató telepítése vagy frissítése során.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>A virtuális gép Windows Defender-definícióinak frissítése
@@ -259,6 +259,6 @@ Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [SQL Server üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

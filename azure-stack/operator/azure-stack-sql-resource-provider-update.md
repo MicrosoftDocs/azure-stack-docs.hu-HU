@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1c6a7e39131dc9d422a68161b3022ac1acc28f7e
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472874"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572857"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL típusú erőforrás-szolgáltató frissítése
 
@@ -22,24 +22,27 @@ ms.locfileid: "89472874"
 
 Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hub új buildre frissül. Bár a meglévő erőforrás-szolgáltató továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
- |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|
-  |-----|-----|
-  |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+|Támogatott Azure Stack hub-verzió|Az SQL RP verziója|Az a Windows Server, amelyre az RP szolgáltatás fut
+  |-----|-----|-----|
+  |2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
+  |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
+  |     |     |     |
 
-Az SQL Resource Provider 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például az SQL-erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0 verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-sql-resource-provider-deploy.md#prerequisites)című részben.
+Az SQL erőforrás-szolgáltató frissítése kumulatív. Régi verzióról történő frissítés esetén közvetlenül a legújabb verzióra frissíthet. 
 
-Az erőforrás-szolgáltató frissítéséhez használja a *UpdateSQLProvider.ps1* parancsfájlt. Helyi rendszergazdai jogokkal rendelkező szolgáltatásfiók használata, amely az előfizetés **tulajdonosa** . Ez a szkript az új SQL-erőforrás-szolgáltató letöltését tartalmazza. A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider.ps1 szkript, és meg kell adnia a tanúsítvány adatait.
+Az erőforrás-szolgáltató frissítéséhez használja a **UpdateSQLProvider.ps1** parancsfájlt. Helyi rendszergazdai jogokkal rendelkező szolgáltatásfiók használata, amely az előfizetés **tulajdonosa** . Ez a Frissítési parancsfájl az erőforrás-szolgáltató letöltését tartalmazza. 
+
+A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-sql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeploySqlProvider.ps1 szkript, és meg kell adnia a tanúsítvány adatait.
 
 ## <a name="update-script-processes"></a>Parancsfájl-folyamatok frissítése
 
-A *UpdateSQLProvider.ps1* szkript létrehoz egy új virtuális GÉPET (VM) a legújabb erőforrás-szolgáltatói kóddal.
+A **UpdateSQLProvider.ps1** szkript létrehoz egy új virtuális GÉPET (VM) a legújabb operációsrendszer-lemezképpel, telepíti a legújabb erőforrás-szolgáltatói kódot, és áttelepíti a beállításokat a régi erőforrás-szolgáltatóról az új erőforrás-szolgáltatóra. 
 
 > [!NOTE]
-> Javasoljuk, hogy töltse le a legújabb Windows Server 2016 Core rendszerképet a piactér-felügyeletből. Ha frissítést kell telepítenie, **egyetlen** msu-csomagot is elhelyezhet a helyi függőségi útvonalon. A szkript sikertelen lesz, ha több MSU-fájl is van ezen a helyen.
+>Javasoljuk, hogy töltse le a legújabb Windows Server 2016 Core rendszerképet vagy a Microsoft AzureStack bővítmény RP Windows Server-lemezképét a piactér-felügyeletből. Ha frissítést kell telepítenie, **egyetlen** msu-csomagot is elhelyezhet a helyi függőségi útvonalon. A szkript sikertelen lesz, ha több MSU-fájl is van ezen a helyen.
 
-Miután a *UpdateSQLProvider.ps1* szkript létrehoz egy új virtuális gépet, a parancsfájl áttelepíti a következő beállításokat a régi szolgáltató virtuális gépről:
+Miután a *UpdateSQLProvider.ps1* szkript létrehoz egy új virtuális gépet, a parancsfájl áttelepíti a következő beállításokat a régi erőforrás-szolgáltató virtuális gépről:
 
 * adatbázis-információk
 * üzemeltetési kiszolgáló adatai
@@ -60,21 +63,25 @@ A következő paramétereket adhatja meg a parancssorból a **UpdateSQLProvider.
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** |Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | No |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | Nem |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 
 ## <a name="update-script-powershell-example"></a>Parancsfájl PowerShell-példa frissítése
-> [!NOTE]
-> Ez a frissítési folyamat csak Azure Stack hub integrált rendszerekre vonatkozik.
 
-Ha az SQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha az SQL Resource Provider verzió 1.1.47.0 frissíti, az üzembe helyezési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat az elérési út C:\Program Files\SqlMySqlPsh.
+Ha az SQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. 
+
+Ha az SQL-erőforrás-szolgáltatót 1.1.47.0 vagy újabb verzióra frissíti, kihagyhatja ezt a lépést. Az üzembe helyezési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a következő elérési úthoz: C:\Program Files\SqlMySqlPsh.
+
+>[!NOTE]
+>Ha a "C:\Program Files\SqlMySqlPsh" mappa már létezik a letöltött PowerShell-modullal, akkor a Frissítési parancsfájl futtatása előtt ajánlott törölni ezt a mappát. Ezzel gondoskodhat arról, hogy a PowerShell-modul megfelelő verziója le legyen töltve és használatban legyen.
 
 ```powershell
+# Run the following scripts when updating to version 1.1.33.0 only.
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -111,7 +118,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
@@ -129,6 +136,6 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 Az erőforrás-szolgáltató frissítési parancsfájljának befejeződése után zárd be a jelenlegi PowerShell-munkamenetet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az SQL-erőforrás szolgáltatójának karbantartása](azure-stack-sql-resource-provider-maintain.md)

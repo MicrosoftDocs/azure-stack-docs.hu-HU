@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946402"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572806"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
-Az Azure Stack hub SQL Server erőforrás-szolgáltató segítségével elérhetővé teheti az SQL-adatbázisokat Azure Stack hub-szolgáltatásként. Az SQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (VM).
+Az Azure Stack hub SQL Server erőforrás-szolgáltató segítségével elérhetővé teheti az SQL-adatbázisokat Azure Stack hub-szolgáltatásként. Az SQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (az adapter verziója <= 1.1.47.0>), vagy egy speciális kiegészítő RP Windows Server (az adapter verziójához >= 1.1.93.0).
 
 > [!IMPORTANT]
 > Csak az erőforrás-szolgáltató támogatott az SQL vagy a MySQL-t futtató kiszolgálókon lévő elemek létrehozásához. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem egyező állapotba kerülhetnek.
@@ -28,19 +28,23 @@ Az Azure Stack hub SQL erőforrás-szolgáltató üzembe helyezése előtt több
 
 - Ha még nem tette meg, [regisztráljon Azure stack hubot](azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
 
-- A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet Azure stack hub Marketplace-hez.
+- Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
+  * Az SQL RP <= 1.1.47.0 verziójában töltse le a **Windows server 2016 Datacenter-Server Core** rendszerképet.
+  * Az SQL RP-es verzió >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack beépülő modul csak a Windows Server belső** verzióját. Ez a Windows Server-verzió a Azure Stack kiegészítő RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
+
 
 - Töltse le az SQL Resource Provider bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
-  |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|
-  |-----|-----|
-  |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+  |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|Az a Windows Server, amelyre az RP szolgáltatás fut
+  |-----|-----|-----|
+  |2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
+  |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
+  |     |     |     |
 
 - Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Referencia|
+    |Előfeltétel|Hivatkozás|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack hub Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – bejövő portok és protokollok](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -57,15 +61,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. A telepített erőforrás-szolgáltató verziójától függően futtassa az egyik parancsfájlt.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Ezután másolja a letöltött csomagokat egy USB-eszközre.
+3. Ezután másolja a letöltött csomagokat egy USB-eszközre.
 
-3. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
+4. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
 
-4. Helyi tárházként regisztrálja ezt a helyet.
+5. Helyi tárházként regisztrálja ezt a helyet.
 
 ```powershell
 # requires -Version 5
@@ -102,7 +117,7 @@ Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat 
 - Feltölti a tanúsítványokat és egyéb összetevőket egy Azure Stack hub Storage-fiókjába.
 - Közzéteszi a katalógus-csomagokat, így az SQL-adatbázisok üzembe helyezhetők a gyűjtemény használatával.
 - Közzétesz egy gyűjtemény-csomagot az üzemeltetési kiszolgálók telepítéséhez.
-- Üzembe helyez egy virtuális gépet a letöltött Windows Server 2016 Core lemezkép használatával, majd telepíti az SQL-erőforrás-szolgáltatót.
+- Központilag telepít egy virtuális gépet a letöltött Windows Server 2016 Core rendszerkép vagy a Microsoft AzureStack add-on RP Windows Server-rendszerkép használatával, majd telepíti az SQL-erőforrás-szolgáltatót.
 - Egy helyi DNS-rekordot regisztrál, amely az erőforrás-szolgáltató virtuális géphez van társítva.
 - Regisztrálja az erőforrás-szolgáltatót a kezelő fiók helyi Azure Resource Manager.
 
@@ -124,12 +139,12 @@ A következő paramétereket adhatja meg a parancssorból. Ha nem, vagy ha valam
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Az SQL-erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 
-Ha az SQL-erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióját telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha az SQL Resource Provider 1.1.47.0 verzióját telepíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
+Ha az SQL-erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióját telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha az SQL Resource Provider 1.1.47.0 vagy újabb verzióját telepíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -173,7 +188,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
@@ -200,6 +215,6 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül a felügyeleti portálon válassza a **Virtual Machines (virtuális gépek** ) lehetőséget annak ellenőrzéséhez, hogy az SQL Resource Provider virtuális gép sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

@@ -3,16 +3,16 @@ title: A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
 description: Ismerje meg, hogyan frissítheti az Azure Stack hub MySQL erőforrás-szolgáltatót az Azure Stack hub-ban.
 author: bryanla
 ms.topic: article
-ms.date: 8/19/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: c3295ca0892e71fbc08981b8af30c1757cd0904a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 93fcbd61003164a959a15c8c6108bc81dabe2b8a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230580"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572891"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
 
@@ -21,25 +21,31 @@ ms.locfileid: "91230580"
 
 Előfordulhat, hogy a Azure Stack hub-buildek frissítésekor új MySQL erőforrás-szolgáltatói adapter jelenik meg. Míg a meglévő adapter továbbra is működik, javasoljuk, hogy a lehető leghamarabb frissítsen a legújabb buildre.
 
-  |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|Az a Windows Server, amelyre az RP szolgáltatás fut
+  |-----|-----|-----|
+  |2005|[MySQL RP-verzió 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
+  |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
+  |     |     |     |
 
-A MySQL erőforrás-szolgáltató 1.1.33.0 kiadásával kezdődően a frissítések összegző jellegűek, és nem kell azokat a kiadási sorrendben telepíteni, amíg a 1.1.24.0 vagy újabb verzióról indul. Ha például a MySQL erőforrás-szolgáltató 1.1.24.0 verzióját futtatja, akkor a 1.1.33.0 vagy újabb verzióra is frissíthet, anélkül, hogy először telepítenie kell a 1.1.30.0-verziót. Az elérhető erőforrás-szolgáltatói verziók, valamint az Azure Stack hub támogatott verziójának áttekintéséhez tekintse meg a verziók listáját az [erőforrás-szolgáltató előfeltételeinek telepítése](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)című cikkben.
+A MySQL erőforrás-szolgáltató frissítése kumulatív. Régi verzióról történő frissítés esetén közvetlenül a legújabb verzióra frissíthet. 
 
-Az erőforrás-szolgáltató frissítéséhez használja a **UpdateMySQLProvider.ps1** szkriptet. A folyamat hasonló az erőforrás-szolgáltató telepítéséhez használt folyamathoz, a jelen cikk erőforrás-szolgáltató üzembe helyezése című szakaszában leírtak szerint. A parancsfájl az erőforrás-szolgáltató letöltését tartalmazza. 
+Az erőforrás-szolgáltató frissítéséhez használja a **UpdateMySQLProvider.ps1** szkriptet. Helyi rendszergazdai jogokkal rendelkező szolgáltatásfiók használata, amely az előfizetés **tulajdonosa** . A Frissítési parancsfájl tartalmazza az erőforrás-szolgáltató letöltését. 
+
+A frissítési folyamat hasonló az [erőforrás-szolgáltató üzembe helyezéséhez](./azure-stack-mysql-resource-provider-deploy.md)használt folyamathoz. A Frissítési parancsfájl ugyanazokat az argumentumokat használja, mint a DeployMySqlProvider.ps1 szkript, és meg kell adnia a tanúsítvány adatait.
 
 ## <a name="update-script-processes"></a>Parancsfájl-folyamatok frissítése
 
-A **UpdateMySQLProvider.ps1** szkript létrehoz egy új virtuális GÉPET (VM) a legújabb erőforrás-szolgáltatói kóddal, és áttelepíti a beállításokat a régi virtuális gépről az új virtuális gépre. Az áttelepíteni kívánt beállítások közé tartozik az adatbázis és az üzemeltetési kiszolgáló adatai és a szükséges DNS-rekord.
+A **UpdateMySQLProvider.ps1** szkript létrehoz egy új virtuális GÉPET (VM) a legújabb operációsrendszer-lemezképpel, telepíti a legújabb erőforrás-szolgáltatói kódot, és áttelepíti a beállításokat a régi erőforrás-szolgáltatóról az új erőforrás-szolgáltatóra.
 
 >[!NOTE]
->Javasoljuk, hogy töltse le a legújabb Windows Server 2016 Core rendszerképet a piactér-felügyeletből. Ha frissítést kell telepítenie, **egyetlen** msu-csomagot is elhelyezhet a helyi függőségi útvonalon. A szkript sikertelen lesz, ha több MSU-fájl is van ezen a helyen.
+>Javasoljuk, hogy töltse le a legújabb Windows Server 2016 Core rendszerképet vagy a Microsoft AzureStack bővítmény RP Windows Server-lemezképét a piactér-felügyeletből. Ha frissítést kell telepítenie, **egyetlen** msu-csomagot is elhelyezhet a helyi függőségi útvonalon. A szkript sikertelen lesz, ha több MSU-fájl is van ezen a helyen.
 
-A parancsfájlnak ugyanazokat az argumentumokat kell használnia, amelyek a DeployMySqlProvider.ps1 parancsfájlhoz vannak leírva. Itt is megadhatja a tanúsítványt.  
+Miután a *UpdateMySQLProvider.ps1* szkript létrehoz egy új virtuális gépet, a parancsfájl áttelepíti a következő beállításokat a régi erőforrás-szolgáltató virtuális gépről:
 
+* adatbázis-információk
+* üzemeltetési kiszolgáló adatai
+* szükséges DNS-rekord
 
 ## <a name="update-script-parameters"></a>Parancsfájl paramétereinek frissítése 
 A **UpdateMySQLProvider.ps1** PowerShell-parancsfájl futtatásakor adja meg a következő paramétereket a parancssorból. Ha nem, vagy ha valamelyik paraméter ellenőrzése sikertelen, a rendszer felszólítja a szükséges paraméterek megadására.
@@ -55,23 +61,26 @@ A **UpdateMySQLProvider.ps1** PowerShell-parancsfájl futtatásakor adja meg a k
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ | 
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 | 
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 | 
-| **Eltávolítása** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No | 
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No | 
+| **Eltávolítása** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem | 
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem | 
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Parancsfájl frissítése – példa
 
-> [!NOTE] 
-> A frissítési folyamat csak az integrált rendszerekre vonatkozik.
+Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. 
 
-Ha a MySQL erőforrás-szolgáltató verzióját 1.1.33.0 vagy korábbi verzióra frissíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltatót a 1.1.47.0 verzióra frissíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
+Ha a MySQL erőforrás-szolgáltatót a 1.1.47.0 vagy újabb verzióra frissíti, akkor kihagyhatja ezt a lépést. Az üzembe helyezési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a következő elérési úthoz: C:\Program Files\SqlMySqlPsh. 
+
+>[!NOTE]
+>Ha a "C:\Program Files\SqlMySqlPsh" mappa már létezik a letöltött PowerShell-modullal, akkor a Frissítési parancsfájl futtatása előtt ajánlott törölni ezt a mappát. Ezzel gondoskodhat arról, hogy a PowerShell-modul megfelelő verziója le legyen töltve és használatban legyen.
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Run the following scripts when updating to version 1.1.33.0 only.
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -108,7 +117,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
@@ -127,5 +136,5 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 Az erőforrás-szolgáltató frissítési parancsfájljának befejeződése után zárd be a jelenlegi PowerShell-munkamenetet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A MySQL erőforrás-szolgáltató fenntartása](azure-stack-mysql-resource-provider-maintain.md)

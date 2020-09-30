@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742539"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572772"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Kötetek megtervezése Azure Stack HCI-ben
 
@@ -39,7 +39,7 @@ Azt javasoljuk, hogy fürtre korlátozza a kötetek teljes számát 64 kötetre.
 
 ## <a name="choosing-the-filesystem"></a>A fájlrendszer kiválasztása
 
-Javasoljuk, hogy az új, [rugalmas fájlrendszert (ReFS)](/en-us/windows-server/storage/refs/refs-overview) használja a közvetlen tárolóhelyekhoz. A ReFS a Premier fájlrendszer, amely a virtualizáció számára készült, és számos előnnyel jár, többek között a drámai teljesítmény-gyorsítás és az adatsérülés elleni beépített védelem. Szinte minden fontos NTFS-funkciót támogat, beleértve a Windows Server 1709-es és újabb verzióiban az demásolást is. A részletekért tekintse meg a ReFS [funkcióinak összehasonlító táblázatát](/windows-server/storage/refs/refs-overview#feature-comparison) .
+Javasoljuk, hogy az új, [rugalmas fájlrendszert (ReFS)](/windows-server/storage/refs/refs-overview) használja a közvetlen tárolóhelyekhoz. A ReFS a Premier fájlrendszer, amely a virtualizáció számára készült, és számos előnnyel jár, többek között a drámai teljesítmény-gyorsítás és az adatsérülés elleni beépített védelem. Szinte minden fontos NTFS-funkciót támogat, beleértve a Windows Server 1709-es és újabb verzióiban az demásolást is. A részletekért tekintse meg a ReFS [funkcióinak összehasonlító táblázatát](/windows-server/storage/refs/refs-overview#feature-comparison) .
 
 Ha a számítási feladathoz olyan szolgáltatásra van szükség, amelyet a ReFS még nem támogat, használhat NTFS helyet.
 
@@ -187,7 +187,7 @@ Az egyszerűség kedvéért ez a példa decimális (Base-10) egységeket haszná
 
 Lásd: [kötetek létrehozása Azure stack HCI-ben](../manage/create-volumes.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információért lásd még:
 

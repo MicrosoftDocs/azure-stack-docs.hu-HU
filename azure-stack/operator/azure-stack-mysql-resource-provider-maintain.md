@@ -3,16 +3,16 @@ title: MySQL erőforrás-szolgáltató karbantartási műveletei – Azure Stack
 description: Megtudhatja, hogyan tarthatja karban a MySQL erőforrás-szolgáltató szolgáltatást Azure Stack hub-ban.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572663"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572942"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
@@ -24,7 +24,7 @@ Mivel az erőforrás-szolgáltató egy *felhasználói* virtuális gépen fut, a
 
 Frissítse a szolgáltató virtuális gépet az alábbi módszerek egyikével:
 
-- Telepítse a legújabb erőforrás-szolgáltatói csomagot egy jelenleg javított Windows Server 2016 Core rendszerképpel.
+- Telepítse a legújabb erőforrás-szolgáltatói csomagot egy aktuálisan javított virtuálisgép-rendszerkép használatával.
 - Telepítsen egy Windows Update csomagot az erőforrás-szolgáltató telepítése vagy frissítése során.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>A virtuális gép Windows Defender-definícióinak frissítése
@@ -254,6 +254,6 @@ Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL erőforrás-szolgáltató eltávolítása](azure-stack-mysql-resource-provider-remove.md)

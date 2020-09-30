@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487719"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572874"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Magasan elérhető SQL-adatbázisok létrehozása Azure Stack hub-vel
 
 Azure Stack hub-kezelőként beállíthatja a kiszolgálói virtuális gépeket SQL Server-adatbázisok üzemeltetéséhez. Ha az SQL-üzemeltetési kiszolgálót Azure Stack hub hozza létre és felügyeli, akkor az SQL-szolgáltatásra előfizetett felhasználók könnyedén létrehozhatnak SQL-adatbázisokat.
 
-Ez a cikk bemutatja, hogyan használható egy Azure Stack hub gyors üzembe helyezési sablon egy [SQL Server AlAlwaysOnon rendelkezésre állási csoport](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)létrehozásához, Azure stack hub SQL üzemeltetési kiszolgálóként való hozzáadásához, majd egy magasan elérhető SQL-adatbázis létrehozásához.
+Ez a cikk bemutatja, hogyan használható egy Azure Stack hub gyors üzembe helyezési sablon egy [SQL Server AlAlwaysOnon rendelkezésre állási csoport](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)létrehozásához, Azure stack hub SQL üzemeltetési kiszolgálóként való hozzáadásához, majd egy magasan elérhető SQL-adatbázis létrehozásához.
 
 Ismertetett témák:
 
 > [!div class="checklist"]
 > * Hozzon létre egy SQL Server alAlwaysOnon rendelkezésre állási csoportot egy sablonból.
-> * Hozzon létre egy Azure Stack hub SQL üzemeltetési kiszolgálót.
+> * Konfigurálja a SQL Server alAlwaysOnon rendelkezésre állási csoportot Azure Stack hub SQL üzemeltetési kiszolgálóként.
 > * Hozzon létre egy magasan elérhető SQL-adatbázist.
 
 A rendszer két virtuálisgép-SQL Server alAlwaysOnon rendelkezésre állási csoportot hoz létre és konfigurál az elérhető Azure Stack Marketplace-elemek használatával.
@@ -124,7 +124,7 @@ Másodlagos SQL-példányok esetén:
 
 ### <a name="configure-contained-database-authentication"></a>Tárolt adatbázis-hitelesítés konfigurálása
 
-Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítés](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítés](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option).
 
 Ezekkel a parancsokkal állíthatja be a rendelkezésre állási csoportba tartozó egyes SQL Server-példányok tárolt adatbázis-hitelesítési kiszolgáló beállítását:
 
@@ -137,9 +137,9 @@ Ezekkel a parancsokkal állíthatja be a rendelkezésre állási csoportba tarto
 
 ![Tárolt adatbázis-hitelesítés beállítása](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Azure Stack hub SQL üzemeltetési kiszolgáló létrehozása
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>Azure Stack hub SQL üzemeltetési kiszolgáló konfigurálása
 
-Az SQL Server alAlwayOnon rendelkezésre állási csoport létrehozása és megfelelő konfigurálása után egy Azure Stack hub-operátornak létre kell hoznia egy Azure Stack hub SQL üzemeltetési kiszolgálót. Az SQL üzemeltetési kiszolgáló teszi elérhetővé a további kapacitást a felhasználók számára adatbázisok létrehozásához.
+Az SQL Server alAlwayOnon rendelkezésre állási csoport létrehozása és megfelelő konfigurálása után egy Azure Stack hub-operátornak Azure Stack hub SQL üzemeltetési kiszolgálónak kell lennie. 
 
 Ügyeljen arra, hogy a nyilvános IP-címet vagy a teljes FQDN-t használja az SQL-AlwaysOn rendelkezésre állási csoportjának létrehozásakor (**SQLPIPsql \<resource group name\> **) korábban rögzített SQL Load Balancer nyilvános IP-címéhez. Emellett ismernie kell az alAlwaysOnon rendelkezésre állási csoportban található SQL-példányokhoz való hozzáféréshez használt SQL Server hitelesítő adatokat.
 
@@ -181,6 +181,6 @@ Miután az SQL alAlwaysOnon rendelkezésre állási csoportot létrehozta, konfi
 
    ![Azure Stack hub felhasználói portálján megtekintheti a kapcsolatok karakterláncát](./media/azure-stack-tutorial-sqlrp/createdb4.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az SQL típusú erőforrás-szolgáltató frissítése](azure-stack-sql-resource-provider-update.md)

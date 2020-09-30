@@ -3,20 +3,20 @@ title: MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központba
 description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatói adaptert és a MySQL-adatbázisokat Azure Stack hub szolgáltatásként.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
-ms.reviewer: xiaofmao
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.reviewer: caoyang
+ms.lastreviewed: 9/22/2020
+ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946470"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572925"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
-A MySQL-kiszolgáló erőforrás-szolgáltató használatával Azure Stack hub-szolgáltatásként elérhetővé teheti a MySQL-adatbázisokat. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (VM).
+A MySQL-kiszolgáló erőforrás-szolgáltató használatával Azure Stack hub-szolgáltatásként elérhetővé teheti a MySQL-adatbázisokat. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (az adapter verziója <= 1.1.47.0>), vagy egy speciális kiegészítő RP Windows Server (az adapter verziójához >= 1.1.93.0).
 
 > [!IMPORTANT]
 > Csak az erőforrás-szolgáltató támogatott az SQL vagy a MySQL-t futtató kiszolgálókon lévő elemek létrehozásához. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem egyező állapotba kerülhetnek.
@@ -27,15 +27,18 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
 
 * Ha még nem tette meg, [regisztráljon Azure stack hubot](./azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
 
-* A **Windows server 2016 Datacenter-Server Core** rendszerkép letöltésével adja hozzá a szükséges Windows Server Core virtuális gépet Azure stack hub Marketplace-hez.
+* Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
+  * A MySQL RP <= 1.1.47.0 esetében töltse le a **Windows server 2016 Datacenter – Server Core** rendszerképet.
+  * MySQL RP esetén >= 1.1.93.0, töltse le a **Microsoft AzureStack BŐVÍTMÉNY RP Windows Server csak belső** rendszerképét. Ez a Windows Server-verzió a Azure Stack kiegészítő RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
 
 * Töltse le a MySQL erőforrás-szolgáltató bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
-  |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|Az a Windows Server, amelyre az RP szolgáltatás fut
+  |-----|-----|-----|
+  |2005|[MySQL RP-verzió 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
+  |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
+  |     |     |     |
 
 >[!NOTE]
 >Ha a MySQL-szolgáltatót olyan rendszeren szeretné telepíteni, amely nem rendelkezik internet-hozzáféréssel, másolja a [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) fájlt egy helyi elérési útra. Adja meg az elérési út nevét a **DependencyFilesLocalPath** paraméter használatával.
@@ -43,7 +46,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
 
 * Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Referencia|
+    |Előfeltétel|Hivatkozás|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack hub Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – végpontok közzététele](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -60,15 +63,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. A telepített erőforrás-szolgáltató verziójától függően futtassa az egyik parancsfájlt.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Ezután másolja a letöltött csomagokat egy USB-eszközre.
+3. Ezután másolja a letöltött csomagokat egy USB-eszközre.
 
-3. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
+4. Jelentkezzen be a kapcsolat nélküli munkaállomásra, és másolja a csomagokat az USB-eszközről a munkaállomás egyik helyére.
 
-4. Helyi tárházként regisztrálja ezt a helyet.
+5. Helyi tárházként regisztrálja ezt a helyet.
 
 ```powershell
 # requires -Version 5
@@ -95,7 +109,7 @@ Miután telepítette az összes előfeltételt, futtathatja a **DeployMySqlProvi
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
 
-A MySQL erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy új emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta a MySQL erőforrás-szolgáltató bináris fájljait. 
+A MySQL erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta a MySQL erőforrás-szolgáltató bináris fájljait. 
 
 > [!IMPORTANT]
 > A már betöltött PowerShell-modulok által okozott lehetséges problémák elkerülése érdekében javasoljuk, hogy használjon egy új PowerShell-ablakot. Vagy a Clear-azurermcontext használatával törölheti is a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
@@ -105,7 +119,7 @@ Futtassa a **DeployMySqlProvider.ps1** parancsfájlt, amely a következő felada
 * Feltölti a tanúsítványokat és egyéb összetevőket egy Azure Stack hub Storage-fiókjába.
 * Közzéteszi a katalógus-csomagokat, így a gyűjtemény használatával MySQL-adatbázisokat telepíthet.
 * Közzétesz egy gyűjtemény-csomagot az üzemeltetési kiszolgálók telepítéséhez.
-* Üzembe helyez egy virtuális gépet a letöltött Windows Server 2016 Core lemezkép használatával, majd telepíti a MySQL erőforrás-szolgáltatót.
+* Üzembe helyez egy virtuális gépet a letöltött Windows Server 2016 Core rendszerkép vagy Microsoft AzureStack add-on RP Windows Server-rendszerkép használatával, majd telepíti a MySQL erőforrás-szolgáltatót.
 * Egy helyi DNS-rekordot regisztrál, amely az erőforrás-szolgáltató virtuális géphez van társítva.
 * Regisztrálja az erőforrás-szolgáltatót a kezelő fiók helyi Azure Resource Manager.
 
@@ -127,13 +141,13 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>A MySQL erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 
-Ha a MySQL erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióit telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltató 1.1.47.0 verzióját telepíti, a telepítési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
+Ha a MySQL erőforrás-szolgáltató 1.1.33.0 vagy korábbi verzióit telepíti, telepítenie kell a AzureRm. BootStrapper és a Azure Stack hub-modulok adott verzióját a PowerShell-ben. Ha a MySQL erőforrás-szolgáltató 1.1.47.0 vagy újabb verzióját telepíti, akkor az üzembehelyezési parancsfájl automatikusan letölti és telepíti a szükséges PowerShell-modulokat a C:\Program Files\SqlMySqlPsh.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -177,7 +191,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
@@ -205,6 +219,6 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül válassza a **virtuális gépek** lehetőséget a felügyeleti portálon annak ellenőrzéséhez, hogy a MySQL erőforrás-szolgáltató virtuális gépe sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-mysql-resource-provider-hosting-servers.md)

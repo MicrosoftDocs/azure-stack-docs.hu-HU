@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019534"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572687"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 
@@ -66,7 +66,7 @@ OK, kezdjük:
 
 1. Ha végzett, kattintson a **Létrehozás** gombra. Ekkor megjelenik a fürt létrehozása varázsló, az alábbi ábrán látható módon.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Fürt létrehozása varázsló – első lépések" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>1. lépés: első lépések
 
@@ -189,12 +189,9 @@ Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben 
 
 ## <a name="step-5-sdn-optional"></a>5. lépés: SDN (nem kötelező)
 
-A varázsló 5. lépése végigvezeti a hálózati vezérlő beállításán a fürtön a szoftveresen definiált hálózatkezelés (SDN) számára. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer és a RAS-átjárót.
+Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer és a RAS-átjárót.
 
-> [!NOTE]
-> A varázsló ezen lépése nem kötelező.
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – SDN hálózati vezérlő" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Válassza a **Tovább: Sdn**lehetőséget.
 1. A **gazdagép**területen adja meg a hálózati vezérlő nevét.
@@ -213,7 +210,7 @@ A varázsló 5. lépése végigvezeti a hálózati vezérlő beállításán a f
 1. Adja meg az értékeket a **Mac-címkészlet kezdő** és a **Mac-címkészlet végéhez**.
 1. Amikor végzett, kattintson a **Tovább**gombra.
 1. Várjon, amíg a varázsló befejezi a feladatot. Maradjon ezen a lapon, amíg az összes végrehajtási feladat be nem fejeződik. Ezután kattintson a **Befejezés** gombra.
- 
+
 Ha a hálózati vezérlő üzembe helyezése sikertelen, a következő próbálkozás előtt tegye a következőket:
 
 - Állítsa le és törölje a varázsló által létrehozott hálózati vezérlő virtuális gépeket.  
@@ -240,7 +237,7 @@ OK, most a következő műveleteket kell végrehajtania:
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

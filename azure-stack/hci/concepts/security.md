@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010815"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572670"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI biztonsági megfontolások
 
@@ -41,7 +41,7 @@ Ez a szakasz azt ismerteti, hogyan biztosítható az operációs rendszeren fut�
 
 - **Device Guard** és **hitelesítőadat-őr**. Az Eszközkezelő olyan kártevők elleni védelmet biztosít, amelyeknek nincs ismert aláírása, aláíratlan kód, valamint a kernelhez való hozzáférést biztosító kártevők bizalmas információk rögzítésére vagy a rendszer károsodására. A Windows Defender hitelesítőadat-őr virtualizálás-alapú biztonságot használ a titkok elkülönítésére, így csak a rendszerjogosultságú rendszerszoftverek férhetnek hozzájuk.
 
-    További információ: a [Windows Defender hitelesítő adatainak kezelése](/windows/security/identity-protection/credential-guard/credential-guard-manage) és az [Eszközkezelő és a Hitelesítőadat-kezelő hardveres készültségi eszköz](https://www.microsoft.com/en-us/download/details.aspx?id=53337)letöltése.
+    További információ: a [Windows Defender hitelesítő adatainak kezelése](/windows/security/identity-protection/credential-guard/credential-guard-manage) és az [Eszközkezelő és a Hitelesítőadat-kezelő hardveres készültségi eszköz](https://www.microsoft.com/download/details.aspx?id=53337)letöltése.
 
 - A **Windows** és a **belső vezérlőprogram** frissítései elengedhetetlenek a fürtök, a kiszolgálók (beleértve a vendég virtuális gépeket) és a számítógépek számára, így biztosítva, hogy az operációs rendszer és a rendszer hardvere is védve legyen a támadók ellen. A Windows felügyeleti központ **frissítések** eszközével az egyes rendszereken is alkalmazhat frissítéseket. Ha a hardveres szolgáltató a Windows felügyeleti központot is támogatja az illesztőprogram, a belső vezérlőprogram és a megoldás frissítéseinek beszerzéséhez, akkor a frissítéseket a Windows frissítéseivel megegyező időpontban is beszerezheti, ellenkező esetben közvetlenül a gyártótól kérheti le őket.
 
@@ -88,7 +88,7 @@ Ebből a szakaszból megtudhatja, hogyan használhatja a Windows felügyeleti k�
 
 - A Windows felügyeleti központban a **szerepköralapú hozzáférés-vezérlés (RBAC)** lehetővé teszi a felhasználók számára a felügyelethez szükséges kiszolgálók hozzáférését a teljes helyi rendszergazdák helyett. Ha a RBAC-t a Windows felügyeleti központban szeretné használni, az egyes felügyelt kiszolgálókat egy elég rendszergazdai végponttal kell konfigurálnia.
 
-    További információ: [szerepköralapú hozzáférés-vezérlés](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) és [elég felügyelet](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7).
+    További információ: [szerepköralapú hozzáférés-vezérlés](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) és [elég felügyelet](/powershell/scripting/learn/remoting/jea/overview).
 
 - Az identitások kezeléséhez és védelméhez használható Windows felügyeleti központban található **biztonsági eszközök** közé tartozik a Active Directory, a tanúsítványok, a tűzfal, a helyi felhasználók és a csoportok.
 
@@ -126,7 +126,7 @@ A következő részekben a speciális biztonsági eszközöket és technológiá
      
      - A Windows Server **Virtual platformmegbízhatósági modul (vTPM)** támogatja a TPM használatát a virtuális gépek számára, amely lehetővé teszi a speciális biztonsági technológiák, például a BitLocker használata a virtuális gépeken. A TPM-támogatást bármely 2. generációs Hyper-V virtuális gépen engedélyezheti a Hyper-V kezelőjével vagy a `Enable-VMTPM` Windows PowerShell-parancsmag használatával.
      
-        További információ: [enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm?view=win10-ps).
+        További információ: [enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm).
      
      - A Azure Stack HCI és a Windows Server rendszerekben a **szoftveres hálózatkezelés (Sdn)** központilag konfigurálja és felügyeli a fizikai és virtuális hálózati eszközöket, például az útválasztókat, a kapcsolókat és az adatközpontban lévő átjárókat. A virtuális hálózati elemek, például a Hyper-V virtuális kapcsoló, a Hyper-V hálózati virtualizálás és a RAS-átjáró úgy vannak kialakítva, hogy az SDN-infrastruktúra szerves elemei legyenek.
 
@@ -145,7 +145,7 @@ A következő részekben a speciális biztonsági eszközöket és technológiá
 
     További információ: a [Windows Defender hitelesítőadat-őr kezelése](/windows/security/identity-protection/credential-guard/credential-guard-manage).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 A biztonsággal és a szabályozás megfelelőségével kapcsolatos további információkért lásd még:
 - [Biztonság és ellenőrzés](/windows-server/security/security-and-assurance)
 - [Ajánlott biztonsági eljárások Azure-megoldásokhoz](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/)

@@ -1,24 +1,24 @@
 ---
 title: Azure Stack HCI-megoldás áttekintése
-description: A Azure Stack HCI egy hiperkonvergens-alapú fürtözött megoldás, amely virtualizált Windows-és Linux-alapú számítási feladatokat futtat egy hibrid helyi környezetben. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete.
+description: Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid helyszíni környezetekben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete.
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 1e36ff62490a083be83ac333bf44ca5b4ca67406
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 135cf9147b69410b4276860dcde2b167e771a695
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230512"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572534"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI-megoldás áttekintése
 
-A Azure Stack HCI egy hiperkonvergens-alapú fürtözött megoldás, amely virtualizált Windows-és Linux-alapú számítási feladatokat futtat egy hibrid helyi környezetben. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal, a System centerrel és a PowerShell-lel kezelheti.
+Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid helyszíni környezetekben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal, a System centerrel és a PowerShell-lel kezelheti.
 
-Azure Stack HCI, a 20H2 verziója egy új operációs rendszer, amely már nyilvános előzetes verzióban [érhető el](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/), és letölthető. Olyan helyszíni fürtökre szolgál, amelyek virtualizált számítási feladatokat futtatnak, és beépített hibrid Felhőbeli kapcsolatokkal rendelkeznek. Ennek megfelelően az Azure Stack HCI Azure-szolgáltatásként érhető el, és egy Azure-előfizetésen keresztül történik. Azure Stack HCI mostantól lehetővé teszi az Azure Kubernetes szolgáltatás üzemeltetését is; További információ: [Azure Kubernetes Service on Azure stack HCI](../aks-hci/overview.md).
+Azure Stack HCI, a 20H2 verziója egy új operációs rendszer, amely már nyilvános előzetes verzióban [érhető el](https://azure.microsoft.com/products/azure-stack/hci/hci-download/), és letölthető. Olyan helyszíni fürtökre szolgál, amelyek virtualizált számítási feladatokat futtatnak, és beépített hibrid Felhőbeli kapcsolatokkal rendelkeznek. Ennek megfelelően az Azure Stack HCI Azure-szolgáltatásként érhető el, és egy Azure-előfizetésen keresztül történik. Azure Stack HCI mostantól lehetővé teszi az Azure Kubernetes szolgáltatás üzemeltetését is; További információ: [Azure Kubernetes Service on Azure stack HCI](../aks-hci/overview.md).
 
 Szánjon néhány percet a Azure Stack HCI magas szintű funkcióival kapcsolatos videó megtekintésére:
 
@@ -205,7 +205,7 @@ A Azure Stack HCI az Azure és a Azure Stack család része, és ugyanazt a szof
 - [Azure stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) – virtualizált alkalmazások futtatása a helyszínen, az öregedő kiszolgáló infrastruktúrájának cseréje és összevonása, valamint az Azure-hoz való kapcsolódás a Cloud Serviceshez.
 - [Azure stack hub](../operator/azure-stack-overview.md) – felhőalapú alkalmazások futtatása a helyszínen, a leválasztáskor vagy a szabályozási követelmények teljesítése érdekében, konzisztens Azure-szolgáltatások használatával.
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack családi megoldás diagramja" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Az Azure Stack HCI operációs rendszer ellenőrzött hardveren fut, és a Windows felügyeleti központ felügyeli, és csatlakozik az Azure-hoz" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>A Windows Server és a Azure Stack HCI összehasonlítása
 
@@ -261,8 +261,8 @@ A szervezet digitális átalakításának köszönhetően a nyilvános Cloud Ser
 
 A Windows felügyeleti központ 2009-es verziója számos funkciót biztosít a HCI Azure Stackához, beleértve a következőket:
 
-- **Azure Kubernetes szolgáltatás üzemeltetési képességei**: most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/).
-- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a szoftveres HÁLÓZATKEZELÉS (Sdn) hálózati vezérlő funkciójának telepítését a fürt létrehozása során.
+- **Azure Kubernetes szolgáltatás üzemeltetési képességei**: most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
 
 A Windows felügyeleti központ új szolgáltatásaival kapcsolatos részletekért tekintse meg a [Windows felügyeleti központ blogját](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
@@ -310,7 +310,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-- [Azure Stack HCI letöltése](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
+- [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Azure Stack HCI használata a Windows felügyeleti központtal](get-started.md)

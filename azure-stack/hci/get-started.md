@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/09/2020
-ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 19c04e7e7783403250c6e43de6912d1ca0780b56
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742418"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572721"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Ismerkedés a Azure Stack HCI és a Windows felügyeleti központ használatába
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör útmutatást nyújt egy Azure Stack HCI-fürthöz való csatlakozáshoz, valamint a fürt és a tároló teljesítményének figyeléséhez. Ha még nem állított be fürtöt, [töltse le Azure stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/) -t, és tekintse meg az [üzembe helyezés áttekintése](deploy/deployment-overview.md) című témakört.
+Ez a témakör útmutatást nyújt egy Azure Stack HCI-fürthöz való csatlakozáshoz, valamint a fürt és a tároló teljesítményének figyeléséhez. Ha még nem állított be fürtöt, [töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és tekintse meg az [üzembe helyezés áttekintése](deploy/deployment-overview.md) című témakört.
 
 ## <a name="install-windows-admin-center"></a>A Windows felügyeleti központ telepítése
 
@@ -36,7 +36,7 @@ A Windows felügyeleti központ telepítésének befejezése után hozzáadhat e
 
 2. Válasszon egy Windows Server-fürtöt:
 
-    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="A kapcsolattípus kiválasztása képernyőfelvétel":::
+    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 3. Írja be a kezelendő fürt nevét, és kattintson a **Hozzáadás**gombra. A rendszer hozzáadja a fürtöt a kapcsolatok listájához az Áttekintés oldalon.
 
@@ -46,7 +46,7 @@ A Windows felügyeleti központ telepítésének befejezése után hozzáadhat e
 
 A Windows felügyeleti központ irányítópultján riasztások és állapotadatok találhatók a kiszolgálókról, meghajtókról és kötetekről, valamint a CPU-, memória-és tárterület-használat részleteiről. Az irányítópult alján a fürt teljesítményével kapcsolatos információk, például a IOPS és a késések óra, nap, hét, hónap vagy év szerint jelennek meg.
 
-:::image type="content" source="media/get-started/dashboard.png" alt-text="Windows felügyeleti központ irányítópult képernyőképe":::
+:::image type="content" source="media/get-started/dashboard.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ## <a name="monitor-performance-of-individual-components"></a>Az egyes összetevők teljesítményének figyelése
 
@@ -56,47 +56,47 @@ Az irányítópult bal oldalán található **eszközök** menü segítségével
 
 A fürtön futó virtuális gépek összegzésének megtekintéséhez kattintson a bal oldali **eszközök** menü **virtuális gépek** elemére.
 
-:::image type="content" source="media/get-started/vms-summary.png" alt-text="Virtuális gép összegzése":::
+:::image type="content" source="media/get-started/vms-summary.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 A fürtön futó virtuális gépek teljes leltára, az állapotuk, a gazdagép, a CPU-használat, a memória terhelése, a memória igénye, a hozzárendelt memória és a rendelkezésre állás lapon kattintson a **leltár** elemre az oldal tetején.
 
-:::image type="content" source="media/get-started/vms-inventory.png" alt-text="Virtuális gépek leltározása":::
+:::image type="content" source="media/get-started/vms-inventory.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ### <a name="servers"></a>Kiszolgálók
 
 A fürtben lévő kiszolgálók összegzésének megtekintéséhez kattintson a bal oldali **eszközök** menüjének **kiszolgálók** elemére.
 
-:::image type="content" source="media/get-started/servers-summary.png" alt-text="Kiszolgálók összegzése":::
+:::image type="content" source="media/get-started/servers-summary.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 A fürtben található kiszolgálók teljes leltározásához, beleértve az állapotukat, a üzemidőt, a gyártót, a modellt és a sorozatszámot, kattintson az oldal tetején található **leltár** elemre.
 
-:::image type="content" source="media/get-started/servers-inventory.png" alt-text="Kiszolgálók leltározása":::
+:::image type="content" source="media/get-started/servers-inventory.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ### <a name="volumes"></a>Kötetek
 
 A fürtön található kötetek összegzésének megtekintéséhez kattintson a bal oldali **eszközök** menüjének **kötetek** elemére.
 
-:::image type="content" source="media/get-started/volumes-summary.png" alt-text="Kötetek összegzése":::
+:::image type="content" source="media/get-started/volumes-summary.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 A fürtön található kötetek teljes leltározásához, beleértve az állapotukat, a fájlrendszert, a rugalmasságot, a méretet, a tárterület-használatot és a IOPS, kattintson a lap tetején található **leltár** elemre.
 
-:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="Kötetek leltározása":::
+:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ### <a name="drives"></a>Meghajtók
 
 A fürtben található meghajtók összegzésének megtekintéséhez kattintson a bal oldali **eszközök** menüjének **meghajtók** elemére.
 
-:::image type="content" source="media/get-started/drives-summary.png" alt-text="Meghajtók összegzése":::
+:::image type="content" source="media/get-started/drives-summary.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 A fürtben található meghajtók teljes leltározásához a sorozatszám, az állapot, a modell, a méret, a típus, a használat, a hely, a kiszolgáló és a kapacitás beállításnál kattintson az oldal tetején található **leltár** elemre.
 
-:::image type="content" source="media/get-started/drives-inventory.png" alt-text="Meghajtók leltározása":::
+:::image type="content" source="media/get-started/drives-inventory.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ### <a name="virtual-switches"></a>Virtuális kapcsolók
 
 Ha meg szeretné tekinteni egy virtuális kapcsoló beállításait a fürtben, kattintson a bal oldali **eszközök** menü **virtuális kapcsolók** elemére, majd kattintson annak a virtuális kapcsolónak a nevére, amelynek a beállításait meg szeretné jeleníteni. A Windows felügyeleti központ megjeleníti a virtuális kapcsolóhoz társított hálózati adaptereket, beleértve az IP-címüket, a kapcsolati állapotot, a kapcsolat sebességét és a MAC-címet.
 
-:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="Virtuális kapcsoló beállításai":::
+:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 
 ## <a name="add-counters-with-the-performance-monitor-tool"></a>Számlálók hozzáadása a Teljesítményfigyelő eszközzel
 
@@ -104,10 +104,10 @@ A Teljesítményfigyelő eszközzel valós időben tekintheti meg és hasonlíth
 
 1. Válassza a **Teljesítményfigyelő** elemet a bal oldali **eszközök** menüből.
 2. Az **üres** munkaterület lehetőségre kattintva új munkaterületet indíthat el, vagy **visszaállíthatja az előzőt** egy korábbi munkaterület visszaállításához.
-    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="Teljesítményfigyelő Képernyőfelvétele":::
+    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 3. Ha új munkaterületet hoz létre, kattintson a **Számláló hozzáadása** gombra, és válasszon ki egy vagy több figyelni kívánt kiszolgálót, vagy válassza ki a teljes fürtöt.
 4. Válassza ki a figyelni kívánt objektumot és példányt, valamint a számláló és a gráf típusát a dinamikus teljesítményadatok megtekintéséhez.
-    :::image type="content" source="media/get-started/example-counter.png" alt-text="Példa a Counter képernyőképre":::
+    :::image type="content" source="media/get-started/example-counter.png" alt-text="[Fürt hozzáadása képernyőfelvétel":::
 5. Mentse a munkaterületet a **> Mentés másként lehetőség** kiválasztásával a felső menüben.
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Azure Monitor használata figyeléshez és riasztásokhoz
@@ -118,7 +118,7 @@ Az elemzéshez és jelentéskészítéshez [Azure monitor](manage/azure-monitor.
 
 Válassza az **eszközök** menü **diagnosztika** elemét, hogy információkat gyűjtsön a fürttel kapcsolatos hibaelhárítási problémákról. Ha Microsoft ügyfélszolgálata hív meg, kérheti ezeket az adatokat.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack HCI-fürtök monitorozásával kapcsolatos további információkért lásd még:
 

@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274058"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572636"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
@@ -87,9 +87,8 @@ A fürtöket támogató frissítés két módban képes koordinálni a fürt tel
   
 -   **Távoli frissítési mód** Ebben a módban egy távoli felügyeleti számítógép (általában Windows 10 rendszerű számítógép), amely hálózati kapcsolattal rendelkezik a feladatátvevő fürthöz, de nem tagja a feladatátvevő fürtszolgáltatási eszközöknek. A rendszergazda, a frissítési koordinátor néven elindít egy igény szerinti frissítési kísérletet egy alapértelmezett vagy egyéni frissítési kísérlet futtatási profil használatával. A távoli frissítési mód hasznos a valós idejű előrehaladás figyelésére a frissítési kísérlet során, valamint a Server Core telepítéseken futó fürtök esetében.  
 
-
    > [!NOTE]
-   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei**, és válassza a **telepítés**lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei**, és válassza a **telepítés**lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>CAU-fürt szerepkör hozzáadása a fürthöz
 
@@ -105,7 +104,7 @@ Ha a szerepkör még nincs konfigurálva a fürtön, a következő hibaüzenet j
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-Ha az önfrissítési módban a PowerShell használatával szeretné felvenni a fürtre vonatkozó frissítési fürtszolgáltatást, használja a **`Add-CauClusterRole`** parancsmagot, és adja meg a megfelelő [paramétereket](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters), ahogy az alábbi példában is látható:
+Ha az önfrissítési módban a PowerShell használatával szeretné felvenni a fürtre vonatkozó frissítési fürtszolgáltatást, használja a **`Add-CauClusterRole`** parancsmagot, és adja meg a megfelelő [paramétereket](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters), ahogy az alábbi példában is látható:
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose
@@ -176,7 +175,7 @@ InstallResults           : Microsoft.ClusterAwareUpdating.UpdateInstallResult[]
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 

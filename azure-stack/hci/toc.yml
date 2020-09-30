@@ -8,7 +8,7 @@
       href: known-issues.md
     - name: Kibocsátási megjegyzések
       href: release-notes.md
-- name: Bevezetés
+- name: Első lépések
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
       href: get-started.md
@@ -60,6 +60,8 @@
           href: manage/replace-drives.md
         - name: A CSV memóriában tárolt olvasási gyorsítótár használata
           href: manage/use-csv-cache.md
+        - name: Többcsatornás SMB kezelése
+          href: manage/manage-smb-multichannel.md
     - name: A fürt kezelése
       items:
         - name: A fürt kezelése
@@ -94,7 +96,7 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
-- name: Alapelvek
+- name: Fogalmak
   items:
     - name: Kifeszített fürtök
       href: concepts/stretched-clusters.md
@@ -122,7 +124,7 @@
       href: concepts/network-controller.md
     - name: Biztonsági szempontok
       href: concepts/security.md
-- name: Referencia
+- name: Hivatkozás
   items:
     - name: Hyper-V PowerShell-parancsok
       href: /powershell/module/hyper-v
@@ -156,11 +158,11 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Erőforrások
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
     - name: Útmutató a HCI Azure Stackhoz
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack HCI díjszabása
-      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'

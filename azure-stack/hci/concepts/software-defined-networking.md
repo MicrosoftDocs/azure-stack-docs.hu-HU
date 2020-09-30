@@ -1,20 +1,20 @@
 ---
 title: Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
-description: Az SDN azon témaköreinek áttekintése, amelyek a Azure Stack HCI szolgáltatásaira vonatkoznak.
+description: A szoftveresen definiált hálózatkezelés (SDN) lehetővé teszi a hálózatok és hálózati szolgáltatások központi konfigurálását és kezelését, például a váltást, az útválasztást és a terheléselosztást az adatközpontban.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 34ddaf17a9c90373d76a9b0ce490e2e60a1e221d
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230478"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572653"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>SDN Azure Stack HCI-ben
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
 
 > A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
@@ -35,7 +35,7 @@ A hálózati vezérlő üzembe helyezése a következő funkciókat biztosítja:
 - Virtuális készülékek csatlakoztatása a virtuális hálózatokhoz.
 - Konfigurálja a szolgáltatásminőség (QoS) házirendeket a virtuális hálózatokhoz vagy a hagyományos VLAN-alapú hálózatokhoz csatolt virtuális gépekhez.
 
-Javasoljuk, hogy Azure Stack HCI-fürt létrehozása után [telepítse a hálózati vezérlőt a PowerShell használatával](../deploy/network-controller-powershell.md) .
+Javasoljuk, hogy [a hálózati vezérlőt a fürt létrehozása során telepítse](../deploy/create-cluster.md#step-5-sdn-optional). Azt is megteheti, hogy [a hálózati vezérlőt a PowerShell használatával helyezi üzembe](../deploy/network-controller-powershell.md) egy Azure stack HCI-fürt létrehozása után.
 
 ## <a name="software-load-balancing"></a>Szoftveres terheléselosztás
 
@@ -51,7 +51,7 @@ Az átjárók a virtuális hálózat és egy másik hálózat (helyi vagy távol
 
 Az átjárók [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a GRE-végpontok reklámozására és pont-pont típusú kapcsolatok létrehozására szolgálnak. Az SDN üzembe helyezése egy alapértelmezett átjárót hoz létre, amely támogatja az összes kapcsolattípust. Ebben a készletben megadhatja, hogy hány átjáró legyen lefoglalva készenléti állapotban, ha egy aktív átjáró meghibásodik.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
