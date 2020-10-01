@@ -3,16 +3,16 @@ title: API-kérelmek készítése Azure Stack hubhoz
 description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack hub-ra hozzon.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967743"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623319"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -30,7 +30,7 @@ Ez a cikk nem vizsgálja meg a jogkivonatok beolvasásához rendelkezésre áll�
 
 ## <a name="get-a-token-from-azure"></a>Token beszerzése az Azure-ból
 
-Hozzáférési jogkivonat beszerzéséhez hozzon létre egy `x-www-form-urlencoded` , a tartalomtípus használatával formázott kérelem törzsét. Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
+Hozzáférési jogkivonat beszerzéséhez hozzon létre egy, a tartalomtípus használatával formázott kérelem törzsét `x-www-form-urlencoded` . Küldje el a kérését az Azure REST-hitelesítésre és a bejelentkezési végpontra.
 
 ### <a name="uri"></a>URI
 
@@ -40,9 +40,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 A **bérlő azonosítója** a következők egyike:
 
-- A bérlő tartománya, például`fabrikam.onmicrosoft.com`
-- A bérlő azonosítója, például`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- Alapértelmezett érték a bérlői független kulcsok esetében:`common`
+- A bérlő tartománya, például `fabrikam.onmicrosoft.com`
+- A bérlő azonosítója, például `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Alapértelmezett érték a bérlői független kulcsok esetében: `common`
 
 ### <a name="post-body"></a>Post törzs
 
@@ -58,7 +58,7 @@ grant_type=password
 Minden értéknél:
 
 - **grant_type**:  
-   A használni kívánt hitelesítési séma típusa. Ebben a példában a érték a következő `password`:.
+   A használni kívánt hitelesítési séma típusa. Ebben a példában a érték a következő: `password` .
 
 - **erőforrás**:  
    A jogkivonathoz hozzáférő erőforrás. Az erőforrást az Azure Stack hub felügyeleti metaadatok végpontjának lekérdezésével keresheti meg. Tekintse meg a **célközönségek** szakaszt.
@@ -70,7 +70,7 @@ Minden értéknél:
    ```
 
   > [!NOTE]  
-  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például: `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Ha egy rendszergazda megpróbál hozzáférni a bérlői API-hoz, ügyeljen arra, hogy a bérlői végpontot használja; például: `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011` .
 
   Például a Azure Stack Development Kit végpontként:
 
@@ -159,7 +159,7 @@ Válasz:
 
 ## <a name="api-queries"></a>API-lekérdezések
 
-A hozzáférési jogkivonat beszerzése után minden API-kérelemhez vegye fel a fejlécet. Fejlécként való hozzáadásához hozzon létre egy **engedélyezési** fejlécet a következő értékkel: `Bearer <access token>`. Például:
+A hozzáférési jogkivonat beszerzése után minden API-kérelemhez vegye fel a fejlécet. Fejlécként való hozzáadásához hozzon létre egy **engedélyezési** fejlécet a következő értékkel: `Bearer <access token>` . Például:
 
 Kérés:
 
@@ -181,14 +181,14 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL-struktúra és lekérdezési szintaxis
 
-Általános kérelem URI-ja, a következőkből áll:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Általános kérelem URI-ja, a következőkből áll: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI-séma**:  
 Az URI a kérelem küldéséhez használt protokollt jelzi. Például `http` vagy `https`.
 - **URI-gazdagép**:  
-A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatás végpontja üzemel, `graph.microsoft.com` például `adminmanagement.local.azurestack.external`vagy.
+A gazdagép megadja annak a kiszolgálónak a tartománynevét vagy IP-címét, amelyen a REST szolgáltatás végpontja üzemel, például `graph.microsoft.com` vagy `adminmanagement.local.azurestack.external` .
 - **Erőforrás elérési útja**:  
-Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` a (z) segítségével lekérdezheti egy adott alkalmazás tulajdonosának listáját az alkalmazások gyűjteményén belül.
+Az elérési út meghatározza az erőforrást vagy az erőforrás-gyűjteményt, amely magában foglalhatja a szolgáltatás által az erőforrások kiválasztásának meghatározásához használt több szegmenst is. Például: a (z `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` ) segítségével lekérdezheti egy adott alkalmazás tulajdonosának listáját az alkalmazások gyűjteményén belül.
 - **Lekérdezési karakterlánc**:  
 A karakterlánc további egyszerű paramétereket tartalmaz, például az API-verziót vagy az erőforrás-kiválasztási feltételeket.
 

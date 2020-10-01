@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948896"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623268"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: Kubernetes-fürt létrehozása Azure Stack HCI-ben a Windows felügyeleti központtal
 
@@ -31,7 +31,7 @@ Kezdjünk hozzá:
 
     ![A Kubernetes-fürt varázsló alapjai oldalát mutatja be.](.\media\create-kubernetes-cluster\basics.png)
 
-5. További csomópont-készleteket is beállíthat a számítási feladatok futtatásához a **Node Pools** lapon. A nyilvános előzetes verzióban egy Windows-csomópontot és egy linuxos csomópont-készletet (a rendszercsomópont-készleten kívül) is hozzáadhat. Ha elkészült, kattintson a **Tovább gombra**.
+5. További csomópont-készleteket is beállíthat a számítási feladatok futtatásához a **Node Pools** lapon. A nyilvános előzetes verzióban egy Windows-csomópontot és egy linuxos csomópont-készletet (a rendszercsomópont-készleten kívül) is hozzáadhat. Ha később szeretné engedélyezni az Azure arc-integrációt a varázslóban, szüksége lesz legalább egy olyan Linux-csomópontra, amely nem az elsődleges csomópont-készlet. Ha elkészült, kattintson a **Tovább gombra**.
 6. Adja meg a hálózati konfigurációt a **hálózatkezelés** lapon. Ha a "speciális" lehetőséget választja, testreszabhatja a fürt csomópontjaihoz virtuális hálózat létrehozásakor használt címtartományt. Ha az "alapszintű" lehetőséget választja, a fürt csomópontjaihoz tartozó virtuális hálózatok alapértelmezett címtartományt fognak létrehozni. A hálózati beállítások (terheléselosztó, hálózati házirend és HTTP-alkalmazás útválasztása) nem módosíthatók nyilvános előzetes verzióban. Ha elkészült, kattintson a **Tovább gombra**.
 
     ![A Kubernetes-fürt varázsló hálózatkezelés lapját mutatja be.](.\media\create-kubernetes-cluster\networking.png)

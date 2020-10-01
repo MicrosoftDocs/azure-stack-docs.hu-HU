@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/30/2020
+ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230461"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623099"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI üzembe helyezése előtt
 
@@ -146,6 +146,52 @@ Ha a fürt létrehozásához a Windows felügyeleti központban a fürt létreho
 
 Előfordulhat, hogy a fentiekben nem szereplő további portok szükségesek. Ezek az alapszintű Azure Stack HCI-funkciók portjai.
 
+### <a name="network-switch-requirements"></a>Hálózati kapcsolókra vonatkozó követelmények
+
+Ez a szakasz a Azure Stack HCI-mel használt fizikai kapcsolókra vonatkozó követelményeket határozza meg. Ezek a követelmények azokat az iparági specifikációkat, szervezeti szabványokat és protokollokat sorolja fel, amelyek az összes Azure Stack HCI-telepítéshez kötelezőek. Ha nincs jelezve, a standard legújabb aktív (nem felülírt) verziója szükséges.
+
+Ezek a követelmények biztosítják a Azure Stack HCI-fürtök csomópontjai közötti megbízható kommunikációt. A csomópontok közötti megbízható kommunikáció kritikus fontosságú. A Azure Stack HCI szükséges megbízhatósági szintjének biztosításához a következő kapcsolók szükségesek:
+
+- Meg kell felelnie a vonatkozó iparági előírásoknak, szabványoknak és protokolloknak
+- A kapcsoló által támogatott specifikációk, szabványok és protokollok láthatóságának biztosítása
+- Adja meg azokat az információkat, amelyeken engedélyezve vannak a képességek
+
+#### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1 Q
+
+Az Ethernet-kapcsolóknak meg kell felelniük a VLAN-okat definiáló IEEE 802.1 Q specifikációnak. A VLAN-ok a Azure Stack HCI számos aspektusához szükségesek, és minden esetben szükségesek.
+
+#### <a name="standard-ieee-8021-qbb"></a>Standard: IEEE 802,1 Qbb
+
+Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1Qbb specifikációnak, amely meghatározza a prioritási folyamat vezérlését (PFC). A PFC megadása szükséges az adatközpont-áthidalás (DCB) használata esetén. Mivel a DCB használható mind a RoCE, mind a iWARP RDMA-forgatókönyvben, minden esetben 802.1 Qbb szükséges. Legalább három szolgáltatási (CoS) prioritásra van szükség a kapcsolói képességek vagy a portok sebességének visszalépése nélkül.
+
+#### <a name="standard-ieee-8021qaz"></a>Standard: IEEE 802.1 Qaz
+
+Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 Qaz specifikációnak, amely meghatározza a bővített átvitel kiválasztása (ETS) beállítást. Az ETS-t a DCB használata esetén kell megadni. Mivel a DCB használható mind a RoCE, mind a iWARP RDMA-forgatókönyvben, minden esetben 802.1 Qaz szükséges. A kapcsolók vagy a portok sebességének visszalépése nélkül legalább három CoS-prioritás szükséges.
+
+#### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1 AB
+
+Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 AB specifikációnak, amely meghatározza a link Layer Discovery protokollt (LLDP). A LLDP szükséges ahhoz, hogy a Windows felderítse a kapcsolók konfigurációját. A LLDP-típus (TLVs) konfigurációjának dinamikusan engedélyezettnek kell lennie. Ezek a kapcsolók nem igényelnek további konfigurálást.
+
+Például, ha a 3. altípust engedélyezi, a 3-as érték automatikusan Hirdessen minden olyan VLAN-t, 802,1 amely elérhető a kapcsoló portjain
+
+#### <a name="tlv-requirements"></a>TLV-követelmények
+
+A LLDP lehetővé teszi, hogy a szervezetek definiálják és kódolják saját egyéni TLVs. Ezeket Szervezetian meghatározott TLVs nevezzük. Minden Szervezetian megadott TLVs LLDP TLV típusú, 127-as értékkel kezdődik. Az alábbi táblázat azt mutatja be, hogy mely szervezeti specifikus egyéni TLV (TLV típusú 127) altípusok szükségesek, és melyek nem kötelezőek:
+
+|Condition (Állapot)|Szervezet|TLV altípus|
+|-|-|-|
+|Választható|IEEE 802,1|Port VLAN-azonosítója (altípus = 1)|
+|Választható|IEEE 802,1|Port és protokoll VLAN-azonosítója (altípus = 2)|
+|Kötelező|IEEE 802,1|VLAN neve (altípus = 3)|
+|Választható|IEEE 802,1|Csatolás összesítése (altípus = 7)|
+|Választható|IEEE 802,1|Torlódási értesítés (altípus = 8)|
+|Választható|IEEE 802,1|ETS-konfiguráció (altípus = 9)|
+|Választható|IEEE 802,1|ETS-javaslat (altípus = A)|
+|Választható|IEEE 802,1|PFC-konfiguráció (altípus = B)|
+|Választható|IEEE 802,1|EVB (altípus = D)|
+|Választható|IEEE 802,3|Csatolás összesítése (altípus = 3)|
+|Kötelező|IEEE 802,3|Keret maximális mérete (altípus = 4)|
+
 ### <a name="storage-requirements"></a>Tárolási követelmények
 
 - Azure Stack HCI közvetlenül csatlakoztatott SATA-, SAS-, NVMe-vagy állandó memória-meghajtókkal működik, amelyek fizikailag csak egy kiszolgálóhoz csatlakoznak.
@@ -190,7 +236,7 @@ A Windows felügyeleti központ egy helyileg üzembe helyezett, böngészőalap�
 
 Ha a Windows felügyeleti központot egy kiszolgálóra telepíti, a CredSSP igénylő feladatokat (például a fürtök létrehozását és a frissítések és bővítmények telepítését) olyan fiókkal kell megkövetelni, amely az átjáró-rendszergazdák csoport tagja a Windows felügyeleti központ kiszolgálóján. További információkért tekintse meg a [felhasználói Access Control és engedélyek konfigurálásának](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)első két fejezetét.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A következő cikkből megtudhatja, hogyan helyezheti üzembe a Azure Stack HCI operációs rendszert.
 > [!div class="nextstepaction"]

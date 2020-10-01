@@ -3,16 +3,16 @@ title: Az Azure Stack hub sablon-ellenőrzési eszközének használata
 description: A sablon-ellenőrzési eszközzel megkeresheti Azure Stack hubhoz való központi telepítéshez szükséges sablonokat.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 69df3da5b5769be9ee9d9bd3234c53de177fd9e2
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 82eb8ce8b8ddc1b4d357b784814c95809924fc15
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744868"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623251"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Az Azure Stack hub sablon-ellenőrzési eszközének használata
 
@@ -74,13 +74,13 @@ A sablon-érvényesítő parancsmag a következő paramétereket támogatja.
 
 | Paraméter | Leírás | Kötelező |
 | ----- | -----| ----- |
-| `TemplatePath` | Megadja Azure Resource Manager sablonok rekurzív megkeresésének elérési útját. | Yes |
-| `TemplatePattern` | Megadja az egyeztetendő sablonfájlok nevét. | No |
-| `CapabilitiesPath` | Megadja a Felhőbeli képességek JSON-fájljának elérési útját. | Yes |
-| `IncludeComputeCapabilities` | Magában foglalja a IaaS-erőforrások, például a virtuálisgép-méretek és a virtuálisgép-bővítmények értékelését. | No |
-| `IncludeStorageCapabilities` | Magában foglalja a tárolási erőforrások, például az SKU-típusok kiértékelését. | No |
-| `Report` | Megadja a generált HTML-jelentés nevét. | No |
-| `Verbose` | Naplózza a hibákat és a figyelmeztetéseket a konzolon. | No|
+| `TemplatePath` | Megadja Azure Resource Manager sablonok rekurzív megkeresésének elérési útját. | Igen |
+| `TemplatePattern` | Megadja az egyeztetendő sablonfájlok nevét. | Nem |
+| `CapabilitiesPath` | Megadja a Felhőbeli képességek JSON-fájljának elérési útját. | Igen |
+| `IncludeComputeCapabilities` | Magában foglalja a IaaS-erőforrások, például a virtuálisgép-méretek és a virtuálisgép-bővítmények értékelését. | Nem |
+| `IncludeStorageCapabilities` | Magában foglalja a tárolási erőforrások, például az SKU-típusok kiértékelését. | Nem |
+| `Report` | Megadja a generált HTML-jelentés nevét. | Nem |
+| `Verbose` | Naplózza a hibákat és a figyelmeztetéseket a konzolon. | Nem|
 
 ### <a name="examples"></a>Példák
 

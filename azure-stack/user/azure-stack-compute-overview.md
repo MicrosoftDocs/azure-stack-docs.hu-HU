@@ -3,20 +3,20 @@ title: Azure Stack hub virtuális gépek bemutatása
 description: Ismerkedjen meg Azure Stack hub virtuális gépekkel.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813734"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623132"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
-Az Azure Stack hub a virtuális gépeket igény szerinti és méretezhető számítási erőforrásként kínálja. Kiválaszthat egy virtuális gépet, ha több vezérlésre van szüksége a számítástechnikai környezetben. Ez a cikk az első virtuális gép létrehozása előtt tartalmaz részleteket.
+Az Azure Stack hub a virtuális gépeket igény szerinti és méretezhető számítási erőforrásként kínálja. Kiválaszthat egy virtuális gépet, ha több vezérlésre van szüksége a számítástechnikai környezetben. Ez a cikk részletesen ismerteti az első virtuális gép létrehozását.
 
 Egy Azure Stack hub virtuális gép rugalmasságot biztosít a virtualizálás számára, anélkül, hogy a fürtöket vagy az egyes gépeket kellene kezelnie. Azonban továbbra is fenn kell tartania a virtuális gépet olyan feladatok elvégzésével, mint például a konfigurálás, a javítás/frissítés és a rajta futó szoftver telepítése.
 
@@ -41,7 +41,7 @@ A Azure Stack hub alkalmazás-infrastruktúrájának kiépítéséhez mindig kia
 - A virtuális gép konfigurálása az elindítása után.
 - A virtuális gép által igényelt kapcsolódó erőforrások.
 
-### <a name="naming"></a>Elnevezés
+### <a name="names"></a>Nevek
 
 A virtuális gép neve hozzá van rendelve, és az operációs rendszer részeként konfigurált számítógépnévvel rendelkezik. A virtuális gépek neve legfeljebb 15 karakter hosszú lehet.
 
@@ -89,7 +89,7 @@ A virtuális gép a következő táblázatban található erőforrásokat haszn�
 |Tárfiók|Nem|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. |
 |Virtuális hálózat|Igen|A virtuális gépnek egy virtuális hálózat tagjának kell lennie.|
 |Nyilvános IP-cím|Nem|A virtuális gép rendelkezhet hozzárendelt nyilvános IP-címmel, hogy távolról is el lehessen érni.|
-|Hálózati illesztő|Igen|A virtuális gépnek szüksége van a hálózati illesztőre a hálózattal való kommunikációhoz.|
+|Hálózati adapter|Igen|A virtuális gépnek szüksége van a hálózati illesztőre a hálózattal való kommunikációhoz.|
 |Adatlemezek|Nem|A virtuális gépek a tárolókapacitást bővítő adatlemezeket is tartalmazhatnak.|
 
 ## <a name="create-your-first-vm"></a>Az első virtuális gép létrehozása
@@ -107,10 +107,10 @@ A virtuális gépek több módon is létrehozhatók. Az Ön által választott k
 
 A virtuális gépeket böngészőalapú portál, parancsfájlok futtatását támogató parancssori eszközök, vagy közvetlenül az API-k segítségével kezelheti. Néhány tipikus felügyeleti feladat:
 
-- Virtuális gép adatainak beolvasása
-- Csatlakozás virtuális géphez
-- A rendelkezésre állás kezelése
-- Biztonsági másolatok készítése
+- Virtuális gép adatainak beolvasása.
+- Csatlakozás virtuális géphez.
+- A rendelkezésre állás kezelése.
+- Biztonsági mentések készítése.
 
 ### <a name="get-information-about-your-vm"></a>A virtuális gép adatainak lekérése
 

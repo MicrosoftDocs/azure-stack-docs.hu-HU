@@ -7,12 +7,12 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: fe1ae4c0c979d579df99b6e440d62dd16a9df2e9
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: 436e84b2c46de48eba23faf9505cb26e99585c58
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074162"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623302"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktív diagnosztikai naplók gyűjteménye Azure Stack hub-ban
 
@@ -33,11 +33,11 @@ A következő lépésekkel konfigurálhatja a proaktív naplózási gyűjtemény
 1. Nyissa meg a **Súgó + támogatás áttekintést**.
 1. Ha megjelenik a szalagcím, válassza a **proaktív naplózási gyűjtemény engedélyezése**lehetőséget. =
 
-   ![Képernyőfelvétel: a naplófájlok engedélyezésének helye a Súgó és támogatás szolgáltatásban](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
+   :::image type="content" source="media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png" alt-text="Képernyőkép a támogatási oldalról – áttekintés – naplók gyűjteménye. A lila szalagcím egy, a proaktív naplók használatának engedélyezése feliratú gombot tartalmaz." border="false":::
 
    Vagy válassza a **Beállítások** lehetőséget, és állítsa be az előjelzéses **naplók gyűjteményét** az **engedélyezéshez**, majd válassza a **Mentés**lehetőséget.
 
-   ![Képernyőfelvétel: a naplófájlok engedélyezésének helye a Súgó és támogatás szolgáltatásban](media/azure-stack-help-and-support/settings-enable-automatic-log-collection.png)
+   :::image type="content" source="media/azure-stack-help-and-support/settings-enable-automatic-log-collection.png" alt-text="Képernyőkép a támogatási oldalról – áttekintés – naplók gyűjteménye. A lila szalagcím egy, a proaktív naplók használatának engedélyezése feliratú gombot tartalmaz." border="false":::
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"
