@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 312431b1ae36debc79b1a9bd3a874b648dfc9cd9
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948950"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592936"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes szolgáltatás hibaelhárítása Azure Stack HCI-ben
 
@@ -24,7 +24,7 @@ A CredSSP kapcsolatos problémák elhárításához látogasson el a [CredSSP hi
 ## <a name="troubleshooting-windows-admin-center"></a>A Windows felügyeleti központ hibaelhárítása
 Ez a termék jelenleg a nyilvános előzetes verzió állapotban van, ami azt jelenti, hogy még fejlesztés alatt áll. Jelenleg számos probléma van a Windows felügyeleti központ Azure Kubernetes Service bővítménnyel: 
 * Az Azure Kubernetes Service Azure Stack HCI-ben való beállításához használt rendszer fürtben jelenleg minden egyes kiszolgálójának megbízható kiszolgálónak kell lennie. Ez azt jelenti, hogy a Windows felügyeleti központnak képesnek kell lennie CredSSP-műveleteket végrehajtani a fürt minden kiszolgálóján, nem csupán egy vagy több közülük. 
-* Ha hibát jelez `msft.sme.aks couldn't load` , és a hiba azt jelzi, hogy nem sikerült betölteni az adattömböket, használja a Edge vagy a Google Chrome legújabb verzióját, és próbálkozzon újra.
+* Ha hibát jelez `msft.sme.aks couldn't load` , és a hiba azt jelzi, hogy nem sikerült betölteni az adattömböket, használja a Microsoft Edge vagy a Google Chrome legújabb verzióját, és próbálkozzon újra.
 * Az Azure Kubernetes Service Host beállítása varázsló vagy a Kubernetes-fürt létrehozása varázsló elindítása előtt jelentkezzen be az Azure-ba a Windows felügyeleti központon keresztül. A munkafolyamat során szükség lehet az ismételt aláírásra. Ha problémákba ütközik az Azure-ba való bejelentkezéskor a Windows felügyeleti központban, próbáljon meg bejelentkezni az Azure-fiókjába más forrásból, például a [Azure Portal](https://portal.azure.com/). Ha továbbra is problémákba ütközik, tekintse meg a [Windows felügyeleti központ ismert problémáit](/windows-server/manage/windows-admin-center/support/known-issues) ismertető cikket a támogatás elérése előtt.
 * Az Azure Kubernetes szolgáltatás aktuális iterációjában a Windows felügyeleti központon keresztüli Azure Stack HCI-n való üzembe helyezéskor csak az Azure Kubernetes Service-gazdagépet telepítő felhasználó hozhat létre Kubernetes-fürtöket a rendszeren. A probléma megkerüléséhez másolja a `.wssd` mappát a felhasználói profilból, és állítsa be az Azure Kubernetes Service Host szolgáltatást azon felhasználói profilba, amely az új Kubernetes-fürtöt fogja elindítani.
 * Ha nem megfelelő konfigurációval kapcsolatos hibaüzenetet kap, végezze el a fürt karbantartási műveleteit. Ez magában foglalhatja a `C:\Program Files\AksHci\mocctl.exe` fájl eltávolítását.
@@ -93,5 +93,5 @@ SSH-t a csomóponton a használatával `ssh clouduser@ip` .
 ## <a name="troubleshooting-azure-arc-for-kubernetes"></a>Az Azure arc Kubernetes hibaelhárítása
 A kapcsolattal, az engedélyekkel és az ív-ügynökökkel kapcsolatos gyakori forgatókönyvek hibaelhárításához látogasson el az [Azure arc-kompatibilis Kubernetes-hibaelhárításra](/azure/azure-arc/kubernetes/troubleshooting).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 Ha továbbra is problémákba ütközik az Azure Kubernetes szolgáltatás használatakor Azure Stack HCI-en, a fájlok hibái a [githubon](https://aka.ms/aks-hci-issues)keresztül.  

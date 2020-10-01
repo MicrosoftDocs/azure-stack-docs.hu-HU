@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724880"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592900"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának (PKI) tanúsítványára vonatkozó követelmények
 
@@ -23,7 +23,7 @@ Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely
 - Nem kötelező tanúsítványok szükségesek az érték megadásakor – erőforrás-szolgáltatók hozzáadása.
 
 > [!NOTE]
-> Az Azure Stack hub alapértelmezés szerint a belső Active Directory integrált hitelesítésszolgáltatótól (CA) kiállított tanúsítványokat is használ a csomópontok közötti hitelesítéshez. A tanúsítvány érvényesítéséhez minden Azure Stack hub infrastruktúra-gép megbízhatónak tekinti a belső HITELESÍTÉSSZOLGÁLTATÓ főtanúsítványát azáltal, hogy hozzáadja ezt a tanúsítványt a helyi tanúsítványtárolóhoz. Azure Stack hub tanúsítványai nem rendelkeznek rögzítéssel vagy engedélyezési listával. Az egyes kiszolgálói tanúsítványok SAN-ja a cél teljes tartománynevével van érvényesítve. A megbízhatósági láncot is érvényesíti a rendszer, valamint a tanúsítvány lejárati dátumát is (a szabványos TLS-kiszolgáló hitelesítése tanúsítvány-rögzítés nélkül).
+> Az Azure Stack hub alapértelmezés szerint a belső Active Directory integrált hitelesítésszolgáltatótól (CA) kiállított tanúsítványokat is használ a csomópontok közötti hitelesítéshez. A tanúsítvány érvényesítéséhez minden Azure Stack hub infrastruktúra-gép megbízhatónak tekinti a belső HITELESÍTÉSSZOLGÁLTATÓ főtanúsítványát azáltal, hogy hozzáadja ezt a tanúsítványt a helyi tanúsítványtárolóhoz. Nem található Azure Stack hub tanúsítványának rögzítése vagy szűrése. Az egyes kiszolgálói tanúsítványok SAN-ja a cél teljes tartománynevével van érvényesítve. A megbízhatósági láncot is érvényesíti a rendszer, valamint a tanúsítvány lejárati dátumát is (a szabványos TLS-kiszolgáló hitelesítése tanúsítvány-rögzítés nélkül).
 
 ## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 A következő lista az általános tanúsítvány-kiállítási, biztonsági és formázási követelményeket ismerteti:
@@ -119,5 +119,5 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 ## <a name="learn-more"></a>Tudjon meg többet
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

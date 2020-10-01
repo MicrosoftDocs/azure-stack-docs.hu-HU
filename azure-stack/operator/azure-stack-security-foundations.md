@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487872"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592882"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -46,7 +46,7 @@ Az összes külső infrastruktúra-végpont, például a REST-végpontok vagy az
 Míg ezek a külső végpontok önaláírt tanúsítványokat is használhatnak, a Microsoft nyomatékosan javasolja a használatot.
 A TLS 1,2 Azure Stack hub külső végpontokon való betartatásával kapcsolatos további információkért lásd: [Azure stack hub biztonsági vezérlőinek konfigurálása](azure-stack-security-configuration.md).
 
-## <a name="secret-management"></a>Titkos kód kezelése
+## <a name="secret-management"></a>Titkos kódok kezelése
 
 Azure Stack hub-infrastruktúra a működéséhez számos titkot, például jelszavakat és tanúsítványokat használ. A belső szolgáltatásfiókok által társított jelszavak többsége 24 óránként automatikusan el lesz forgatva, mert [csoportosan felügyelt szolgáltatásfiókok (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview), a közvetlenül a belső tartományvezérlő által felügyelt tartományi fiók típusa.
 
@@ -54,7 +54,7 @@ Azure Stack hub-infrastruktúra 4096 bites RSA-kulcsokat használ az összes bel
 
 ## <a name="windows-defender-application-control"></a>Windows Defender Alkalmazásvezérlés
 
-Az Azure Stack Hub a Windows Server legújabb biztonsági funkcióit használja. Ezek egyike a Windows Defender Alkalmazásvezérlés (WDAC, korábbi nevén Kódintegritás), amely a végrehajtható fájlok engedélyezési listáját állítja elő, továbbá biztosítja, hogy csak jogosult kódok fussanak az Azure Stack Hub-infrastruktúrán belül.
+Az Azure Stack Hub a Windows Server legújabb biztonsági funkcióit használja. Ezek közül az egyik a Windows Defender Application Control (WDAC, korábbi nevén Code Integrity), amely végrehajtható szűrést biztosít, és biztosítja, hogy csak az Azure Stack hub-infrastruktúrán belüli, jóváhagyott kód fusson.
 
 A hitelesített kódot a Microsoft vagy az OEM-partner aláírja. Az aláírt hitelesített kód szerepel a Microsoft által meghatározott szabályzatban megadott engedélyezett szoftverek listáján. Ez azt jelenti, hogy csak az Azure Stack hub-infrastruktúrában való futtatásra jóváhagyott szoftverek hajthatók végre. A rendszer blokkol minden jogosulatlan kód futtatására tett kísérletet, és ilyen esetben riasztást küld. Az Azure Stack Hub a felhasználói módú kódintegritást (UMCI) és a hipervizor-kódintegritást (HVCI) egyaránt kényszeríti.
 
@@ -81,7 +81,7 @@ Az Azure Stack hub felügyeletét három belépési pont vezérli, amelyek minde
 
 - A felügyeleti [portál](azure-stack-manage-portals.md) egy pont-és kattintásos élményt nyújt a napi kezelési műveletekhez.
 - Azure Resource Manager a felügyeleti portál összes felügyeleti műveletét egy, a PowerShell és az Azure CLI által használt REST API használatával teszi elérhetővé.
-- Az alacsony szintű műveletek (például az adatközpont-integráció vagy a támogatási forgatókönyvek) esetében Azure Stack hub egy [Kiemelt végpont](azure-stack-privileged-endpoint.md)nevű PowerShell-végpontot tesz elérhetővé. Ez a végpont csak a megadott parancsmagok engedélyezési készletét teszi elérhetővé, és a rendszer erősen naplózza.
+- Az alacsony szintű műveletek (például az adatközpont-integráció vagy a támogatási forgatókönyvek) esetében Azure Stack hub egy [Kiemelt végpont](azure-stack-privileged-endpoint.md)nevű PowerShell-végpontot tesz elérhetővé. Ez a végpont csak a parancsmagok engedélyezett készletét teszi elérhetővé, és a rendszer erősen naplózza.
 
 ## <a name="network-controls"></a>Hálózati vezérlők
 
@@ -105,7 +105,7 @@ Az értékelések a következő szabványokat tartalmazzák:
 
 A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/azurestackcompliance)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub biztonsági vezérlőinek konfigurálása](azure-stack-security-configuration.md)
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)
