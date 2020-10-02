@@ -4,23 +4,25 @@ description: Ismerje meg a fürt érvényesítésének fontosságát, és azt, h
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 10/1/2020
+ms.openlocfilehash: 784f34763f45e7096f72aa23698f9e78cf1bf9b4
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572085"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625855"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI-fürt ellenőrzése
 
 >A következőkre vonatkozik: Azure Stack HCI, Version v20H2; Windows Server 2019
 
 Ez a cikk azt ismerteti, hogy miért fontos a fürt érvényesítése, és mikor kell futtatni egy meglévő Azure Stack HCI-fürtön. Javasoljuk, hogy végezze el a fürt érvényesítését a következő elsődleges forgatókönyvek esetében:
-- A kiszolgálófürt üzembe helyezése után futtassa az validate-DCB eszközt a hálózatkezelés teszteléséhez, és futtassa a fürt érvényesítését a Windows felügyeleti központban.
+- Kiszolgálófürt üzembe helyezése után futtassa az validate-DCB eszközt a hálózatkezelés teszteléséhez.
 - A kiszolgálófürt frissítése után a forgatókönyvtől függően futtassa mindkét ellenőrzési lehetőséget a fürttel kapcsolatos problémák elhárításához.
 - Miután beállította a replikálást a Storage-replikával, ellenőrizze, hogy a replikálás normálisan folytatódjon-e, ha néhány konkrét eseményt ellenőriz, és egy pár parancsot futtat.
-Azure Stack HCI-fürtök telepítésével kapcsolatos további tudnivalókért lásd: [közvetlen tárolóhelyek központi telepítése](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct).
+- A kiszolgálófürt létrehozása után futtassa az validate-DCB eszközt az éles környezetbe helyezés előtt.
+
+    Az Azure Stack HCI-fürtök telepítésével kapcsolatos további tudnivalókért tekintse meg az [üzembe helyezés áttekintése](/deploy/deployment-overview)című témakört.
 
 ## <a name="what-is-cluster-validation"></a>Mi a fürt érvényesítése?
 A fürt érvényesítése a hardveres vagy konfigurációs problémák észlelésére szolgál, mielőtt a fürt bekerül az éles környezetbe. A fürt érvényesítése segít biztosítani, hogy a telepíteni kívánt Azure Stack HCI-megoldás valóban megbízható legyen. A fürt érvényesítését a konfigurált feladatátvevő fürtökön is használhatja diagnosztikai eszközként.
@@ -84,14 +86,14 @@ Az validate-DCB eszköz telepítése és futtatása:
    1. Az **adapter neve**mezőbe írja be az egyes fizikai hálózati adapterek nevét, a **gazdagép vNIC neve**alatt, a virtuális hálózati adapterek nevét (VNIC) és a **VLAN**-t az egyes ADAPTERek esetében használt VLAN-azonosítóval.
    1. Bontsa ki a **RDMA típusa** legördülő listát, és válassza ki a megfelelő protokollt: **RoCE** vagy **iWARP**. Állítsa be a **Jumbo-kereteket** is a hálózatának megfelelő értékre, majd válassza a **tovább**lehetőséget.
 
-    :::image type="content" source="../media/validate/adapters.png" alt-text="Az validate-DCB konfigurációs varázsló adapterek lapja" lightbox="../media/validate/adapters.png":::
+    :::image type="content" source="../media/validate/adapters.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja" lightbox="../media/validate/adapters.png":::
 
     > [!NOTE]
     > - Ha többet szeretne megtudni arról, hogy az SR-IOV Hogyan javítja a hálózati teljesítményt, tekintse meg [az egyszintű I/O-virtualizálás (SR-IOV) áttekintését](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 
 1. Az adatközpont-áthidaló lapon módosítsa az értékeket úgy, hogy azok megfeleljenek a szervezet beállításainak a **prioritás**, a **Házirend neve**és a **sávszélesség-foglalás**számára, majd válassza a **tovább**lehetőséget.
 
-    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Az validate-DCB konfigurációs varázsló adatközpont-áthidaló lapja" lightbox="../media/validate/data-center-bridging.png":::
+    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja" lightbox="../media/validate/data-center-bridging.png":::
 
     > [!NOTE]
     > Ha a varázsló előző lapján a RoCE RDMA fölé kattint, az összes hálózati adapteren és switchports a hálózat megbízhatóságának DCB kell lennie.
@@ -100,7 +102,7 @@ Az validate-DCB eszköz telepítése és futtatása:
 
    - Igény szerint telepítheti a konfigurációs fájlt úgy, hogy végrehajtja a **konfiguráció telepítése a csomópontokra** szakaszt a lapon, amely lehetővé teszi, hogy egy Azure Automation fiók használatával telepítse a konfigurációt, majd érvényesítse azt. A Azure Automation megkezdéséhez tekintse meg [Azure Automation fiók létrehozása](/azure/automation/automation-quickstart-create-account) című témakört.
 
-    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Az validate-DCB konfigurációs varázsló mentés és üzembe helyezés lapja":::
+    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 ### <a name="review-results-and-fix-errors"></a>Eredmények áttekintése és hibák elhárítása
 Az validate-DCB eszköz két egységet eredményez:
@@ -109,24 +111,24 @@ Az validate-DCB eszköz két egységet eredményez:
 
 Ez a példa egy adott kiszolgáló sikeres vizsgálatának eredményeit jeleníti meg az összes előfeltétel és a modális egység tesztek esetében, ha a sikertelen 0 értéket jelez.
 
-:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Ellenőrzés – DCB globális egység és modális egység teszt eredményei":::
+:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 A következő lépések bemutatják, hogyan azonosíthatók a Jumbo-vNIC SMB02 és kijavíthatók a következők:
 1. Az validate-DCB eszköz által beolvasott eredmények az 1 sikertelen számú hibát mutatják.
 
-    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Ellenőrzés – a DCB eszköz vizsgálatának eredményei az 1 sikertelen számú hibáját jelzik.":::
+    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 1. Az eredmények görgetésével megjeleníthető a vörös színű hiba, amely azt jelzi, hogy a gazdagép S046036 SMB02-vNIC tartozó Jumbo-csomag az alapértelmezett 1514-as értékre van beállítva, de a 9014 értékre kell állítani.
 
-    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Ellenőrzés – a DCB eszköz vizsgálatának eredménye a Jumbo-csomagok méretének beállításával kapcsolatos hiba":::
+    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 1. A vNIC SMB02 **speciális** tulajdonságainak áttekintése a gazdagép S046036 azt mutatja, hogy a Jumbo-csomag az alapértelmezett **letiltott**értékre van állítva.
 
-    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="A kiszolgáló gazdagépének Hyper-V speciális tulajdonságok Jumbo-csomagjainak beállítása":::
+    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 1. A hiba elhárításához engedélyezni kell a Jumbo-csomag funkcióját, és 9014 bájtra kell módosítania a méretét. Ha újra futtatja a vizsgálatot a gazdagépen, a S046036 a sikertelen 0 értéket adja vissza.
 
-    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Ellenőrzés – a DCB vizsgálati eredményei megerősítették, hogy a kiszolgáló gazdagépének Jumbo-csomagjainak beállítása rögzített":::
+    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 Ha többet szeretne megtudni az validate-DCB eszköz által azonosított hibák elhárításáról, tekintse meg az alábbi videót.
 
@@ -143,7 +145,7 @@ A következő lépések végrehajtásával érvényesítheti a meglévő fürt k
 1. A **leltár** lapon jelölje ki a fürtben lévő kiszolgálókat, majd bontsa ki a **további** almenüt, és válassza a **fürt ellenőrzése**lehetőséget.
 1. A **fürt ellenőrzése** előugró ablakban válassza az **Igen**lehetőséget.
 
-    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Fürt előugró ablakának ellenőrzése":::
+    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Az validate-DCB konfigurációs varázsló fürtök és csomópontok lapja":::
 
 1. A **hitelesítő adatok biztonsági szolgáltatója (CredSSP)** előugró ablakban válassza az **Igen**lehetőséget.
 1. Adja meg a hitelesítő adatait a **CredSSP** engedélyezéséhez, majd válassza a **Folytatás**lehetőséget.<br> A fürt érvényesítése a háttérben fut, és értesítést küld, amikor elkészült, és ekkor megtekintheti az ellenőrzési jelentést a következő szakaszban leírtak szerint.

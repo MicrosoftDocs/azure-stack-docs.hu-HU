@@ -3,16 +3,16 @@ title: Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 description: Megtudhatja, hogyan használhatja az Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez a Azure Stack hub-ban található Linux-gépet az AK-motor üzemeltetéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/1/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 49855cbe926dc29b20c3309e4fc3a084ee5a5e70
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 10/1/2020
+ms.openlocfilehash: efb4323bd6544a33d70a01f301aabb29c5d2a915
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717964"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625889"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Az AK-motor telepítése Linux rendszeren Azure Stack hub-ban
 
@@ -39,7 +39,7 @@ Telepítheti az ügyfél virtuális gépet a Kubernetes-fürt felügyeletére eg
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version 0.55.4
+        ./get-akse.sh --version v0.55.4
     ```
 
     > [!NOTE]  
@@ -101,7 +101,7 @@ sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azure
 sudo update-ca-certificates
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

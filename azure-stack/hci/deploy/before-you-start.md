@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/30/2020
-ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623099"
+ms.locfileid: "91625872"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI üzembe helyezése előtt
 
@@ -148,7 +148,7 @@ Előfordulhat, hogy a fentiekben nem szereplő további portok szükségesek. Ez
 
 ### <a name="network-switch-requirements"></a>Hálózati kapcsolókra vonatkozó követelmények
 
-Ez a szakasz a Azure Stack HCI-mel használt fizikai kapcsolókra vonatkozó követelményeket határozza meg. Ezek a követelmények azokat az iparági specifikációkat, szervezeti szabványokat és protokollokat sorolja fel, amelyek az összes Azure Stack HCI-telepítéshez kötelezőek. Ha nincs jelezve, a standard legújabb aktív (nem felülírt) verziója szükséges.
+Ez a szakasz a Azure Stack HCI-mel használt fizikai kapcsolókra vonatkozó követelményeket határozza meg. Ezek a követelmények azokat az iparági specifikációkat, szervezeti szabványokat és protokollokat sorolja fel, amelyek az összes Azure Stack HCI-telepítéshez kötelezőek. Ha másként nincs jelezve, a standard utolsó aktív (nem felülírt) verzióját kell megadnia.
 
 Ezek a követelmények biztosítják a Azure Stack HCI-fürtök csomópontjai közötti megbízható kommunikációt. A csomópontok közötti megbízható kommunikáció kritikus fontosságú. A Azure Stack HCI szükséges megbízhatósági szintjének biztosításához a következő kapcsolók szükségesek:
 
@@ -156,13 +156,15 @@ Ezek a követelmények biztosítják a Azure Stack HCI-fürtök csomópontjai k�
 - A kapcsoló által támogatott specifikációk, szabványok és protokollok láthatóságának biztosítása
 - Adja meg azokat az információkat, amelyeken engedélyezve vannak a képességek
 
+Ha a kapcsoló támogatja a következőt, ügyeljen arra, hogy megkérdezze a kapcsoló gyártóját:
+
 #### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1 Q
 
 Az Ethernet-kapcsolóknak meg kell felelniük a VLAN-okat definiáló IEEE 802.1 Q specifikációnak. A VLAN-ok a Azure Stack HCI számos aspektusához szükségesek, és minden esetben szükségesek.
 
-#### <a name="standard-ieee-8021-qbb"></a>Standard: IEEE 802,1 Qbb
+#### <a name="standard-ieee-8021qbb"></a>Standard: IEEE 802.1 Qbb
 
-Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1Qbb specifikációnak, amely meghatározza a prioritási folyamat vezérlését (PFC). A PFC megadása szükséges az adatközpont-áthidalás (DCB) használata esetén. Mivel a DCB használható mind a RoCE, mind a iWARP RDMA-forgatókönyvben, minden esetben 802.1 Qbb szükséges. Legalább három szolgáltatási (CoS) prioritásra van szükség a kapcsolói képességek vagy a portok sebességének visszalépése nélkül.
+Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 Qbb specifikációnak, amely meghatározza a prioritási folyamat vezérlését (PFC). A PFC megadása szükséges az adatközpont-áthidalás (DCB) használata esetén. Mivel a DCB használható mind a RoCE, mind a iWARP RDMA-forgatókönyvben, minden esetben 802.1 Qbb szükséges. Legalább három szolgáltatási (CoS) prioritásra van szükség a kapcsolói képességek vagy a portok sebességének visszalépése nélkül.
 
 #### <a name="standard-ieee-8021qaz"></a>Standard: IEEE 802.1 Qaz
 
@@ -180,9 +182,10 @@ A LLDP lehetővé teszi, hogy a szervezetek definiálják és kódolják saját 
 
 |Condition (Állapot)|Szervezet|TLV altípus|
 |-|-|-|
+|Kötelező|IEEE 802,1|VLAN neve (altípus = 3)|
+|Kötelező|IEEE 802,3|Keret maximális mérete (altípus = 4)|
 |Választható|IEEE 802,1|Port VLAN-azonosítója (altípus = 1)|
 |Választható|IEEE 802,1|Port és protokoll VLAN-azonosítója (altípus = 2)|
-|Kötelező|IEEE 802,1|VLAN neve (altípus = 3)|
 |Választható|IEEE 802,1|Csatolás összesítése (altípus = 7)|
 |Választható|IEEE 802,1|Torlódási értesítés (altípus = 8)|
 |Választható|IEEE 802,1|ETS-konfiguráció (altípus = 9)|
@@ -190,7 +193,9 @@ A LLDP lehetővé teszi, hogy a szervezetek definiálják és kódolják saját 
 |Választható|IEEE 802,1|PFC-konfiguráció (altípus = B)|
 |Választható|IEEE 802,1|EVB (altípus = D)|
 |Választható|IEEE 802,3|Csatolás összesítése (altípus = 3)|
-|Kötelező|IEEE 802,3|Keret maximális mérete (altípus = 4)|
+
+> [!NOTE]
+> Előfordulhat, hogy a felsorolt választható funkciók némelyike a jövőben szükséges.
 
 ### <a name="storage-requirements"></a>Tárolási követelmények
 
