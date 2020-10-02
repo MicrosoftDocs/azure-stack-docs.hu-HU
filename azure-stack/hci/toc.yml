@@ -8,7 +8,7 @@
       href: known-issues.md
     - name: Kibocsátási megjegyzések
       href: release-notes.md
-- name: Első lépések
+- name: Bevezetés
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
       href: get-started.md
@@ -98,33 +98,39 @@
           href: manage/use-azure-network-adapter.md
 - name: Fogalmak
   items:
-    - name: Kifeszített fürtök
-      href: concepts/stretched-clusters.md
-    - name: Számlázás
-      href: concepts/billing.md
-    - name: Frissítések és frissítések
-      href: concepts/updates.md
-    - name: Meghajtók kiválasztása
-      href: concepts/choose-drives.md
-    - name: A meghajtó-szimmetria szempontjai
-      href: concepts/drive-symmetry-considerations.md
-    - name: Kötetek megtervezése
-      href: concepts/plan-volumes.md
-    - name: Szoftver által definiált hálózatkezelés
-      href: concepts/software-defined-networking.md
-    - name: A Storage-készlet gyorsítótárának ismertetése
-      href: concepts/cache.md
-    - name: Hibatűrés és a tárolás hatékonysága
-      href: concepts/fault-tolerance.md
-    - name: Fürt-és tárolási készlet kvóruma
-      href: concepts/quorum.md
-    - name: SDN-infrastruktúra megtervezése
-      href: concepts/plan-software-defined-networking-infrastructure.md
-    - name: Hálózati vezérlő
-      href: concepts/network-controller.md
-    - name: Biztonsági szempontok
-      href: concepts/security.md
-- name: Hivatkozás
+    - name: Tárolás és fürtök
+      items:
+        - name: Meghajtók kiválasztása
+          href: concepts/choose-drives.md
+        - name: A meghajtó-szimmetria szempontjai
+          href: concepts/drive-symmetry-considerations.md
+        - name: Kötetek megtervezése
+          href: concepts/plan-volumes.md
+        - name: A Storage-készlet gyorsítótárának ismertetése
+          href: concepts/cache.md
+        - name: Hibatűrés és a tárolás hatékonysága
+          href: concepts/fault-tolerance.md
+        - name: Kifeszített fürtök
+          href: concepts/stretched-clusters.md
+        - name: Fürt-és tárolási készlet kvóruma
+          href: concepts/quorum.md
+    - name: Hálózat
+      items:
+        - name: Szoftver által definiált hálózatkezelés
+          href: concepts/software-defined-networking.md
+        - name: SDN-infrastruktúra megtervezése
+          href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Hálózati vezérlő megtervezése
+          href: concepts/network-controller.md
+    - name: Karbantartás és biztonság
+      items:
+        - name: Számlázás
+          href: concepts/billing.md
+        - name: Frissítések és frissítések
+          href: concepts/updates.md
+        - name: Biztonsági szempontok
+          href: concepts/security.md
+- name: Referencia
   items:
     - name: Hyper-V PowerShell-parancsok
       href: /powershell/module/hyper-v
@@ -158,7 +164,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Erőforrások
+- name: További források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
