@@ -4,13 +4,13 @@ description: Ismerje meg a fürt érvényesítésének fontosságát, és azt, h
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/1/2020
-ms.openlocfilehash: 784f34763f45e7096f72aa23698f9e78cf1bf9b4
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/2/2020
+ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
+ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625855"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91663941"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI-fürt ellenőrzése
 
@@ -22,7 +22,7 @@ Ez a cikk azt ismerteti, hogy miért fontos a fürt érvényesítése, és mikor
 - Miután beállította a replikálást a Storage-replikával, ellenőrizze, hogy a replikálás normálisan folytatódjon-e, ha néhány konkrét eseményt ellenőriz, és egy pár parancsot futtat.
 - A kiszolgálófürt létrehozása után futtassa az validate-DCB eszközt az éles környezetbe helyezés előtt.
 
-    Az Azure Stack HCI-fürtök telepítésével kapcsolatos további tudnivalókért tekintse meg az [üzembe helyezés áttekintése](/deploy/deployment-overview)című témakört.
+    Az Azure Stack HCI-fürtök telepítésével kapcsolatos további tudnivalókért tekintse meg az [üzembe helyezés áttekintése](deployment-overview.md)című témakört.
 
 ## <a name="what-is-cluster-validation"></a>Mi a fürt érvényesítése?
 A fürt érvényesítése a hardveres vagy konfigurációs problémák észlelésére szolgál, mielőtt a fürt bekerül az éles környezetbe. A fürt érvényesítése segít biztosítani, hogy a telepíteni kívánt Azure Stack HCI-megoldás valóban megbízható legyen. A fürt érvényesítését a konfigurált feladatátvevő fürtökön is használhatja diagnosztikai eszközként.
