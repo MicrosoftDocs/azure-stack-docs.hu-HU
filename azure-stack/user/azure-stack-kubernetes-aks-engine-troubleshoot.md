@@ -3,16 +3,16 @@ title: Az AK-motor hibáinak megoldása Azure Stack hub-on
 description: Ez a cikk a Azure Stack hub AK-motorjának hibaelhárítási lépéseit ismerteti.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.lastreviewed: 10/02/2020
+ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560963"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729219"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
@@ -84,7 +84,7 @@ Az AK-motor által létrehozott információk áttekinthetők. Az AK-motor az al
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes-naplók gyűjtése
 
-Emellett az AK-beli motor naplóiban az Kubernetes-összetevők állapot-és hibaüzeneteket hoznak. Ezeket a naplókat a [Getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3)bash-parancsfájllal is összegyűjtheti.
+Emellett az AK-beli motor naplóiban az Kubernetes-összetevők állapot-és hibaüzeneteket hoznak. Ezeket a naplókat a [Getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.5)bash-parancsfájllal is összegyűjtheti.
 
 Ez a szkript automatizálja a következő naplók összegyűjtésének folyamatát: 
 
@@ -112,8 +112,8 @@ Követelmények:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
-    tar xvf diagnosis-v0.1.1.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.5/diagnosis-v0.1.5.tar.gz
+    tar xvf diagnosis-v0.1.5.tar.gz -C ./
     ```
 
 2. Keresse meg a parancsfájlhoz szükséges paramétereket `getkuberneteslogs.sh` . A szkript a következő paramétereket fogja használni:
@@ -168,6 +168,6 @@ Ha nem tudja feloldani a telepítési hibát, megnyithatja a GitHub-problémát.
      - A következő **kubectl** -parancs kimenete `get nodes` .  
      - A tartalma `/var/log/azure/cluster-provision.log` és `/var/log/cloud-init-output.log`
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

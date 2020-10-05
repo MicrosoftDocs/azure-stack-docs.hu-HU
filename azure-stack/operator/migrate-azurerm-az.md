@@ -4,15 +4,15 @@ description: A AzureRM modulban található parancsfájlok áttelepítésének l
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764749"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729236"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrálás a AzureRM-ről a Azure PowerShell az Azure Stack hub-ban
 
@@ -23,7 +23,7 @@ Az AzureRM és az Az közötti kompatibilitástörő változások teljes listáj
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Az AzureRM telepített verzióinak megtekintése
 
-Az Az modul telepíthető az AzureRM modul mellett, de ez nem ajánlott. A migrálási lépések előtt ellenőrizze, hogy az AzureRM mely verziói vannak telepítve a rendszeren. Ha így tesz, biztosíthatja, hogy a szkriptek már a legújabb kiadáson fussanak, és megtudhatja, hogy engedélyezheti-e a parancsaliasokat az AzureRM eltávolítása nélkül.
+A migrálási lépések előtt ellenőrizze, hogy az AzureRM mely verziói vannak telepítve a rendszeren. Ha így tesz, biztosíthatja, hogy a szkriptek már a legújabb kiadáson fussanak, és megtudhatja, hogy engedélyezheti-e a parancsaliasokat az AzureRM eltávolítása nélkül.
 
 Az AzureRM telepített verziója/verziói megtekintéséhez futtassa a következő parancsot:
 
@@ -74,11 +74,11 @@ Van néhány kivétel is ez alól a szabály alól, amelyeket érdemes figyelemb
 
 | AzureRM modul | Az modul | Módosult a parancsmag utótagja? |
 |----------------|-----------|------------------------|
-| AzureRM.Profile | Az.Accounts | Yes |
-| AzureRM.Insights | Az.Monitor | Yes |
-| AzureRM.Tags | Az.Resources | No |
-| AzureRM.UsageAggregates | Az.Billing | No |
-| AzureRM.Consumption | Az.Billing | No |
+| AzureRM.Profile | Az.Accounts | Igen |
+| AzureRM.Insights | Az.Monitor | Igen |
+| AzureRM.Tags | Az.Resources | Nem |
+| AzureRM.UsageAggregates | Az.Billing | Nem |
+| AzureRM.Consumption | Az.Billing | Nem |
 
 ## <a name="summary"></a>Összefoglalás
 
@@ -391,7 +391,7 @@ $task.Wait()
 
 - A `PSAppServicePlan`, `PSCertificate`, `PSCloningInfo` és `PSSite` objektum elavult tulajdonságai el lettek távolítva.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a Azure Stack hub PowerShell-ről: Ismerkedés [a PowerShell-lel Azure stack hub-ban](../user/azure-stack-powershell-overview.md)
 - Telepítse a PowerShell az modult, lásd: a [PowerShell telepítése az Azure stack hub](powershell-install-az-module.md) -hoz
