@@ -78,6 +78,8 @@
           href: manage/manage-azure-registration.md
         - name: Nyelvek módosítása
           href: manage/languages.md
+        - name: Adatvédelmi beállítások módosítása
+          href: manage/change-privacy-settings.md
         - name: A fürt ellenőrzési jelentéskészítésének hibáinak megoldása
           href: manage/validate-qos.md
         - name: A CredSSP hibáinak megoldása
@@ -96,7 +98,7 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: Tárolás és fürtök
       items:
@@ -164,7 +166,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Erőforrások
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
