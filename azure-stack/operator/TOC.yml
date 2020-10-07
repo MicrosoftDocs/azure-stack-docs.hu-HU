@@ -25,7 +25,7 @@
       href: tutorial-offer-services.md
     - name: Szolgáltatási ajánlat tesztelése
       href: tutorial-test-offer.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: Kapacitástervezés
       items:
@@ -211,7 +211,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: Biztonság konfigurálása
+        - name: A biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -469,21 +469,13 @@
               items:
                 - name: Áttekintés
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Naplók interaktív küldése
-                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                - name: Naplók küldése most
-                  items:
-                    - name: A felügyeleti portál használata
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
-                    - name: A PowerShell használata
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
         - name: Azure Stack hub ellenőrzése
           href: azure-stack-diagnostic-test.md
         - name: Hibaelhárítás
           href: azure-stack-troubleshooting.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview
@@ -501,7 +493,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: Erőforrások
+- name: További források
   items:
     - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md

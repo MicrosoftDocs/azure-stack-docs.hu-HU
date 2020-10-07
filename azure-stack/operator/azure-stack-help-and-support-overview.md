@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: e4d167a6600f8bf4c921acb640af3ab606f67c59
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107057"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778272"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -66,8 +66,8 @@ Ez az oktatóanyag testreszabott, attól függően, hogy a ASDK vagy az integrá
 
 A következő két módon küldhet diagnosztikai naplókat a Microsoftnak:
 
-- [Naplók elküldése proaktív módon](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002): Ha engedélyezve van, a rendszer bizonyos állapot-riasztásokkal aktiválja a naplózási gyűjteményt.
-- [Naplók elküldése most](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
+- [Naplók elküldése proaktív módon](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively): Ha engedélyezve van, a rendszer bizonyos állapot-riasztásokkal aktiválja a naplózási gyűjteményt.
+- [Naplók elküldése most](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
 
 ![A diagnosztikai naplók gyűjtésének megkezdését bemutató képernyőkép.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 

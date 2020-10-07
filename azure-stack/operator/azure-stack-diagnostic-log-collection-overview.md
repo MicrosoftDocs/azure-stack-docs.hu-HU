@@ -1,40 +1,30 @@
 ---
 title: Diagnosztikai naplók gyűjteménye Azure Stack hub-ban
 description: Ismerje meg a diagnosztikai naplók gyűjtését Azure Stack hub Súgó + támogatás szolgáltatásában.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 08/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 08/24/2020
-ms.openlocfilehash: 841c031b6009cdb7970194a3268010e745e9e0f0
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 88f2b267f493c05fdcd8a5419718d08d5b6efe37
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764511"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778257"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Diagnosztikai naplók gyűjteménye Azure Stack hub-ban
 
+Az Azure Stack hub mind a Windows-összetevők, mind a helyszíni Azure-szolgáltatások gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Mivel Microsoft ügyfélszolgálata ezeket a naplókat használja a problémák hatékony azonosításához és kijavításához, diagnosztikai naplókat is kínálunk. A diagnosztikai napló gyűjteménye segítségével gyorsan gyűjthet és oszthat meg diagnosztikai naplókat Microsoft ügyfélszolgálata egy egyszerű felhasználói felületen, amely nem igényel PowerShellt. A naplók gyűjtése akkor is történik, ha más infrastrukturális szolgáltatások nem állnak le.  
 
-Az Azure Stack hub a Windows-összetevők és a helyszíni Azure-szolgáltatások nagy gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Ahhoz, hogy a Microsoft ügyfélszolgálata hatékonyan diagnosztizálja a problémákat, zökkenőmentesen észlelt a diagnosztikai naplók gyűjtésére.
-
-A **Súgó + támogatás**diagnosztikai naplójának gyűjteménye   segíti a kezelők számára, hogy a Microsoft ügyfélszolgálata használatával gyorsan összegyűjtsék és megosszák a diagnosztikai naplókat egy egyszerű felhasználói felületen, amely nem igényel PowerShellt. A naplók gyűjtése akkor is történik, ha más infrastrukturális szolgáltatások nem állnak le.  
-
-A Súgó és támogatás diagnosztikai naplójának gyűjteménye segíti a kezelők számára a diagnosztikai naplók gyors gyűjtését és megosztását a Microsoft ügyfél-támogatási szolgáltatásaival (CSS), egy egyszerű felhasználói felülettel, amely nem igényel PowerShellt. A naplók gyűjtése akkor is történik, ha más infrastrukturális szolgáltatások nem állnak le.  
-
-::: moniker range=">= azs-2002"
-
-Javasoljuk, hogy ezt a módszert használja a naplók gyűjtésére, és csak [a Kiemelt jogosultságú végpont (PEP)](azure-stack-get-azurestacklog.md) használatára legyen lehetőség, ha a felügyeleti portál vagy a Súgó és támogatás panel nem érhető el. 
+Javasoljuk, hogy ezt a módszert használja a naplók gyűjtésére, és csak akkor [használja a Kiemelt végpontot (PEP)](azure-stack-get-azurestacklog.md) , ha a felügyeleti portál vagy a Súgó és támogatás panel nem érhető el. 
 
 >[!NOTE]
->Azure Stack hub-t regisztrálni kell a diagnosztikai naplók használatához. Ha Azure Stack hub nincs regisztrálva, a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) használatával ossza meg a naplókat. 
-
-![Diagnosztikai naplók gyűjtési lehetőségei Azure Stack központban](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
+>Azure Stack hub-t regisztrálni kell a diagnosztikai naplók használatához. Ha Azure Stack hub nincs regisztrálva, használja [a Kiemelt végpontot (PEP)](azure-stack-get-azurestacklog.md) a naplók megosztásához. 
 
 ## <a name="collection-options-and-data-handling"></a>Gyűjtési lehetőségek és adatkezelés
 
-::: moniker-end
 ::: moniker range=">= azs-2005"
 
 Az Azure-hoz való kapcsolódástól függően Azure Stack hub megfelelő módon gyűjtheti be, mentheti és küldheti el a diagnosztikai naplókat a CSS-be. Ha Azure Stack hub tud csatlakozni az Azure-hoz, az ajánlott módszer az előjelzéses naplók engedélyezése, amely automatikusan felveszi a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure- **ban, ha**kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók küldése**lehetőséggel is összegyűjtheti, vagy helyileg is mentheti a naplókat, ha Azure stack hub le van választva az Azure-ból. 
@@ -43,59 +33,58 @@ A következő szakaszokban ismertetjük az egyes beállításokat, és az egyes 
 
 ::: moniker-end
 
-::: moniker range="= azs-2002"
-A diagnosztikai napló-gyűjtési szolgáltatás két lehetőséget kínál a naplók küldésére. A következő szakaszokban ismertetjük az egyes beállításokat, és az egyes esetekben az adatkezelés módját. 
-::: moniker-end
+A diagnosztikai napló gyűjteménye szolgáltatás két módszert kínál a naplók küldésére:
+* Naplók interaktív küldése
+* Naplók küldése most
 
-::: moniker range=">= azs-2002"
+A naplókat helyileg is mentheti.
 
-## <a name="send-logs-proactively"></a>Naplók interaktív küldése
-
-A [proaktív naplók gyűjtése](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002) egyszerűsíti és leegyszerűsíti a diagnosztikai naplók gyűjtését, így az ügyfelek a támogatási eset megnyitása előtt küldhetnek naplókat a Microsoftnak. A diagnosztikai naplók proaktív módon vannak feltöltve az Azure Stack hub-ból elemzésre. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts) emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
-
-
-### <a name="how-the-data-is-handled"></a>Az adatkezelés módja
-
-Elfogadja, hogy a Microsoft rendszeres időközönként automatikus naplózási gyűjteményeket fogad el a Azure Stack hub rendszerállapot-riasztásai alapján. A naplók feltöltését és megőrzését egy, a Microsoft által kezelt és felügyelt Azure Storage-fiókban is elfogadja és megtartja.
-
-A rendszer csak a rendszerállapot-riasztások hibaelhárítását fogja használni, és nem használja fel az Ön engedélye nélkül marketing-, reklámozási vagy egyéb kereskedelmi célokra. Az adatok akár 90 napig is megtekinthetők, a Microsoft által gyűjtött adatok pedig az [általános adatvédelmi gyakorlatnak](https://privacy.microsoft.com/)megfelelően lesznek kezelve.
-
-Az engedély visszavonása a korábban a beleegyezéssel gyűjtött adatokat nem érinti.
-
-A **proaktív** naplók használatával gyűjtött naplókat a Microsoft által kezelt és felügyelt Azure Storage-fiókba feltölti a rendszer. Ezeket a naplókat a Microsoft egy támogatási eset kontextusában, valamint Azure Stack hub állapotának javításához is elérheti.
-
-## <a name="send-logs-now"></a>Naplók küldése most
-
-A [naplók elküldése most](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) egy manuális lehetőség, amelyben a rendszer csak akkor küldi el a diagnosztikai naplókat a Azure stack hub-ból, ha az ügyfél kezdeményezi a gyűjteményt, általában a támogatási eset megnyitása előtt.
-
-Azure Stack operátorok igény szerinti diagnosztikai naplókat küldhetnek Microsoft ügyfélszolgálata a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, a [naplók küldése most a felügyeleti portálon](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) lehetőséggel ajánlott, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a kezelőknek Ehelyett a [PowerShell használatával kell elküldeni a naplókat](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002).
-
-::: moniker-end
-::: moniker range="= azs-2002"
-Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. A következő folyamatábra azt mutatja be, hogy mely lehetőség használható a diagnosztikai naplók küldésére az egyes esetekben. 
-::: moniker-end
-
-::: moniker range=">= azs-2002"
+Ez azt mutatja, hogy a diagnosztikai naplók küldésének milyen lehetősége van az egyes esetekben. 
 
 ![A folyamatábra bemutatja, hogyan küldhet naplókat most a Microsoftnak](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
-### <a name="how-the-data-is-handled"></a>Az adatkezelés módja
+A következő szakaszokban ismertetjük az egyes beállításokat, és az egyes esetekben az adatkezelés módját. 
 
-A Azure Stack hub-ból származó diagnosztikai naplók összegyűjtésének kezdeményezésével elfogadja és elfogadja a naplók feltöltését és a Microsoft által kezelt és felügyelt Azure Storage-fiókban való megőrzését. Az Microsoft ügyfélszolgálata a támogatási esettel azonnal elérheti ezeket a naplókat anélkül, hogy az ügyfelet be kellene vonni a naplók gyűjtésére.
+### <a name="send-logs-proactively"></a>Naplók interaktív küldése
 
-::: moniker-end
+A proaktív naplók gyűjtése a támogatási eset megnyitása előtt automatikusan összegyűjti és elküldi a Azure Stack hub diagnosztikai naplóit a Microsoftnak. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](#proactive-diagnostic-log-collection-alerts) emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
+
+Az előjelzéses naplók gyűjtése letiltható, és bármikor újra engedélyezhető. Az alábbi lépéseket követve állíthatja be a proaktív naplózási gyűjteményt.
+
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
+1. Nyissa meg a **Súgó + támogatás áttekintést**.
+1. Ha megjelenik a szalagcím, válassza a **proaktív naplózási gyűjtemény engedélyezése**lehetőséget. Vagy válassza a **Beállítások** lehetőséget, és állítsa be az előjelzéses **naplók gyűjteményét** az **engedélyezéshez**, majd válassza a **Mentés**lehetőséget.
+
+>[!NOTE]
+>Ha a naplózási hely beállításai helyi fájlmegosztás használatára vannak konfigurálva, győződjön meg arról, hogy az életciklus-kezelési házirendek megakadályozzák, hogy a megosztási tárolók elérjék a méreteik kvótáját. Azure Stack hub nem figyeli a helyi fájlmegosztást, vagy nem kényszeríti ki az adatmegőrzési házirendeket.   
+
+### <a name="send-logs-now"></a>Naplók küldése most
+
+> [!TIP]
+> Időt takaríthat meg a naplók elküldése helyett a [proaktív naplózási gyűjtemény](#send-logs-proactively) használatával.
+
+A naplók elküldése lehetőséggel manuálisan gyűjthet és tölthet fel diagnosztikai naplókat Azure Stack hub-ból, általában a támogatási eset megnyitása előtt.
+
+A diagnosztikai naplókat manuálisan is elküldheti Microsoft ügyfélszolgálata a felügyeleti portál vagy a PowerShell használatával. Ha Azure Stack hub csatlakozik az Azure-hoz, javasoljuk, hogy használja a felügyeleti portált, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, inkább a PowerShell használatával küldje el a naplókat.
+
+Naplók elküldése most:
+
+1. Nyissa meg a **Súgó + támogatás > naplózási gyűjteményt, > küldje el a naplókat most**. 
+1. A naplók kezdési és befejezési időpontjának megadása. 
+1. Válassza ki a helyi időzónát.
+1. Válassza **a gyűjtés és feltöltés**lehetőséget.
+
+Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. 
 
 ::: moniker range=">= azs-2005"
 
-## <a name="save-logs-locally"></a>Naplók helyi mentése
+### <a name="save-logs-locally"></a>Naplók helyi mentése
 
-A naplók helyi SMB-megosztásba menthetők, ha Azure Stack hub le van választva az Azure-ból. A **Settings (beállítások** ) panelen adja meg az elérési utat és egy felhasználónevet és jelszót, amely jogosult a megosztásba való írásra. A támogatási esetekben a Microsoft ügyfélszolgálata részletesen ismerteti az átvitt helyi naplók beolvasásának lépéseit. Ha a felügyeleti portál nem érhető el, a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) használatával helyileg mentheti a naplókat.
+A naplókat a helyi kiszolgáló üzenetblokk (SMB) megosztásba mentheti, ha Azure Stack hub le van választva az Azure-ból. A **Settings (beállítások** ) panelen adja meg az elérési utat és egy felhasználónevet és jelszót, amely jogosult a megosztásba való írásra. A támogatási esetekben a Microsoft ügyfélszolgálata részletesen ismerteti az átvitt helyi naplók beolvasásának lépéseit. Ha a felügyeleti portál nem érhető el, a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) használatával helyileg mentheti a naplókat.
 
 ![A diagnosztikai naplók gyűjtési lehetőségeinek képernyőképe](media/azure-stack-help-and-support/save-logs-locally.png)
 
 ::: moniker-end
-
-::: moniker range=">= azs-2002"
 
 ## <a name="bandwidth-considerations"></a>Sávszélességgel kapcsolatos megfontolások
 
@@ -109,48 +98,122 @@ Az alábbi táblázat az Azure-hoz korlátozott vagy mért kapcsolattal rendelke
 | Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
 | Mért kapcsolatok | A további hálózati használatért az INTERNETSZOLGÁLTATÓ felár ellenében vehető igénybe. |
 
-::: moniker-end
-::: moniker range="<= azs-1910"
+## <a name="parameter-considerations"></a>Paraméterekkel kapcsolatos szempontok 
 
-## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>Naplók gyűjtése több Azure Stack hub-rendszerből
+* A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, a rendszer alapértelmezés szerint a naplókat az elmúlt négy órára gyűjti.
 
-Állítson be egy BLOB-tárolót minden olyan Azure Stack hub-méretezési egységhez, amelyhez naplókat kíván gyűjteni. A blob-tároló konfigurálásával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002). Ajánlott eljárásként csak a diagnosztikai naplókat mentse ugyanabból a Azure Stack hub-méretezési egységből egyetlen blob-tárolón belül.
+* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Például:
 
-## <a name="retention-policy"></a>Retention szabályzat
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
+  ```
 
-Hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályt](/azure/storage/blobs/storage-lifecycle-management-concepts) a napló adatmegőrzési házirendjének kezeléséhez. Javasoljuk, hogy 30 napig őrizze meg a diagnosztikai naplókat. Életciklus-kezelési szabály létrehozásához az Azure Storage-ban jelentkezzen be a Azure Portalba, válassza a **Storage-fiókok**lehetőséget, válassza ki a BLOB-tárolót, majd a **blob Service**területen válassza az **életciklus-kezelés**lehetőséget.
+* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Például:
 
-![Életciklus-kezelés a Azure Portal](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByLogType File
+  ```
 
-## <a name="sas-token-expiration"></a>SAS-jogkivonat lejárata
+* A **FilterByResourceProvider** paraméter használatával diagnosztikai naplókat küldhet az érték-hozzáadási erőforrás-szolgáltatóhoz (RPs). Az általános szintaxis a következőket használja:
+ 
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
+  ```
+ 
+  Diagnosztikai naplók küldése IoT Hub számára: 
 
-Állítsa be a SAS URL-címét két évre. Ha bármikor megújítja a Storage-fiók kulcsait, ne felejtse el újragenerálni az SAS URL-címét. Az SAS-tokent az ajánlott eljárásoknak megfelelően kell kezelnie. További információ: [ajánlott eljárások az SAS használatakor](/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas).
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider IotHub
+  ```
+ 
+  Diagnosztikai naplók küldése Event Hubs számára:
 
-## <a name="bandwidth-consumption"></a>Sávszélesség-felhasználás
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider eventhub
+  ```
+ 
+  Diagnosztikai naplók küldése az Azure Stack Edge számára:
 
-A diagnosztikai napló-gyűjtemény átlagos mérete attól függően változik, hogy a naplózási gyűjtemény igény szerinti vagy automatikus.
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvide databoxedge
+  ```
 
-Az igény szerinti naplózási gyűjtemény esetében a naplók gyűjteményének mérete attól függ, hogy hány órát gyűjt a rendszer. Az elmúlt hét napban bármelyik 1-4 óra csúszó ablakot kiválaszthatja.
+* A **FilterByRole** paraméter használatával diagnosztikai naplókat küldhet a VirtualMachines és a BareMetal szerepkörökből:
 
-Ha engedélyezve van az automatikus diagnosztikai napló gyűjtése, a szolgáltatás figyeli a kritikus riasztásokat. Ha a kritikus riasztás körülbelül 30 percet vesz igénybe, és a szolgáltatás a megfelelő naplókat gyűjti és tölti fel. Ez a naplózási gyűjtemény átlagos mérete körülbelül 2 GB. Ha a javítás és a frissítés sikertelen, az automatikus naplók gyűjtése csak akkor indul el, ha kritikus riasztást vált ki, és körülbelül 30 percet vesz igénybe. Javasoljuk, hogy kövesse a [javítás és frissítés figyelésével kapcsolatos útmutatást](azure-stack-updates.md). A riasztások figyelése, a naplók gyűjtése és a feltöltés transzparens a felhasználó számára.
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByRole VirtualMachines,BareMetal
+  ```
 
-Az egészséges rendszerekben a naplók egyáltalán nem lesznek összegyűjtve. A nem kifogástalan állapotú rendszerekben a naplózási gyűjtemény naponta kettő vagy három alkalommal futhat, de általában csak egyszer. Legtöbbször előfordulhat, hogy a legrosszabb esetben akár 10 alkalommal is futhat egy nap alatt.  
+* Ha diagnosztikai naplókat szeretne küldeni a VirtualMachines és a BareMetal szerepkörökből, a naplófájlok dátum szerinti szűrésével az elmúlt 8 órában:
 
-Az alábbi táblázat az Azure-ba korlátozott vagy mért kapcsolatokkal rendelkező környezeteket segíthet figyelembe venni az automatikus napló-gyűjtés engedélyezésének következményeit.
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-| Hálózati kapcsolat | Hatás |
+* Ha diagnosztikai naplókat szeretne küldeni a VirtualMachines-és BareMetal-szerepkörökből, a naplófájlok dátum szerinti szűrésével a 8 órája és 2 órája között eltelt időszakban:
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
+
+Időt takaríthat meg az ügyfélszolgálattal, ha proaktív módon gyűjti a diagnosztikai naplókat, amikor Azure Stack hub riasztást kap.
+
+Ha a rendszerállapot-feltételek kivizsgálására van szükség, a naplók automatikusan feltölthetők az elemzéshez, mielőtt a támogatási esetet megnyitják Microsoft ügyfélszolgálata.
+
+>[!NOTE]
+>Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. 
+
+## <a name="view-log-collection"></a>Napló-gyűjtemény megtekintése
+
+A Azure Stack hub-ból gyűjtött naplók előzményei a **Súgó + támogatás** **napló gyűjtemény** lapján jelennek meg, a következő dátumokkal és időpontokkal:
+
+- **Gyűjtés időpontja**: a naplózási művelet megkezdése után.
+- **Állapot**: vagy folyamatban vagy kész.
+- **Naplók kezdete**: annak az időtartamnak a kezdete, amelynek a gyűjtését el szeretné indítani.
+- **Naplók vége**: az időtartam vége.
+- **Írja be a következőt**: Ha manuális vagy proaktív napló-gyűjtemény.
+
+![A Súgó és támogatás szolgáltatásban található gyűjtemények naplózása](media/azure-stack-help-and-support/azure-stack-log-collection.png)
+
+## <a name="proactive-diagnostic-log-collection-alerts"></a>Proaktív diagnosztikai naplók gyűjtésével kapcsolatos riasztások
+
+Ha engedélyezve van, a proaktív naplók gyűjteménye csak akkor tölti fel a naplókat, ha az alábbi események egyike következik be.
+
+A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy segítsen Microsoft ügyfélszolgálata a probléma megoldásában. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
+
+| Riasztás címe | FaultIdType |
 |---|---|
-| Alacsony sávszélességű/nagy késleltetésű kapcsolat | A napló feltöltése hosszabb időt vesz igénybe. | 
-| Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
-| Mért kapcsolatok | A további hálózati használatért az INTERNETSZOLGÁLTATÓ felár ellenében vehető igénybe. |
+|Nem lehet csatlakozni a távoli szolgáltatáshoz | UsageBridge.NetworkError|
+|Sikertelen frissítés | Urp.UpdateFailure |
+|Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |    StorageResourceProviderDependencyUnavailable |
+|A csomópont nem csatlakozik a vezérlőhöz| ServerHostNotConnectedToController |  
+|Útvonal-közzétételi hiba | SlbMuxRoutePublicationFailure |
+|A tárolási erőforrás-szolgáltató belső adattára nem érhető el |    StorageResourceProvider. DataStoreConnectionFail |
+|Hiba az adattároló eszközön | Microsoft. Health. hibatípushoz. előzőtől. leválasztva |
+|Az állapot-vezérlő nem fér hozzá a Storage-fiókhoz | Microsoft. Health. hibatípushoz. StorageError |
+|A fizikai lemezzel létesített kapcsolat megszakadt | Microsoft. Health. hibatípushoz. lemez. LostCommunication |
+|A blob szolgáltatás nem fut csomóponton. | A StorageService. The. blob. Service. nem fut. on. a. csomópont – kritikus |
+|Infrastruktúra-szerepkör sérült | Microsoft. Health. hibatípushoz. GenericExceptionFault |
+|Hibák a Table Service-ben | StorageService. table. Service. errors – kritikus |
+|A fájlmegosztás több mint 80%-ot használ | Microsoft. Health. hibatípushoz. fájlmegosztás. Capacity. warning. infra |
+|A skálázásiegység-csomópont offline állapotban van | FRP. Szívverés. PhysicalNode |
+|Az infrastruktúra-szerepkör példánya nem érhető el | FRP. Szívverés. InfraVM |
+|Az infrastruktúra-szerepkör példánya nem érhető el  | FRP. Szívverés. NonHaVm |
+|Az infrastruktúra-szerepkör, a címtár-kezelés, az idő szinkronizációs hibáit jelentette | DirectoryServiceTimeSynchronizationError |
+|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. warning |
+|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. Critical |
+|Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki | AzureStack. ComputeController. VmCreationFailure. LowMemory |
+|A csomópont nem érhető el a virtuális gép elhelyezéséhez | AzureStack. ComputeController. HostUnresponsive |
+|Sikertelen biztonsági mentés  | AzureStack. BackupController. BackupFailedGeneralFault |
+|Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
 
-## <a name="managing-costs"></a>Költségek kezelése
+## <a name="how-the-data-is-handled"></a>Az adatkezelés módja
 
-Az Azure [blob Storage díjai](https://azure.microsoft.com/pricing/details/storage/blobs/) attól függnek, hogy a havonta hány adatmentést és más tényezőket, például az adatredundanciát használják. Ha nem rendelkezik meglévő Storage-fiókkal, bejelentkezhet a Azure Portalba, kiválaszthatja a **Storage-fiókokat**, és követheti az [Azure Blob-tároló sas URL-címének létrehozásához](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)szükséges lépéseket.
+Ha engedélyezi a **naplók interaktív küldését**, Ön elfogadja, hogy a Microsoft rendszeres időközönként automatikus naplózási gyűjteményeket fogad el a Azure stack hub rendszerállapot-riasztásai alapján. A naplók feltöltését és megőrzését egy, a Microsoft által kezelt és felügyelt Azure Storage-fiókban is elfogadja és megtartja.
 
-Ajánlott eljárásként hozzon létre egy Azure Blob Storage [életciklus-kezelési szabályzatot](/azure/storage/blobs/storage-lifecycle-management-concepts) a folyamatos tárolási költségek csökkentése érdekében. A Storage-fiók beállításával kapcsolatos további információkért lásd: az [automatikus Azure stack hub diagnosztikai naplójának konfigurálása](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)
+A rendszer csak a rendszerállapot-riasztások hibaelhárítását fogja használni, és nem használja fel az Ön engedélye nélkül marketing-, reklámozási vagy egyéb kereskedelmi célokra. Az adatok akár 90 napig is megtekinthetők, a Microsoft által gyűjtött adatok pedig az [általános adatvédelmi gyakorlatnak](https://privacy.microsoft.com/)megfelelően lesznek kezelve.
 
-::: moniker-end
+Az engedély visszavonása a korábban a beleegyezéssel gyűjtött adatokat nem érinti.
 
 ## <a name="see-also"></a>Lásd még
 
