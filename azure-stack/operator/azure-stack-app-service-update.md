@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 6a63ae93488a13b2b3c8f872aadf882a9ccd1a13
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106869"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810660"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure Stack hub Azure App Service frissítése
 
@@ -141,7 +141,7 @@ Ha a App Servicet leválasztott környezetben szeretné frissíteni, először l
 
 2. Kattintson a **speciális**  >  **teljes kapcsolat nélküli telepítés vagy frissítés**lehetőségre.
 
-    ![Képernyőkép a App Service-telepítő offline telepítésének vagy frissítésének módjáról.][12]
+    ![Képernyőfelvétel: offline telepítés vagy frissítés befejezése a App Service telepítőben.][12]
 
 3. Keresse meg a korábban létrehozott offline verziófrissítési csomag helyét, majd kattintson a **tovább**gombra.
 

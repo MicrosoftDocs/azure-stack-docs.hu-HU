@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: bbf668cf509fcc2ccde4d0a60f20d3f74a935a1e
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487617"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815359"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack hub betanítása és minősítése
 
@@ -21,11 +21,7 @@ ms.locfileid: "86487617"
 
 Szeretne többet megtudni az Azure Stack hub-ról, és mutassa be Azure Stack hub-szakértelmét? Tekintse meg a következő képzési és minősítési lehetőségeket.
 
-## <a name="training"></a>Képzés
-
-- Microsoft hivatalos tanfolyamok igény szerint:
-   - [ODX20537: hibrid felhő konfigurálása és működtetése Microsoft Azure Stack hub-vel (180 nap)](https://www.microsoft.com/learning/course.aspx?cid=ODX20537)
-   - [OD20537: hibrid felhő konfigurálása és működtetése Microsoft Azure Stack hub-vel (90 nap)](https://www.microsoft.com/learning/course.aspx?cid=OD20537)
+## <a name="training"></a>Oktatás
 
 - Microsoft IT-tanfolyam:
    - [Tanfolyam 20537A: hibrid felhő konfigurálása és működtetése Microsoft Azure Stack hubhoz](https://aka.ms/azsmoc)

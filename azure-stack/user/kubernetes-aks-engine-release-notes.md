@@ -7,12 +7,12 @@ ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495762"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810643"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 ::: moniker range=">=azs-2002"
@@ -68,7 +68,7 @@ A frissítések új verziói a következő frissítéssel érhetők el:
 
 -   Az Azure Stack hub-operátornak le kell töltenie egy új AK Base Ubuntu-rendszerképet a Stamp piactéren:
 
-    -   Név: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, augusztus 2020 (2020.09.14)
+    -   Név: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, szeptember 2020 (2020.09.14)
 
     -   Verzió: 2020.09.14
 
@@ -279,6 +279,6 @@ Ez az Azure-hoz és Azure Stack hub-hoz készült kibocsátási megjegyzések te
 -   https://github.com/Azure/aks-engine/releases/tag/v0.47.0
 -   https://github.com/Azure/aks-engine/releases/tag/v0.48.0
 ::: moniker-end
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)

@@ -3,16 +3,16 @@ title: Windows rendszerű virtuális gép létrehozása Azure Stack hub-portálo
 description: Megtudhatja, hogyan hozhat létre Windows Server 2016 virtuális gépet (VM) az Azure Stack hub Portal használatával.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88819167"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815418"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
@@ -31,10 +31,10 @@ Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe a
 
 ## <a name="create-a-vm"></a>Virtuális gép létrehozása
 
-1. Válassza **az erőforrás létrehozása**  >  **számítás**lehetőséget. Keresse meg a következőt: ` Windows Server 2016 Datacenter – Pay as you use` .
+1. Válassza **az erőforrás létrehozása**  >  **számítás**lehetőséget. Keresse meg a következőt: ` Windows Server 2016 Datacenter - Pay as you use` .
     Ha nem látja a **Windows Server 2016 Datacenter – utólagos használatú** bejegyzést, forduljon a Azure stack hub Cloud operatorhoz, és kérje meg, hogy adja hozzá a rendszerképet a Azure stack hub piactérhez. Útmutatásért a felhő operátora hivatkozhat az [egyéni Azure stack hub Marketplace-elem létrehozására és közzétételére](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Windows Server 2016 Datacenter – fizetés a használat során](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter – használaton kívüli fizetés](./media/azure-stack-quick-windows-portal/image1.png)
 
 1. Kattintson a **Létrehozás** gombra.
 

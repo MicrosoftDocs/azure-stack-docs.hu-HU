@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 75138fa2b74666fee4149bf444558c98c250b4c8
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965160"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815342"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
 
@@ -64,8 +64,6 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>A FortiGate NGFW Marketplace-elemek üzembe helyezése
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
-
-    ![A kezdőképernyő megjelenik a "+ erőforrás létrehozása" kijelöléssel a bal oldali panelen.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 1. Válassza az **erőforrás létrehozása** elemet, és keresse meg a következőt: `FortiGate` .
 
@@ -126,7 +124,7 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
     ![Az útvonal hozzáadása párbeszédpanel megjeleníti a szövegmezőben megadott négy értéket.](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-10. Kattintson a **Mentés** gombra.
+10. Válassza a **Mentés** lehetőséget.
 
 ## <a name="activate-the-fortigate-nva"></a>A FortiGate-NVA aktiválása
 

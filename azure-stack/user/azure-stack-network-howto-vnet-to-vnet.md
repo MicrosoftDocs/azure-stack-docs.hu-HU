@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574108"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815512"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET-társítás a FortiGate
 
@@ -75,8 +75,6 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
 1.  Nyissa meg az Azure Stack hub felhasználói portált.
 
-    ![Megjelenik a kezdőképernyő "+ erőforrás létrehozása" gomb.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
-
 2.  Válassza az **erőforrás létrehozása** elemet, és keresse meg a következőt: `FortiGate` .
 
     ![A keresési eredmények listája a FortiGate NGFW – egyetlen virtuálisgép-telepítést jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
@@ -138,7 +136,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
     ![Az útvonal hozzáadása párbeszédpanel a négy kiválasztott és a szövegmezőben megadott értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
-1. Kattintson a **Mentés** gombra.
+1. Válassza a **Mentés** lehetőséget.
 
 Az egyes FortiGate-NVA aktiválásához szüksége lesz egy érvényes Fortinet-fájlra. A NVA addig **nem** fog működni, amíg be nem aktiválja az egyes NVA. A licencfájl beszerzésével és a NVA aktiválásához szükséges lépésekkel kapcsolatos további információkért tekintse meg a Fortinet-dokumentum [regisztrálásával és a licenc letöltésével](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)foglalkozó cikket.
 

@@ -3,16 +3,16 @@ title: A virtuálisgép-méretezési csoportok elérhetővé tétele Azure Stack
 description: Megtudhatja, hogyan adhat hozzá a felhőalapú operátorok virtuálisgép-méretezési csoportokat Azure Stack hub Marketplace-hez.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089694"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91814994"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>A virtuálisgép-méretezési csoportok elérhetővé tétele Azure Stack központban
 
@@ -35,16 +35,17 @@ Azure Stack központban a virtuálisgép-méretezési csoportok nem támogatják
 ## <a name="use-the-azure-stack-hub-portal"></a>Az Azure Stack hub portál használata
 
 1. Jelentkezzen be az Azure Stack hub portálra. Ezután nyissa meg a **minden szolgáltatás**, majd a **virtuálisgép-méretezési**csoportok elemet, majd a **számítás**területen válassza a **virtuálisgép-méretezési**csoportok lehetőséget.
-   ![Virtuálisgép-méretezési csoportok kiválasztása](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![Virtuálisgép-méretezési csoportok kiválasztása](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. Válassza a ***virtuálisgép-méretezési csoportok létrehozása***lehetőséget.
+2. Válassza a **Hozzáadás** lehetőséget.
+
    ![Virtuálisgép-méretezési csoport létrehozása](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Töltse ki az üres mezőket, válasszon a legördülő listából az **operációsrendszer-lemez lemezképének**, **előfizetésének**és **példányának méretétől**függően. A **felügyelt lemezek használatához**válassza az **Igen** lehetőséget. Ezután kattintson a **Létrehozás**gombra.
-    ![Virtuálisgép-méretezési csoportok konfigurálása és létrehozása](media/azure-stack-compute-add-scalesets/create.png)
+3. Töltse ki az üres mezőket, válasszon a legördülő listából az **operációsrendszer-lemez lemezképének**, **előfizetésének**és **példányának méretétől**függően. A **felügyelt lemezek használatához**válassza az **Igen** lehetőséget. Ezután kattintson a **Létrehozás** elemre.
+    [![Virtuálisgép-méretezési csoportok konfigurálása és létrehozása](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. Az új virtuálisgép-méretezési csoport megjelenítéséhez nyissa meg az **összes erőforrást**, keresse meg a virtuálisgép-méretezési csoport nevét, majd válassza ki a kívánt nevet a keresésben.
-   ![A virtuálisgép-méretezési csoport megtekintése](media/azure-stack-compute-add-scalesets/search.png)
+   [![A virtuálisgép-méretezési csoport megtekintése](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Lemezképek frissítése virtuálisgép-méretezési csoportokban
 
@@ -79,7 +80,7 @@ A virtuálisgép-méretezési csoport méretét megváltoztathatja nagyobb vagy 
 
 2. A görgetősáv használatával állítsa be a virtuálisgép-méretezési csoport új skálázási szintjét, majd kattintson a **Mentés**gombra.
 
-     ![A virtuálisgép-készlet méretezése](media/azure-stack-compute-add-scalesets/scale.png)
+     [![A virtuálisgép-készlet méretezése](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>Következő lépések
 

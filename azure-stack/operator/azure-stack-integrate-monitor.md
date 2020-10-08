@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428549"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815138"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -119,9 +119,9 @@ Az egyszerű szolgáltatásnév létrehozásával kapcsolatos további informác
 
 | Paraméter | Leírás | Hitelesítés |
 | --- | --- | --- |
-| * * External_domain_fqdn * * | Külső tartomány teljes tartományneve |    |
-| * * régió: * * | Régiónév |    |
-| * * tenant_id: * * | Bérlőazonosító\* |    |
+| **External_domain_fqdn** | Külső tartomány teljes tartományneve |    |
+| **régió** | Régiónév |    |
+| **tenant_id:** | Bérlőazonosító\* |    |
 | client_id: | Ügyfél-azonosító | SPN titkos kulccsal |
 | client_secret: | Ügyfél jelszava | SPN titkos kulccsal |
 | client_cert \* \* : | Tanúsítvány elérési útja | SPN tanúsítvánnyal |
@@ -235,7 +235,7 @@ Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a 
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
     ```
 
-## <a name="learn-more"></a>Tudjon meg többet
+## <a name="learn-more"></a>További információ
 
 További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure stack központban](azure-stack-monitor-health.md).
 
