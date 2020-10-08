@@ -1,45 +1,51 @@
 ---
 title: A hálózati vezérlő üzembe helyezésének megtervezése
-description: Ez a témakör azt ismerteti, hogyan lehet a hálózati vezérlőt a Windows felügyeleti központon keresztül telepíteni a Azure Stack HCI operációs rendszert futtató virtuális gépeken (VM-EK).
+description: Ez a témakör bemutatja, hogyan tervezheti meg a hálózati vezérlő telepítését a Windows felügyeleti központban a Azure Stack HCI operációs rendszert futtató virtuális gépek (VM-EK) használatával.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.date: 10/7/2020
+ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010832"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847675"
 ---
-# <a name="plan-to-deploy-the-network-controller"></a>A hálózati vezérlő üzembe helyezésének megtervezése
+# <a name="plan-to-deploy-network-controller"></a>A hálózati vezérlő üzembe helyezésének megtervezése
 
->A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019 
+>A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-A hálózati vezérlő Windows felügyeleti központon keresztüli üzembe helyezésének megtervezéséhez a Azure Stack HCI operációs rendszert futtató virtuális gépeket (VM) kell futtatni. A hálózati vezérlő egy magas rendelkezésre állású és méretezhető kiszolgálói szerepkör, amelynek legalább három virtuális gépnek kell lennie, hogy magas rendelkezésre állást biztosítson a hálózaton.
+A hálózati vezérlő Windows felügyeleti központon keresztül történő telepítésének megtervezéséhez a Azure Stack HCI operációs rendszert futtató virtuális gépeket (VM) kell használnia. A hálózati vezérlő egy magas rendelkezésre állású és méretezhető kiszolgálói szerepkör, amelynek legalább három virtuális gépnek kell lennie ahhoz, hogy magas rendelkezésre állást biztosítson a hálózaton.
 
    >[!NOTE]
-   > Javasoljuk, hogy a hálózati vezérlőt saját dedikált virtuális gépén telepítse.
+   > Javasoljuk, hogy a hálózati vezérlőt saját dedikált virtuális gépekre telepítse.
 
 ## <a name="network-controller-requirements"></a>Hálózati vezérlőre vonatkozó követelmények
 A hálózati vezérlő telepítéséhez a következők szükségesek:
-- Egy VHD a Azure Stack HCI operációs rendszer számára a hálózati vezérlő virtuális gépek létrehozásához.
+- Virtuális merevlemez (VHD) a Azure Stack HCI operációs rendszer számára a hálózati vezérlő virtuális gépek létrehozásához.
 - A hálózati vezérlő virtuális gépek tartományhoz való csatlakoztatásához szükséges tartománynév és hitelesítő adatok.
-- Olyan fizikai hálózati konfiguráció, amely megfelel az ebben a szakaszban szereplő két topológiai lehetőség egyikének.
+- Legalább egy virtuális kapcsoló, amelyet a Windows felügyeleti központban, a fürt létrehozása varázslóval konfigurál.
+- Olyan fizikai hálózati konfiguráció, amely megfelel a jelen szakasz egyik topológiai beállításának.
 
-    A Windows felügyeleti központ létrehozza a konfigurációt a Hyper-V-gazdagépen belül. A felügyeleti hálózatnak azonban a következő két lehetőség egyike alapján kell csatlakoznia a gazdagép fizikai adapteréhez:
+    A Windows felügyeleti központ létrehozza a konfigurációt a Hyper-V-gazdagépen belül. A felügyeleti hálózatnak azonban a következő három lehetőség egyike alapján kell csatlakoznia a gazdagép fizikai adapteréhez:
 
-    **1. lehetőség**: egyetlen fizikai kapcsoló csatlakoztatja a felügyeleti hálózatot egy fizikai felügyeleti adapterhez a gazdagépen, és a virtuális kapcsoló által használt fizikai adapterek törzsét:
+    **1. lehetőség**: a felügyeleti hálózat fizikailag el van különítve a munkaterhelés-hálózatokból. Ez a beállítás egyetlen virtuális kapcsolót használ a számítási és a tárolási kapacitáshoz:
 
     :::image type="content" source="./media/network-controller/topology-option-1.png" alt-text="1. lehetőség a hálózati vezérlő fizikai hálózatának létrehozásához." lightbox="./media/network-controller/topology-option-1.png":::
 
-    **2. lehetőség**: Ha a felügyeleti hálózat fizikailag el van különítve a munkaterhelés-hálózatokból, akkor két virtuális kapcsolóra van szükség:
+    **2. lehetőség**: a felügyeleti hálózat fizikailag el van különítve a munkaterhelés-hálózatokból. Ez a beállítás csak a számítási műveletek egyetlen virtuális kapcsolóját használja:
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="2. lehetőség a hálózati vezérlő fizikai hálózatának létrehozásához." lightbox="./media/network-controller/topology-option-1.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="1. lehetőség a hálózati vezérlő fizikai hálózatának létrehozásához." lightbox="./media/network-controller/topology-option-2.png":::
 
+    **3. lehetőség**: a felügyeleti hálózat fizikailag el van különítve a munkaterhelés-hálózatokból. Ez a beállítás két virtuális kapcsolót használ, egyet a számításhoz, egyet pedig a tároláshoz:
+
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="1. lehetőség a hálózati vezérlő fizikai hálózatának létrehozásához." lightbox="./media/network-controller/topology-option-3.png":::
+
+- Azt is megteheti, hogy a felügyeleti fizikai adapterek ugyanazt a felügyeleti kapcsolót használják. Ebben az esetben a jelen szakasz egyik lehetőségének használatával továbbra is ajánlott használni.
 - A hálózati vezérlő által a Windows felügyeleti központtal és a Hyper-V-gazdagépekkel való kommunikációhoz használt felügyeleti hálózati információk.
-- DHCP-vagy statikus hálózati alapú címzés a hálózati vezérlő virtuális gépei számára.
-- A reprezentációs állapot átadása (REST) teljes tartományneve (FQDN) ahhoz a hálózati vezérlőhöz, amelyet a felügyeleti ügyfelek a hálózati vezérlővel való kommunikációra használnak.
+- DHCP-vagy statikus hálózati alapú címzés a hálózati vezérlő virtuális gépekhez.
+- A reprezentációs állapot átadása (REST) teljes tartományneve (FQDN) a hálózati vezérlőhöz, amelyet a felügyeleti ügyfelek a hálózati vezérlővel való kommunikációra használnak.
 
    >[!NOTE]
    > A Windows felügyeleti központ jelenleg nem támogatja a hálózati vezérlő hitelesítését, vagy a REST-ügyfelekkel folytatott kommunikációhoz, vagy a hálózati vezérlő virtuális gépek közötti kommunikációhoz. Kerberos-alapú hitelesítést használhat, ha a PowerShell használatával telepíti és felügyeli azt.
@@ -49,12 +55,12 @@ A hálózati vezérlő fürtcsomópontok ugyanazon az alhálózaton vagy más al
 
 További információ: [dinamikus DNS-regisztráció konfigurálása a hálózati vezérlőhöz](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
-
 ## <a name="next-steps"></a>Következő lépések
-Most már készen áll a hálózati vezérlő üzembe helyezésére a Azure Stack HCI operációs rendszert futtató virtuális gépeken.
+Most már készen áll a hálózati vezérlő üzembe helyezésére az operációs rendszert futtató virtuális gépeken.
 
-További tudnivalókért lásd:
+További információ:
 - [Azure Stack HCI-fürt létrehozása](../deploy/create-cluster.md)
+- [Hálózati vezérlő telepítése a Windows PowerShell használatával](../deploy/network-controller-powershell.md)
 
 ## <a name="see-also"></a>Lásd még
 - [Hálózati vezérlő](/windows-server/networking/sdn/technologies/network-controller/network-controller)

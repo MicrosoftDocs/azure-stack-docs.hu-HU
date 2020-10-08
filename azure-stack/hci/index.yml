@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 07/21/2020
-  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
-  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+  ms.date: 10/5/2020
+  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
+  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86891968"
+  ms.lasthandoff: 10/08/2020
+  ms.locfileid: "91853142"
 landingContent:
 - title: Tudnivalók a Azure Stack HCI-ről
   linkLists:
@@ -39,7 +39,7 @@ landingContent:
       url: deploy/witness.md
     - text: Regisztrálás az Azure-ban
       url: deploy/register-with-azure.md
-    - text: Azure Stack HCI-fürt ellenőrzése
+    - text: Fürt ellenőrzése
       url: deploy/validate.md
 - title: Tárhely kezelése
   linkLists:
@@ -49,22 +49,18 @@ landingContent:
       url: manage/create-volumes.md
     - text: Kifeszített kötetek létrehozása
       url: manage/create-stretched-volumes.md
+    - text: Kötetek védelemmel
+      url: manage/volume-encryption-deduplication.md
     - text: Kötetek kiterjesztése
       url: manage/extend-volumes.md
     - text: Kötetek törlése
       url: manage/delete-volumes.md
     - text: Meghajtók cseréje
       url: manage/replace-drives.md
-- title: Virtuális gépek kezelése
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Virtuális gépek kezelése a Windows felügyeleti központtal
-      url: manage/vm.md
-    - text: Virtuális gépek kezelése a PowerShell-lel
-      url: manage/vm-powershell.md
-    - text: Virtuálisgép-affinitási szabályok beállítása
-      url: deploy/before-you-start.md
+    - text: A CSV-gyorsítótár használata
+      url: manage/use-csv-cache.md
+    - text: Többcsatornás SMB kezelése
+      url: manage/manage-smb-multichannel.md
 - title: A fürt kezelése
   linkLists:
   - linkListType: how-to-guide
@@ -75,10 +71,22 @@ landingContent:
       url: manage/cluster-powershell.md
     - text: Kiszolgálók hozzáadása vagy eltávolítása
       url: manage/add-cluster.md
+    - text: Fürt figyelése
+      url: manage/monitor-cluster.md
     - text: Fürt frissítése
       url: manage/update-cluster.md
     - text: Nyelvek módosítása
       url: manage/vm-powershell.md
+- title: Virtuális gépek kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Virtuális gépek kezelése a Windows felügyeleti központtal
+      url: manage/vm.md
+    - text: Virtuális gépek kezelése a PowerShell-lel
+      url: manage/vm-powershell.md
+    - text: Virtuálisgép-affinitási szabályok beállítása
+      url: deploy/before-you-start.md
 - title: Azure Stack HCI-fogalmak
   linkLists:
   - linkListType: concept
@@ -91,16 +99,24 @@ landingContent:
       url: concepts/updates.md
     - text: Meghajtók kiválasztása
       url: concepts/choose-drives.md
+    - text: A meghajtó-szimmetria szempontjai
+      url: concepts/drive-symmetry-considerations.md
     - text: Kötetek megtervezése
       url: concepts/plan-volumes.md
     - text: Hibatűrés és a tárolás hatékonysága
       url: concepts/fault-tolerance.md
     - text: Biztonsági szempontok
       url: concepts/security.md
+    - text: Storage-készlet gyorsítótára
+      url: concepts/cache.md
+    - text: Fürt-és tárolási készlet kvóruma
+      url: concepts/quorum.md
 - title: Csatlakozás az Azure szolgáltatáshoz
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Azure-regisztráció kezelése
+      url: manage/manage-azure-registration.md
     - text: A Windows felügyeleti központ regisztrálása az Azure-ban
       url: manage/register-windows-admin-center.md
     - text: Az Azure Site Recovery használata
@@ -111,3 +127,21 @@ landingContent:
       url: manage/use-azure-network-adapter.md
     - text: Az Azure Backup használata
       url: manage/use-azure-backup.md
+- title: Szoftveralapú hálózatkezelés
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: A szoftveresen definiált hálózatkezelés (SDN) áttekintése
+      url: concepts/software-defined-networking.md
+    - text: SDN-infrastruktúra megtervezése
+      url: concepts/plan-software-defined-networking-infrastructure.md
+    - text: Hálózati vezérlő – áttekintés
+      url: concepts/network-controller-overview.md
+    - text: Hálózati vezérlő megtervezése
+      url: concepts/network-controller.md
+    - text: A szoftver Load Balancer áttekintése
+      url: concepts/software-load-balancer.md
+    - text: A RAS-átjáró áttekintése
+      url: concepts/gateway-overview.md
+    - text: Útvonal-tükrözés áttekintése
+      url: concepts/route-reflector-overview.md

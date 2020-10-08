@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815418"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853234"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
@@ -58,12 +58,12 @@ Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe a
 
 1. Az új virtuális gép áttekintéséhez válassza a **Virtual Machines** lehetőséget. Keresse meg a virtuális gép nevét, majd válassza ki a virtuális gépet a keresési eredmények között.
 
-![VIRTUÁLIS gép létrehozása – virtuális gép keresése](./media/azure-stack-quick-windows-portal/image7.png)
+:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="VIRTUÁLIS gép létrehozása – virtuális gép keresése" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
 Ha végzett a virtuális gép használatával, törölje a virtuális gépet és annak erőforrásait. Ehhez válassza ki az erőforráscsoportot a virtuális gép lapon, és válassza a **Törlés**lehetőséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

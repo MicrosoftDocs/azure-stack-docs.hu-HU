@@ -3,16 +3,16 @@ title: Az AK-motor hibáinak megoldása Azure Stack hub-on
 description: Ez a cikk a Azure Stack hub AK-motorjának hibaelhárítási lépéseit ismerteti.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729219"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853176"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor hibáinak megoldása Azure Stack hub-on
 
@@ -88,14 +88,27 @@ Emellett az AK-beli motor naplóiban az Kubernetes-összetevők állapot-és hib
 
 Ez a szkript automatizálja a következő naplók összegyűjtésének folyamatát: 
 
- - Microsoft Azure Linux Agent-(waagent-) naplók
- - Egyéni szkriptek bővítményének naplói
- - A Kube-rendszer tároló metaadatainak futtatása
- - Kube rendszerű tároló-naplók futtatása
- - Kubelet szolgáltatás állapota és naplója
- - Etcd szolgáltatás állapota és naplója
- - Gyűjtemény DVM naplói
- - Kube – rendszerpillanatkép
+- Naplófájlok a címtárban `/var/log/azure/`
+- Naplófájlok a könyvtárban `/var/log/kubeaudit` (Kube-naplók)
+- Naplófájl `/var/log/waagent.log` (waagent)
+- Naplófájl `/var/log/azure/deploy-script-dvm.log` (ha Azure stack hub Kubernetes-fürt Marketplace-eleme alapján van üzembe helyezve)
+- Statikus jegyzékfájlok a címtárban `/etc/kubernetes/manifests`
+- Statikus bővítmények a címtárban` /etc/kubernetes/addons`
+- Kube – rendszertárolók metaadatainak és naplói
+- kubelet állapota és naplója
+- etcd állapota és naplója
+- Docker-állapot és-napló
+- Kube – rendszerpillanatkép
+- Azure CNI konfigurációs fájljai
+
+A Windows-csomópontok néhány további naplót is beolvasnak:
+
+- Naplófájl `c:\Azure\CustomDataSetupScript.log`
+- Kube – proxy állapota és napló
+- a tároló állapota és naplója
+- Azure-vnet-napló és Azure-vnet-telemetria-napló
+- ETW-események a Docker számára
+- ETW-események a Hyper-V-ben
 
 A szkript nélkül a fürt mindegyik csomópontjára csatlakoznia kell, és manuálisan kell letöltenie a naplókat. Emellett a parancsfájl igény szerint feltöltheti az összegyűjtött naplókat egy olyan Storage-fiókba, amelyet a naplók másokkal való megosztásához használhat.
 

@@ -7,12 +7,12 @@ ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574006"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853210"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális hálózatán 
 
@@ -46,6 +46,13 @@ Hozzon létre egy új alhálózatot a virtuális hálózaton. Az alhálózati er
     ![virtuális hálózati CIDR blokk](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. Az alhálózat panelen jegyezze fel a címtartomány és a virtuális hálózat CIDR blokkját, például: `10.1.0.0 - 10.1.0.255 (256 addresses)` és `10.1.0.0/24` .
+
+## <a name="considerations-for-selecting-an-address-space"></a>Címterület kiválasztásának szempontjai
+
+Egyéni virtuális hálózat létrehozásakor meg kell adnia a hálózat IP-címét és egy IP-címtartományt minden alhálózathoz. Vegye figyelembe a következő tényezőket, amikor kiválasztja a Kubernetes-fürtben használandó címeket és tartományokat:
+-  Az átfedésben lévő címtartomány az IP-címek összeütközését vagy kommunikációs hibákat eredményezhet. Az átfedésben lévő IP-címek kockázatának csökkentése érdekében válasszon ki egy egyedi címtartományt az új virtuális hálózat számára.
+-  A és a tartományban lévő címtartomány `10.` `172.` gyakran a magánhálózatok esetében használatos, és a meglévő Datacenter-infrastruktúra is használhatja őket. Ha a Kubernetes-alkalmazásai erőforrásokat használnak az adatközpontban, csökkentse az összeütközések kockázatát úgy, hogy az Ön adatközpontjának címterület-beli egyéni virtuális hálózata számára kiválaszt egy címtartományt.
+-  Javasoljuk, hogy használjon dedikált alhálózatot a Kubernetes-fürthöz.
 
 ## <a name="get-the-ip-address-block"></a>Az IP-cím blokkjának beolvasása
 
@@ -142,7 +149,7 @@ A fürt üzembe helyezése után térjen vissza a virtuális hálózathoz a Azur
 > [!NOTE]  
 > A Kubernetes Windows-fürthöz tartozó egyéni virtuális hálózat [ismert hibával](https://github.com/Azure/aks-engine/issues/371)rendelkezik.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - További információ a [tárolók Azure monitoráról – áttekintés](/azure/azure-monitor/insights/container-insights-overview)

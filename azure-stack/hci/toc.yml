@@ -118,10 +118,12 @@
           href: concepts/quorum.md
     - name: Hálózat
       items:
-        - name: Szoftver által definiált hálózatkezelés
+        - name: Szoftveralapú hálózatkezelés (SDN)
           href: concepts/software-defined-networking.md
         - name: SDN-infrastruktúra megtervezése
           href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Hálózati vezérlő – áttekintés
+          href: concepts/network-controller-overview.md
         - name: Hálózati vezérlő megtervezése
           href: concepts/network-controller.md
     - name: Karbantartás és biztonság
@@ -166,7 +168,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Erőforrások
+- name: További források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'

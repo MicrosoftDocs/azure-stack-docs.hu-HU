@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573955"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853193"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -227,7 +227,23 @@ Győződjön meg arról, hogy a fürt ellenőrzéséhez üzembe helyezi a MySql-
     kubectl delete deployment -l app=redis
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="rotate-your-service-principle-secret"></a>A szolgáltatás elvének titkának elforgatása
+
+A Kubernetes-fürt az AK-motorral való üzembe helyezését követően az egyszerű szolgáltatásnév (SPN) az Azure Stack hub-példányon Azure Resource Managerekkel folytatott interakciók kezelésére szolgál. Egy adott pillanatban az egyszerű szolgáltatásnév titka lejárhat. Ha a titkos kód lejár, a hitelesítő adatokat az alábbiak szerint frissítheti:
+
+- Az egyes csomópontok frissítése az új egyszerű szolgáltatás titkos kódjával.
+- Az API-modell hitelesítő adatainak frissítése és a frissítés futtatása.
+
+### <a name="update-each-node-manually"></a>Az egyes csomópontok manuális frissítése
+
+1. Szerezzen be egy új titkot az egyszerű szolgáltatásnév számára a Felhőbeli operátorral. Az Azure Stack hub használatára vonatkozó utasításokért lásd: [alkalmazás-identitás használata Azure stack hub-erőforrások eléréséhez](/azure-stack/operator/azure-stack-create-service-principals).
+2. Használja a Felhőbeli kezelő által megadott új hitelesítő adatokat az `/etc/kubernetes/azure.json` egyes csomópontokon való frissítéshez. A frissítés elkészítése után indítsa újra a **kubelet** és a **Kube-Controller-Manager alkalmazást**.
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>A fürt frissítése az AK-Engine Update szolgáltatással
+
+Azt is megteheti, hogy lecseréli a hitelesítő adatokat a alkalmazásban, `apimodel.json` és a frissített JSON-val futtatja a frissítést a Kubernetes azonos vagy újabb verziójára. A modell frissítésével kapcsolatos útmutatásért lásd: [Kubernetes-fürt frissítése Azure stack hub-on](azure-stack-kubernetes-aks-engine-upgrade.md)
+
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor hibáinak megoldása Azure Stack hub-on](azure-stack-kubernetes-aks-engine-troubleshoot.md)

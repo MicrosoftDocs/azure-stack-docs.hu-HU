@@ -3,16 +3,16 @@ title: VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack
 description: A Azure Automation Azure Monitor for VMs, Update Management, Change Tracking és leltározási megoldásait használhatja a Azure Stack hub-ban üzembe helyezett Windows-és Linux-alapú virtuális gépek felügyeletéhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572442"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853261"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
@@ -83,7 +83,7 @@ Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális 
 
 2. Az Azure Stack hub-felhasználó-portálon nyissa meg a virtuális gépek bővítmények paneljét, amely számára engedélyezni szeretné ezeket a megoldásokat, kattintson a **+ Hozzáadás**gombra, jelölje ki az **Azure Update és a Configuration Management** bővítményt, majd kattintson a **Létrehozás**gombra:
 
-   [![Az "Azure Update and Configuration Management" párbeszédpanel tartalmaz magyarázó információkat, egy létrehozás gombot (kiemelve) a bővítmény hozzáadásához, valamint egy hivatkozást a további információkhoz.](media//vm-update-management/3-sm.PNG "Virtuálisgép-bővítmény panel")](media//vm-update-management/3-lg.PNG)
+    ![Az "Azure Update and Configuration Management" párbeszédpanel tartalmaz magyarázó információkat, egy létrehozás gombot (kiemelve) a bővítmény hozzáadásához, valamint egy hivatkozást a további információkhoz.](media//vm-update-management/3-sm.PNG "Virtuálisgép-bővítmény panel")
 
 3. Adja meg a korábban létrehozott munkaterület azonosítója és elsődleges kulcsot, hogy összekapcsolja az ügynököt a LogAnalytics munkaterülettel. Ezután kattintson az **OK** gombra a bővítmény telepítéséhez.
 
@@ -143,5 +143,5 @@ Ha a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Update Management engedélyezése Resource Manager-sablon használatával
 Ha nagyszámú Azure Stack hub virtuális gépet használ, a [Azure Resource Manager sablonnal](https://aka.ms/aa6zdzy) egyszerűbben telepítheti a megoldást a virtuális gépeken. A sablon telepíti a Microsoft monitoring Agent bővítményt egy meglévő Azure Stack hub virtuális gépre, és hozzáadja egy meglévő Azure LogAnalytics-munkaterülethez.
  
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [SQL Server VM teljesítmény optimalizálása](azure-stack-sql-server-vm-considerations.md)
