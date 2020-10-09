@@ -126,6 +126,12 @@
           href: concepts/network-controller-overview.md
         - name: Hálózati vezérlő megtervezése
           href: concepts/network-controller.md
+        - name: A szoftver Load Balancer áttekintése
+          href: concepts/software-load-balancer.md
+        - name: A RAS-átjáró áttekintése
+          href: concepts/gateway-overview.md
+        - name: Útvonal-tükrözés áttekintése
+          href: concepts/route-reflector-overview.md
     - name: Karbantartás és biztonság
       items:
         - name: Számlázás
