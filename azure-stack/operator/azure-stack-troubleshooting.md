@@ -8,12 +8,12 @@ ms.date: 07/21/2020
 ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778147"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899771"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -83,7 +83,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
-2. Futtassa az `test-azurestack` parancsot.
+2. A `test-azurestack` parancs futtatása.
 3. Lépjen ki a PEP-munkamenetből.
 4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott ERCS mappából szerezheti be `test-azurestack` .
@@ -226,5 +226,5 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 **OK**: a 2002-es frissítés megkísérlése során előfordulhat, hogy a frissítés sikertelen lesz, és a következő üzenet jelenik meg: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
 
-**Szervizelés**: [hozzon létre egy privát belső hálózatot](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network).
+**Szervizelés**: [hozzon létre egy privát belső hálózatot](./azure-stack-network.md?view=azs-2002#private-network).
 ::: moniker-end

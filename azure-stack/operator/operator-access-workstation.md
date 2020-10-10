@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230614"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899822"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -26,14 +26,14 @@ A következő táblázatok a OAW általános forgatókönyveit ismertetik, de ez
 
 |Forgatókönyv                                                                                                                          |Leírás                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[Hozzáférés az adminisztrációs portálhoz](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |Rendszergazdai műveletek végrehajtása                                                                           |
-|[A PEP elérése](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |Naplók gyűjtése és feltöltése:<br>-[SMB-megosztás létrehozása](#transfer-files-between-the-hlh-and-oaw) a HLH az Azure stack hub-ból való fájlátvitel céljából<br>– Azure Storage Explorer használata az SMB-megosztásba mentett naplók feltöltéséhez |
-|[Azure Stack hub regisztrálása](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |Az újbóli regisztráláshoz szerezze be a korábbi regisztrációs nevet és erőforráscsoportot az adminisztrációs portálról                               |
-|[Piactéri hírszolgáltatás](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |[Hozzon létre egy SMB-megosztást](#transfer-files-between-the-hlh-and-oaw) a HLH a letöltött rendszerkép vagy bővítmény tárolásához                                                        |
+|[Hozzáférés az adminisztrációs portálhoz](./azure-stack-manage-portals.md)                     |Rendszergazdai műveletek végrehajtása                                                                           |
+|[A PEP elérése](./azure-stack-privileged-endpoint.md)                                     |Naplók gyűjtése és feltöltése:<br>-[SMB-megosztás létrehozása](#transfer-files-between-the-hlh-and-oaw) a HLH az Azure stack hub-ból való fájlátvitel céljából<br>– Azure Storage Explorer használata az SMB-megosztásba mentett naplók feltöltéséhez |
+|[Azure Stack hub regisztrálása](./azure-stack-registration.md#renew-or-change-registration) |Az újbóli regisztráláshoz szerezze be a korábbi regisztrációs nevet és erőforráscsoportot az adminisztrációs portálról                               |
+|[Piactéri hírszolgáltatás](./azure-stack-download-azure-marketplace-item.md)            |[Hozzon létre egy SMB-megosztást](#transfer-files-between-the-hlh-and-oaw) a HLH a letöltött rendszerkép vagy bővítmény tárolásához                                                        |
 
 ## <a name="download-files"></a>Fájlok letöltése
 
-A OAW virtuális gép létrehozásához szükséges fájlok [**letöltéséhez töltse le**](https://aka.ms/OAWDownload)a következőt:. A letöltés előtt olvassa el a [Microsoft adatvédelmi nyilatkozatát](https://privacy.microsoft.com/privacystatement) és [jogi feltételeit](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) .
+A OAW virtuális gép létrehozásához szükséges fájlok [**letöltéséhez töltse le**](https://aka.ms/OAWDownload)a következőt:. A letöltés előtt olvassa el a [Microsoft adatvédelmi nyilatkozatát](https://privacy.microsoft.com/privacystatement) és [jogi feltételeit](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) .
 
 A megoldás állapot nélküli jellegéből adódóan nincsenek frissítések a OAW virtuális géphez. Minden egyes mérföldkő esetében a rendszer a virtuálisgép-lemezképfájl új verzióját fogja felszabadítani. A legújabb verzió használatával hozzon létre egy új OAW virtuális gépet. A képfájl a Windows Server 2019 legújabb verziójára épül. A telepítés után a Windows Update használatával frissítéseket alkalmazhat, beleértve a kritikus frissítéseket is. 
 
@@ -80,11 +80,11 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
 | Szoftver neve           | Hely                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [Microsoft Edge vállalatoknak](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
-| [Az modulok](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)                         | \[SystemDrive \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
+| [Az modulok](./powershell-install-az-module.md)                         | \[SystemDrive \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive \] \Program Files\PowerShell\7                                                                       |
-| [Azure parancssori felület (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Azure Command-Line felület (CLI)](/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive \] \Program Files (x86) \Microsoft Azure Storage Explorer                                                                       |
-| [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
+| [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – eszközök](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[SystemDrive \] \VMSoftware\AzureStack-Tools                                                    |
 
 ## <a name="check-hlh-version"></a>HLH verziójának keresése
@@ -96,7 +96,7 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
    'C:\Version\Get-Version.ps1'
    ```
 
-   Például:
+   Példa:
 
    ![Képernyőkép a PowerShell-parancsmagról a OAW virtuális gép verziójának vizsgálatához](./media/operator-access-workstation/check-hardware-lifecycle-host-version.png)
 
@@ -221,15 +221,15 @@ SkipNetworkConfiguration     | Választható | Kihagyja a virtuális gép háló
    'C:\Version\Get-Version.ps1'
    ```
 
-   Például:
+   Példa:
 
    ![A hardver életciklus-gazdagép verziójának ellenőrzését szolgáló PowerShell-parancsmag képernyőképe](./media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Fájlok átvitele a HLH és a OAW között
 
-Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Például:
+Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Példa:
 
-A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Például:
+A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Példa:
 
 ## <a name="remove-the-oaw-vm"></a>A OAW virtuális gép eltávolítása
 
@@ -246,7 +246,7 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
 
    Ahol az az \<name\> eltávolítandó virtuális gép neve. Alapértelmezés szerint a név **AzSOAW**.
 
-   Például:
+   Példa:
 
    ```powershell
    Remove-OAW.ps1 -VirtualMachineName AzSOAW

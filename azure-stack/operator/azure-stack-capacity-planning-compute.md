@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742502"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899754"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
 
@@ -91,7 +91,7 @@ Ha a visszafoglalt virtuális gép újraindul, a memóriahasználat vagy a fogla
 
 Az aktuálisan telepített nagyméretű virtuális gépek azt mutatják, hogy a lefoglalt memória 112 GB, de ezeknek a virtuális gépeknek a memória iránti igénye körülbelül 2-3 GB.
     
-| Name | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
+| Name (Név) | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
 | ---- | -------------------- | ------------------ | ------------ |                                        
 | ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
 | 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
@@ -116,7 +116,7 @@ A legnagyobb méretű virtuális gép méretének csökkentése a Stamp (24 GB) 
      
 ### <a name="add-a-node"></a>Csomópont hozzáadása
 
-[Azure stack hub-csomópont hozzáadásával](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) felszabadítja a memóriát a két csomópont közötti egyenlő elosztással.
+[Azure stack hub-csomópont hozzáadásával](./azure-stack-add-scale-node.md) felszabadítja a memóriát a két csomópont közötti egyenlő elosztással.
 
 ![Csomópont hozzáadása](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ Rugalmassági foglalás = 384 + (0,15) ((5) * 384) + 112 * (3) = 1008 GB
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>Növelje az egyes csomópontok memóriáját 512 GB-ra
 
-Az [egyes csomópontok memóriájának növelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) növeli a teljes rendelkezésre álló memóriát.
+Az [egyes csomópontok memóriájának növelése](./azure-stack-manage-storage-physical-memory-capacity.md) növeli a teljes rendelkezésre álló memóriát.
 
 ![A csomópont méretének növeléséhez](media/azure-stack-capacity-planning/increase-node-size.png)
 

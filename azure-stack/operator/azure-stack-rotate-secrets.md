@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 7a5135b9b6610e8ceeca4f4d3e34dca1f2aafc88
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847635"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899805"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Titkok elforgatása Azure Stack központban
 
@@ -116,7 +116,7 @@ A külső titkok elforgatásához hajtsa végre ezeket a további előfeltétele
 3. Biztonsági másolat készítése a biztonságos biztonsági mentési helyen történő elforgatáshoz használt tanúsítványokról. Ha az elforgatás fut, majd a művelet meghiúsul, cserélje le a fájlmegosztás tanúsítványait a biztonsági másolatokra a elforgatás újrafuttatása előtt. Tárolja a biztonsági másolatokat a biztonságos biztonsági mentési helyen.
 4. Hozzon létre egy fájlmegosztás, amely a ERCS virtuális gépekről érhető el. A fájlmegosztás legyen olvasható és írható a **CloudAdmin** -identitáshoz.
 5. Nyisson meg egy PowerShell ISE-konzolt egy olyan számítógépről, amelyhez hozzáféréssel rendelkezik a fájlmegosztás. Navigáljon a fájlmegosztás, ahol a külső tanúsítványok elhelyezésére szolgáló címtárakat hoz létre.
-6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** egy olyan hálózati fájlmegosztás számára, amely a rotációs folyamat során elérhető, és futtassa a parancsfájlt. A szkript létrehoz egy ***.\Certificates\AAD*** -vagy ***.\Certificates\ADFS***-alapú mappastruktúrát, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának a ** \\ certificates (tanúsítványok** ) mappával kell KEZDŐDNIE, amelyet csak egy ** \\ HRE** vagy ** \\ ADFS** -mappa követ. Az előző struktúrában az összes további alkönyvtár szerepel. Például:
+6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** egy olyan hálózati fájlmegosztás számára, amely a rotációs folyamat során elérhető, és futtassa a parancsfájlt. A szkript létrehoz egy ***.\Certificates\AAD*** -vagy ***.\Certificates\ADFS***-alapú mappastruktúrát, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának a ** \\ certificates (tanúsítványok** ) mappával kell KEZDŐDNIE, amelyet csak egy ** \\ HRE** vagy ** \\ ADFS** -mappa követ. Az előző struktúrában az összes további alkönyvtár szerepel. Példa:
     - Fájlmegosztás = **\\\\\<IPAddress>\\\<ShareName>**
     - Tanúsítvány gyökérkönyvtára az Azure AD-szolgáltatóhoz = ** \\ Certificates\AAD**
     - Teljes elérési út = ** \\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**
@@ -224,7 +224,7 @@ A belső titkos kód elforgatása csak akkor szükséges, ha azt gyanítja, hogy
 
 Hivatkozzon a PowerShell-szkriptre a [külső titkok elforgatása](#rotate-external-secrets)2. lépésében. A parancsfájl egy példát mutat be, amely a belső titkos elforgatáshoz alkalmazkodik azáltal, hogy néhány módosítást végrehajt a következő lépések végrehajtásához:
 
-1. A "titkos kód futtatása" szakaszban adja hozzá a `-Internal` (z) paramétert a [Start-SecretRotation parancsmaghoz](/azure-stack/reference/pep-2002/start-secretrotation), például:
+1. A "titkos kód futtatása" szakaszban adja hozzá a `-Internal` (z) paramétert a [Start-SecretRotation parancsmaghoz](../reference/pep-2002/start-secretrotation.md), például:
 
     ```powershell
     # Run Secret Rotation
@@ -310,7 +310,7 @@ A alaplapi-kezelő vezérlő figyeli a kiszolgálók fizikai állapotát. A BMC 
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>Hivatkozás: Start-SecretRotation parancsmag
 
-A [Start-SecretRotation parancsmag](/azure-stack/reference/pep-2002/start-secretrotation) egy Azure stack hub-rendszer infrastruktúra-titkait elforgatja. Ezt a parancsmagot csak az Azure Stack hub privilegizált végpontján lehet végrehajtani, egy parancsfájl-blokk használatával, amely a (z  `Invoke-Command` ) paraméterben a PEP-munkamenetet továbbítja `-Session` . Alapértelmezés szerint csak az összes külső hálózati infrastruktúra-végpont tanúsítványait forgatja.
+A [Start-SecretRotation parancsmag](../reference/pep-2002/start-secretrotation.md) egy Azure stack hub-rendszer infrastruktúra-titkait elforgatja. Ezt a parancsmagot csak az Azure Stack hub privilegizált végpontján lehet végrehajtani, egy parancsfájl-blokk használatával, amely a (z  `Invoke-Command` ) paraméterben a PEP-munkamenetet továbbítja `-Session` . Alapértelmezés szerint csak az összes külső hálózati infrastruktúra-végpont tanúsítványait forgatja.
 
 | Paraméter | Típus | Kötelező | Pozíció | Alapértelmezett | Leírás |
 |--|--|--|--|--|--|

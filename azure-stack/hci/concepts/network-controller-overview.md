@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/7/2020
-ms.openlocfilehash: 50c50b618da84597826a9aa2b2d2bf348ec5d53a
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.date: 10/8/2020
+ms.openlocfilehash: c207b436571d85d0902cd69a2168144e176919b1
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91848484"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893900"
 ---
 # <a name="what-is-network-controller"></a>Mi az a hálózati vezérlő?
 
@@ -48,11 +48,11 @@ A irányú API segítségével megadhatja a beérkező és a kimenő forgalomhoz
 
 ## <a name="software-load-balancer-management"></a>Szoftver-Load Balancer felügyelet
 
-A Hálózati vezérlő ezen funkciójával engedélyezheti, hogy több kiszolgáló dolgozza fel ugyanazt a munkaterhelést, ami magas rendelkezésre állást és méretezhetőséget biztosít. A szoftveres Load Balancer használatával konfigurálhatja és kezelheti a terheléselosztást, a bejövő hálózati címfordítást (NAT) és a kimenő hozzáférést az internethez a hagyományos VLAN-hálózatokhoz és virtuális hálózatokhoz kapcsolódó számítási feladatok esetében.
+A [szoftver Load Balancer](software-load-balancer.md) lehetővé teszi több kiszolgáló üzemeltetését ugyanazon számítási feladatok futtatásához, magas rendelkezésre állást és méretezhetőséget biztosítva. A szoftveres Load Balancer használatával konfigurálhatja és kezelheti a terheléselosztást, a bejövő hálózati címfordítást (NAT) és a kimenő hozzáférést az internethez a hagyományos VLAN-hálózatokhoz és virtuális hálózatokhoz kapcsolódó számítási feladatok esetében.
 
 ## <a name="gateway-management"></a>Átjárók kezelése
 
-Ez a hálózati vezérlő funkció lehetővé teszi olyan virtuális gépek telepítését, konfigurálását és kezelését, amelyek egy RAS Gateway-készlet tagjai, és amelyek külső hálózati kapcsolatot biztosítanak az ügyfelek munkaterheléséhez. Az átjárókkal a következő kapcsolódási típusok támogatottak a virtuális és a távoli hálózatok között:
+A [távelérési szolgáltatás (RAS) átjárója](gateway-overview.md) lehetővé teszi olyan virtuális gépek üzembe helyezését, konfigurálását és kezelését, amelyek egy átjáró-készlet tagjai, és amelyek külső hálózati kapcsolatot biztosítanak az ügyfelek munkaterheléséhez. Az átjárókkal a következő kapcsolódási típusok támogatottak a virtuális és a távoli hálózatok között:
 
 - Helyek közötti virtuális magánhálózati (VPN) átjáróval létesített kapcsolat IPsec használatával
 - Helyek közötti VPN Gateway-kapcsolat általános útválasztási beágyazás (GRE) használatával
@@ -82,4 +82,5 @@ A felhasználó által megadott útvonalakkal kapcsolatos további tudnivalóké
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [A hálózati vezérlő üzembe helyezésének megtervezése](network-controller.md)
+- [Hálózati vezérlő telepítése a Windows PowerShell használatával](../deploy/network-controller-powershell.md)
 - [SDN Azure Stack HCI-ben](software-defined-networking.md)

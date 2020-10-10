@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574227"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899839"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Graphics Processing Unit (GPU) virtuális gép (VM) Azure Stack hub-on
 
@@ -22,8 +22,8 @@ ms.locfileid: "90574227"
 Ebből a cikkből megtudhatja, hogy mely grafikus processzor-(GPU-) modellek támogatottak az Azure Stack hub többcsomópontos rendszeren. A GPU-k által használt illesztőprogramok telepítésével kapcsolatos utasításokat is megtalálhatja. Az Azure Stack hub GPU-támogatása olyan megoldásokat tesz lehetővé, mint például a mesterséges intelligencia, a képzés, a következtetések és az adatvizualizáció. Az AMD Radeon ösztön MI25 használható olyan grafikus igényű alkalmazások támogatásához, mint az Autodesk AutoCAD.
 
 Három GPU-modell közül választhat a nyilvános előzetes verzióban. Ezek az NVIDIA V100, az NVIDIA T4 és az AMD MI25 GPU-k számára érhetők el. Ezek a fizikai GPU-k az alábbi Azure N sorozatú virtuális gépek (VM) típusaihoz igazodnak:
-- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- [NCv3](/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - NCas_v4
 
 > [!IMPORTANT]  
@@ -73,7 +73,7 @@ A GPU-beli virtuális gépek az olyan műveletek során, mint a patch és a Upda
 ## <a name="guest-driver-installation"></a>Vendég illesztőprogram telepítése 
 
 ### <a name="amd-mi25"></a>AMD MI25
-A [Windows rendszert futtató N sorozatú virtuális gépeken az AMD GPU-illesztőprogramok telepítése](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) című cikk útmutatást nyújt az illesztőprogram telepítéséhez az AMD Radeon ösztön-MI25 a NVv4 GPU-P használatára képes virtuális gépen, valamint az illesztőprogramok telepítésének ellenőrzéséhez szükséges lépéseket. Ez a bővítmény csak csatlakoztatott módban működik.
+A [Windows rendszert futtató N sorozatú virtuális gépeken az AMD GPU-illesztőprogramok telepítése](/azure/virtual-machines/windows/n-series-amd-driver-setup) című cikk útmutatást nyújt az illesztőprogram telepítéséhez az AMD Radeon ösztön-MI25 a NVv4 GPU-P használatára képes virtuális gépen, valamint az illesztőprogramok telepítésének ellenőrzéséhez szükséges lépéseket. Ez a bővítmény csak csatlakoztatott módban működik.
 
 ### <a name="nvidia"></a>NVIDIA
 
@@ -83,4 +83,4 @@ Az NVIDIA CUDA-szárítókat és a GRID-illesztőprogramokat manuálisan kell te
 
 ## <a name="next-steps"></a>Következő lépések 
 
-[Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md) 
+[Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)

@@ -6,18 +6,18 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: c11aadf13c33482337a46b1d6e59bf5997f11fc5
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623183"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899703"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Az Azure Kubernetes szolgáltatás ismert problémái a Azure Stack HCI nyilvános előzetes verziójában
 Ez a cikk az Azure Kubernetes szolgáltatás nyilvános előzetes kiadásával kapcsolatos ismert problémákat ismerteti Azure Stack HCI-ben.
 
 ## <a name="recovering-from-a-failed-aks-on-azure-stack-hci-deployment"></a>Helyreállítás sikertelen AK-ról Azure Stack HCI üzemelő példányon
-Ha üzembe helyezési problémák léptek fel, vagy alaphelyzetbe szeretné állítani a telepítést, győződjön meg róla, hogy az uninstall-AksHci PowerShell felügyeleti ablakból való futtatása előtt bezárta az Azure Kubernetes Azure Stack szolgáltatáshoz kapcsolódó összes Windows felügyeleti központot.
+Ha üzembe helyezési problémák léptek fel, vagy alaphelyzetbe szeretné állítani a telepítést, győződjön meg róla, hogy az Azure Kubernetes szolgáltatáshoz kapcsolódó összes Windows felügyeleti központot lezárta Azure Stack HCI-ben, mielőtt a PowerShell felügyeleti ablakból futtatná Uninstall-AksHci.
 
 ## <a name="when-using-kubectl-to-delete-a-node-the-associated-vm-might-not-be-deleted"></a>Ha a kubectl használatával töröl egy csomópontot, előfordulhat, hogy a társított virtuális gép nem törlődik.
 Az alábbi lépéseket követve teljesítheti ezt a problémát:
@@ -37,11 +37,11 @@ A gMSA és az AD-hitelesítés működésének biztosítása érdekében győző
 Az Azure Kubernetes Service-t Azure Stack HCI-re telepítő felhasználóknak "teljes hozzáférés" engedéllyel kell rendelkezniük az AD-objektumok létrehozásához az Active Directory tárolóban, ahol a kiszolgáló és a szolgáltatás objektumai jönnek létre. 
 
 ## <a name="get-akshcilogs-command-may-fail"></a>A Get-AksHciLogs parancs sikertelen lehet
-Nagyméretű fürtök esetén a Get-AksHciLogs parancs kivételt okozhat, a csomópontok enumerálása nem sikerült, vagy nem fog c:\wssd\wssdlogs.zip kimeneti fájlt előállítani.
+Nagyméretű fürtök esetén a Get-AksHciLogs parancs kivételt okozhat, nem lehet enumerálni a csomópontokat, vagy nem fog c:\wssd\wssdlogs.zip kimeneti fájlt előállítani.
 Ennek az az oka, hogy a fájlok zip-fájljának a PowerShell-parancsa `Compress-Archive` 2 GB-os kimeneti fájlméretet tartalmaz. Ezt a problémát egy későbbi kiadásban rögzíti a rendszer.
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Az Azure Kubernetes Service PowerShell üzembe helyezése nem keres rendelkezésre álló memóriát az új célként megadott fürt létrehozása előtt
-Az AK-HCI PowerShell-parancsok nem ellenőrzik a gazdagép-kiszolgáló rendelkezésre álló memóriáját a Kubernetes-csomópontok létrehozása előtt. Ez a memória-kimerültség és a virtuális gépek elindításához vezethet. Ez a hiba jelenleg nincs megfelelően kezelve, és a központi telepítés nem válaszol egyértelmű hibaüzenet nélkül.
+A Kubernetes-csomópontok létrehozása előtt a Aks-Hci PowerShell-parancsok nem ellenőrzik a gazdagép-kiszolgáló rendelkezésre álló memóriáját. Ez a memória-kimerültség és a virtuális gépek elindításához vezethet. Ez a hiba jelenleg nincs megfelelően kezelve, és a központi telepítés nem válaszol egyértelmű hibaüzenet nélkül.
 Ha olyan központi telepítéssel rendelkezik, amely nem válaszol, nyissa meg `Eventviewer` és keresse meg a Hyper-V-vel kapcsolatos hibaüzeneteket, amelyek nem elegendő memóriát jeleznek a virtuális gép indításához.
 Ezt a problémát egy későbbi kiadásban rögzíti a rendszer
 
@@ -69,7 +69,7 @@ A Windows felügyeleti központ nem telepíti az Azure Kubernetes szolgáltatás
 Ezt a problémát egy későbbi kiadásban rögzíti a rendszer.
 
 ## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>A Windows felügyeleti központ csak asztali módban támogatja az Azure Kubernetes szolgáltatást Azure Stack HCI-hez
-Az előzetes verzióban a Azure Stack HCI funkció összes Azure Kubernetes szolgáltatása csak a Windows felügyeleti központ asztali üzemmódjában támogatott. A Windows felügyeleti központ átjáróját Windows 10 rendszerű számítógépre kell telepíteni. A Windows felügyeleti központ telepítési lehetőségeivel kapcsolatos további információkért látogasson el a [Windows felügyeleti központ dokumentációjában](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options). A későbbi kiadásokban a további forgatókönyvek is támogatottak lesznek.
+Az előzetes verzióban a Azure Stack HCI funkció összes Azure Kubernetes szolgáltatása csak a Windows felügyeleti központ asztali üzemmódjában támogatott. A Windows felügyeleti központ átjáróját Windows 10 rendszerű számítógépre kell telepíteni. A Windows felügyeleti központ telepítési lehetőségeivel kapcsolatos további információkért látogasson el a [Windows felügyeleti központ dokumentációjában](/windows-server/manage/windows-admin-center/plan/installation-options). A későbbi kiadásokban a további forgatókönyvek is támogatottak lesznek.
 
 ## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>Az Azure Kubernetes Service Host telepítése sikertelen a Windows felügyeleti központban, ha újraindításra van szükség
 Az Azure Kubernetes Service Host telepítővarázslója sikertelen lesz, ha egy vagy több használt kiszolgálót újra kell indítani a szerepkörök, például a PowerShell vagy a Hyper-V telepítéséhez. Az aktuális megkerülő megoldás a varázslóból való kilépés, majd a kiszolgálók online állapotba léptetése után próbálkozzon újra ugyanazon a rendszeren. Ezt a problémát egy későbbi kiadásban rögzíti a rendszer.

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019571"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899550"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Hálózati vezérlő telepítése a Windows PowerShell használatával
 
@@ -40,7 +40,7 @@ Ezzel az eljárással telepítheti a hálózati vezérlő kiszolgálói szerepk�
 A művelet végrehajtásához a **rendszergazdák** csoport tagjának kell lennie, vagy ezzel egyenértékű jogosultsággal kell rendelkeznie.  
 
 >[!NOTE]
->Ha a Windows PowerShell helyett a Kiszolgálókezelő eszközt szeretné használni a hálózati vezérlő telepítéséhez, tekintse meg [a hálózati vezérlő kiszolgálói szerepkör telepítése a Kiszolgálókezelő használatával](https://technet.microsoft.com/library/mt403348.aspx) című témakört.
+>Ha a Windows PowerShell helyett a Kiszolgálókezelő eszközt szeretné használni a hálózati vezérlő telepítéséhez, tekintse meg [a hálózati vezérlő kiszolgálói szerepkör telepítése a Kiszolgálókezelő használatával](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager) című témakört.
 
 A hálózati vezérlő telepítéséhez írja be a következő parancsokat:
 
@@ -77,7 +77,7 @@ A következő táblázat a parancs egyes paramétereinek leírásait tartalmazza
 
 |Paraméter|Leírás|
 |-------------|---------------|
-|Név|A **Name** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló rövid nevét.|
+|Name (Név)|A **Name** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló rövid nevét.|
 |Kiszolgáló|A **kiszolgáló** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló állomásnevét, teljes tartománynevét (FQDN) vagy IP-címét. Tartományhoz csatlakozó számítógépek esetén a teljes tartománynevet kötelező megadni.|
 |FaultDomain|A **FaultDomain** paraméter határozza meg a fürthöz hozzáadni kívánt kiszolgáló meghibásodási tartományát. Ez a paraméter határozza meg azokat a kiszolgálókat, amelyek a fürthöz hozzáadott kiszolgálóval megegyező időpontban is előfordulhatnak. Ez a hiba a megosztott fizikai függőségek, például az energiaellátási és hálózati források miatt lehet. A tartalék tartományok jellemzően az ezekkel a megosztott függőségekkel kapcsolatos hierarchiákat jelképezik, és több kiszolgáló is valószínű, hogy a tartalék tartomány fájának egy magasabb pontján fog működni. A futtatókörnyezet során a hálózati vezérlő a fürtben található tartalék tartományokat veszi figyelembe, és megkísérli kiosztani a hálózati vezérlő szolgáltatásait, hogy azok külön tartalék tartományokban legyenek. Ez a folyamat segít biztosítani, hogy egy tartalék tartomány meghibásodása esetén a szolgáltatás és az állapota ne legyen biztonságban. A tartalék tartományok hierarchikus formátumban vannak megadva. Például: "FD:/DC1/Rack1/Host1", ahol a DC1 az adatközpont neve, a Rack1 a rack neve, a Host1 pedig annak a gazdagépnek a neve, ahol a csomópont elhelyezve van.|
 |RestInterface|A **RestInterface** paraméter adja meg annak a csomópontnak a nevét, amelyen a reprezentációs állapot átvitele (REST) kommunikációja le van zárva. Ez a hálózati vezérlő felület fogadja a hálózat felügyeleti rétegének irányú API-kéréseit.|
@@ -186,17 +186,17 @@ A hálózati vezérlő üzembe helyezése után a PowerShell-parancsok használa
 
 A következő táblázat a feladatok végrehajtásához használható PowerShell-parancsok szintaxisát tartalmazza.
 
-|Feladat|Parancs|Szintaxis|
+|Feladat|Parancs|Syntax|
 |--------|-------|----------|
 |A hálózati vezérlő fürtjének beállításainak módosítása|Set-NetworkControllerCluster|`Set-NetworkControllerCluster [-ManagementSecurityGroup <string>][-Credential <PSCredential>] [-computerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Hálózati vezérlő alkalmazás beállításainak módosítása|Set-NetworkController|`Set-NetworkController [-ClientAuthentication <ClientAuthentication>] [-Credential <PSCredential>] [-ClientCertificateThumbprint <string[]>] [-ClientSecurityGroup <string>] [-ServerCertificate <X509Certificate2>] [-RestIPAddress <String>] [-ComputerName <String>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Hálózati vezérlő csomópont-beállításainak módosítása|Set-NetworkControllerNode|`Set-NetworkControllerNode -Name <string> > [-RestInterface <string>] [-NodeCertificate <X509Certificate2>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Hálózati vezérlő diagnosztikai beállításainak módosítása|Set-NetworkControllerDiagnostic|`Set-NetworkControllerDiagnostic [-LogScope <string>] [-DiagnosticLogLocation <string>] [-LogLocationCredential <PSCredential>] [-UseLocalLogLocation] >] [-LogLevel <loglevel>][-LogSizeLimitInMBs <uint32>] [-LogTimeLimitInDays <uint32>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|A hálózati vezérlő alkalmazás eltávolítása|Eltávolítás – NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
-|A hálózati vezérlő fürt eltávolítása|Eltávolítás – NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|A hálózati vezérlő alkalmazás eltávolítása|Uninstall-NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
+|A hálózati vezérlő fürt eltávolítása|Uninstall-NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Csomópont hozzáadása a hálózati vezérlő fürthöz|Add-NetworkControllerNode|`Add-NetworkControllerNode -FaultDomain <String> -Name <String> -RestInterface <String> -Server <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-NodeCertificate <X509Certificate2> ] [-PassThru] [-UseSsl]`
-|Hálózati vezérlő fürt csomópontjának letiltása|NetworkControllerNode letiltása|`Disable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
-|Hálózati vezérlő fürt csomópontjának engedélyezése|NetworkControllerNode engedélyezése|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
+|Hálózati vezérlő fürt csomópontjának letiltása|Disable-NetworkControllerNode|`Disable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
+|Hálózati vezérlő fürt csomópontjának engedélyezése|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Hálózati vezérlő csomópontjának eltávolítása fürtből|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
 További információ: a Windows PowerShell dokumentációja a hálózati vezérlőhöz: [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
@@ -218,4 +218,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>Következő lépések
 
-Ha nem a Kerberost használja a hálózati vezérlő üzembe helyezéséhez, telepítenie kell a tanúsítványokat. További információ: [üzembe helyezés utáni lépések a hálózati vezérlőhöz](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).
+Ha nem a Kerberost használja a hálózati vezérlő üzembe helyezéséhez, telepítenie kell a tanúsítványokat. További információ: [üzembe helyezés utáni lépések a hálózati vezérlőhöz](/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).

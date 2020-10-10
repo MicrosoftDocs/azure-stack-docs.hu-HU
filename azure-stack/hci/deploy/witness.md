@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 43d63e4e565a36c30837e2a8b460e0d73a35c0a5
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145536"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899516"
 ---
 # <a name="set-up-a-cluster-witness"></a>Tanúsító fürt beállítása
 
@@ -84,7 +84,7 @@ A Felhőbeli tanúsító mindig a **blobot** használja tárolási típusként. 
 
 A Azure Portal navigáljon a Storage-fiókjához, kattintson a **minden beállítás** elemre, majd kattintson a **Tulajdonságok** elemre a végponti URL-címek megtekintéséhez és másolásához.  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Felhőbeli tanúsító végpont URL-címe" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Felhőbeli tanúsító hozzáférési kulcsok" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Tanúsító beállítása a Windows PowerShell használatával
 
@@ -106,4 +106,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - A fürt kvórumával kapcsolatos további információkért lásd: [a fürt és a készlet Kvórumának ismertetése Azure stack HCI](../concepts/quorum.md)-ben.
 
-- Az Azure Storage-fiókok létrehozásával és kezelésével kapcsolatos további információkért lásd: [Tudnivalók az Azure Storage-fiókokról](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/).
+- Az Azure Storage-fiókok létrehozásával és kezelésével kapcsolatos további információkért lásd: [Tudnivalók az Azure Storage-fiókokról](/azure/storage/common/storage-account-create).

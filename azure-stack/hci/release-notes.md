@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/17/2020
-ms.openlocfilehash: 57aa49c075afad4f6ccb37802293424d8e0e309f
-ms.sourcegitcommit: c45f92186edf62b95b38d1020e0851dd54bc6536
+ms.openlocfilehash: ffa5f5149a3ddd681d20ae11b0aa79ec9fed29d0
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90765390"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899567"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
@@ -80,11 +80,11 @@ A karbantartási verem frissítései (SSU) módosítják a frissítések telepí
 ### <a name="file-information"></a>Fájl adatai
 Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1220) a 4577558-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv)letöltésével töltheti le.
 
-### <a name="references"></a>Referencia
+### <a name="references"></a>Hivatkozások
 
 A SSU kapcsolatos további információkért tekintse meg a következő cikkeket:
 
-- [Karbantartási verem frissítései](https://docs.microsoft.com/windows/deployment/update/servicing-stack-updates)
+- [Karbantartási verem frissítései](/windows/deployment/update/servicing-stack-updates)
 - [Karbantartási verem frissítései (SSU): gyakori kérdések](https://support.microsoft.com/help/4535697)
 
 Ismerje meg, hogy a Microsoft milyen [terminológiát](https://support.microsoft.com/help/824684) használ a szoftverfrissítések leírásához.

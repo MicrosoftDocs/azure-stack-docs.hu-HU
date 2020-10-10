@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/11/2020
-ms.openlocfilehash: 7d7eeaec5f82e08cf33a307f429389f03e712987
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045524"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899533"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Szoftveresen definiált hálózati infrastruktúra megtervezése
 
@@ -55,7 +55,7 @@ A DHCP-kiszolgálók automatikusan rendelhetnek IP-címeket a felügyeleti hál�
 | Ha...                                                    | Ezután...                                               |
 | :------------------------------------------------------- | :---------------------------------------------------- |
 | A logikai hálózatok VLAN-okat használnak,                          | a fizikai számítási gazdagépnek csatlakoznia kell egy olyan, a VLAN-hoz hozzáférő, kifelé irányuló kapcsoló porthoz. Fontos megjegyezni, hogy a gazdagépen található fizikai hálózati adapterek nem rendelkezhetnek aktív VLAN-szűréssel.|
-| Átváltott beágyazott összevonást (SET) használ, és több hálózati adapterrel (NIC) rendelkező csapattagtal (például hálózati adapterekkel) rendelkezik.| az adott gazdagéphez tartozó összes NIC-csapattagot ugyanahhoz a 2. rétegbeli szórási tartományhoz kell kötni.|
+| Switched-Embedded-összevonást (SET) használ, és több hálózati adapterrel (NIC) rendelkező csapattagtal (például hálózati adapterekkel) rendelkezik.| az adott gazdagéphez tartozó összes NIC-csapattagot ugyanahhoz a 2. rétegbeli szórási tartományhoz kell kötni.|
 | A fizikai számítási gazdagép további infrastruktúra-alapú virtuális gépeket, például hálózati vezérlőt, SLB/multiplexert (MUX) vagy átjárót futtat. | Győződjön meg arról, hogy a felügyeleti logikai hálózat megfelelő IP-címmel rendelkezik az egyes üzemeltetett virtuális gépekhez. Győződjön meg arról is, hogy a HNV-szolgáltató logikai hálózatának elegendő IP-címmel kell rendelkeznie az egyes SLB-/MUX-és átjáró-infrastruktúra virtuális gépekhez való lefoglaláshoz. Habár a hálózati vezérlő felügyeli az IP-foglalást, az új IP-cím nem érhető el, mert a szolgáltatás nem érhető el, ezért duplikált IP-címeket eredményezhet a hálózaton.|
 
 A Microsoft SDN-környezetekben található hálózatok virtualizálása érdekében a Hyper-V hálózati virtualizálási (HNV) szolgáltatással kapcsolatos információkért lásd: [Hyper-v hálózati virtualizálás](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization).
@@ -122,13 +122,13 @@ Az új *EncapOverhead* speciális adaptert támogató hálózati adapterek autom
 ### <a name="switches"></a>Switchek
 Ha a környezethez fizikai kapcsolót és útválasztót választ, győződjön meg arról, hogy az a következő funkciókat támogatja:
 - Switchport MTU-beállítások megadása \( kötelező\)
-- Az MTU értéke >= 1674 bájt, \( beleértve az L2-Ethernet fejlécet\)
+- Az MTU értéke >= 1674 bájt, \( beleértve a L2-Ethernet fejlécet\)
 - L3 protokollok \( szükségesek\)
 - Azonos árú, több útvonalos (ECMP) Útválasztás
 - BGP \( IETF RFC 4271- \) \- alapú ECMP
 
 A megvalósításoknak támogatniuk kell a következő IETF-szabványokban szereplő kötelező utasításokat:
-- RFC 2545: [BGP-4 többprotokollos bővítmények IPv6 tartományok közötti útválasztáshoz](https://tools.ietf.org/html/rfc2545)
+- RFC 2545: [BGP-4 többprotokollos bővítmény IPv6 Inter-Domain útválasztáshoz](https://tools.ietf.org/html/rfc2545)
 - RFC 4760: [többprotokollos bővítmények a BGP-4-hez](https://tools.ietf.org/html/rfc4760)
 - RFC 4893: [BGP-támogatás négy oktettnél](https://tools.ietf.org/html/rfc4893)
 - RFC 4456: [BGP Route Reflection: alternatíva a teljes Mesh belső BGP (IBGP)](https://tools.ietf.org/html/rfc4456)
@@ -175,7 +175,7 @@ Szerepkör|vCPU-követelmények|Memóriakövetelmények|Lemezkövetelmények|
 |RAS-átjáró<br> (három csomópont egy készlete<br> átjárók, két aktív, egy passzív)|8 vCPU|8 GB ajánlott|75 GB operációs rendszer meghajtója
 |RAS Gateway BGP-útválasztó<br> SLB/MUX-társítás esetén<br> (másik lehetőségként használja a ToR kapcsolót<br> BGP-útválasztóként)|2 vCPU|2 GB|75 GB operációs rendszer meghajtója|
 
-Ha System Center-Virtual Machine Manager (VMM)-t használ az üzembe helyezéshez, további infrastruktúra-virtuálisgép-erőforrások szükségesek a VMM és más nem SDN-infrastruktúrához. További információt a [System Center Virtual Machine Manager rendszerkövetelményei](https://docs.microsoft.com/system-center/vmm/system-requirements?view=sc-vmm-2019&preserve-view=true)című témakörben talál.
+Ha System Center-Virtual Machine Manager (VMM)-t használ az üzembe helyezéshez, további infrastruktúra-virtuálisgép-erőforrások szükségesek a VMM és más nem SDN-infrastruktúrához. További információt a [System Center Virtual Machine Manager rendszerkövetelményei](/system-center/vmm/system-requirements?preserve-view=true&view=sc-vmm-2019)című témakörben talál.
 
 ## <a name="extending-your-infrastructure"></a>Az infrastruktúra kiterjesztése
 Az infrastruktúra méretezési és erőforrás-követelményei az üzemeltetni kívánt bérlői munkaterhelés virtuális gépektől függenek. Az infrastruktúra-virtuális gépek CPU-, memória-és lemez-követelményeit (például: hálózati vezérlő, SLB, átjáró stb.) az előző táblázatban határozzák meg. Szükség esetén további infrastrukturális virtuális gépeket is hozzáadhat a méretezéshez. A Hyper-V-gazdagépeken futó összes bérlői virtuális gépnek azonban saját CPU-, memória-és lemez-követelményeit kell figyelembe vennie.
@@ -185,7 +185,7 @@ Ha a bérlői munkaterhelési virtuális gépek túl sok erőforrást használna
 ## <a name="phased-deployment"></a>Többfázisú üzembe helyezés
 A követelmények alapján előfordulhat, hogy az SDN-infrastruktúra egy részhalmazát kell telepítenie. Ha például csak az adatközpontban lévő ügyfél-munkaterheléseket szeretné üzemeltetni, és a külső kommunikációra nincs szükség, akkor telepítheti a hálózati vezérlőt, és kihagyhatja a SLB/MUX és az átjáró virtuális gépek üzembe helyezését. Az alábbi, az SDN-infrastruktúra többfázisú üzembe helyezésére vonatkozó infrastrukturális követelmények a következők.
 
-Funkció|Üzembe helyezésre vonatkozó követelmények|A hálózatra vonatkozó követelmények|
+Szolgáltatás|Üzembe helyezésre vonatkozó követelmények|A hálózatra vonatkozó követelmények|
 --------|-------------------------|-------------------------
 |Logikai hálózatok kezelése<br> Hozzáférés-vezérlési listák (ACL-ek) (VLAN-alapú hálózatokhoz)<br> Szolgáltatásminőség (QoS) (VLAN-alapú hálózatokhoz)<br>|Hálózati vezérlő|Nincsenek|
 |Virtuális hálózatkezelés<br> Felhasználó által megadott Útválasztás<br> ACL-ek (virtuális hálózathoz)<br> Titkosított alhálózatok<br> QoS (virtuális hálózatokhoz)<br> Virtuális hálózati társviszony|Hálózati vezérlő|HNV PA VLAN, alhálózat, útválasztó|
@@ -197,4 +197,4 @@ Funkció|Üzembe helyezésre vonatkozó követelmények|A hálózatra vonatkozó
 ## <a name="next-steps"></a>Következő lépések
 A kapcsolódó információkkal kapcsolatban lásd még:
 - [A hálózati vezérlő üzembe helyezésére vonatkozó követelmények](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)
-- [SDN Azure Stack HCI-ben](https://docs.microsoft.com/azure-stack/hci/concepts/software-defined-networking)
+- [SDN Azure Stack HCI-ben](./software-defined-networking.md)

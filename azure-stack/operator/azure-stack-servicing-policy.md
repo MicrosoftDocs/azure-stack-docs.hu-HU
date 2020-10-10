@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367257"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899788"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -47,9 +47,9 @@ A frissítések tervezésével és kezelésével, valamint az aktuális verzió 
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 2005 frissítése](/azure-stack/operator/release-notes?view=azs-2005)
-- [Azure Stack hub 2002 frissítése](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack hub 1910 frissítése](/azure-stack/operator/release-notes?view=azs-1910)
+- [Azure Stack hub 2005 frissítése](./release-notes.md?view=azs-2005)
+- [Azure Stack hub 2002 frissítése](./release-notes.md?view=azs-2002)
+- [Azure Stack hub 1910 frissítése](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
@@ -61,9 +61,9 @@ A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azu
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 2005 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Azure Stack hub 1910 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [Azure Stack hub 2005 gyorsjavítás](./release-notes.md?view=azs-2005#hotfixes)
+- [Azure Stack hub 2002 gyorsjavítás](./release-notes.md?view=azs-2002#hotfixes-1)
+- [Azure Stack hub 1910 gyorsjavítás](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
 

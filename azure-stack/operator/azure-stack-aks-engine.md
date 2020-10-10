@@ -7,19 +7,19 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717988"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899448"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
 Beállíthatja a felhasználók számára az Azure Kubernetes Services (ak) motorját. Adja hozzá a cikkben ismertetett elemeket az Azure Stack hubhoz. A felhasználók ezután egyetlen, koordinált műveletben telepíthetik a Kubernetes-fürtöt. Ez a cikk végigvezeti azokon a lépéseken, amelyekkel az AK-motor elérhetővé tehető a felhasználók számára a csatlakoztatott és a leválasztott környezetekben. Az KABAi motor a szolgáltatási elv identitása, valamint a piactéren, az egyéni szkriptek és az AK alapképétől függ. Az KABAi motorhoz a [Azure stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) -es vagy újabb verzióját kell használnia.
 
 > [!NOTE]  
-> A Azure Stack hub és az AK motor verziószámának leképezése az [AK-motor kibocsátási megjegyzései](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping)között található.
+> A Azure Stack hub és az AK motor verziószámának leképezése az [AK-motor kibocsátási megjegyzései](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)között található.
 
 ## <a name="check-your-users-service-offering"></a>A felhasználó szolgáltatási ajánlatának megkeresése
 

@@ -3,16 +3,16 @@ title: Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 description: Ismerje meg, hogyan adhat hozzá vagy távolíthat el egy egyéni virtuálisgép-rendszerképet Azure Stack hubhoz.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 10/09/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 26e93e019c0be7b5ef9d5f29b509407011083acd
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598497"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899482"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása és eltávolítása Azure Stack hubhoz
 
@@ -20,20 +20,19 @@ Azure Stack hub-ban operátorként hozzáadhat egyéni virtuálisgép-rendszerk�
 
 ## <a name="add-an-image"></a>Kép hozzáadása
 
-Az általánosított és speciális rendszerképek hozzáadására vonatkozó utasításokat a felhasználói útmutató **számítási** szakaszában találja. Létre kell hoznia egy általánosított rendszerképet, mielőtt a rendszerképet felkínálja a felhasználóknak. Útmutatásért lásd: [virtuális gép áthelyezése Azure stack hub-ra – áttekintés](/azure-stack/user/vm-move-overview). A bérlők számára elérhető rendszerképek létrehozásakor a felhasználói portál vagy a bérlői címtár végpontjai helyett a Azure Stack hub felügyeleti portált vagy a rendszergazdai végpontokat használja.
+Az általánosított és speciális rendszerképek hozzáadására vonatkozó utasításokat a felhasználói útmutató **számítási** szakaszában találja. Létre kell hoznia egy általánosított rendszerképet, mielőtt a rendszerképet felkínálja a felhasználóknak. Útmutatásért lásd: [virtuális gép áthelyezése Azure stack hub-ra – áttekintés](../user/vm-move-overview.md). A bérlők számára elérhető rendszerképek létrehozásakor a felhasználói portál vagy a bérlői címtár végpontjai helyett a Azure Stack hub felügyeleti portált vagy a rendszergazdai végpontokat használja.
 
 A képek elérhetővé tételéhez két lehetőség közül választhat:
 
 - **A rendszerkép csak Azure Resource Manager használatával érhető el**  
-  Ha a lemezképet a Azure stack hub felügyeleti portálon helyezi el a **számítási**  >  **lemezképekben**, az összes bérlő hozzáférhet a lemezképhez. A felhasználóknak azonban Azure Resource Manager sablont kell használniuk az eléréséhez. A Azure Stack hub piactéren nem jelenik meg.
+  Ha a lemezképet a Azure stack hub felügyeleti portálon keresztül adja hozzá a **számítási**  >  **lemezképekben**, az összes bérlő hozzáférhet a lemezképhez. A felhasználóknak azonban Azure Resource Manager sablont kell használniuk az eléréséhez. A Azure Stack hub piactéren nem jelenik meg.
 
 - **Rendszerkép nyújtása az Azure Stack hub piactéren**  
     Miután hozzáadta a rendszerképet a Azure Stack hub felügyeleti portálján, létrehozhat egy Piactéri ajánlatot. Útmutatásért lásd: [egyéni Azure stack hub Marketplace-elem létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md).
 
-
 ## <a name="add-a-platform-image"></a>Platform rendszerképének hozzáadása
 
-A platform rendszerképének Azure Stack hubhoz való hozzáadásához használja a Azure Stack hub felügyeleti portált vagy a végpontot a PowerShell használatával. Létre kell hoznia egy általánosított VHD-t. [A virtuális gép Átmozgatása Azure stack hub áttekintő](/azure-stack/user/vm-move-overview)utasításait tekintheti meg.
+Ha Azure Stack hubhoz szeretné hozzáadni a platformot, használja a Azure Stack hub felügyeleti portált vagy a végpontot a PowerShell használatával. Először létre kell hoznia egy általánosított virtuális merevlemezt. További információ: [virtuális gép áthelyezése Azure stack hub-ra – áttekintés](../user/vm-move-overview.md).
 
 ### <a name="portal"></a>[Portál](#tab/image-add-portal)
 
@@ -145,7 +144,9 @@ Ha el szeretné távolítani a virtuálisgép-rendszerképet Azure Stack hub-kez
      Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma ** \# . \# . \# **. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
 
      A **Remove-AzsPlatformImage** parancsmaggal kapcsolatos további információkért tekintse meg a Microsoft PowerShell [Azure stack hub kezelő moduljának dokumentációját](/powershell/azure/azure-stack/overview).
+
 ---
+
 ## <a name="next-steps"></a>Következő lépések
 
 - [Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)

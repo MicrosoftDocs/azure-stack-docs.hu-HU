@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609806"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936215"
 ---
 Feltöltheti a virtuális merevlemezt a portálon, vagy a portálon létrehozott tárolóval, a AzCopy használatával.
 
@@ -33,7 +33,7 @@ Feltöltheti a virtuális merevlemezt a portálon, vagy a portálon létrehozott
 
 A Azure Storage Explorer vagy a AzCopy használatával csökkentheti az esélyét, hogy a VHD-fájl sérült legyen a feltöltési folyamat során, és a feltöltés gyorsabb lesz. A következő lépések a AzCopy Windows 10-es gépen való használatát jelentik. Az AzCopy egy parancssori segédprogram, amellyel blobokat és fájlokat másolhat a tárfiókok között.
 
-1. Ha nincs telepítve a AzCopy, telepítse a AzCopy. Az útmutató a letöltéshez és az első lépések a AzCopy című cikkben talál útmutatást a [AzCopy megismeréséhez](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10). Jegyezze fel, hogy hol tárolja a bináris fájlt. Az [elérési úthoz AzCopy adhat hozzá](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) a PowerShell parancssorból.
+1. Ha nincs telepítve a AzCopy, telepítse a AzCopy. Az útmutató a letöltéshez és az első lépések a AzCopy című cikkben talál útmutatást a [AzCopy megismeréséhez](/azure/storage/common/storage-use-azcopy-v10). Jegyezze fel, hogy hol tárolja a bináris fájlt. Az [elérési úthoz AzCopy adhat hozzá](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) a PowerShell parancssorból.
 
 2. Nyissa meg a PowerShellt a AzCopy a rendszerhéjból való használatához.
 
@@ -47,4 +47,4 @@ A Azure Storage Explorer vagy a AzCopy használatával csökkentheti az esélyé
 > [!NOTE]  
 > Töltse fel a VHD-t úgy, hogy az egy fájlnak a virtuális könyvtárba való feltöltéséhez hasonló szintaxist használjon. A Hozzáadás `--blob-type=PageBlob` gombra kattintva győződjön meg róla, hogy a VHD-t **oldal blobként**töltötte fel, nem **pedig** alapértelmezés szerint.
 
-További információ a AzCopy és az egyéb tárolási eszközök használatáról: az [adatátviteli eszközök használata Azure stack hub Storage-ban](/azure-stack/user/azure-stack-storage-transfer).
+További információ a AzCopy és az egyéb tárolási eszközök használatáról: az [adatátviteli eszközök használata Azure stack hub Storage-ban](../user/azure-stack-storage-transfer.md).
