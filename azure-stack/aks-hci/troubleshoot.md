@@ -5,21 +5,21 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 262648ce8c7d6c94fb7f9b55deaa5f78b7c5fb56
-ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
+ms.openlocfilehash: eaa5879f0e8cd00f43a37247f03f7ce09ecdb78c
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893917"
+ms.locfileid: "91899618"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes szolgáltatás hibaelhárítása Azure Stack HCI-ben
 
 Ha Kubernetes-fürtöt hoz létre vagy kezel az Azure Kubernetes Service használatával Azure Stack HCI-n, időnként problémákba ütközhet. Ez a cikk a problémák megoldásához segítséget nyújtó hibaelhárítási irányelveket tartalmaz.
 
 ## <a name="troubleshooting-azure-stack-hci"></a>Azure Stack HCI hibaelhárítása
-A hálózati és tárolási QoS (szolgáltatásminőség) beállításainak a Azure Stack HCI-fürtben lévő kiszolgálókon történő ellenőrzésével kapcsolatos hibák megoldásához, és ellenőrizze, hogy a fontos szabályok meg vannak-e határozva. lásd: a [fürt ellenőrzési jelentéskészítésének hibája](/azure-stack/hci/manage/validate-qos).
+A hálózati és tárolási QoS (szolgáltatásminőség) beállításainak a Azure Stack HCI-fürtben lévő kiszolgálókon történő ellenőrzésével kapcsolatos hibák megoldásához, és ellenőrizze, hogy a fontos szabályok meg vannak-e határozva. lásd: a [fürt ellenőrzési jelentéskészítésének hibája](../hci/manage/validate-qos.md).
 
-A CredSSP hibaelhárításával kapcsolatos további tudnivalókért lásd: [CredSSP hibaelhárítása](/azure-stack/hci/manage/troubleshoot-credssp).
+A CredSSP hibaelhárításával kapcsolatos további tudnivalókért lásd: [CredSSP hibaelhárítása](../hci/manage/troubleshoot-credssp.md).
 
 ## <a name="troubleshooting-windows-admin-center"></a>A Windows felügyeleti központ hibaelhárítása
 Ez a termék nyilvános előzetes verzióban érhető el, ami azt jelenti, hogy még fejlesztés alatt áll. Jelenleg vannak problémák a Windows felügyeleti központ Azure Kubernetes Service bővítménnyel: 
