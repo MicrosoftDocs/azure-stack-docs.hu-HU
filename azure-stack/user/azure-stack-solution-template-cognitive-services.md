@@ -3,16 +3,16 @@ title: Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 description: Ismerje meg, hogyan helyezheti üzembe az Azure Cognitive Servicest a Azure Stack hub szolgáltatásban.
 author: mattbriggs
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/09/2020
+ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
+ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920627"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952406"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
@@ -22,8 +22,16 @@ A tárolókra bontás olyan szoftverterjesztési módszer, amelyben egy alkalmaz
 
 A tárolók támogatása jelenleg az Azure Cognitive Services egy részhalmaza számára érhető el:
 
-- Language Understanding
-- Text Analytics (hangulat 3,0)
+- **Speech**
+    - Szöveg – beszéd (standard)
+    - Szöveg – beszéd (egyéni)
+    - Szöveg – beszéd (standard)
+- **Language**
+    - Hangfelismerés
+    - Text Analytics (hangulat elemzése)
+- **Döntés**
+    - Anomália detektor
+
 
 > [!IMPORTANT]
 > A Azure Stack hub-hoz készült Azure Cognitive Services egy részhalmaza jelenleg nyilvános előzetes verzióban érhető el.
@@ -31,13 +39,17 @@ A tárolók támogatása jelenleg az Azure Cognitive Services egy részhalmaza s
 
 A tárolók támogatása jelenleg nyilvános előzetes verzióban érhető el az Azure Cognitive Services egy részhalmaza számára:
 
-- Olvasás (optikai karakterfelismerés \[ OCR-je])
-- Kulcskifejezések kinyerése
-- Nyelvfelismerés
-- Anomália detektor
-- Űrlap-felismerő
-- Beszéd – szöveg (egyéni, standard)
-- Szöveg – beszéd (egyéni, standard)
+- **Számítógép jövőképe**
+    - Olvasási 3,0, olvasás 3,1
+    - Térbeli elemzés (új)
+- **Language**
+    - Kulcskifejezések kinyerése
+    - Nyelvfelismerés
+    - Szöveges elemzés az állapothoz
+- **Speech**
+    - Beszédfelismerés nyelvének észlelése
+    - Neurális TTS
+    - Szöveg – beszéd (egyéni)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Tárolók használata Cognitive Services Azure Stack hub-on
 
@@ -53,7 +65,7 @@ A tárolók támogatása jelenleg nyilvános előzetes verzióban érhető el az
 - **Magas feldolgozási sebesség és kis késés**  
    Adja meg az alkalmazás felhasználóinak, hogy a nagy átviteli sebesség és az alacsony késés érdekében a forgalomban lévő tüskékkel méretezhetők legyenek. A Cognitive Services az Azure Kubernetes szolgáltatásban való futtatásának engedélyezése fizikailag az alkalmazás logikája és az adatkezelés érdekében.
 
-Az Azure Stack hub-ban a magas rendelkezésre állás és a rugalmas skálázás érdekében helyezzen üzembe Cognitive Services tárolókat egy Kubernetes-fürtön, valamint az alkalmazás-tárolókat. A kognitív szolgáltatásokat a App Services, a functions, a blob Storage, az SQL vagy a mySQL-adatbázisokra épülő összetevőkkel kombinálva fejlesztheti alkalmazásait.
+Az Azure Stack hub-ban a magas rendelkezésre állás és a rugalmas skálázás érdekében helyezzen üzembe Cognitive Services tárolókat egy Kubernetes-fürtön, valamint az alkalmazás-tárolókat. A kognitív szolgáltatásokat a App Services, a functions, a blob Storage, az SQL vagy a MySQL-adatbázisokra épülő összetevőkkel kombinálva fejlesztheti alkalmazásait.
 
 A Cognitive Services tárolókkal kapcsolatos további információkért nyissa meg a [tárolók támogatása az Azure-ban Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
@@ -71,7 +83,7 @@ A Kezdés előtt a következőket kell tennie:
 
 ## <a name="create-azure-resources"></a>Azure-erőforrások létrehozása
 
-Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, LUIS vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
+Hozzon létre egy kognitív szolgáltatási erőforrást az Azure-ban a Face, Language Understanding (LUIS) vagy szövegfelismerés tárolók előzetes verziójának megtekintéséhez. Az erőforrásból az előfizetési kulcs és a végpont URL-címét kell használnia a kognitív szolgáltatás tárolóinak létrehozásához.
 
 1. Hozzon létre egy Azure-erőforrást a Azure Portal. Ha szeretné megtekinteni a Face containers-t, először létre kell hoznia egy megfelelő arc-erőforrást a Azure Portal. További információ: gyors útmutató [: Cognitive Services fiók létrehozása a Azure Portalban](/azure/cognitive-services/cognitive-services-apis-create-account).
 
@@ -232,7 +244,7 @@ print(faces)
 
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Computer Vision API tárolók telepítése és futtatása.](/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
