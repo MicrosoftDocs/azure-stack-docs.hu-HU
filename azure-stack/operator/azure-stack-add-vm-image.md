@@ -3,16 +3,16 @@ title: Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 description: Ismerje meg, hogyan adhat hozzá vagy távolíthat el egy egyéni virtuálisgép-rendszerképet Azure Stack hubhoz.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 5cb138865ec9a1bb9b55996a3b49c1b33e8103db
+ms.sourcegitcommit: 721727013119a830a9d341d373d494dcb2cffcae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899482"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91980411"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása és eltávolítása Azure Stack hubhoz
 
@@ -38,13 +38,19 @@ Ha Azure Stack hubhoz szeretné hozzáadni a platformot, használja a Azure Stac
 
 Adja hozzá a virtuálisgép-rendszerképet Azure Stack hub-operátorként a portál használatával.
 
-1. Jelentkezzen be Azure Stack hubhoz operátorként. A menüben válassza a **minden szolgáltatás**  >  **számítási**  >  **lemezképek**  >  **Hozzáadás**lehetőséget.
+1. Jelentkezzen be Azure Stack hubhoz operátorként. Válassza ki az **irányítópultot** a bal oldali navigációs sávon.
 
-   ![Virtuálisgép-rendszerkép hozzáadása](./media/azure-stack-add-vm-image/tca4.png)
+2. Az **erőforrás-szolgáltatók** listában válassza a **számítás**lehetőséget.
+
+   [![Számítás kiválasztása](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
+
+3. Válassza a virtuálisgép- **rendszerképek**lehetőséget, majd válassza a **Hozzáadás**lehetőséget.
+
+   [![Virtuálisgép-rendszerkép hozzáadása](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
 2. A **rendszerkép létrehozása**területen adja meg a **közzétevőt**, az **ajánlatot**, az **SKU**-t, a **verziót**és az operációsrendszer-lemez blob URI-ját. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
 
-   ![Egyéni rendszerkép közvetlen telepítési felhasználói felülete](./media/azure-stack-add-vm-image/tca5.png)
+   [![Egyéni rendszerkép közvetlen telepítési felhasználói felülete](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota **sikeresre**változik.
 
