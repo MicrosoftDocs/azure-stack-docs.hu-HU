@@ -7,12 +7,12 @@ ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 5cb138865ec9a1bb9b55996a3b49c1b33e8103db
-ms.sourcegitcommit: 721727013119a830a9d341d373d494dcb2cffcae
+ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91980411"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060123"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása és eltávolítása Azure Stack hubhoz
 
@@ -48,13 +48,13 @@ Adja hozzá a virtuálisgép-rendszerképet Azure Stack hub-operátorként a por
 
    [![Virtuálisgép-rendszerkép hozzáadása](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-2. A **rendszerkép létrehozása**területen adja meg a **közzétevőt**, az **ajánlatot**, az **SKU**-t, a **verziót**és az operációsrendszer-lemez blob URI-ját. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
+4. A **rendszerkép létrehozása**területen adja meg a **közzétevőt**, az **ajánlatot**, az **SKU**-t, a **verziót**és az operációsrendszer-lemez blob URI-ját. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
 
    [![Egyéni rendszerkép közvetlen telepítési felhasználói felülete](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota **sikeresre**változik.
 
-3. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
+5. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 

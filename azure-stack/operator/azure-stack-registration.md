@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
-ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
+ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90038828"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060184"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -165,7 +165,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
       -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
-   A set-AzsRegistration parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
+   További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
 
    A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik a **"saját környezet regisztrálása és aktiválása a megadott paraméterek használatával** " üzenet.
 
@@ -217,7 +217,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    > [!Note]  
    > A **set-AzsRegistration** parancsmag UsageReportingEnabled paraméterével letilthatja a használati jelentéskészítést úgy, hogy a paraméter hamis értékre van állítva. 
    
-   A set-AzsRegistration parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
+   További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -239,7 +239,7 @@ Ha Azure Stack központot regisztrál egy leválasztott környezetben (internetk
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   A Get-AzsRegistrationToken parancsmaggal kapcsolatos további információkért lásd: [regisztrációs hivatkozás](#registration-reference).
+   További információ a Get-AzsRegistrationToken parancsmagról: [regisztrációs hivatkozás](#registration-reference).
 
    > [!Tip]  
    > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
@@ -375,7 +375,7 @@ Ha módosítani szeretné a használt előfizetést, először futtatnia kell a 
   # switch to new subscription id
   Select-AzureRmSubscription -Subscription '<New subscription ID>'
   # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>A számlázási modell módosítása, a szolgáltatások felkínálása vagy a példány újbóli regisztrálása
@@ -507,7 +507,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-A Get-AzsRegistrationToken regisztrációs jogkivonatot hoz létre a bemeneti paraméterekből.
+Get-AzsRegistrationToken regisztrációs tokent hoz létre a bemeneti paraméterekből.
 
 ```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
