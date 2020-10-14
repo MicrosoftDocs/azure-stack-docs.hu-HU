@@ -8,7 +8,7 @@
       href: known-issues.md
     - name: Kibocsátási megjegyzések
       href: release-notes.md
-- name: Bevezetés
+- name: Első lépések
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
       href: get-started.md
@@ -98,7 +98,7 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
-- name: Alapelvek
+- name: Fogalmak
   items:
     - name: Tárolás és fürtök
       items:
@@ -116,8 +116,10 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
+        - name: Gazdagép hálózatkezelésének megtervezése
+          href: concepts/plan-host-networking.md
         - name: Szoftveralapú hálózatkezelés (SDN)
           href: concepts/software-defined-networking.md
         - name: SDN-infrastruktúra megtervezése
@@ -174,7 +176,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
