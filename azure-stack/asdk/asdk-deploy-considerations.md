@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
+ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106958"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082088"
 ---
 # <a name="asdk-requirements-and-considerations"></a>A ASDK követelményei és szempontjai
 
@@ -108,7 +108,7 @@ Az üzembe helyezést követően az Azure AD globális rendszergazdai engedélye
 ### <a name="switch"></a>Kapcsoló (switch)
 Egy elérhető port egy kapcsolón a ASDK gép számára.  
 
-A ASDK-gép támogatja a csatlakozást egy kapcsoló hozzáférési portjához vagy a Trunk portjához. A kapcsoló esetében nem szükségesek speciális jellemzők. Ha Trunk-portot használ, vagy ha VLAN-azonosítót kell konfigurálnia, a VLAN-azonosítót a telepítési paraméterként kell megadnia.
+A ASDK-gép támogatja a csatlakozást egy kapcsoló hozzáférési portjához vagy a Trunk portjához. A kapcsoló esetében nem szükségesek speciális jellemzők.
 
 ### <a name="subnet"></a>Alhálózat
 Ne kapcsolja a ASDK gépet a következő alhálózatokhoz:
@@ -129,7 +129,7 @@ Kizárólag az IPv4 használata támogatott. Nem hozhat létre IPv6-hálózatoka
 Ellenőrizze, hogy van-e olyan DHCP-kiszolgáló a hálózaton, amelyhez a hálózati adapter csatlakozik. Ha a DHCP nem érhető el, egy további, a gazdagép által használt statikus IPv4-hálózatot kell előkészítenie. Üzembehelyezési paraméterként meg kell adnia azt az IP-címet és átjárót.
 
 ### <a name="internet-access"></a>Internet-hozzáférés
-Azure Stack az internet elérését igényli közvetlenül vagy transzparens proxyn keresztül. A Azure Stack nem támogatja a webproxyk konfigurálását az Internet-hozzáférés engedélyezéséhez. A gazdagép IP-címének és az AzS-BGPNAT01 (DHCP vagy statikus IP-cím) által hozzárendelt új IP-nek is képesnek kell lennie az internet elérésére. A 80-es és a 443-es portok a graph.windows.net és a login.microsoftonline.com tartományok alatt használatosak.
+Azure Stack az internet elérését igényli közvetlenül vagy transzparens proxyn keresztül. A Azure Stack nem támogatja a webproxyk konfigurálását az Internet-hozzáférés engedélyezéséhez. A 80-es és a 443-es portok a graph.windows.net és a login.microsoftonline.com tartományok alatt használatosak.
 
 
 ## <a name="next-steps"></a>Következő lépések
