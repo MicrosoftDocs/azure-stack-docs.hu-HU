@@ -6,19 +6,22 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 09/11/2020
-ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.date: 10/16/2020
+ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899533"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157682"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Szoftveresen definiált hálózati infrastruktúra megtervezése
 
 >A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server (féléves csatorna), Windows Server 2016
 
 A szoftveres hálózati (SDN) infrastruktúra központi telepítésének megtervezése, beleértve a hardver-és szoftver-előfeltételeket. Ez a témakör a fizikai és logikai hálózati konfiguráció, az Útválasztás, az átjárók, a hálózati hardverek és egyebek tervezési követelményeit tartalmazza. Emellett az SDN-infrastruktúra kiterjesztésére és a többfázisú üzembe helyezésre vonatkozó megfontolásokat is tartalmaz.
+
+   > [!NOTE]
+   > Az SDN nem támogatott a kiterjesztett (többhelyes) fürtökön.
 
 ## <a name="prerequisites"></a>Előfeltételek
 Az SDN-infrastruktúra több hardver-és szoftver-előfeltételt is magában foglal, beleértve a következőket:
@@ -150,7 +153,7 @@ A következő elemek biztosítják a rendelkezésre állást és a redundanciát
 ### <a name="switch-configuration-examples"></a>Kapcsolók konfigurációs példái
 A fizikai kapcsoló vagy útválasztó konfigurálásának elősegítése érdekében a [Microsoft Sdn GitHub-tárházban](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)számos különböző kapcsoló modellhez és szállítóhoz tartozó konfigurációs fájl is elérhető. A megadott kapcsolókhoz tartozó részletes readme és tesztelt parancssori felületi (CLI) parancsok is elérhetők.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Számítás
 Minden Hyper-V-gazdagépen telepítve kell lennie a megfelelő operációs rendszernek, engedélyezni kell a Hyper-V-t, és egy külső Hyper-V virtuális kapcsolót kell használnia legalább egy, a felügyeleti logikai hálózathoz csatlakoztatott fizikai adapterrel. A gazdagépnek elérhetőnek kell lennie a felügyeleti gazdagép vNIC rendelt felügyeleti IP-címen keresztül.
 
 A Hyper-V, a Shared vagy a local szolgáltatással kompatibilis tárolási típusokat is használhat.

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/29/2020
-ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/16/2020
+ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572653"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157665"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
 
@@ -23,6 +23,9 @@ A szoftveresen definiált hálózatkezelés (SDN) lehetővé teszi a hálózatok
 A virtuális hálózati elemek, például a [Hyper-v virtuális kapcsoló](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), a [Hyper-v hálózati virtualizálás](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), a [szoftveres](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)terheléselosztás és a [RAS-átjáró](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) az Sdn-infrastruktúra szerves elemeivé vannak kialakítva. Meglévő SDN-kompatibilis eszközeit is használhatja a virtuális hálózatokban és a fizikai hálózaton futó munkaterhelések közötti mélyebb integráció eléréséhez.
 
 A Azure Stack HCI három fő SDN-összetevővel rendelkezik, és kiválaszthatja, hogy melyik szolgáltatást szeretné telepíteni: hálózati vezérlő, szoftveres Load Balancer és átjáró.
+
+   > [!NOTE]
+   > Az SDN nem támogatott a kiterjesztett (többhelyes) fürtökön.
 
 ## <a name="network-controller"></a>Hálózati vezérlő
 
@@ -51,7 +54,7 @@ Az átjárók a virtuális hálózat és egy másik hálózat (helyi vagy távol
 
 Az átjárók [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a GRE-végpontok reklámozására és pont-pont típusú kapcsolatok létrehozására szolgálnak. Az SDN üzembe helyezése egy alapértelmezett átjárót hoz létre, amely támogatja az összes kapcsolattípust. Ebben a készletben megadhatja, hogy hány átjáró legyen lefoglalva készenléti állapotban, ha egy aktív átjáró meghibásodik.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 

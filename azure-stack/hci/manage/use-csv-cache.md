@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/04/2020
-ms.openlocfilehash: 84d5292c3f812402027b310954a021752276a799
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.date: 10/16/2020
+ms.openlocfilehash: 47bfa8c656a2581c9dc125b1bd99379b9012e448
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493801"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157631"
 ---
 # <a name="use-the-csv-in-memory-read-cache-with-azure-stack-hci"></a>A CSV memóriában tárolt olvasási gyorsítótár használata Azure Stack HCI használatával
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör azt ismerteti, hogyan használható a rendszermemória a Azure Stack HCI teljesítményének növelésére.
+Ez a témakör azt ismerteti, hogyan használható a rendszermemória a Azure Stack HCI teljesítményének növelésére a gyakori olvasások gyorsítótárazásával. Az írásokat nem lehet gyorsítótárazni a memóriában.
 
 Azure Stack HCI kompatibilis a Fürt megosztott kötete (CSV) memóriában tárolt olvasási gyorsítótárral. A rendszermemória a gyorsítótárba történő olvasásával javíthatja a teljesítményt olyan alkalmazások esetében, mint például a Hyper-V, amely nem pufferelt I/O-t használ a VHD-vagy VHDX-fájlok eléréséhez. (A nem pufferelt I/o-műveletek minden olyan művelet, amelyet a Windows cache Manager nem gyorsítótáraz.)
 
@@ -44,6 +44,8 @@ A memóriában tárolt CSV-olvasási gyorsítótár a Azure Stack HCI, a Windows
 | Azure Stack HCI     | 1 GiB                  |
 | Windows Server 2019 | 1 GiB                  |
 | Windows Server 2016 | 0 (letiltva)           |
+
+A gyorsítótár Windows felügyeleti központon keresztüli konfigurálásához válassza a bal oldali **eszközök** menü alján található **Beállítások** elemet. Ezután lépjen a **Storage > memóriában tárolt gyorsítótárba**. A jelölőnégyzet bejelölésével engedélyezheti vagy letilthatja a gyorsítótárat, valamint megadhatja a gyorsítótár számára lefoglalt maximális memóriát is. A módosítások végrehajtása után kattintson a lap alján található **Mentés** gombra.
 
 Ha szeretné megtekinteni, hogy mennyi memóriát foglal le a PowerShell használatával, futtassa a következőt:
 

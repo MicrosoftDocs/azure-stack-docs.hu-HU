@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 1bea13f3ba7b9e210c52ac9cffc32c7d8e4a79c6
+ms.sourcegitcommit: 82a8ddbf474a28cd551e86a69e0c41a624e0be2a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116181"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -142,7 +142,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.13.68](https://support.microsoft.com/help/4583399)
+- [Azure Stack hub gyorsjavítási 1.2005.18.78](https://support.microsoft.com/help/4584238)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

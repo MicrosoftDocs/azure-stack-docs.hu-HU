@@ -3,24 +3,26 @@ title: Hálózati vezérlő telepítése a Windows PowerShell használatával
 description: Útmutató a hálózati vezérlő üzembe helyezéséhez a Windows PowerShell használatával
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: e53206ae6ae5039d00cbe4bf82b6fb5b773a5270
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899550"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157648"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Hálózati vezérlő telepítése a Windows PowerShell használatával
 
 > A Azure Stack HCI 20H2; verzióra vonatkozik. Windows Server 2019
 
-Ez a témakör azt ismerteti, hogyan lehet a Windows PowerShell használatával hálózati vezérlőt telepíteni egy vagy több Azure Stack HCI-fürtön futó virtuális gépre (VM). A hálózati vezérlő a szoftveresen definiált hálózatkezelés (SDN) egyik összetevője.
+Ez a témakör azt ismerteti, hogyan lehet a Windows PowerShell használatával üzembe helyezni a hálózati vezérlő szolgáltatást egy vagy több, Azure Stack HCI-fürtön futó virtuális gépen (VM). A hálózati vezérlő a szoftveresen definiált hálózatkezelés (SDN) egyik összetevője.
 
->[!NOTE]
->A hálózati vezérlőt a fürt létrehozása varázslóval is üzembe helyezheti a Windows felügyeleti központban. További információ: [Azure stack HCI-fürt létrehozása a Windows felügyeleti központban](create-cluster.md).
+A hálózati vezérlőt a fürt létrehozása varázslóval is üzembe helyezheti a Windows felügyeleti központban. További információ: [Azure stack HCI-fürt létrehozása a Windows felügyeleti központban](create-cluster.md).
+
+> [!NOTE]
+> Az SDN nem támogatott vagy nem érhető el a kifeszített fürtökhöz.
 
 ## <a name="using-windows-powershell"></a>A Windows PowerShell használata
 
@@ -77,7 +79,7 @@ A következő táblázat a parancs egyes paramétereinek leírásait tartalmazza
 
 |Paraméter|Leírás|
 |-------------|---------------|
-|Name (Név)|A **Name** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló rövid nevét.|
+|Név|A **Name** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló rövid nevét.|
 |Kiszolgáló|A **kiszolgáló** paraméter adja meg a fürthöz hozzáadni kívánt kiszolgáló állomásnevét, teljes tartománynevét (FQDN) vagy IP-címét. Tartományhoz csatlakozó számítógépek esetén a teljes tartománynevet kötelező megadni.|
 |FaultDomain|A **FaultDomain** paraméter határozza meg a fürthöz hozzáadni kívánt kiszolgáló meghibásodási tartományát. Ez a paraméter határozza meg azokat a kiszolgálókat, amelyek a fürthöz hozzáadott kiszolgálóval megegyező időpontban is előfordulhatnak. Ez a hiba a megosztott fizikai függőségek, például az energiaellátási és hálózati források miatt lehet. A tartalék tartományok jellemzően az ezekkel a megosztott függőségekkel kapcsolatos hierarchiákat jelképezik, és több kiszolgáló is valószínű, hogy a tartalék tartomány fájának egy magasabb pontján fog működni. A futtatókörnyezet során a hálózati vezérlő a fürtben található tartalék tartományokat veszi figyelembe, és megkísérli kiosztani a hálózati vezérlő szolgáltatásait, hogy azok külön tartalék tartományokban legyenek. Ez a folyamat segít biztosítani, hogy egy tartalék tartomány meghibásodása esetén a szolgáltatás és az állapota ne legyen biztonságban. A tartalék tartományok hierarchikus formátumban vannak megadva. Például: "FD:/DC1/Rack1/Host1", ahol a DC1 az adatközpont neve, a Rack1 a rack neve, a Host1 pedig annak a gazdagépnek a neve, ahol a csomópont elhelyezve van.|
 |RestInterface|A **RestInterface** paraméter adja meg annak a csomópontnak a nevét, amelyen a reprezentációs állapot átvitele (REST) kommunikációja le van zárva. Ez a hálózati vezérlő felület fogadja a hálózat felügyeleti rétegének irányú API-kéréseit.|
@@ -199,7 +201,7 @@ A következő táblázat a feladatok végrehajtásához használható PowerShell
 |Hálózati vezérlő fürt csomópontjának engedélyezése|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Hálózati vezérlő csomópontjának eltávolítása fürtből|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-További információ: a Windows PowerShell dokumentációja a hálózati vezérlőhöz: [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
+További információ: a Windows PowerShell dokumentációja a hálózati vezérlőhöz: [NetworkController](/powershell/module/networkcontroller).
 
 ## <a name="sample-network-controller-configuration-script"></a>Példa hálózati vezérlő konfigurációs parancsfájlra
 

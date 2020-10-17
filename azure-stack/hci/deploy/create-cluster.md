@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 6ee8dbff672de60dbf134f9878b2077684f82dc9
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572687"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157716"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 
@@ -191,6 +191,9 @@ Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben 
 
 Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer és a RAS-átjárót.
 
+> [!NOTE]
+> Az SDN nem támogatott vagy nem érhető el a kifeszített fürtökhöz.
+
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Válassza a **Tovább: Sdn**lehetőséget.
@@ -237,7 +240,7 @@ OK, most a következő műveleteket kell végrehajtania:
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

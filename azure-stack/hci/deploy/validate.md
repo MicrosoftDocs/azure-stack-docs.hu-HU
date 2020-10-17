@@ -4,13 +4,13 @@ description: Ismerje meg a fürt érvényesítésének fontosságát, és azt, h
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663941"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157699"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI-fürt ellenőrzése
 
@@ -50,7 +50,7 @@ Ez a szakasz azokat a forgatókönyveket ismerteti, amelyekben az érvényesít�
 ## <a name="validate-networking"></a>Hálózatkezelés ellenőrzése
 A Microsoft validate-DCB eszköz úgy van kialakítva, hogy ellenőrizze az adatközpont-áthidaló (DCB) konfigurációját a fürtön. Ehhez az eszköz a várt konfigurációt veszi fel bemenetként, majd teszteli a fürt összes kiszolgálóját. Ez a szakasz ismerteti, hogyan telepítheti és futtathatja az validate-DCB eszközt, áttekintheti az eredményeket, és elháríthatja az eszköz által azonosított hálózati hibákat.
 
-A hálózaton a távoli közvetlen memória-hozzáférés (RDMA) az átszervezett Ethernet (RoCE) segítségével DCB-technológiákat igényel a hálózati hálók veszteségmentes kihasználása érdekében. Míg a iWARP nem igényel DCB, a használata továbbra is ajánlott. A DCB konfigurálása azonban összetett lehet, és a pontos konfigurálásra van szükség az egészben:
+A hálózaton a távoli közvetlen memória-hozzáférés (RDMA) az átszervezett Ethernet (RoCE) segítségével DCB-technológiákat igényel a hálózati hálók veszteségmentes kihasználása érdekében. A iWARP használata esetén a DCB nem kötelező. A DCB konfigurálása azonban összetett lehet, és a pontos konfigurálásra van szükség az egészben:
 - A fürt minden kiszolgálója
 - Minden hálózati port, amely a RDMA forgalmat továbbítja a Hálón
 
@@ -74,7 +74,7 @@ Az validate-DCB eszköz telepítése és futtatása:
 1. Miután a PowerShell csatlakozik a Microsoft-hálózathoz az eszköz letöltéséhez, írja be a parancsot, `Validate-DCB` majd nyomja le az **ENTER** billentyűt az eszköz varázsló elindításához.
 
     > [!NOTE]
-    > Ha nem tudja futtatni az validate-DCB Tool szkriptet, előfordulhat, hogy módosítania kell a PowerShell végrehajtási szabályzatait. A Get-ExecutionPolicy parancsmag használatával megtekintheti az aktuális parancsfájl-végrehajtási házirend beállításait. A végrehajtási házirendek a PowerShellben való beállításával kapcsolatos információkért lásd: [a végrehajtási szabályzatok](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
+    > Ha nem tudja futtatni az validate-DCB Tool szkriptet, előfordulhat, hogy módosítania kell a PowerShell végrehajtási szabályzatait. Az Get-ExecutionPolicy parancsmaggal tekintheti meg az aktuális parancsfájl-végrehajtási házirend beállításait. A végrehajtási házirendek a PowerShellben való beállításával kapcsolatos információkért lásd: [a végrehajtási szabályzatok](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
 
 1. Az Üdvözöljük a validate-DCB konfigurálása varázsló lapon válassza a **tovább**lehetőséget.
 1. A fürtök és csomópontok lapon írja be az érvényesíteni kívánt kiszolgálófürt nevét, válassza a **megoldás** elemet a lapon lévő listában, majd válassza a **tovább**lehetőséget.
@@ -197,7 +197,7 @@ A hely1-beli Kiszolgáló1 replikálási folyamatának meghatározásához futta
 Get-WinEvent -ComputerName Server1 -ProviderName Microsoft-Windows-StorageReplica -max 20
 ```
 
-A Site2 Server3 a következő parancs futtatásával `Get-WinEvent` tekintheti meg a kapcsolat létrehozását bemutató tárolási replika eseményeket. Ez az esemény állapítja meg a másolt bájtok mennyiségét és az igénybe vett időt. Például:
+A Site2 Server3 a következő parancs futtatásával `Get-WinEvent` tekintheti meg a kapcsolat létrehozását bemutató tárolási replika eseményeket. Ez az esemény állapítja meg a másolt bájtok mennyiségét és az igénybe vett időt. Példa:
 
 ```powershell
 Get-WinEvent -ComputerName Server3 -ProviderName Microsoft-Windows-StorageReplica | Where-Object {$_.ID -eq "1215"} | FL
@@ -209,7 +209,7 @@ A Site2 Server3 futtassa a parancsot, `Get-WinEvent` és vizsgálja meg az 5009,
 Get-WinEvent -ComputerName Server3 -ProviderName Microsoft-Windows-StorageReplica | FL
 ```
 
-Másik lehetőségként a replikához tartozó célkiszolgáló-csoport jelzi a másolandó bájtok számát, és a PowerShell használatával kérdezhető le `Get-SRGroup` . Például:
+Másik lehetőségként a replikához tartozó célkiszolgáló-csoport jelzi a másolandó bájtok számát, és a PowerShell használatával kérdezhető le `Get-SRGroup` . Példa:
 
 ```powershell
 (Get-SRGroup).Replicas | Select-Object numofbytesremaining
