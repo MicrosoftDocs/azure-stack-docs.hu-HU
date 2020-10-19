@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 6ee8dbff672de60dbf134f9878b2077684f82dc9
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157716"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179528"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 

@@ -1,0 +1,98 @@
+---
+title: A moduláris adatközpont (MDC) üzembe helyezésének áttekintése és beállítása az Azure Stack hub Hardware Lifecycle Host (HLH) felügyeleti kiszolgáló számára | Microsoft Docs
+description: Megtudhatja, mire számíthat a moduláris adatközpontok (MDC-EK) sikeres helyszíni üzembe helyezésének megtervezése és a telepítés utáni üzembe helyezése között.
+services: azure-stack
+documentationcenter: ''
+author: asganesh
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: na
+pms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/09/2020
+ms.author: justinha
+ms.reviewer: asganesh
+ms.lastreviewed: 04/09/2020
+ms.openlocfilehash: 1daee460239e178641c4c0b073d2d24a0e63053c
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.translationtype: MT
+ms.contentlocale: hu-HU
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92183031"
+---
+# <a name="mdc-deployment-overview"></a>A MDC üzembe helyezésének áttekintése
+
+Ez a telepítési útmutató a moduláris adatközpontok (MDC) telepítésének és konfigurálásának lépéseit ismerteti. Ez az útmutató azt is leírja, hogyan állítható be az Azure Stack hub Hardware Lifecycle Host (HLH) felügyeleti kiszolgáló a Azure Stack hub telepítéséhez.
+
+Az útmutató célkitűzései a következők:
+
+- Az összetevők telepítése előtt ellenőrizze, hogy az összes előfeltétel teljesült-e.
+- Egy MDC fő összetevőinek bemutatása.
+- A legfontosabb összetevők telepítésének és konfigurálásának leírása.
+- Ellenőrizze az ügyfél központi telepítését.
+
+Ez a telepítési útmutató a MDC az ügyfél webhelyén való üzembe helyezéséhez felelős Microsoft Field Professional csapat számára készült.
+
+A virtualizáció, a kiszolgálók, az operációs rendszerek, a Hálózatkezelés és a tárolási megoldások technikai tapasztalata szükséges ahhoz, hogy teljes mértékben megértsék az útmutató tartalmát. A központi telepítési mérnöknek a Hyper-V, Azure Stack hub, az Azure és a Microsoft PowerShell használatával ismernie kell a Microsoft Windows Server 2019-es verziójának ismeretét.
+
+Ez az útmutató az Microsoft Azure Stack hub alapvető összetevőinek üzembe helyezését és a MDC-megoldás sajátosságait ismerteti. Az útmutató nem ismerteti az Azure Stack hub működési eljárásait, és nem fedi le Azure Stack hub összes funkcióját. További információ: [Azure stack hub kezelői útmutatója](https://docs.microsoft.com/azure-stack/operator/).
+
+## <a name="introduction"></a>Bevezetés
+
+A MDC egy standard 40-Foot Metal szállítási tárolóba csomagolt Azure Stack hub integrált ajánlata. A tároló tartalmazza a klíma-ellenőrzési egységet, a világítást és a riasztási rendszerét. Az alapvető Azure Stack hub-összetevők, például a kiszolgálók és kapcsolók hat fizikai állványra vannak telepítve, amelyek logikailag három független hüvelyben vannak rendszerezve.
+
+Mindegyik Pod két 42U állványból áll. A pod a Top-of-rack (ToR) kapcsolók, az Edge-kapcsolók és a alaplapi felügyeleti vezérlő (BMC) kapcsolót is tartalmazza. Emellett minden egyes Pod tartalmaz egy hardveres életciklus-gazdagépet (HLH) és egy soros port koncentrátort is. Az alapszintű számítási és tárolási kapacitást Azure Stack hub Scale Units (SU), amely nyolc robusztus peremhálózati berendezésű (REA) R840-kiszolgálóból áll. Az 48-Isilon további tárolókapacitást biztosít a Storage-csomópontok. Az összes hüvely fizikai konfigurációja azonos.
+
+## <a name="terminology"></a>Terminológia
+
+A következő táblázat felsorolja az útmutatóban használt néhány kifejezést.
+
+|Időszak    |Definíció |
+|-------|-----------|
+|Hardver életciklus-állomása (HLH)|    A HLH a kezdeti üzembe helyezési rendszerindításhoz használt fizikai kiszolgáló, valamint az Azure Stack hub-infrastruktúra folyamatos hardveres felügyelete, támogatása és biztonsági mentése. A HLH asztali felhasználói felülettel és Hyper-V szerepkörrel futtatja a Windows Server 2019-es verzióját. A kiszolgáló a hardver-felügyeleti eszközök, a felügyeleti eszközök, az Azure Stack hub-partneri eszközkészlet és a telepítési virtuális gép üzemeltetésére szolgál. |
+|Üzembe helyezési virtuális gép (DVM)|    A DVM egy virtuális gép, amely az Azure Stack hub szoftver központi telepítésének időtartama alatt jön létre a HLH. A DVM Azure Stack hub szoftvertelepítő motort futtat, amely az Enterprise Cloud Engine (EGB) használatával telepíti és konfigurálja a Azure Stack hub Fabric-infrastruktúra szoftverét az összes Azure Stack hub-méretezési egység kiszolgálóin a hálózaton keresztül.|
+|Azure Stack hub partneri eszközkészlet|    Az ügyfél-specifikus bemeneti paraméterek rögzítéséhez és az Azure Stack hub telepítésének és konfigurálásának kezdeményezéséhez használt szoftvereszközök gyűjteménye. Tartalmazza a telepítési munkalapot, amely egy grafikus felhasználói felület (GUI) eszköz, amely a Azure Stack hub telepítéséhez konfigurálható paraméterek rögzítésére és tárolására szolgál. Emellett tartalmazza a hálózati konfigurációs generátor eszközt is, amely az üzembe helyezési munkalap bemeneteit használja a megoldásban lévő összes fizikai hálózati eszköz hálózati konfigurációs fájljainak létrehozásához.|
+|OEM-bővítmény csomag    |A belső vezérlőprogram, eszközillesztők és hardveres felügyeleti eszközök csomagját Azure Stack hub által a kezdeti telepítés és a frissítés során használt speciális formátumban.|
+|Soros port koncentrátor    |Minden Pod-ban telepített fizikai eszköz, amely a hálózati kapcsolók soros portjaihoz való hálózati hozzáférést biztosít üzembe helyezési és felügyeleti célokra.|
+|Méretezési egység    |Azure Stack hub alapvető összetevője, amely számítási és tárolási erőforrásokat biztosít Azure Stack hub-háló infrastruktúra és munkaterhelések számára. Mindegyik Pod nyolc MDC R840-kiszolgálót tartalmaz, más néven csomópontokat.|
+|Isilon-tároló |    Egy Azure Stack hub-összetevő, amely a MDC-megoldásra jellemző. A Isilon további blob-és file Storage-t biztosít Azure Stack hub munkaterhelésekhez. Mindegyik Pod 48 Isilon-tároló csomópontot tartalmaz.|
+|Pod    |A MDC kontextusában a pod egy független logikai egység, amely két összekapcsolt fizikai állványból áll. A teljes megoldás három, egyetlen tárolóban telepített hüvelyt tartalmaz.|
+
+
+
+
+
+## <a name="deployment-workflow"></a>Üzembe helyezési munkafolyamat
+
+Magas szinten a MDC üzembe helyezési folyamata a következő lépésekből áll:
+
+1. Tervezési fázis:
+   1. Az adatközpont energiagazdálkodásának tervezése.
+   1. Azure Stack hub logikai hálózati konfigurációjának megtervezése.
+   1. Az adatközpont hálózati integrációjának megtervezése.
+   1. Identitás-és biztonsági integráció tervezése.
+   1. PKI-tanúsítványok tervezése.
+1. Előkészítési fázis:
+   1. Leltár gyűjtése.
+   1. A megoldás csatlakoztatása és az áramellátás.
+   1. A HVAC-rendszerek állapotának ellenőrzése.
+   1. A tűzvédelmi és a riasztási rendszer állapotának ellenőrzése.
+   1. A fizikai hardver állapotának ellenőrzése.
+1. Végrehajtási fázis – külön a három hüvely esetében:
+   1. A hardver életciklus-gazdagép konfigurálása.
+   1. Hálózati kapcsolók konfigurálása.
+   1. Datacenter hálózati integráció.
+   1. A fizikai hardver beállításainak konfigurálása.
+   1. Isilon-tároló konfigurálása.
+   1. Azure Stack hub Fabric-infrastruktúra üzembe helyezése.
+   1. Adatközpont identitásának integrációja.
+   1. Bővítmények telepítése kiterjesztett funkciókhoz.
+1. Ellenőrzési fázis – külön a három hüvely esetében:
+   1. Telepítés utáni állapot ellenőrzése.
+   1. Azure Stack hub regisztrálása a Microsofttal.
+   1. Azure Stack hub operátora.
+  
+A fenti témakörök mindegyikét részletesebben ismertetjük ebben az útmutatóban.
