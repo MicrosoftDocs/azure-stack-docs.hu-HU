@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: aedccf6f41c2bf7e21fd98308fd153c2742af8e9
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
+ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179496"
+ms.locfileid: "92200484"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Gazdagép hálózatkezelésének megtervezése Azure Stack HCI-hez
 
@@ -49,7 +49,7 @@ A következő táblázat a különböző forgalmi típusok sávszélesség-elosz
 - A szívverés (HB) forgalma a fennmaradó 50%-os foglalás 1%-át kapja
 - * = a tömörítést a RDMA helyett kell használnia, ha az LM-forgalom sávszélesség-elosztása <5 GB/s
 
-|Hálózati adapter sebessége|Összevont hálózati adapter sebessége|SMB 50% foglalás|SBL/CSV%|SBL/CSV-sávszélesség|LM|LM-sávszélesség|SR |SR-sávszélesség|HB|HB-sávszélesség|
+|Hálózati adapter sebessége|Összevont sávszélesség|SMB 50% foglalás|SBL/CSV%|SBL/CSV-sávszélesség|LM|LM-sávszélesség|SR |SR-sávszélesség|HB|HB-sávszélesség|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |10|20|10|70%|7|14% *|1,4 *|14%|1.4|2%|0,2|
 |25|50|25|70%|17,5|15% *|3,75 *|14%|3.5|1%|0,25|
