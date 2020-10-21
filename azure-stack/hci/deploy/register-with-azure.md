@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230495"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297891"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI összekötése az Azure-ba
 
@@ -71,7 +71,7 @@ Az alábbi eljárás segítségével regisztrálhat egy Azure Stack HCI-fürtöt
    > [!NOTE]
    > 1. Előfordulhat, hogy megjelenik egy üzenet, például "szeretné, hogy a PowerShellGet telepítse és importálja most a NuGet-szolgáltatót?" , amelyhez az igen (Y) értéket kell megadnia.
    > 2. Előfordulhat, hogy a rendszer kéri a következőt: "biztos, hogy telepíti a modulokat a" PSGallery "?", amelyhez az igen (Y) értéket kell megadnia.
-   > 3. Végezetül feltételezheti, hogy a teljes az modul telepítése magában foglalja a **StackHCI** **almodult** , és ez hosszú távon helyes lesz. A standard Azure PowerShell konvenciók azonban nem tartalmazzák automatikusan az előzetes verzióban található almodulokat. Ehelyett explicit módon meg kell adnia őket. Így most már az **az. StackHCI** explicit módon kell megadnia a fentiekben látható módon.
+   > 3. Végezetül feltételezheti, hogy a teljes az modul telepítése magában foglalja a **StackHCI** **almodult** , de ez nem így van. Az előzetes verzióban található almodulok nem szerepelnek automatikusan a standard Azure PowerShell konvenciónak megfelelően, ezért explicit módon kell megadnia az az **. StackHCI** -t a fent látható módon.
 
 4. A tényleges regisztráció végrehajtása:
 

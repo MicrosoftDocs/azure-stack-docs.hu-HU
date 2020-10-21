@@ -3,16 +3,16 @@ title: Azure Stack hub csatlakoztatása az Azure-hoz az ExpressRoute használat�
 description: Megtudhatja, hogyan csatlakoztathat virtuális hálózatokat Azure Stack hub-ban az Azure-beli virtuális hálózatokhoz az ExpressRoute használatával.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250401"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297927"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Az Azure Stack Hub csatlakoztatása az Azure-hoz Azure ExpressRoute használatával
 
@@ -580,7 +580,7 @@ New-NetFirewallRule `
 
 1. Keresse meg a létrehozott virtuális gépet, és válassza ki.
 
-1. Kattintson a **Csatlakozás** gombra.
+1. Válassza a **Kapcsolódás** lehetőséget.
 
 1. Egy emelt szintű Windows-vagy PowerShell-parancssorba írja be az **ipconfig/all**parancsot. Jegyezze fel a kimenetben visszaadott IPv4-címet.
 
@@ -596,8 +596,6 @@ Ha tudni szeretné, hogy mekkora forgalom halad át a kapcsolódáson, megkeresh
 1. Navigáljon a VPN Gateway erőforráscsoporthoz, és válassza ki a **kapcsolódási** objektum típusát.
 1. Válassza ki a **ConnectToAzure** -összekötőt a listából.
 1. A **kapcsolatok**  >  **áttekintése**területen megtekintheti az **adatok** és az **adatok kimenő**statisztikáit. Néhány nem nulla értéket kell látnia.
-
-   ![És kimenő adatbevitel](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Következő lépések
 
