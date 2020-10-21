@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 1bea13f3ba7b9e210c52ac9cffc32c7d8e4a79c6
-ms.sourcegitcommit: 82a8ddbf474a28cd551e86a69e0c41a624e0be2a
+ms.openlocfilehash: 923dbd141ad7911326f896d0d4f8d124648035e5
+ms.sourcegitcommit: b6d5d59481c3569a5ff670a91b3a46a9d3a7a63d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116181"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92336890"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -186,7 +186,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Az offline szindikált eszköz frissítése megbízhatósági frissítésekkel történt. Az eszköz már nem érhető el a GitHubon, és [át lett helyezve a PowerShell-galériaba](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). További információ: [Marketplace-elemek letöltése Azure stack hubhoz](azure-stack-download-azure-marketplace-item.md).
 - Új figyelési képesség bevezetése folyamatban van. A fizikai gazdagépek és az infrastruktúra-virtuális gépek alacsony lemezterület-riasztása automatikusan kijavítja a platformot, és csak akkor, ha ez a művelet meghiúsul, a riasztás látható lesz az Azure Stack hub felügyeleti portálján, hogy az operátor végrehajtsa a műveletet.
 - A [diagnosztikai naplók gyűjtésének](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)fejlesztése. Az új felület egyszerűsíti és egyszerűbbé teszi a diagnosztikai naplók gyűjtését azáltal, hogy eltávolítja a blob Storage-fiók előzetes konfigurálásának szükségességét. A tárolási környezet előre konfigurálva van, így naplók küldhetők a támogatási eset megnyitása előtt, és kevesebb időt kell fordítani a támogatási hívásokra.
-- Az előjelzéses [naplók és az igény szerinti naplók gyűjtésére](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)vonatkozó idő   80%-kal csökkent. A naplózási gyűjtési idő hosszabb időt vehet igénybe a várt értéknél, de Azure Stack hub-operátorok beavatkozása nem szükséges, kivéve, ha a naplózási gyűjtemény sikertelen.
+- Az előjelzéses [naplók és az igény szerinti naplók gyűjtésére](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) vonatkozó idő 80%-kal csökkent. A naplózási gyűjtési idő hosszabb időt vehet igénybe a várt értéknél, de Azure Stack hub-operátorok beavatkozása nem szükséges, kivéve, ha a naplózási gyűjtemény sikertelen.
 - Egy Azure Stack hub-frissítési csomag letöltési folyamata mostantól látható a frissítés panelen a frissítés kezdeményezése után. Ez csak azokra a csatlakoztatott Azure Stack hub rendszerekre vonatkozik, amelyek a [frissítési csomagok automatikus letöltéssel történő előkészítését](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)választják.
 - A hálózati vezérlő gazdagép-ügynökének megbízhatósági fejlesztése.
 - Egy új, DNS-Orchestrator nevű Micro-szolgáltatást vezetett be, amely javítja a belső DNS-szolgáltatások rugalmassági logikáját a javítás és a frissítés során.
@@ -264,7 +264,7 @@ A gyorsjavításokkal kapcsolatos további információkért tekintse meg a [Azu
 Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack hub gyorsjavítási 1.1910.81.224](https://support.microsoft.com/help/4583406)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Az 2002-es frissítés sikeres alkalmazása után
 
@@ -423,14 +423,14 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 1910-es kiadását a 1908-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1908.51.133](https://support.microsoft.com/help/4574734)
+- [Azure Stack hub gyorsjavítási 1.1908.57.146](https://support.microsoft.com/help/4583007)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Az 1910-es frissítés sikeres alkalmazása után
 
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack hub gyorsjavítási 1.1910.81.224](https://support.microsoft.com/help/4583406)
 ::: moniker-end
 
 <!------------------------------------------------------------>
