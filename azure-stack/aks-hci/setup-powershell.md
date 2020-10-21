@@ -5,24 +5,34 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
-ms.openlocfilehash: b4b128c5d51d7f916e0936102224283dd77a971d
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134661"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253960"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Gyors útmutató: Azure Kubernetes Service Host beállítása Azure Stack HCI-ben a PowerShell használatával
 
 > A következőkre vonatkozik: Azure Stack HCI
 
-Ebből a rövid útmutatóból megtudhatja, hogyan állíthat be egy Azure Kubernetes Service-gazdagépet Azure Stack HCI-ben a PowerShell használatával. A Windows felügyeleti központ helyett a Windows [felügyeleti központ beállítása](setup.md)című témakörben talál további információt.
+Ebből a rövid útmutatóból megtudhatja, hogyan állíthat be egy Azure Kubernetes Service-gazdagépet Azure Stack HCI-ben a PowerShell használatával. A Windows felügyeleti központ helyett használja a [Windows felügyeleti központ beállítása](setup.md)című témakört.
 
 ## <a name="before-you-begin"></a>Előkészületek
 
-Mielőtt elkezdené, győződjön meg arról, hogy rendelkezik egy 2-4-es csomóponttal Azure Stack HCI-fürttel, vagy egyetlen csomópont Azure Stack HCI-vel. **Javasoljuk, hogy egy 2-4 csomópontot Azure Stack HCI-fürtöt.** Ha nem, kövesse az [itt](./system-requirements.md)található utasításokat.
+Mielőtt elkezdené, győződjön meg arról, hogy rendelkezik egy 2-4-es csomóponttal Azure Stack HCI-fürttel, vagy egyetlen csomópont Azure Stack HCI-vel. **Javasoljuk, hogy egy 2-4 csomópontot Azure Stack HCI-fürtöt.** Ha nem, kövesse az [Azure stack HCI regisztrációs oldal](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)utasításait.
 
-Emellett meg kell győződnie arról, hogy telepítve van a AksHci PowerShell-modul. Az [itt](https://aka.ms/AKS-HCI-Evaluate) található letöltési csomag a modult egy zip-fájlban fogja tartalmazni. Győződjön meg arról, hogy a zip-fájlt a megfelelő helyen () szeretné kibontani `%systemdrive%\program files\windowspowershell\modules` , majd futtassa a következő parancsot egy PowerShell felügyeleti ablakban.
+## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>1. lépés: töltse le és telepítse a AksHci PowerShell-modult
+
+Töltse le az alkalmazást `AKS-HCI-Public=Preview-Oct-2020` az [Azure Kubernetes szolgáltatásból Azure stack HCI regisztrációs oldalon](https://aka.ms/AKS-HCI-Evaluate). A zip-fájl `AksHci.Powershell.zip` tartalmazza a PowerShell-modult.
+
+Ha korábban már telepítette az Azure Kubernetes szolgáltatást a Azure Stack HCI-re a PowerShell vagy a Windows felügyeleti központ használatával, a folytatás előtt futtassa a következő parancsot.
+
+   ```powershell
+   Uninstall-AksHci
+   ```
+
+**Az összes PowerShell-ablak lezárása.** Törölje az elérési úton található AksHci, AksHci. Day2 és MSK8sDownloadAgent összes meglévő könyvtárát `%systemdrive%\program files\windowspowershell\modules` . Ha ez megtörtént, kibonthatja az új zip-fájl tartalmát. Győződjön meg arról, hogy a zip-fájlt a megfelelő helyen () szeretné kibontani `%systemdrive%\program files\windowspowershell\modules` .
 
    ```powershell
    Import-Module AksHci
@@ -30,9 +40,9 @@ Emellett meg kell győződnie arról, hogy telepítve van a AksHci PowerShell-mo
 
 A fenti parancs futtatása után zárjunk be minden PowerShell-ablakot, majd nyissa meg újra a felügyeleti munkamenetet, és futtassa a parancsokat a következő lépésekben.
 
-## <a name="step-1-prepare-your-machines-for-deployment"></a>1. lépés: a gép (ek) előkészítése az üzembe helyezéshez
+## <a name="step-2-prepare-your-machines-for-deployment"></a>2. lépés: a gép (ek) előkészítése az üzembe helyezéshez
 
-Először minden fizikai csomóponton futtatunk ellenőrzéseket, hogy ellenőrizze, hogy az összes követelmény teljesül-e az Azure Kubernetes Service Azure Stack HCI-re való telepítéséhez.
+Futtasson ellenőrzéseket minden fizikai csomóponton, és ellenőrizze, hogy az összes követelmény teljesül-e az Azure Kubernetes Service Azure Stack HCI-on való telepítéséhez.
 
 Nyissa meg a PowerShellt rendszergazdaként, és futtassa a következő parancsot.
 
@@ -42,7 +52,7 @@ Nyissa meg a PowerShellt rendszergazdaként, és futtassa a következő parancso
 
 Az ellenőrzések befejezése után a "kész" szöveg jelenik meg zöld színnel.
 
-## <a name="step-2-configure-your-deployment"></a>2. lépés: az üzemelő példány konfigurálása
+## <a name="step-3-configure-your-deployment"></a>3. lépés: az üzemelő példány konfigurálása
 
 Adja meg az Azure Kubernetes Service Host konfigurációs beállításait. **Egy 2-4-es csomóponthoz Azure Stack HCI-fürthöz meg kell adnia a `MultiNode` `-deploymentType` , a `wssdImageDir` és a `cloudConfigLocation` paramétereket.** Egy 1 csomópontos Azure Stack HCI-fürthöz az összes paraméter nem kötelező, és az alapértelmezett értékre van állítva. Az optimális teljesítmény érdekében azonban javasoljuk, hogy **egy 2-4 csomópontot használjon Azure stack HCI-fürt üzembe helyezéséhez.**
 
@@ -61,6 +71,8 @@ Konfigurálja az üzemelő példányt a következő paranccsal.
                     [-vipPoolEndIp]
                     [-macPoolStart]
                     [-macPoolEnd]
+                    [-vlanID]
+                    [-cloudServiceCidr]
                     [-wssdDir]
                     [-akshciVersion]
                     [-vnetType]
@@ -124,6 +136,14 @@ Ezzel a beállítással megadhatja az Azure Kubernetes Service Host VM-hez haszn
 
 Ezzel a beállítással adható meg az Azure Kubernetes Service Host virtuális géphez használni kívánt MAC-készlet MAC-címe. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (például 00, 02, 04, 06...). Az átadott címnek első bájtjának meg kell `-macPoolEnd` egyeznie a-ként átadott címek első bájtjának értékével `-macPoolStart` . Az alapértelmezett érték a none.
 
+`-vlandID`
+
+Ez a hálózati VLAN-azonosító megadására használható. Az Azure Kubernetes Service Host és a Kubernetes cluster VM hálózati adapterek a megadott VLAN-AZONOSÍTÓval lesznek címkézve. Az alapértelmezett érték a none.
+
+`cloudServiceCidr`
+
+Ezzel megadhatja a MOC CloudAgent szolgáltatáshoz hozzárendelni kívánt statikus IP/hálózati előtagot. Ezt az értéket a CIDR formátum használatával kell megadni. (Például: 192.168.1.2/16). Az alapértelmezett érték a none.
+
 `-wssdDir`
 
 Ez egy munkakönyvtár a kis fájlok tárolására használt modul számára. Alapértelmezés szerint a `%PROGRAMFILES%\AksHci`   és a nem módosítható a legtöbb üzemelő példány esetében.  
@@ -162,7 +182,7 @@ Akkor használja ezt a jelzőt, ha ki szeretné hagyni az elérhető frissítés
 
 `-forceDnsReplication`
 
-A DNS-replikáció néhány rendszeren akár egy órát is igénybe vehet. Ennek hatására az üzemelő példány lassú lesz. Ha ezt a problémát tapasztalja, látni fogja, hogy az install-AksHci egy hurokban fog megakadni. A probléma megkezdéséhez próbálja meg használni ezt a jelzőt. A `-forceDnsReplication` jelző nem garantált javítás. Ha a jelző mögötti logika nem sikerül, a rendszer elrejti a hibát, és a parancs úgy fog futni, mintha a jelző nem lett megadva.
+A DNS-replikáció néhány rendszeren akár egy órát is igénybe vehet. Ennek hatására az üzemelő példány lassú lesz. Ha ezt a problémát tapasztalja, látni fogja, hogy a Install-AksHci egy hurokban lesznek beragadva. A probléma megkezdéséhez próbálja meg használni ezt a jelzőt. A `-forceDnsReplication` jelző nem garantált javítás. Ha a jelző mögötti logika nem sikerül, a rendszer elrejti a hibát, és a parancs úgy fog futni, mintha a jelző nem lett megadva.
 
 ### <a name="reset-the-azure-kubernetes-service-on-azure-stack-hci-configuration"></a>Az Azure Kubernetes szolgáltatás alaphelyzetbe állítása Azure Stack HCI-konfiguráción
 
@@ -172,7 +192,7 @@ Az Azure Kubernetes szolgáltatás Azure Stack HCI-konfiguráción való alaphel
 Set-AksHciConfig
 ```
 
-## <a name="step-3-start-a-new-deployment"></a>3. lépés: új központi telepítés indítása
+## <a name="step-4-start-a-new-deployment"></a>4. lépés: új központi telepítés indítása
 
 A telepítés konfigurálása után el kell indítania az üzembe helyezést. Ezzel telepíti az Azure Kubernetes szolgáltatást Azure Stack HCI-ügynökökre/-szolgáltatásokra és az Azure Kubernetes Service-gazdagépre.
 
@@ -182,21 +202,34 @@ Az üzembe helyezés megkezdéséhez futtassa a következő parancsot.
 Install-AksHci
 ```
 
-### <a name="check-your-deployed-clusters"></a>A telepített fürtök keresése
+### <a name="verify-your-deployed-azure-kubernetes-service-host"></a>Az üzembe helyezett Azure Kubernetes Service-gazdagép ellenőrzése
 
-A telepített Azure Kubernetes Service-gazdagépek listájának lekéréséhez futtassa a következő parancsot. A Kubernetes-fürtöket ugyanezen parancs használatával is lekérheti a telepítés után.
+Az Azure Kubernetes Service Host üzembe helyezésének biztosításához futtassa a következő parancsot. A Kubernetes-fürtöket ugyanezen parancs használatával is lekérheti a telepítés után.
 
 ```powershell
 Get-AksHciCluster
 ```
 
-## <a name="step-4-access-your-clusters-using-kubectl"></a>4. lépés: a fürtök elérése a kubectl használatával
+## <a name="step-5-access-your-clusters-using-kubectl"></a>5. lépés: a fürtök elérése a kubectl használatával
 
 Az Azure Kubernetes Service Host vagy a Kubernetes-fürt kubectl használatával való eléréséhez futtassa a következő parancsot. Ez a megadott fürt kubeconfig-fájlját fogja használni a kubectl alapértelmezett kubeconfig-fájljához.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Kötelező paraméterek
+
+`clusterName`
+
+A fürt neve.
+
+### <a name="optional-parameters"></a>Opcionális paraméterek
+
+`outputLocation`
+
+A hely, ahová a kubeconfig letöltötte. Az alapértelmezett szint a `%USERPROFILE%\.kube`.
 
 ## <a name="get-logs"></a>Naplók lekérése
 

@@ -3,15 +3,15 @@ title: Alkalmazások átalakítása kevert operációs rendszerű Kubernetes-fü
 description: Az Azure Kubernetes szolgáltatásban a csomópont-választókkal, illetve az adatkezelési és-megtartási lehetőségekkel biztosítható, hogy az alkalmazások a Azure Stack HCI-on futó vegyes operációsrendszer-fürtökön legyenek ütemezve a megfelelő munkavégző csomópont operációs rendszeren.
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e70ac456929b5c8402e49c969ca8b9c87a703311
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948944"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253945"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz csomópont-választókkal vagy a megfertőzés és a tolerancia használatával
 
@@ -41,7 +41,7 @@ A *megfertőzés* és a *tolerancia* együttesen biztosítják, hogy a hüvelyek
 Az Azure Kubernetes Service-ben a Azure Stack HCI-ben futó Windows OS-csomópontok a következő kulcs-érték párokkal oldhatók meg. A felhasználók nem használhatnak másikat.
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 Futtassa `kubectl get` és azonosítsa a megfertőzni kívánt Windows-munkavégző csomópontokat.
 

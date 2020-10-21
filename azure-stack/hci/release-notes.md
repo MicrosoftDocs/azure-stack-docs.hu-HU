@@ -6,19 +6,60 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/13/2020
-ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
-ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
+ms.date: 10/20/2020
+ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92009849"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92254012"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
 Ez a cikk a Azure Stack HCI nyilvános előzetes frissítési csomagjainak tartalmát ismerteti.
+
+## <a name="october-20-2020-preview-update-kb4580388"></a>Október 20, 2020 előzetes frissítés (KB4580388)
+
+Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javításait tartalmazza.
+
+### <a name="improvements-and-fixes"></a>Javítások és javítások
+Ez a nem biztonsági frissítés tartalmazza a minőségi frissítéseket. A legfontosabb változások a következők:
+
+- Ezzel a frissítéssel Azure Stack HCI-ügyfelek, akik érvényes Windows Server 2019 Datacenter Edition licenccel rendelkeznek, a Azure Stack HCI-ben üzemeltetett virtuális gépek (VM-EK) kényelmes aktiválásához használhatják őket anélkül, hogy az egyes virtuális gépekhez tartozó termékkulcsot kellene kezelnie.
+
+### <a name="known-issues-in-this-update"></a>A frissítés ismert problémái
+
+A Microsoft tisztában van a frissítéssel kapcsolatos egyik problémával.
+
+#### <a name="symptom"></a>Hibajelenség
+Ha Élő áttelepítés használatával helyez át egy virtuális gépet a Windows Server és a Azure Stack HCI operációs rendszerek között, akkor a következő hibaüzenet jelenhet meg: "a virtuális gép áttelepítésének letiltása, <vmname> mert a különböző Windows-kiadások közötti VM-Migrálás nem támogatott (virtuális gép azonosítója)."
+
+Azt is megteheti, hogy a fürt Aware frissítési (CAU) művelete meghiúsul, ha a CAU során a virtuális gépek bármelyikének el kell végeznie Élő áttelepítés.
+
+#### <a name="workaround"></a>Áthidaló megoldás
+
+Élő áttelepítés helyett használjon gyors áttelepítést. CAU használata esetén átmenetileg módosítsa az alapértelmezett viselkedést, hogy a CAU gyors áttelepítést használjon.
+
+Példa:
+
+```powershell
+Get-ClusterResourceType "Virtual Machine" | Set-ClusterParameter MoveTypeThreshold 3001
+```
+
+Javasoljuk, hogy térjen vissza az előző `MoveTypeThreshold` értékre, miután a Cau sikeresen befejeződött.
+
+További információ: [a virtuális gépek áthelyezésének beállítása a csomópontok kiürítése során](https://techcommunity.microsoft.com/t5/failover-clustering/configuring-how-vms-are-moved-when-a-node-is-drained/ba-p/371848).
+
+### <a name="how-to-get-this-update"></a>A frissítés beszerzése
+A [Azure stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -hoz készült Windows Update október 20, 2020 biztonsági frissítés (KB4580388) a következőn keresztül érhető el:. A Azure Stack HCI-fürtön való telepítéséhez lásd: [Azure stack HCI-fürtök frissítése](manage/update-cluster.md).
+
+### <a name="file-information"></a>Fájl adatai
+Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1321) a 4580388-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/2/f/b/2fb766d3-c4c8-4279-8718-8efbd0b6f211/4580388.csv)letöltésével töltheti le.
+
+   > [!NOTE]
+   > Egyes fájlok hibásan rendelkeznek "nem alkalmazható" értékkel a CSV-fájl "file version" oszlopában. Ez hamis pozitív vagy hamis negatív értéket eredményezhet, ha valamilyen harmadik féltől származó vizsgálati eszközt használ a Build ellenőrzéséhez.
 
 ## <a name="october-13-2020-security-update-kb4580363"></a>Október 13., 2020 biztonsági frissítés (KB4580363)
 

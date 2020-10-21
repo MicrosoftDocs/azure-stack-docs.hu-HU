@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: jeguan
-ms.openlocfilehash: 35d527b56a2429676d343ba8098fc6821835fb00
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: b9287add391d2a3132b3ef0baadf5668b1ea057e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948882"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253978"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Gyors útmutató: Kubernetes-fürtök létrehozása Azure Stack HCI-ben a Windows PowerShell használatával
 
@@ -130,11 +130,24 @@ Ha Windows-csomópontokat kíván használni, a minimálisan szükséges verzió
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>4. lépés: a fürtök elérése a kubectl használatával
 
-Az Azure Kubernetes Service Host vagy a Kubernetes-fürt kubectl használatával való eléréséhez futtassa a következő parancsot. Ez a megadott fürt kubeconfig-fájlját fogja használni a kubectl alapértelmezett kubeconfig-fájljához.
+Ha a Kubernetes-fürtöket a kubectl használatával szeretné elérni, futtassa a következő parancsot. Ez a megadott fürt kubeconfig-fájlját fogja használni a kubectl alapértelmezett kubeconfig-fájljához.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Kötelező paraméterek
+
+`clusterName`
+
+A fürt neve.
+
+### <a name="optional-parameters"></a>Opcionális paraméterek
+
+`outputLocation`
+
+A hely, ahová a kubeconfig letöltötte. Az alapértelmezett szint a `%USERPROFILE%\.kube`.
 
 ## <a name="delete-a-kubernetes-cluster"></a>Kubernetes-fürt törlése
 

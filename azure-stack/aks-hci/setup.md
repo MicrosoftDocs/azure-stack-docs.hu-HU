@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 2f442928c01c59bc85eb672153b2f5b21a653ef1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2ac65146c78c2ed1aaf9b98ee50392a13be050c4
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899720"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253995"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával
 
@@ -20,11 +20,16 @@ Ebben a rövid útmutatóban az Azure Kubernetes szolgáltatást állítja be Az
 
 A beállítás a következő feladatokat foglalja magában:
 
+* Az Azure Kubernetes Service letöltése Azure Stack HCI-re
 * Windows felügyeleti központ beállítása, ha még nem tette meg
 * Az Azure Kubernetes szolgáltatás telepítése a Windows felügyeleti központ Azure Stack HCI bővítményéhez
 * Állítson be egy Azure Kubernetes Service-gazdagépet azon a rendszeren, amelyen a Kubernetes-fürtöt telepíteni szeretné
 
 Mielőtt elkezdené, győződjön meg arról, hogy teljesítette a [rendszerkövetelmények](.\system-requirements.md) lapon szereplő összes előfeltételt.
+
+## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service letöltése Azure Stack HCI-re
+
+Ha még nem töltötte le az előzetes verziójú szoftvert, tekintse [meg az AK kiértékelése Azure stack HCI](https://aka.ms/AKS-HCI-Evaluate)-ben című témakört. A rendszer kérni fogja az AK letöltését Azure Stack HCI-re és a Windows felügyeleti központra.
 
 ## <a name="setting-up-windows-admin-center"></a>A Windows felügyeleti központ beállítása
 

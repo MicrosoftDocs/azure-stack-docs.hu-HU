@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2020
+ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: 1daee460239e178641c4c0b073d2d24a0e63053c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/20/2020
+ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183031"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253927"
 ---
 # <a name="mdc-deployment-overview"></a>A MDC üzembe helyezésének áttekintése
 
@@ -33,8 +33,6 @@ Az útmutató célkitűzései a következők:
 - Egy MDC fő összetevőinek bemutatása.
 - A legfontosabb összetevők telepítésének és konfigurálásának leírása.
 - Ellenőrizze az ügyfél központi telepítését.
-
-Ez a telepítési útmutató a MDC az ügyfél webhelyén való üzembe helyezéséhez felelős Microsoft Field Professional csapat számára készült.
 
 A virtualizáció, a kiszolgálók, az operációs rendszerek, a Hálózatkezelés és a tárolási megoldások technikai tapasztalata szükséges ahhoz, hogy teljes mértékben megértsék az útmutató tartalmát. A központi telepítési mérnöknek a Hyper-V, Azure Stack hub, az Azure és a Microsoft PowerShell használatával ismernie kell a Microsoft Windows Server 2019-es verziójának ismeretét.
 
