@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: efd182e35f8229ee171ec0e03c71829c17f7c32e
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853234"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353966"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure Stack hub portálon
 
@@ -34,36 +34,36 @@ Jelentkezzen be az Azure Stack hub portálra. Az Azure Stack hub-portál címe a
 1. Válassza **az erőforrás létrehozása**  >  **számítás**lehetőséget. Keresse meg a következőt: ` Windows Server 2016 Datacenter - Pay as you use` .
     Ha nem látja a **Windows Server 2016 Datacenter – utólagos használatú** bejegyzést, forduljon a Azure stack hub Cloud operatorhoz, és kérje meg, hogy adja hozzá a rendszerképet a Azure stack hub piactérhez. Útmutatásért a felhő operátora hivatkozhat az [egyéni Azure stack hub Marketplace-elem létrehozására és közzétételére](../operator/azure-stack-create-and-publish-marketplace-item.md).
 
-    ![Windows Server 2016 Datacenter – használaton kívüli fizetés](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter – használaton kívüli fizetés](./media/azure-stack-quick-windows-portal/image1a.png)
 
-1. Kattintson a **Létrehozás** gombra.
+1. Válassza a **Létrehozás** lehetőséget.
 
-    ![Erőforrás létrehozása](./media/azure-stack-quick-windows-portal/image2.png)
+    ![Erőforrás létrehozása](./media/azure-stack-quick-windows-portal/image2a.png)
 
 1. Adja meg a **név**, a **lemez típusa**, a **Felhasználónév**és a **jelszó** értéket az **alapok**területen. Válasszon egy **előfizetést**. Hozzon létre egy **erőforráscsoportot**, vagy válasszon ki egy meglévőt, válasszon ki egy **helyet**, majd kattintson **az OK gombra**.
 
-    ![Virtuális gép létrehozása – alapismeretek](./media/azure-stack-quick-windows-portal/image3.png)
+    ![Virtuális gép létrehozása – alapismeretek](./media/azure-stack-quick-windows-portal/image3a.png)
 
 1. A **méret**területen válassza a **D1_v2** lehetőséget, majd válassza a **kiválasztás**lehetőséget.
 
-    ![VM-méret létrehozása](./media/azure-stack-quick-windows-portal/image4.png)
+    ![VM-méret létrehozása](./media/azure-stack-quick-windows-portal/image4a.png)
 
 1. A **Beállítások** lapon végezze el a kívánt módosításokat az alapértelmezett értékeken. A kívánt nyilvános bejövő portokat a kapcsolódó legördülő listából kell konfigurálnia. Ha elkészült, kattintson **az OK gombra**.
 
-    ![Virtuális gép létrehozása – beállítások](./media/azure-stack-quick-windows-portal/image5.png)
+    ![Virtuális gép létrehozása – beállítások](./media/azure-stack-quick-windows-portal/image5a.png)
 
 1. A virtuális gép létrehozásához kattintson **az OK gombra** az **Összefoglalás** területen.
 
-    ![Virtuális gép létrehozása – összefoglalás](./media/azure-stack-quick-windows-portal/image6.png)
+    ![Virtuális gép létrehozása – összefoglalás](./media/azure-stack-quick-windows-portal/image6a.png)
 
 1. Az új virtuális gép áttekintéséhez válassza a **Virtual Machines** lehetőséget. Keresse meg a virtuális gép nevét, majd válassza ki a virtuális gépet a keresési eredmények között.
 
-:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="VIRTUÁLIS gép létrehozása – virtuális gép keresése" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
+![VIRTUÁLIS gép létrehozása – virtuális gép keresése](./media/azure-stack-quick-windows-portal/image7a.png)
 
 ## <a name="clean-up-resources"></a>Az erőforrások eltávolítása
 
 Ha végzett a virtuális gép használatával, törölje a virtuális gépet és annak erőforrásait. Ehhez válassza ki az erőforráscsoportot a virtuális gép lapon, és válassza a **Törlés**lehetőséget.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni Azure Stack hub virtuális gépekről, folytassa a [Azure stack hub-beli virtuális gépekkel kapcsolatos szempontokat](azure-stack-vm-considerations.md).

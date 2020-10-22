@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574057"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353840"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
 
@@ -46,7 +46,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 1. Az Azure stack hub portálon válassza az **erőforrás létrehozása**  >  **számítási**  >  **Ubuntu Server 16,04 LTS**elemet.
 
-    ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. A **virtuális gép létrehozása** panelen **1. Alapszintű beállítások konfigurálása**:
 
@@ -143,7 +143,7 @@ Egy előre definiált szolgáltatás (például RDP vagy SSH) esetében módosí
 
 1. Adjon meg egy **nevet** és egy **leírást** , amely segít megjegyeznünk, hogy a port miért van nyitva.
 
-1. Válassza a **Hozzáadás** lehetőséget.
+1. Válassza a **Hozzáadás** elemet.
 
 #### <a name="add-a-dns-name-for-your-server"></a>DNS-név hozzáadása a kiszolgálóhoz
 

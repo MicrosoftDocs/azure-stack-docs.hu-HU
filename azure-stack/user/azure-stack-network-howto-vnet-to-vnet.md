@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: d4589e4ed9bc7850ce095456a27d3a9a642a1664
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815512"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354516"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET-társítás a FortiGate
 
@@ -77,13 +77,13 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
 2.  Válassza az **erőforrás létrehozása** elemet, és keresse meg a következőt: `FortiGate` .
 
-    ![A keresési eredmények listája a FortiGate NGFW – egyetlen virtuálisgép-telepítést jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![A keresési eredmények listája a FortiGate NGFW – egyetlen virtuálisgép-telepítést jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
 3.  Válassza ki a **FORTIGATE NGFW** , és válassza a **Létrehozás**lehetőséget.
 
 4.  Fejezze be az **alapismereteket** a [telepítési paraméterek](#deployment-parameters) táblázat paramétereinek használatával.
 
-    ![Az alapvető beállítások képernyő a kiválasztott központi telepítési paraméterek értékeit tartalmazza, és a listában és a szövegmezőben szerepel.](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    ![Az alapvető beállítások képernyő a kiválasztott központi telepítési paraméterek értékeit tartalmazza, és a listában és a szövegmezőben szerepel.](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
 5.  Válassza az **OK** lehetőséget.
 
@@ -96,11 +96,11 @@ Az alábbi táblázat összefoglalja a központi telepítésekben használt para
 
 8.  Konfigurálja a FortiGate NVA tartozó nyilvános IP-címet:
 
-    ![Az IP-hozzárendelés párbeszédpanel a "nyilvános IP-cím" forti1 és a "nyilvános IP-cím" típushoz statikus "publicip1" értéket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![Az IP-hozzárendelés párbeszédpanel a "nyilvános IP-cím" forti1 és a "nyilvános IP-cím" típushoz statikus "publicip1" értéket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
 9.  Válassza az **OK** lehetőséget. Majd válassza az **OK** elemet.
 
-10.  Kattintson a **Létrehozás** gombra.
+10.  Válassza a **Létrehozás** lehetőséget.
 
 Az üzembe helyezés körülbelül 10 percet vesz igénybe.
 
@@ -112,17 +112,17 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 1. Válassza az erőforráscsoportok lehetőséget. Írja be `forti1-rg1` a szűrőt, majd kattintson duplán a forti1-rg1 erőforráscsoport elemre.
 
-    ! [Tíz erőforrás szerepel a forti1-rg1 erőforráscsoport számára.]] (./Media/Azure-stack-Network-howto-vnet-to-onprem/image9.png)
+    ![Tíz erőforrás szerepel a forti1-rg1 erőforráscsoport listájában.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 1. Válassza ki a **forti1-forti1-InsideSubnet-Routes-XXXX** erőforrást.
 
 1. Válassza az **útvonalak** elemet a **Beállítások**területen.
 
-    ![Az útvonalak gomb a beállítások párbeszédpanelen van kiválasztva.](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![Az útvonalak gomb a beállítások párbeszédpanelen van kiválasztva.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
 1. Törölje a **to-Internet** útvonalat.
 
-    ![A to-Internet útvonal az egyetlen felsorolt útvonal, és ki van választva. Van egy DELETE gomb.](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![A to-Internet útvonal az egyetlen felsorolt útvonal, és ki van választva. Van egy DELETE gomb.](./media/azure-stack-network-howto-vnet-to-onprem/image11a.png)
 
 1. Válassza az *Igen* lehetőséget.
 
@@ -134,7 +134,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 1. Válassza a **virtuális berendezés** lehetőséget a **következő ugrási típushoz** és `172.16.1.4` . Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
-    ![Az útvonal hozzáadása párbeszédpanel a négy kiválasztott és a szövegmezőben megadott értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![Az útvonal hozzáadása párbeszédpanel a négy kiválasztott és a szövegmezőben megadott értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image12a.png)
 
 1. Válassza a **Mentés** lehetőséget.
 
@@ -150,19 +150,19 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 1. A hozzárendelt nyilvános IP-cím lekéréséhez navigáljon a fortiX VM – áttekintés oldalra:
 
-    ![A forti1 virtuális gép áttekintő lapja a forti1, például az "erőforráscsoport" és az állapot értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![A forti1 virtuális gép áttekintő lapja a forti1, például az "erőforráscsoport" és az állapot értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-vnet/image13a.png)
 
 1. Másolja a hozzárendelt IP-címet, nyisson meg egy böngészőt, és illessze be a címet a címsorba. Előfordulhat, hogy a böngésző figyelmezteti, hogy a biztonsági tanúsítvány nem megbízható. Folytatás mindenképpen.
 
 1. Adja meg az üzembe helyezés során megadott FortiGate rendszergazdai felhasználónevet és jelszót.
 
-    ![A Bejelentkezés párbeszédpanelen a felhasználó és a jelszó szövegmezők és a bejelentkezési gomb is látható.](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![A Bejelentkezés párbeszédpanelen a felhasználó és a jelszó szövegmezők és a bejelentkezési gomb is látható.](./media/azure-stack-network-howto-vnet-to-vnet/image14a.png)
 
 1. Válassza **a**  >  **rendszerbelső vezérlőprogram**lehetőséget.
 
 1. Jelölje be a legújabb belső vezérlőprogram, például a következőt: `FortiOS v6.2.0 build0866` .
 
-    ![A belső vezérlőprogram párbeszédpanel a "FortiOS v 6.2.0 build0866" belső vezérlőprogram-azonosítót, egy kibocsátási megjegyzésekre mutató hivatkozást és két gombot tartalmaz: "Backup config and Upgrade" és upgrade.](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    ![A belső vezérlőprogram párbeszédpanel a "FortiOS v 6.2.0 build0866" belső vezérlőprogram-azonosítót, egy kibocsátási megjegyzésekre mutató hivatkozást és két gombot tartalmaz: "Backup config and Upgrade" és upgrade.](./media/azure-stack-network-howto-vnet-to-vnet/image15a.png)
 
 1. Válassza **a biztonsági mentési konfiguráció és a frissítés**  >  **folytatása**lehetőséget.
 
@@ -174,7 +174,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 1. Válassza **ezt a helyet a NAT mögött**.
 
-    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy az első lépésben, a VPN-beállításban kell lennie. A következő értékek vannak kiválasztva: "hely – hely" a sablon típusa, "FortiGate" a távoli eszköz típusa, és "Ez a hely a NAT mögött" a NAT-konfigurációhoz.](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy az első lépésben, a VPN-beállításban kell lennie. A következő értékek vannak kiválasztva: "hely – hely" a sablon típusa, "FortiGate" a távoli eszköz típusa, és "Ez a hely a NAT mögött" a NAT-konfigurációhoz.](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
 1. Kattintson a **Tovább** gombra.
 
@@ -187,7 +187,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
     > [!NOTE]  
     > Erre a kulcsra szüksége lesz a kapcsolat beállításához a helyszíni VPN-eszközön, azaz *pontosan*meg kell egyeznie.
 
-    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a második lépésben, a hitelesítésen és a kiválasztott értékek kiemelése megtörténik.](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a második lépésben, a hitelesítésen és a kiválasztott értékek kiemelése megtörténik.](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
 1. Kattintson a **Tovább** gombra.
 
@@ -205,13 +205,13 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
-    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a harmadik lépés, a házirend & az Útválasztás. A kiválasztott és a beírt értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+    ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a harmadik lépés, a házirend & az Útválasztás. A kiválasztott és a beírt értékeket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-vnet/image18a.png)
 
 1. Kattintson a **Létrehozás** elemre.
 
 1. Válassza a **hálózati**  >  **adapterek**lehetőséget.
 
-    ![Az illesztőfelületek listáján két interfész látható: port1, amely konfigurálva van, és port2, amely még nem. Az illesztőfelületek létrehozásához, szerkesztéséhez és törléséhez gombokat is létrehozhat.](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+    ![Az illesztőfelületek listáján két interfész látható: port1, amely konfigurálva van, és port2, amely még nem. Az illesztőfelületek létrehozásához, szerkesztéséhez és törléséhez gombokat is létrehozhat.](./media/azure-stack-network-howto-vnet-to-vnet/image19a.png)
 
 1. Kattintson duplán a **port2**elemre.
 
@@ -227,11 +227,11 @@ Miután a fentiek befejeződtek *mindkét* NVA esetében:
 
 1.  A forti2 FortiGate webkonzolon válassza az **Monitor**  >  **IPSec-figyelő**figyelése lehetőséget. 
 
-    ![Megjelenik a VPN-kapcsolat conn1 figyelő. Ez a beállítás nem jelenik meg, mint a megfelelő 2. fázis választó.](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![Megjelenik a VPN-kapcsolat conn1 figyelő. Ez a beállítás nem jelenik meg, mint a megfelelő 2. fázis választó.](./media/azure-stack-network-howto-vnet-to-vnet/image20a.png)
 
 2.  Jelölje ki `conn1` és válassza **Bring Up**ki az  >  **összes fázis 2 választók**lehetőséget.
 
-    ![A figyelő és a 2. fázis választó is megjelenik.](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    ![A figyelő és a 2. fázis választó is megjelenik.](./media/azure-stack-network-howto-vnet-to-vnet/image21a.png)
 
 ## <a name="test-and-validate-connectivity"></a>Kapcsolat tesztelése és érvényesítése
 
