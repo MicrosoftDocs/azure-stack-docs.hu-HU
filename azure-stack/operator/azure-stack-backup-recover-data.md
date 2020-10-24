@@ -3,16 +3,16 @@ title: Azure Stack hub katasztrofális adatvesztésének helyreállítása
 description: Megtudhatja, hogyan állíthatja helyre és állíthatja vissza az infrastruktúra-adatokat Azure Stack központban a katasztrofális adatvesztést követően.
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496415"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás végzetes adatvesztés esetén
 
@@ -60,6 +60,10 @@ Azure Stack hub támogatja a Cloud Recovery Mode nevű üzembe helyezési típus
  - RBAC szabályzat-hozzárendelések és szerepkör-hozzárendelések.
 
 Az üzembe helyezés során a rendszer a felhasználói infrastruktúra (IaaS) vagy a platform as Service (szolgáltatásként szolgáló) erőforrásait sem állítja vissza. Ezek a veszteségek közé tartoznak a IaaS virtuális gépek, a Storage-fiókok, a Blobok, a táblák, a hálózati konfiguráció stb. A Felhőbeli helyreállítás célja annak biztosítása, hogy az operátorok és a felhasználók a telepítés befejezése után vissza tudják jelentkezni a portálra. A-ban bejelentkezett felhasználók nem látják az erőforrásaikat. A felhasználók előfizetései visszaállíthatók, és a rendszergazda által meghatározott eredeti csomagok, ajánlatok és szabályzatok. Azok a felhasználók, akik visszajelentkeznek a rendszerben, a katasztrófa előtt az eredeti megoldás által megszabott korlátozásokkal működnek. A Felhőbeli helyreállítás befejezése után az operátor manuálisan állíthatja vissza a Value-Add és a harmadik féltől származó RPs és kapcsolódó adatmennyiséget.
+
+## <a name="validate-backups"></a>Biztonsági másolatok ellenőrzése 
+
+A ASDK használatával tesztelheti a biztonsági mentést, és ellenőrizheti, hogy az adott érték érvényes és használható-e. További információ: [a ASDK használata Azure stack biztonsági mentés ellenőrzéséhez](../asdk/asdk-validate-backup.md).
 
 ## <a name="next-steps"></a>Következő lépések
 
