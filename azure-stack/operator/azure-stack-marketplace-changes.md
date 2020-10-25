@@ -7,12 +7,12 @@ ms.date: 10/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: ecf0ce541ff95d3fbee3192841f227c81a68dcd5
-ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
+ms.openlocfilehash: 37a90fc31a3ee89406eeea64fcd9549ef7ca98f4
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496387"
+ms.locfileid: "92523524"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -70,6 +70,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 10/22/2020: Azure Monitor, frissítés és konfiguráció kezelése – verzió 1.13.27
 - 10/22/2020: a Windows Server 2008 R2 SP1-Pay a go-Version 7601.24560.2009040118
 - 10/22/2020: a Windows Server 2008 R2 SP1-Bring a saját licenc-verzió 7601.24560.2009040118
 - 10/22/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay a go-Version 7601.24560.2009040118
