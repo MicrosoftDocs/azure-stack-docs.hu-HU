@@ -8,16 +8,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 8d188c77ab04044db94e13cdbf36fdb0e7cbe839
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939530"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638818"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Inaktív adatok titkosítása Azure Stack hub-ban
 
-Azure Stack hub a tárolás alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a REST titkosítás használatával. Azure Stack hub tárolási alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. A BitLocker-kulcsok belső titkos tárolóban maradnak.
+Azure Stack hub a tárolás alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a REST titkosítás használatával. Alapértelmezés szerint a Azure Stack hub tárolási alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. A BitLocker-kulcsok belső titkos tárolóban maradnak. A telepítés ideje alatt a BitLocker a 256 bites AES-titkosítás használatára is konfigurálható.
 
 Az inaktív adatok titkosítása a legfontosabb megfelelőségi szabványok (például a PCI-DSS, a FedRAMP, a HIPAA) gyakori követelménye. Azure Stack hub lehetővé teszi a követelmények teljesítését, és nem igényel további munkát vagy konfigurációkat. További információ arról, hogyan segíti a Azure Stack hub a megfelelőségi előírások teljesítését: a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/AzureStackCompliance).
 
