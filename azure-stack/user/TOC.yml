@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Általános célú virtuális gép
                       href: vm-move-generalized.md
-            - name: Storage
+            - name: Tárolás
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Fürt frissítése
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Szolgáltatásfiók-jogkivonat mennyiségi kivetítésének engedélyezése
+                      href: kubernetes-aks-engine-service-account.md
                     - name: Az KABAi motor hibáinak megoldása
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Tárolók Azure Monitor használata
@@ -359,7 +361,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: További források
+- name: Források
   items:
     - name: Azure Stack hub közúti Térkép
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'

@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253927"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898590"
 ---
 # <a name="mdc-deployment-overview"></a>A MDC üzembe helyezésének áttekintése
 
@@ -58,10 +58,6 @@ A következő táblázat felsorolja az útmutatóban használt néhány kifejez�
 |Méretezési egység    |Azure Stack hub alapvető összetevője, amely számítási és tárolási erőforrásokat biztosít Azure Stack hub-háló infrastruktúra és munkaterhelések számára. Mindegyik Pod nyolc MDC R840-kiszolgálót tartalmaz, más néven csomópontokat.|
 |Isilon-tároló |    Egy Azure Stack hub-összetevő, amely a MDC-megoldásra jellemző. A Isilon további blob-és file Storage-t biztosít Azure Stack hub munkaterhelésekhez. Mindegyik Pod 48 Isilon-tároló csomópontot tartalmaz.|
 |Pod    |A MDC kontextusában a pod egy független logikai egység, amely két összekapcsolt fizikai állványból áll. A teljes megoldás három, egyetlen tárolóban telepített hüvelyt tartalmaz.|
-
-
-
-
 
 ## <a name="deployment-workflow"></a>Üzembe helyezési munkafolyamat
 
