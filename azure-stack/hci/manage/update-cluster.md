@@ -4,40 +4,45 @@ description: Operációs rendszer és belső vezérlőprogram frissítéseinek a
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/27/2020
+ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
+ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572636"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92688304"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Azure Stack HCI-fürtök frissítésekor a cél a rendelkezésre állás fenntartása úgy, hogy egyszerre csak egy kiszolgálót frissít a fürtben. Számos operációsrendszer-frissítéshez szükség van a kiszolgáló offline állapotba helyezésére, például újraindításra vagy olyan szoftverek frissítésére, mint például a hálózati verem. Azt javasoljuk, hogy használjon olyan, a [fürtöket támogató frissítést (Cau)](/windows-server/failover-clustering/cluster-aware-updating), amely megkönnyíti a Windows-frissítések telepítését a fürt minden kiszolgálójára, miközben a szoftverfrissítési folyamat automatizálásával megtartja az alkalmazások működését. A fürtöket támogató frissítés a Windows Server minden kiadásában használható, beleértve a Server Core telepítéseket is, és a Windows felügyeleti központban vagy a PowerShell használatával kezdeményezhető.
+Azure Stack HCI-fürtök frissítésekor a cél a rendelkezésre állás fenntartása úgy, hogy egyszerre csak egy kiszolgálót frissít a fürtben. Számos operációsrendszer-frissítéshez szükség van a kiszolgáló offline állapotba helyezésére, például újraindításra vagy olyan szoftverek frissítésére, mint például a hálózati verem. Javasoljuk, hogy a Cluster-Aware Update (CAU) szolgáltatást használja, amely megkönnyíti a frissítések telepítését a fürt minden kiszolgálójára, miközben az alkalmazások futnak. Ha szükséges, a frissítések telepítése és a kiszolgáló újraindítása során Cluster-Aware automatizálja a kiszolgáló bevezetését a karbantartási módból. Cluster-Aware frissítés a Windows felügyeleti központ által használt alapértelmezett frissítési módszer, amely a PowerShell használatával is kezdeményezhető.
+
+   > [!IMPORTANT]
+   > Az Azure Stack HCI-hez készült, október 20, 2020-es előzetes frissítés (KB4580388) miatt előfordulhat, hogy a fürtön észlelt frissítési művelet sikertelen lesz, ha a virtuális gépek bármelyike elvártan Élő áttelepítés a CAU során. Megkerülő megoldás [kibocsátási megjegyzései](../release-notes.md#october-20-2020-preview-update-kb4580388) .
+
+Ez a témakör az operációs rendszerre és a szoftverfrissítésekra koncentrál. Ha a hardver karbantartásának elvégzéséhez offline állapotba kell helyeznie egy kiszolgálót, tekintse meg a [kiszolgáló karbantartáshoz való offline](maintain-servers.md)állapotba helyezését ismertető témakört.
 
 ## <a name="update-a-cluster-using-windows-admin-center"></a>Fürt frissítése a Windows felügyeleti központtal
 
 A Windows felügyeleti központ megkönnyíti a fürt frissítését, valamint az operációs rendszer és a megoldás frissítéseinek egyszerű felhasználói felületen történő alkalmazását. Ha már vásárolt egy integrált rendszert egy Microsoft-hardveres partnertől, akkor a megfelelő partner-frissítési bővítmény (ek) telepítésével egyszerűen lekérheti a legújabb illesztőprogramokat, belső vezérlőprogramot és egyéb frissítéseket közvetlenül a Windows felügyeleti központból. Ha a hardvert nem integrált rendszerként vásárolta meg, akkor előfordulhat, hogy a hardver gyártójával kapcsolatos javaslatok után külön kell végrehajtani a belső vezérlőprogram és az illesztőprogram frissítéseit.
 
-A Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e konfigurálva a fürtöket támogató frissítés futtatásához, és ha szükséges, megkérdezi, hogy szeretné-e, ha a Windows felügyeleti központ konfigurálja a CAU, beleértve a CAU-fürt szerepkörének telepítését és a szükséges tűzfalszabályok engedélyezését is.
+A Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e konfigurálva Cluster-Aware frissítés futtatásához, és ha szükséges, megkérdezi, hogy szeretné-e, ha a Windows felügyeleti központ konfigurálja a CAU, beleértve a CAU-fürt szerepkörének telepítését és a szükséges tűzfalszabályok engedélyezését is.
 
 1. Amikor egy fürthöz csatlakozik, a Windows felügyeleti központ irányítópultja riasztást küld, ha egy vagy több kiszolgáló frissítésre készen áll, és megadhat egy hivatkozást a frissítéshez. Azt is megteheti, hogy a bal oldali **eszközök** menüjéből kijelöli a **frissítések** elemet.
-1. Ha a Windows felügyeleti központban szeretné használni a fürtöket támogató frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen**gombra.
-1. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás**) gombra.
+1. Ha a Windows felügyeleti központban szeretné használni a Cluster-Aware frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen** gombra.
+1. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás** ) gombra.
 1. A rendszer minden elérhető frissítést megjelenít; a lista frissítéséhez kattintson az **elérhető frissítések keresése** elemre.
-1. Válassza ki a telepíteni kívánt frissítéseket, és kattintson az **összes frissítés alkalmazása**lehetőségre. Ekkor a rendszer telepíti a frissítéseket a fürt minden kiszolgálójára. Ha újraindításra van szükség, a fürt szerepkörei, például a virtuális gépek átkerülnek egy másik kiszolgálóra, hogy elkerülje a fennakadást.
+1. Válassza ki a telepíteni kívánt frissítéseket, és kattintson az **összes frissítés alkalmazása** lehetőségre. Ekkor a rendszer telepíti a frissítéseket a fürt minden kiszolgálójára. Ha újraindításra van szükség, a fürt szerepkörei, például a virtuális gépek átkerülnek egy másik kiszolgálóra, hogy elkerülje a fennakadást.
 1. A biztonság növelése érdekében tiltsa le a CredSSP, amint befejezte a frissítések telepítését:
-    - A Windows felügyeleti központban a **minden kapcsolat**területen válassza ki az első kiszolgálót a fürtben, majd válassza a **Csatlakozás**lehetőséget.
-    - Az **Áttekintés** lapon válassza a **CredSSP letiltása**lehetőséget, majd a **CredSSP letiltására** szolgáló előugró ablakban válassza az **Igen**lehetőséget.
+    - A Windows felügyeleti központban a **minden kapcsolat** területen válassza ki az első kiszolgálót a fürtben, majd válassza a **Csatlakozás** lehetőséget.
+    - Az **Áttekintés** lapon válassza a **CredSSP letiltása** lehetőséget, majd a **CredSSP letiltására** szolgáló előugró ablakban válassza az **Igen** lehetőséget.
 
 ## <a name="update-a-cluster-using-powershell"></a>Fürt frissítése a PowerShell használatával
 
-Ahhoz, hogy a fürtöt a fürtöket támogató frissítéssel lehessen frissíteni, először telepítenie kell a **feladatátvételi fürtszolgáltatás eszközeit**, amelyek a **Távoli kiszolgálófelügyelet eszközei (RSAT)** részét képezik, és tartalmazzák a fürt által használható frissítési szoftvert. Ha meglévő fürtöt frissít, lehetséges, hogy ezek az eszközök már telepítve vannak.
+Ahhoz, hogy frissíteni lehessen a fürtöt Cluster-Aware frissítéssel, először telepítenie kell a **feladatátvételi fürtszolgáltatás eszközeit** , amelyek a **Távoli kiszolgálófelügyelet eszközei (RSAT)** részét képezik, és tartalmazzák a Cluster-Aware frissítési szoftverét. Ha meglévő fürtöt frissít, lehetséges, hogy ezek az eszközök már telepítve vannak.
 
-Annak ellenőrzéséhez, hogy a feladatátvevő fürt megfelelően van-e beállítva a szoftverfrissítések alkalmazásához a fürtöket támogató frissítéssel, futtassa a **test-CauSetup** PowerShell-parancsmagot, amely a feladatátvevő fürt és a hálózati környezet ajánlott eljárásokat elemző eszközének (BPA) vizsgálatát végzi, és riasztást küld a figyelmeztetésekről és hibákról:
+Annak ellenőrzéséhez, hogy a feladatátvevő fürt megfelelően van-e beállítva a szoftverfrissítések alkalmazásához Cluster-Aware frissítéssel, futtassa a **test-CauSetup** PowerShell-parancsmagot, amely a feladatátvevő fürt és a hálózati környezet ajánlott eljárásokat elemző eszközének (BPA) vizsgálatát végzi, és riasztást küld a figyelmeztetésekről és hibákról:
 
 ```PowerShell
 Test-CauSetup -ClusterName Cluster1
@@ -71,7 +76,7 @@ Ha a feladatátvételi fürtszolgáltatás nincs telepítve, telepítse azt a f�
 Install-WindowsFeature –Name Failover-Clustering -IncludeAllSubFeature –IncludeManagementTools -ComputerName Server1
 ```
 
-Ez a parancs a PowerShell feladatátvevő fürt modulját is telepíti, amely tartalmazza a feladatátvevő fürtök kezelésére szolgáló PowerShell-parancsmagokat, valamint a PowerShell-hez készült, a fürthöz tartozó frissítési modult, amely a szoftverfrissítések feladatátvételi fürtökön való telepítését végzi.
+Ez a parancs a PowerShell feladatátvevő fürt modulját is telepíti, amely a feladatátvevő fürtök kezelésére szolgáló PowerShell-parancsmagokat, valamint a PowerShell Cluster-Aware frissítési modulját tartalmazza a szoftverfrissítések feladatátvételi fürtökre történő telepítéséhez.
 
 Ha a feladatátvételi fürtszolgáltatás már telepítve van, de a Windows PowerShell feladatátvevő fürt modulja nem, egyszerűen telepítse a fürt minden kiszolgálójára az **install-WindowsFeature** parancsmaggal:
 
@@ -81,20 +86,20 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
 
 ### <a name="choose-an-updating-mode"></a>Frissítési mód kiválasztása
 
-A fürtöket támogató frissítés két módban képes koordinálni a fürt teljes frissítési műveletét:  
+Cluster-Aware a frissítés két módban képes koordinálni a fürt teljes frissítési műveletét:  
   
--   **Önfrissítési mód** Ebben a módban a fürttel kompatibilis frissítés fürtözött szerepkör a frissítendő feladatátvevő fürt számítási feladatának megfelelően van konfigurálva, és egy kapcsolódó frissítési ütemterv van definiálva. A fürt az ütemezett időpontokban frissíti magát egy alapértelmezett vagy egyéni frissítési futtatási profil használatával. A frissítési kísérlet során a fürtöket támogató frissítési koordinátori folyamat elindul azon a csomóponton, amely jelenleg a fürttel kompatibilis frissítés fürtözött szerepkört birtokolja, és a folyamat egymás után végrehajtja a frissítéseket az egyes fürtcsomópontokon. Az aktuális fürtcsomópont frissítéséhez a fürtözött szerepkör frissítése feladatátvételt hajt végre egy másik fürtcsomóponton, és a csomóponton egy új frissítési koordinátori folyamat feltételezi a frissítési kísérlet vezérlését. Önfrissítő módban a fürtöket támogató frissítése a teljes körűen automatizált, végpontok közötti frissítési folyamat használatával frissítheti a feladatátvevő fürtöt. A rendszergazda ebben a módban is aktiválhatja az igény szerinti frissítéseket, vagy egyszerűen használhatja a távoli frissítési módszert, ha szükséges.
+-   **Önfrissítési mód** Ebben a módban Cluster-Aware a fürtözött szerepkör frissítése munkaterhelésként van konfigurálva a frissítendő feladatátvevő fürtön, és a hozzá tartozó frissítési ütemterv is meg van adva. A fürt az ütemezett időpontokban frissíti magát egy alapértelmezett vagy egyéni frissítési futtatási profil használatával. A frissítési kísérlet során a Cluster-Aware frissítés-koordinátori folyamat elindul azon a csomóponton, amely jelenleg Cluster-Aware a fürtözött szerepkör frissítését végzi, és a folyamat egymás után végrehajtja a frissítéseket az egyes fürtcsomópontokon. Az aktuális fürtcsomópont frissítéséhez Cluster-Aware a fürtözött szerepkör frissítése egy másik fürtcsomóponton történik, és a csomóponton egy új frissítési koordinátori folyamat feltételezi a frissítési kísérlet vezérlését. Az önfrissítési módban Cluster-Aware frissítés a feladatátvételi fürtöt teljesen automatizált, végpontok közötti frissítési folyamattal frissítheti. A rendszergazda ebben a módban is aktiválhatja az igény szerinti frissítéseket, vagy egyszerűen használhatja a távoli frissítési módszert, ha szükséges.
   
 -   **Távoli frissítési mód** Ebben a módban egy távoli felügyeleti számítógép (általában Windows 10 rendszerű számítógép), amely hálózati kapcsolattal rendelkezik a feladatátvevő fürthöz, de nem tagja a feladatátvevő fürtszolgáltatási eszközöknek. A rendszergazda, a frissítési koordinátor néven elindít egy igény szerinti frissítési kísérletet egy alapértelmezett vagy egyéni frissítési kísérlet futtatási profil használatával. A távoli frissítési mód hasznos a valós idejű előrehaladás figyelésére a frissítési kísérlet során, valamint a Server Core telepítéseken futó fürtök esetében.  
 
    > [!NOTE]
-   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei**, és válassza a **telepítés**lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/download/details.aspx?id=45520).
+   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei** , és válassza a **telepítés** lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>CAU-fürt szerepkör hozzáadása a fürthöz
 
-Az önfrissítési mód esetében a fürtre vonatkozó frissítési fürt szerepkörre van szükség. Ha a Windows felügyeleti központot használja a frissítések végrehajtásához, a rendszer automatikusan hozzáadja a fürt szerepkört.
+Az önfrissítési módhoz a fürt szerepkörének Cluster-Aware frissítése szükséges. Ha a Windows felügyeleti központot használja a frissítések végrehajtásához, a rendszer automatikusan hozzáadja a fürt szerepkört.
 
-A **`Get-CauClusterRole`** parancsmag megjeleníti a fürtre vonatkozó frissítési fürt szerepkör konfigurációs tulajdonságait a megadott fürtön.
+A **`Get-CauClusterRole`** parancsmag megjeleníti a fürt szerepkörének a megadott fürtön való frissítésének Cluster-Aware konfigurációs tulajdonságait.
 
 ```PowerShell
 Get-CauClusterRole -ClusterName Cluster1
@@ -104,7 +109,7 @@ Ha a szerepkör még nincs konfigurálva a fürtön, a következő hibaüzenet j
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-Ha az önfrissítési módban a PowerShell használatával szeretné felvenni a fürtre vonatkozó frissítési fürtszolgáltatást, használja a **`Add-CauClusterRole`** parancsmagot, és adja meg a megfelelő [paramétereket](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters), ahogy az alábbi példában is látható:
+Ha hozzá szeretné adni a Cluster-Aware az önfrissítési módban a PowerShell használatával, használja a **`Add-CauClusterRole`** parancsmagot, és adja meg a megfelelő [paramétereket](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters), ahogy az alábbi példában látható:
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose
@@ -175,9 +180,30 @@ InstallResults           : Microsoft.ClusterAwareUpdating.UpdateInstallResult[]
 }
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="perform-a-fast-offline-update-of-all-servers-in-a-cluster"></a>A fürtben található összes kiszolgáló gyors, offline frissítésének végrehajtása
+
+Ez a módszer lehetővé teszi, hogy egy fürt összes kiszolgálóját egyszerre le lehessen kapcsolni, és egyszerre frissítse őket. Ezzel időt takaríthat meg a frissítési folyamat során, de a kikapcsolás az üzemeltetett erőforrásokhoz tartozó állásidő.
+
+Ha van olyan kritikus fontosságú biztonsági frissítés, amelyet gyorsan kell alkalmaznia, vagy meg kell győződnie arról, hogy a frissítések befejeződik a karbantartási időszakon belül, ez a módszer lehet Önnek. Ez a folyamat leállítja az Azure Stack HCI-fürtöt, frissíti a kiszolgálókat, és újra megjeleníti.
+
+1. Tervezze meg a karbantartási időszakot.
+2. A virtuális lemezek offline állapotba helyezése.
+3. Állítsa le a fürtöt a tároló offline állapotba helyezéséhez. Futtassa a  **stop-cluster** parancsmagot, vagy használja a Windows felügyeleti központot a fürt leállításához.
+4. Állítsa be a fürtszolgáltatást, hogy **letiltsa** a Services. msc fájlt az egyes kiszolgálókon. Ez megakadályozza, hogy a fürtszolgáltatás a frissítés közben elinduljon.
+5. Alkalmazza a Windows Server összesített frissítését és az összes szükséges karbantartási verem frissítését az összes kiszolgálóra. Az összes kiszolgálót egyszerre frissítheti – nem kell megvárnia, mert a fürt le van hajtva.
+6. Indítsa újra a kiszolgálókat, és győződjön meg róla, hogy minden jól látható.
+7. Állítsa vissza a fürtszolgáltatást **automatikusra** az egyes kiszolgálókon.
+8. Indítsa el a fürtöt. Futtassa a **Start-cluster** parancsmagot, vagy használja a Windows felügyeleti központot.
+
+   Néhány percet is igénybe vehet.  Győződjön meg arról, hogy a tárolási készlet kifogástalan állapotban van.
+
+9. A virtuális lemezek újbóli online állapotba helyezése.
+10. A virtuális lemezek állapotának figyeléséhez futtassa a **Get-Volume** és a **Get-VirtualDisk** parancsmagot.
+
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
+- [Fürtöket támogató frissítés (CAU)](/windows-server/failover-clustering/cluster-aware-updating)
 - [A meghajtó belső vezérlőprogram frissítése Közvetlen tárolóhelyek](/windows-server/storage/update-firmware)
 - [Azure Stack HCI-fürt ellenőrzése](../deploy/validate.md)
