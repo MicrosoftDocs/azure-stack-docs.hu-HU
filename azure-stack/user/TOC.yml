@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Általános célú virtuális gép
                       href: vm-move-generalized.md
-            - name: Tárolás
+            - name: Storage
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -213,6 +213,10 @@
               items:
                 - name: Áttekintés
                   href: event-hubs-overview.md
+            - name: IoT Hub
+              items:
+                - name: Áttekintés
+                  href: iot-hub-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -361,7 +365,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: Források
+- name: További források
   items:
     - name: Azure Stack hub közúti Térkép
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
