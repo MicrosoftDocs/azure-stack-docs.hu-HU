@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2d2db45af0df86ebe6ea210df9b4a86da22c3303
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899516"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064480"
 ---
 # <a name="set-up-a-cluster-witness"></a>Tanúsító fürt beállítása
 
@@ -21,20 +21,20 @@ A tanúsító erőforrások beállítása minden fürt esetében kötelező, és
 
 Használhat egy SMB-fájlmegosztást tanúsító, vagy használhat egy Azure-beli Felhőbeli tanúsító is. Egy Azure-beli Felhőbeli tanúsító használata ajánlott, ha a fürtben található összes kiszolgáló-csomópont megbízható internetkapcsolattal rendelkezik. További információ: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](/windows-server/failover-clustering/deploy-cloud-witness).
 
-A fájl-megosztási tanúk esetében a fájlkiszolgáló követelményei vannak. További információkért lásd: [Azure stack HCI telepítése előtt](before-you-start.md) .
+A fájl-megosztási tanúk esetében a fájlkiszolgáló követelményei vannak. További információt a [rendszerkövetelmények](../concepts/system-requirements.md) című témakörben talál.
 
 ## <a name="set-up-a-witness-using-windows-admin-center"></a>Tanú beállítása a Windows felügyeleti központtal
 
 1. A Windows felügyeleti központban válassza ki a **Fürtfelügyelő** elemet a felső legördülő listából.
-1. A **fürt kapcsolatai**területen válassza ki a fürtöt.
-1. Az **eszközök**területen válassza a **Beállítások**lehetőséget.
-1. A jobb oldali ablaktáblán válassza a **tanúsító**elemet.
-1. A **tanúsító típusa**beállításnál válassza a következők egyikét:
+1. A **fürt kapcsolatai** területen válassza ki a fürtöt.
+1. Az **eszközök** területen válassza a **Beállítások** lehetőséget.
+1. A jobb oldali ablaktáblán válassza a **tanúsító** elemet.
+1. A **tanúsító típusa** beállításnál válassza a következők egyikét:
       - **Felhőbeli tanúsító** – adja meg az Azure Storage-fiók nevét, a hozzáférési kulcsot és a végpont URL-címét az alább leírtak szerint.
       - **Tanúsító fájlmegosztás** – adja meg a fájlmegosztás elérési útját: "(//Server/share)"
 
 > [!NOTE]
-> A harmadik lehetőség, a **tanúsító lemez**nem alkalmas a kifeszített fürtökben való használatra.
+> A harmadik lehetőség, a **tanúsító lemez** nem alkalmas a kifeszített fürtökben való használatra.
 
 ## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>Felhőbeli tanúsító használandó Azure Storage-fiók létrehozása
 
@@ -54,16 +54,16 @@ Ha ugyanazt az Azure Storage-fiókot használja a Felhőbeli tanúsító több k
 1. A Storage-fiók létrehozása lapon tegye a következőket:
     1. Adja meg a tárfiók nevét.
     <br>A tárfiókok neve 3–24 karakter hosszúságú lehet, és csak számokból és kisbetűkből állhat. A Storage-fiók nevének az Azure-on belül is egyedinek kell lennie.
-    1. A **Fiók típusa**területen válassza az **általános célú**lehetőséget.
+    1. A **Fiók típusa** területen válassza az **általános célú** lehetőséget.
     <br>Nem használhat blob Storage-fiókot Felhőbeli tanúsító számára.
     1. A **Teljesítmény** mezőben válassza a **Standard** lehetőséget.
     <br>Az Azure Premium Storage nem használható a Felhőbeli tanúk számára.
-    1. A **replikáláshoz**válassza a **helyileg REDUNDÁNS tárolás (LRS)** lehetőséget.
+    1. A **replikáláshoz** válassza a **helyileg REDUNDÁNS tárolás (LRS)** lehetőséget.
     <br>A feladatátvételi fürtszolgáltatás a blob-fájlt használja választottbírósági pontként, amely némi konzisztencia-garanciát igényel az adatolvasáskor. Ezért ki kell választania a **helyileg redundáns tárolást** a **replikálási** típushoz.
 
 ### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>Az Azure Storage-fiókhoz tartozó Storage-hozzáférési kulcsok megtekintése és másolása
 
-Microsoft Azure Storage fiók létrehozásakor a rendszer két, automatikusan az elsődleges elérési kulcs és a másodlagos elérési kulcs által generált hozzáférési kulcshoz van társítva. A Felhőbeli tanúk első alkalommal történő létrehozásához használja az **elsődleges hozzáférési kulcsot**. Nincs korlátozás arra vonatkozóan, hogy melyik kulcsot használja a Felhőbeli tanúsító.  
+Microsoft Azure Storage fiók létrehozásakor a rendszer két, automatikusan az elsődleges elérési kulcs és a másodlagos elérési kulcs által generált hozzáférési kulcshoz van társítva. A Felhőbeli tanúk első alkalommal történő létrehozásához használja az **elsődleges hozzáférési kulcsot** . Nincs korlátozás arra vonatkozóan, hogy melyik kulcsot használja a Felhőbeli tanúsító.  
 
 #### <a name="to-view-and-copy-storage-access-keys"></a>Tároló-hozzáférési kulcsok megtekintése és másolása
 

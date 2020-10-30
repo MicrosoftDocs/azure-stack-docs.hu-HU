@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064565"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Szoftveresen definiált hálózati infrastruktúra megtervezése
 
@@ -25,13 +25,13 @@ A szoftveres hálózati (SDN) infrastruktúra központi telepítésének megterv
 
 ## <a name="prerequisites"></a>Előfeltételek
 Az SDN-infrastruktúra több hardver-és szoftver-előfeltételt is magában foglal, beleértve a következőket:
-- **Biztonsági csoportok és dinamikus DNS-regisztráció**. Elő kell készítenie az adatközpontot a hálózati vezérlő üzembe helyezéséhez, amelyhez virtuális gépek (VM-EK) készlete szükséges. A hálózati vezérlő üzembe helyezése előtt konfigurálnia kell a biztonsági csoportokat és a dinamikus DNS-regisztrációt.
+- **Biztonsági csoportok és dinamikus DNS-regisztráció** . Elő kell készítenie az adatközpontot a hálózati vezérlő üzembe helyezéséhez, amelyhez virtuális gépek (VM-EK) készlete szükséges. A hálózati vezérlő üzembe helyezése előtt konfigurálnia kell a biztonsági csoportokat és a dinamikus DNS-regisztrációt.
 
     Ha többet szeretne megtudni az adatközpont hálózati vezérlő üzembe helyezéséről, olvassa el a [hálózati vezérlő üzembe helyezésének követelményeit](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)ismertető témakört.
 
-- **Fizikai hálózat**. A virtuális helyi hálózatok (VLAN-ok), az Útválasztás és a Border Gateway Protocol (BGP) konfigurálásához hozzáféréssel kell rendelkeznie a fizikai hálózati eszközökhöz. Ez a témakör útmutatást nyújt a manuális kapcsolók konfigurálásához, valamint a BGP-partneri kapcsolathoz a 3. rétegbeli kapcsolókon/útválasztón, illetve egy útválasztási és távelérési kiszolgáló (RRAS) virtuális gépen.
+- **Fizikai hálózat** . A virtuális helyi hálózatok (VLAN-ok), az Útválasztás és a Border Gateway Protocol (BGP) konfigurálásához hozzáféréssel kell rendelkeznie a fizikai hálózati eszközökhöz. Ez a témakör útmutatást nyújt a manuális kapcsolók konfigurálásához, valamint a BGP-partneri kapcsolathoz a 3. rétegbeli kapcsolókon/útválasztón, illetve egy útválasztási és távelérési kiszolgáló (RRAS) virtuális gépen.
 
-- **Fizikai számítási gazdagépek**. Ezek a gazdagépek Hyper-V-t futtatnak, és az SDN-infrastruktúra és a bérlői virtuális gépek üzemeltetéséhez szükségesek. A legjobb teljesítmény érdekében adott hálózati hardverre van szükség ezekben a gazdagépeken, a [hálózati hardver](#network-hardware) részben leírtak szerint.
+- **Fizikai számítási gazdagépek** . Ezek a gazdagépek Hyper-V-t futtatnak, és az SDN-infrastruktúra és a bérlői virtuális gépek üzemeltetéséhez szükségesek. A legjobb teljesítmény érdekében adott hálózati hardverre van szükség ezekben a gazdagépeken, az [Sdn hardverkövetelmények](system-requirements.md#sdn-hardware-requirements)című cikkben leírtak szerint.
 
 ## <a name="physical-and-logical-network-configuration"></a>Fizikai és logikai hálózati konfiguráció
 Minden fizikai számítási gazdagép hálózati kapcsolatot igényel egy fizikai kapcsoló porthoz csatlakoztatott hálózati adapteren keresztül. A 2. rétegbeli [VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) több logikai hálózati szegmensre osztott hálózatokat támogat.
@@ -108,52 +108,12 @@ A több hálózathoz való kapcsolódásra konfigurált gépek, például a fizi
 - SLB-vagy MUX-alapú virtuális gépek esetén használja a felügyeleti hálózatot alapértelmezett átjáróként.
 - Az átjáróként működő virtuális gépek esetében a HNV-szolgáltatói hálózatot használja alapértelmezett átjáróként. Ezt az átjáró virtuális gépek előtér-hálózati adapterén kell beállítani.
 
-## <a name="network-hardware"></a>Hálózati hardver
-Ez a szakasz a hálózati hardver központi telepítési követelményeit ismerteti a hálózati adapterek és fizikai kapcsolók számára.
+## <a name="switches-and-routers"></a>Kapcsolók és útválasztók
+A fizikai kapcsoló vagy útválasztó konfigurálásának elősegítése érdekében a [Microsoft Sdn GitHub-tárházban](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)számos különböző kapcsoló modellhez és szállítóhoz tartozó konfigurációs fájl is elérhető. Megadott kapcsolókhoz tartozó readme-fájl és a parancssori felület (CLI) parancsai vannak megadva.
 
-### <a name="network-interface-cards-nics"></a>Hálózati kártyák (NIC)
-A Hyper-V-gazdagépek és a tároló-gazdagépek által használt hálózati adapterek speciális képességeket igényelnek a legjobb teljesítmény eléréséhez.
+A kapcsolók és az útválasztók részletes követelményeiért lásd az [Sdn-hardverre vonatkozó követelményeket](system-requirements.md#sdn-hardware-requirements).
 
-A távoli közvetlen memória-hozzáférés (RDMA) egy kernel-megkerülési módszer, amely lehetővé teszi nagy mennyiségű adat átvitelét a gazda CPU használata nélkül, így a CPU más munkákat is elvégezhet. A Switch beágyazott összevonása (SET) egy másik hálózati adapterek összevonására szolgáló megoldás, amelyet a Hyper-V és az SDN-verem közé tartozó környezetekben használhat. A SET a hálózati adapterek összevonásának funkcióit integrálja a Hyper-V virtuális kapcsolóba.
-
-További információkért lásd: [távoli közvetlen memória-hozzáférés (RDMA) és Switch Embedded Teaming (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-
-Ahhoz, hogy a bérlői virtuális hálózati forgalom a VXLAN vagy NVGRE beágyazási fejlécek által okozott terhelést figyelembe lehessen venni, a 2. rétegbeli háló (kapcsolók és gazdagépek) maximális átviteli egységének (MTU) értékének 1674 bájtnál nagyobbnak vagy azzal egyenlőnek kell lennie, \( beleértve a 2. rétegbeli Ethernet-fejléceket \) .
-
-Az új *EncapOverhead* speciális adaptert támogató hálózati adapterek automatikusan az MTU-t a hálózati vezérlő gazdagépének ügynökén keresztül állíthatják be. Az új *EncapOverhead* -kulcsszót nem támogató hálózati adapterek esetében az MTU-méretet manuálisan kell beállítani az egyes fizikai gazdagépeken a *JumboPacket* \( vagy azzal egyenértékű \) kulcsszó használatával.
-
-### <a name="switches"></a>Switchek
-Ha a környezethez fizikai kapcsolót és útválasztót választ, győződjön meg arról, hogy az a következő funkciókat támogatja:
-- Switchport MTU-beállítások megadása \( kötelező\)
-- Az MTU értéke >= 1674 bájt, \( beleértve a L2-Ethernet fejlécet\)
-- L3 protokollok \( szükségesek\)
-- Azonos árú, több útvonalos (ECMP) Útválasztás
-- BGP \( IETF RFC 4271- \) \- alapú ECMP
-
-A megvalósításoknak támogatniuk kell a következő IETF-szabványokban szereplő kötelező utasításokat:
-- RFC 2545: [BGP-4 többprotokollos bővítmény IPv6 Inter-Domain útválasztáshoz](https://tools.ietf.org/html/rfc2545)
-- RFC 4760: [többprotokollos bővítmények a BGP-4-hez](https://tools.ietf.org/html/rfc4760)
-- RFC 4893: [BGP-támogatás négy oktettnél](https://tools.ietf.org/html/rfc4893)
-- RFC 4456: [BGP Route Reflection: alternatíva a teljes Mesh belső BGP (IBGP)](https://tools.ietf.org/html/rfc4456)
-- RFC 4724: [kecses újraindítási mechanizmus BGP-hez](https://tools.ietf.org/html/rfc4724)
-
-A következő címkézési protokollok szükségesek:
-- VLAN – különböző típusú forgalom elkülönítése
-- 802.1 q törzs
-
-A következő elemek biztosítják a hivatkozás vezérlőelemet:
-- A szolgáltatás szolgáltatásminőség-ellenőrzésének minősége \( \) \( csak a RoCE használata esetén szükséges\)
-- Továbbfejlesztett forgalom kiválasztásának \( 802.1 Qaz\)
-- Prioritáson alapuló Flow Control (PFC) \( 802.1 p/Q és 802.1 Qbb\)
-
-A következő elemek biztosítják a rendelkezésre állást és a redundanciát:
-- Kapcsoló rendelkezésre állása (kötelező)
-- Az átjáró függvények végrehajtásához egy nagy rendelkezésre állású útválasztó szükséges. Ezt megadhatja egy többplatformos switch\router vagy olyan technológiával, mint a Virtual router redundancia protokoll (VRRP).
-
-### <a name="switch-configuration-examples"></a>Kapcsolók konfigurációs példái
-A fizikai kapcsoló vagy útválasztó konfigurálásának elősegítése érdekében a [Microsoft Sdn GitHub-tárházban](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)számos különböző kapcsoló modellhez és szállítóhoz tartozó konfigurációs fájl is elérhető. A megadott kapcsolókhoz tartozó részletes readme és tesztelt parancssori felületi (CLI) parancsok is elérhetők.
-
-## <a name="compute"></a>Számítás
+## <a name="compute"></a>Compute
 Minden Hyper-V-gazdagépen telepítve kell lennie a megfelelő operációs rendszernek, engedélyezni kell a Hyper-V-t, és egy külső Hyper-V virtuális kapcsolót kell használnia legalább egy, a felügyeleti logikai hálózathoz csatlakoztatott fizikai adapterrel. A gazdagépnek elérhetőnek kell lennie a felügyeleti gazdagép vNIC rendelt felügyeleti IP-címen keresztül.
 
 A Hyper-V, a Shared vagy a local szolgáltatással kompatibilis tárolási típusokat is használhat.
@@ -164,7 +124,7 @@ A Hyper-V, a Shared vagy a local szolgáltatással kompatibilis tárolási típu
 ### <a name="host-compute-requirements"></a>Gazdagép számítási követelményei
 A következő példában a központi telepítésben használt négy fizikai gazdagép minimális hardver-és szoftver-követelményei láthatók.
 
-Gazda|Hardverkövetelmények|Szoftverkövetelmények|
+Gazdagép|Hardverkövetelmények|Szoftverkövetelmények|
 --------|-------------------------|-------------------------
 |Fizikai Hyper-V-gazdagép|4 magos 2,66 GHz-es processzor<br> 32 GB RAM<br> 300 GB lemezterület<br> 1 GB/s (vagy gyorsabb) fizikai hálózati adapter|Operációs rendszer:<br> a jelen témakör elején a "vonatkozik" kifejezésre.<br> Hyper-V szerepkör telepítve|
 
@@ -188,9 +148,9 @@ Ha a bérlői munkaterhelési virtuális gépek túl sok erőforrást használna
 ## <a name="phased-deployment"></a>Többfázisú üzembe helyezés
 A követelmények alapján előfordulhat, hogy az SDN-infrastruktúra egy részhalmazát kell telepítenie. Ha például csak az adatközpontban lévő ügyfél-munkaterheléseket szeretné üzemeltetni, és a külső kommunikációra nincs szükség, akkor telepítheti a hálózati vezérlőt, és kihagyhatja a SLB/MUX és az átjáró virtuális gépek üzembe helyezését. Az alábbi, az SDN-infrastruktúra többfázisú üzembe helyezésére vonatkozó infrastrukturális követelmények a következők.
 
-Szolgáltatás|Üzembe helyezésre vonatkozó követelmények|A hálózatra vonatkozó követelmények|
+Funkció|Üzembe helyezésre vonatkozó követelmények|A hálózatra vonatkozó követelmények|
 --------|-------------------------|-------------------------
-|Logikai hálózatok kezelése<br> Hozzáférés-vezérlési listák (ACL-ek) (VLAN-alapú hálózatokhoz)<br> Szolgáltatásminőség (QoS) (VLAN-alapú hálózatokhoz)<br>|Hálózati vezérlő|Nincsenek|
+|Logikai hálózatok kezelése<br> Hozzáférés-vezérlési listák (ACL-ek) (VLAN-alapú hálózatokhoz)<br> Szolgáltatásminőség (QoS) (VLAN-alapú hálózatokhoz)<br>|Hálózati vezérlő|Nincs|
 |Virtuális hálózatkezelés<br> Felhasználó által megadott Útválasztás<br> ACL-ek (virtuális hálózathoz)<br> Titkosított alhálózatok<br> QoS (virtuális hálózatokhoz)<br> Virtuális hálózati társviszony|Hálózati vezérlő|HNV PA VLAN, alhálózat, útválasztó|
 |Bejövő/kimenő NAT<br> Terheléselosztás|Hálózati vezérlő<br> SLB/MUX|BGP a HNV PA-hálózaton<br> Magán-és nyilvános VIP-alhálózatok|
 |GRE-átjáró kapcsolatai|Hálózati vezérlő<br> Átjáró|BGP a HNV PA-hálózaton<br> GRE VIP-alhálózat|

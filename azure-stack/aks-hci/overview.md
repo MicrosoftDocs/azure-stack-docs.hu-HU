@@ -5,12 +5,12 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: fad630d143fee31c4b63b4008c02bef697475155
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948981"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064616"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
 
@@ -97,7 +97,7 @@ Ha az Azure Kubernetes szolgáltatás be van állítva a Azure Stack HCI-fürtö
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Az Azure-ban üzemeltetett Azure Kubernetes Service architektúrája, amely bemutatja, hogyan kezeli az Azure a platform szolgáltatásait és a legtöbb vezérlési síkot, míg a Kubernetes-fürtöket az ügyfél kezeli." lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Az Azure Kubernetes Service architektúrája Azure Stack HCI-on, amely bemutatja, hogy az Azure Stack HCI-fürtön hogyan fut minden, beleértve az Azure Kubernetes Service platformot, a vezérlési síkot, valamint a tároló alkalmazásait futtató Kubernetes-fürtöket." lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Az Azure-ban üzemeltetett Azure Kubernetes Service architektúrája, amely bemutatja, hogyan kezeli az Azure a platform szolgáltatásait és a legtöbb vezérlési síkot, míg a Kubernetes-fürtöket az ügyfél kezeli." lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>Mi szükséges a kezdéshez?
 
@@ -121,7 +121,7 @@ A Azure Stack HCI vagy újabb verziójú 20H2 futtató fürt a következő köve
 - Legalább 30 GB szabad memória az Azure Kubernetes Service-beli virtuális gépek futtatásához
 - A fürtben lévő összes kiszolgálónak az előzetes kiadáshoz tartozó EN-US régiót és nyelvi beállítást kell használnia
 
-Az általános Azure Stack HCI-követelményekkel kapcsolatban lásd: a [Azure stack HCI telepítése előtt](../hci/deploy/before-you-start.md).
+A HCI rendszerkövetelményeinek általános Azure Stack lásd: [Azure stack HCI rendszerkövetelményei](../hci/concepts/system-requirements.md).
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI hálózati konfigurációja
 

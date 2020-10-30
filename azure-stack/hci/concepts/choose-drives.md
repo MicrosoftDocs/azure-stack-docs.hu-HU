@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: e5069745a1ada76f37a9dea78eeeafa18a481cff
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742306"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064650"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Meghajtók kiválasztása Azure Stack HCI-hez
 
@@ -60,9 +60,9 @@ A különböző alkalmazásokkal és számítási feladatokkal rendelkező körn
 
 ![A diagram az üzembe helyezési lehetőségeket jeleníti meg, beleértve az N V M-t is, a kapacitáshoz H d d-t tartalmazó gyorsítótárhoz, S D-t, a kapacitáshoz h d d-t tartalmazó gyorsítótárhoz, illetve N V M E-re a kapacitáshoz a (z) és H D](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
-1. **NVMe + HDD**. A NVMe-meghajtók felgyorsítják az olvasást és az írást a gyorsítótárazással is. A gyorsítótárazási olvasási funkció lehetővé teszi, hogy a HDD-k az írásokra összpontosítsanak. A gyorsítótárazási írások elnyelik a töréseket, és lehetővé teszik az írások egyesítését, és csak szükség esetén, mesterségesen szerializált módon, a HDD-IOPS és az i/o-átviteli sebesség maximalizálása érdekében. Ez NVMe-szerű írási jellemzőket biztosít, valamint a gyakran vagy a legutóbb olvasott adatok NVMe is.
+1. **NVMe + HDD** . A NVMe-meghajtók felgyorsítják az olvasást és az írást a gyorsítótárazással is. A gyorsítótárazási olvasási funkció lehetővé teszi, hogy a HDD-k az írásokra összpontosítsanak. A gyorsítótárazási írások elnyelik a töréseket, és lehetővé teszik az írások egyesítését, és csak szükség esetén, mesterségesen szerializált módon, a HDD-IOPS és az i/o-átviteli sebesség maximalizálása érdekében. Ez NVMe-szerű írási jellemzőket biztosít, valamint a gyakran vagy a legutóbb olvasott adatok NVMe is.
 
-2. **SSD és HDD**. A fentiekhez hasonlóan az SSD-k is felgyorsítják az olvasási és írási műveleteket a gyorsítótárazással. Ez biztosítja az SSD-hez hasonló írási tulajdonságokat, valamint az SSD-hez hasonló olvasási jellemzőket a gyakran vagy a legutóbb olvasott adatokhoz.
+2. **SSD és HDD** . A fentiekhez hasonlóan az SSD-k is felgyorsítják az olvasási és írási műveleteket a gyorsítótárazással. Ez biztosítja az SSD-hez hasonló írási tulajdonságokat, valamint az SSD-hez hasonló olvasási jellemzőket a gyakran vagy a legutóbb olvasott adatokhoz.
 
     Egy további, inkább egzotikus megoldás *: a mindhárom típusú meghajtó* használata.
 
@@ -77,7 +77,7 @@ A nagy kapacitást igénylő és ritkán írható számítási feladatokhoz, pé
 
 ![Üzembe helyezési lehetőségek a kapacitás maximalizálása céljából](media/choose-drives/maximizing-capacity.png)
 
-1. **SSD és HDD**. Az SSD gyorsítótárba helyezi az olvasásokat és az írásokat, és beolvassa a terheléseket, és az SSD-hez hasonló írási teljesítményt nyújt, és a HDD-re optimalizált, a későbbiekben is.
+1. **SSD és HDD** . Az SSD gyorsítótárba helyezi az olvasásokat és az írásokat, és beolvassa a terheléseket, és az SSD-hez hasonló írási teljesítményt nyújt, és a HDD-re optimalizált, a későbbiekben is.
 
 >[!IMPORTANT]
 >A csak HDD-val történő konfiguráció nem támogatott. Az SSD-k alacsony tartósságú SSD-k általi gyorsítótárazása nem ajánlott.
@@ -99,7 +99,7 @@ Javasoljuk, hogy a kiszolgáló teljes tárolókapacitását körülbelül 400 t
 További információért lásd még:
 
 - [A gyorsítótár megismerése](cache.md)
-- [Hardverkövetelmények meghatározása](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Rendszerkövetelmények](system-requirements.md)
 - [A meghajtó-szimmetria szempontjai](drive-symmetry-considerations.md)
 - [Kötetek megtervezése](plan-volumes.md)
 - [Hibatűrés és a tárolás hatékonysága](fault-tolerance.md)

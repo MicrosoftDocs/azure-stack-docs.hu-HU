@@ -6,28 +6,59 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: cf34506f5fbeec1c6e0531eda231219ae2949b59
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064735"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>A Azure Stack HCI operációs rendszer üzembe helyezése
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
-Miután [elvégezte a lépéseket a Azure stack HCI üzembe helyezése előtt](before-you-start.md#install-windows-admin-center), az Azure stack HCI üzembe helyezésének első lépéseként [töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítse az operációs rendszert minden olyan kiszolgálóra, amelyet fürtbe szeretne helyezni. Ez a cikk az operációs rendszer központi telepítésének különböző módszereit ismerteti, és a Windows felügyeleti központ használatával csatlakozik a kiszolgálókhoz.
+Azure Stack HCI üzembe helyezésének első lépéseként le kell [töltenie Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítenie kell az operációs rendszert minden olyan kiszolgálón, amelyet fürtbe szeretne helyezni. Ez a cikk az operációs rendszer központi telepítésének különböző módszereit ismerteti, és a Windows felügyeleti központ használatával csatlakozik a kiszolgálókhoz.
 
-Az operációs rendszer telepítése után készen áll a kiszolgálófürt létrehozására vonatkozó útmutatás használatára, valamint a kiszolgálók legújabb Windows-frissítéseinek és belső vezérlőprogram-frissítéseinek beszerzésére az [Azure stack HCI-fürt létrehozása](create-cluster.md)című témakörben leírtak szerint.
+> [!NOTE]
+> Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet [egy Azure stack HCI-fürt létrehozásához](create-cluster.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-- A Windows felügyeleti központ olyan rendszerre van beállítva, amely hozzáfér a fürthöz használni kívánt kiszolgálókhoz, a [Azure stack HCI telepítése előtt](before-you-start.md#install-windows-admin-center)ismertetett módon.
-- Egy Azure Stack HCI-megoldás, amely a Microsoft által ellenőrzött hardvereket biztosít a kívánt hardvergyártó, a Azure Stack HCI operációs rendszer és az Azure-szolgáltatások számára, a [Azure stack HCI-megoldásokban](https://azure.microsoft.com/products/azure-stack/hci/)leírtak szerint.
+A Azure Stack HCI operációs rendszer üzembe helyezése előtt a következőket kell tennie:
 
-## <a name="deployment-preparation"></a>Üzembe helyezés előkészítése
+- Annak megállapítása, hogy a hardver megfelel-e Azure Stack HCI-fürtök követelményeinek
+- A sikeres üzembe helyezéshez szükséges információk összegyűjtése
+- A Windows felügyeleti központ telepítése felügyeleti számítógépen vagy kiszolgálón
+
+Az Azure Kubernetes Service Azure Stack HCI-követelményekkel kapcsolatban lásd: az [AK-követelmények Azure stack HCI](../../aks-hci/overview.md#what-you-need-to-get-started)-ben.
+
+### <a name="determine-hardware-requirements"></a>Hardverkövetelmények meghatározása
+
+A Microsoft azt javasolja, hogy a partnereinktől kapott hitelesített Azure Stack HCI hardver/szoftver megoldást. Ezeket a megoldásokat a kompatibilitási és megbízhatósági megoldások kialakításához, összeállításához és ellenőrzéséhez kell beállítani, hogy a rendszer gyorsan elkészüljön. Győződjön meg arról, hogy a használt rendszerek, összetevők, eszközök és illesztőprogramok a Windows Server Catalog szolgáltatásban a Windows Server 2019 Certified minősítéssel rendelkeznek. Látogasson el az [Azure stack HCI Solutions](https://azure.microsoft.com/overview/azure-stack/hci) webhelyére az ellenőrzött megoldásokhoz.
+
+Legalább két kiszolgáló, egy megbízható, nagy sávszélességű, kis késleltetésű hálózati kapcsolat szükséges a kiszolgálók, valamint a SATA-, SAS-, NVMe-vagy állandó memória-meghajtók között, amelyek fizikailag csak egyetlen kiszolgálóhoz csatlakoznak.
+
+A hardverkövetelmények azonban a telepíteni kívánt fürt (ek) méretétől és konfigurációjától függően eltérőek lehetnek. A telepítés sikerességének ellenőrzéséhez tekintse át a Azure Stack HCI [rendszerkövetelményeit](../concepts/system-requirements.md).
+
+### <a name="gather-information"></a>Adatgyűjtés
+
+Az üzembe helyezés előkészítéséhez a következő adatokat kell összegyűjtenie a környezettel kapcsolatban:
+
+- **Kiszolgálók nevei:** Ismerkedjen meg a szervezete számítógépekkel, fájlokkal, elérési utakkal és egyéb erőforrásokkal kapcsolatos elnevezési házirendjeivel. Több kiszolgálót kell kiépítenie, amelyek mindegyike egyedi névvel rendelkezik.
+- **Tartománynév:** Ismerkedjen meg a szervezet szabályzatával a tartománynév-és a tartományhoz való csatlakozáshoz. A kiszolgálókat a tartományhoz kell csatlakoztatnia, és meg kell adnia a tartománynevet.
+- **Statikus IP-címek:** Azure Stack HCI statikus IP-címeket igényel a tárolási és a számítási feladatok (VM) forgalmához, és nem támogatja a dinamikus IP-címek hozzárendelését a DHCP-n keresztül ehhez a nagy sebességű hálózathoz. DHCP-t használhat a felügyeleti hálózati adapterhez, hacsak nem használ kettőt egy csapatban, ebben az esetben újra statikus IP-címeket kell használnia. Tekintse meg a hálózati rendszergazdát a fürt minden kiszolgálóján használni kívánt IP-címről.
+- **RDMA hálózatkezelés:** Kétféle RDMA-protokoll létezik: iWarp és RoCE. Vegye figyelembe, hogy a hálózati adapterek közül az egyiket használja, és ha a RoCE is, jegyezze fel a verziót (v1 vagy v2). A RoCE a Top-of-rack switch modelljét is jegyezze fel.
+- **VLAN-azonosító:** Jegyezze fel a kiszolgálók hálózati adapteréhez használni kívánt VLAN-azonosítót, ha van ilyen. Ezt a hálózati rendszergazdától tudhatja meg.
+- **Helyek nevei:** A többhelyes fürtök esetében a rendszer két helyet használ a vész-helyreállításhoz. A webhelyeket [Active Directory tartományi szolgáltatások](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)használatával is beállíthatja, vagy a fürt létrehozása varázsló automatikusan beállíthatja őket. A helyek beállításával kapcsolatban forduljon a tartományi rendszergazdához.
+
+### <a name="install-windows-admin-center"></a>A Windows felügyeleti központ telepítése
+
+A Windows felügyeleti központ egy helyileg üzembe helyezett, böngészőalapú alkalmazás Azure Stack HCI kezeléséhez. A [Windows felügyeleti központ telepítésének](/windows-server/manage/windows-admin-center/deploy/install) legegyszerűbb módja a helyi felügyeleti számítógép (asztali mód), de telepítheti is a kiszolgálót (szolgáltatási mód).
+
+Ha a Windows felügyeleti központot egy kiszolgálóra telepíti, a CredSSP igénylő feladatokat (például a fürtök létrehozását és a frissítések és bővítmények telepítését) olyan fiókkal kell megkövetelni, amely az átjáró-rendszergazdák csoport tagja a Windows felügyeleti központ kiszolgálóján. További információkért tekintse meg a [felhasználói Access Control és engedélyek konfigurálásának](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)első két fejezetét.
+
+## <a name="prepare-hardware-for-deployment"></a>Hardver előkészítése üzembe helyezéshez
 
 Miután megszerezte a Azure Stack HCI-megoldás kiszolgálói hardverét, itt az ideje, hogy az állványt és a kábelt csatlakoztassa. A következő lépésekkel előkészítheti a kiszolgálói hardvert az operációs rendszer központi telepítéséhez.
 
@@ -39,13 +70,13 @@ Miután megszerezte a Azure Stack HCI-megoldás kiszolgálói hardverét, itt az
 
 A Azure Stack HCI operációs rendszert ugyanúgy telepítheti, mint a más Microsoft operációs rendszerek üzembe helyezéséhez:
 
-- A kiszolgáló gyártójának előtelepítése.
+- A kiszolgáló gyártójának előzetes telepítése.
 - Fej nélküli üzembe helyezés válaszfájl használatával.
 - System Center Virtual Machine Manager (VMM).
 - Hálózati telepítés.
 - Manuális üzembe helyezéshez csatlakoztassa a billentyűzetet és a monitort közvetlenül az adatközpontjában található kiszolgálói hardverhez, vagy egy KVM-hardvereszközt csatlakoztathat a kiszolgálói hardverhez.
 
-### <a name="server-manufacturer-preinstallation"></a>Kiszolgáló gyártójának előtelepítése
+### <a name="server-manufacturer-pre-installation"></a>Kiszolgáló gyártójának előzetes telepítése
 
 A Azure Stack HCI operációs rendszer nagyvállalati szintű üzembe helyezéséhez javasoljuk, hogy Azure Stack HCI integrált rendszermegoldási hardvert a kívánt hardveres partnertől. A megoldás hardvere előre telepített operációs rendszerrel érkezik, és támogatja az illesztőprogramok és a belső vezérlőprogram telepítését és frissítését a Windows felügyeleti központban a hardver gyártójától.
 
@@ -60,7 +91,7 @@ A Windows System rendszerkép-kezelő eszköz a Windows Assessment and Deploymen
 
 ### <a name="system-center-virtual-machine-manager-vmm-deployment"></a>System Center Virtual Machine Manager (VMM) üzembe helyezése
 
-System Center Virtual Machine Manager (VMM) a System Center csomag része. A VMM használatával üzembe helyezheti az Azure Stack HCI operációs rendszert operációs rendszer nélküli hardvereken, valamint a kiszolgálók fürtjét is. További információ a VMM: [System Center Virtual Machine Manager rendszerkövetelményei](/system-center/vmm/system-requirements).
+A System Center Virtual Machine Manager használatával üzembe helyezheti a Azure Stack HCI operációs rendszert operációs rendszer nélküli hardvereken, valamint a kiszolgálók fürtön. További információ a VMM: [System Center Virtual Machine Manager rendszerkövetelményei](/system-center/vmm/system-requirements).
 
 További információ a VMM operációs rendszer nélküli központi telepítésének használatáról: [Hyper-V-gazdagép vagy-fürt](/system-center/vmm/hyper-v-bare-metal)üzembe helyezése operációs rendszer nélküli számítógépekről.
 
@@ -74,19 +105,19 @@ Ha manuálisan szeretné telepíteni a Azure Stack HCI operációs rendszert az 
 
 Az Azure Stack HCI operációs rendszer manuális telepítése:
 1. Indítsa el a Azure Stack HCI telepítése varázslót azon kiszolgáló rendszermeghajtóján, amelyre telepíteni kívánja az operációs rendszert.
-1. Válassza ki a telepíteni kívánt nyelvet, vagy fogadja el az alapértelmezett nyelvi beállításokat, kattintson a **tovább**gombra, majd a varázsló következő oldalán válassza a **Telepítés most**lehetőséget.
+1. Válassza ki a telepíteni kívánt nyelvet, vagy fogadja el az alapértelmezett nyelvi beállításokat, kattintson a **tovább** gombra, majd a varázsló következő oldalán válassza a **Telepítés most** lehetőséget.
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
 
-1. A vonatkozó közlemények és licencfeltételek lapon tekintse át a licencfeltételeket, jelölje be az **Elfogadom a licencfeltételeket** jelölőnégyzetet, majd kattintson a **tovább**gombra.
-1. Milyen típusú telepítési típust szeretne? lapon válassza **az egyéni: telepítse a csak Azure stack HCI újabb verzióját (speciális)**.
+1. A vonatkozó közlemények és licencfeltételek lapon tekintse át a licencfeltételeket, jelölje be az **Elfogadom a licencfeltételeket** jelölőnégyzetet, majd kattintson a **tovább** gombra.
+1. Milyen típusú telepítési típust szeretne? lapon válassza **az egyéni: telepítse a csak Azure stack HCI újabb verzióját (speciális)** .
 
     > [!NOTE]
     > Az operációs rendszer ezen kiadása nem támogatja a frissítési telepítéseket.
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
 
-1. A hová szeretné telepíteni a Azure Stack HCI-t? lapon erősítse meg azt a meghajtót, ahová telepíteni szeretné az operációs rendszert, vagy frissítse, majd válassza a **tovább**lehetőséget.
+1. A hová szeretné telepíteni a Azure Stack HCI-t? lapon erősítse meg azt a meghajtót, ahová telepíteni szeretné az operációs rendszert, vagy frissítse, majd válassza a **tovább** lehetőséget.
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
 
@@ -119,7 +150,7 @@ A Sconfig eszköz főoldalán a következő kezdeti konfigurációs feladatokat 
 
 Miután az operációs rendszer igény szerint konfigurálta az Sconfig-t az egyes kiszolgálókon, készen áll a Windows felügyeleti központban a fürt létrehozása varázsló használatára a kiszolgálók fürtözéséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A cikkel kapcsolatos következő felügyeleti feladat végrehajtásához lásd:
 > [!div class="nextstepaction"]

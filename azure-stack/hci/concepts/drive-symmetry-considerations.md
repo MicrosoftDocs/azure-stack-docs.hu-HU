@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cf983d6cf64b0b41bb9710bdf720dd1777c9ad6
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064803"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>A Azure Stack HCI-hez szükséges adatmeghajtó-szimmetria szempontjai
 
@@ -25,6 +25,8 @@ A valóságban Felismertük, hogy ez nem mindig praktikus, mert Azure Stack HCI-
 Ez a témakör ismerteti a korlátozásokat, és példákat tartalmaz a támogatott és nem támogatott konfigurációkra.
 
 ## <a name="constraints"></a>Korlátozások
+
+Ez a szakasz a megkötéseket ismerteti a meghajtó típusa, a modell, a méret és a meghajtók száma tekintetében.
 
 ### <a name="type"></a>Típus
 
@@ -169,11 +171,11 @@ Minden kiszolgálón csak a HDD-meghajtók vannak csatlakoztatva.
 
 Ez a funkció nem támogatott. Hozzá kell adnia legalább két gyorsítótár-meghajtót (NvME vagy SSD) az egyes kiszolgálókhoz.
 
-## <a name="summary"></a>Összefoglalás
+## <a name="summary"></a>Összegzés
 
 Az újraküldéshez a fürtben lévő összes kiszolgálónak azonos típusú meghajtóval és azonos számú típussal kell rendelkeznie. A fenti szempontok alapján a meghajtó modelljeinek és a szükséges méreteknek a használata támogatott.
 
-| Korlátozás | Állapot |
+| Korlátozás | Állam |
 |--|--|
 | Azonos típusú meghajtók minden kiszolgálón | **Kötelező** |
 | Az összes kiszolgáló azonos számú típusa | **Kötelező** |
@@ -184,5 +186,5 @@ Az újraküldéshez a fürtben lévő összes kiszolgálónak azonos típusú me
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
-- [Azure Stack HCI üzembe helyezése előtt](../deploy/before-you-start.md)
+- [Rendszerkövetelmények](system-requirements.md)
 - [Meghajtók kiválasztása](choose-drives.md)

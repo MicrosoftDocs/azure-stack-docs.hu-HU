@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ecf7974cec80888b149454c0a2ff90eb48c2e9e3
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867494"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064752"
 ---
 # <a name="stretched-clusters-overview"></a>A kiterjesztett fürtök áttekintése
 
@@ -40,11 +40,11 @@ A következő ábrán az 1. hely látható, amely az aktív hely a 2. helyre tö
 
 A következő ábrán az 1. és a 2. hely aktív helyként jelenik meg, kétirányú replikálással a másik helyre.
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Aktív/aktív kiterjesztett fürt forgatókönyve" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Aktív/passzív kifeszített fürt forgatókönyve" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
 ## <a name="next-steps"></a>Következő lépések
 
-- További információ a kifeszített fürtökhöz kapcsolódó hardverekről és egyéb követelményekről. A [Kezdés előtt](../deploy/before-you-start.md)tekintse meg a következőt:.
+- További információ a kifeszített fürtökhöz kapcsolódó hardverekről és egyéb követelményekről. Lásd: [rendszerkövetelmények](system-requirements.md).
 - Megtudhatja, hogyan helyezhet üzembe egy kiterjesztett fürtöt a Windows felügyeleti központban. Lásd: [fürtök létrehozása a Windows felügyeleti központtal](../deploy/create-cluster.md).
 - Megtudhatja, hogyan helyezhet üzembe egy kiterjesztett fürtöt a PowerShell használatával. Lásd: [fürt létrehozása a PowerShell használatával](../deploy/create-cluster-powershell.md).
 - Megtudhatja, hogyan hozhat létre köteteket, és hogyan állíthatja be a replikálást a kiterjesztett fürtök számára. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).

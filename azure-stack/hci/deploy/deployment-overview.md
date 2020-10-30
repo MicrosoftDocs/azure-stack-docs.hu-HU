@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572517"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064463"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Mi a Azure Stack HCI telepítési folyamata?
 
@@ -38,41 +38,39 @@ Ha a Azure Stack HCI üzembe helyezése több helyre is kiterjed, határozza meg
 
 ## <a name="deploy"></a>Üzembe helyezés
 
-### <a name="1-before-you-begin"></a>1. a Kezdés előtt
+Az operációs rendszer központi telepítése előtt ellenőrizze, hogy a hardver megfelel-e a Azure Stack HCI [rendszerkövetelményeinek](../concepts/system-requirements.md) . Ezután [telepítse a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) a Azure stack HCI-fürt kezelésére.
 
-Mielőtt elkezdené, [állapítsa meg, hogy a hardver megfelel-e az alapkövetelményeknek, és összegyűjtse](before-you-start.md) a Azure stack HCI telepítéséhez szükséges információkat. Ezután [telepítse a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) a Azure stack HCI-fürt kezelésére.
+### <a name="1-deploy-azure-stack-hci"></a>1. Azure Stack HCI üzembe helyezése
 
-### <a name="2-deploy-azure-stack-hci"></a>2. Azure Stack HCI üzembe helyezése
+[Töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítse a Azure stack HCI [operációs rendszert](operating-system.md) a fürtbe felvenni kívánt összes kiszolgálóra. Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet #2ra.
 
-[Töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítse a Azure stack HCI [operációs rendszert](operating-system.md) a fürtbe felvenni kívánt összes kiszolgálóra.
-
-### <a name="3-create-the-cluster"></a>3. a fürt létrehozása
+### <a name="2-create-the-cluster"></a>2. a fürt létrehozása
 
 Hozzon létre egy feladatátvevő fürtöt a [Windows felügyeleti központtal](create-cluster.md) vagy a [PowerShell](create-cluster-powershell.md)-lel. A natív vész-helyreállítás és az üzletmenet folytonossága érdekében olyan kihelyezett [fürtöt](../concepts/stretched-clusters.md) helyezhet üzembe, amely két földrajzilag különálló helyet ölel fel.
 
-### <a name="4-set-up-a-cluster-witness"></a>4. tanúsító fürt beállítása
+### <a name="3-set-up-a-cluster-witness"></a>3. a tanúsító fürt beállítása
 
 [A tanúsító erőforrások beállítása](witness.md) minden fürt esetében kötelező. A két csomópontos fürtöknek egy tanúsító elemre van szükségük, hogy a kiszolgáló offline állapotba kerüljön, a másik csomópont is elérhetetlenné válik. A három és a magasabb csomópontos fürtöknek egy tanúsító kell lenniük ahhoz, hogy elbírjanak két kiszolgáló meghibásodását vagy offline állapotba helyezését. 
 
-### <a name="5-register-with-azure"></a>5. regisztráció az Azure-ban
+### <a name="4-register-with-azure"></a>4. regisztráció az Azure-ban
 
 Azure Stack HCI kapcsolatra van szükség az Azure-hoz. A fürt az Azure-hoz való összekapcsolásával kapcsolatban lásd: [Azure stack HCI regisztrálása az Azure](register-with-azure.md)-ban. A regisztrálás után a fürt automatikusan csatlakozik a háttérben.
 
-### <a name="6-validate-the-cluster"></a>6. a fürt ellenőrzése
+### <a name="5-validate-the-cluster"></a>5. a fürt ellenőrzése
 
 A fürt létrehozása és regisztrálása után [futtassa a fürt-ellenőrzési teszteket](validate.md) a hardveres vagy konfigurációs problémák észleléséhez, mielőtt a fürt bekerül az éles környezetbe.
 
-### <a name="7-deploy-storage"></a>7. tároló üzembe helyezése
+### <a name="6-deploy-storage"></a>6. tároló üzembe helyezése
 
 [Hozzon létre köteteket](../manage/create-volumes.md) egy egyhelyes fürtön, vagy [hozzon létre köteteket, és állítsa be a replikálást egy kifeszített fürtön](../manage/create-stretched-volumes.md).
 
-### <a name="8-deploy-workloads"></a>8. munkaterhelések üzembe helyezése
+### <a name="7-deploy-workloads"></a>7. munkaterhelések üzembe helyezése
 
 Most már készen áll a [virtuális gépek létrehozására](../manage/vm.md) és a számítási feladatok üzembe helyezésére Azure stack HCI-ben a Windows felügyeleti központon keresztül.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-Megtudhatja, mit kell tennie a Azure Stack HCI üzembe helyezése előtt.
+Ismerje meg, hogyan helyezheti üzembe a Azure Stack HCI operációs rendszert.
 
 > [!div class="nextstepaction"]
-> [Előkészületek](before-you-start.md)
+> [A Azure Stack HCI operációs rendszer üzembe helyezése](operating-system.md)

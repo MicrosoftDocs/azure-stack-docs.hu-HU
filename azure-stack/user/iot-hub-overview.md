@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 2d68f076bf5687279aa5878083e7d007d5bc2e32
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 098168947a28214a3955a1961c80a2c06825126b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049770"
+ms.locfileid: "93064718"
 ---
 # <a name="overview-of-iot-hub-on-azure-stack-hub"></a>Az Azure Stack hub IoT Hub áttekintése
 
@@ -104,6 +104,8 @@ A IoT Hub on Azure Stack hub lehetővé teszi hibrid IoT-megoldások létrehozá
 | Üzenetek felhasználása | https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin |Alapértelmezés szerint az üzenetek a beépített szolgáltatás felé irányuló végponthoz (üzenetek/események) lesznek irányítva, amely kompatibilis a Event Hubsával. Az Azure-felhőben a végponton keresztül érheti el az üzeneteket IoT Hub kapcsolati karakterláncot vagy az Event hub kapcsolati karakterláncát. Azure Stack hub esetében azonban csak az Event hub kapcsolati karakterlánca támogatott. |
 
 ## <a name="next-steps"></a>Következő lépések
+
+Ha IoT Hub nem érhető el az előfizetésben, akkor a rendszergazdával együttműködve [telepítse a IoT Hubt Azure stack hub erőforrás-szolgáltatón](../operator/iot-hub-rp-overview.md).
 
 Az IoT Hub használatának megismeréséhez tekintse meg [Az Azure IoT hub dokumentációját](/azure/iot-hub/).
 

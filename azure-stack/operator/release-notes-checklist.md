@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: v-myoung
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f3839c9191a5b96c9a489d7c13b83b1f8f13fdf9
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064786"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
 
@@ -46,6 +46,9 @@ A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a felad
 
 > [!IMPORTANT]  
 > Ne futtasson **teszt-AzureStack** a frissítés során, mivel ez a frissítés elakad.
+>
+>Ne futtasson csomópont-javítást a frissítés során, függetlenül annak állapotától.
+>Ha a frissítés során csomópont-javításra van szükség, vegye fel a kapcsolatot Microsoft ügyfélszolgálata.
 
 ## <a name="after-azure-stack-hub-update"></a>Azure Stack hub frissítését követően
 

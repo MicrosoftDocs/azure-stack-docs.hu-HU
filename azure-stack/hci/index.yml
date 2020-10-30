@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 10/5/2020
-  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
-  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+  ms.date: 10/28/2020
+  ms.openlocfilehash: 89ed0a4885057e8802906adfa2ca8ae7af42d53b
+  ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 10/08/2020
-  ms.locfileid: "91853142"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93064412"
 landingContent:
 - title: Tudnivalók a Azure Stack HCI-ről
   linkLists:
@@ -29,8 +29,6 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Előkészületek
-      url: deploy/before-you-start.md
     - text: A Azure Stack HCI operációs rendszer üzembe helyezése
       url: deploy/operating-system.md
     - text: Fürt létrehozása
@@ -86,7 +84,7 @@ landingContent:
     - text: Virtuális gépek kezelése a PowerShell-lel
       url: manage/vm-powershell.md
     - text: Virtuálisgép-affinitási szabályok beállítása
-      url: deploy/before-you-start.md
+      url: manage/vm-affinity.md
 - title: Azure Stack HCI-fogalmak
   linkLists:
   - linkListType: concept

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
-ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
+ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90082494"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064514"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 
@@ -36,7 +36,7 @@ Ha érdekli a Azure Stack HCI kipróbálása, de korlátozott vagy nem rendelkez
 
 Mielőtt elkezdené, győződjön meg róla, hogy:
 
-- A [Azure stack HCI üzembe helyezése előtt](before-you-start.md)olvassa el a hardver-és egyéb követelményeket.
+- Olvassa el a [Azure stack HCI rendszerkövetelményeit](../concepts/system-requirements.md).
 - Telepítse a Azure Stack HCI operációs rendszert a fürt minden kiszolgálóján. Lásd: [a Azure stack HCI operációs rendszer telepítése](operating-system.md).
 - Olyan fiókkal kell rendelkeznie, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 - Objektumok létrehozásához Active Directory rendelkezik jogosultságokkal.

@@ -16,22 +16,22 @@
   items:
     - name: Az üzembe helyezés áttekintése
       href: deploy/deployment-overview.md
-    - name: Előkészületek
-      href: deploy/before-you-start.md
     - name: A Azure Stack HCI operációs rendszer üzembe helyezése
       href: deploy/operating-system.md
     - name: A fürt létrehozása
       href: deploy/create-cluster.md
-    - name: A fürt létrehozása a PowerShell-lel
-      href: deploy/create-cluster-powershell.md
     - name: Tanúsító fürt beállítása
       href: deploy/witness.md
     - name: Regisztrálás az Azure-ban
       href: deploy/register-with-azure.md
     - name: A fürt ellenőrzése
       href: deploy/validate.md
-    - name: Hálózatvezérlő üzembe helyezése
-      href: deploy/network-controller-powershell.md
+    - name: Üzembe helyezés a PowerShell-lel
+      items:
+        - name: Fürt létrehozása a PowerShell-lel
+          href: deploy/create-cluster-powershell.md
+        - name: Hálózati vezérlő üzembe helyezése a PowerShell-lel
+          href: deploy/network-controller-powershell.md
 - name: Kezelés
   items:
     - name: Virtuális gépek kezelése
@@ -104,6 +104,8 @@
   items:
     - name: Tárolás és fürtök
       items:
+        - name: Rendszerkövetelmények
+          href: concepts/system-requirements.md
         - name: Meghajtók kiválasztása
           href: concepts/choose-drives.md
         - name: A meghajtó-szimmetria szempontjai

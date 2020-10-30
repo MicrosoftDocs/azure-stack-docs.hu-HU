@@ -1,20 +1,20 @@
 ---
-title: Azure Stack HCI-megoldás áttekintése
+title: Az Azure Stack HCI-megoldás áttekintése
 description: Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid helyszíni környezetekben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete.
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 135cf9147b69410b4276860dcde2b167e771a695
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 6168b36dd57e0814f59d7e05f2b385f091a0a07c
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572534"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064701"
 ---
-# <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI-megoldás áttekintése
+# <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
 Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid helyszíni környezetekben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal, a System centerrel és a PowerShell-lel kezelheti.
 
@@ -69,8 +69,8 @@ Keményen dolgozunk a további képességek létrehozásán.
 Feliratkozhat további Azure Hybrid Services-szolgáltatásokra is:
 
 - **Azure site Recovery** a magas rendelkezésre álláshoz és a vész-helyreállítási szolgáltatáshoz (DRaaS).
-- **Azure monitor**, egy központosított központ, amely nyomon követheti, hogy mi történik az alkalmazások, a hálózat és az infrastruktúra között – az AI által működtetett fejlett elemzési szolgáltatásokkal.
-- **Felhőbeli tanúsító**, hogy az Azure-t használja a fürt Kvórumának egyszerű tie-megszakítójának.
+- **Azure monitor** , egy központosított központ, amely nyomon követheti, hogy mi történik az alkalmazások, a hálózat és az infrastruktúra között – az AI által működtetett fejlett elemzési szolgáltatásokkal.
+- **Felhőbeli tanúsító** , hogy az Azure-t használja a fürt Kvórumának egyszerű tie-megszakítójának.
 - **Azure Backup** a telephelyen kívüli adatvédelem és a ransomware elleni védelem érdekében.
 - **Azure-Update Management** az Azure-ban és a helyszínen futó Windows rendszerű virtuális gépek frissítésének értékeléséhez és frissítéséhez.
 - **Azure hálózati adapter** a helyszíni erőforrások és az Azure-beli virtuális gépek pont – hely típusú VPN-kapcsolaton keresztüli összekapcsolásához.
@@ -97,9 +97,9 @@ A kezdéshez a következőkre lesz szüksége:
 - Két vagy több olyan kiszolgálóból álló fürt, amely az Ön által előnyben részesített Microsoft Hardware partnertől vásárolt [Azure stack HCI katalógusból](https://azure.microsoft.com/products/azure-stack/hci/catalog/)származik.
 - [Azure-előfizetés](https://azure.microsoft.com/)
 - A fürt minden olyan kiszolgálójának internetkapcsolata, amely HTTPS-alapú kimenő forgalomon keresztül tud csatlakozni a következő végpontra legalább 30 naponként: *-azurestackhci-usage.azurewebsites.net
-- A helyek között kiterjesztett fürtök esetében legalább egy 1 GB-os kapcsolatra van szükség a helyek között (a 25 GB-os RDMA-kapcsolat előnyben részesített), és 5 ms-os átlagos késéssel kell rendelkeznie, ha szinkron replikálást szeretne végezni, ha mindkét helyen egyszerre történik az írás.
+- A helyek között kiterjesztett fürtök esetében legalább 1 1 GB-os kapcsolatra van szükség a helyek között (a 25 GB-os RDMA-kapcsolat előnyben részesített), és 5 ms-os átlagos késéssel kell rendelkeznie, ha szinkron replikálást szeretne végezni, ha mindkét helyen egyszerre történik az írás.
 
-További információ: a [Kezdés előtt](deploy/before-you-start.md). Az Azure Kubernetes Service Azure Stack HCI-követelményekkel kapcsolatban lásd: az [AK-követelmények Azure stack HCI](../aks-hci/overview.md#what-you-need-to-get-started)-ben.
+További információ: [rendszerkövetelmények](concepts/system-requirements.md). Az Azure Kubernetes Service Azure Stack HCI-követelményekkel kapcsolatban lásd: az [AK-követelmények Azure stack HCI](../aks-hci/overview.md#what-you-need-to-get-started)-ben.
 
 ## <a name="hardware-partners"></a>Hardveres partnerek
 
@@ -162,7 +162,7 @@ Azure Stack HCI-vel virtualizált számítási feladatokat futtathat a helyszín
 
 A Microsoft hiperkonvergens technológiája már Azure Stack hub alapja.
 
-Számos Microsoft-ügyfél összetett informatikai környezettel rendelkezik, és célunk, hogy olyan megoldásokat nyújtsanak, amelyek megfelelnek a megfelelő üzleti igényeknek megfelelő technológiának. Azure Stack HCI a hardveres partnereinktől korábban elérhető, a Windows Server szoftver által meghatározott (WSSD) megoldások fejlődése. Bevezette a Azure Stack családba, mert új lehetőségeket kínálunk az Azure-hoz az infrastruktúra-felügyeleti szolgáltatásokhoz való zökkenőmentes csatlakozáshoz.
+Számos Microsoft-ügyfél összetett informatikai környezettel rendelkezik, és célunk, hogy olyan megoldásokat nyújtsanak, amelyek megfelelnek a megfelelő üzleti igényeknek megfelelő technológiának. Azure Stack HCI a hardveres partnereinktől korábban elérhető Windows Server Software-Defined-(WSSD-) megoldások fejlődése. Bevezette a Azure Stack családba, mert új lehetőségeket kínálunk az Azure-hoz az infrastruktúra-felügyeleti szolgáltatásokhoz való zökkenőmentes csatlakozáshoz.
 
 ### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack-hub"></a>Frissíthetek Azure Stack HCI-ről Azure Stack hub-ra?
 
@@ -230,7 +230,7 @@ Sok ügyfél fogja tudni, hogy a Windows Server vagy Azure Stack HCI jobban ille
 | --------------- | --------------- |
 | A Windows Server a helyszínen vagy a felhőben is futtatható, de önmagában nem teljes hiperkonvergens ajánlat.| A Azure Stack HCI használatával helyszíni virtuális gépeket futtathat, opcionálisan két hely között, valamint az Azure Hybrid Serviceshez való csatlakozással. Az adatközpontok és fiókirodák korszerűsítésének és biztonságossá tételének egyszerű módja, az iparág legjobb teljesítménye a SQL Server adatbázisok számára, és a virtuális asztalok helyi futtatása az alacsony késés és az adatszuverenitás érdekében|
 | A Windows Server egy nagyszerű, többcélú "svájci bicska" az összes Windows Server-szerepkörhöz, virtualizálva vagy nem. | A Azure Stack HCI használatával virtualizálhatja a klasszikus vállalati alkalmazásokat, például az Exchange-et, a SharePointot és a SQL Servert, és virtualizálhatja a Windows Server-szerepköröket, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD. Korlátlan hozzáférést biztosít minden olyan Hyper-V-szolgáltatáshoz, mint például a védett virtuális gépek.|
-| Számos Windows Server-példány fut az öregedési hardveren. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és a szoftveresen definiált hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. Alkalmazások futtatása Windows vagy Linux rendszerű virtuális gépeken belül.|
+| Számos Windows Server-példány fut az öregedési hardveren. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. Alkalmazások futtatása Windows vagy Linux rendszerű virtuális gépeken belül.|
 
 ## <a name="compare-azure-stack-hub-and-azure-stack-hci"></a>A Azure Stack hub és a Azure Stack HCI összehasonlítása
 
@@ -255,26 +255,26 @@ A szervezet digitális átalakításának köszönhetően a nyilvános Cloud Ser
 | --------------- | --------------- |
 | Azure Stack hub minimális 4 csomópontot és saját hálózati kapcsolókat igényel. | A távoli irodák és ágak minimális helyigényéhez használjon Azure Stack HCI-t. Az egyszerűség és a megfizethetőség érdekében csak 2 kiszolgáló-csomóponttal és visszaváltható, visszatérhető hálózatkezeléssel kezdheti a munkát. A hardveres ajánlatok 4 meghajtóval, 64 GB memóriával, valamint a $10k/Node értékkel kezdődnek. |
 | Azure Stack hub korlátozza a Hyper-V konfigurálását és az Azure-hoz való konzisztencia-szolgáltatást. | Használjon Azure Stack HCI-t a klasszikus vállalati alkalmazások, például az Exchange, a SharePoint és a SQL Server, valamint a Windows Server-szerepkörök, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD virtualizálása érdekében. Korlátlan hozzáférés az összes Hyper-V-szolgáltatáshoz, például a védett virtuális gépekhez.|
-| Azure Stack hub nem teszi elérhetővé ezeket az infrastrukturális technológiákat. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és a szoftveresen definiált hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. |
+| Azure Stack hub nem teszi elérhetővé ezeket az infrastrukturális technológiákat. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. |
 
 ## <a name="whats-new-in-azure-stack-hci"></a>Az Azure Stack HCI újdonságai
 
 A Windows felügyeleti központ 2009-es verziója számos funkciót biztosít a HCI Azure Stackához, beleértve a következőket:
 
-- **Azure Kubernetes szolgáltatás üzemeltetési képességei**: most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
+- **Azure Kubernetes szolgáltatás üzemeltetési képességei** : most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban** : a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
 
 A Windows felügyeleti központ új szolgáltatásaival kapcsolatos részletekért tekintse meg a [Windows felügyeleti központ blogját](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
 A Azure Stack HCI-t futtató fürtökön a következő új funkciók jelennek meg a Windows Server 2019-alapú megoldásaihoz képest: 20H2.
 
-- **Új funkciók a Windows felügyeleti központban**: a hiperkonvergens-fürtöket intuitív felhasználói felületen keresztül hozhatja létre és frissítheti, Azure stack a HCI-t minden eddiginél könnyebben használhatja.
-- Kibővített **fürtök automatikus feladatátvételhez**: a többhelyes fürtözés a tárolási replika replikálásával és az automatikus virtuális gép feladatátvétele natív vész-helyreállítást és üzletmenet-folytonosságot biztosít a közvetlen tárolóhelyek használó fürtök számára.
-- **Affinitás és affinitási szabályok**: ezeket ugyanúgy használhatja, hogy az Azure hogyan használja Availability Zones a virtuális gépek és a tárolók összekapcsolását a több tartalék tartománnyal rendelkező fürtökön, például a kiterjesztett fürtökön.
-- **Azure Portal integráció**: az Azure stack HCI-hez készült Azure Portal-élmény úgy lett kialakítva, hogy az összes Azure stack HCI-fürtöt megtekintse a világ minden részén, a fejlesztés új szolgáltatásaival.
-- **GPU-gyorsítás a nagy teljesítményű**számítási feladatokhoz: az AI/ml-alkalmazások kihasználhatják a GPU-k teljesítményének növelését.
-- **BitLocker-titkosítás**: mostantól a BitLocker használatával titkosíthatja az adatkötetek tartalmát Azure stack HCI-ben, így a kormányzat és más ügyfelek is megmaradnak a szabványoknak, például az FIPS 140-2-es és a HIPAA-nek.
-- **Javított közvetlen tárolóhelyek mennyiségi javítási sebesség**: a kötetek gyors és zökkenőmentes javítása.
+- **Új funkciók a Windows felügyeleti központban** : a hiperkonvergens-fürtöket intuitív felhasználói felületen keresztül hozhatja létre és frissítheti, Azure stack a HCI-t minden eddiginél könnyebben használhatja.
+- Kibővített **fürtök automatikus feladatátvételhez** : a többhelyes fürtözés a tárolási replika replikálásával és az automatikus virtuális gép feladatátvétele natív vész-helyreállítást és üzletmenet-folytonosságot biztosít a közvetlen tárolóhelyek használó fürtök számára.
+- **Affinitás és affinitási szabályok** : ezeket ugyanúgy használhatja, hogy az Azure hogyan használja Availability Zones a virtuális gépek és a tárolók összekapcsolását a több tartalék tartománnyal rendelkező fürtökön, például a kiterjesztett fürtökön.
+- **Azure Portal integráció** : az Azure stack HCI-hez készült Azure Portal-élmény úgy lett kialakítva, hogy az összes Azure stack HCI-fürtöt megtekintse a világ minden részén, a fejlesztés új szolgáltatásaival.
+- **GPU-gyorsítás a nagy teljesítményű** számítási feladatokhoz: az AI/ml-alkalmazások kihasználhatják a GPU-k teljesítményének növelését.
+- **BitLocker-titkosítás** : mostantól a BitLocker használatával titkosíthatja az adatkötetek tartalmát Azure stack HCI-ben, így a kormányzat és más ügyfelek is megmaradnak a szabványoknak, például az FIPS 140-2-es és a HIPAA-nek.
+- **Javított közvetlen tárolóhelyek mennyiségi javítási sebesség** : a kötetek gyors és zökkenőmentes javítása.
 
 A Windows felügyeleti központ, a 20H2 verzió új fürtöt is biztosít a Windows Server-alapú fürtökhöz, beleértve az eredeti Azure Stack HCI-megoldásokat is. Ha pedig az új fürt létrehozása varázslót a Windows Serverrel is használhatja, a Windows Server-fürtök nem hozhatók létre a Közvetlen tárolóhelyek; erre a Azure Stack HCI operációs rendszerre van szükség.
 
@@ -310,7 +310,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Azure Stack HCI használata a Windows felügyeleti központtal](get-started.md)
