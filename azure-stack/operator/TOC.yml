@@ -211,7 +211,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: Biztonság konfigurálása
+        - name: A biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -340,7 +340,7 @@
                 - name: Biztonsági mentés és visszaállítás
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Naplók gyűjtése
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: Állapot-& riasztások
                   href: azure-stack-monitor-health.md
                 - name: Kezelés
@@ -351,7 +351,7 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Eltávolítás
               href: event-hubs-rp-remove.md
-        - name: IoT Hub Azure Stack központban
+        - name: IoT Hub az Azure Stack Hubon
           items:
             - name: Áttekintés
               href: iot-hub-rp-overview.md
@@ -492,11 +492,9 @@
             - name: A felhő AZONOSÍTÓjának megkeresése
               href: azure-stack-find-cloud-id.md
             - name: Diagnosztikai naplók gyűjteménye
-              items:
-                - name: Áttekintés
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Azure Stack hub ellenőrzése
           href: azure-stack-diagnostic-test.md
         - name: Hibaelhárítás

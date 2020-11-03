@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
-ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
+ms.openlocfilehash: 736cf2dbc122a757edaa2204d15f035582f02f4f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92763134"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239580"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -96,6 +96,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Eltávolította a leállításhoz, leállításhoz és az infrastruktúra szerepkör-példányának újraindításához szükséges műveleteket a felügyeleti portálról. A kapcsolódó API-k is el lettek távolítva a háló erőforrás-szolgáltatóban. A következő PowerShell-parancsmagok a rendszergazda RM-modulban és az előzetes verzióban Azure Stack hub-ban már nem működnek: **stop-AzsInfrastructureRoleInstance** , **disable-InfrastructureRoleInstance** , és **restart-InfrastructureRoleInstance** . Ezek a parancsmagok el lesznek távolítva a Azure Stack hub következő rendszergazdájától az Module kiadásával.
 - A Azure Stack hub 2005 mostantól csak [az Azure stack hub 2020 (87. x verzió) App Service](app-service-release-notes-2020-Q2.md)támogatja.
+- A hardver figyeléséhez szükséges felhasználói titkosítási beállítás a DES-ról az AES-ra változott a biztonság fokozása érdekében. Forduljon a hardveres partnerhez, és Ismerje meg, hogyan módosíthatja az alapszintű felügyeleti vezérlő (BMC) beállítását. Előfordulhat, hogy a BMC-ben történt módosítás után a **BmcCredential** újból futtatnia kell a parancsot a jogosultsági végpont használatával. További információ: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)
 
 ### <a name="fixes"></a>Javítások
 

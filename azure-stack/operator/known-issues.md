@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 50b80df35ceed77242e7deb45c54664fb5a9563f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495779"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239597"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -37,6 +37,13 @@ Ha egy másik verzió ismert problémáit szeretné elérni, a bal oldali tartal
 ## <a name="update"></a>Frissítés
 
 Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása Azure stack hub-ban](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>A frissítés nem tudta telepíteni a Microsoft. AzureStack. számítás. Installer csomagot a CA virtuális gépre.
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a frissítés során egy folyamat zárolja az új tartalmat, amelyet a CA virtuális gépre kell másolni. Ha a frissítés sikertelen, a zárolás fel lesz szabadítva.
+- Szervizelés: a frissítés folytatása.
+- Előfordulás: ritka
 
 ## <a name="portal"></a>Portál
 
@@ -103,7 +110,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>A VM-bővítmények használata az Ubuntu Server 20,04-ben
 
-- Alkalmazható: Ez a probléma az **Ubuntu Server 20,04 LTS**-re vonatkozik.
+- Alkalmazható: Ez a probléma az **Ubuntu Server 20,04 LTS** -re vonatkozik.
 - Ok: egyes Linux-disztribúciók áttértek a Python 3,8-re, és eltávolította a `/usr/bin/python` teljes Python örökölt BelépésiPont. A Python 3. x verzióra váltott Linux-disztribúciós felhasználóknak biztosítaniuk kell a régi `/usr/bin/python` belépési pont létezését, mielőtt telepítené a bővítményeket a virtuális gépekre. Ellenkező esetben előfordulhat, hogy a bővítmény telepítése sikertelen lesz.
 - Szervizelés: hajtsa végre a megoldás lépéseit a [Python 3-kompatibilis Linux Azure Virtual Machines rendszerekben a virtuálisgép-bővítmények használatával](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3) , de hagyja ki a 2. lépést, mert az Azure stack hub nem rendelkezik a **parancs futtatására** szolgáló funkcióval.
 
@@ -124,7 +131,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma minden kiadásra vonatkozik.
 - Ok: Ha egy virtuális gép adatait tekinti meg az Áttekintés panelen, a számítógép neve **(nem érhető el)** jelenik meg. Ez a speciális lemezekből/lemez-pillanatképekről létrehozott virtuális gépek kialakításával történik, és a Piactéri rendszerképekhez is megjelenik.
-- Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások**területen.
+- Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások** területen.
 
 ### <a name="virtual-machine-scale-set"></a>Virtuálisgép-méretezési csoport
 
@@ -171,6 +178,13 @@ A 2002-es frissítés alkalmazása után az „érvénytelen időforrással” k
 
 Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása Azure stack hub-ban](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>A frissítés nem tudta telepíteni a Microsoft. AzureStack. számítás. Installer csomagot a CA virtuális gépre.
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a frissítés során egy folyamat zárolja az új tartalmat, amelyet a CA virtuális gépre kell másolni. Ha a frissítés sikertelen, a zárolás fel lesz szabadítva.
+- Szervizelés: a frissítés folytatása.
+- Előfordulás: ritka
+
 ## <a name="portal"></a>Portál
 
 ### <a name="administrative-subscriptions"></a>Rendszergazdai előfizetések
@@ -190,7 +204,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="storage-account-options"></a>Tárfiók-beállítások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor**) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
+- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor** ) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
 - Előfordulás: gyakori
 
 ### <a name="create-managed-disk-snapshot"></a>Felügyelt lemez pillanatképének létrehozása
@@ -281,7 +295,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma minden kiadásra vonatkozik.
 - Ok: Ha egy virtuális gép adatait tekinti meg az Áttekintés panelen, a számítógép neve **(nem érhető el)** jelenik meg. Ez a speciális lemezekből/lemez-pillanatképekről létrehozott virtuális gépek kialakításával történik, és a Piactéri rendszerképekhez is megjelenik.
-- Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások**területen.
+- Szervizelés: Tekintse meg a **Tulajdonságok panelt** a **Beállítások** területen.
 
 ### <a name="nvv4-vm-size-on-portal"></a>NVv4 VM-méret a portálon
 
@@ -292,14 +306,14 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: új virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Ok: új virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait** . A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
 - Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
 - Előfordulás: gyakori
 
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha egy leállított virtuális gépet próbál elindítani, a következő hibaüzenet jelenhet meg: a **VM Diagnostics Storage-fiókja (diagnosticstorageaccount) nem található. Győződjön meg arról, hogy a Storage-fiók nincs törölve**. A hiba akkor fordul elő, ha olyan virtuális gépet próbál elindítani, amelyen engedélyezve van a rendszerindítási diagnosztika, de a rendszer törli a hivatkozott rendszerindítási diagnosztika Storage-fiókját.
+- Ok: Ha egy leállított virtuális gépet próbál elindítani, a következő hibaüzenet jelenhet meg: a **VM Diagnostics Storage-fiókja (diagnosticstorageaccount) nem található. Győződjön meg arról, hogy a Storage-fiók nincs törölve** . A hiba akkor fordul elő, ha olyan virtuális gépet próbál elindítani, amelyen engedélyezve van a rendszerindítási diagnosztika, de a rendszer törli a hivatkozott rendszerindítási diagnosztika Storage-fiókját.
 - Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
 - Előfordulás: gyakori
 
@@ -367,6 +381,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [frissítések hibaelhárítása Azure stack hub-ban](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>A frissítés nem tudta telepíteni a Microsoft. AzureStack. számítás. Installer csomagot a CA virtuális gépre.
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a frissítés során egy folyamat zárolja az új tartalmat, amelyet a CA virtuális gépre kell másolni. Ha a frissítés sikertelen, a zárolás fel lesz szabadítva.
+- Szervizelés: a frissítés folytatása.
+- Előfordulás: ritka
+
 ## <a name="portal"></a>Portál
 
 ### <a name="administrative-subscriptions"></a>Rendszergazdai előfizetések
@@ -379,7 +400,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="duplicate-subscription-button-in-lock-blade"></a>Ismétlődő előfizetés gomb a zárolási panelen
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felügyeleti portálon a felhasználói előfizetések **zárolási** paneljének két gombja van, amelyek az **előfizetést**mondják.
+- Ok: a felügyeleti portálon a felhasználói előfizetések **zárolási** paneljének két gombja van, amelyek az **előfizetést** mondják.
 - Előfordulás: gyakori
 
 ### <a name="subscription-permissions"></a>Előfizetés engedélyei
@@ -392,7 +413,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="storage-account-settings"></a>Tárfiók beállításai
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának**módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
+- Ok: a felhasználói portálon a Storage-fiók **konfigurációja** panel egy beállítást mutat be a **biztonsági átvitel típusának** módosításához. A szolgáltatás jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="upload-blob-with-oauth-error"></a>BLOB feltöltése OAuth-hibával
@@ -405,7 +426,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="upload-blob-option-unsupported"></a>Nem támogatott blob-feltöltési lehetőség
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a feltöltési panelen, lehetőség van a **HRE** vagy a **kulcsos hitelesítés**kiválasztására, azonban a **HRE** nem támogatott az Azure stack hub-ban.
+- Ok: a felhasználói portálon, amikor megpróbál feltölteni egy blobot a feltöltési panelen, lehetőség van a **HRE** vagy a **kulcsos hitelesítés** kiválasztására, azonban a **HRE** nem támogatott az Azure stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="alert-for-network-interface-disconnected"></a>Hálózati adapter leválasztott riasztása
@@ -417,14 +438,14 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Helytelen elemleírás a virtuális gép létrehozásakor
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a felügyelt lemez kiválasztásakor a lemez típusa prémium SSD, a legördülő lista az **operációs rendszer lemezét**jeleníti meg. A beállítás melletti elemleírás szerint **bizonyos operációsrendszer-lemezek ingyenesen elérhetők az ingyenes Azure-fiókkal**; Ez azonban a Azure Stack hub esetében nem érvényes. Emellett a lista olyan **ingyenes fiókot** is tartalmaz, amely Azure stack hub esetében nem érvényes.
+- Ok: a felhasználói portálon a felügyelt lemez kiválasztásakor a lemez típusa prémium SSD, a legördülő lista az **operációs rendszer lemezét** jeleníti meg. A beállítás melletti elemleírás szerint **bizonyos operációsrendszer-lemezek ingyenesen elérhetők az ingyenes Azure-fiókkal** ; Ez azonban a Azure Stack hub esetében nem érvényes. Emellett a lista olyan **ingyenes fiókot** is tartalmaz, amely Azure stack hub esetében nem érvényes.
 - Előfordulás: gyakori
 
 ### <a name="delete-a-storage-container"></a>Storage-tároló törlése
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, amikor egy felhasználó egy tárolót próbál törölni, a művelet meghiúsul, ha a felhasználó nem kapcsol be **felülbírálási Azure Policy és RBAC szerepkör-beállításokat**.
-- Szervizelés: Ellenőrizze, hogy a jelölőnégyzet be van-e jelölve a **Azure Policy felülbírálásához és a RBAC szerepkör-beállításokhoz**.
+- Ok: a felhasználói portálon, amikor egy felhasználó egy tárolót próbál törölni, a művelet meghiúsul, ha a felhasználó nem kapcsol be **felülbírálási Azure Policy és RBAC szerepkör-beállításokat** .
+- Szervizelés: Ellenőrizze, hogy a jelölőnégyzet be van-e jelölve a **Azure Policy felülbírálásához és a RBAC szerepkör-beállításokhoz** .
 - Előfordulás: gyakori
 
 ### <a name="refresh-button-on-virtual-machines-fails"></a>Nem sikerül a frissítés gomb a virtuális gépeken
@@ -437,13 +458,13 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="storage-account-options"></a>Tárfiók-beállítások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor**) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
+- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor** ) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
 - Előfordulás: gyakori
 
 ### <a name="storage-account-configuration"></a>Tárfiók konfigurálása
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, amikor létrehoz egy Storage-fiókot, és megtekinti annak **konfigurációját**, nem mentheti a konfigurációs módosításokat, mert Ajax-hibát eredményez.
+- Ok: a felhasználói portálon, amikor létrehoz egy Storage-fiókot, és megtekinti annak **konfigurációját** , nem mentheti a konfigurációs módosításokat, mert Ajax-hibát eredményez.
 - Előfordulás: gyakori
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>Az SQL erőforrás-szolgáltató kapacitás-figyelése megtartja a terhelést
@@ -456,8 +477,8 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="access-control-iam"></a>Access Control (IAM)
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az**előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
-- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál felső részén, az **Értesítések** gomb közelében található, vagy elérhető az **Összes erőforrás** panelen elhelyezett parancsikonon keresztül is. A panelen a következő jelenik meg: **Nem talál egy előfizetést? Nyissa meg a Címtár + Előfizetések beállítása elemet**. Az előfizetést ebben a menüben tudja kiválasztani.
+- Ok: a IAM kiterjesztés elavult. Az Azure Stack hub szolgáltatással szállított Ibiza-portál új viselkedést eredményez, amelynek hatására a RBAC bővítmény meghiúsul, ha a felhasználó megnyit egy olyan előfizetéshez tartozó **Access Control (iam)** panelt, amely nincs kiválasztva a globális előfizetés-választóban (a felhasználói portálon a címtár és az **előfizetés** ). A panel egy hurokban jeleníti meg a **betöltést** , és a felhasználó nem tud új szerepköröket hozzáadni az előfizetéshez. A **Hozzáadás** panel is megjeleníti a **betöltést** egy hurokban.
+- Szervizelés: Ellenőrizze, hogy az előfizetés be van-e jelölve a **címtár + előfizetés** menüben. A menü a portál felső részén, az **Értesítések** gomb közelében található, vagy elérhető az **Összes erőforrás** panelen elhelyezett parancsikonon keresztül is. A panelen a következő jelenik meg: **Nem talál egy előfizetést? Nyissa meg a Címtár + Előfizetések beállítása elemet** . Az előfizetést ebben a menüben tudja kiválasztani.
 
 ### <a name="sql-resource-provider"></a>SQL erőforrás-szolgáltató
 
@@ -476,7 +497,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="load-balancer"></a>Terheléselosztó
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: Ha a rendelkezésre állási csoport virtuális gépeket egy terheléselosztó háttér-készletéhez adja hozzá, hibaüzenet jelenik meg a portálon, amely **nem tudta menteni**a terheléselosztó háttér-készletét. Ez egy kozmetikai probléma a portálon; a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttér-készlethez.
+- Ok: Ha a rendelkezésre állási csoport virtuális gépeket egy terheléselosztó háttér-készletéhez adja hozzá, hibaüzenet jelenik meg a portálon, amely **nem tudta menteni** a terheléselosztó háttér-készletét. Ez egy kozmetikai probléma a portálon; a funkció továbbra is érvényben van, és a virtuális gépek sikeresen hozzá lettek adva a háttér-készlethez.
 - Előfordulás: gyakori
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
@@ -488,7 +509,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="service-endpoints"></a>Szolgáltatásvégpontok
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok**használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Ok: a felhasználói portálon a **Virtual Network** panel a **szolgáltatási végpontok** használatát mutatja be. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 ### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nem lehet törölni egy NSG, ha a hálózati adapterek nem csatlakoznak a futó virtuális géphez
@@ -524,19 +545,19 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 #### <a name="alerts"></a>Riasztások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások**használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Ok: a felhasználói portálon a **Virtual Network átjáró** panel egy lehetőséget mutat be a **riasztások** használatára. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="active-active"></a>Aktív-aktív
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró**erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Ok: a felhasználói portálon, a létrehozáskor és a **Virtual Network átjáró** erőforrás menüjében megjelenik egy lehetőség az **aktív-aktív** konfiguráció engedélyezéséhez. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="vpn-troubleshooter"></a>VPN-hibakereső
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső**nevű szolgáltatást jelenít meg. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
+- Ok: a felhasználói portálon a **kapcsolatok** panel egy **VPN-hibakereső** nevű szolgáltatást jelenít meg. Ez a funkció jelenleg nem támogatott Azure Stack hub-ban.
 - Előfordulás: gyakori
 
 #### <a name="vpn-troubleshooter"></a>VPN-hibakereső
@@ -561,7 +582,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="vm-boot-diagnostics"></a>VM rendszerindítási diagnosztika
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: új Windowsos virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait**. A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
+- Ok: új Windowsos virtuális gép (VM) létrehozásakor a következő hiba jelenhet meg: **nem sikerült elindítani a virtuális gépet (VM-Name). Hiba: nem sikerült frissíteni a virtuális gép (VM-név) soros kimeneti beállításait** . A hiba akkor fordul elő, ha engedélyezi a rendszerindítási diagnosztika szolgáltatást egy virtuális gépen, de törli a rendszerindítási diagnosztika Storage-fiókját.
 - Szervizelés: hozza létre újra a Storage-fiókot a korábban használt névvel.
 - Előfordulás: gyakori
 
@@ -600,7 +621,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)
