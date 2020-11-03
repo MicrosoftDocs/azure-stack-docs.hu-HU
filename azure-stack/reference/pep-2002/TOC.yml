@@ -2,7 +2,7 @@
   href: index.md
   expanded: true
   items:
-    - name: Bezárás – PrivilegedEndpoint
+    - name: Close-PrivilegedEndpoint
       href: Close-PrivilegedEndpoint.md
     - name: Get-ActionStatus
       href: Get-ActionStatus.md
@@ -36,23 +36,23 @@
       href: Get-TLSPolicy.md
     - name: Get-VirtualDisk
       href: Get-VirtualDisk.md
-    - name: Meghívás – AzureStackOnDemandLog
+    - name: Invoke-AzureStackOnDemandLog
       href: Invoke-AzureStackOnDemandLog.md
-    - name: Új – AzureBridgeServicePrincipal
+    - name: New-AzureBridgeServicePrincipal
       href: New-AzureBridgeServicePrincipal.md
-    - name: Új – AzureStackActivation
+    - name: New-AzureStackActivation
       href: New-AzureStackActivation.md
-    - name: Új – CloudAdminUser
+    - name: New-CloudAdminUser
       href: New-CloudAdminUser.md
-    - name: Új – GraphApplication
+    - name: New-GraphApplication
       href: New-GraphApplication.md
-    - name: Új – RegistrationToken
+    - name: New-RegistrationToken
       href: New-RegistrationToken.md
-    - name: Regisztráció – CustomAdfs
+    - name: Register-CustomAdfs
       href: Register-CustomAdfs.md
-    - name: Regisztráció – CustomDnsServer
+    - name: Register-CustomDnsServer
       href: Register-CustomDnsServer.md
-    - name: Regisztráció – DirectoryService
+    - name: Register-DirectoryService
       href: Register-DirectoryService.md
     - name: Remove-AzureStackActivation
       href: Remove-AzureStackActivation.md
@@ -60,11 +60,11 @@
       href: Remove-CloudAdminUser.md
     - name: Remove-GraphApplication
       href: Remove-GraphApplication.md
-    - name: Javítás – VirtualDisk
+    - name: Repair-VirtualDisk
       href: Repair-VirtualDisk.md
-    - name: Alaphelyzetbe állítás – DatacenterIntegrationConfiguration
+    - name: Reset-DatacenterIntegrationConfiguration
       href: Reset-DatacenterIntegrationConfiguration.md
-    - name: Küldés – AzureStackDiagnosticLog
+    - name: Send-AzureStackDiagnosticLog
       href: Send-AzureStackDiagnosticLog.md
     - name: Set-CloudAdminUserPassword
       href: Set-CloudAdminUserPassword.md
@@ -76,17 +76,17 @@
       href: Set-SyslogClient.md
     - name: Set-SyslogServer
       href: Set-SyslogServer.md
-    - name: Set-telemetria
+    - name: Set-Telemetry
       href: Set-Telemetry.md
     - name: Set-TLSPolicy
       href: Set-TLSPolicy.md
-    - name: Start – AzureStack
+    - name: Start-AzureStack
       href: Start-AzureStack.md
-    - name: Start – SecretRotation
+    - name: Start-SecretRotation
       href: Start-SecretRotation.md
-    - name: Leállítás – AzureStack
+    - name: Stop-AzureStack
       href: Stop-AzureStack.md
     - name: Test-AzureStack
       href: Test-AzureStack.md
-    - name: Zárolás feloldása – SupportSession
+    - name: Unlock-SupportSession
       href: Unlock-SupportSession.md
