@@ -43,6 +43,8 @@
       href: asdk-validate-backup.md
     - name: Kapcsolódás a ASDK
       href: asdk-connect.md
+    - name: Az Azure CLI beállítása
+      href: asdk-cli.md
     - name: Hibaelhárítás
       href: asdk-troubleshooting.md
 - name: Referencia

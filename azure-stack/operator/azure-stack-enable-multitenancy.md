@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857496"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291209"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 
@@ -169,7 +169,7 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 
 ### <a name="update-azure-ad-tenant-permissions"></a>Azure AD-bérlői engedélyek frissítése
 
-Ez a művelet törli a riasztást Azure Stack központban, ami azt jelzi, hogy a címtárnak frissítésre van szüksége. Futtassa a következő parancsot a **Azurestack-Tools-Master/Identity** mappában:
+Ez a művelet törli a riasztást Azure Stack központban, ami azt jelzi, hogy egy könyvtár frissítésre szorul. Futtassa a következő parancsot a **Azurestack-Tools-Master/Identity** mappában:
 
 ```powershell
 Import-Module ..\Identity\AzureStack.Identity.psm1

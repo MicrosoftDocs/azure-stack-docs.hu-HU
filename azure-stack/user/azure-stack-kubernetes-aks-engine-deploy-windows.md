@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717960"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291234"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
 
@@ -88,8 +88,8 @@ Hozzá kell adnia egy tanúsítványt, amikor a ASDK kívüli gépen futtatja az
 
 Ha ASDK használ, az Azure Resource Manager-végpont önaláírt tanúsítványt használ, explicit módon hozzá kell adnia ezt a tanúsítványt a gép megbízható tanúsítványtárolójában. A ASDK főtanúsítványa bármely, a ASDK üzembe helyezett virtuális gépen megtalálható.
 
-1. Exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Útmutatásért lásd: [az Azure stack hub hitelesítésszolgáltatói főtanúsítványának exportálása](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
-2. Bízza a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát. Útmutatásért tekintse meg [az Azure stack hub hitelesítésszolgáltatói főtanúsítvány megbízhatósága](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)című témakört.
+1. Exportálja a HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványt. Útmutatásért lásd: [az Azure stack hub hitelesítésszolgáltatói főtanúsítványának exportálása](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Bízza a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI főtanúsítványát. Útmutatásért tekintse meg [az Azure stack hub hitelesítésszolgáltatói főtanúsítvány megbízhatósága](../asdk/asdk-cli.md#trust-the-certificate)című témakört.
 
 ## <a name="next-steps"></a>Következő lépések
 
