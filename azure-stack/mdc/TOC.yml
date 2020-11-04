@@ -152,7 +152,7 @@
               href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: A készültségi jelentés megtekintése
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Adatközpont integrációja
+        - name: Adatközpont konfigurációja
           items:
             - name: DNS-továbbító konfigurálása
               href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -254,7 +254,7 @@
                   href: operator/azure-stack-node-actions-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Biztonság és megfelelőség
           items:
-            - name: A biztonság konfigurálása
+            - name: Biztonság konfigurálása
               href: ../operator/azure-stack-security-configuration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Inaktív adatok titkosítása
               href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
