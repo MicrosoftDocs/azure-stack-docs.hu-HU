@@ -8,6 +8,8 @@
       href: known-issues.md
     - name: Kibocsátási megjegyzések
       href: release-notes.md
+    - name: GYIK
+      href: faq.md
 - name: Bevezetés
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal

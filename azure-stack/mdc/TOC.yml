@@ -30,7 +30,7 @@
               href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Capacity Planner eszköz
               href: azure-stack-capacity-planner.md
-        - name: Ügyfél utazása
+        - name: Integráció – áttekintés
           href: customer-journey.md
         - name: Kapcsolatok modelljei
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -106,6 +106,8 @@
           items:
             - name: Azure-regisztráció ellenőrzése
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Regisztráció
+              href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Érték – erőforrás-szolgáltatók hozzáadása
               items:
                 - name: App Service
@@ -185,7 +187,7 @@
         - name: Kezelés
           items:
             - name: Az adminisztráció alapjai
-              href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-manage-basics-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Telemetria-gyűjtemény konfigurálása
               href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Régiók kezelése
@@ -229,7 +231,7 @@
                 - name: Frissítési állapot figyelése
                   href: ../operator/azure-stack-update-monitor.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Állapot és riasztások monitorozása
-              href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hálózati erőforrások kezelése
               href: ../operator/azure-stack-viewing-public-ip-address-consumption.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Felhasználói előfizetés tulajdonosának módosítása
@@ -249,15 +251,17 @@
             - name: A hardver cseréje
               Items:
                 - name: Csomópont-műveletek
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Biztonság és megfelelőség
           items:
-            - name: Biztonság konfigurálása
+            - name: A biztonság konfigurálása
               href: ../operator/azure-stack-security-configuration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Inaktív adatok titkosítása
               href: ../operator/azure-stack-security-bitlocker.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Titkok elforgatása
               href: ../operator/azure-stack-rotate-secrets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: IDRAC hitelesítő adatainak frissítése
+              href: operator/integrated-dell-remote-access-controller-credentials.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Víruskereső frissítése
               href: ../operator/azure-stack-security-av.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: A naplók gyűjtése és az adatkezelés
@@ -267,7 +271,7 @@
             - name: Piactér áttekintése
               href: ../operator/azure-stack-marketplace.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Marketplace-elemek letöltése
-              href: ../operator/azure-stack-download-azure-marketplace-item.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-download-azure-marketplace-item-tca.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Egyéni virtuálisgép-rendszerkép hozzáadása
               href: ../operator/azure-stack-add-vm-image.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Marketplace-elem létrehozása és közzététele
@@ -277,7 +281,7 @@
             - name: Virtuálisgép-méretezési csoport ajánlása
               href: ../operator/azure-stack-compute-add-scalesets.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Windows Server a piactéren – gyakori kérdések
-              href: ../operator/azure-stack-windows-server-faq.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-windows-server-faq-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Linux rendszerű virtuális gépek ajánlata
               href: ../operator/azure-stack-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Red Hat virtuális gép hozzáadása
@@ -286,6 +290,16 @@
               href: ../operator/azure-stack-aks-engine.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Ajánlat Kubernetes Marketplace-tétel
               href: ../operator/azure-stack-solution-template-kubernetes-cluster-add.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Tároló-beállításjegyzék nyújtása
+              items:
+                - name: Tároló-beállításjegyzék hozzáadása
+                  href: operator/container-registry-template-install-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: A tároló beállításjegyzékének frissítése
+                  href: operator/container-registry-template-update-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: A Container Registry titkainak elforgatása
+                  href: operator/container-registry-template-rotate-secrets-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Ajánlat CommVault Marketplace-tétel
+              href: operator/azure-stack-commvault-offer-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatások ajánlása
           items:
             - name: 'Szolgáltatás, csomag, ajánlat, előfizetés áttekintése'
@@ -355,11 +369,11 @@
                     - name: Frissítések alkalmazása
                       href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Biztonsági mentés és visszaállítás
-                      href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Naplók gyűjtése
                       href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Állapot-& riasztások
-                      href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Kezelés
                       href: ../operator/event-hubs-rp-manage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Titkok elforgatása
@@ -408,18 +422,28 @@
                   href: ../operator/azure-stack-sql-resource-provider-remove.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
                   href: ../operator/azure-stack-sql-resource-provider-11470.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: Használat és számlázás
+          items:
+            - name: Áttekintés
+              href: operator/billing-model-overview-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Használati és számlázási segédlet
+              items:
+                - name: Használati és API-számlázási útmutató elemzése
+                  href: operator/analyze-usage-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Helyi mérőórák
+                  href: operator/billing-local-meters-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Biztonsági mentés
           items:
             - name: Áttekintés
-              href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Biztonsági mentés konfigurálása a portál használatával
-              href: ../operator/azure-stack-backup-enable-backup-console.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-console-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Biztonsági mentés konfigurálása a PowerShell használatával
-              href: ../operator/azure-stack-backup-enable-backup-powershell.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-enable-backup-powershell-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Biztonsági mentés
-              href: ../operator/azure-stack-backup-back-up-azure-stack.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Ajánlott eljárások a biztonsági mentéshez
-              href: ../operator/azure-stack-backup-best-practices.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Támogatás kérése
           items:
             - name: Súgó & támogatási portál
@@ -438,6 +462,8 @@
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hibaelhárítás
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Támogatási hivatkozás hivatkozása
+              href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Referencia
       items:
         - name: Azure Stack PowerShell
@@ -506,7 +532,7 @@
                     - name: A Azure Stack házirend modul használata
                       href: ../user/azure-stack-policy-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Az Azure CLI használata a MDC
-                  href: ../user/azure-stack-version-profiles-azurecli2.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: azure-stack-version-profiles-azurecli-2-tzl.md
                 - name: A Visual Studio Code használata
                   href: ../user/azure-stack-dev-start-vscode-azure.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: A Visual Studio használata
@@ -565,7 +591,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Szolgáltatások használata
               items:
-                - name: Számítás
+                - name: Compute
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -578,7 +604,7 @@
                     - name: Felügyelt lemezek szempontjai
                       href: ../user/azure-stack-managed-disk-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: A virtuális gépek védelme
-                      href: ../user/azure-stack-manage-vm-protect.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: azure-stack-manage-vm-protect-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: VIRTUÁLIS gépek frissítése és kezelése
                       href: ../user/vm-update-management.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: SQL Server VM megfontolások
@@ -597,7 +623,7 @@
                       href: ../user/azure-stack-storage-transfer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: A Storage Explorer csatlakoztatása
                       href: ../user/azure-stack-storage-connect-se.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Hálózat
+                - name: Network (Hálózat)
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-network-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -664,6 +690,8 @@
                           href: ../user/azure-stack-kubernetes-aks-engine-set-up.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Linux-ügyfél létrehozása
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-linux.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                        - name: Windows-ügyfél létrehozása
+                          href: azure-stack-kubernetes-aks-engine-deploy-windows-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Fürt üzembe helyezése
                           href: ../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Fürt skálázása
@@ -760,6 +788,8 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+        - name: Riasztások aka.ms hivatkozása
+          href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: REST API-böngésző
           href: /rest/api/
         - name: Azure CLI

@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 00a44e66563bbb038928c55f1f643f2ca0ffbd37
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274075"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93327472"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack hub-szolgáltatások, csomagok, ajánlatok, előfizetések áttekintése
 
@@ -55,7 +55,7 @@ A különböző felhasználók számára összetett megoldások integrálására
 
 ### <a name="quotas"></a>Kvóták
 
-A felhő kapacitásának kezeléséhez előre konfigurált *kvótákat*használhat, vagy létrehozhat egy új kvótát a csomag minden szolgáltatásához. A kvóták azt a felső erőforrás-korlátot határozzák meg, amelyet a felhasználói előfizetés tud kiépíteni vagy felhasználni. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre.
+A felhő kapacitásának kezeléséhez előre konfigurált *kvótákat* használhat, vagy létrehozhat egy új kvótát a csomag minden szolgáltatásához. A kvóták azt a felső erőforrás-korlátot határozzák meg, amelyet a felhasználói előfizetés tud kiépíteni vagy felhasználni. Egy kvóta megszabhatja például, hogy egy felhasználó legfeljebb öt virtuális gépet hozhat létre.
 
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
@@ -63,7 +63,7 @@ A felhő kapacitásának kezeléséhez előre konfigurált *kvótákat*használh
 A kvótákat régiónként is beállíthatja. Például egy olyan csomag, amely számítási szolgáltatásokat biztosít az A régióhoz, két virtuális gép kvótája lehet.
 
 >[!NOTE]
->A Azure Stack Development Kit (ASDK) esetében csak egy régió ( *helyi*) érhető el.
+>A Azure Stack Development Kit (ASDK) esetében csak egy régió ( *helyi* ) érhető el.
 
 További információ a [Azure stack hub kvótáinak típusairól](azure-stack-quota-types.md).
 
@@ -90,11 +90,11 @@ Az ajánlatok egy vagy több, az Ön által létrehozott csomag csoportjai, hogy
 
 Az ajánlatok megtervezése során tartsa szem előtt a következő szempontokat:
 
-**Próbaverziós ajánlatok**: próbaverziós ajánlatokat használ új felhasználók számára, akik később további szolgáltatásokra frissíthetnek. Egy próbaverziós ajánlat létrehozásához hozzon létre egy kisebb [alapcsomagot](service-plan-offer-subscription-overview.md#base-plan) egy opcionálisan nagyobb kiegészítő csomaggal. Alternatív megoldásként létrehozhat egy kisméretű alapcsomagból álló próbaverziós ajánlatot, és egy külön ajánlatot, amely nagyobb "díjköteles" csomaggal rendelkezik.
+**Próbaverziós ajánlatok** : próbaverziós ajánlatokat használ új felhasználók számára, akik később további szolgáltatásokra frissíthetnek. Egy próbaverziós ajánlat létrehozásához hozzon létre egy kisebb [alapcsomagot](service-plan-offer-subscription-overview.md#base-plan) egy opcionálisan nagyobb kiegészítő csomaggal. Alternatív megoldásként létrehozhat egy kisméretű alapcsomagból álló próbaverziós ajánlatot, és egy külön ajánlatot, amely nagyobb "díjköteles" csomaggal rendelkezik.
 
-**Kapacitás megtervezése**: érdemes lehet olyan felhasználókra vonatkozni, akik nagy mennyiségű erőforrást megragadnak, és a rendszer minden felhasználó számára akadoznak. A teljesítmény elősegítése érdekében [a terveit a kvóták használatával állíthatja be](service-plan-offer-subscription-overview.md#plans) a maximális kihasználtság érdekében.
+**Kapacitás megtervezése** : érdemes lehet olyan felhasználókra vonatkozni, akik nagy mennyiségű erőforrást megragadnak, és a rendszer minden felhasználó számára akadoznak. A teljesítmény elősegítése érdekében [a terveit a kvóták használatával állíthatja be](service-plan-offer-subscription-overview.md#plans) a maximális kihasználtság érdekében.
 
-**Delegált szolgáltatók**: engedélyezheti másoknak, hogy ajánlatokat hozzanak létre a környezetben. Ha például szolgáltató, akkor ezt a lehetőséget [delegálhatja](azure-stack-delegated-provider.md) a viszonteladóknak. Vagy ha Ön szervezet, delegálhat más részlegeknek/leányvállalatoknak is.
+**Delegált szolgáltatók** : engedélyezheti másoknak, hogy ajánlatokat hozzanak létre a környezetben. Ha például szolgáltató, akkor ezt a lehetőséget [delegálhatja](azure-stack-delegated-provider.md) a viszonteladóknak. Vagy ha Ön szervezet, delegálhat más részlegeknek/leányvállalatoknak is.
 
 ## <a name="subscriptions"></a>Előfizetések
 
@@ -105,6 +105,8 @@ A felhasználók új előfizetéseket hoznak létre, és hozzáférést kapnak a
 Azure Stack hub-kezelőként megtekintheti a bérlői előfizetésekkel kapcsolatos információkat, de nem férhet hozzá az előfizetések tartalmához, ha az adott előfizetés bérlői rendszergazdája explicit módon hozzáadja a RBAC-hez. Ez lehetővé teszi, hogy a bérlők a Azure Stack hub-kezelő és a bérlői szóközök között kikényszerítsék a hatalom és a felelősség elkülönítését. 
 
 Ez alól kivételt képez az az eset, amikor az előfizetés tulajdonosa nem tudja biztosítani az operátornak az előfizetéshez való hozzáférést, így a rendszergazdának el kell fogadnia az előfizetést, ahogy azt a [Azure stack hub felhasználói előfizetés számlázási tulajdonosának módosítása](azure-stack-change-subscription-owner.md)című cikkben ismertetett módon tárgyaljuk.
+
+Ha az Azure Stack hub-példánya le van választva, és két különböző tartománya van, ahol a felhasználók a 2. tartományba tartoznak, akkor előfordulhat, hogy egyes előfizetések a felügyeleti portálon jelennek meg, de nem jelennek meg a felhasználói portálon. Ennek kijavításához az 1. tartományba tartozó felhasználók a 2. tartományban lévő előfizetések helyes RBAC állítja be.
 
 ### <a name="default-provider-subscription"></a>Alapértelmezett szolgáltatói előfizetés
 
