@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 685a448fd8fdc06edc0ffa92890ce9eaea2c39e6
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 2be02c831b4e96e88e6bf8c108373d9ab2fc11cd
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107034"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364030"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -21,13 +21,15 @@ Felhőbeli operátorként letöltheti az elemeket Azure Stack hubhoz a piactére
 
 A Marketplace-termékek letöltése két forgatókönyvet érint:
 
-- **Leválasztott vagy részlegesen összekapcsolt forgatókönyv**: a Piactéri elemek letöltéséhez a Piactéri hírszolgáltatás eszköz használatával kell elérnie az internetet. Ezután továbbítja a letöltéseket a leválasztott Azure Stack hub-telepítésre. Ez a forgatókönyv a PowerShellt használja.
-- **Csatlakoztatott forgatókönyv**: az Azure stack hub-környezetnek csatlakoznia kell az internethez. Az Azure Stack hub felügyeleti portál segítségével megkeresheti és letöltheti az elemeket.
+- **Leválasztott vagy részlegesen összekapcsolt forgatókönyv** : a Piactéri elemek letöltéséhez a Piactéri hírszolgáltatás eszköz használatával kell elérnie az internetet. Ezután továbbítja a letöltéseket a leválasztott Azure Stack hub-telepítésre. Ez a forgatókönyv a PowerShellt használja.
+- **Csatlakoztatott forgatókönyv** : az Azure stack hub-környezetnek csatlakoznia kell az internethez. Az Azure Stack hub felügyeleti portál segítségével megkeresheti és letöltheti az elemeket.
 
 A letölthető Piactéri elemek teljes listájáért tekintse meg a [Azure stack hub Azure Marketplace-elemeit](azure-stack-marketplace-azure-items.md) . A Azure Stack hub Marketplace legújabb kiegészítéseinek, törlésének és frissítéseinek listáját a [Azure stack hub Marketplace változásairól](azure-stack-marketplace-changes.md) szóló cikkben találja.
 
 > [!NOTE]
 > A katalógus a felhő alapján eltérő lesz, és a Azure Stack hub rendszer csatlakozik a szolgáltatáshoz. A felhőalapú környezetet az Azure Stack hub regisztrálásához használt Azure-előfizetés határozza meg.
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ::: zone pivot="state-connected"
 A csatlakoztatott központi telepítés lehetővé teszi a Piactéri elemek letöltését a felügyeleti portálon.
@@ -42,25 +44,25 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 2. A Piactéri elemek letöltése előtt tekintse át a rendelkezésre álló tárolóhelyet. Később, amikor kiválasztja az elemeket a letöltéshez, összehasonlíthatja a letöltési méretet a rendelkezésre álló tárterület kapacitásával. Ha a kapacitás korlátozott, vegye figyelembe a [rendelkezésre álló terület kezelésének](azure-stack-manage-storage-shares.md#manage-available-space)lehetőségeit.
 
-   A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete**területen válassza ki a vizsgálni kívánt régiót, majd nyissa meg az **erőforrás-szolgáltatók**  >  **tárolót**:
+   A rendelkezésre álló terület áttekintéséhez: a **régió felügyelete** területen válassza ki a vizsgálni kívánt régiót, majd nyissa meg az **erőforrás-szolgáltatók**  >  **tárolót** :
 
    ![Tárterület áttekintése Azure Stack hub felügyeleti portálján](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. Nyissa meg Azure Stack hub Marketplace-t, és kapcsolódjon az Azure-hoz. Ehhez válassza ki a piactér- **kezelő** szolgáltatást, válassza a **piactér elemek elemet**, majd válassza a **Hozzáadás az Azure-ból**lehetőséget:
+3. Nyissa meg Azure Stack hub Marketplace-t, és kapcsolódjon az Azure-hoz. Ehhez válassza ki a piactér- **kezelő** szolgáltatást, válassza a **piactér elemek elemet** , majd válassza a **Hozzáadás az Azure-ból** lehetőséget:
 
    ![Marketplace-elemek hozzáadása az Azure-ból](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több**látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
+4. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több** látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
 
    ![Képernyőkép, amely a Piactéri elemek elérhető verzióit jeleníti meg.](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. Ha egy elem verziója **több**néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából. Vegye figyelembe, hogy a Microsoft mostantól lehetővé teszi olyan attribútumok hozzáadását, amelyek letiltják a rendszergazdák számára a Azure Stack nem kompatibilis piactér-termékek letöltését, különböző tulajdonságok (például a Azure Stack vagy a számlázási modell) miatt. Csak a Microsoft adhatja hozzá ezeket az attribútumokat:
+5. Ha egy elem verziója **több** néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából. Vegye figyelembe, hogy a Microsoft mostantól lehetővé teszi olyan attribútumok hozzáadását, amelyek letiltják a rendszergazdák számára a Azure Stack nem kompatibilis piactér-termékek letöltését, különböző tulajdonságok (például a Azure Stack vagy a számlázási modell) miatt. Csak a Microsoft adhatja hozzá ezeket az attribútumokat:
 
    [![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "Több verzió")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
-6. Válassza ki a kívánt elemet, majd válassza a **Letöltés**lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után az új Piactéri elem üzembe helyezhető Azure Stack hub-operátorként vagy felhasználóként.
+6. Válassza ki a kívánt elemet, majd válassza a **Letöltés** lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után az új Piactéri elem üzembe helyezhető Azure Stack hub-operátorként vagy felhasználóként.
 
-7. A letöltött elem üzembe helyezéséhez válassza az **+ erőforrás létrehozása**lehetőséget, majd keressen az új piactér elem kategóriái között. Ezután válassza ki az elemet a telepítési folyamat megkezdéséhez. A folyamat eltérő lehet a piactér különböző elemeinél.
+7. A letöltött elem üzembe helyezéséhez válassza az **+ erőforrás létrehozása** lehetőséget, majd keressen az új piactér elem kategóriái között. Ezután válassza ki az elemet a telepítési folyamat megkezdéséhez. A folyamat eltérő lehet a piactér különböző elemeinél.
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -70,8 +72,8 @@ A Marketplace Syndication eszköz egy csatlakoztatott forgatókönyvben is haszn
 
 A forgatókönyv két részből áll:
 
-- **1. rész**: Letöltés a piactér elemeiből. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-ről.
-- **2. rész**: feltöltés és közzététel Azure stack hub piactéren. Áthelyezi a letöltött fájlokat az Azure Stack hub-környezetbe, majd közzéteheti őket a Azure Stack hub piactéren.
+- **1. rész** : Letöltés a piactér elemeiből. Az internet-hozzáféréssel rendelkező számítógépen konfigurálja a PowerShellt, töltse le a szindikált eszközt, majd töltse le az elemeket az Azure Marketplace-ről.
+- **2. rész** : feltöltés és közzététel Azure stack hub piactéren. Áthelyezi a letöltött fájlokat az Azure Stack hub-környezetbe, majd közzéteheti őket a Azure Stack hub piactéren.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -174,7 +176,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 
 1. Át kell helyeznie azokat a fájlokat, amelyeket [korábban helyileg töltött le](#use-the-marketplace-syndication-tool-to-download-marketplace-items) egy olyan gépre, amely az Azure stack hub-környezethez kapcsolódik. A Marketplace Syndication eszköznek emellett elérhetőnek kell lennie az Azure Stack hub-környezet számára, mivel az importálási művelet végrehajtásához az eszközt kell használnia.
 
-   Az alábbi ábrán egy példa látható a mappák struktúrájában. A **D:\downloadfolder** tartalmazza a piactér összes letöltött elemét. Minden almappa egy Piactéri elem (például **Microsoft. Custom-script-Linux-ARM-2.0.3**), amelyet a termékazonosító nevez el. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
+   Az alábbi ábrán egy példa látható a mappák struktúrájában. A **D:\downloadfolder** tartalmazza a piactér összes letöltött elemét. Minden almappa egy Piactéri elem (például **Microsoft. Custom-script-Linux-ARM-2.0.3** ), amelyet a termékazonosító nevez el. Az egyes almappákon belül a Piactéri elem letöltött tartalma.
 
    ![Marketplace letöltési könyvtár szerkezete](media/azure-stack-download-azure-marketplace-item/mp1.png)
 

@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/03/2020
-ms.openlocfilehash: 67d81ee3bcec9ba1007296a6a50c028653b7d7b7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.date: 11/04/2020
+ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329062"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363894"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI – gyakori kérdések
 A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
@@ -24,17 +24,17 @@ A Azure Stack HCI egy Azure Hybrid Service-ként szállított helyszíni hiperko
 
 **A rendszer elküldi a Azure Stack HCI-ben tárolt adataikat a felhőbe?**
 
-Általában nem. A helyszíni virtuális gépek (VM-EK) nevét, metaadatait, konfigurációját és tartalmát a rendszer soha nem továbbítja a felhőbe, kivéve, ha a további szolgáltatásokat kifejezetten erre a célra kapcsolja be, például Azure Backup vagy Azure Site Recovery. Vagy hacsak nem regisztrálja ezeket a virtuális gépeket egyenként a felhőalapú felügyeleti szolgáltatásokban, például az Azure arc-ban.
+Nem. A helyszíni virtuális gépek (VM-EK) nevét, metaadatait, konfigurációját és tartalmát a rendszer soha nem továbbítja a felhőbe, kivéve, ha a további szolgáltatásokat kifejezetten erre a célra kapcsolja be, például Azure Backup vagy Azure Site Recovery. Vagy hacsak nem regisztrálja ezeket a virtuális gépeket egyenként a felhőalapú felügyeleti szolgáltatásokban, például az Azure arc-ban.
 
 ### <a name="edge-local-management-and-control"></a>Edge – helyi felügyelet és vezérlés
 
 **A Azure Stack HCI vezérlő síkja a felhőben halad át?**
 
-Általában nem, bár ez az Ön által használt funkcióktól függ. Az Edge-helyi eszközöket, például a Windows felügyeleti központot, a PowerShellt vagy a System centert is használhatja közvetlenül a gazdagép-infrastruktúra és a virtuális gépek kezelésére, még akkor is, ha a hálózati kapcsolódás a felhőhöz nem működik, vagy szigorúan korlátozott. A gyakori mindennapi műveletek, például a virtuális gépek gazdagépek közötti áthelyezése, a hibás meghajtó cseréje vagy az IP-címek konfigurálása nem a felhőre támaszkodnak. Azonban a Felhőbeli kapcsolat szükséges a csatornákon keresztüli szoftverfrissítések beszerzéséhez, az Azure-regisztráció módosításához, vagy olyan funkciók használatához, amelyek közvetlenül a felhőalapú szolgáltatásokra támaszkodnak a biztonsági mentéshez, a figyeléshez és egyebekhez.
+Nem. Az Edge-helyi eszközöket, például a Windows felügyeleti központot, a PowerShellt vagy a System centert is használhatja közvetlenül a gazdagép-infrastruktúra és a virtuális gépek kezelésére, még akkor is, ha a hálózati kapcsolódás a felhőhöz nem működik, vagy szigorúan korlátozott. A gyakori mindennapi műveletek, például a virtuális gépek gazdagépek közötti áthelyezése, a hibás meghajtó cseréje vagy az IP-címek konfigurálása nem a felhőre támaszkodnak. Azonban a Felhőbeli kapcsolat szükséges a csatornákon keresztüli szoftverfrissítések beszerzéséhez, az Azure-regisztráció módosításához, vagy olyan funkciók használatához, amelyek közvetlenül a felhőalapú szolgáltatásokra támaszkodnak a biztonsági mentéshez, a figyeléshez és egyebekhez.
 
 **Vannak sávszélesség-vagy késési követelmények Azure Stack HCI és a felhő között?**
 
-Általában nem, bár ez az Ön által használt funkcióktól függ. A korlátozott sávszélességű kapcsolatok, például a vidéki T1 vonalak vagy a műholdas/mobil kapcsolatok megfelelőek a Azure Stack HCI szinkronizálásához. A minimálisan szükséges kapcsolat csak több kilobájt/nap. További szolgáltatásokhoz további sávszélességre lehet szükség, különösen a teljes virtuális gépek replikálásához vagy biztonsági mentéséhez, nagyméretű szoftverfrissítések letöltéséhez vagy részletes naplók feltöltéséhez a felhőben.
+Nem. A korlátozott sávszélességű kapcsolatok, például a vidéki T1 vonalak vagy a műholdas/mobil kapcsolatok megfelelőek a Azure Stack HCI szinkronizálásához. A minimálisan szükséges kapcsolat csak több kilobájt/nap. További szolgáltatásokhoz további sávszélességre lehet szükség, különösen a teljes virtuális gépek replikálásához vagy biztonsági mentéséhez, nagyméretű szoftverfrissítések letöltéséhez vagy részletes naplók feltöltéséhez a felhőben.
 
 ### <a name="designed-for-intermittent-and-limited-connectivity"></a>Időszakos és korlátozott kapcsolathoz tervezve
 

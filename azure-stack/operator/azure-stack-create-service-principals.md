@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: cc73e0cd735c12a15d45efec080c7861d9ea9f00
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573139"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363996"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -24,7 +25,7 @@ Előfordulhat például, hogy rendelkezik egy Azure Resource Managert használó
 
 A felhasználóhoz hasonlóan az alkalmazásnak hitelesítő adatokat kell megadnia a hitelesítés során. Ez a hitelesítés két elemet tartalmaz:
 
-- Egy **alkalmazás-azonosító**, más néven ügyfél-azonosító. Egy GUID, amely egyedileg azonosítja az alkalmazás regisztrációját a Active Directory-bérlőben.
+- Egy **alkalmazás-azonosító** , más néven ügyfél-azonosító. Egy GUID, amely egyedileg azonosítja az alkalmazás regisztrációját a Active Directory-bérlőben.
 - Az alkalmazás-AZONOSÍTÓhoz tartozó **titok** . Létrehozhat egy ügyfél titkos karakterláncot (a jelszóhoz hasonlóan), vagy megadhat egy X509-tanúsítványt (amely a nyilvános kulcsot használja).
 
 Ha a saját identitása alatt futtat egy alkalmazást, az a következő okok miatt előnyösebb a felhasználó identitásának futtatásakor:
@@ -42,6 +43,7 @@ Ez a cikk egy egyszerű szolgáltatásnév létrehozásának és kezelésének f
 
 Ezután megtudhatja, hogyan rendelheti hozzá az egyszerű szolgáltatást egy szerepkörhöz, és korlátozza az erőforrás-hozzáférését.
 
+::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Azure AD-alkalmazás identitásának kezelése
 
 Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgáltatásként, az Azure-hoz hasonló egyszerű szolgáltatásokat hozhat létre. Ez a szakasz bemutatja, hogyan hajthatja végre a lépéseket a Azure Portalon. A Kezdés előtt győződjön meg arról, hogy rendelkezik a [szükséges Azure ad-engedélyekkel](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) .
@@ -51,20 +53,21 @@ Ha az Azure AD-val telepített Azure Stack hubot az identitáskezelési szolgál
 Ebben a szakaszban a Azure Portal használatával regisztrálja az alkalmazást, amely létrehozza az egyszerű szolgáltatásnév objektumot az Azure AD-bérlőben. Ebben a példában az ügyfél titkos hitelesítő adatait kell megadnia, de a portál támogatja a X509-tanúsítványon alapuló hitelesítő adatokat is.
 
 1. Jelentkezzen be a [Azure Portalba](https://portal.azure.com) az Azure-fiók használatával.
-2. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció**lehetőséget.
+2. Válassza **Azure Active Directory**  >  **Alkalmazásregisztrációk**  >  **új regisztráció** lehetőséget.
 3. Adja meg az alkalmazás **nevét** .
 4. Válassza ki a megfelelő **támogatott fióktípus-típusokat**.
-5. Az **átirányítási URI**területen válassza a **web**  lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
-6. Az értékek beállítása után válassza a **regisztráció**lehetőséget. Ekkor létrejön az alkalmazás regisztrálása, és megjelenik az **Áttekintés** oldal.
+5. Az **átirányítási URI** területen válassza a **web**  lehetőséget az alkalmazás típusaként, és (opcionálisan) adjon meg egy átirányítási URI-t, ha az alkalmazáshoz szükség van.
+6. Az értékek beállítása után válassza a **regisztráció** lehetőséget. Ekkor létrejön az alkalmazás regisztrálása, és megjelenik az **Áttekintés** oldal.
 7. Másolja az **alkalmazás azonosítóját** az alkalmazás kódjában való használatra. Ezt az értéket ügyfél-AZONOSÍTÓnak is nevezzük.
 8. Az ügyfél titkos kulcsának létrehozásához válassza a **tanúsítványok & titkok** lapot. Válassza az **Új titkos ügyfélkód** lehetőséget.
 9. Adja meg a titkos kulcs **leírását** , valamint a **lejárat** időtartamát.
-10. Ha elkészült, válassza a **Hozzáadás**lehetőséget.
+10. Ha elkészült, válassza a **Hozzáadás** lehetőséget.
 11. A titkos kód megjelenített értéke. Másolja és mentse ezt az értéket egy másik helyre, mert később nem lehet lekérni. A bejelentkezéshez adja meg a titkot az ügyfélalkalmazás alkalmazás-azonosítójával.
 
     ![Kulcs mentve az ügyfél titkos kulcsaiban](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Most folytassa [egy szerepkör hozzárendelésével](#assign-a-role) , amelyből megtudhatja, hogyan hozhat létre szerepköralapú hozzáférés-vezérlést az alkalmazás identitásához.
+::: zone-end
 
 ## <a name="manage-an-ad-fs-app-identity"></a>AD FS alkalmazás identitásának kezelése
 
@@ -312,7 +315,7 @@ $AppList = Invoke-Command -Session $Session -ScriptBlock {Get-GraphApplication}
 Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier "<AppIdentifier>"}
 ```
 
-A Remove-GraphApplication parancsmag nem hívható vissza a privilegizált végponton, de a parancsmag végrehajtása során a Verbatim visszaigazoló kimenetét fogja látni a konzolon:
+Az Remove-GraphApplication parancsmag nem hívható vissza a privilegizált végponton, de a parancsmag végrehajtása során a rendszer a következőt jeleníti meg a konzolon:
 
 ```shell
 VERBOSE: Deleting graph application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623.
@@ -323,7 +326,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 ## <a name="assign-a-role"></a>Szerepkör kiosztása
 
-A felhasználók és alkalmazások Azure-erőforrásokhoz való hozzáférését szerepköralapú Access Control (RBAC) engedélyezik. Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéshez tartozó erőforrásokhoz, *hozzá kell rendelnie* az egyszerű szolgáltatást egy adott *erőforráshoz*tartozó *szerepkörhöz* . Először döntse el, hogy melyik szerepkör felel meg az alkalmazás megfelelő *engedélyeinek* . Az elérhető szerepkörökről az [Azure-erőforrások beépített szerepköreivel](/azure/role-based-access-control/built-in-roles)foglalkozó témakörben olvashat bővebben.
+A felhasználók és alkalmazások az Azure-erőforrásokhoz való hozzáférését Role-Based Access Control (RBAC) engedélyezik. Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéshez tartozó erőforrásokhoz, *hozzá kell rendelnie* az egyszerű szolgáltatást egy adott *erőforráshoz* tartozó *szerepkörhöz* . Először döntse el, hogy melyik szerepkör felel meg az alkalmazás megfelelő *engedélyeinek* . Az elérhető szerepkörökről az [Azure-erőforrások beépített szerepköreivel](/azure/role-based-access-control/built-in-roles)foglalkozó témakörben olvashat bővebben.
 
 A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* is létrehozza. Megadhatja a hozzáférési hatókört az előfizetés, az erőforráscsoport vagy az erőforrás szintjén. Az engedélyek a hatókör alacsonyabb szintjein vannak örökölve. Ha például hozzáad egy alkalmazást az erőforráscsoport "olvasó" szerepköréhez, az azt jelenti, hogy elolvashatja az erőforráscsoportot és a benne foglalt erőforrásokat.
 
@@ -331,15 +334,15 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 
    > [!NOTE]
    > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia, amely deklarálja az `Microsoft.Authorization/roleAssignments/write` engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
-2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az alkalmazás elérését. Ebben a példában az alkalmazás egyszerű szolgáltatását rendeli hozzá egy szerepkörhöz az előfizetés hatókörében, az **előfizetések**, majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
+2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az alkalmazás elérését. Ebben a példában az alkalmazás egyszerű szolgáltatását rendeli hozzá egy szerepkörhöz az előfizetés hatókörében, az **előfizetések** , majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
 
      ![Előfizetés kiválasztása hozzárendeléshez](./media/azure-stack-create-service-principal/select-subscription.png)
 
 3. Válassza ki a **Access Control (iam)** lapot, amely univerzális a RBAC támogató összes erőforráson.
 4. Válassza a **+ Hozzáadás** lehetőséget
-5. A **szerepkör**területen válassza ki az alkalmazáshoz hozzárendelni kívánt szerepkört.
-6. A **kiválasztás**területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack- \<YourAppName\> - \<ClientId\> *ként jön létre. Ha például a *App2*nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz:  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
-7. Miután megtalálta az alkalmazást, jelölje ki, és a **kijelölt tagok**területen fog megjelenni.
+5. A **szerepkör** területen válassza ki az alkalmazáshoz hozzárendelni kívánt szerepkört.
+6. A **kiválasztás** területen keresse meg az alkalmazást teljes vagy részleges alkalmazásnév használatával. A regisztráció során az alkalmazás neve *Azurestack- \<YourAppName\> - \<ClientId\>* ként jön létre. Ha például a *App2* nevű alkalmazás nevét használta, és a ClientId *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* a létrehozás során lett hozzárendelve, a teljes név a következő lesz:  *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Megkeresheti a pontos karakterláncot vagy egy részét, például a *Azurestack* vagy a *Azurestack-App2*.
+7. Miután megtalálta az alkalmazást, jelölje ki, és a **kijelölt tagok** területen fog megjelenni.
 8. A szerepkör hozzárendelésének befejezéséhez kattintson a **Mentés** gombra.
 
      [![Szerepkör hozzárendelése](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)

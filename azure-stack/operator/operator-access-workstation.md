@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 42e8d171b173aca4f928cfd38e6a9d5787b003fd
-ms.sourcegitcommit: 8f8baf397e1d39ac69745cc796341a24d3bfc2ba
+ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122452"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363945"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -200,8 +200,8 @@ A következő táblázat felsorolja az egyes paraméterek definícióját.
 | DNS                        | Kötelező | DNS-kiszolgáló (k) a TCP/IP konfigurálásához a virtuális gépen.                                                          |
 | ImageFilePath              | Választható | A Microsoft által biztosított OAW. vhdx elérési útja. Az alapértelmezett érték a **OAW. vhdx** a szkript azonos mappájába. |
 | VirtualMachineName         | Választható | A virtuális géphez hozzárendelni kívánt név. Ha az elnevezési előtag megtalálható a DeploymentData.jsfájljában, akkor a rendszer az alapértelmezett nevet használja. Ellenkező esetben a rendszer az alapértelmezett nevet használja az **AzSOAW** . Egy másik nevet is megadhat az alapértelmezett érték felülírásához. |
-| VirtualMachineMemory       | Választható | A virtuális géphez hozzárendelni kívánt memória. Az alapértelmezett érték **4 GB** .                            |
-| VirtualProcessorCount      | Választható | A virtuális géphez hozzárendelni kívánt virtuális processzorok száma. Az alapértelmezett érték **8** .        |
+| VirtualMachineMemory       | Választható | A virtuális géphez hozzárendelni kívánt memória. Az alapértelmezett érték **4 GB**.                            |
+| VirtualProcessorCount      | Választható | A virtuális géphez hozzárendelni kívánt virtuális processzorok száma. Az alapértelmezett érték **8**.        |
 | VirtualMachineDiffDiskPath | Választható | Az ideiglenes diff lemez fájljainak tárolási útvonala, miközben a felügyeleti virtuális gép aktív volt. Az alapértelmezett érték a parancsfájl ugyanazon **DiffDisks** tartozó alkönyvtár. |
 | AzureStackCertificatePath  | Választható | Az Azure Stack hub-hozzáféréshez a virtuális gépre importálandó tanúsítványok elérési útja. |
 | CertificatePassword        | Választható | Az Azure Stack hub-hozzáféréshez a virtuális gépre importálandó tanúsítvány jelszava. |
@@ -244,7 +244,7 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
    Remove-OAW.ps1 -VirtualMachineName <name>
    ```
 
-   Ahol az az \<name\> eltávolítandó virtuális gép neve. Alapértelmezés szerint a név **AzSOAW** .
+   Ahol az az \<name\> eltávolítandó virtuális gép neve. Alapértelmezés szerint a név **AzSOAW**.
 
    Például:
 

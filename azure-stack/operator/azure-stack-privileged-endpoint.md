@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638835"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363928"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -30,9 +30,11 @@ A PEP a PowerShell-munkamenetben végrehajtott összes műveletet (és a hozzá 
 > [!NOTE]
 > A Azure Stack Development Kit (ASDK) alkalmazásban a PEP-ben elérhető parancsokat futtathatja közvetlenül a fejlesztői készlet gazdagépén található PowerShell-munkamenetből. Előfordulhat azonban, hogy tesztelni szeretné a PEP-t használó bizonyos műveleteket, például a naplózási gyűjteményt, mivel ez az egyetlen olyan módszer, amely bizonyos műveletek végrehajtásához használható egy integrált rendszer-környezetben.
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ## <a name="access-the-privileged-endpoint"></a>Hozzáférés a Kiemelt végponthoz
 
-A PEP-t egy távoli PowerShell-munkameneten keresztül érheti el a virtuális gépen (VM), amely a PEP-et üzemelteti. A ASDK a virtuális gép neve **AzS-ERCS01** . Ha integrált rendszert használ, a PEP három példánya létezik, amelyek mindegyike egy virtuális gépen ( *előtag* – ERCS01, *előtag* -ERCS02 vagy *előtag* -ERCS03) belül fut a különböző gazdagépeken a rugalmasság érdekében.
+A PEP-t egy távoli PowerShell-munkameneten keresztül érheti el a virtuális gépen (VM), amely a PEP-et üzemelteti. A ASDK a virtuális gép neve **AzS-ERCS01**. Ha integrált rendszert használ, a PEP három példánya létezik, amelyek mindegyike egy virtuális gépen ( *előtag* – ERCS01, *előtag* -ERCS02 vagy *előtag* -ERCS03) belül fut a különböző gazdagépeken a rugalmasság érdekében.
 
 Mielőtt elkezdené ezt az eljárást egy integrált rendszeren, győződjön meg arról, hogy az IP-cím vagy a DNS használatával fér hozzá a PEP-hez. Azure Stack hub kezdeti telepítése után a PEP-t csak IP-címmel érheti el, mert a DNS-integráció még nincs beállítva. Az OEM hardvergyártó a **AzureStackStampDeploymentInfo** nevű JSON-fájlt fogja biztosítani, amely a PEP IP-címeket tartalmazza.
 
@@ -80,7 +82,7 @@ Az emelt szintű végpont futtatásakor be kell állítania az aktuális kultur�
     
    - Ha a rendszer kéri, használja a következő hitelesítő adatokat:
    
-       - **Felhasználónév** : adja meg a CloudAdmin-fiókot **&lt; *Azure stack hub-tartomány* &gt; \cloudadmin** formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin** .)
+       - **Felhasználónév** : adja meg a CloudAdmin-fiókot **&lt; *Azure stack hub-tartomány* &gt; \cloudadmin** formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
   
         - **Password (jelszó** ): adja meg ugyanazt a jelszót, amelyet a azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
@@ -114,7 +116,7 @@ Az emelt szintű végpont futtatásakor be kell állítania az aktuális kultur�
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>A Kiemelt végpont használata 
 
-A fent említettek szerint a PEP egy [PowerShell-JEA](/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed** . Ez a hiba a várt viselkedés.
+A fent említettek szerint a PEP egy [PowerShell-JEA](/powershell/scripting/learn/remoting/jea/overview) végpont. Erős biztonsági réteg biztosítása mellett a JEA-végpontok csökkentik az alapvető PowerShell-képességeket, például a parancsfájlok vagy a tabulátorok befejezését. Ha bármilyen típusú parancsfájl-műveletet próbál végrehajtani, a művelet sikertelen lesz a hiba **ScriptsNotAllowed**. Ez a hiba a várt viselkedés.
 
 Ha például egy adott parancsmag paramétereinek listáját szeretné lekérni, futtassa a következő parancsot:
 
@@ -160,7 +162,7 @@ Ha a PEP-munkamenetet a helyi gépen szeretné importálni, hajtsa végre a köv
 
      Ha a rendszer kéri, használja a következő hitelesítő adatokat:
 
-     - **Felhasználónév** : adja meg a CloudAdmin-fiókot **&lt; *Azure stack hub-tartomány* &gt; \cloudadmin** formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin** .)
+     - **Felhasználónév** : adja meg a CloudAdmin-fiókot **&lt; *Azure stack hub-tartomány* &gt; \cloudadmin** formátumban. (A ASDK esetében a Felhasználónév a **azurestack\cloudadmin**.)
      - **Password (jelszó** ): adja meg ugyanazt a jelszót, amelyet a azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 3. Importálja a PEP-munkamenetet a helyi gépre:
@@ -188,8 +190,8 @@ A végpont-munkamenet lezárása:
 
    | Paraméter | Leírás | Típus | Kötelező |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | A külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | Igen|
-   | *Hitelesítőadat* | A fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   Igen |
+   | *TranscriptsPathDestination* | A külső fájlmegosztás elérési útja "fileshareIP\sharefoldername"-ként definiálva | Sztring | Yes|
+   | *Hitelesítőadat* | A fájlmegosztás eléréséhez szükséges hitelesítő adatok | SecureString |   Yes |
 
 
 Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztásba, automatikusan törlődnek a PEP-ből. 
@@ -204,7 +206,7 @@ Miután az átirat naplófájljai sikeresen át lettek küldve a fájlmegosztás
  ```powershell  
       Get-SupportSessionToken
   ```
- A parancsmag egy nagyon hosszú alfanumerikus karakterláncot ad vissza a támogatási munkamenet-kérelem tokenje számára. A kezelő ezt követően átadja a kérelem jogkivonatát a Microsoft támogatási szakemberének a Choi (például csevegés, e-mail stb.) egy médiumán keresztül. A Microsoft támogatási szakembere a kérelem tokenjét használja az érvényes, a támogatási munkamenet-engedélyezési jogkivonat létrehozásához, és visszaküldi azt az Azure Stack hub-kezelőnek. Ugyanebben a PEP PowerShell-munkamenetben az operátor a következő parancsmag bemenetként továbbítja az engedélyezési jogkivonatot:
+ A parancsmag egy nagyon hosszú alfanumerikus karakterláncot ad vissza a támogatási munkamenet-kérelem tokenje számára. Az operátor ezután átadja a kérelem jogkivonatát a Microsoft támogatási szakemberének a választott médiumon keresztül (pl. csevegés, e-mail). A Microsoft támogatási szakembere a kérelem tokenjét használja, ha érvényes, a támogatási munkamenet engedélyezési jogkivonatát, majd visszaküldi a Azure Stack hub-kezelőnek. Ugyanebben a PEP PowerShell-munkamenetben az operátor a következő parancsmag bemenetként továbbítja az engedélyezési jogkivonatot:
 
  ```powershell  
       unlock-supportsession

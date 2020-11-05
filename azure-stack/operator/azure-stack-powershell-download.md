@@ -7,18 +7,47 @@ ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448452"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363731"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Azure Stack hub-eszközök letöltése a GitHubról
 
 A **AzureStack-Tools** egy [GitHub-tárház](https://github.com/Azure/AzureStack-Tools) , amely PowerShell-modulokat üzemeltet az erőforrások Azure stack hubhoz való felügyeletéhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitba (ASDK) vagy egy Windows-alapú külső ügyfélre. 
 
-## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Eszközök beszerzése Azure Stack hub AzureRM modulhoz
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
+## <a name="get-the-tools"></a>Eszközök beszerzése
+
+Az eszközöket az az PowerShell-modulok vagy a AzureRM-modulok használatával használhatja.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
+Ezen eszközök beszerzéséhez klónozott a GitHub-tárházat a `az` fiókirodából, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl futtatásával:
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
+
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+cd AzureStack-Tools-az
+
+```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
 
 Ezen eszközök beszerzéséhez klónozott a GitHub-tárházat a `master` fiókirodából, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl egy emelt szintű PowerShell-parancssorból történő futtatásával:
 
@@ -43,31 +72,11 @@ cd AzureStack-Tools-master
 ```
 Az Azure Stack hub AzureRM moduljának használatával kapcsolatos további információkért lásd: a [PowerShell-AzureRM modul telepítése Azure stack hubhoz](azure-stack-powershell-install.md)
 
-## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Eszközök beszerzése az Azure Stack hub az (előzetes verzió) modulhoz
 
-Ezen eszközök beszerzéséhez klónozott a GitHub-tárházat a `az` fiókirodából, vagy töltse le a **AzureStack-Tools** mappát a következő parancsfájl futtatásával:
-
-```powershell
-# Change directory to the root directory.
-cd \
-
-# Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile az.zip
-
-# Expand the downloaded files.
-expand-archive az.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-cd AzureStack-Tools-az
-
-```
 
 További információ az az modul Azure Stack hub-hoz való használatáról: a [PowerShell telepítése az előnézet modul for Azure stack hub](powershell-install-az-module.md).
+
+---
 
 ## <a name="functionality-provided-by-the-modules"></a>A modulok által biztosított funkciók
 

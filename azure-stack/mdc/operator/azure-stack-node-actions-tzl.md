@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3b45b22fd06544540f8de47a75e55ab647e2fca1
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: fe5c8901f39c8f6c01c72a1af00c953f792920cf
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329134"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363911"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 
@@ -72,7 +72,7 @@ Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **
 
 A **Leállítás** művelet kikapcsolja a csomópontot. Ez ugyanaz, mint a főkapcsoló gomb megnyomása. Nem küld leállítási jelet az operációs rendszernek. A tervezett leállítási műveletekhez először mindig próbálja meg a leállítási műveletet.
 
-Ezt a műveletet általában akkor kell használni, ha egy csomópont lefagyott állapotban van, és a továbbiakban nem válaszol a kérelmekre.
+Ezt a műveletet általában akkor kell használni, ha egy csomópont nem válaszoló állapotban van.
 
 A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 

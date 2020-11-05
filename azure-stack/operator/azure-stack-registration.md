@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060184"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364013"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -41,10 +41,16 @@ A regisztráció előtt végezze el a következő előfeltételeket:
 
 Az Azure Stack hub Azure-ban való regisztrálása előtt a következőket kell tennie:
 
-- Az Azure-előfizetéshez tartozó előfizetés-azonosító. A regisztráció csak az EA, a CSP vagy a CSP közös szolgáltatások előfizetéseit támogatja. A CSP-nek el kell döntenie, hogy [CSP-t vagy APSS-előfizetést használ](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)-e.<br><br>Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás**elemre. Ezt követően az **általános** kategóriában válassza az **előfizetések**elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót. Ajánlott eljárásként használjon külön előfizetéseket üzemi és fejlesztési vagy tesztelési környezetekhez. 
+::: zone pivot="state-connected"
+- Az Azure-előfizetéshez tartozó előfizetés-azonosító. A regisztráció csak az EA, a CSP vagy a CSP közös szolgáltatások előfizetéseit támogatja. A CSP-nek el kell döntenie, hogy [CSP-t vagy APSS-előfizetést használ](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)-e.<br><br>Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás** elemre. Ezt követően az **általános** kategóriában válassza az **előfizetések** elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót. Ajánlott eljárásként használjon külön előfizetéseket üzemi és fejlesztési vagy tesztelési környezetekhez. 
+::: zone-end
+::: zone pivot="state-disconnected"
+- Az Azure-előfizetéshez tartozó előfizetés-azonosító. Csak az EA-előfizetések támogatottak a regisztrációhoz. 
 
-  > [!Note]  
-  > A németországi felhőalapú előfizetések jelenleg nem támogatottak.
+    Az azonosító beszerzéséhez jelentkezzen be az Azure-ba, kattintson a **minden szolgáltatás** elemre. Ezt követően az **általános** kategóriában válassza az **előfizetések** elemet, kattintson a használni kívánt előfizetésre, és az **Essentials** területen találja az előfizetés-azonosítót. Ajánlott eljárásként használjon külön előfizetéseket üzemi és fejlesztési vagy tesztelési környezetekhez. 
+::: zone-end
+   > [!Note]  
+   > A németországi felhőalapú előfizetések jelenleg nem támogatottak.  
 
 - Az előfizetés tulajdonosát képező fiók felhasználóneve és jelszava.
 
@@ -52,7 +58,7 @@ Az Azure Stack hub Azure-ban való regisztrálása előtt a következőket kell 
 
 - Regisztrálja az Azure Stack hub erőforrás-szolgáltatót (további részletekért lásd a Azure Stack hub erőforrás-szolgáltató következő regisztrációja című szakaszt).
 
-A regisztrációt követően a Azure Active Directory (Azure AD) globális rendszergazdai jogosultsága nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra (például egy erőforrás-szolgáltatói telepítő parancsfájlra vagy egy olyan új szolgáltatásra, amely engedélyt kér). Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
+A regisztrációt követően a Azure Active Directory (Azure AD) globális rendszergazdai jogosultsága nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra (például egy erőforrás-szolgáltatói telepítő parancsfájlra vagy egy olyan új szolgáltatásra, amely engedélyt kér). Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés* tulajdonosa.
 
 Az Azure Stack hub-t regisztráló felhasználó az Azure AD-ben az egyszerű szolgáltatás tulajdonosa. Csak az Azure Stack hub-ban regisztrált felhasználó módosíthatja az Azure Stack hub regisztrációját. Ha egy nem rendszergazda felhasználó, aki nem tulajdonosa a regisztrációs szolgáltatásnak Azure Stack hub regisztrációját vagy újbóli regisztrálását, akkor előfordulhat, hogy egy 403-válaszon keresztül érkeznek. A 403-válasz azt jelzi, hogy a felhasználó nem rendelkezik megfelelő engedélyekkel a művelet végrehajtásához.
 
@@ -63,13 +69,13 @@ Ha nem rendelkezik Azure-előfizetéssel, amely megfelel ezeknek a követelmény
 
 ### <a name="set-the-powershell-language-mode"></a>A PowerShell nyelvi módjának beállítása
 
-Azure Stack hub sikeres regisztrálásához a PowerShell nyelvi módját **FullLanguageMode**értékre kell állítani.  Annak ellenőrzéséhez, hogy az aktuális nyelvi mód a teljes értékre van-e állítva, nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsmagokat:
+Azure Stack hub sikeres regisztrálásához a PowerShell nyelvi módját **FullLanguageMode** értékre kell állítani.  Annak ellenőrzéséhez, hogy az aktuális nyelvi mód a teljes értékre van-e állítva, nyisson meg egy rendszergazda jogú PowerShell-ablakot, és futtassa a következő PowerShell-parancsmagokat:
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Győződjön meg arról, hogy a kimenet **FullLanguageMode**ad vissza. Ha a rendszer bármilyen más nyelvi módot ad vissza, a regisztrációt egy másik gépen kell futtatni, vagy a nyelvi módot a folytatás előtt be kell állítani a **FullLanguageMode** értékre.
+Győződjön meg arról, hogy a kimenet **FullLanguageMode** ad vissza. Ha a rendszer bármilyen más nyelvi módot ad vissza, a regisztrációt egy másik gépen kell futtatni, vagy a nyelvi módot a folytatás előtt be kell állítani a **FullLanguageMode** értékre.
 
 ### <a name="install-powershell-for-azure-stack-hub"></a>A PowerShell telepítése Azure Stack hubhoz
 
@@ -83,6 +89,8 @@ Az Azure Stack hub Tools GitHub-tárháza olyan PowerShell-modulokat tartalmaz, 
 
 Annak érdekében, hogy a legújabb verziót használja, törölje az Azure Stack hub-eszközök meglévő verzióit, és [töltse le a legújabb verziót a githubról](azure-stack-powershell-download.md) az Azure-ban való regisztrálás előtt.
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ### <a name="determine-your-billing-model"></a>Számlázási modell meghatározása
 ::: zone pivot="state-connected"
  Egy csatlakoztatott üzemelő példány lehetővé teszi, hogy Azure Stack hub csatlakozhasson az internethez és az Azure-hoz. Az Azure AD-t vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) is használhatja Identity Store-ként, és két számlázási modell közül választhat: utólagos használat vagy kapacitás alapján. A számlázási modellt később, a regisztrációs parancsfájl futtatásakor kell megadnia.
@@ -94,7 +102,7 @@ Annak érdekében, hogy a legújabb verziót használja, törölje az Azure Stac
 
 ### <a name="determine-your-unique-registration-name"></a>Egyedi regisztrációs név meghatározása
 
-A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID**-t használja.
+A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID** -t használja.
 
 > [!NOTE]
 > A Capacity-alapú számlázási modell használatával Azure Stack hub-regisztrációk esetében módosítania kell az egyedi nevet, ha az éves előfizetések lejárta után az újbóli regisztráció lejár, kivéve, ha [törli a lejárt regisztrációt](#renew-or-change-registration) , és újra regisztrálja magát az Azure-ban.
@@ -121,7 +129,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
    >[!Note]
    > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRmAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process`
@@ -152,7 +160,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 7. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot. Futtatandó PowerShell:  
 
@@ -188,7 +196,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -242,9 +250,9 @@ Ha Azure Stack központot regisztrál egy leválasztott környezetben (internetk
    További információ a Get-AzsRegistrationToken parancsmagról: [regisztrációs hivatkozás](#registration-reference).
 
    > [!Tip]  
-   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
+   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken* számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
-3. Mentse ezt a regisztrációs jogkivonatot az Azure-ra csatlakoztatott gépen való használatra. A fájlt vagy a szöveget *$FilePathForRegistrationTokenból*másolhatja.
+3. Mentse ezt a regisztrációs jogkivonatot az Azure-ra csatlakoztatott gépen való használatra. A fájlt vagy a szöveget *$FilePathForRegistrationTokenból* másolhatja.
 
 ### <a name="connect-to-azure-and-register"></a>Kapcsolódjon az Azure-hoz, és regisztráljon
 
@@ -299,7 +307,7 @@ Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsma
   ```
 
   > [!Tip]  
-  > Az aktiválási kulcsot a rendszer a *$KeyOutputFilePath*számára megadott fájlban menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
+  > Az aktiválási kulcsot a rendszer a *$KeyOutputFilePath* számára megadott fájlban menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
 ### <a name="create-an-activation-resource-in-azure-stack-hub"></a>Aktiválási erőforrás létrehozása Azure Stack hub-ban
 
@@ -324,18 +332,18 @@ A **régió kezelése** csempével ellenőrizheti, hogy az Azure stack hub regis
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálján `https://adminportal.local.azurestack.external` .
 
-2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
+2. Az irányítópulton válassza a **régió kezelése** lehetőséget.
 
-3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**.
+3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható** , **nem regisztrálható** vagy nem **járt le**.
 
     [![Régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-registration/admin1sm.png "Régió-felügyeleti csempe")](media/azure-stack-registration/admin1.png#lightbox)
 
     Ha regisztrálva van, a tulajdonságok a következők:
     
-    - **Regisztrációs előfizetés azonosítója**: az Azure-előfizetési azonosító regisztrálva van, és Azure stack hubhoz van társítva.
-    - **Regisztrációs erőforráscsoport**: az Azure stack hub-erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
+    - **Regisztrációs előfizetés azonosítója** : az Azure-előfizetési azonosító regisztrálva van, és Azure stack hubhoz van társítva.
+    - **Regisztrációs erőforráscsoport** : az Azure stack hub-erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
 
-4. A Azure Portal használatával megtekintheti Azure Stack hub regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com) az Azure stack hub regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás**lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, és válassza ki a regisztrációs nevet.
+4. A Azure Portal használatával megtekintheti Azure Stack hub regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com) az Azure stack hub regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás** lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, és válassza ki a regisztrációs nevet.
 
 5. Ha a regisztráció nem sikerült, a probléma megoldásához kövesse az [itt ismertetett lépéseket](#change-the-subscription-you-use) .  
 
@@ -365,7 +373,7 @@ A következő információk szükségesek a [felügyeleti portálról](#verify-a
 
 ### <a name="change-the-subscription-you-use"></a>A használt előfizetés módosítása
 
-Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot bármilyen módosított paraméterrel, beleértve a következőt: `<billing model>` . A **Remove-AzsRegistration**futtatása közben be kell jelentkeznie a regisztráció során használt előfizetésbe, és a és a paraméterek használati értékeit a `RegistrationName` `ResourceGroupName` [felügyeleti portálon](#verify-azure-stack-hub-registration)látható módon kell megadnia:
+Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot bármilyen módosított paraméterrel, beleértve a következőt: `<billing model>` . A **Remove-AzsRegistration** futtatása közben be kell jelentkeznie a regisztráció során használt előfizetésbe, és a és a paraméterek használati értékeit a `RegistrationName` `ResourceGroupName` [felügyeleti portálon](#verify-azure-stack-hub-registration)látható módon kell megadnia:
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)
@@ -462,9 +470,9 @@ Futtassa a következő PowerShell-parancsmagokat:
    ```
 
    > [!Tip]  
-   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken*számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
+   > A regisztrációs jogkivonatot a rendszer a *$FilePathForRegistrationToken* számára megadott fájlba menti. Saját belátása szerint módosíthatja a filepath vagy a fájlnevet.
 
-2. Mentse ezt a regisztrációs jogkivonatot az Azure-beli csatlakoztatott gépen való használatra. A fájlt vagy a szöveget *$FilePathForRegistrationTokenból*másolhatja.
+2. Mentse ezt a regisztrációs jogkivonatot az Azure-beli csatlakoztatott gépen való használatra. A fájlt vagy a szöveget *$FilePathForRegistrationTokenból* másolhatja.
 ::: zone-end
 
 ## <a name="move-a-registration-resource"></a>Regisztrációs erőforrás áthelyezése
