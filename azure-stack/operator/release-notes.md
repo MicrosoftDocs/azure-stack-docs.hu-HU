@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 11/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 827f06af4cbe725180054d2e32acf120258654bf
-ms.sourcegitcommit: 227cf63f6e09d7eebaa8c1e0983c812fb351fe5c
+ms.openlocfilehash: 31e4d2ec34c2031c1034917e2ded2eb0421a62f1
+ms.sourcegitcommit: a0e2c636d8b9b8940f01a81a5a3733f79bd3f42c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93401159"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334295"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -265,7 +265,7 @@ A gyorsjavításokkal kapcsolatos további információkért tekintse meg a [Azu
 Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.81.224](https://support.microsoft.com/help/4583406)
+- [Azure Stack hub gyorsjavítási 1.1910.84.230](https://support.microsoft.com/help/4592243)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Az 2002-es frissítés sikeres alkalmazása után
 
@@ -431,7 +431,7 @@ Azure Stack hub 1910-es kiadását a 1908-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást. További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1910.81.224](https://support.microsoft.com/help/4583406)
+- [Azure Stack hub gyorsjavítási 1.1910.84.230](https://support.microsoft.com/help/4592243)
 ::: moniker-end
 
 <!------------------------------------------------------------>
