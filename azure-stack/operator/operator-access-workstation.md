@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: c636f0d44648e4682bb19a64d66cad43d2add64b
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363945"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415351"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -96,7 +96,7 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
    'C:\Version\Get-Version.ps1'
    ```
 
-   Például:
+   Ilyenek többek között:
 
    ![Képernyőkép a PowerShell-parancsmagról a OAW virtuális gép verziójának vizsgálatához](./media/operator-access-workstation/check-hardware-lifecycle-host-version.png)
 
@@ -221,15 +221,15 @@ SkipNetworkConfiguration     | Választható | Kihagyja a virtuális gép háló
    'C:\Version\Get-Version.ps1'
    ```
 
-   Például:
+   Ilyenek többek között:
 
    ![A hardver életciklus-gazdagép verziójának ellenőrzését szolgáló PowerShell-parancsmag képernyőképe](./media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Fájlok átvitele a HLH és a OAW között
 
-Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Például:
+Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Ilyenek többek között:
 
-A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Például:
+A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Ilyenek többek között:
 
 ## <a name="remove-the-oaw-vm"></a>A OAW virtuális gép eltávolítása
 
@@ -246,12 +246,12 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
 
    Ahol az az \<name\> eltávolítandó virtuális gép neve. Alapértelmezés szerint a név **AzSOAW**.
 
-   Például:
+   Ilyenek többek között:
 
    ```powershell
    Remove-OAW.ps1 -VirtualMachineName AzSOAW
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack felügyeleti feladatok](azure-stack-manage-basics.md)

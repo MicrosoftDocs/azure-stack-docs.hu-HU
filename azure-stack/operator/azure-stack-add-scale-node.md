@@ -3,22 +3,22 @@ title: Skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 description: Megtudhatja, hogyan adhat hozzá méretezési egység csomópontjait Azure Stack hub egységéhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: d6e8d9a6df51ec71b144ca5ae145acd3ae10a12c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621299"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415222"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
-A Azure Stack hub operátorok egy további fizikai számítógép hozzáadásával növelhetik egy meglévő méretezési egység teljes kapacitását. A fizikai számítógépet a méretezési egység csomópontjának is nevezzük. Minden hozzáadott új méretezési egység csomópontnak homogénnek kell lennie a CPU-típus, a memória és a lemez száma és mérete között a méretezési egységben már meglévő csomópontok számára.
+Egy másik fizikai számítógép hozzáadásával növelheti egy meglévő méretezési egység teljes kapacitását. A fizikai számítógépet a méretezési egység csomópontjának is nevezzük. Minden hozzáadott új méretezési egység csomópontnak homogénnek kell lennie a CPU-típus, a memória és a lemez száma és mérete között a méretezési egységben már meglévő csomópontok számára.
 
-A méretezési egység csomópont hozzáadásához Azure Stack központban kell működnie, és futtatnia kell a hardveres berendezések gyártójának (OEM) eszközét. Az OEM-eszközök a hardveres életciklus-gazdagépen (HLH) futnak, így meggyőződhet róla, hogy az új fizikai számítógép megegyezik a meglévő csomópontokkal megegyező belső vezérlőprogram-szinttel.
+A méretezési egység csomópont hozzáadásához jelentkezzen be Azure Stack hub-ra, és futtassa a hardveres berendezések gyártója (OEM) eszközét. Az OEM-eszközök a hardveres életciklus-gazdagépen (HLH) futnak, így meggyőződhet róla, hogy az új fizikai számítógép megegyezik a meglévő csomópontokkal megegyező belső vezérlőprogram-szinttel.
 
 A következő folyamatábra a méretezési egység csomópontjának általános folyamatát mutatja be:
 
@@ -45,7 +45,7 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 3. Konfigurálja a megfelelő IP-címet a alaplapi felügyeleti vezérlőben (BMC), és alkalmazza az összes BIOS-beállítást a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációban.
 4. Alkalmazza a jelenlegi belső vezérlőprogram-alapkonfigurációt az összes összetevőre a HLH futó hardvergyártó által biztosított eszközök használatával.
 5. Futtassa a csomópont hozzáadása műveletet a Azure Stack hub felügyeleti portálján.
-6. Ellenőrizze, hogy a csomópont hozzáadása művelet sikeres-e. Ehhez ellenőriznie kell a [skálázási egység **állapotát** ](#monitor-add-node-operations). 
+6. Ellenőrizze, hogy a csomópont hozzáadása művelet sikeres-e. Ehhez ellenőriznie kell a [skálázási egység **állapotát**](#monitor-add-node-operations). 
 
 ## <a name="add-the-node"></a>A csomópont hozzáadása
 
@@ -54,9 +54,9 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 ### <a name="administrator-portal"></a>[Felügyeleti portál](#tab/portal)
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálra Azure Stack hub-operátorként.
-2. Navigáljon a **+ erőforrás**-  >  **kapacitás**  >  **skálázási egység csomópontjának**létrehozására.
+2. Navigáljon a **+ erőforrás** -  >  **kapacitás**  >  **skálázási egység csomópontjának** létrehozására.
    ![Méretezési egység csomópontja](media/azure-stack-add-scale-node/select-node1.png)
-3. A **Csomópont hozzáadása** panelen válassza ki a *régiót*, majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
+3. A **Csomópont hozzáadása** panelen válassza ki a *régiót* , majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
    ![Csomópont hozzáadása – részletek](media/azure-stack-add-scale-node/select-node2.png)
  
 
@@ -81,7 +81,7 @@ Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélj
 
 Csomópont hozzáadásához használja az **Add-AzsScaleUnitNode** parancsmagot.  
 
-Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node*,  *name_of_scale_unit_cluster*, *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
+Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node* ,  *name_of_scale_unit_cluster* , *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
 
   > [!Note]  
   > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
@@ -150,5 +150,5 @@ A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők.
 - Szervizelés: ebben az esetben a tárolási konfigurációs feladat meghiúsult. Ehhez a problémához kapcsolatba kell lépnie a támogatási szolgálattal.
 
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 [Nyilvános IP-címek hozzáadása](azure-stack-add-ips.md) 

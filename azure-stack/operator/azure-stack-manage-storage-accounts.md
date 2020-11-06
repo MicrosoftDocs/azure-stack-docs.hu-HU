@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488654"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415317"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 
@@ -24,25 +24,25 @@ A régióban található Storage-fiókok listáját Azure Stack központban teki
 
 1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
-2. Válassza **a minden szolgáltatás**  >  **tároló**  >  **Storage-fiókok**lehetőséget.
+2. Válassza **a minden szolgáltatás**  >  **tároló**  >  **Storage-fiókok** lehetőséget.
 
    ![Azure Stack hub Storage-fiókok](media/azure-stack-manage-storage-accounts/image4.png)
 
 Alapértelmezés szerint az első 10 fiók jelenik meg. A lista alján található  **további terhelés** hivatkozásra kattintva további részleteket is megadhat.
 
-VAGY
+OR
 
 Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrheti és** kérheti le.
 
 **A fiókok szűrése:**
 
 1. Válassza a **szűrő** elemet a panel tetején.
-2. A szűrő panelen megadhatja a **fiók nevét**, az **előfizetés azonosítóját**vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
+2. A szűrő panelen megadhatja a **fiók nevét** , az **előfizetés azonosítóját** vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
 3. A gépelés során a lista automatikusan alkalmazza a szűrőt.
 
     ![Azure Stack hub Storage-fiókok szűrése](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. A szűrő alaphelyzetbe állításához: válassza a **szűrő**lehetőséget, törölje a beállításokat és a frissítést.
+4. A szűrő alaphelyzetbe állításához: válassza a **szűrő** lehetőséget, törölje a beállításokat és a frissítést.
 
 A keresési szövegmező (a Storage-fiókok listája ablaktábla tetején) lehetővé teszi a kijelölt szöveg kijelölését a fiókok listájában. Ezt akkor használhatja, ha a teljes név vagy az azonosító nem érhető el egyszerűen.
 
@@ -62,7 +62,7 @@ Azure Stack központban van egy egyszerű módja:
 
 1. Tallózással keresse meg a Storage-fiókok listáját. További információ: Storage- [fiók keresése](azure-stack-manage-storage-accounts.md) a cikk elején.
 2. Keresse meg az adott fiókot a listában. Előfordulhat, hogy szűrnie kell.
-3. A fiók *állapotának* bejelölése. A **törlést is el**kell mondani.
+3. A fiók *állapotának* bejelölése. A **törlést is el** kell mondani.
 4. Válassza ki a fiókot, amely megnyitja a fiók adatai ablaktáblát.
 5. A panel tetején keresse meg a **helyreállítás** gombot, és jelölje ki.
 6. Válassza az **Igen** lehetőséget a megerősítéshez.
@@ -76,7 +76,7 @@ Azure Stack központban van egy egyszerű módja:
    Ha a helyreállított fiók szinkronizálása sikeresen megtörtént, újra felhasználható.
 
 ### <a name="some-gotchas"></a>Néhány megkerülő
-* A Törölt fiók állapota az **adatmegőrzési**állapotnak megfelelően jelenik meg.
+* A Törölt fiók állapota az **adatmegőrzési** állapotnak megfelelően jelenik meg.
   
   Az adatmegőrzés nem jelenti azt, hogy a Törölt fiók túllépte a megőrzési időtartamot, és előfordulhat, hogy nem lehet helyreállítani.
 
@@ -90,8 +90,8 @@ Az adatmegőrzési időtartam beállítása lehetővé teszi, hogy a felhőüzem
 **A megőrzési időtartam módosítása:**
 
 1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
-2. Válassza az **összes szolgáltatás**  >  **régió** felügyelete lehetőséget az **Adminisztráció**alatt.
-3. Válassza az **erőforrás-szolgáltatók**  >  **tárolási**  >  **Beállítások**lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
+2. Válassza az **összes szolgáltatás**  >  **régió** felügyelete lehetőséget az **Adminisztráció** alatt.
+3. Válassza az **erőforrás-szolgáltatók**  >  **tárolási**  >  **Beállítások** lehetőséget. Az elérési út a Home > *region* – Resource providers > Storage.
 4. Válassza a **konfiguráció** lehetőséget, majd szerkessze a megőrzési időszak értékét.
 
    Állítsa be a napok számát, majd mentse.
@@ -124,7 +124,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
 
 1. Győződjön meg arról, hogy van Azure PowerShell telepítve és konfigurálva. Ha nem, kövesse az alábbi utasításokat: 
    * A legújabb Azure PowerShell verziójának telepítéséhez és az Azure-előfizetéshez való hozzárendeléséhez tekintse meg a [Azure PowerShell telepítése és konfigurálása](/powershell/azure/)című témakört.
-   Azure Resource Manager parancsmagokkal kapcsolatos további információkért lásd: [Azure PowerShell használata a Azure Resource Manager használatával](https://go.microsoft.com/fwlink/?LinkId=394767).
+   Azure Resource Manager parancsmagokkal kapcsolatos további információkért lásd: [Azure PowerShell használata a Azure Resource Manager használatával](/azure/azure-resource-manager/management/manage-resources-powershell).
 2. Futtassa a következő parancsmagokat:
 
 > [!NOTE]  
@@ -138,7 +138,7 @@ A PowerShell használatával is felülbírálhatja a megőrzési időszakot, és
 További információ: [Azure stack hub PowerShell dokumentációja](/powershell/azure/azure-stack/overview).
  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
  - Az engedélyek kezelésével kapcsolatos információkért lásd: [hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával](azure-stack-manage-permissions.md).
  - Az Azure Stack hub tárolási kapacitásának kezelésével kapcsolatos információkért lásd: [Azure stack hub tárolókapacitásának kezelése](azure-stack-manage-storage-shares.md).

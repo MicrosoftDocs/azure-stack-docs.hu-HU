@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487736"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415130"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 
@@ -78,7 +78,7 @@ Biztonsági adatok és alapvető állapot-és minőségi adatok. Alapvető eszk�
   - Processzor-és memória-attribútumok, például a magok száma és a telepített memória mennyisége.
   - Tárolási attribútumok, például a meghajtók száma, a meghajtó típusa és a meghajtó mérete.
 
-- *Telemetria funkció*, beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és az utolsó adatfeltöltési időt.
+- *Telemetria funkció* , beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és az utolsó adatfeltöltési időt.
 - A *minőséggel kapcsolatos információk* , amelyek segítenek a Microsoft számára az Azure stack hub működésének alapvető megismerésében. Például egy adott hardverkonfiguráció kritikus értesítéseinek száma.
 - *Kompatibilitási információk* , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális GÉPRE (VM). Ez azonosítja a lehetséges kompatibilitási problémákat.
 
@@ -89,12 +89,12 @@ További elemzések, többek között a következők: az operációs rendszer é
 > Ez az alapértelmezett telemetria-beállítás.
 
 **3 (teljes)**</br>
-A problémák azonosításához és javításához szükséges összes adat, valamint a **biztonsági** **, alapszintű**és **továbbfejlesztett** szintekből származó adatok.
+A problémák azonosításához és javításához szükséges összes adat, valamint a **biztonsági** **, alapszintű** és **továbbfejlesztett** szintekből származó adatok.
 
 > [!IMPORTANT]
 > Ezek a telemetria-szintek csak Microsoft Azure Stack hub-összetevőkre vonatkoznak. A nem a Microsofttól származó szoftveres összetevők és szolgáltatások, amelyek Azure Stack hub hardveres életciklus-állomásán futnak, a következő telemetria-szinteken kívül is kommunikálhatnak a felhőalapú szolgáltatásaikkal. Az Azure Stack hub hardveres megoldás-szolgáltatóval együttműködve Ismerje meg a telemetria-szabályzatot, valamint azt, hogy hogyan engedélyezheti vagy letilthatja.
 
-A Windows és Azure Stack hub telemetria kikapcsolása letiltja az SQL-telemetria is. A Windows Server telemetria beállításainak következményeivel kapcsolatos további információkért tekintse meg a [Windows telemetria](https://aka.ms/winservtelemetry)szóló tanulmányt.
+A Windows és Azure Stack hub telemetria kikapcsolása letiltja az SQL-telemetria is. A Windows Server telemetria beállításainak következményeivel kapcsolatos további információkért tekintse meg a [Windows telemetria](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)szóló tanulmányt.
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: a telemetria szintjének beállítása a Windows beállításjegyzékben
 
@@ -152,6 +152,6 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub regisztrálása az Azure-ban](azure-stack-registration.md)

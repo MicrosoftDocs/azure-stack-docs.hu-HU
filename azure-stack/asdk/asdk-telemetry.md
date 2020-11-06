@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489963"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415147"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack telemetria
 
@@ -23,7 +23,7 @@ Azure Stack operátorként a telemetria értékes betekintést biztosíthat a v�
 > [!NOTE]
 > A Azure Stack konfigurálható úgy is, hogy a használati adatokat az Azure-ba továbbítsa a számlázáshoz. Ez olyan többcsomópontos Azure Stack ügyfelek esetében szükséges, akik az utólagos használatú számlázást választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek a többcsomópontos ügyfelek számára, akik kiválasztják a kapacitás modellt vagy a Azure Stack Development Kit (ASDK) felhasználók számára. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl használatával](../operator/azure-stack-usage-reporting.md).
 
-Azure Stack telemetria a *Windows Server 2016 csatlakoztatott felhasználói felületén és a Telemetr*y összetevőn alapul, amely a [Windows esemény-nyomkövetés (ETW)](/windows/win32/tracelogging/trace-logging-about) nyomkövetési naplózási technológiát használja a telemetria-események és-adatok gyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a naplózási technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Azure Stack összetevők közé tartoznak például a hálózati erőforrás-szolgáltató, a tárolási erőforrás-szolgáltató, a figyelés erőforrás-szolgáltatója és az erőforrás-szolgáltató frissítése. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL használatával titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja a telemetria adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
+Azure Stack telemetria a *Windows Server 2016 csatlakoztatott felhasználói felületén és a Telemetr* y összetevőn alapul, amely a [Windows esemény-nyomkövetés (ETW)](/windows/win32/tracelogging/trace-logging-about) nyomkövetési naplózási technológiát használja a telemetria-események és-adatok gyűjtésére és tárolására. Azure Stack-összetevők ugyanazt a naplózási technológiát használják a nyilvános operációs rendszer eseménynaplózási és nyomkövetési API-jai használatával összegyűjtött események és adatok közzétételéhez. Azure Stack összetevők közé tartoznak például a hálózati erőforrás-szolgáltató, a tárolási erőforrás-szolgáltató, a figyelés erőforrás-szolgáltatója és az erőforrás-szolgáltató frissítése. A csatlakoztatott felhasználói élmény és telemetria összetevő az SSL használatával titkosítja az adatokat, és a tanúsítvány-rögzítés használatával továbbítja a telemetria adatokat a HTTPS protokollon keresztül a Microsoft adatkezelés szolgáltatásnak.
 
 > [!NOTE]
 > A telemetria-adatfolyamok támogatásához a 443-as (HTTPS) portnak nyitva kell lennie a hálózaton. A csatlakoztatott felhasználói élmény és telemetria összetevő a Microsoft adatkezelés szolgáltatáshoz csatlakozik, `https://v10.vortex-win.data.microsoft.com` és a `https://settings-win.data.microsoft.com` konfigurációs adatok letöltésére is.
@@ -72,27 +72,27 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 A telemetria szintek kumulatívak, és négy szintre vannak kategorizálva (0-3):
 
-**0 (biztonság)**: csak biztonsági adatként. Az operációs rendszer biztonságának megőrzéséhez szükséges információk, beleértve a csatlakoztatott felhasználói felülettel és a telemetria és a Windows Defender szolgáltatással kapcsolatos adatokat is. Ezen a szinten nincs kibocsátva Azure Stack adott telemetria.
+**0 (biztonság)** : csak biztonsági adatként. Az operációs rendszer biztonságának megőrzéséhez szükséges információk, beleértve a csatlakoztatott felhasználói felülettel és a telemetria és a Windows Defender szolgáltatással kapcsolatos adatokat is. Ezen a szinten nincs kibocsátva Azure Stack adott telemetria.
 
-**1 (alapszintű)**: biztonsági adatok és alapvető állapot-és minőségi adatok. Alapszintű eszköz adatai, beleértve a minőséggel kapcsolatos adatokat, az alkalmazások kompatibilitását, az alkalmazások használati adatait és a biztonsági szintről származó adatokat. A telemetria szintjének alapszintű értékre állításával Azure Stack telemetria. Az ezen a szinten összegyűjtött adatok a következők:
+**1 (alapszintű)** : biztonsági adatok és alapvető állapot-és minőségi adatok. Alapszintű eszköz adatai, beleértve a minőséggel kapcsolatos adatokat, az alkalmazások kompatibilitását, az alkalmazások használati adatait és a biztonsági szintről származó adatokat. A telemetria szintjének alapszintű értékre állításával Azure Stack telemetria. Az ezen a szinten összegyűjtött adatok a következők:
 
 - **Alapszintű eszköz adatai** , amelyek segítségével megismerheti a natív és virtualizált Windows Server 2016-példányok típusait és konfigurációit az ökoszisztémában, beleértve a következőket:
   - Számítógép-attribútumok, például OEM és modell.
   - Hálózati attribútumok, például a hálózati adapterek száma és sebessége.
   - Processzor-és memória-attribútumok, például a magok és a memória méretének száma.
   - Tárolási attribútumok, például a meghajtók, a típus és a méret száma.
-- A **telemetria funkciói**, beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és a legutóbbi feltöltési időt.
+- A **telemetria funkciói** , beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és a legutóbbi feltöltési időt.
 - A **minőséggel kapcsolatos információk** , amelyek segítenek a Microsoft számára a Azure stack végrehajtásának alapvető megismerésében. Ilyen például a kritikus riasztások száma egy adott hardverkonfiguráció esetében.
-- **Kompatibilitási információk**, amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális gépre, és azonosítja a lehetséges kompatibilitási problémákat.
+- **Kompatibilitási információk** , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális gépre, és azonosítja a lehetséges kompatibilitási problémákat.
 
-**2 (bővített)**: további elemzések, többek között az operációs rendszer és az egyéb Azure stack szolgáltatások használatának módja, a teljesítményük és a speciális megbízhatósági adatok, valamint az alapszintű és a biztonsági szintekből származó adatok.
+**2 (bővített)** : további elemzések, többek között az operációs rendszer és az egyéb Azure stack szolgáltatások használatának módja, a teljesítményük és a speciális megbízhatósági adatok, valamint az alapszintű és a biztonsági szintekből származó adatok.
 
-**3 (teljes)**: minden olyan adat, amely a problémák azonosításához és javításához, valamint a biztonsági, alapszintű és magasabb szintű adatokhoz szükséges.
+**3 (teljes)** : minden olyan adat, amely a problémák azonosításához és javításához, valamint a biztonsági, alapszintű és magasabb szintű adatokhoz szükséges.
 
 > [!NOTE]
 > Az alapértelmezett telemetria érték 2 (bővített).
 
-A Windows és a Azure Stack telemetria kikapcsolása letiltja az SQL-telemetria. A Windows Server telemetria beállításainak következményeiről további információt a [Windows telemetria](https://aka.ms/winservtelemetry)tanulmányában olvashat.
+A Windows és a Azure Stack telemetria kikapcsolása letiltja az SQL-telemetria. A Windows Server telemetria beállításainak következményeiről további információt a [Windows telemetria](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)tanulmányában olvashat.
 
 > [!IMPORTANT]
 > Ezek a telemetria-szintek csak Microsoft Azure Stack-összetevőkre vonatkoznak. A hardveres életciklus-gazdagépen futó, nem a Microsofttól származó szoftver-összetevők és szolgáltatások Azure Stack hardveres partnerek a telemetria-szinteken kívül is kommunikálhatnak a felhőalapú szolgáltatásaikkal. Az Azure Stack hardveres megoldás-szolgáltatóval együttműködve megismerheti a telemetria-szabályzatot, és hogyan engedélyezheti vagy letilthatja.
@@ -134,5 +134,5 @@ if($psSession)
 }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A ASDK elindítása és leállítása](asdk-start-stop.md)

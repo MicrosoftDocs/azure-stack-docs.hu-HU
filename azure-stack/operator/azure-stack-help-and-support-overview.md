@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778272"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415300"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -36,7 +36,7 @@ A **Súgó és támogatás** felső részén olyan dolgokat érdemes kipróbáln
 
 - **További információ a számlázásról**. Tippek a [használat és a számlázáshoz](azure-stack-billing-and-chargeback.md).
 
-- **Támogatási lehetőségek**. Azure Stack hub-operátorok számos olyan Azure- [támogatási lehetőség](https://aka.ms/azstacksupport) közül választhatnak, amelyek bármely vállalat igényeihez illeszkednek.
+- **Támogatási lehetőségek**. Azure Stack hub-operátorok számos olyan Azure- [támogatási lehetőség](./azure-stack-manage-basics.md) közül választhatnak, amelyek bármely vállalat igényeihez illeszkednek.
 
 ### <a name="get-expert-help"></a>Szakértői segítség kérése
 
@@ -50,7 +50,7 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 A Azure Stack Development Kit (ASDK) esetében a támogatással kapcsolatos kérdéseket a [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)teheti meg.
 
-Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést**, amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
+Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést** , amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 A probléma megoldásához, illetve az online képzések fejlesztéséhez és a saját képességeinek javításához az MSDN-fórumokat is elérheti.
 
@@ -76,10 +76,10 @@ A következő két módon küldhet diagnosztikai naplókat a Microsoftnak:
 
 ## <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
-A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban és támogatásban**:
+A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban és támogatásban** :
 
-- **Automatikus gyűjtés**: Ha engedélyezve van, a rendszer a naplók gyűjtését meghatározott állapot-riasztások alapján indítja el.
-- **Naplók gyűjtése most**: kiválaszthatja az elmúlt hét nap 1-4 óra csúszó ablakát.
+- **Automatikus gyűjtés** : Ha engedélyezve van, a rendszer a naplók gyűjtését meghatározott állapot-riasztások alapján indítja el.
+- **Naplók gyűjtése most** : kiválaszthatja az elmúlt hét nap 1-4 óra csúszó ablakát.
 
 ![Diagnosztikai naplók gyűjtésének beállításai](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -87,11 +87,11 @@ Az integrált rendszerek a Microsoft ügyfélszolgálata segítségével oszthat
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Súgó és támogatás az Azure Stack hub korábbi kiadásaihoz (pre-1905)
 
-A korábbi Azure Stack hub-kiadások is tartalmaz egy hivatkozást, amely **segítséget nyújt** a [Azure stack hub-kezelő dokumentációjának](https://aka.ms/adminportaldocs)átirányításához.
+A korábbi Azure Stack hub-kiadások is tartalmaz egy hivatkozást, amely **segítséget nyújt** a [Azure stack hub-kezelő dokumentációjának](./index.yml)átirányításához.
 
 ![Támogatási útmutatók beszerzése](media/azure-stack-help-and-support/get-support-previous.png)
 
-Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el. Válassza a **Súgó** (kérdőjel) lehetőséget a felügyeleti portál jobb felső sarkában, válassza a **Súgó és támogatás**lehetőséget, majd válassza az **új támogatási kérés** lehetőséget, hogy közvetlenül egy új támogatási kérést küldjön Microsoft ügyfélszolgálata.
+Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el. Válassza a **Súgó** (kérdőjel) lehetőséget a felügyeleti portál jobb felső sarkában, válassza a **Súgó és támogatás** lehetőséget, majd válassza az **új támogatási kérés** lehetőséget, hogy közvetlenül egy új támogatási kérést küldjön Microsoft ügyfélszolgálata.
 
 Az integrált rendszerek esetében a Microsoft és az OEM-partnereink közötti összehangolt eszkalációs és megoldási folyamat áll rendelkezésre. Ha Cloud Services-probléma merül fel, a támogatás Microsoft ügyfélszolgálataon keresztül érhető el.
 
@@ -103,7 +103,7 @@ Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső s
 
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [diagnosztikai naplók gyűjtéséről](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
 - Megtudhatja, hogyan [keresheti meg a Felhőbeli azonosítóját](azure-stack-find-cloud-id.md).

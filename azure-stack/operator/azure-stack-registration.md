@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 15da8dc1fadcd0bbe1f76513e1afd31ca20c2743
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364013"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415283"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -355,7 +355,7 @@ Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a p
 ## <a name="renew-or-change-registration"></a>Regisztráció megújítása vagy módosítása
 
 ::: zone pivot="state-connected"
-A regisztrációt a következő esetekben kell frissítenie vagy megújítani:
+A regisztrációt a következő esetekben kell frissítenie:
 
 - A kapacitás-alapú éves előfizetés megújítása után.
 - A számlázási modell módosításakor.
@@ -557,6 +557,6 @@ Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy
    Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)
