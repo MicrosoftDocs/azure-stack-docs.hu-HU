@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/05/2020
+ms.date: 11/06/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 31e4d2ec34c2031c1034917e2ded2eb0421a62f1
-ms.sourcegitcommit: a0e2c636d8b9b8940f01a81a5a3733f79bd3f42c
+ms.openlocfilehash: 9e8e62b88379f7b312d5faa6d4a031d81c5afaf5
+ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94334295"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94360173"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -424,7 +424,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 Azure Stack hub 1910-es kiadását a 1908-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.1908.57.146](https://support.microsoft.com/help/4583007)
+- [Azure Stack hub gyorsjavítási 1.1908.59.150](https://support.microsoft.com/help/4592778)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>Az 1910-es frissítés sikeres alkalmazása után
 

@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/02/2020
+ms.date: 11/06/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: aa5cbb7d631cdcf8fb5a27666bdedfd6ef3ab665
-ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
+ms.openlocfilehash: f4d719e133b2e8246606e9ba1d8efc11b187833a
+ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93192238"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94360156"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -54,6 +54,102 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
+- 08/21/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
+- 08/21/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
+- 08/21/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.959.2007101752
+- 08/21/2020: Windows 10 Pro, 1909-es verzió – saját licenc-verzió 18363.959.2007101752
+- 08/21/2020: Windows 10 Enterprise, 2004-es verzió – saját licenc-verzió 19041.388.2007101729
+- 08/21/2020: a Windows 10 Enterprise 2016 LTSB-Bring saját licenc-verziójú 14393.3808.2007101707
+- 08/21/2020: a Windows 10 Enterprise 2019 LTSC-Bring saját licenc-verziójú 17763.1339.2007101755
+- 08/21/2020: Windows 10 Pro, 1809-es verzió – saját licenc-verzió 17763.1339.2007101755
+- 08/21/2020: a Windows Server 2008 R2 SP1-Pay a go-Version 7601.24557.2007101756
+- 08/21/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay a go-Version 7601.24557.2007101756
+- 08/21/2020: Windows Server 2012 Datacenter-Pay a go-Version 9200.23086.2007131700
+- 08/21/2020: [smalldisk] Windows Server 2012 Datacenter-Pay a go-Version 9200.23086.2007131700
+- 08/21/2020: a Windows Server 2012 R2 Datacenter-Pay a go-Version 9600.19756.2007111612
+- 08/21/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay a go-Version 9600.19756.2007111612
+- 08/21/2020: Windows Server 2016 Datacenter-Pay a go-Version 14393.3808.2007101707
+- 08/21/2020: Windows Server 2016 Datacenter – a Server Core-Pay a go-Version 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – a Server Core-Pay a go-Version 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter-Pay a go-Version 14393.3808.2007101707
+- 08/21/2020: a Windows Server 2019 Datacenter Server Core-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: a Windows Server 2019 Datacenter Server Core Containers-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core Containers-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: a Windows Server 2019 Datacenter Containers-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Containers-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1809-es verzió Containers-Pay a go-Version 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1903-es verzió Containers-Pay a go-Version 18362.959.2007101755
+- 08/21/2020: [smalldisk] Windows Server, 1909-es verzió Containers-Pay a go-Version 18363.959.2007101752
+- 08/21/2020: [smalldisk] Windows Server, 2004-es verzió Containers-Pay a go-Version 19041.388.2007101729
+- 08/04/2020: a Windows Server 2008 R2 SP1-Bring a saját licenc-verzió 7601.24556.2006050139
+- 08/04/2020: a Windows Server 2008 R2 SP1-Pay a go-Version 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1-Bring saját licenc-Version 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay a go-Version 7601.24556.2006050139
+- 08/04/2020: a Windows Server 2012 Datacenter-Bring saját licence-Version 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 Datacenter-Pay a go-Version 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter-Bring saját licenc-verzió 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter-Pay a go-Version 9200.23066.2006051749
+- 08/04/2020: a Windows Server 2012 R2 Datacenter-Bring a saját licenc-verzió 9600.19728.2006050139
+- 08/04/2020: a Windows Server 2012 R2 Datacenter-Pay a go-Version 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Bring saját licenc-Version 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay a go-Version 9600.19728.2006050139
+- 08/04/2020: a Windows Server 2016 Datacenter-Bring saját licence-Version 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter-Pay a go-Version 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – a Server Core-Bring a saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – a Server Core-Pay a go-Version 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – a Server Core-Bring saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – a Server Core-Pay a go-Version 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter-Bring saját licenc-verzió 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter-Pay a go-Version 14393.3750.2006031549
+- 08/04/2020: a Windows Server 2019 Datacenter-Bring saját licence-Version 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Server Core-Bring a saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Server Core-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Bring saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Server Core Containers-Bring saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Server Core Containers-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core Containers-Bring saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core Containers-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter-Bring saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Containers-Bring saját licenc-verziójú 17763.1282.2006061952
+- 08/04/2020: a Windows Server 2019 Datacenter Containers-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Containers-Bring saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Containers-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1809-es verzió, Containers-Bring saját licenccel – verzió: 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1809-es verzió Containers-Pay a go-Version 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, 1903-es verzió, Containers-Bring saját licenccel – verzió: 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, 1903-es verzió Containers-Pay a go-Version 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, 2004-es verzió, Containers-Bring saját licenccel – verzió: 19041.329.2006042019
+- 08/04/2020: a Windows 10 Enterprise 2016 LTSB-Bring saját licenc-verziójú 14393.3750.2006031549
+- 08/04/2020: a Windows 10 Enterprise 2019 LTSC-Bring saját licenc-verziójú 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, 1809-es verzió – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows 10 Pro, 1809-es verzió – saját licenc-verzió 17763.1282.2006061952
+- 08/04/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.900.2006061800
+- 08/04/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.900.2006061800
+- 08/04/2020: Windows 10 Pro, 1909-es verzió – saját licenc-verzió 18363.900.2006061800
+- 08/04/2020: Windows 10 Enterprise, 2004-es verzió – saját licenc-verzió 19041.329.2006042019
+- 05/21/2020: Windows Server 2008 R2 SP1 BYOL-Version 7601.24552.2004101827
+- 05/21/2020: a Windows Server 2008 R2 SP1 a 7601.24552.2004101827 verzió használatakor kell fizetnie
+- 05/21/2020: Windows Server 2012 Datacenter BYOL – verzió 9200.23016.2004101828
+- 05/21/2020: a Windows Server 2012 Datacenter a 9200.23016.2004101828 verzió használatakor kell fizetnie
+- 05/21/2020: Windows Server 2012 R2 Datacenter BYOL – verzió 9600.19676.2004101829
+- 05/21/2020: a Windows Server 2012 R2 Datacenter díjköteles, a 9600.19676.2004101829 verzió használatakor
+- 05/21/2020: Windows Server 2016 Datacenter BYOL – verzió 14393.3630.2004101604
+- 05/21/2020: a Windows Server 2016 Datacenter a 14393.3630.2004101604 verzió használatakor kell fizetnie
+- 05/21/2020: Windows Server 2016 Datacenter Server Core BYOL – Version 14393.3630.2004101604
+- 05/21/2020: a Windows Server 2016 Datacenter Server Core a (z) verzió 14393.3630.2004101604 használja
+- 05/21/2020: Windows Server 2019 Datacenter Server Core BYOL – Version 17763.1158.2004131759
+- 05/21/2020: a Windows Server 2019 Datacenter Server Core a (z) verzió 17763.1158.2004131759 használja
+- 05/21/2020: Windows Server 2019 Datacenter BYOL – verzió 17763.1158.2004131759
+- 05/21/2020: a Windows Server 2019 Datacenter a 17763.1158.2004131759 verzió használatakor kell fizetnie
+- 05/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
+- 05/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
 - Bitnami Shopware
 - SQL Server 2017 standard on SUSE Linux Enterprise Server (SLES) 12 SP2
 - Ingyenes licenc: SQL Server 2017 Developer on SUSE Linux Enterprise Server (SLES) 12 SP2
@@ -70,6 +166,23 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 11/05/2020: SQL Server 2017 standard on Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: SQL Server 2017 standard a Windows Server 2016-on – a go-verzió 14.0.20201015
+- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: SQL Server 2016 SP2 standard a Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 standard a Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-ban – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-ban – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: {WS-TB} ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – saját licenc-verzió 13.2.20201015
+- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – saját licenc-verzió 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/04/2020: Teradici Cloud Access for Azure Stack nonGPU – 1.0.2 verzió
 - 10/29/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay a go-Version 7601.24561.2010082056
 - 10/29/2020: [smalldisk] Windows Server 2008 R2 SP1-Bring saját licenc-Version 7601.24561.2010082056
 - 10/29/2020: a Windows Server 2008 R2 SP1-Pay a go-Version 7601.24561.2010082056
@@ -381,7 +494,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 5/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
 - 5/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 
