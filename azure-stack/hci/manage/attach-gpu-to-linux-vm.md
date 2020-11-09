@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106954"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383683"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>GPU csatlakoztatása Ubuntu Linux virtuális géphez Azure Stack HCI-ben
 
@@ -25,7 +25,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 2. Kapcsolja be az összes kiszolgálót.
 3. Jelentkezzen be rendszergazdai jogosultságokkal rendelkező fiókkal a kiszolgáló (k) re, amelyen telepítve van az NVIDIA GPU.
 4. Nyissa meg **Eszközkezelő** és navigáljon a *többi eszköz* szakaszhoz. Meg kell jelennie a "3D video Controller" néven látható eszköznek.
-5. A **Tulajdonságok** lap megjelenítéséhez kattintson a jobb gombbal a "3D video Controller" elemre. Kattintson a **részletek**gombra. A legördülő menüben **Property**válassza a "hely elérési útjai" lehetőséget.
+5. A **Tulajdonságok** lap megjelenítéséhez kattintson a jobb gombbal a "3D video Controller" elemre. Kattintson a **részletek** gombra. A legördülő menüben **Property** válassza a "hely elérési útjai" lehetőséget.
 6. Jegyezze fel az értéket a string PCIRoot az alábbi képernyőképen látható módon. Kattintson a jobb gombbal az **értékre** , és másolja/mentse.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Elérési út képernyőképe":::
 7. Nyissa meg a Windows PowerShellt emelt szintű jogosultságokkal, és hajtsa végre a parancsmagot, hogy leválasztsa `Dismount-VMHostAssignableDevice` a GPU-eszközt a dohai Cserélje le a *LocationPath* értéket a 6. lépésben megszerzett eszköz értékére.
@@ -37,10 +37,10 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>Ubuntu rendszerű virtuális gép létrehozása és konfigurálása
 
-1. Töltse le az [Ubuntu asztali kiadás 18.04.02 ISO verzióját](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso).
+1. Töltse le az [Ubuntu asztali kiadás 18.04.02 ISO verzióját](http://old-releases.ubuntu.com/releases/18.04.2/).
 2. Nyissa meg a **Hyper-V kezelőjét** a rendszer csomópontjára a telepített GPU-val.
    > [!NOTE]
-   > A [dohai fejlesztési szolgálat nem támogatja a feladatátvételt](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment). Ez egy virtuális gépekre vonatkozó korlátozás a DOHAI webszolgáltatással. Ezért javasoljuk, hogy a **Hyper-V kezelőjével** **Feladatátvevőfürt-kezelő**helyett a CSOMÓPONTON telepítse a virtuális gépet. Az **Feladatátvevőfürt-kezelő** a dohai szolgáltatással való használata meghiúsul, és hibaüzenet jelenik meg arról, hogy a virtuális gépnek nincs olyan eszköze, amely nem támogatja a magas rendelkezésre állást.
+   > A [dohai fejlesztési szolgálat nem támogatja a feladatátvételt](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment). Ez egy virtuális gépekre vonatkozó korlátozás a DOHAI webszolgáltatással. Ezért javasoljuk, hogy a **Hyper-V kezelőjével** **Feladatátvevőfürt-kezelő** helyett a CSOMÓPONTON telepítse a virtuális gépet. Az **Feladatátvevőfürt-kezelő** a dohai szolgáltatással való használata meghiúsul, és hibaüzenet jelenik meg arról, hogy a virtuális gépnek nincs olyan eszköze, amely nem támogatja a magas rendelkezésre állást.
 3. Ha az 1. lépésben letöltött Ubuntu ISO-t használja, hozzon létre egy új virtuális gépet a **Hyper-V kezelőjének** **új virtuális gép varázslójával** , és hozzon létre egy 2 GB-os memóriával és egy hozzá csatlakoztatott hálózati kártyával rendelkező Ubuntu Gen 1 VM-et.
 4. A PowerShellben rendelje hozzá a leválasztott GPU-eszközt a virtuális géphez az alábbi parancsmagok használatával, és cserélje le a *LocationPath* értéket az eszköz értékére.
     ```PowerShell
@@ -91,7 +91,7 @@ Ez a dokumentum feltételezi, hogy a Azure Stack HCI-fürtöt telepítette, és 
     > [!IMPORTANT]
     > Ha az NVIDIA GPU nem "3D vezérlő", akkor ne folytassa tovább. A folytatás előtt győződjön meg arról, hogy a fenti lépéseket követik.
 
-11. A virtuális gépen keresse meg és nyissa meg a **szoftverek & frissítéseit**. Navigáljon a **további illesztőprogramok**elemre, majd válassza ki a listában szereplő legújabb NVIDIA GPU-illesztőprogramokat. Az illesztőprogram telepítésének befejezéséhez kattintson a **módosítások alkalmazása** gombra.
+11. A virtuális gépen keresse meg és nyissa meg a **szoftverek & frissítéseit**. Navigáljon a **további illesztőprogramok** elemre, majd válassza ki a listában szereplő legújabb NVIDIA GPU-illesztőprogramokat. Az illesztőprogram telepítésének befejezéséhez kattintson a **módosítások alkalmazása** gombra.
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Illesztőprogram-telepítési képernyőkép":::
 
 12. Az illesztőprogram telepítésének befejeződése után indítsa újra az Ubuntu virtuális gépet. Miután a virtuális gép elindul, csatlakozzon az SSH-ügyfélen, és adja ki az **NVIDIA-SMI** parancsot annak ellenőrzéséhez, hogy az NVIDIA GPU-illesztőprogram telepítése sikeresen befejeződött-e. A kimenetnek az alábbi képernyőképhez hasonlónak kell lennie: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="képernyőkép, amely az NVIDIA-SMI parancs kimenetét jeleníti meg.":::
@@ -418,7 +418,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     file-loop=1
     ```
 
-12. Lépjen az Azure Portalra. Válassza ki **IoT hub kiépített**elemet, kattintson az **automatikus eszközkezelés**elemre, majd a **IoT Edge**elemre:
+12. Lépjen az Azure Portalra. Válassza ki **IoT hub kiépített** elemet, kattintson az **automatikus eszközkezelés** elemre, majd a **IoT Edge** elemre:
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="Az eszközkezelés automatikus kezelése képernyőkép":::
 
@@ -476,7 +476,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
     }
     ```
 
-18. Kattintson a **felülvizsgálat és létrehozás**elemre, majd a következő lapon kattintson a **Létrehozás**gombra. Az alábbi három modult látnia kell a Azure Portal IoT Edge eszközéhez:
+18. Kattintson a **felülvizsgálat és létrehozás** elemre, majd a következő lapon kattintson a **Létrehozás** gombra. Az alábbi három modult látnia kell a Azure Portal IoT Edge eszközéhez:
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/edge-hub-connections.png" alt-text="Modulok és IoT Edge hub-kapcsolatok képernyőképe":::
 
@@ -519,7 +519,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
 21. Erősítse meg az Ubuntu virtuális gép TCP/IP-címét az **ifconfig** parancs használatával, és keresse meg az **ETH0** felület melletti TCP/IP-címet.
 
-22. Telepítse a VLC-lejátszót a munkaállomáson. A VLC-lejátszón kattintson a **Media-> Open Network stream**elemre, és írja be a következő formátumot a címben:
+22. Telepítse a VLC-lejátszót a munkaállomáson. A VLC-lejátszón kattintson a **Media-> Open Network stream** elemre, és írja be a következő formátumot a címben:
 
     rtsp://ipaddress:8554/ds-test
 

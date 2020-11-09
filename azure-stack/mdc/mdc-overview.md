@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182964"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383404"
 ---
 # <a name="modular-data-center-overview"></a>A moduláris adatközpont áttekintése 
 
@@ -27,7 +27,7 @@ A Azure Stack négy alapvető alapelvet biztosít, amelyek összhangban vannak a
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Alkalmazások fejlesztése és továbbítása közös DevOps-modellel, beleértve az API-szimmetriát az Azure-ban
 
-Az Azure és a Azure Stack közötti konzisztencia azt jelenti, hogy a War Fighter megoldásait egyszer kell kialakítani, a különböző használati esetek támogatásához, valamint a közös eszközök, például a Azure Key Vault a kulcsfontosságú felügyelethez, valamint az erőforrás-figyeléshez és-felügyelethez Azure Monitor. A Azure Stack a helyszíni adatokkal, alkalmazásokkal és eszközökkel, valamint DevOps és biztonságos műveletekkel (például a kulcskezelő szolgáltatással) való együttműködésre használható.
+Az Azure és a Azure Stack közötti konzisztencia azt jelenti, hogy a megoldások egyszer lettek kifejlesztve, a különböző használati esetek támogatásához, valamint az olyan közös eszközök használatával, mint például a Azure Key Vault a kulcskezelő és a Azure Monitor erőforrás-figyeléshez és-felügyelethez. A Azure Stack a helyszíni adatokkal, alkalmazásokkal és eszközökkel, valamint DevOps és biztonságos műveletekkel (például a kulcskezelő szolgáltatással) való együttműködésre használható.
 
 ### <a name="deliver-azure-services-on-premises"></a>Helyszíni Azure-szolgáltatások megvalósítása
 
@@ -35,7 +35,7 @@ A Azure Stack a hátrányos helyzetű (megtámadó, túlterhelt vagy megtagadott
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>Integrált hardveres és szoftveres kézbesítési élmény használata
 
-A moduláris Edge számos olyan képességet igényel, amely nem csak az alapkonfigurációt és a tárolási szolgáltatásokat nyújtja, hanem a gépi tanulás, az AI és az elemzés speciális funkcióit is. A biztonságos felhőhöz való csatlakozás lehetősége a moduláris szélétől, ha az képes, vagy fordítva a megszorító környezetekben való egymástól függetlenül működik, kritikus fontosságú ahhoz, hogy a háborús harcosok hozzáférhessenek a döntéshozatalhoz szükséges adatokhoz.
+A moduláris Edge számos olyan képességet igényel, amely nem csak az alapkonfigurációt és a tárolási szolgáltatásokat nyújtja, hanem a gépi tanulás, az AI és az elemzés speciális funkcióit is. A biztonságos felhőhöz való csatlakozás lehetősége a moduláris szélétől, ha az képes, vagy fordítva, a megszorító környezetekben való egymástól függetlenül való működéshez elengedhetetlen a döntések meghozatalához szükséges adatokhoz való hozzáférés biztosítása.
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>Az adatközpont biztonságos és hibrid Felhőbeli biztonsági műveletekkel is elérhető
 

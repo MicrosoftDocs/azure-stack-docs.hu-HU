@@ -7,23 +7,23 @@ ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853261"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383666"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
 
-- **[Update Management](/azure/automation/automation-update-management)**: a Update Management megoldással gyorsan elemezheti az összes ügynök számítógépén elérhető frissítések állapotát, és kezelheti a Windows és Linux rendszerű virtuális gépek szükséges frissítéseinek telepítését.
+- **[Update Management](/azure/automation/update-management/overview)** : a Update Management megoldással gyorsan elemezheti az összes ügynök számítógépén elérhető frissítések állapotát, és kezelheti a Windows és Linux rendszerű virtuális gépek szükséges frissítéseinek telepítését.
 
-- **[Change Tracking](/azure/automation/automation-change-tracking)**: a telepített szoftverek, a Windows-szolgáltatások, a Windows-beállításjegyzék és-fájlok, valamint a figyelt kiszolgálókon található Linux-démonok módosításai a felhőben a Azure monitor szolgáltatásba kerülnek feldolgozásra. A felhőszolgáltatás egy logikát alkalmaz a kapott adatokon, és rögzíti azokat. A Change Tracking irányítópulton található információk használatával egyszerűen megtekintheti a kiszolgálói infrastruktúrában végrehajtott módosításokat.
+- **[Change Tracking](/azure/automation/automation-change-tracking)** : a telepített szoftverek, a Windows-szolgáltatások, a Windows-beállításjegyzék és-fájlok, valamint a figyelt kiszolgálókon található Linux-démonok módosításai a felhőben a Azure monitor szolgáltatásba kerülnek feldolgozásra. A felhőszolgáltatás egy logikát alkalmaz a kapott adatokon, és rögzíti azokat. A Change Tracking irányítópulton található információk használatával egyszerűen megtekintheti a kiszolgálói infrastruktúrában végrehajtott módosításokat.
 
 - **[Leltár](/azure/automation/automation-vm-inventory)**. Egy Azure Stack hub-alapú virtuális gép leltározási követése egy böngészőalapú felhasználói felületet biztosít a leltár-gyűjtemény beállításához és konfigurálásához.
 
-- **[Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview)**: a Azure monitor for VMS figyeli az Azure-beli és a Azure stack hub-beli virtuális gépeket és a virtuálisgép-méretezési csoportokat a skálán. Elemzi a Windows-és Linux-alapú virtuális gépek teljesítményét és állapotát, valamint figyeli a folyamatokat és a függőségeket más erőforrásokra és külső folyamatokra.
+- **[Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview)** : a Azure monitor for VMS figyeli az Azure-beli és a Azure stack hub-beli virtuális gépeket és a virtuálisgép-méretezési csoportokat a skálán. Elemzi a Windows-és Linux-alapú virtuális gépek teljesítményét és állapotát, valamint figyeli a folyamatokat és a függőségeket más erőforrásokra és külső folyamatokra.
 
 > [!IMPORTANT]
 > Ezek a megoldások megegyeznek az Azure-beli virtuális gépek kezeléséhez használt megoldásokkal. Mind az Azure-, mind a Azure Stack hub-beli virtuális gépek ugyanúgy kezelhetők, mint ugyanazon a felületen, ugyanazokat az eszközöket használva. Az Azure Stack hub virtuális gépek is ugyanazok, mint az Azure virtuális gépek, ha a Update Management, a Change Tracking, a leltár és a Azure Monitor for VMs megoldásokat használja az Azure Stack hub használatával.
@@ -37,13 +37,13 @@ Az Azure Stack hub-beli virtuális gépek Azure Monitor for VMs, leltár, Change
 > [!TIP]
 > Ha már engedélyezte ezeket a szolgáltatásokat az Azure-beli virtuális gépekhez, használhatja a meglévő LogAnalytics-munkaterület hitelesítő adatait. Ha már rendelkezik egy használni kívánt LogAnalytics-munkaterület azonosítója és elsődleges kulccsal, ugorjon [a következő szakaszra](./vm-update-management.md#in-the-azure-stack-hub-administrator-portal). Ellenkező esetben folytassa ezt a szakaszt egy új LogAnalytics-munkaterület és egy Automation-fiók létrehozásához.
 
-A megoldások engedélyezésének első lépéseként [hozzon létre egy LogAnalytics-munkaterületet](/azure/log-analytics/log-analytics-quick-create-workspace) az Azure-előfizetésében. A Log Analytics munkaterület egy egyedi Azure Monitor-naplózási környezet, amely a saját adattárházával, adatforrásaival és megoldásaival rendelkezik. Miután létrehozott egy munkaterületet, jegyezze fel a munkaterület azonosítója és a kulcsot. Az információk megtekintéséhez lépjen a munkaterület panelre, kattintson a **Speciális beállítások**elemre, és tekintse át a **munkaterület azonosítóját** és az **elsődleges kulcs** értékeit. 
+A megoldások engedélyezésének első lépéseként [hozzon létre egy LogAnalytics-munkaterületet](/azure/log-analytics/log-analytics-quick-create-workspace) az Azure-előfizetésében. A Log Analytics munkaterület egy egyedi Azure Monitor-naplózási környezet, amely a saját adattárházával, adatforrásaival és megoldásaival rendelkezik. Miután létrehozott egy munkaterületet, jegyezze fel a munkaterület azonosítója és a kulcsot. Az információk megtekintéséhez lépjen a munkaterület panelre, kattintson a **Speciális beállítások** elemre, és tekintse át a **munkaterület azonosítóját** és az **elsődleges kulcs** értékeit. 
 
 Ezután [létre kell hoznia egy Automation-fiókot](/azure/automation/automation-create-standalone-account). Az Automation-fiók a Azure Automation erőforrásainak tárolója. Módot biztosít a környezetek elkülönítésére, illetve az automatizálási munkafolyamatok és erőforrások további rendszerezésére. Az Automation-fiók létrehozása után engedélyeznie kell a leltár, a Change Tracking és a Update Management funkciókat. Az egyes funkciók engedélyezéséhez kövesse az alábbi lépéseket:
 
 1. A Azure Portal lépjen a használni kívánt Automation-fiókra.
 
-2. Válassza ki az engedélyezni kívánt megoldást ( **leltár**, **változások követése**vagy **frissítés kezelése**).
+2. Válassza ki az engedélyezni kívánt megoldást ( **leltár** , **változások követése** vagy **frissítés kezelése** ).
 
 3. Használja a **munkaterület kiválasztása...** legördülő listát a használni kívánt log Analytics-munkaterület kiválasztásához.
 
@@ -72,7 +72,7 @@ Miután engedélyezte a Azure Automation megoldásokat a Azure Portalban, be kel
 
    ![A "Home > Marketplace felügyeleti > Hozzáadás az Azure-ból > Azure Monitor, frissítés és konfiguráció kezelése" párbeszédpanel leírja a bővítményt, és a letöltés gombot.](media//vm-update-management/2.PNG) 
 
-A Azure Monitor for VMs Map megoldás engedélyezéséhez és a hálózati függőségek betekintéséhez töltse le a **Azure Monitor Dependency Agent**:
+A Azure Monitor for VMs Map megoldás engedélyezéséhez és a hálózati függőségek betekintéséhez töltse le a **Azure Monitor Dependency Agent** :
 
    ![A "Home > Marketplace felügyeleti > Hozzáadás az Azure-ból > Azure Monitor Dependency Agent" párbeszédpanel leírja a bővítményt, és letölti a letöltés gombot.](media//vm-update-management/2-dependency.PNG) 
 
@@ -81,7 +81,7 @@ Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális 
 
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 
-2. Az Azure Stack hub-felhasználó-portálon nyissa meg a virtuális gépek bővítmények paneljét, amely számára engedélyezni szeretné ezeket a megoldásokat, kattintson a **+ Hozzáadás**gombra, jelölje ki az **Azure Update és a Configuration Management** bővítményt, majd kattintson a **Létrehozás**gombra:
+2. Az Azure Stack hub-felhasználó-portálon nyissa meg a virtuális gépek bővítmények paneljét, amely számára engedélyezni szeretné ezeket a megoldásokat, kattintson a **+ Hozzáadás** gombra, jelölje ki az **Azure Update és a Configuration Management** bővítményt, majd kattintson a **Létrehozás** gombra:
 
     ![Az "Azure Update and Configuration Management" párbeszédpanel tartalmaz magyarázó információkat, egy létrehozás gombot (kiemelve) a bővítmény hozzáadásához, valamint egy hivatkozást a további információkhoz.](media//vm-update-management/3-sm.PNG "Virtuálisgép-bővítmény panel")
 
@@ -89,7 +89,7 @@ Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális 
 
    [![A "bővítmény telepítése" párbeszédpanel szövegmezőket tartalmaz az Azure munkaterület azonosítója és a WorkspaceKey.](media//vm-update-management/4-sm.PNG "A munkaterület azonosítója és a kulcs megadása")](media//vm-update-management/4-lg.PNG) 
 
-4. A [Update Management dokumentációjában](/azure/automation/automation-update-management)leírtaknak megfelelően engedélyeznie kell a Update Management megoldást minden felügyelni kívánt virtuális géphez. Ha engedélyezni szeretné a megoldást a munkaterületre jelentést küldő összes virtuális gépre vonatkozóan, válassza a **kezelés**, majd a **számítógépek kezelése**lehetőséget, és jelölje be az **Engedélyezés az összes elérhető és jövőbeli gépen** beállítást.
+4. A [Update Management dokumentációjában](/azure/automation/update-management/overview)leírtaknak megfelelően engedélyeznie kell a Update Management megoldást minden felügyelni kívánt virtuális géphez. Ha engedélyezni szeretné a megoldást a munkaterületre jelentést küldő összes virtuális gépre vonatkozóan, válassza a **kezelés** , majd a **számítógépek kezelése** lehetőséget, és jelölje be az **Engedélyezés az összes elérhető és jövőbeli gépen** beállítást.
 
    [![A gépek kezelése – Update Management párbeszédpanel megjeleníti azokat a gépeket, amelyeken nincs engedélyezve a Update Management. Három engedélyező beállítás van megadva, és az "engedélyezés az összes elérhető és jövőbeli gépen" beállítás ki van választva és ki van emelve. Engedélyezhető gomb.](media//vm-update-management/5-sm.PNG "Update Management megoldás engedélyezése minden gépen")](media//vm-update-management/5-lg.PNG) 
 
@@ -124,7 +124,7 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 ```
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Azure Stack hub-on futó Azure Monitor for VMs engedélyezése
-Miután a virtuális gép rendelkezik a **Azure monitor, a frissítés és a konfiguráció kezelésével**, valamint a **Azure monitor Dependency Agent** bővítmények telepítésével, a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) megoldásban elkezdi a jelentéskészítési adatgyűjtést. 
+Miután a virtuális gép rendelkezik a **Azure monitor, a frissítés és a konfiguráció kezelésével** , valamint a **Azure monitor Dependency Agent** bővítmények telepítésével, a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) megoldásban elkezdi a jelentéskészítési adatgyűjtést. 
 
 > [!TIP]
 > A **Azure Monitor Dependency Agent** kiterjesztéshez nincs szükség paraméterre. A Azure Monitor for VMs Map-függőségi ügynök nem küld magába adatokat, és nem igényel semmilyen módosítást a tűzfalakon vagy a portokon. A leképezési adatokat a Log Analytics ügynök mindig továbbítja a Azure Monitor szolgáltatásnak közvetlenül vagy a [OMS-átjárón](/azure/azure-monitor/platform/gateway) keresztül, ha az informatikai biztonsági házirendek nem engedélyezik a hálózaton lévő számítógépek számára az internethez való kapcsolódást.
@@ -143,5 +143,5 @@ Ha a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Update Management engedélyezése Resource Manager-sablon használatával
 Ha nagyszámú Azure Stack hub virtuális gépet használ, a [Azure Resource Manager sablonnal](https://aka.ms/aa6zdzy) egyszerűbben telepítheti a megoldást a virtuális gépeken. A sablon telepíti a Microsoft monitoring Agent bővítményt egy meglévő Azure Stack hub virtuális gépre, és hozzáadja egy meglévő Azure LogAnalytics-munkaterülethez.
  
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [SQL Server VM teljesítmény optimalizálása](azure-stack-sql-server-vm-considerations.md)

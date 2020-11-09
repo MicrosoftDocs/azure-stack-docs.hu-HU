@@ -3,15 +3,15 @@ title: Gazdagép hálózatkezelésének megtervezése Azure Stack HCI-hez
 description: Ismerje meg, hogyan tervezheti meg Azure Stack HCI-fürtök gazdagép hálózatkezelését
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
-ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
+ms.openlocfilehash: e9a03fa7518c6a450204cdbdb40483b593b1867b
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200484"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383499"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Gazdagép hálózatkezelésének megtervezése Azure Stack HCI-hez
 
@@ -200,6 +200,35 @@ A LLDP lehetővé teszi, hogy a szervezetek definiálják és kódolják saját 
 
 > [!NOTE]
 > Előfordulhat, hogy a felsorolt választható funkciók némelyike a jövőben szükséges.
+
+## <a name="example-cluster-network-design"></a>Példa a fürt hálózati kialakítására
+
+Az alábbi ábrán egy standard (nem kifeszített) fürtkonfiguráció látható, amely ugyanazon az alhálózaton és ugyanazon a helyen található két fürttel rendelkezik. A kiszolgálói csomópontok egymással kommunikálnak ugyanabban a fürtben, a kettős felső szintű (TOR) kapcsolókhoz csatlakoztatott redundáns hálózati adapterek használatával. A fürt és a fürt közötti kommunikáció a kettős hálózati gerinces eszközökön halad át.
+
+:::image type="content" source="media/plan-host-networking/rack-topology-non-stretched-cluster.png" alt-text="Nem kifeszített fürt" lightbox="media/plan-host-networking/rack-topology-non-stretched-cluster.png":::
+
+## <a name="example-stretched-cluster-network-design"></a>Példa a kifeszített fürt hálózati kialakítására
+
+Az alábbi ábrák a kiterjesztett fürtkonfiguráció egyetlen fürttel, valamint a különböző helyeken és alhálózatokban (négy csomópont/hely) található kiszolgáló-csomópontokkal való megjelenítését mutatják be. A kiszolgálói csomópontok egymással kommunikálnak ugyanabban a fürtben, a kettős csatlakozású TOR-kapcsolókhoz csatlakoztatott redundáns hálózati adapterek használatával. A helyek közötti kommunikáció a feladatátvételhez a Storage-replikát használó kettős útválasztón keresztül halad.
+
+:::image type="content" source="media/plan-host-networking/rack-topology-stretched-cluster.png" alt-text="Kifeszített fürt" lightbox="media/plan-host-networking/rack-topology-stretched-cluster.png":::
+
+### <a name="stretched-cluster-node-networking-option-1"></a>Kifeszített fürtcsomópont hálózati beállítása 1
+
+Az alábbi ábrán egy olyan kihelyezett fürt látható, amely egy switch Embedded-összevonást (SET) használ a flow felügyeleti, a Élő áttelepítés és a tárolási replika forgalmához ugyanazon a vNIC található helyek között. Használja a [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell-parancsmagokat a sávszélességre – korlátozza élő áttelepítés és a tárolási replika forgalmát. 
+
+Ne feledje, hogy a TCP a helyek közötti adatforgalomhoz használatos, miközben a RDMA a helyszíni Élő áttelepítés Storage-forgalomhoz használatos.
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-1.png" alt-text="Kifeszített fürtcsomópont hálózati beállítása 1" lightbox="media/plan-host-networking/stretched-cluster-option-1.png":::
+
+### <a name="stretched-cluster-node-networking-option-2"></a>Kifeszített fürtcsomópont hálózati beállítása 2
+
+Az alábbi ábrán egy olyan speciális konfiguráció látható, amely egy [többcsatornás SMB](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) -t használ a helyek és a fürt felügyeleti forgalmára szolgáló dedikált adapter között a tárolási replika forgalmához. Használja a [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell-parancsmagokat a sávszélességre – korlátozza élő áttelepítés és a tárolási replika forgalmát.
+
+Ne feledje, hogy a TCP a helyek közötti adatforgalomhoz használatos, miközben a rendszer a RDMA-t használja a helyszíni tárolóhelyek forgalmára.
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-2.png" alt-text="Kifeszített fürtcsomópont hálózati beállítása 2" lightbox="media/plan-host-networking/stretched-cluster-option-2.png":::
+
 
 ## <a name="next-steps"></a>Következő lépések
 

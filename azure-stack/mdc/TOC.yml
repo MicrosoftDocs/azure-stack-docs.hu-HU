@@ -16,7 +16,7 @@
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatási ajánlat tesztelése
           href: ../operator/tutorial-test-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Alapelvek
+    - name: Fogalmak
       items:
         - name: Kapacitástervezés
           items:
@@ -30,7 +30,7 @@
               href: ../operator/azure-stack-app-service-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Capacity Planner eszköz
               href: azure-stack-capacity-planner.md
-        - name: Integráció – áttekintés
+        - name: Az integráció áttekintése
           href: customer-journey.md
         - name: Kapcsolatok modelljei
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -178,12 +178,8 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Útmutatók
       items:
-        - name: Kiterjesztett tárterület
-          items:
-            - name: OneFS és belső vezérlőprogram frissítései
-              href: extended-storage-firmware-updates.md
-            - name: Állapot-ellenőrzések
-              href: extended-storage-health-checks.md
+        - name: Kiterjesztett tárterület állapotának ellenőrzése
+          href: extended-storage-health-checks.md
         - name: Kezelés
           items:
             - name: Az adminisztráció alapjai
@@ -591,7 +587,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Szolgáltatások használata
               items:
-                - name: Számítás
+                - name: Compute
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -611,7 +607,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: GPU virtuális gépek
                       href: azure-stack-gpu.md
-                - name: Tárolás
+                - name: Storage
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -770,7 +766,7 @@
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Előfizetés-erőforrások másolása
                   href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Alapelvek
+    - name: Fogalmak
       items:
         - name: IaaS architektúrák
           items:

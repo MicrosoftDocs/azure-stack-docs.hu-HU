@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.lastreviewed: 12/31/2019
-ms.openlocfilehash: 511ea66e0f70041ffc237463e33fccdbf390360d
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 4aec8b6dde194590d0bc5cb00f42869462fc365e
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182995"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383547"
 ---
 # <a name="modular-data-center-mdc-network-introduction"></a>A moduláris adatközpont (MDC) hálózati bemutatása
 
@@ -79,9 +79,9 @@ A HLH az üzembe helyezési virtuális gépet (DVM) is üzemelteti. A DVM a MDC 
 
 A/20 (4096-es gazda IP-címek) hálózat a MDC régióhoz van privát. Nem terjed ki a MDC régió szegély-kapcsoló eszközeire. Ez a hálózat több alhálózatra oszlik, például:
 
-- **Storage Network**: egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
+- **Storage Network** : egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
 - Belső virtuális IP-hálózat: A szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
-- **Container Network**: a/23 (512 IP-cím) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve
+- **Container Network** : a/23 (512 IP-cím) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve
 
 A magánhálózat mérete megváltozott:/20 (4096 IP) magánhálózati IP-címmel. Ez a hálózat a MDC rendszer számára privát. Nem halad a MDC rendszer szegély-kapcsoló eszközein, és több MDC-rendszeren is felhasználható. Amíg a hálózat MDC van, nem fedi át az adatközpont más hálózatait. A magánhálózati IP-címekre vonatkozó útmutatásért javasoljuk, hogy kövesse a 1918-es RFC-dokumentumot.
 
@@ -109,7 +109,7 @@ Két/25 hálózat található, amelyek közül az egyik a TOR-kapcsolón és egy
 
 ## <a name="dns-design-overview"></a>A DNS-tervezés áttekintése
 
-Ha a MDC-végpontokat (*portál*, *adminportal*, *Management*, *adminmanagement*) a MDC kívülről szeretné elérni, integrálnia kell a MDC DNS-szolgáltatásait azokkal a DNS-KISZOLGÁLÓkkal, amelyek a MDC használni kívánt DNS-zónákat futtatják.
+Ha a MDC-végpontokat ( *portál* , *adminportal* , *Management* , *adminmanagement* ) a MDC kívülről szeretné elérni, integrálnia kell a MDC DNS-szolgáltatásait azokkal a DNS-KISZOLGÁLÓkkal, amelyek a MDC használni kívánt DNS-zónákat futtatják.
 
 ### <a name="mdc-dns-namespace"></a>MDC DNS-névtér
 
@@ -120,15 +120,15 @@ A MDC telepítése során meg kell adnia néhány fontos információt a DNS-hez
 | Régió | A MDC központi telepítésének földrajzi helye. | *Kelet* |
 | Külső tartomány neve | A MDC-telepítéshez használni kívánt zóna neve. | *cloud.fabrikam.com* |
 | Belső tartomány neve | A MDC-ben az infrastruktúra-szolgáltatásokhoz használt belső zóna neve. Ez a címtárszolgáltatások integrált és magán (nem érhető el a MDC-telepítésen kívülről). | *azurestack. local* |
-| DNS-továbbítók | A MDC-en kívül futtatott DNS-lekérdezések, DNS-zónák és rekordok továbbítására szolgáló DNS-kiszolgálók akár a vállalati intraneten, akár a nyilvános interneten. A DNS-továbbító értékét a telepítés után a **set-AzSDnsForwarder**   parancsmaggal módosíthatja. | |
-| Elnevezési előtag (nem kötelező) | Az a névadási előtag, amelynek a MDC-infrastruktúra szerepkör-példányainak a neveit meg szeretné jeleníteni. Ha nincs megadva, az alapértelmezett érték a *AZS*. | *AZS* |
+| DNS-továbbítók | A MDC-en kívül futtatott DNS-lekérdezések, DNS-zónák és rekordok továbbítására szolgáló DNS-kiszolgálók akár a vállalati intraneten, akár a nyilvános interneten. A DNS-továbbító értékét a telepítés után a **set-AzSDnsForwarder** parancsmaggal módosíthatja. | |
+| Elnevezési előtag (nem kötelező) | Az a névadási előtag, amelynek a MDC-infrastruktúra szerepkör-példányainak a neveit meg szeretné jeleníteni. Ha nincs megadva, az alapértelmezett érték a *AZS*. | *AZS* |
 
 A MDC-telepítés és a végpontok teljes tartományneve (FQDN) a régió paraméter és a külső tartománynév paraméter kombinációja. Az előző táblázatban szereplő példák értékeit használva a MDC-telepítés teljes tartományneve a következő lesz: *East.Cloud.fabrikam.com*
 
 Ilyenek például a központi telepítés egyes végpontjai a következő URL-címekhez hasonlóak:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Ha ezt a példát DNS-névteret szeretné használni egy MDC-telepítéshez, a következő feltételek szükségesek:
 
@@ -142,9 +142,9 @@ A MDC-végpontok és a MDC kívüli példányok DNS-neveinek feloldásához inte
 
 #### <a name="dns-name-labels"></a>DNS-nevek címkéi
 
-A MDC támogatja a DNS-név címke nyilvános IP-címhez való hozzáadását, hogy engedélyezze a névfeloldást a nyilvános IP-címek számára. A DNS-címkék kényelmes módszert biztosítanak a felhasználók számára a MDC által üzemeltetett alkalmazások és szolgáltatások elérésére a név alapján. A DNS-név címkéje némileg eltérő névteret használ, mint az infrastruktúra-végpontok. Az előző példában szereplő névtérrel a DNS-nevek címkéjének névtere a következő lesz: * \* . East.cloudapp.Cloud.fabrikam.com*. 
+A MDC támogatja a DNS-név címke nyilvános IP-címhez való hozzáadását, hogy engedélyezze a névfeloldást a nyilvános IP-címek számára. A DNS-címkék kényelmes módszert biztosítanak a felhasználók számára a MDC által üzemeltetett alkalmazások és szolgáltatások elérésére a név alapján. A DNS-név címkéje némileg eltérő névteret használ, mint az infrastruktúra-végpontok. Az előző példában szereplő névtérrel a DNS-nevek címkéjének névtere a következő lesz: *\* . East.cloudapp.Cloud.fabrikam.com*. 
 
-Ha egy bérlő egy **MyApp**   nyilvános IP-cím erőforrás DNS-név címkéjének SajátPr határozza meg, akkor egy rekordot hoz létre a SAJÁTPR számára a **east.cloudapp.cloud.fabrikam.com**   MDC külső DNS-kiszolgáló East.cloudapp.Cloud.fabrikam.com. Az eredményül kapott teljes tartománynév a következő: *MyApp.East.cloudapp.Cloud.fabrikam.com*. 
+Ha egy bérlő egy nyilvános IP-cím erőforrás DNS-név címkéjének **SajátPr** határozza meg, akkor egy rekordot hoz létre a SajátPr számára a MDC külső DNS-kiszolgáló **East.cloudapp.Cloud.fabrikam.com** . Az eredményül kapott teljes tartománynév a következő: *MyApp.East.cloudapp.Cloud.fabrikam.com*. 
 
 Ha szeretné kihasználni ezt a funkciót, és ezt a névteret használja, integrálnia kell a DNS-kiszolgálókat. Beleértve azokat a kiszolgálókat, amelyek a MDC külső DNS-zónáját üzemeltetik, valamint a használni kívánt szülő zónát üzemeltető DNS-kiszolgálókat. Ez a névtér nem egyezik meg a MDC szolgáltatás-végpontok esetében, ezért további delegálási vagy feltételes továbbítási szabályt kell létrehoznia.
 
@@ -162,7 +162,7 @@ A MDC mind a mérvadó, mind a rekurzív DNS-kiszolgálókat tartalmazza. A reku
 
 ### <a name="resolving-external-dns-names-from-mdc"></a>Külső DNS-nevek feloldása a MDC-ből
 
-A MDC-en kívüli végpontok DNS-neveinek feloldásához (például: www.bing.com) meg kell adnia a DNS-kiszolgálókat a MDC számára a DNS-kérések továbbításához, amelyek esetében a MDC nem mérvadó. Azok a DNS-kiszolgálók, amelyek a MDC továbbítják a kérelmeket a telepítési munkalapon (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül a MDC üzembe helyezése sikertelen lesz. A DNS-továbbító értékeit a telepítés után a **set-AzSDnsForwarder** parancsmaggal módosíthatja.
+A MDC-en kívüli végpontok DNS-neveinek feloldásához (például: www.bing.com) meg kell adnia a DNS-kiszolgálókat a MDC számára a DNS-kérések továbbításához, amelyek esetében a MDC nem mérvadó. Azok a DNS-kiszolgálók, amelyek a MDC továbbítják a kérelmeket a telepítési munkalapon (a DNS-továbbító mezőben). A hibatűréshez legalább két kiszolgálót adjon meg ebben a mezőben. Ezen értékek nélkül a MDC üzembe helyezése sikertelen lesz. A DNS-továbbító értékeit a telepítés után a **set-AzSDnsForwarder** parancsmaggal módosíthatja.
 
 ## <a name="firewall-design-overview"></a>A tűzfal kialakításának áttekintése
 
@@ -202,9 +202,9 @@ Nyilvános, átirányítható IP-címek vannak megadva a nyilvános VIP-készlet
 
 A vállalati intranet vagy peremhálózati környezetekben a MDC egy többzónás tűzfalon, illetve a peremhálózati tűzfal és a belső vállalati hálózati tűzfal között helyezhető üzembe. Ezután a rendszer a biztonságos, peremhálózati (vagy DMZ) és a nem biztonságos zónák között osztja el a forgalmat, az alábbiak szerint:
 
-- **Biztonságos zóna**: az a belső hálózat, amely belső vagy vállalati ÚTVÁLASZTÁSÚ IP-címeket használ. A biztonságos hálózat osztható. Az internetről kimenő hozzáférés a tűzfal NAT-on keresztül is elérhető. Általában a belső hálózaton keresztül érhető el az adatközponton belül. Minden MDC-hálózatnak a biztonságos zónában kell lennie, kivéve a külső hálózat nyilvános VIP-készletét.
-- **Peremhálózati zóna**: a peremhálózaton a külső vagy internetes alkalmazások, például a webkiszolgálók jellemzően üzembe helyezhetők. Általában egy tűzfal figyeli, hogy elkerülje a támadásokat, például a DDoS és a behatolás (hacking) szolgáltatást, miközben továbbra is engedélyezi a megadott bejövő forgalmat az internetről. Csak a külső hálózat nyilvános VIP-készlete MDC kell lennie a DMZ-zónában. 
-- Nem **biztonságos zóna**: a külső hálózat, az Internet. A MDC telepítése a nem biztonságos zónában **nem** ajánlott.
+- **Biztonságos zóna** : az a belső hálózat, amely belső vagy vállalati ÚTVÁLASZTÁSÚ IP-címeket használ. A biztonságos hálózat osztható. Az internetről kimenő hozzáférés a tűzfal NAT-on keresztül is elérhető. Általában a belső hálózaton keresztül érhető el az adatközponton belül. Minden MDC-hálózatnak a biztonságos zónában kell lennie, kivéve a külső hálózat nyilvános VIP-készletét.
+- **Peremhálózati zóna** : a peremhálózaton a külső vagy internetes alkalmazások, például a webkiszolgálók jellemzően üzembe helyezhetők. Általában egy tűzfal figyeli, hogy elkerülje a támadásokat, például a DDoS és a behatolás (hacking) szolgáltatást, miközben továbbra is engedélyezi a megadott bejövő forgalmat az internetről. Csak a külső hálózat nyilvános VIP-készlete MDC kell lennie a DMZ-zónában. 
+- Nem **biztonságos zóna** : a külső hálózat, az Internet. A MDC telepítése a nem biztonságos zónában **nem** ajánlott.
 
 ![Peremhálózati tűzfal forgatókönyve](media/network-introduction/perimeter-network-firewall-scenario-50.png) 
 
@@ -235,8 +235,8 @@ Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózat
 >[!IMPORTANT]
 > A MDC jelenleg csak az Útválasztás-alapú VPN-típust támogatja. Ha az eszköz csak a házirend-alapú VPN-eket támogatja, a MDC nem támogatottak azok az eszközökhöz való csatlakozások. Emellett a MDC nem támogatja a házirend-alapú forgalmi választókat az útvonal-alapú átjárók esetében, mivel az egyéni IPSec/IKE-házirend-konfigurációk nem támogatottak. 
 
-- **Házirendalapú**: a házirend-alapú VPN-ek az IPSec-házirendek alapján titkosítják és irányítják a csomagokat az IPSec-alagutakon keresztül. A házirendek a helyszíni hálózat és a MDC VNet között a címek előtagjainak kombinációjával vannak konfigurálva. A házirend vagy a forgalmi választó általában egy hozzáférési lista a VPN-eszköz konfigurációjában. **Házirendalapú**   Az Azure-ban támogatott, de nem a MDC. 
-- **Útvonalalapú**: az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják. Az útvonalak a közvetlen csomagokat a megfelelő bújtatási interfészekhez irányítják. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú**VPN-EK házirendje vagy forgalmi választója   bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú**   VPN-típus értéke **útvonalalapú**.
+- **Házirendalapú** : a házirend-alapú VPN-ek az IPSec-házirendek alapján titkosítják és irányítják a csomagokat az IPSec-alagutakon keresztül. A házirendek a helyszíni hálózat és a MDC VNet között a címek előtagjainak kombinációjával vannak konfigurálva. A házirend vagy a forgalmi választó általában egy hozzáférési lista a VPN-eszköz konfigurációjában. A **házirendalapú** az Azure-ban, de nem a MDC-ben támogatott. 
+- **Útvonalalapú** : az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják. Az útvonalak a közvetlen csomagokat a megfelelő bújtatási interfészekhez irányítják. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
 
 ### <a name="configuring-a-vpn-gateway"></a>VPN-átjáró konfigurálása
 
