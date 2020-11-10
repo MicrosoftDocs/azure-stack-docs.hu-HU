@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/20/2020
-ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.date: 11/10/2020
+ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92254012"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441174"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
 Ez a cikk a Azure Stack HCI nyilvános előzetes frissítési csomagjainak tartalmát ismerteti.
+
+## <a name="november-10-2020-security-update-kb4586811"></a>November 10, 2020 biztonsági frissítés (KB4586811)
+
+Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javításait tartalmazza.
+
+### <a name="improvements-and-fixes"></a>Javítások és javítások
+Ez a frissítés a belső operációsrendszer-funkciókra vonatkozó különféle biztonsági funkciókat tartalmaz. Ebben a kiadásban nincsenek dokumentálva további problémák.
+
+A megoldott biztonsági rések részletes ismertetését a [biztonsági frissítési útmutatóban](https://portal.msrc.microsoft.com/security-guidance)találja.
+
+### <a name="known-issues-in-this-update"></a>A frissítés ismert problémái
+A Microsoft jelenleg nem ismeri a frissítéssel kapcsolatos problémákat.
+
+### <a name="how-to-get-this-update"></a>A frissítés beszerzése
+A [Azure stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -hoz készült november 10, 2020 biztonsági frissítés (KB4586811) Windows Update keresztül érhető el. A Azure Stack HCI-fürtön való telepítéséhez lásd: [Azure stack HCI-fürtök frissítése](manage/update-cluster.md).
+
+### <a name="file-information"></a>Fájl adatai
+Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1345) a 4586811-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/8/f/2/8f2ce4bb-e113-4abc-b3ff-f0f4c4c71403/4586811.csv)letöltésével töltheti le.
+
+   > [!NOTE]
+   > Egyes fájlok hibásan rendelkeznek "nem alkalmazható" értékkel a CSV-fájl "file version" oszlopában. Ez hamis pozitív vagy hamis negatív értéket eredményezhet, ha valamilyen harmadik féltől származó vizsgálati eszközt használ a Build ellenőrzéséhez.
+
+## <a name="november-10-2020-servicing-stack-update-kb4590242"></a>2020. november 10. karbantartási verem frissítése (KB4590242)
+
+Ez a frissítés a Azure Stack HCI legújabb kiadásának minőségi újdonságait tartalmazza.
+
+### <a name="improvements-and-fixes"></a>Javítások és javítások
+Ez a frissítés minőségi javításokat végez a karbantartási veremben, amely a frissítéseket telepítő összetevő. A karbantartási verem frissítései (SSU) gondoskodnak arról, hogy robusztus és megbízható karbantartási veremmel rendelkezzen, hogy az eszközök megkapják és telepítsék a Microsoft-frissítéseket.
+
+### <a name="how-to-get-this-update"></a>A frissítés beszerzése
+A [Azure stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -hoz készült November, 2020 karbantartási verem frissítése (KB4590242) Windows Update keresztül érhető el. A Azure Stack HCI-fürtön való telepítéséhez lásd: [Azure stack HCI-fürtök frissítése](manage/update-cluster.md).
+
+### <a name="restart-information"></a>Újraindítási információ
+A frissítés alkalmazása után nem kell újraindítani a számítógépet.
+
+### <a name="removal-information"></a>Eltávolítási információ
+A karbantartási verem frissítései (SSU) módosítják a frissítések telepítését, és nem távolíthatók el az eszközről.
+
+### <a name="file-information"></a>Fájl adatai
+Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1342) a 4590242-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv)letöltésével töltheti le.
+
+### <a name="references"></a>Hivatkozások
+
+A SSU kapcsolatos további információkért tekintse meg a következő cikkeket:
+
+- [Karbantartási verem frissítései](/windows/deployment/update/servicing-stack-updates)
+- [Karbantartási verem frissítései (SSU): gyakori kérdések](https://support.microsoft.com/help/4535697)
+
+Ismerje meg, hogy a Microsoft milyen [terminológiát](https://support.microsoft.com/help/824684) használ a szoftverfrissítések leírásához.
 
 ## <a name="october-20-2020-preview-update-kb4580388"></a>Október 20, 2020 előzetes frissítés (KB4580388)
 

@@ -3,15 +3,15 @@ title: A kiterjesztett fürtök áttekintése
 description: További információ a kifeszített fürtökről
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/05/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064752"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441140"
 ---
 # <a name="stretched-clusters-overview"></a>A kiterjesztett fürtök áttekintése
 
@@ -30,6 +30,9 @@ Egyszerű feltételek esetén az *aktív* hely az, amely erőforrásokkal rendel
 
 A helyek lehetnek két különböző állapotban, különböző városokban, különböző szintekben vagy különböző helyiségekben. A két helyet használó többhelyes fürtök vész-helyreállítást és üzletmenet-folytonosságot biztosítanak, ha egy hely áramszünet vagy meghibásodás miatt csökkenhet.
 
+Szánjon néhány percet a videó megtekintésére a kifelé irányuló fürtözéshez Azure Stack HCI használatával:
+> [!VIDEO https://www.youtube.com/embed/rYnZL1wMiqU]
+
 ## <a name="active-passive-stretched-cluster"></a>Aktív – passzív kifeszített fürt
 
 A következő ábrán az 1. hely látható, amely az aktív hely a 2. helyre történő replikálással, egyirányú replikációval.
@@ -40,9 +43,9 @@ A következő ábrán az 1. hely látható, amely az aktív hely a 2. helyre tö
 
 A következő ábrán az 1. és a 2. hely aktív helyként jelenik meg, kétirányú replikálással a másik helyre.
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Aktív/passzív kifeszített fürt forgatókönyve" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Aktív/aktív kiterjesztett fürt forgatókönyve" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a kifeszített fürtökhöz kapcsolódó hardverekről és egyéb követelményekről. Lásd: [rendszerkövetelmények](system-requirements.md).
 - Megtudhatja, hogyan helyezhet üzembe egy kiterjesztett fürtöt a Windows felügyeleti központban. Lásd: [fürtök létrehozása a Windows felügyeleti központtal](../deploy/create-cluster.md).
