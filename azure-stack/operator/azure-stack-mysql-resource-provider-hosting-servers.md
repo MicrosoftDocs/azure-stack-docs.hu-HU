@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 90b20ddcc129b8077cf28fa1a1a758054795de60
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202502"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414163"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 
@@ -29,11 +29,11 @@ Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is h
 
 Alapértelmezés szerint nincs nyilvános hozzáférés konfigurálva a MySQL-hez a gazdagép virtuális gépe számára. Ahhoz, hogy a Azure Stack hub MySQL erőforrás-szolgáltatója csatlakozhasson a MySQL-kiszolgálóhoz, létre kell hoznia egy bejövő hálózati biztonsági csoport (NSG) szabályt.
 
-1. A felügyeleti portálon nyissa meg a MySQL-kiszolgáló üzembe helyezése során létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoportot (**alapértelmezett-alhálózat-SG**):
+1. A felügyeleti portálon nyissa meg a MySQL-kiszolgáló üzembe helyezése során létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoportot ( **alapértelmezett-alhálózat-SG** ):
 
    ![Hálózati biztonsági csoport kiválasztása a Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-mysqlrp/img6.png)
 
-2. Válassza a **bejövő biztonsági szabályok** lehetőséget, majd válassza a **Hozzáadás**lehetőséget.
+2. Válassza a **bejövő biztonsági szabályok** lehetőséget, majd válassza a **Hozzáadás** lehetőséget.
 
     Adja meg a **3306** értéket a **célport tartományban** , és szükség esetén adjon meg egy leírást a **név** és a **Leírás** mezőkben.
 
@@ -57,9 +57,9 @@ Ahhoz, hogy a MySQL-kiszolgáló Azure Stack hub MySQL-kiszolgáló gazdagépké
 
    ![Bitnami szolgáltatásának keresése](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Ha a MySQL üzemeltetési kiszolgáló 8,0-es vagy újabb verziójú, akkor a hitelesítési módszert **mysql_native_passwordre**kell módosítania. Ha a MySQL verziója 8,0-nél kisebb, ez a lépés kihagyható.
+3. Ha a MySQL üzemeltetési kiszolgáló 8,0-es vagy újabb verziójú, akkor a hitelesítési módszert **mysql_native_passwordre** kell módosítania. Ha a MySQL verziója 8,0-nél kisebb, ez a lépés kihagyható.
 
-   A Bitnami MySQL-t példaként használja, a konfigurációs fájl a **/opt/bitnami/MySQL/conf/My.cnf**alatt található. Állítsa be a tulajdonságot **default_authentication_plugin** értékkel **mysql_native_password**.
+   A Bitnami MySQL-t példaként használja, a konfigurációs fájl a **/opt/bitnami/MySQL/conf/My.cnf** alatt található. Állítsa be a tulajdonságot **default_authentication_plugin** értékkel **mysql_native_password**.
    ```
    [mysqld]
    default_authentication_plugin=mysql_native_password
@@ -72,7 +72,7 @@ Ahhoz, hogy a MySQL-kiszolgáló Azure Stack hub MySQL-kiszolgáló gazdagépké
 
 4. Hozzon létre egy távelérési felhasználói fiókot, amelyet az Azure Stack hub MySQL üzemeltetési kiszolgáló használ a MySQL-hez való kapcsolódáshoz.
 
-    A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a *~/bitnami_credentialsban*rögzített legfelső szintű jelszó használatával. Hozzon létre egy új rendszergazda felhasználót, és cserélje le a * \< felhasználónevet \> * és a * \< jelszót \> * a környezetéhez szükséges módon. Ebben a példában a létrehozott felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
+    A következő parancsok futtatásával jelentkezzen be a MySQL-be root-ként a *~/bitnami_credentialsban* rögzített legfelső szintű jelszó használatával. Hozzon létre egy új rendszergazda felhasználót, és cserélje le, *\<username\>* és *\<password\>* szükség esetén adja meg a környezetét. Ebben a példában a létrehozott felhasználó neve **sqlsa** , és a rendszer erős jelszót használ:
 
    ```sql
    mysql -u root -p
@@ -98,24 +98,24 @@ Ahhoz, hogy a MySQL-kiszolgáló Azure Stack hub MySQL-kiszolgáló gazdagépké
 Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adataival.
 
 > [!NOTE]
-> A MySQL 8,0-es és újabb verzióiban a távoli hozzáférés alapértelmezés szerint nincs engedélyezve. Létre kell hoznia egy új felhasználói fiókot, és biztosítania kell a távoli hozzáférés previledge a felhasználói fiókhoz, mielőtt kiszolgálóként hozzáadja azt.
+> A MySQL 8,0-es és újabb verzióiban a távoli hozzáférés alapértelmezés szerint nincs engedélyezve. Létre kell hoznia egy új felhasználói fiókot, és meg kell adnia a távelérési jogosultságot a felhasználói fiókhoz, mielőtt felveszi azt egy szolgáltatói kiszolgálóként.
 
 Üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
 1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 2. Válassza az **Összes szolgáltatás** elemet.
-3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók**  >  **+ Hozzáadás**lehetőséget. Megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
+3. A **felügyeleti erőforrások** kategóriában válassza a **MySQL üzemeltetési kiszolgálók**  >  **+ Hozzáadás** lehetőséget. Megnyílik a **MySQL üzemeltetési kiszolgáló hozzáadása** párbeszédpanel, amely az alábbi képernyőfelvételen látható.
 
    ![MySQL üzemeltetési kiszolgáló konfigurálása](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. Adja meg a MySQL-kiszolgáló példányának kapcsolati adatait.
 
-   * A **MySQL üzemeltetési kiszolgáló neve mezőben**adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
+   * A **MySQL üzemeltetési kiszolgáló neve mezőben** adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
    * A Azure Stack hub piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*.
-   * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
-   * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban**kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
-   * Az **előfizetés**alapértelmezett beállításának megtartása.
-   * **Erőforráscsoport**esetén hozzon létre egy újat, vagy használjon egy meglévő csoportot.
+   * Ha nem ismeri a legfelső szintű **jelszót** , tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
+   * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban** kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
+   * Az **előfizetés** alapértelmezett beállításának megtartása.
+   * **Erőforráscsoport** esetén hozzon létre egy újat, vagy használjon egy meglévő csoportot.
 
    > [!NOTE]
    > Ha a MySQL-példányt a bérlő és a felügyeleti Azure Resource Manager is elérheti, azt az erőforrás-szolgáltató felügyelete alá helyezheti. A MySQL **-példányt azonban** kizárólag az erőforrás-szolgáltatóhoz kell lefoglalni.
@@ -130,7 +130,7 @@ Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező 
    > [!NOTE]
    > A SKU akár egy órát is igénybe vehet, hogy megjelenjenek a portálon. Nem hozható létre adatbázis az SKU üzembe helyezése és futtatása előtt.
 
-7. **A MySQL üzemeltetési kiszolgáló hozzáadása**területen válassza a **Létrehozás**lehetőséget.
+7. **A MySQL üzemeltetési kiszolgáló hozzáadása** területen válassza a **Létrehozás** lehetőséget.
 
 A kiszolgálók hozzáadásakor rendeljen hozzá egy új vagy egy meglévő SKU-t a szolgáltatási ajánlatok megkülönböztetéséhez. Létrehozhat például egy MySQL nagyvállalati példányt, amely fokozott adatbázist és automatikus biztonsági mentést biztosít. Ezt a nagy teljesítményű kiszolgálót a szervezet különböző osztályai számára is fenntarthatja.
 
@@ -157,9 +157,9 @@ Az ajánlott eljárás szerint az SKU-ban lévő összes üzemeltetési kiszolg�
 
 A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportokhoz.
 
-Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  >  **MySQL-adapter**  >  **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  >  **MySQL-adapter**  >  **SKU** -ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás**  >  **MySQL-adapter**  >  **SKU**-t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
+A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás**  >  **MySQL-adapter**  >  **SKU** -t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
 > Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.
@@ -171,6 +171,6 @@ Terveket és ajánlatokat hozhat létre a MySQL adatbázis-kiszolgálók felhasz
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [MySQL-adatbázis létrehozása](azure-stack-mysql-resource-provider-databases.md)

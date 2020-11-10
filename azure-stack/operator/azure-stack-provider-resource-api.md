@@ -3,16 +3,16 @@ title: Azure Stack hub-szolgáltató erőforrás-használati API
 description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack hub használati adatait.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0e167bdfeb0685b8b4612e887b904d010ffd666b
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250775"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414027"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
@@ -26,7 +26,7 @@ A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált s
 
 A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásának részleteit. Nincs kérelem törzse.
 
-Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos**, **közreműködő**vagy **olvasó** szerepkört a szolgáltató előfizetésében.
+Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos** , **közreműködő** vagy **olvasó** szerepkört a szolgáltató előfizetésében.
 
 | Metódus | Kérés URI-ja |
 | --- | --- |
@@ -36,7 +36,7 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 
 | Argumentum | Leírás |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://adminmanagement.{domain-name}` . Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external` . |
+| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://adminmanagement.{domain-name}` . Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external* , akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external` . |
 | `subId` |Annak a felhasználónak az előfizetés-azonosítója, aki a hívást kezdeményezi. |
 | `reportedStartTime` |A lekérdezés kezdési időpontja. Az értéknek az `DateTime` egyezményes világidő (UTC) és az óra elején kell lennie, például: 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például, `2015-06-16T18%3a53%3a11%2b00%3a00Z` Ha a kettőspont megmenekül, `%3a` és a plusz megmenekül, hogy `%2b` URI-barát legyen. |
 | `reportedEndTime` |A lekérdezés befejezési időpontja. A rájuk vonatkozó korlátozások `reportedStartTime` erre az argumentumra is érvényesek. Az érték `reportedEndTime` nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
@@ -122,7 +122,7 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Bérlői erőforrás-használati API-referenciák](azure-stack-tenant-resource-usage-api.md)
 - [Használattal kapcsolatos gyakori kérdések](azure-stack-usage-related-faq.md)

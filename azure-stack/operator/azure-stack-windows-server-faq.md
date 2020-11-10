@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: A Windows Serverhez készült Azure Stack hub Marketplace-re vonatkozó gyakori kérdések listája.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/23/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133639"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414129"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack hub Marketplace – gyakori kérdések
 
@@ -35,9 +35,9 @@ Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra h
 
 A Microsoft a Windows Server rendszerképeinek két verzióját kínálja Azure Stack hub Marketplace-en keresztül. A rendszerképnek csak egy verziója használható Azure Stack hub-környezetben.  
 
-- Utólagos **fizetés (TB)**: ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
-   Ki használja ezt a lehetőséget: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt*használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
-- **Saját licenc használata (BYOL)**: ezek a képek alapszintű mérőórákat futtatnak.
+- Utólagos **fizetés (TB)** : ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
+   Ki használja ezt a lehetőséget: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt* használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
+- **Saját licenc használata (BYOL)** : ezek a képek alapszintű mérőórákat futtatnak.
    Ki használja ezt a lehetőséget: nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
 A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stack hub-on. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
@@ -58,7 +58,7 @@ $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-A virtuális gép licencének típusát a következő parancs futtatásával tekintheti meg. Ha a licencelési modell **Windows_Server**, akkor a BYOL díját kell megfizetnie. Ellenkező esetben a Windows-mérőszámot a TB modell alapján számítjuk fel:
+A virtuális gép licencének típusát a következő parancs futtatásával tekintheti meg. Ha a licencelési modell **Windows_Server** , akkor a BYOL díját kell megfizetnie. Ellenkező esetben a Windows-mérőszámot a TB modell alapján számítjuk fel:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -127,9 +127,9 @@ Lépjen kapcsolatba a hardver szállítójával, és ellenőrizze, hogy telepít
 
 Az [automatikus VM-aktiválás](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióiban. A virtuális gépeket manuálisan kell aktiválni.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-További információért tekintse át a következő cikkeket:
+További információkat az következő cikkekben talál:
 
 - [Az Azure Stack hub Marketplace áttekintése](azure-stack-marketplace.md)
 - [Marketplace-elemek letöltése az Azure-ból Azure Stack hubhoz](azure-stack-download-azure-marketplace-item.md)

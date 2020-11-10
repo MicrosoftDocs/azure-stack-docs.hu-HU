@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f4d719e133b2e8246606e9ba1d8efc11b187833a
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360156"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414146"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -169,18 +169,18 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 11/05/2020: SQL Server 2017 standard on Windows Server 2016 – saját licenc-verzió 14.0.20201015
 - 11/05/2020: SQL Server 2017 standard a Windows Server 2016-on – a go-verzió 14.0.20201015
 - 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201015
-- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – a go-verzió 14.0.20201015
 - 11/05/2020: SQL Server 2016 SP2 standard a Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
-- 11/05/2020: SQL Server 2016 SP2 standard a Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
-- 11/05/2020: SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 standard a Windows Server 2016-on – a go-verzió 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 Enterprise Windows Server 2016-on – a go-verzió 13.2.20201015
 - 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-ban – saját licenc-verzió 14.0.20201015
-- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-ban – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-on – a go-verzió 14.0.20201015
 - 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – saját licenc-verzió 14.0.20201015
-- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – saját licenc-verzió 14.0.20201015
+- 11/05/2020: ingyenes SQL Server licenc: SQL Server 2017 fejlesztő a Windows Server 2016-ban – a go-verzió 14.0.20201015
 - 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
-- 11/05/2020: {WS-TB} ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
+- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016-on – 13.2.20201015-verzió
 - 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – saját licenc-verzió 13.2.20201015
-- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – saját licenc-verzió 13.2.20201015
+- 11/05/2020: ingyenes licenc: SQL Server 2016 SP2 Developer a Windows Server 2016-on – a go-verzió 13.2.20201015
 - 11/05/2020: SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201015
 - 11/04/2020: Teradici Cloud Access for Azure Stack nonGPU – 1.0.2 verzió
 - 10/29/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay a go-Version 7601.24561.2010082056

@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8dff2f6debb12b8579e3b8e0b451b8d6bac17cad
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: e11eedc6cade8b3546182d2abf66a0dbb7e1c91a
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250350"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414214"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Azure Stack hub használati adatok jelentése az Azure-ba
 
@@ -97,7 +97,7 @@ A ASDK a használati adatok jelentéskészítéséhez a globális Azure-rendszer
 
 A Azure Stack hub használati API-k által jelentett használati adatok és a Azure Fiókközpontban jelentett használati adatok között mindig késés van. Ez a késleltetés az Azure Stack hub használati adatainak az Azure Commerce szolgáltatásba való feltöltéséhez szükséges idő. Emiatt a késés miatt az éjfél előtt röviddel megjelenő használat a következő napon jelenhet meg az Azure-ban. Ha az [Azure stack hub használati API-kat](azure-stack-provider-resource-api.md) használja, és összehasonlítja az eredményeket az Azure számlázási portálon jelentett használattal, a különbség látható.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Szolgáltatói használati API](azure-stack-provider-resource-api.md)  
 - [Bérlői használati API](azure-stack-tenant-resource-usage-api.md)

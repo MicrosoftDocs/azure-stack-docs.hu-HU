@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 31e574a24660367cd1189ad95890e2fffaaa15f2
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329063"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414044"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack hub-on üzembe helyezett virtuális gépek elleni védelem
 
 Ez a cikk útmutatóként használható olyan virtuális gépek (VM-EK) védelmére, amelyeket a felhasználók Azure Stack hubhoz telepíthetnek.
 
-Az adatvesztés és a nem tervezett leállások elleni védelem érdekében hozzon létre egy adatvédelmi és vész-helyreállítási tervet Azure Stack hub virtuálisgép-alapú alkalmazásaihoz. A megvalósított védelmi terv az alkalmazás üzleti követelményeitől és kialakításától függ. A tervnek követnie kell a szervezete \' átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/Dr) stratégiája által létrehozott keretrendszert. Az Azure Stack hub BC/DR szempontjainak áttekintését lásd: Azure Stack: az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások.
+Az adatvesztés és a nem tervezett leállások elleni védelem érdekében hozzon létre egy adatvédelmi és vész-helyreállítási tervet Azure Stack hub virtuálisgép-alapú alkalmazásaihoz. A megvalósított védelmi terv az alkalmazás üzleti követelményeitől és kialakításától függ. A tervnek követnie kell a szervezete átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/DR) stratégiája által létrehozott keretrendszert. Az Azure Stack hub BC/DR szempontjainak áttekintését lásd: Azure Stack: az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások.
 
 ## <a name="application-recovery-objectives"></a>Alkalmazás-helyreállítási célkitűzések
 
@@ -40,7 +40,7 @@ Határozza meg, hogy a szervezet hány állásidőt és adatvesztést képes elv
 
 Végezzen értékelést az egyes alkalmazások RTO és RPO definiálásához.
 
-Egy másik fontos mérőszám azt jelenti, hogy a **helyreállításhoz szükséges idő** (MTTR), amely az alkalmazás meghibásodás utáni visszaállításának átlagos időtartama. A MTTR egy rendszer empirikus értéke. Ha a MTTR túllépi a RTO, akkor a rendszer meghibásodása elfogadhatatlan üzleti fennakadást okoz, mert a \' rendszer visszaállíthatja a rendszerállapotot a megadott RTO belül.
+Egy másik fontos mérőszám azt jelenti, hogy a **helyreállításhoz szükséges idő** (MTTR), amely az alkalmazás meghibásodás utáni visszaállításának átlagos időtartama. A MTTR egy rendszer empirikus értéke. Ha a MTTR túllépi a RTO, akkor a rendszer meghibásodása elfogadhatatlan üzleti fennakadást okoz, mivel nem lehet visszaállítani a rendszer a megadott RTO belül.
 
 ## <a name="protection-options-for-iaas-vms"></a>Védelmi lehetőségek a IaaS virtuális gépekhez
 
@@ -80,7 +80,7 @@ Előfordulhat, hogy egyes alkalmazások nem rendelkeznek megőrzésre szoruló a
 
 Important considerations for your Azure Stack deployment: -->
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ez a cikk általános iránymutatásokat ismertetett a Azure Stackon üzembe helyezett felhasználói virtuális gépek védelméhez. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 

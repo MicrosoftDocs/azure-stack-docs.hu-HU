@@ -3,15 +3,15 @@ title: Gazdagép hálózatkezelésének megtervezése Azure Stack HCI-hez
 description: Ismerje meg, hogyan tervezheti meg Azure Stack HCI-fürtök gazdagép hálózatkezelését
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e9a03fa7518c6a450204cdbdb40483b593b1867b
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: b6cfbfcff408483d7086c311dff41fdab59c9524
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383499"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414061"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Gazdagép hálózatkezelésének megtervezése Azure Stack HCI-hez
 
@@ -19,72 +19,9 @@ ms.locfileid: "94383499"
 
 Ez a témakör a gazdagépek hálózatkezelésének tervezésével kapcsolatos szempontokat és követelményeket ismerteti a nem kiterjesztett és a kibővített Azure Stack HCI-fürt környezetében.
 
-## <a name="traffic-types-supported"></a>Támogatott adatforgalmi típusok
-
-Azure Stack HCI a Server Message Block (SMB) protokollt használja. Azure Stack HCI-ben az SMB a következő adatforgalmi típusokat támogatja:
-
-- Storage Bus Layer (SBL) – Közvetlen tárolóhelyek által használt; legmagasabb prioritású forgalom
-- Megosztott fürtkötetek (CSV)
-- Élő áttelepítés (LM)
-- Storage-replika (SR) – a kiterjesztett fürtökben használatos
-- Fájlmegosztás (FS) – hagyományos FS-és Scale-Out fájlkiszolgáló (SOFS)
-- Fürt szívverése (HB)
-- Fürt kommunikációja (node joins, cluster Updates, Registry Updates)
-
-Az SMB-forgalom a következő protokollokon keresztül végezhető el:
-
-- Transport Control Protocol (TCP) – a helyek között használatos
-- Távoli közvetlen memória-hozzáférés (RDMA)
-
-## <a name="traffic-bandwidth-allocation"></a>Forgalmi sávszélesség kiosztása
-
-A következő táblázat a különböző forgalmi típusok sávszélesség-elosztását mutatja be, ahol:
-
-- Minden egység a Gbps-ben van
-- Az értékek a kiterjesztett és a nem kifeszített fürtökre egyaránt érvényesek
-- Az SMB-forgalom a teljes sávszélesség 50%-át kapja meg.
-- A Storage Bus Layer/Fürt megosztott kötete (SBL/CSV) forgalma a fennmaradó 50%-os foglalás 70%-át kapja
-- A Élő áttelepítés (LM) forgalom a fennmaradó 50%-os foglalás 15%-át kapja
-- A Storage-replika (SR) forgalma a fennmaradó 50%-os foglalás 14%-át kapja
-- A szívverés (HB) forgalma a fennmaradó 50%-os foglalás 1%-át kapja
-- * = a tömörítést a RDMA helyett kell használnia, ha az LM-forgalom sávszélesség-elosztása <5 GB/s
-
-|Hálózati adapter sebessége|Összevont sávszélesség|SMB 50% foglalás|SBL/CSV%|SBL/CSV-sávszélesség|LM|LM-sávszélesség|SR |SR-sávszélesség|HB|HB-sávszélesség|
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10|20|10|70%|7|14% *|1,4 *|14%|1.4|2%|0,2|
-|25|50|25|70%|17,5|15% *|3,75 *|14%|3.5|1%|0,25|
-|40|80| 40|70%|28|15%|6|14%|5,6|1%|0,4|
-|50|100|50|70%|35|15%|7,5|14%|7|1%|0,5|
-|100|200|100|70%|70|15%|15|14%|14|1%|1|
-|200|400|200|70%|140|15%|30|14%|28|1%|2|
-
-## <a name="rdma-considerations"></a>RDMA szempontok
-
-A távoli közvetlen memória-hozzáférés (RDMA) közvetlen memória-hozzáférés az egyik számítógép memóriájában a másikba a számítógép operációs rendszerének bevonása nélkül. Ez lehetővé teszi a nagy átviteli sebességű, kis késleltetésű hálózatkezelést, miközben minimalizálja a CPU-használatot, ami különösen hasznos a fürtökben.
-
-Az összes gazda RDMA-forgalom kihasználja az SMB Direct előnyeit. Az SMB Direct a RDMA-en keresztül továbbított SMB 3,0-es forgalom, amely a 445-es porton keresztül van multiplexen. Legalább két prioritáson alapuló Flow Control (PFC) engedélyezett forgalmi osztályt (TCs) kell használni ahhoz, hogy a RDMA-forgalom kompatibilis legyen a piacon aktuális és jövőbeli fizikai kapcsolók többségével.
-
-Az Internet Wide RDMA Protocol (iWARP) a TCP protokollon keresztül futtatja a RDMA-t, míg a RDMA konvergált Etherneten (RoCE) keresztül elkerüli a TCP használatát, de az azt támogató hálózati adaptereket és fizikai kapcsolókat is igényel. A RoCE-en keresztüli RDMA-ra vonatkozó konvergens hálózati követelményekért tekintse meg a [Windows Server 2016 és a 2019 RDMA telepítési útmutatóját](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
-
-A RDMA alapértelmezés szerint engedélyezve van az azonos alhálózaton található fürt csomópontjai közötti összes kelet-/nyugati forgalomhoz. A RDMA le van tiltva, és nem támogatott a különböző alhálózatokon lévő helyek közötti, Észak-vagy dél felé irányuló fürt forgalmához.
-
-A Azure Stack HCI-RDMA vonatkozó követelmények a következők:
-
-- Az alhálózatok és a helyek (kifeszített fürtök) közötti összes forgalomnak WinSock TCP-t kell használnia. A közbenső hálózati ugrások a Azure Stack HCI nézetén és vezérlésén kívül esnek.
-- Az alhálózatok és a helyek közötti RDMA nem támogatott. A Kikapcsolások és a több hálózati eszköz használata több meghibásodási pontot jelent, ahol ez instabillá válhat, és nem támogatott.
-- Nem szükséges további virtuális hálózati adapterek a kiterjesztett fürtök tárolási replikájának forgalmához. Hibaelhárítási célokra azonban hasznos lehet a helyek közötti és az alhálózatok közötti adatforgalom elválasztása a kelet-nyugati RDMA-forgalomtól. Ha az SMB Direct nem lehet natív módon letiltani a helyek közötti vagy a több alhálózattal rendelkező forgalmat, akkor:
-    - Egy vagy több további Vnic kell kiépíteni a tárolási replikához
-    - A Storage-replika Vnic a PowerShell [disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) parancsmaggal kell letiltania a RDMA, mert ez a helyek közötti és az alhálózatok közötti kapcsolat.
-    - A natív RDMA-adapterek vSwitch-és Vnic-támogatást igényelnek a tárolási replika támogatásához, hogy megfeleljenek a fenti hely/alhálózat követelményeinek
-    - A helyszíni RDMA sávszélesség-követelményeit a **forgalmi sávszélesség kiosztása** című szakaszban leírtak szerint meg kell ismerni a sávszélesség százalékos arányát. Ez biztosítja, hogy a megfelelő sávszélesség-fenntartások és korlátok a keleti/nyugati (csomópont-csomópont) forgalomra alkalmazhatók legyenek.
-- A Élő áttelepítés és a tárolási replika forgalmának SMB sávszélesség-korlátozottnak kell lennie, ellenkező esetben az összes sávszélességet fel lehet használni, és a magas prioritású tárolási forgalmat is megéhezik. További információ: [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és [set-SRNetworkConstraint PowerShell-](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) parancsmagok.
-
-> [!NOTE]
-> A parancsmag használatakor a BITS-et bájtra kell konvertálnia `Set-SmbBandwidthLimit` .
-
 ## <a name="node-interconnect-requirements"></a>Node Interconnect-követelmények
 
-Ez a szakasz a különböző hálózati követelményeket tárgyalja egy adott hely kiszolgálói csomópontjai között, az úgynevezett kapcsolatokat. A kapcsolót vagy a kapcsoló nélküli csomópont-összekapcsolást lehet használni és támogatni:
+Ez a szakasz a különböző hálózati követelményeket tárgyalja a helyek közötti kapcsolatokhoz. A kapcsolót vagy a kapcsoló nélküli csomópont-összekapcsolást lehet használni és támogatni:
 
 - **Váltás:** A kiszolgálói csomópontok általában hálózati kapcsolókat használó Ethernet-hálózatokon keresztül kapcsolódnak egymáshoz. A kapcsolókat megfelelően kell konfigurálni a sávszélesség és a hálózat típusának kezeléséhez. Ha a RoCE protokollt implementáló RDMA használ, a hálózati eszköz és a kapcsoló konfigurációja fontos.
 - **Váltás:** A kiszolgáló-csomópontok a közvetlen Ethernet-kapcsolatok kapcsoló nélkül is összekapcsolhatók. Ebben az esetben minden egyes kiszolgáló-csomópontnak közvetlen kapcsolattal kell rendelkeznie az ugyanazon a helyen található többi fürtcsomóponton.
@@ -113,6 +50,52 @@ Ha a helyek között csatlakozik a kibővített fürtökhöz, az egyes helyeken 
 - A helyek közötti, elegendő sávszélességgel rendelkező hálózat, amely az I/O-írási munkaterhelést, valamint a szinkron replikálás átlagos 5ms vagy alacsonyabb késését tartalmazza. Az aszinkron replikációhoz nem tartozik késési javaslat.
 - Ha egyetlen kapcsolatot használ a helyek között, állítsa be a tárolási replika SMB sávszélesség-korlátait a PowerShell használatával. További információ: [set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
 - Ha több kapcsolatot használ a helyek között, válassza a kapcsolatok közötti adatforgalmat. Tegyük fel például, hogy a tárolási replika forgalmát egy különálló hálózaton helyezi el, mint a Hyper-V élő áttelepítési forgalom a PowerShell használatával. További információ: [set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
+
+## <a name="rdma-considerations"></a>RDMA szempontok
+
+A távoli közvetlen memória-hozzáférés (RDMA) közvetlen memória-hozzáférés az egyik számítógép memóriájában a másikba a számítógép operációs rendszerének bevonása nélkül. Ez lehetővé teszi a nagy átviteli sebességű, kis késleltetésű hálózatkezelést, miközben minimalizálja a CPU-használatot, ami különösen hasznos a fürtökben.
+
+Az összes gazda RDMA-forgalom kihasználja az SMB Direct előnyeit. Az SMB Direct a RDMA-en keresztül továbbított SMB 3,0-es forgalom, amely a 445-es porton keresztül van multiplexen. Legalább két prioritáson alapuló Flow Control (PFC) engedélyezett forgalmi osztályt (TCs) kell használni ahhoz, hogy a RDMA-forgalom kompatibilis legyen a piacon aktuális és jövőbeli fizikai kapcsolók többségével.
+
+Az Internet Wide RDMA Protocol (iWARP) a TCP protokollon keresztül futtatja a RDMA-t, míg a RDMA konvergált Etherneten (RoCE) keresztül elkerüli a TCP használatát, de az azt támogató hálózati adaptereket és fizikai kapcsolókat is igényel. A RoCE-en keresztüli RDMA-ra vonatkozó konvergens hálózati követelményekért tekintse meg a [Windows Server 2016 és a 2019 RDMA telepítési útmutatóját](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+
+A RDMA alapértelmezés szerint engedélyezve van az azonos alhálózaton található fürt csomópontjai közötti összes kelet-/nyugati forgalomhoz. A RDMA le van tiltva, és nem támogatott a különböző alhálózatokon lévő helyek közötti, Észak-vagy dél felé irányuló fürt forgalmához.
+
+A Azure Stack HCI-RDMA vonatkozó követelmények a következők:
+
+- Az alhálózatok és a helyek (kifeszített fürtök) közötti összes forgalomnak WinSock TCP-t kell használnia. A közbenső hálózati ugrások a Azure Stack HCI nézetén és vezérlésén kívül esnek.
+- Az alhálózatok és a helyek közötti RDMA nem támogatott. A Kikapcsolások és a több hálózati eszköz használata több meghibásodási pontot jelent, ahol ez instabillá válhat, és nem támogatott.
+- Nem szükséges további virtuális hálózati adapterek a kiterjesztett fürtök tárolási replikájának forgalmához. Hibaelhárítási célokra azonban hasznos lehet a helyek közötti és az alhálózatok közötti adatforgalom elválasztása a kelet-nyugati RDMA-forgalomtól. Ha az SMB Direct nem lehet natív módon letiltani a helyek közötti vagy a több alhálózattal rendelkező forgalmat, akkor:
+    - Egy vagy több további Vnic kell kiépíteni a tárolási replikához
+    - A Storage-replika Vnic a PowerShell [disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) parancsmaggal kell letiltania a RDMA, mert ez a helyek közötti és az alhálózatok közötti kapcsolat.
+    - A natív RDMA-adapterek vSwitch-és Vnic-támogatást igényelnek a tárolási replika támogatásához, hogy megfeleljenek a fenti hely/alhálózat követelményeinek
+    - A helyszíni RDMA sávszélesség-követelményeit a **forgalmi sávszélesség kiosztása** című szakaszban leírtak szerint meg kell ismerni a sávszélesség százalékos arányát. Ez biztosítja, hogy a megfelelő sávszélesség-fenntartások és korlátok a keleti/nyugati (csomópont-csomópont) forgalomra alkalmazhatók legyenek.
+- A Élő áttelepítés és a tárolási replika forgalmának SMB sávszélesség-korlátozottnak kell lennie, ellenkező esetben az összes sávszélességet fel lehet használni, és a magas prioritású tárolási forgalmat is megéhezik. További információ: [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és [set-SRNetworkConstraint PowerShell-](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) parancsmagok.
+
+> [!NOTE]
+> A parancsmag használatakor a BITS-et bájtra kell konvertálnia `Set-SmbBandwidthLimit` .
+
+## <a name="traffic-bandwidth-allocation"></a>Forgalmi sávszélesség kiosztása
+
+A következő táblázat a különböző forgalmi típusok sávszélesség-elosztását mutatja be, ahol:
+
+- Minden egység a Gbps-ben van
+- Az értékek a kiterjesztett és a nem kifeszített fürtökre egyaránt érvényesek
+- Az SMB-forgalom a teljes sávszélesség 50%-át kapja meg.
+- A Storage Bus Layer/Fürt megosztott kötete (SBL/CSV) forgalma a fennmaradó 50%-os foglalás 70%-át kapja
+- A Élő áttelepítés (LM) forgalom a fennmaradó 50%-os foglalás 15%-át kapja
+- A Storage-replika (SR) forgalma a fennmaradó 50%-os foglalás 14%-át kapja
+- A szívverés (HB) forgalma a fennmaradó 50%-os foglalás 1%-át kapja
+- * = a tömörítést a RDMA helyett kell használnia, ha az LM-forgalom sávszélesség-elosztása <5 GB/s
+
+|Hálózati adapter sebessége|Összevont sávszélesség|SMB 50% foglalás|SBL/CSV%|SBL/CSV-sávszélesség|LM|LM-sávszélesség|SR |SR-sávszélesség|HB|HB-sávszélesség|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|10|20|10|70%|7|14% *|1,4 *|14%|1.4|2%|0,2|
+|25|50|25|70%|17,5|15% *|3,75 *|14%|3.5|1%|0,25|
+|40|80| 40|70%|28|15%|6|14%|5,6|1%|0,4|
+|50|100|50|70%|35|15%|7,5|14%|7|1%|0,5|
+|100|200|100|70%|70|15%|15|14%|14|1%|1|
+|200|400|200|70%|140|15%|30|14%|28|1%|2|
 
 ## <a name="network-port-requirements"></a>Hálózati portokra vonatkozó követelmények
 
@@ -201,36 +184,25 @@ A LLDP lehetővé teszi, hogy a szervezetek definiálják és kódolják saját 
 > [!NOTE]
 > Előfordulhat, hogy a felsorolt választható funkciók némelyike a jövőben szükséges.
 
-## <a name="example-cluster-network-design"></a>Példa a fürt hálózati kialakítására
+## <a name="traffic-types-supported"></a>Támogatott adatforgalmi típusok
 
-Az alábbi ábrán egy standard (nem kifeszített) fürtkonfiguráció látható, amely ugyanazon az alhálózaton és ugyanazon a helyen található két fürttel rendelkezik. A kiszolgálói csomópontok egymással kommunikálnak ugyanabban a fürtben, a kettős felső szintű (TOR) kapcsolókhoz csatlakoztatott redundáns hálózati adapterek használatával. A fürt és a fürt közötti kommunikáció a kettős hálózati gerinces eszközökön halad át.
+Azure Stack HCI a Server Message Block (SMB) protokollt használja. Azure Stack HCI-ben az SMB a következő adatforgalmi típusokat támogatja:
 
-:::image type="content" source="media/plan-host-networking/rack-topology-non-stretched-cluster.png" alt-text="Nem kifeszített fürt" lightbox="media/plan-host-networking/rack-topology-non-stretched-cluster.png":::
+- Storage Bus Layer (SBL) – Közvetlen tárolóhelyek által használt; legmagasabb prioritású forgalom
+- Megosztott fürtkötetek (CSV)
+- Élő áttelepítés (LM)
+- Storage-replika (SR) – a kiterjesztett fürtökben használatos
+- Fájlmegosztás (FS) – hagyományos FS-és Scale-Out fájlkiszolgáló (SOFS)
+- Fürt szívverése (HB)
+- Fürt kommunikációja (node joins, cluster Updates, Registry Updates)
 
-## <a name="example-stretched-cluster-network-design"></a>Példa a kifeszített fürt hálózati kialakítására
+Az SMB-forgalom a következő protokollokon keresztül végezhető el:
 
-Az alábbi ábrák a kiterjesztett fürtkonfiguráció egyetlen fürttel, valamint a különböző helyeken és alhálózatokban (négy csomópont/hely) található kiszolgáló-csomópontokkal való megjelenítését mutatják be. A kiszolgálói csomópontok egymással kommunikálnak ugyanabban a fürtben, a kettős csatlakozású TOR-kapcsolókhoz csatlakoztatott redundáns hálózati adapterek használatával. A helyek közötti kommunikáció a feladatátvételhez a Storage-replikát használó kettős útválasztón keresztül halad.
-
-:::image type="content" source="media/plan-host-networking/rack-topology-stretched-cluster.png" alt-text="Kifeszített fürt" lightbox="media/plan-host-networking/rack-topology-stretched-cluster.png":::
-
-### <a name="stretched-cluster-node-networking-option-1"></a>Kifeszített fürtcsomópont hálózati beállítása 1
-
-Az alábbi ábrán egy olyan kihelyezett fürt látható, amely egy switch Embedded-összevonást (SET) használ a flow felügyeleti, a Élő áttelepítés és a tárolási replika forgalmához ugyanazon a vNIC található helyek között. Használja a [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell-parancsmagokat a sávszélességre – korlátozza élő áttelepítés és a tárolási replika forgalmát. 
-
-Ne feledje, hogy a TCP a helyek közötti adatforgalomhoz használatos, miközben a RDMA a helyszíni Élő áttelepítés Storage-forgalomhoz használatos.
-
-:::image type="content" source="media/plan-host-networking/stretched-cluster-option-1.png" alt-text="Kifeszített fürtcsomópont hálózati beállítása 1" lightbox="media/plan-host-networking/stretched-cluster-option-1.png":::
-
-### <a name="stretched-cluster-node-networking-option-2"></a>Kifeszített fürtcsomópont hálózati beállítása 2
-
-Az alábbi ábrán egy olyan speciális konfiguráció látható, amely egy [többcsatornás SMB](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) -t használ a helyek és a fürt felügyeleti forgalmára szolgáló dedikált adapter között a tárolási replika forgalmához. Használja a [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) és a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) PowerShell-parancsmagokat a sávszélességre – korlátozza élő áttelepítés és a tárolási replika forgalmát.
-
-Ne feledje, hogy a TCP a helyek közötti adatforgalomhoz használatos, miközben a rendszer a RDMA-t használja a helyszíni tárolóhelyek forgalmára.
-
-:::image type="content" source="media/plan-host-networking/stretched-cluster-option-2.png" alt-text="Kifeszített fürtcsomópont hálózati beállítása 2" lightbox="media/plan-host-networking/stretched-cluster-option-2.png":::
+- Transport Control Protocol (TCP) – a helyek között használatos
+- Távoli közvetlen memória-hozzáférés (RDMA)
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)
 - Ecset a SET használatával. Lásd: [távoli közvetlen memória-hozzáférés (RDMA) és Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)

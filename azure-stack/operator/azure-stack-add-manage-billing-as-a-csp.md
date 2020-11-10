@@ -3,16 +3,16 @@ title: Azure Stack hub használatának és számlázásának kezelése felhőala
 description: Megtudhatja, hogyan regisztrálhat Azure Stack hub-t felhőalapú megoldás-szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573479"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414078"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
@@ -37,7 +37,7 @@ Készítettünk egy oktatóanyag-videót, amely segít megérteni a több-bérl�
 
 > [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
 
-#### <a name="azure-partner-shared-services"></a>Azure partner megosztott szolgáltatások
+#### <a name="azure-partner-shared-services"></a>Azure-partnerek megosztott szolgáltatásai
 
 Az Azure partner Shared Services (APSS) előfizetések előnyben részesítettek a regisztrációhoz, ha egy közvetlen CSP vagy egy CSP-terjesztő Azure Stack hub-t üzemeltet.
 
@@ -59,7 +59,7 @@ Ha úgy szeretné konfigurálni Azure Stack hub-t, hogy az új bérlő erőforr�
 
 ## <a name="charge-the-right-subscriptions"></a>A megfelelő előfizetések díja
 
-Azure Stack hub a *regisztráció*nevű szolgáltatást használja. A regisztráció egy, az Azure-ban tárolt objektum. A regisztrációs objektum azon dokumentumai, amelyekben az Azure-előfizetések az adott Azure Stack hub díjszabásához használhatók. Ez a szakasz a regisztráció fontosságát tárgyalja.
+Azure Stack hub a *regisztráció* nevű szolgáltatást használja. A regisztráció egy, az Azure-ban tárolt objektum. A regisztrációs objektum azon dokumentumai, amelyekben az Azure-előfizetések az adott Azure Stack hub díjszabásához használhatók. Ez a szakasz a regisztráció fontosságát tárgyalja.
 
 A regisztráció használatával a Azure Stack hub a következőket teheti:
 
@@ -74,7 +74,7 @@ Amikor Azure Stack hub a használati adatokat a globális Azure-ba továbbítja,
 
 Mivel a bérlői előfizetések CSP-előfizetések, a számlát a CSP-partnernek küldik, és a használati adatok nem láthatók a végfelhasználók számára.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a CSP programról: [Cloud Solution Provider program](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg a [használat és a számlázás Azure stack hub-ban](azure-stack-billing-and-chargeback.md)című témakört.
