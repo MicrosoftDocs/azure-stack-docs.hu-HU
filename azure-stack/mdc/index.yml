@@ -10,44 +10,92 @@ metadata:
   author: justinha
   ms.author: justinha
   ms.date: 07/23/2020
-  ms.openlocfilehash: d02096ea41e17172f553efc3a92a5908845e03cd
-  ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+  ms.openlocfilehash: 37446262243a4f5247d21e5fce94b473444938e5
+  ms.sourcegitcommit: f51d396e4822961162a0caf7fbed18b5760e137b
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92182970"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94518848"
 landingContent:
-- title: A MDC üzembe helyezése
+- title: Tudnivalók az Azure moduláris adatközpontról
   linkLists:
-  - linkListType: deploy
+  - linkListType: overview
     links:
-    - text: A MDC üzembe helyezésének áttekintése
-      url: deployment-overview.md
-  - linkListType: deploy
+    - text: Mi az a moduláris adatközpont?
+      url: mdc-overview.md
+    - text: Modell specifikációi
+      url: azure-stack-capacity-planning-overview.md
+  - linkListType: whats-new
     links:
-    - text: Capacity Planner
-      url: azure-stack-capacity-planner.md
-- title: Bevezetés
+    - text: Biztonsági frissítések
+      url: ../operator/release-notes-security-updates.md
+    - text: Kibocsátási megjegyzések
+      url: ../operator/release-notes.md
+- title: Ismerkedés az Azure moduláris adatközponttal
   linkLists:
-  - linkListType: get-started
+  - linkListType: learn
     links:
-    - text: Azure Stack hub Marketplace-elem hozzáadása
-      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+    - text: A felügyeleti portál használata
+      url: ../operator/azure-stack-manage-portals.md
+    - text: Szolgáltatás nyújtása a felhasználóknak
+      url: ../operator/tutorial-offer-services.md
+    - text: Szolgáltatási ajánlat tesztelése
+      url: ../operator/tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: Kapcsolatok modelljeinek összehasonlítása
+      url: ../operator/azure-stack-connection-models.md
+    - text: Csatlakoztatott üzemelő példány
+      url: ../operator/azure-stack-connected-deployment.md
+    - text: Leválasztott központi telepítés
+      url: ../operator/azure-stack-disconnected-deployment.md
+- title: Azure moduláris adatközpont kezelése
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Állapot és riasztások monitorozása
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Frissítések telepítése és a folyamat megfigyelése
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Ajánlott eljárások a biztonsági mentéshez és a visszaállításhoz
+      url: operator/azure-stack-backup-best-practices-tzl.md
+- title: Azure Stack hub-eszközök
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Azure Stack hub-eszközök letöltése a GitHubról
+      url: ../operator/azure-stack-powershell-download.md
+    - text: Az Azure Stack PowerShell telepítése
+      url: ../operator/azure-stack-powershell-install.md
+    - text: A PowerShell futtatása a Docker használatával
+      url: ../user/azure-stack-powershell-user-docker.md
+    - text: Kapcsolat Azure Stack PowerShell-lel
+      url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Infrastruktúra-szolgáltatás (IaaS) Azure Stack hub-on
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Rövid útmutató – virtuális gép létrehozása
+      url: ../user/azure-stack-quick-linux-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Virtuális gép migrálása
+      url: ../user/vm-move-overview.md
+    - text: Virtuális gép üzembe helyezése a IaaS sablonnal
+      url: ../user/azure-stack-create-vm-template.md
+    - text: Virtuális hálózat konfigurálása
+      url: ../user/deploy-foundational-patterns.md
+    - text: A kódban írt alkalmazások
+      url: ../user/azure-stack-dev-start-deploy-app.md
+- title: Azure Stack hub-szolgáltatások ajánlata
+  linkLists:
   - linkListType: tutorial
     links:
-    - text: IaaS-szolgáltatások ajánlata
+    - text: Ajánlat létrehozása virtuális géphez
       url: ../operator/tutorial-offer-services.md
-- title: Használat
-  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Előfizetés egy ajánlatra
-      url: ../user/azure-stack-subscribe-services.md
-    - text: Virtuális gép létrehozása sablonból
-      url: ../user/azure-stack-create-vm-template.md
-  - linkListType: how-to-guide
-    links:
-    - text: Belső vezérlőprogram frissítése
-      url: extended-storage-firmware-updates.md
-    - text: Állapot ellenőrzése
-      url: extended-storage-health-checks.md
+    - text: Magasan elérhető MySQL-adatbázis létrehozása
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Alkalmazások létrehozása bármilyen platformhoz
+      url: ../operator/azure-stack-app-service-overview.md
