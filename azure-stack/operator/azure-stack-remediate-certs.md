@@ -2,18 +2,18 @@
 title: A PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 titleSuffix: Azure Stack Hub
 description: Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása az Azure Stack hub Readiness-ellenőrző használatával.
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 11/10/2020
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724846"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493630"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 
@@ -29,7 +29,7 @@ A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javí
 
 **Figyelmeztetés** – a jelszó csak a tanúsítványban található személyes adatokat védi.  
 
-**Javítsa** a pfx-fájlok exportálását a tanúsítvány- **Adatvédelem engedélyezésének**opcionális beállításával.  
+**Javítsa** a pfx-fájlok exportálását a tanúsítvány- **Adatvédelem engedélyezésének** opcionális beállításával.  
 
 **Probléma** – a pfx-fájl érvénytelen.  
 
@@ -85,7 +85,7 @@ A PFX-fájlok **TripleDES-SHA1** titkosítással való exportálásának **javí
 
 ## <a name="fix-common-packaging-issues"></a>Gyakori csomagolási problémák elhárítása
 
-A **AzsReadinessChecker** eszköz tartalmaz egy **Repair-AzsPfxCertificate**nevű segítő parancsmagot, amely importálhatja, majd exportálhatja a pfx-fájlt a gyakori csomagolási problémák megoldására, beleértve a következőket:
+A **AzsReadinessChecker** eszköz tartalmaz egy **Repair-AzsPfxCertificate** nevű segítő parancsmagot, amely importálhatja, majd exportálhatja a pfx-fájlt a gyakori csomagolási problémák megoldására, beleértve a következőket:
 
 - A **pfx-titkosítás** nem TRIPLEDES-SHA1.
 - A **titkos kulcsból** hiányzik a helyi gép attribútuma.
@@ -116,10 +116,10 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Cserélje le `PFXpassword` a-t a tényleges jelszóra:
+2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Ha a rendszer kéri, adja meg a jelszót:
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. A PowerShell-parancssorból futtassa a következő parancsot egy új PFX-fájl exportálásához:
@@ -144,6 +144,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ a Azure Stack hub biztonságáról](azure-stack-rotate-secrets.md)

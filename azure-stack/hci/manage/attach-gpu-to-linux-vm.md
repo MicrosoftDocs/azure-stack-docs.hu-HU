@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: 422f6984fad6218387673d2dc9292f0ae7cb1739
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383683"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493652"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>GPU csatlakoztatása Ubuntu Linux virtuális géphez Azure Stack HCI-ben
 
@@ -426,13 +426,25 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="Modulok beállítása képernyőfelvétel":::
 
-14. A IoT Edge modulok területen kattintson és válassza a piactér modul elemet:
+14. A IoT Edge modulok területen kattintson és válassza ki IoT Edge modult:
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Piactér-modul képernyőképe":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="IoT Edge modul hozzáadása képernyőkép":::
 
-15. Keressen az NVIDIA kifejezésre, és válassza az DeepStream SDK-t, például az alábbiakat:
+15. Az **IoT Edge modul hozzáadása** panelen válassza a **modul beállításai** lapot, majd adja meg vagy válassza ki a következő értékeket:
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="DeepStream SDK képernyőkép":::
+    - **IoT Edge modul neve** : NVIDIADeepStreamSDK
+
+    - **Rendszerkép URI-ja** : Marketplace.azurecr.IO/NVIDIA/deepstream-iot2
+
+    - **Újraindítási szabályzat** : mindig
+
+    - **Kívánt állapot** : fut
+
+    - **Rendszerkép-lekérési házirend** : *üres*
+    
+    Válassza a **Hozzáadás** lehetőséget.
+
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream-module-settings.png" alt-text="DeepStream SDK képernyőkép":::
 
 16. Győződjön meg arról, hogy a NvidiaDeepStreamSDK modul szerepel a IoT Edge modulok területen:
 
@@ -527,7 +539,7 @@ Ennek a konfigurációnak az előkészítéséhez tekintse át az [NVIDIA-Deepst
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/vlc-player.png" alt-text="A VLC player képernyőképe":::
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a GPU-k és a dohai fejlesztési szolgáltatásról:
 
