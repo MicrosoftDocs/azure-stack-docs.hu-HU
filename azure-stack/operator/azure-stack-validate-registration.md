@@ -4,20 +4,20 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan érvényesítheti az Azure-regisztrációt az Azure Stack hub Readiness-ellenőrző eszközzel.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: jerskine
-ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: 24bec6b10017dd824800f860273c003dc8b53f0b
-ms.sourcegitcommit: 28850ae18844213ee410cfe96fc936655b5f6412
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0034bd17e42aba8ddbbf55c86aaffea9c243a600
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86148150"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545728"
 ---
 # <a name="validate-azure-registration"></a>Azure-regisztráció ellenőrzése
 
-Az Azure Stack hub Readiness-ellenőrző eszköz (**AzsReadinessChecker**) használatával ellenőrizze, hogy az Azure-előfizetése készen áll-e a Azure stack hub használatára, mielőtt megkezdené az Azure stack hub központi telepítését. A készültség-ellenőrző ellenőrzi, hogy:
+Az Azure Stack hub Readiness-ellenőrző eszköz ( **AzsReadinessChecker** ) használatával ellenőrizze, hogy az Azure-előfizetése készen áll-e a Azure stack hub használatára, mielőtt megkezdené az Azure stack hub központi telepítését. A készültség-ellenőrző ellenőrzi, hogy:
 
 - A használt Azure-előfizetés támogatott típusú. Az előfizetésnek felhőalapú megoldás-szolgáltatónak (CSP) vagy Nagyvállalati Szerződés (EA) kell lennie.
 - Az előfizetés az Azure-ban való regisztrálásához használt fiók bejelentkezhet az Azure-ba, és az előfizetés tulajdonosa.
@@ -29,73 +29,6 @@ Az Azure Stack hub regisztrálásával kapcsolatos további információkért l�
 Töltse le a **AzsReadinessChecker** legújabb verzióját a [PowerShell-Galéria](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="install-and-configure"></a>Telepítés és konfigurálás
-
-### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
-
-### <a name="prerequisites"></a>Előfeltételek
-
-A következő előfeltételek szükségesek:
-
-#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell-modulok
-
-Szüksége lesz az az PowerShell-modulok telepítésére. Útmutatásért lásd: a [PowerShell AzureRM modul telepítése](azure-stack-powershell-install.md).
-
-#### <a name="the-computer-on-which-the-tool-runs"></a>Az a számítógép, amelyen az eszköz fut
-
-- Windows 10 vagy Windows Server 2016, internetkapcsolattal.
-- PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, majd tekintse át a **fő** **-és** alverziókat:  
-  ```powershell
-  $PSVersionTable.PSVersion
-  ```
-- [Azure stack hubhoz konfigurált PowerShell](azure-stack-powershell-install.md).
-- Az [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.  
-
-#### <a name="azure-active-directory-azure-ad-environment"></a>Azure Active Directory (Azure AD-) környezet
-
-- Azonosítsa egy olyan fiók felhasználónevét és jelszavát, amely az Azure Stack hub-ban használni kívánt Azure-előfizetéshez tartozó tulajdonos.  
-- Azonosítsa a használni kívánt Azure-előfizetés előfizetési AZONOSÍTÓját.
-- Azonosítsa a használni kívánt **AzureEnvironment** . A környezeti név paraméter támogatott értékei **AzureCloud**, **AzureChinaCloud**vagy **AzureUSGovernment**, attól függően, hogy melyik Azure-előfizetést használja.
-
-### <a name="steps-to-validate-the-azure-registration"></a>Az Azure-regisztráció érvényesítésének lépései
-
-1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort egy olyan számítógépen, amely megfelel az előfeltételeknek, majd futtassa a következő parancsot a **AzsReadinessChecker**telepítéséhez:
-
-   ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
-   ```
-
-2. A PowerShell-parancssorból futtassa a következő parancsot az `$registrationCredential` előfizetés tulajdonosaként szolgáló fiók beállításához. Cserélje le a `subscriptionowner@contoso.onmicrosoft.com` fiókot és a bérlő nevét:
-
-   ```powershell
-   $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
-   ```
-
-   > [!NOTE]
-   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a következőhöz hasonló lesz: `subscriptionowner@iurcontoso.onmicrosoft.com` . A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
-
-3. A PowerShell-parancssorból futtassa a következő parancsot a használni kívánt Azure-előfizetés beállításához `$subscriptionID` . Cserélje le `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` saját előfizetés-azonosítójával:
-
-   ```powershell
-   $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-   ```
-
-4. A PowerShell-parancssorból futtassa a következő parancsot az előfizetés érvényesítésének megkezdéséhez:
-
-   - Itt adhatja meg a `AzureEnvironment` **AzureCloud**, a **AzureGermanCloud**és a **AzureChinaCloud**értéket.  
-   - Adja meg az Azure AD-rendszergazda és az Azure AD-bérlő nevét.
-      ```powershell
-      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
-      ```
-
-5. Az eszköz futtatása után tekintse át a kimenetet. Ellenőrizze, hogy az állapot helyes-e a bejelentkezéshez és a regisztrációs követelményekhez. A sikeres ellenőrzési kimenet a következő példához hasonlóan jelenik meg:
-
-   ```powershell
-   Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
-   Checking Registration Requirements: OK
-   Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-   Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-   Invoke-AzsRegistrationValidation Completed
-   ```
 
 ### <a name="az-powershell"></a>[Az PowerShell](#tab/az)
 
@@ -114,7 +47,7 @@ Szüksége lesz az az PowerShell-modulok telepítésére. Útmutatásért lásd:
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Az Azure-regisztráció érvényesítésének lépései
 
-1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort, majd futtassa a következő parancsot a **AzsReadinessChecker**telepítéséhez:
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort, majd futtassa a következő parancsot a **AzsReadinessChecker** telepítéséhez:
 
    ```powershell
    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
@@ -150,11 +83,78 @@ Szüksége lesz az az PowerShell-modulok telepítésére. Útmutatásért lásd:
    Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
    Invoke-AzsRegistrationValidation Completed
    ```
+
+### <a name="azurerm-powershell"></a>[AzureRM PowerShell](#tab/rm)
+
+### <a name="prerequisites"></a>Előfeltételek
+
+A következő előfeltételek szükségesek:
+
+#### <a name="azurerm-powershell-modules"></a>AzureRM PowerShell-modulok
+
+Szüksége lesz az az PowerShell-modulok telepítésére. Útmutatásért lásd: a [PowerShell AzureRM modul telepítése](powershell-install-az-module.md).
+
+#### <a name="the-computer-on-which-the-tool-runs"></a>Az a számítógép, amelyen az eszköz fut
+
+- Windows 10 vagy Windows Server 2016, internetkapcsolattal.
+- PowerShell 5,1 vagy újabb. A verzió ellenőrzéséhez futtassa a következő PowerShell-parancsmagot, majd tekintse át a **fő** **-és** alverziókat:  
+  ```powershell
+  $PSVersionTable.PSVersion
+  ```
+- [Azure stack hubhoz konfigurált PowerShell](powershell-install-az-module.md).
+- Az [Microsoft Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verziója.  
+
+#### <a name="azure-active-directory-azure-ad-environment"></a>Azure Active Directory (Azure AD-) környezet
+
+- Azonosítsa egy olyan fiók felhasználónevét és jelszavát, amely az Azure Stack hub-ban használni kívánt Azure-előfizetéshez tartozó tulajdonos.  
+- Azonosítsa a használni kívánt Azure-előfizetés előfizetési AZONOSÍTÓját.
+- Azonosítsa a használni kívánt **AzureEnvironment** . A környezeti név paraméter támogatott értékei **AzureCloud** , **AzureChinaCloud** vagy **AzureUSGovernment** , attól függően, hogy melyik Azure-előfizetést használja.
+
+### <a name="steps-to-validate-the-azure-registration"></a>Az Azure-regisztráció érvényesítésének lépései
+
+1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort egy olyan számítógépen, amely megfelel az előfeltételeknek, majd futtassa a következő parancsot a **AzsReadinessChecker** telepítéséhez:
+
+   ```powershell
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
+   ```
+
+2. A PowerShell-parancssorból futtassa a következő parancsot az `$registrationCredential` előfizetés tulajdonosaként szolgáló fiók beállításához. Cserélje le a `subscriptionowner@contoso.onmicrosoft.com` fiókot és a bérlő nevét:
+
+   ```powershell
+   $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
+   ```
+
+   > [!NOTE]
+   > Ha megosztott szolgáltatásokat vagy – belső használatra-előfizetést használ, meg kell adnia egy felhasználó hitelesítő adatait az adott Azure AD-ből. Ez általában a következőhöz hasonló lesz: `subscriptionowner@iurcontoso.onmicrosoft.com` . A felhasználónak rendelkeznie kell a megfelelő hitelesítő adatokkal az előző lépésben leírtak szerint.
+
+3. A PowerShell-parancssorból futtassa a következő parancsot a használni kívánt Azure-előfizetés beállításához `$subscriptionID` . Cserélje le `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` saját előfizetés-azonosítójával:
+
+   ```powershell
+   $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+   ```
+
+4. A PowerShell-parancssorból futtassa a következő parancsot az előfizetés érvényesítésének megkezdéséhez:
+
+   - Itt adhatja meg a `AzureEnvironment` **AzureCloud** , a **AzureGermanCloud** és a **AzureChinaCloud** értéket.  
+   - Adja meg az Azure AD-rendszergazda és az Azure AD-bérlő nevét.
+      ```powershell
+      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
+      ```
+
+5. Az eszköz futtatása után tekintse át a kimenetet. Ellenőrizze, hogy az állapot helyes-e a bejelentkezéshez és a regisztrációs követelményekhez. A sikeres ellenőrzési kimenet a következő példához hasonlóan jelenik meg:
+
+   ```powershell
+   Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+   Checking Registration Requirements: OK
+   Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+   Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+   Invoke-AzsRegistrationValidation Completed
+   ```
 ---
 
 ## <a name="report-and-log-file"></a>Jelentés és naplófájl
 
-Minden alkalommal, amikor az érvényesítés lefut, az eredményeket a **AzsReadinessChecker. log** és ** aAzsReadinessCheckerReport.js**bejegyzi. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg.
+Minden alkalommal, amikor az érvényesítés lefut, az eredményeket a **AzsReadinessChecker. log** és **aAzsReadinessCheckerReport.js** bejegyzi. A fájlok helye a PowerShell érvényesítési eredményeivel együtt jelenik meg.
 
 Ezek a fájlok segíthetnek az érvényesítési állapot megosztásában az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés az identitás konfigurációjának megerősítését biztosítja az üzembe helyezési csoport számára. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
@@ -228,7 +228,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**OK** – a fiók nem tud bejelentkezni a megadott Azure ad-környezetbe. Ebben a példában a **AzureChinaCloud** a **AzureEnvironment**adja meg.  
+**OK** – a fiók nem tud bejelentkezni a megadott Azure ad-környezetbe. Ebben a példában a **AzureChinaCloud** a **AzureEnvironment** adja meg.  
 
 **Megoldás** – ellenőrizze, hogy a fiók érvényes-e a megadott Azure-környezetben. A PowerShellben futtassa a következő parancsot annak ellenőrzéséhez, hogy a fiók érvényes-e egy adott környezetben:
 

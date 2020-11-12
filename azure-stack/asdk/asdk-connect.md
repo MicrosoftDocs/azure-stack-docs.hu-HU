@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543477"
 ---
 # <a name="connect-to-the-asdk"></a>Kapcsolódás a ASDK
 
@@ -29,13 +29,13 @@ Egyetlen egyidejű felhasználó a Azure Stack felügyeleti portálon vagy a fel
 > [!TIP]
 > Ez a beállítás azt is lehetővé teszi, hogy az RDP-t újra használhatja, miközben bejelentkezett a ASDK gazdagépre, hogy bejelentkezzen a ASDK-gazdagépen létrehozott virtuális gépekre (VM).
 
-1. Nyissa meg Távoli asztali kapcsolat (mstc. exe), és kapcsolódjon a ASDK állomás számítógépének IP-címéhez. Győződjön meg arról, hogy olyan fiókot használ, amely a ASDK-gazdaszámítógépre való távoli bejelentkezéshez van hitelesítve. Alapértelmezés szerint a **AzureStack\AzureStackAdmin** rendelkezik a ASDK gazdagép számítógépéhez való távoli hozzáféréshez szükséges engedélyekkel.  
+1. Nyissa meg Távoli asztali kapcsolat (mstc.exe), és kapcsolódjon a ASDK gazdagép számítógépének IP-címéhez. Győződjön meg arról, hogy olyan fiókot használ, amely a ASDK-gazdaszámítógépre való távoli bejelentkezéshez van hitelesítve. Alapértelmezés szerint a **AzureStack\AzureStackAdmin** rendelkezik a ASDK gazdagép számítógépéhez való távoli hozzáféréshez szükséges engedélyekkel.  
 
-2. A ASDK-gazdagépen nyissa meg a Kiszolgálókezelő alkalmazást (ServerManager. exe). Válassza a **helyi kiszolgáló**lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait**, majd a Kiszolgálókezelő bezárását.
+2. A ASDK gazdagépen nyissa meg a Kiszolgálókezelő (ServerManager.exe) eszközt. Válassza a **helyi kiszolgáló** lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait** , majd a Kiszolgálókezelő bezárását.
 
-3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe: `https://adminportal.local.azurestack.external`.
+3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe: `https://adminportal.local.azurestack.external` .
 
-4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe `https://portal.local.azurestack.external`:.
+4. Jelentkezzen be a felhasználói portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack felhasználói hitelesítő adatokat. A ASDK felhasználói portáljának címe: `https://portal.local.azurestack.external` .
 
 > [!NOTE]
 > Ha további információt szeretne arról, hogy mikor kell használni a fiókot, tekintse meg a [ASDK-adminisztrátor alapjai](asdk-admin-basics.md#what-account-should-i-use)című témakört.
@@ -62,7 +62,7 @@ Ha VPN-kapcsolat létesítését szeretné létrehozni a ASDK, nyissa meg a Powe
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
-cd C:\AzureStack-Tools-master
+cd C:\AzureStack-Tools-az
 
 # Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
@@ -107,7 +107,7 @@ Ha a telepítés sikeres, **Azure stack** jelenik meg a VPN-kapcsolatok listáj�
       -Password $Password
     ```
 
-  * A helyi számítógépen válassza a **hálózati beállítások** > **VPN** > **Azure stack** > a**Csatlakozás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszavát.
+  * A helyi számítógépen válassza a **hálózati beállítások**  >  **VPN**  >  **Azure stack** a  >  **Csatlakozás** lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet ( **AzureStack\AzureStackAdmin** ) és a jelszavát.
 
 Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Stack főtanúsítványt a **AzureStackCertificateAuthority** a helyi számítógép tanúsítványtárolójában. Ez a lépés hozzáadja a ASDK-hitelesítésszolgáltatót (CA) a megbízható gazdagépek listájához. A tanúsítvány telepítéséhez kattintson az **Igen** gombra.
 
@@ -118,10 +118,10 @@ Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Sta
 
 ### <a name="test-vpn-connectivity"></a>VPN-kapcsolat tesztelése
 
-A portál kapcsolódásának teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra a `https://portal.local.azurestack.external/` vagy a rendszergazdai portálon `https://adminportal.local.azurestack.external/`.
+A portál kapcsolódásának teszteléséhez nyisson meg egy böngészőt, és lépjen a felhasználói portálra a `https://portal.local.azurestack.external/` vagy a rendszergazdai portálon `https://adminportal.local.azurestack.external/` .
 
 Az erőforrások létrehozásához és kezeléséhez jelentkezzen be a megfelelő előfizetési hitelesítő adatokkal.  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Hibaelhárítás](asdk-troubleshooting.md)

@@ -7,12 +7,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544938"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
@@ -98,7 +98,7 @@ meterID1",
 
 A használati adatok létrehozásához a rendszert futtató és aktívan használt erőforrásokkal kell rendelkeznie. például egy aktív virtuális gép (VM) vagy egy bizonyos adathalmazt tartalmazó Storage-fiók. Ha nem biztos abban, hogy rendelkezik-e a Azure Stack hub piactéren futó erőforrásokkal, helyezzen üzembe egy virtuális gépet, és ellenőrizze, hogy fut-e a virtuális gép figyelése panel. Használja a következő PowerShell-parancsmagokat a használati adatok megtekintéséhez:
 
-1. [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
+1. [Telepítse a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 2. [Konfigurálja a Azure stack hub-felhasználót](../user/azure-stack-powershell-configure-user.md) vagy a [Azure stack hub-kezelő](azure-stack-powershell-configure-admin.md) PowerShell-környezetét.
 3. A használati adatok lekéréséhez hívja meg a [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell-parancsmagot:
 
@@ -122,7 +122,7 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Bérlői erőforrás-használati API-referenciák](azure-stack-tenant-resource-usage-api.md)
 - [Használattal kapcsolatos gyakori kérdések](azure-stack-usage-related-faq.md)

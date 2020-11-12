@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364768"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543868"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti a Azure stack hub telepítési döntéseit.
@@ -34,6 +34,11 @@ Az Azure AD az Identity Store-hoz való használatához két Azure AD-fiókra va
     - Alkalmazások és egyszerű szolgáltatások kiépítése és delegálása minden olyan Azure Stack hub-szolgáltatáshoz, amelyeknek működniük kell az Azure AD-vel és a Graph APIával.
     - A szolgáltatás-rendszergazdai fiókkal. Ez a fiók az alapértelmezett szolgáltatói előfizetés tulajdonosa (amelyet később módosíthat). A fiókkal bejelentkezhet a Azure Stack hub felügyeleti portálra, és a használatával ajánlatokat és csomagokat hozhat létre, kvótákat állíthat be, és más felügyeleti funkciókat is elvégezhet Azure Stack központban.
 
+> [!IMPORTANT]
+> - A globális rendszergazdai fiók nem szükséges Azure Stack hub futtatásához, és le lehet tiltani a telepítést követően.
+> - Gondoskodjon a globális rendszergazdai fiók védelméről az [itt dokumentált ajánlott eljárások](/azure/security/fundamentals/identity-management-best-practices)követésével.
+
+
 2. **Számlázási fiók** (a csatlakoztatott és a leválasztott üzemelő példányokhoz egyaránt szükséges). Ez az Azure-fiók az Azure Stack hub integrált rendszer és az Azure kereskedelmi háttérrendszer közötti számlázási kapcsolat létesítésére szolgál. Ez az a fiók, amelyet Azure Stack hub-díjakért kell fizetni. Ez a fiók a piactéren és más hibrid forgatókönyvekben található elemek ajánlatára is használható.
 
 ### <a name="ad-fs-identity-store"></a>AD FS Identity Store
@@ -43,27 +48,27 @@ Válassza ezt a lehetőséget, ha saját identitás-tárolót szeretne használn
 Kiválaszthatja az **Ön által használt fizetés** vagy a **kapacitás** számlázási modelljét. Az utólagos használatú számlázási modell telepítéseknek képesnek kell lenniük arra, hogy a használatot az Azure-hoz legalább 30 naponta egyszer kell jelenteni. Ezért a használaton kívüli számlázási modell csak a csatlakoztatott üzemelő példányok esetében érhető el.  
 
 ### <a name="pay-as-you-use"></a>Használatalapú fizetés
-Az utólagos használatú számlázási modell használata esetén az Azure-előfizetésért kell fizetnie. Csak az Azure Stack hub-szolgáltatások használatakor kell fizetnie. Ha ezt a modellt választja, szüksége lesz egy Azure-előfizetésre és az ehhez az előfizetéshez hozzárendelt fiók-AZONOSÍTÓra serviceadmin@contoso.onmicrosoft.com(például:). Az EA, CSP és CSL-előfizetések támogatottak. A használati jelentéskészítés [Azure stack hub-regisztráció](azure-stack-registration.md)során van konfigurálva.
+Az utólagos használatú számlázási modell használata esetén az Azure-előfizetésért kell fizetnie. Csak az Azure Stack hub-szolgáltatások használatakor kell fizetnie. Ha ezt a modellt választja, szüksége lesz egy Azure-előfizetésre és az ehhez az előfizetéshez hozzárendelt fiók-AZONOSÍTÓra (például: serviceadmin@contoso.onmicrosoft.com ). Az EA, CSP és CSL-előfizetések támogatottak. A használati jelentéskészítés [Azure stack hub-regisztráció](azure-stack-registration.md)során van konfigurálva.
 
 > [!NOTE]
 > A legtöbb esetben a nagyvállalati ügyfelek az EA-előfizetéseket fogják használni, és a szolgáltatók CSP-vagy CSL-előfizetéseket használnak.
 
 Ha CSP-előfizetést fog használni, tekintse át az alábbi táblázatot a használni kívánt CSP-előfizetés azonosításához, mivel a helyes módszer a pontos CSP-forgatókönyvtől függ:
 
-|Forgatókönyv|Tartomány-és előfizetési lehetőségek|
+|Használati példa|Tartomány-és előfizetési lehetőségek|
 |-----|-----|
-|Ön egy **közvetlen CSP-partner** vagy egy **közvetett CSP-szolgáltató**, és az Azure stack hubot fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A szervezete &lt;például>CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
-|Ön egy **közvetett CSP-viszonteladó**, és az Azure stack hubot fogja használni|Kérje meg a közvetett CSP-szolgáltatót, hogy hozzon létre egy Azure AD-bérlőt a szervezete számára a partner Center használatával társított Azure CSP-előfizetéssel.|
+|Ön egy **közvetlen CSP-partner** vagy egy **közvetett CSP-szolgáltató** , és az Azure stack hubot fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A &lt; Szervezete például>CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
+|Ön egy **közvetett CSP-viszonteladó** , és az Azure stack hubot fogja használni|Kérje meg a közvetett CSP-szolgáltatót, hogy hozzon létre egy Azure AD-bérlőt a szervezete számára a partner Center használatával társított Azure CSP-előfizetéssel.|
 
 ### <a name="capacity-based-billing"></a>Kapacitás alapú számlázás
 Ha úgy dönt, hogy a kapacitás számlázási modelljét használja, akkor a rendszer kapacitása alapján meg kell vásárolnia egy Azure Stack hub kapacitási csomag SKU-t. A megfelelő mennyiség megvásárlásához ismernie kell a Azure Stack hub-beli fizikai magok számát.
 
 A kapacitás számlázásához Nagyvállalati Szerződés (EA) Azure-előfizetés szükséges a regisztrációhoz. Ennek az az oka, hogy a regisztráció a piactéren elérhető elemek rendelkezésre állását állítja be, amelyhez Azure-előfizetés szükséges. Az előfizetés nem használatos Azure Stack hub-használathoz.
 
-## <a name="learn-more"></a>Részletek
+## <a name="learn-more"></a>További információ
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
 - Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Ha többet szeretne megtudni a Microsoft Azure Stack hub csomagolásáról és díjszabásáról, [töltse le a. PDF fájlt](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Datacenter hálózati integráció](azure-stack-network.md)

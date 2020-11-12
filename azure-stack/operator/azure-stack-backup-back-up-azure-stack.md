@@ -7,16 +7,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701037"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544275"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack hub biztonsági mentése
 
-Ez a cikk bemutatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on. A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md). Azure Stack hubhoz való bejelentkezéshez lásd: [a felügyeleti portál használata Azure stack hub-ban](azure-stack-manage-portals.md).
+Ez a cikk bemutatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on. A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](powershell-install-az-module.md). Azure Stack hubhoz való bejelentkezéshez lásd: [a felügyeleti portál használata Azure stack hub-ban](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-hub-backup"></a>Azure Stack hub biztonsági másolatának elindítása
 
@@ -104,10 +104,10 @@ Az eredménynek a következő kimenethez hasonlóan kell kinéznie:
 A következő lépésekkel ellenőrizheti, hogy a biztonsági mentés sikeresen befejeződött-e a Azure Stack hub felügyeleti portálján:
 
 1. Nyissa meg az [Azure stack hub felügyeleti portált](azure-stack-manage-portals.md).
-2. Válassza a **minden szolgáltatás**lehetőséget, majd az **adminisztráció** kategóriában válassza > **infrastruktúra biztonsági mentése**lehetőséget. Válassza a **konfiguráció** lehetőséget az **infrastruktúra biztonsági mentése** panelen.
+2. Válassza a **minden szolgáltatás** lehetőséget, majd az **adminisztráció** kategóriában válassza > **infrastruktúra biztonsági mentése** lehetőséget. Válassza a **konfiguráció** lehetőséget az **infrastruktúra biztonsági mentése** panelen.
 3. Keresse meg a biztonsági mentés **nevét** és **dátumát** a **rendelkezésre álló biztonsági másolatok** listájában.
-4. Ellenőrizze, hogy az **állapot** **sikeres**-e.
+4. Ellenőrizze, hogy az **állapot** **sikeres** -e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ az [adatvesztési eseményről történő helyreállítás](azure-stack-backup-recover-data.md)munkafolyamatáról.

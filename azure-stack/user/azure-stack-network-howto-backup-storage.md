@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107226"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546191"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -54,7 +54,7 @@ Létrehozhat egy Linux-vagy Windows Server-kiszolgálót közbenső kiszolgáló
 - A Linux-kiszolgálók beállításával kapcsolatos útmutatásért tekintse meg a [Linux Server rendszerű virtuális gép létrehozása az Azure stack hub portál használatával](azure-stack-quick-linux-portal.md)című témakört.  
 - A Windows Server beállításával kapcsolatos útmutatásért lásd: [Windows Server rendszerű virtuális gép létrehozása az Azure stack hub Portalon](azure-stack-quick-windows-portal.md).  
 
-Miután beállította a Windows Servert, telepítenie kell [Azure stack hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) -t és [Azure stack hub-eszközöket](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
+Miután beállította a Windows Servert, telepítenie kell [Azure stack hub PowerShell](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) -t és [Azure stack hub-eszközöket](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
 
 ## <a name="set-up-backup-for-storage-accounts"></a>Biztonsági mentés beállítása a Storage-fiókokhoz
 
@@ -80,13 +80,13 @@ Miután beállította a Windows Servert, telepítenie kell [Azure stack hub Powe
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. A köztes kiszolgálón hozzon létre parancsfájlt. Frissítse ezt a parancsot a **Storage-fiókjával**, az **sas-kulccsal**és a **helyi könyvtár elérési útjával**. Az adatok növekményes másolásához a **forrás** Storage-fiókból futtassa a parancsfájlt.
+4. A köztes kiszolgálón hozzon létre parancsfájlt. Frissítse ezt a parancsot a **Storage-fiókjával** , az **sas-kulccsal** és a **helyi könyvtár elérési útjával**. Az adatok növekményes másolásához a **forrás** Storage-fiókból futtassa a parancsfájlt.
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Adja meg a **Storage-fiókot**, a * * sas-kulcs * * és a * * helyi könyvtár elérési útját.  Ezzel a megoldással növekményes Adatmásolást fog használni a **cél** Storage-fiókba
+5.  Adja meg a **Storage-fiókot** , a * * sas-kulcs * * és a * * helyi könyvtár elérési útját.  Ezzel a megoldással növekményes Adatmásolást fog használni a **cél** Storage-fiókba
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

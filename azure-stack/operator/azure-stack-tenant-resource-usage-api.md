@@ -8,18 +8,18 @@ ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 25bb94429624a1fde1ec8e1a963250837eebd0d9
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: d6e31a08badcaa171a2a6c30171ec8f2573e4b76
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857555"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545533"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Bérlői erőforrás-használati API-referenciák
 
 A bérlő a bérlői API-k használatával megtekintheti a bérlő saját erőforrás-használati adatait. Ezek az API-k konzisztensek az Azure használati API-kkal.
 
-Használhatja a [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) Windows PowerShell-parancsmagot a használati adatok lekéréséhez, akárcsak az Azure-ban.
+Használhatja a [Get-UsageAggregates](/powershell/module/Az.usageaggregates/get-usageaggregates) Windows PowerShell-parancsmagot a használati adatok lekéréséhez, akárcsak az Azure-ban.
 
 ## <a name="api-call"></a>API-hívás
 
@@ -37,10 +37,10 @@ A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásá
 | --- | --- |
 | Armendpoint |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://management.{domain-name}` . A fejlesztői csomag esetében például a tartománynév helyi. azurestack. external, majd a Resource Manager-végpont `https://management.local.azurestack.external` . |
 | subId |A hívást végző felhasználó előfizetés-azonosítója. Ezt az API-t csak egyetlen előfizetés használatának lekérdezésére használhatja. A szolgáltatók használhatják a szolgáltatói erőforrás-használati API-t az összes bérlő használatának lekérdezéséhez. |
-| reportedStartTime |A lekérdezés kezdési időpontja. A *datetime* értékének UTC és az óra elején kell lennie; például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; Tegyük fel például, hogy **2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z**, ahol a kettőspont megmenekült a (z)% 3A rendszerbe, és plusz megmenekült a (z)% 2b rendszerbe, hogy URI-barát legyen |
+| reportedStartTime |A lekérdezés kezdési időpontja. A *datetime* értékének UTC és az óra elején kell lennie; például 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; Tegyük fel például, hogy **2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z** , ahol a kettőspont megmenekült a (z)% 3A rendszerbe, és plusz megmenekült a (z)% 2b rendszerbe, hogy URI-barát legyen |
 | reportedEndTime |A lekérdezés befejezési időpontja. A **reportedStartTime** vonatkozó korlátozások érvényesek erre a paraméterre is. A **reportedEndTime** értéke nem lehet későbbi. |
 | aggregationGranularity |Opcionális paraméter, amely két különálló lehetséges értékkel rendelkezik: **naponta** és **óránként**. Az értékek azt sugallják, hogy az egyik napi részletességgel adja vissza az adatokat, a másik pedig óradíjas megoldás. A **napi** beállítás az alapértelmezett. |
-| api-verzió |A kérelem elvégzéséhez használt protokoll verziója. A **2015-06-01-Preview**verziót kell használnia. |
+| api-verzió |A kérelem elvégzéséhez használt protokoll verziója. A **2015-06-01-Preview** verziót kell használnia. |
 | Continuationtoken argumentumot használja |A rendszer a használati API-szolgáltató utolsó hívásával lekért tokent. Erre a tokenre akkor van szükség, ha a válasz nagyobb, mint 1 000 sor. A folyamat könyvjelzőként működik. Ha nincs jelen, az adatok a nap vagy az óra elejétől kezdve, az átadott részletesség alapján kerülnek beolvasásra. |
 
 ### <a name="response"></a>Reagálás
@@ -79,14 +79,14 @@ GET
 | **Paraméter** | **Leírás** |
 | --- | --- |
 | id |A használati összesítés egyedi azonosítója. |
-| név |A használati összesítés neve. |
+| name |A használati összesítés neve. |
 | típus |Erőforrás-definíció. |
 | subscriptionId |Az Azure-felhasználó előfizetés-azonosítója. |
 | usageStartTime |Annak a használati gyűjtőnek az UTC szerinti kezdési időpontja, amelyhez ez a használati összesítés tartozik. |
 | usageEndTime |Azon használati gyűjtő UTC-befejezési időpontja, amelyhez ez a használati összesítés tartozik. |
-| instanceData |Példány részleteinek kulcs-érték párok (új formátumban):<br>  *resourceUri*: teljes erőforrás-azonosító, beleértve az erőforráscsoportok és a példánynév nevét. <br>  *hely*: az a régió, amelyben a szolgáltatást futtatták. <br>  *címkék*: a felhasználó által megadott erőforrás-címkék. <br>  *AdditionalInfo*: További információ a felhasznált erőforrásról. Például operációs rendszer verziója vagy rendszerkép típusa. |
+| instanceData |Példány részleteinek kulcs-érték párok (új formátumban):<br>  *resourceUri* : teljes erőforrás-azonosító, beleértve az erőforráscsoportok és a példánynév nevét. <br>  *hely* : az a régió, amelyben a szolgáltatást futtatták. <br>  *címkék* : a felhasználó által megadott erőforrás-címkék. <br>  *AdditionalInfo* : További információ a felhasznált erőforrásról. Például operációs rendszer verziója vagy rendszerkép típusa. |
 | quantity |Az adott időkeretben bekövetkezett erőforrás-felhasználás mennyisége. |
-| meterId |A felhasznált erőforrás egyedi azonosítója (más néven **ResourceId**). |
+| meterId |A felhasznált erőforrás egyedi azonosítója (más néven **ResourceId** ). |
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: 80756669b32459d066d80b50546df9d1c23b9317
-ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
+ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233344"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543306"
 ---
 # <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
@@ -28,7 +28,7 @@ Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai na
 * [Naplók küldése most](#send-logs-now)
 * [Naplók helyi mentése](#save-logs-locally)
 
-Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használni a diagnosztikai naplók küldésére az egyes esetekben. Ha Azure Stack hub tud csatlakozni az Azure-hoz, javasoljuk, hogy engedélyezze a **proaktív naplózási gyűjteményt** , amely automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók elküldése** lehetőség használatával is összegyűjtheti. Ha Azure Stack hub le van választva az Azure-ból, akkor **helyileg mentheti a naplókat** . 
+Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használni a diagnosztikai naplók küldésére az egyes esetekben. Ha Azure Stack hub tud csatlakozni az Azure-hoz, javasoljuk, hogy engedélyezze a **proaktív naplózási gyűjteményt** , amely automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók elküldése** lehetőség használatával is összegyűjtheti. Ha Azure Stack hub le van választva az Azure-ból, akkor **helyileg mentheti a naplókat**. 
 
 ![A folyamatábra bemutatja, hogyan küldhet naplókat most a Microsoftnak](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -41,7 +41,7 @@ A proaktív naplók gyűjtése a támogatási eset megnyitása előtt automatiku
 Az előjelzéses naplók gyűjtése letiltható, és bármikor újra engedélyezhető. Az alábbi lépéseket követve állíthatja be a proaktív naplózási gyűjteményt.
 
 1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
-1. Nyissa meg a **Súgó + támogatás áttekintést** .
+1. Nyissa meg a **Súgó + támogatás áttekintést**.
 1. Ha megjelenik a szalagcím, válassza a **proaktív naplózási gyűjtemény engedélyezése** lehetőséget. Vagy válassza a **Beállítások** lehetőséget, és állítsa be az előjelzéses **naplók gyűjteményét** az **engedélyezéshez** , majd válassza a **Mentés** lehetőséget.
 
 > [!NOTE]
@@ -74,7 +74,7 @@ Ha Azure Stack hub csatlakozik az Azure-hoz, javasoljuk, hogy használja a felü
 
 Naplók elküldése mostantól a felügyeleti portál használatával:
 
-1. Nyissa meg a **Súgó + támogatás > naplózási gyűjteményt, > küldje el a naplókat most** . 
+1. Nyissa meg a **Súgó + támogatás > naplózási gyűjteményt, > küldje el a naplókat most**. 
 1. A naplók kezdési és befejezési időpontjának megadása. 
 1. Válassza ki a helyi időzónát.
 1. Válassza **a gyűjtés és feltöltés** lehetőséget.
@@ -87,13 +87,13 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
 
 * A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, a rendszer alapértelmezés szerint a naplókat az elmúlt négy órára gyűjti.
 
-* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Például:
+* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Ilyenek többek között:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
   ```
 
-* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Például:
+* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Ilyenek többek között:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByLogType File

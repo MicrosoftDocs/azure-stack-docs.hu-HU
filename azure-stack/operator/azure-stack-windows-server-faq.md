@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414129"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545725"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack hub Marketplace – gyakori kérdések
 
@@ -53,9 +53,9 @@ Ha a lemezkép mindkét verzióját letölti, akkor a Azure Stack hub piactéren
 A BYOL és a TB modell közötti váltáshoz a következő parancsfájl futtatásával módosíthatja a licencelési modell attribútumát:
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 A virtuális gép licencének típusát a következő parancs futtatásával tekintheti meg. Ha a licencelési modell **Windows_Server** , akkor a BYOL díját kell megfizetnie. Ellenkező esetben a Windows-mérőszámot a TB modell alapján számítjuk fel:
@@ -69,9 +69,9 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 A BYOL modellre a következő parancsok futtatásával módosíthatja a licencelési modell attribútumot:
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Mi a helyzet a Windows Servert használó más virtuális gépekkel, például az SQL vagy a Machine Learning Server?
@@ -127,7 +127,7 @@ Lépjen kapcsolatba a hardver szállítójával, és ellenőrizze, hogy telepít
 
 Az [automatikus VM-aktiválás](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) nem támogatott a Windows Server korábbi verzióiban. A virtuális gépeket manuálisan kell aktiválni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információkat az következő cikkekben talál:
 

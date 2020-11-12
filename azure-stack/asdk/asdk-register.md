@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 4795b7abbd5c1f0dd9dfc1c3064aefa9371725a2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34f165025fe96234f8faded5eefcf5f4ae78bbde
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490014"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543612"
 ---
 # <a name="register-the-asdk-with-azure"></a>A ASDK regisztrálása az Azure-ban
 
@@ -30,7 +30,7 @@ A ASDK Azure-ban való regisztrálásához használt számítógépen a PowerShe
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Győződjön meg arról, hogy a kimenet **FullLanguage**ad vissza. Ha más nyelvi módot ad vissza, a regisztrációt másik számítógépen kell futtatni, vagy a folytatás előtt a **FullLanguage** beállított nyelvi mód.
+Győződjön meg arról, hogy a kimenet **FullLanguage** ad vissza. Ha más nyelvi módot ad vissza, a regisztrációt másik számítógépen kell futtatni, vagy a folytatás előtt a **FullLanguage** beállított nyelvi mód.
 
 A regisztrációhoz használt Azure AD-fióknak hozzáféréssel kell rendelkeznie az Azure-előfizetéshez, és engedélyekkel kell rendelkeznie az identitás-alkalmazások és-szolgáltatások létrehozásához az adott előfizetéshez tartozó címtárban. Javasoljuk, hogy regisztrálja Azure Stack az Azure [-ban egy olyan szolgáltatásfiók létrehozásával, amely a](../operator/azure-stack-registration-role.md) globális rendszergazdai hitelesítő adatok helyett a regisztrációhoz használható.
 
@@ -48,19 +48,19 @@ A ASDK az Azure-ban való regisztrálásához kövesse az alábbi lépéseket.
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
-    Add-AzureRmAccount -EnvironmentName "<environment name>"
+    Add-AzAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+    Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
     # If you have multiple subscriptions, run the following command to select the one you want to use:
-    # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+    # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
     # Register Azure Stack
-    $AzureContext = Get-AzureRmContext
+    $AzureContext = Get-AzContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
     Set-AzsRegistration `
@@ -84,11 +84,11 @@ Ha Azure Stackt regisztrál egy leválasztott környezetben (internetkapcsolat n
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Regisztrációs jogkivonat beszerzése a Azure Stack-környezetből
 
-A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és navigáljon a **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. A következő PowerShell-parancsokkal importálhatja a **RegisterWithAzure. psm1** modult, majd a **Get-AzsRegistrationToken** parancsmag használatával beolvashatja a regisztrációs jogkivonatot:  
+A ASDK gazdaszámítógépen indítsa el a PowerShellt rendszergazdaként, és navigáljon a **AzureStack-Tools –** az könyvtár **regisztrációs** mappájához, amelyet a Azure stack eszközök letöltésekor hozott létre. A következő PowerShell-parancsokkal importálhatja a **RegisterWithAzure. psm1** modult, majd a **Get-AzsRegistrationToken** parancsmag használatával beolvashatja a regisztrációs jogkivonatot:  
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
-   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
    # Create registration token
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
@@ -111,16 +111,16 @@ Az internethez csatlakoztatott számítógépen a következő PowerShell-parancs
   ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-  Add-AzureRmAccount -EnvironmentName "<environment name>"
+  Add-AzAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
-  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+  # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
   # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+  Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   # Register with Azure
   # This example uses the C:\RegistrationToken.txt file.
@@ -135,16 +135,16 @@ Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-  Add-AzureRmAccount -EnvironmentName "<environment name>"
+  Add-AzAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
-  # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
+  # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
   # Register the Azure Stack resource provider in your Azure subscription
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+  Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   # Register with Azure 
   # This example uses the C:\RegistrationToken.txt file.
@@ -162,7 +162,7 @@ Mentse a regisztrációs jogkivonatot és a regisztrációs erőforrás nevét a
 
 ### <a name="retrieve-an-activation-key-from-the-azure-registration-resource"></a>Aktiválási kulcs beolvasása az Azure regisztrációs erőforrásból
 
-Továbbra is az internethez csatlakoztatott számítógépet **és a PowerShell-konzolt futtató ablakot**kell beolvasnia az Azure-ban regisztrált regisztrációs erőforrásból.
+Továbbra is az internethez csatlakoztatott számítógépet **és a PowerShell-konzolt futtató ablakot** kell beolvasnia az Azure-ban regisztrált regisztrációs erőforrásból.
 
 Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsokat. Használja ugyanazt az egyedi regisztrációs nevet, amelyet az Azure-ban az előző lépésben való regisztráláskor adott meg:  
 
@@ -176,11 +176,11 @@ Az aktiválási kulcs lekéréséhez futtassa a következő PowerShell-parancsok
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Aktiválási erőforrás létrehozása Azure Stack
 
-Térjen vissza a Azure Stack-környezetbe a **Get-AzsActivationKey**által létrehozott aktiválási kulcsból származó fájllal vagy szöveggel. A következő PowerShell-parancsok futtatásával hozzon létre egy aktiválási erőforrást Azure Stack az adott aktiválási kulccsal:   
+Térjen vissza a Azure Stack-környezetbe a **Get-AzsActivationKey** által létrehozott aktiválási kulcsból származó fájllal vagy szöveggel. A következő PowerShell-parancsok futtatásával hozzon létre egy aktiválási erőforrást Azure Stack az adott aktiválási kulccsal:   
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
   
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
@@ -193,7 +193,7 @@ Azt is megteheti, hogy a **Get-Content** parancsmaggal egy olyan fájlra mutat, 
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
 
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # This example uses the C:\ActivationKey.txt file.
@@ -211,7 +211,7 @@ A **régió kezelése** csempével ellenőrizheti, hogy a Azure stack regisztrá
 
 1. Jelentkezzen be a Azure Stack felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
-2. Az irányítópulton válassza a **régió kezelése**lehetőséget.
+2. Az irányítópulton válassza a **régió kezelése** lehetőséget.
 
     [![Régió-felügyeleti csempe Azure Stack felügyeleti portálon](media/asdk-register/admin1sm.png "Régió-felügyeleti csempe")](media/asdk-register/admin1.png#lightbox)
 

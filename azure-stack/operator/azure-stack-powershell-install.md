@@ -3,20 +3,25 @@ title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: 'Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz. Lásd: a PowerShell AzureRM modul és a szükséges API-profilok telepítése.'
 author: mattbriggs
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.lastreviewed: 10/22/2020
+ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623166"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544989"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
-Azure PowerShell AzureRM olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
+A Azure PowerShell Azure Resource Manager (AzureRM) olyan parancsmagokat biztosít, amelyek a Azure Resource Manager modellt használják az Azure Stack hub-erőforrások kezeléséhez.
+
+::: moniker range=">=azs-2002"
+> [!IMPORTANT]  
+> Ön az Azure PowerShell elavult verziójának weboldalát nyitotta meg. A Azure Resource Manager (AzureRM) PowerShell-modul összes verziója elavult, de nem támogatott. Mostantól az Az PowerShell-modul használatát javasoljuk az Azure-ral folytatott interakciókhoz. Az az PowerShell-modul megkezdéséhez lásd: a [PowerShell telepítése az előzetes verziójú Azure stack hub](powershell-install-az-module.md)-hoz. Az az PowerShell-modulba való Migrálás megismeréséhez. Lásd: [áttelepítés az AzureRM-ból Azure PowerShell az Azure stack hub-ban](migrate-azurerm-az.md).
+::: moniker-end
 
 Az Azure Stack hub erőforrás-szolgáltatói számára a kompatibilis végpontok megadásához is *API-profilokat* kell használnia.
 
@@ -24,11 +29,11 @@ Az API-profilok lehetőséget biztosítanak az Azure és a Azure Stack hub köz�
 
 Azure Stack hub-kompatibilis PowerShell-modulokat az internethez csatlakoztatott, részben csatlakoztatott vagy leválasztott helyzetekben is telepítheti. Ez a cikk részletesen ismerteti ezeket a forgatókönyveket.
 
-Az Azure Stack hub AzureRM moduljait egy Docker-tárolóban is futtathatja. Útmutatásért lásd: [a Docker használata a PowerShell Azure stack hubhoz való futtatásához](../user/azure-stack-powershell-user-docker.md).
+A Azure Stack hub Azure Resource Manager moduljait egy Docker-tárolóban is futtathatja. Útmutatásért lásd: [a Docker használata a PowerShell Azure stack hubhoz való futtatásához](../user/azure-stack-powershell-user-docker.md).
 
 ## <a name="1-verify-your-prerequisites"></a>1. Ellenőrizze az előfeltételeket
 
-Az Azure Stack hub és a PowerShell-AzureRM modul használatának megkezdése előtt a következő előfeltételeket kell megadnia:
+Az Azure Stack hub és a PowerShell Azure Resource Manager modul használatának megkezdése előtt a következő előfeltételeket kell megadnia:
 
 - **PowerShell 5,1-es verzió** <br>
 A verziójának vizsgálatához futtassa a **$PSVersionTable. PSVersion** parancsot, és hasonlítsa **össze a** főverziót. Ha nem rendelkezik a PowerShell 5,1-rel, kövesse a [Windows PowerShell telepítése](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)című témakört.
@@ -65,9 +70,9 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. távolítsa el az Azure Stack hub PowerShell-modulok meglévő verzióit
 
-A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolította a korábban telepített Azure Stack hub AzureRM PowerShell-modulokat. Távolítsa el a modulokat a következő két módszer egyikének használatával:
+A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolította a korábban telepített Azure Stack hub Azure Resource Manager PowerShell-modulokat. Távolítsa el a modulokat a következő két módszer egyikének használatával:
 
-1. A meglévő AzureRM és az PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
+1. A meglévő Azure Resource Manager és az PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -167,7 +172,7 @@ A telepítés öt lépésből áll:
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 vagy újabb.
 
-Használhatja a AzureRM vagy az az előnézet modulokat. Az az modulok esetében lásd a [PowerShell telepítése az modulban](powershell-install-az-module.md)című témakör útmutatását.
+Használhatja Azure Resource Manager vagy az az előnézet modulokat. Az az modulok esetében lásd a [PowerShell telepítése az modulban](powershell-install-az-module.md)című témakör útmutatását.
 
 ```powershell
 
@@ -227,7 +232,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Adja meg manuálisan a NuGet-szolgáltatót a kapcsolat nélküli munkaállomáson. Útmutatásért lásd: [a NuGet-szolgáltató manuális betöltése olyan gépen, amely nem kapcsolódik az internethez](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a AzureRM és a `AzureStack` modulokat ebből a tárházból:
+4. Regisztrálja ezt a helyet alapértelmezett tárházként, és telepítse a Azure Resource Manager és `AzureStack` modulokat ebből a tárházból:
 
    ```powershell
    # requires -Version 5
@@ -273,9 +278,9 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
 
 ###  <a name="method-get_serializationsettings-error"></a>Metódus get_SerializationSettings hiba 
 
-- Ok: a PowerShell az Module és a PowerShell AzureRM modulok nem kompatibilisek.
+- Ok: a PowerShell az Module és a PowerShell Azure Resource Manager modulok nem kompatibilisek.
 
-    A következő hiba azt jelzi, hogy a AzureRM modulok és az az modulok betöltődik ugyanabban a munkamenetben: 
+    A következő hiba azt jelzi, hogy a Azure Resource Manager modulok és az az modulok betöltődik ugyanabban a munkamenetben: 
 
     ```powershell  
     >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
@@ -284,11 +289,11 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
 
 - Szervizelés: távolítsa el az ütköző modulokat. 
 
-  Ha a AzureRM-modulokat szeretné használni, távolítsa el az az modulokat. Vagy távolítsa el a AzureRM, ha az az modulokat szeretné használni. Zárjuk be a PowerShell-munkamenetet, és távolítsa el az az vagy a AzureRM modult. 
+  Ha a Azure Resource Manager modulokat szeretné használni, távolítsa el az az modulokat. Vagy távolítsa el a Azure Resource Manager, ha az az modulokat szeretné használni. Zárjuk be a PowerShell-munkamenetet, és távolítsa el az az vagy a Azure Resource Manager modult. 
   
   [Az Azure stack hub PowerShell-modulok meglévő verzióinak eltávolításához](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)útmutatást talál.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

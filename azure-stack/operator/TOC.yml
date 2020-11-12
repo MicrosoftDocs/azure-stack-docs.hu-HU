@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: Felügyeleti környezet beállítása
           items:
-            - name: A PowerShell-AzureRM telepítése
-              href: azure-stack-powershell-install.md
             - name: A PowerShell telepítése az
               href: powershell-install-az-module.md
+            - name: A PowerShell-AzureRM telepítése
+              href: azure-stack-powershell-install.md
             - name: PowerShell-AzureRM migrálása az az
               href: migrate-azurerm-az.md
             - name: Eszközök letöltése
@@ -211,7 +211,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: A biztonság konfigurálása
+        - name: Biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: Kibocsátási megjegyzések
               items:
+                - name: '2020 Q3 kibocsátási megjegyzések [szeptember 2020]'
+                  href: app-service-release-notes-2020-Q3.md
                 - name: '2020 Q2 kibocsátási megjegyzések [May2020]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: '8. frissítés kibocsátási megjegyzések [Jan2020]'

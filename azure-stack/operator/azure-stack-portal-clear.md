@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375095"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545091"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>A portál felhasználói adatainak törlése Azure Stack hub-ból
 
@@ -27,7 +27,7 @@ A portál felhasználói beállításainak eltávolítása csak a felhasználói
 
 ## <a name="requirements"></a>Követelmények
 
-- [Telepítse a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
+- [Telepítse a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 - [Töltse le a legújabb Azure stack hub-eszközöket](azure-stack-powershell-download.md) a githubról.
 - A felhasználói fióknak továbbra is léteznie kell a címtárban.
 - Azure Stack hub rendszergazdai hitelesítő adatai a rendszergazdai erőforrás-kezelő végpont eléréséhez.
@@ -43,7 +43,7 @@ A folytatás előtt győződjön meg arról, hogy az [Azure stack hub Tools leg�
 
 Ehhez az eljáráshoz használjon olyan számítógépet, amely képes kommunikálni Azure Stack hub felügyeleti erőforrás-kezelői végpontjának használatával.
 
-1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult:
+1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-** az könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult:
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -84,7 +84,7 @@ A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia
 
 ### <a name="user-retrieves-the-user-object-id"></a>A felhasználó lekéri a felhasználói objektum AZONOSÍTÓját
 
-1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult.
+1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-** az könyvtárban található gyökérmappa mappát, majd importálja a szükséges PowerShell-modult.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -114,7 +114,7 @@ A felhasználónak le kell kérdezni az objektumazonosítót, és meg kell adnia
 
 A felhasználói objektum AZONOSÍTÓjának Azure Stack hub-kezelőként való fogadása után futtassa a következő parancsokat a portál felhasználói adatértékének eltávolításához:
 
-1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-Master** könyvtár gyökérkönyvtárát, és importálja a szükséges PowerShell-modult.
+1. Nyisson meg egy emelt szintű Windows PowerShell-munkamenetet (Futtatás rendszergazdaként), nyissa meg a **AzureStack-Tools-** az könyvtárban található gyökérmappa mappát, majd importálja a szükséges PowerShell-modult.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1

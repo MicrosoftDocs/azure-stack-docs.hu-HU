@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: c0a077d8278361370a1781260c3f9c2bb2b11f55
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410606"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545768"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
 
@@ -63,7 +63,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
 1. Telepítse a **AzsReadinessChecker** -t egy PowerShell-parancssorból (5,1 vagy újabb) a következő parancsmag futtatásával:
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Hozza létre a tanúsítvány könyvtárának struktúráját. Az alábbi példában megváltoztathatja a `<C:\Certificates\Deployment>` kívánt új könyvtár elérési útját.
@@ -78,13 +78,13 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     ```
     
     > [!Note]  
-    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Például:
+    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Ilyenek többek között:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Például:  
+     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Ilyenek többek között:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -96,7 +96,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     Invoke-AzsHubDeploymentCertificateValidation -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Például:
+4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Ilyenek többek között:
 
     ```powershell
     Invoke-AzsHubDeploymentCertificateValidation v1.2005.1286.272 started.
@@ -148,7 +148,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
 
     ```
 
-    Ha más Azure Stack hub-szolgáltatásokhoz szeretne tanúsítványokat érvényesíteni, módosítsa a értékét ```-CertificateType``` . Például:
+    Ha más Azure Stack hub-szolgáltatásokhoz szeretne tanúsítványokat érvényesíteni, módosítsa a értékét ```-CertificateType``` . Ilyenek többek között:
 
     ```powershell  
     # App Services
@@ -211,9 +211,9 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Tünet**: a tesztek kimaradnak
+**Tünet** : a tesztek kimaradnak
 
-**OK**: a AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
+**OK** : a AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
 
  - A rendszer kihagyja a többi tanúsítványt, ha a tanúsítványlánc meghiúsul.
 
@@ -237,7 +237,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Megoldás**: kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
+**Megoldás** : kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
 
 ## <a name="certificates"></a>Tanúsítványok
 

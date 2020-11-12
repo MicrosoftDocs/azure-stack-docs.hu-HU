@@ -3,17 +3,17 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2019
+ms.lastreviewed: 10/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2be02c831b4e96e88e6bf8c108373d9ab2fc11cd
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 41279ef90060d4b6dae156c96c03bd01e1006a94
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364030"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543952"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -85,14 +85,14 @@ A forgatókönyv két részből áll:
 
   - Az Azure Stack hub üzembe helyezését regisztrálni kell az Azure-ban.
 
-  - Az internetkapcsolattal rendelkező számítógépnek **Azure stack hub PowerShell-moduljának 1.2.11 vagy újabb verziójával** kell rendelkeznie. Ha még nem létezik, [telepítse Azure stack Hub-specifikus PowerShell-modulokat](azure-stack-powershell-install.md).
+  - Az internetkapcsolattal rendelkező számítógépnek **Azure stack hub PowerShell-moduljának 1.2.11 vagy újabb verziójával** kell rendelkeznie. Ha még nem létezik, [telepítse Azure stack Hub-specifikus PowerShell-modulokat](powershell-install-az-module.md).
 
   - A letöltött Piactéri elem importálásának engedélyezéséhez konfigurálnia kell az [Azure stack hub operátor PowerShell-környezetét](azure-stack-powershell-configure-admin.md) .
 
 - Töltse le a **AZS. Syndication. admin** modult a PowerShell-Galéria a következő parancs használatával:
 
   ```powershell
-  Install-Module -Name Azs.Syndication.Admin
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
   
 - A .NET-keretrendszer 4,7-es vagy újabb verziója.
@@ -111,7 +111,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt `Add-AzureRmAccount` :
 
    ```powershell  
-   Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
+   Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
    ```
 
    A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
@@ -122,13 +122,13 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 3. Ha több előfizetéssel rendelkezik, a következő parancs futtatásával válassza ki a regisztrációhoz használtt:
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzSubscription
    ```
 
 4. Ha még nem tette meg az előfeltételek lépésben, töltse le a Marketplace Syndication eszköz legújabb verzióját:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. Az alábbi parancs futtatásával válassza ki a Piactéri elemeket (például a virtuálisgép-lemezképeket, a bővítményeket vagy a megoldási sablonokat) a letöltéshez:

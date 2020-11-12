@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 2941adf109f9e8c142523f607bce969427127ec3
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 1d12e1bf449a923e97d871d3971b97dbe19c2849
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813795"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546225"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack hub Key Vault titkok elérésének engedélyezése az alkalmazások számára
 
@@ -21,7 +21,7 @@ A cikkben ismertetett lépések azt ismertetik, hogy miként futtathatók a **He
 
 A következő előfeltételeket telepítheti a [Azure stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)vagy egy Windows-alapú külső ügyfélről, ha [VPN-kapcsolaton keresztül csatlakozik](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
 
-* Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
+* Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/powershell-install-az-module.md).
 * Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Key Vault létrehozása és alkalmazás regisztrálása
@@ -62,7 +62,7 @@ $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack Hub operator's PowerShell environment.
-Add-AzureRMEnvironment `
+Add-AzEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
 
@@ -71,7 +71,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzureRmAccount `
+Add-AzAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 
@@ -85,7 +85,7 @@ $identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().
 $homePage = "https://contoso.com"
 
 Write-Host "Creating a new AAD Application"
-$ADApp = New-AzureRmADApplication `
+$ADApp = New-AzADApplication `
   -DisplayName $applicationName `
   -HomePage $homePage `
   -IdentifierUris $identifierUri `
@@ -94,23 +94,23 @@ $ADApp = New-AzureRmADApplication `
   -Password $applicationPassword
 
 Write-Host "Creating a new AAD service principal"
-$servicePrincipal = New-AzureRmADServicePrincipal `
+$servicePrincipal = New-AzADServicePrincipal `
   -ApplicationId $ADApp.ApplicationId
 
 # Create a new resource group and a key vault in that resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroupName `
   -Location $location
 
 Write-Host "Creating vault $vaultName"
-$vault = New-AzureRmKeyVault -VaultName $vaultName `
+$vault = New-AzKeyVault -VaultName $vaultName `
   -ResourceGroupName $resourceGroupName `
   -Sku standard `
   -Location $location
 
 # Specify full privileges to the vault for the application.
 Write-Host "Setting access policy"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName `
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName `
   -ObjectId $servicePrincipal.Id `
   -PermissionsToKeys all `
   -PermissionsToSecrets all
@@ -126,11 +126,11 @@ Az alábbi képen a kulcstároló létrehozásához használt parancsfájl kimen
 
 ![Key Vault hozzáférési kulcsokkal](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-Jegyezze fel az előző szkript által visszaadott **VaultUrl**, **AuthClientId**és **AuthClientSecret** értékeket. Ezeket az értékeket használhatja a **HelloKeyVault** alkalmazás futtatásához.
+Jegyezze fel az előző szkript által visszaadott **VaultUrl** , **AuthClientId** és **AuthClientSecret** értékeket. Ezeket az értékeket használhatja a **HelloKeyVault** alkalmazás futtatásához.
 
 ## <a name="download-and-configure-the-sample-application"></a>A minta alkalmazás letöltése és konfigurálása
 
-Töltse le a Key Vault-mintát az Azure [Key Vault Client Samples](https://www.microsoft.com/download/details.aspx?id=45343) oldaláról. Bontsa ki a. zip-fájl tartalmát a fejlesztői munkaállomáson. A Samples mappában két alkalmazás található; Ez a cikk a **HelloKeyVault**-t használja.
+Töltse le a Key Vault-mintát az Azure [Key Vault Client Samples](https://www.microsoft.com/download/details.aspx?id=45343) oldaláról. Bontsa ki a. zip-fájl tartalmát a fejlesztői munkaállomáson. A Samples mappában két alkalmazás található; Ez a cikk a **HelloKeyVault** -t használja.
 
 A **HelloKeyVault** minta betöltése:
 
@@ -142,7 +142,7 @@ A **HelloKeyVault** minta betöltése:
 A Visual Studióban:
 
 1. Nyissa meg a HelloKeyVault\App.config fájlt, és keresse meg a `<appSettings>` elemet.
-2. Frissítse a **VaultUrl**, a **AuthClientId**és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint a App.config fájl helyőrzőt tartalmaz a következőhöz: `AuthCertThumbprint` . A helyőrzőt cserélje le a következőre: `AuthClientSecret` .
+2. Frissítse a **VaultUrl** , a **AuthClientId** és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint a App.config fájl helyőrzőt tartalmaz a következőhöz: `AuthCertThumbprint` . A helyőrzőt cserélje le a következőre: `AuthClientSecret` .
 
    ```xml
    <appSettings>
@@ -158,14 +158,14 @@ A Visual Studióban:
 
 ## <a name="run-the-app"></a>Az alkalmazás futtatása
 
-A **HelloKeyVault**futtatásakor az alkalmazás bejelentkezik az Azure ad-be, majd a `AuthClientSecret` token használatával hitelesíti a Azure stack hub kulcstartójában.
+A **HelloKeyVault** futtatásakor az alkalmazás bejelentkezik az Azure ad-be, majd a `AuthClientSecret` token használatával hitelesíti a Azure stack hub kulcstartójában.
 
 A **HelloKeyVault** minta a következőre használható:
 
 * Olyan alapszintű műveleteket hajthat végre, mint például a kulcsok és a titkos kódok létrehozása, titkosítása, becsomagolása és törlése.
-* Adja át a paramétereket `encrypt` , például a és `decrypt` a **HelloKeyVault**, és alkalmazza a megadott módosításokat egy kulcstartóra.
+* Adja át a paramétereket `encrypt` , például a és `decrypt` a **HelloKeyVault** , és alkalmazza a megadott módosításokat egy kulcstartóra.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése Key Vault-jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault tanúsítvánnyal rendelkező virtuális gép üzembe helyezése](azure-stack-key-vault-push-secret-into-vm.md)

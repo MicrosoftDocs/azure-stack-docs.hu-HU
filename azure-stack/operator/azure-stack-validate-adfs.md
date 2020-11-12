@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173998"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545681"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Azure Stack hub AD FS integrációjának ellenőrzése
 
@@ -51,14 +51,14 @@ A következő előfeltételeknek kell teljesülniük.
 A metaadatok alábbi formái közül legalább egy szükséges:
 
 - AD FS összevonási metaadatok URL-címe Például: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Az összevonási metaadatok XML-fájlja. Például: FederationMetadata. xml.
+* Az összevonási metaadatok XML-fájlja. Például: FederationMetadata.xml.
 
 ## <a name="validate-ad-fs-integration"></a>AD FS integráció ellenőrzése
 
 1. Egy olyan számítógépen, amely megfelel az előfeltételeknek, nyisson meg egy rendszergazdai PowerShell-parancssort, majd futtassa a következő parancsot a AzsReadinessChecker telepítéséhez:
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. A PowerShell-parancssorból futtassa a következő parancsot az érvényesítés indításához. A **-CustomADFSFederationMetadataEndpointUri** értéket a összevonási metaadatok URI azonosítójának megadásával adhatja meg.
@@ -94,20 +94,20 @@ A metaadatok alábbi formái közül legalább egy szükséges:
 
 ## <a name="report-and-log-file"></a>Jelentés és naplófájl
 
-A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. log** és a **AzsReadinessCheckerReport. JSON**fájlban. A fájlok helye a PowerShell érvényesítési eredményeivel jelenik meg.
+Minden alkalommal, amikor az érvényesítés lefut, az eredményeket a **AzsReadinessChecker. log** és **aAzsReadinessCheckerReport.js** bejegyzi. A fájlok helye a PowerShell érvényesítési eredményeivel jelenik meg.
 
 Az érvényesítési fájlok segítségével megoszthatja az állapotot az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés megadja az üzembe helyezési csoportnak az identitás konfigurációjának megerősítését. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájl íródik a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`következőre:.
+Alapértelmezés szerint mindkét fájl íródik a következőre: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\` .
 
 Használja
 
 * `-OutputPath`: A futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
-* `-CleanReport`: A Run parancs végén található paraméterrel törli a korábbi jelentési információk AzsReadinessCheckerReport. JSON fájlját. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
+* `-CleanReport`: A futtatási parancs végén található paraméterrel törölheti AzsReadinessCheckerReport.jsa korábbi jelentési információk alapján. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
-Ha egy érvényesítési ellenőrzés sikertelen, a hiba részletei megjelennek a PowerShell ablakban. Az eszköz az *AzsReadinessChecker. log naplófájlba*is naplózza az adatokat.
+Ha egy érvényesítési ellenőrzés sikertelen, a hiba részletei megjelennek a PowerShell ablakban. Az eszköz az *AzsReadinessChecker. log naplófájlba* is naplózza az adatokat.
 
 Az alábbi példák útmutatást nyújtanak a gyakori ellenőrzési hibákról.
 
@@ -117,15 +117,15 @@ Az alábbi példák útmutatást nyújtanak a gyakori ellenőrzési hibákról.
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**OK**: a PowerShell automatikus betöltése nem tudta megfelelően betölteni a készültség-ellenőrző modult.
+**OK** : a PowerShell automatikus betöltése nem tudta megfelelően betölteni a készültség-ellenőrző modult.
 
-**Megoldás**: explicit módon importálja a készültség-ellenőrző modult. Másolja és illessze be a következő kódot a PowerShellbe `<version>` , és frissítse az aktuálisan telepített verzió számával.
+**Megoldás** : explicit módon importálja a készültség-ellenőrző modult. Másolja és illessze be a következő kódot a PowerShellbe, és frissítse az `<version>` aktuálisan telepített verzió számával.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
 [Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

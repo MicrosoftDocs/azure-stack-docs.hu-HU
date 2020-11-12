@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 author: mattbriggs
 ms.topic: article
-ms.date: 8/4/2020
+ms.date: 10/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
-ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810796"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545142"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -22,7 +22,7 @@ Az Azure Stack hub a PowerShell használatával is konfigurálható olyan erőfo
 
 Futtassa a következő előfeltételeket a [Azure stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) vagy egy Windows-alapú külső ügyfélről, ha VPN- [kapcsolaton keresztül csatlakozik a ASDK](../asdk/asdk-connect.md#connect-with-vpn).
 
-- Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](azure-stack-powershell-install.md).  
+- Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](powershell-install-az-module.md).  
 - Töltse le az [Azure stack hub használatához szükséges eszközöket](azure-stack-powershell-download.md).  
 
 ## <a name="connect-with-azure-ad"></a>Az Azure AD-vel való kapcsolat
@@ -33,7 +33,7 @@ Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához f
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -53,7 +53,7 @@ Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure 
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -65,7 +65,7 @@ Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure 
 
 ## <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 
-Most, hogy mindent beállított, a PowerShell használatával hozzon létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup**nevű erőforráscsoportot.
+Most, hogy mindent beállított, a PowerShell használatával hozzon létre erőforrásokat Azure Stack hub-on belül. Létrehozhat például egy erőforráscsoportot az alkalmazáshoz, és hozzáadhat egy virtuális gépet. A következő parancs használatával hozzon létre egy **MyResourceGroup** nevű erőforráscsoportot.
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

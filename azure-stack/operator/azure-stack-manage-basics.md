@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488552"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543510"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -25,7 +25,7 @@ Azure Stack hub integrált rendszer használata esetén a frissítési csomagok 
  
 ### <a name="development-kit"></a>Fejlesztői csomag
 
-Ha a Azure Stack Development Kit (ASDK) használja, tekintse át a [Mi az Azure stack hub?](../asdk/asdk-what-is.md) című témakört, amelyből MEGISMERHETI a ASDK célját és korlátozásait. A ASDK *homokozóban*is használható, ahol kiértékelheti Azure stack hubot, és nem éles környezetben fejlesztheti és tesztelheti alkalmazásait. A központi telepítéssel kapcsolatos információkért lásd: [Azure stack Development Kit központi telepítés](../asdk/asdk-install.md).
+Ha a Azure Stack Development Kit (ASDK) használja, tekintse át a [Mi az Azure stack hub?](../asdk/asdk-what-is.md) című témakört, amelyből MEGISMERHETI a ASDK célját és korlátozásait. A ASDK *homokozóban* is használható, ahol kiértékelheti Azure stack hubot, és nem éles környezetben fejlesztheti és tesztelheti alkalmazásait. A központi telepítéssel kapcsolatos információkért lásd: [Azure stack Development Kit központi telepítés](../asdk/asdk-install.md).
 
 Az Azure-hoz hasonlóan a gyors innováció is. Rendszeresen kiadjuk az új buildeket. Ha a ASDK futtatja, és a legújabb buildre szeretne áttérni, újra kell [telepítenie Azure stack hubot](../asdk/asdk-redeploy.md). A frissítési csomagok nem alkalmazhatók. Ez a folyamat időt vesz igénybe, de az előnye, hogy kipróbálhatja a legújabb funkciókat. A webhelye ASDK dokumentációja a legújabb kiadás-összeállítást mutatja be.
 
@@ -39,7 +39,7 @@ Alapértelmezés szerint a Azure Stack hub a következő "alapszolgáltatásokat
 
 - Compute
 - Storage
-- Hálózat
+- Hálózatkezelés
 - Key Vault
 
 Ezekkel az alapszolgáltatásokkal minimális konfigurációval biztosíthat infrastruktúra-szolgáltatást (IaaS) a felhasználók számára.
@@ -114,7 +114,7 @@ ASDK-környezetben, ha a felhasználó nem használja Távoli asztal a ASDK-gazd
 
 A felhasználók tudni szeretnék, hogyan [érheti el a felhasználói portált](../user/azure-stack-use-portal.md) , vagy hogyan csatlakozhat a PowerShell-lel. Az integrált rendszerkörnyezetek esetében a felhasználói portál címe az üzemelő példányok számától függ. A megfelelő URL-címmel kell megadnia a felhasználóknak.
 
-A PowerShell használata esetén előfordulhat, hogy a felhasználóknak regisztrálniuk kell az erőforrás-szolgáltatókat, mielőtt használniuk tudják a szolgáltatásokat. Egy erőforrás-szolgáltató kezeli a szolgáltatást. A hálózati erőforrás-szolgáltató például olyan erőforrásokat kezel, mint a virtuális hálózatok, a hálózati adapterek és a terheléselosztó. [Telepíteniük](azure-stack-powershell-install.md) kell a PowerShellt, [le kell tölteniük](azure-stack-powershell-download.md) a további modulokat, és [be kell állítania](../user/azure-stack-powershell-configure-user.md) a PowerShellt (amely magában foglalja az erőforrás-szolgáltató
+A PowerShell használata esetén előfordulhat, hogy a felhasználóknak regisztrálniuk kell az erőforrás-szolgáltatókat, mielőtt használniuk tudják a szolgáltatásokat. Egy erőforrás-szolgáltató kezeli a szolgáltatást. A hálózati erőforrás-szolgáltató például olyan erőforrásokat kezel, mint a virtuális hálózatok, a hálózati adapterek és a terheléselosztó. [Telepíteniük](powershell-install-az-module.md) kell a PowerShellt, [le kell tölteniük](azure-stack-powershell-download.md) a további modulokat, és [be kell állítania](../user/azure-stack-powershell-configure-user.md) a PowerShellt (amely magában foglalja az erőforrás-szolgáltató
 
 **Előfizetés egy ajánlatra**
 
@@ -137,7 +137,7 @@ Minden más esetben lépjen kapcsolatba Microsoft ügyfélszolgálata.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack fejlesztői készlet (ASDK)
 
-A ASDK a támogatással kapcsolatos kérdéseket is megteheti a [Microsoft fórumokon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). A fórumok beszerzéséhez válassza a Súgó és támogatás ikont (kérdőjel) a felügyeleti portál jobb felső sarkában, majd válassza a **Súgó + támogatás**lehetőséget, majd válassza az MSDN- **fórumok** lehetőséget a **támogatás** szakaszban. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, a Microsoft CSS-ben nem érhető el hivatalos támogatás.
+A ASDK a támogatással kapcsolatos kérdéseket is megteheti a [Microsoft fórumokon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). A fórumok beszerzéséhez válassza a Súgó és támogatás ikont (kérdőjel) a felügyeleti portál jobb felső sarkában, majd válassza a **Súgó + támogatás** lehetőséget, majd válassza az MSDN- **fórumok** lehetőséget a **támogatás** szakaszban. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 ## <a name="next-steps"></a>Következő lépések
 

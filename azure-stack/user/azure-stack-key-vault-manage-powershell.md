@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580163"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546310"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Azure Stack hub Key Vault kezelése a PowerShell használatával
 
@@ -27,7 +27,7 @@ Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure St
 ## <a name="prerequisites"></a>Előfeltételek
 
 * Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Azure Key Vault szolgáltatást.
-* [Telepítse a powershellt Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+* [Telepítse a powershellt Azure stack hubhoz](../operator/powershell-install-az-module.md).
 * [Konfigurálja az Azure stack hub PowerShell-környezetét](azure-stack-powershell-configure-user.md).
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Bérlői előfizetés engedélyezése Key Vault műveletekhez
@@ -35,7 +35,7 @@ Ez a cikk bemutatja, hogyan hozhat létre és kezelhet egy kulcstartót Azure St
 Mielőtt bármilyen műveletet kiállít egy kulcstartón, gondoskodnia kell arról, hogy a bérlői előfizetés engedélyezve legyen a tár műveleteihez. Annak ellenőrzéséhez, hogy a Key Vault-műveletek engedélyezve vannak-e, futtassa a következő parancsot:
 
 ```powershell  
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
 Ha az előfizetése engedélyezve van a tár műveleteihez, a kimenet a kulcstartó összes **RegistrationState** **regisztrálva** jelenik meg.
@@ -45,7 +45,7 @@ Ha az előfizetése engedélyezve van a tár műveleteihez, a kimenet a kulcstar
 Ha a tár műveletei nincsenek engedélyezve, adja ki a következő parancsot a Key Vault szolgáltatás regisztrálásához az előfizetésében:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
 Ha a regisztráció sikeres, a rendszer a következő kimenetet adja vissza:
@@ -59,17 +59,17 @@ A Key Vault-parancsok meghívásakor előfordulhat, hogy hibaüzenetet kap, pél
 A kulcstartó létrehozása előtt hozzon létre egy erőforráscsoportot, hogy a kulcstartóhoz kapcsolódó összes erőforrás létezik egy erőforráscsoporthoz. Új erőforráscsoport létrehozásához használja a következő parancsot:
 
 ```powershell
-New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
+New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 ![Új erőforráscsoport létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Most a **New-AzureRMKeyVault** parancsmaggal hozzon létre egy Key vaultot a korábban létrehozott erőforráscsoport használatával. Ez a parancs három kötelező paramétert olvas: erőforráscsoport neve, kulcstároló neve és földrajzi hely.
+Most a **New-AzKeyVault** parancsmaggal hozzon létre egy Key vaultot a korábban létrehozott erőforráscsoport használatával. Ez a parancs három kötelező paramétert olvas: erőforráscsoport neve, kulcstároló neve és földrajzi hely.
 
 A Key Vault létrehozásához futtassa a következő parancsot:
 
 ```powershell
-New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 ![Új kulcstartó létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image4.png)
@@ -78,7 +78,7 @@ A parancs kimenete a létrehozott kulcstartó tulajdonságait jeleníti meg. Ami
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory összevonási szolgáltatások (AD FS) (AD FS) üzembe helyezése
 
-AD FS központi telepítés esetén a következő figyelmeztetés jelenik meg: "a hozzáférési szabályzat nincs beállítva. Egyetlen felhasználónak vagy alkalmazásnak nincs hozzáférési engedélye a tár használatára. " A probléma megoldásához állítson be egy hozzáférési házirendet a tárolóhoz a [**set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) parancs használatával:
+AD FS központi telepítés esetén a következő figyelmeztetés jelenik meg: "a hozzáférési szabályzat nincs beállítva. Egyetlen felhasználónak vagy alkalmazásnak nincs hozzáférési engedélye a tár használatára. " A probléma megoldásához állítson be egy hozzáférési házirendet a tárolóhoz a [**set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) parancs használatával:
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -86,7 +86,7 @@ $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>Kulcsok és titkos kódok kezelése
@@ -105,10 +105,10 @@ A `-Destination` paraméter használatával adható meg, hogy a kulcs szoftveres
 
 ![Új Key Vault-kulcs létrehozva a PowerShellben](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-Ezután hivatkozhat a létrehozott kulcsra az URI használatával. Ha olyan kulcsot hoz létre vagy importál, amelynek a neve megegyezik egy meglévő kulccsal, az eredeti kulcsot az új kulcsban megadott értékekkel frissíti a rendszer. A korábbi verziót a kulcs Version-specifikus URI-ja segítségével érheti el. Például:
+Ezután hivatkozhat a létrehozott kulcsra az URI használatával. Ha olyan kulcsot hoz létre vagy importál, amelynek a neve megegyezik egy meglévő kulccsal, az eredeti kulcsot az új kulcsban megadott értékekkel frissíti a rendszer. A korábbi verziót a kulcs Version-specifikus URI-ja segítségével érheti el. Ilyenek többek között:
 
-* A `https://vault10.vault.local.azurestack.external:443/keys/key01` használatával mindig megkapja az aktuális verziót.
-* Ezzel `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` a verzióval szerezheti be a megadott verziót.
+* `https://vault10.vault.local.azurestack.external:443/keys/key01`A használatával mindig megkapja az aktuális verziót.
+* `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a`Ezzel a verzióval szerezheti be a megadott verziót.
 
 ### <a name="get-a-key"></a>Kulcs lekérése
 
@@ -141,23 +141,23 @@ A kulcsok és a titkos kódok létrehozása után engedélyezheti a külső alka
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Kulcs vagy titkos kód használatának engedélyezése az alkalmazás számára
 
-A **set-AzureRmKeyVaultAccessPolicy** parancsmag használatával engedélyezheti, hogy egy alkalmazás hozzáférjen egy kulcshoz vagy titkos kulcshoz a kulcstartóban.
+A **set-AzKeyVaultAccessPolicy** parancsmag használatával engedélyezheti, hogy egy alkalmazás hozzáférjen egy kulcshoz vagy titkos kulcshoz a kulcstartóban.
 
-A következő példában a tár neve **ContosoKeyVault**, és az engedélyezni kívánt alkalmazás a **8F8C4BBD-485B-45FD-98F7-EC6300B7B4ED**ügyfél-azonosítója. Az alkalmazás engedélyezéséhez futtassa a következő parancsot. A **PermissionsToKeys** paramétert is megadhatja egy felhasználó, egy alkalmazás vagy egy biztonsági csoport engedélyeinek megadásához.
+A következő példában a tár neve **ContosoKeyVault** , és az engedélyezni kívánt alkalmazás a **8F8C4BBD-485B-45FD-98F7-EC6300B7B4ED** ügyfél-azonosítója. Az alkalmazás engedélyezéséhez futtassa a következő parancsot. A **PermissionsToKeys** paramétert is megadhatja egy felhasználó, egy alkalmazás vagy egy biztonsági csoport engedélyeinek megadásához.
 
-Ha a set-AzureRmKeyvaultAccessPolicy-t egy ADFS-ben konfigurált Azure Stack hub-környezettel használja, meg kell adni a BypassObjectIdValidation paramétert.
+Ha Set-AzKeyvaultAccessPolicy használ az ADFS-ben konfigurált Azure Stack hub-környezettel, meg kell adni a BypassObjectIdValidation paramétert.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 Ha engedélyezni szeretné, hogy ugyanaz az alkalmazás beolvassa a titkos kulcsokat a tárolóban, futtassa a következő parancsmagot:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Virtuális gép üzembe helyezése Key Vault tárolt jelszóval](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Virtuális gép üzembe helyezése Key Vault tárolt tanúsítvánnyal](azure-stack-key-vault-push-secret-into-vm.md)

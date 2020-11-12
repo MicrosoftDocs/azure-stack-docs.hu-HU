@@ -3,16 +3,16 @@ title: Fejlesztési környezet beállítása Azure Stack központban
 description: Ismerkedjen meg Azure Stack hub-alkalmazások fejlesztésével.
 author: mattbriggs
 ms.topic: overview
-ms.date: 7/23/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920678"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546123"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Fejlesztési környezet beállítása Azure Stack központban 
 
@@ -76,7 +76,7 @@ Ha Windows 10 rendszerű gépet használ, a PowerShell 5,0 és a Visual Studio s
 
 ### <a name="set-up-your-tools"></a>Az eszközök beállítása 
 
-1. Állítsa be a PowerShell használatával. Útmutatásért lásd: [Azure stack hub PowerShell telepítése](../operator/azure-stack-powershell-install.md). 
+1. Állítsa be a PowerShell használatával. Útmutatásért lásd: [Azure stack hub PowerShell telepítése](../operator/powershell-install-az-module.md). 
 
 2. Azure Stack hub-eszközök letöltése. Útmutatásért lásd: [Azure stack hub-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md). 
 

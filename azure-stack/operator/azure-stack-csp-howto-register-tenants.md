@@ -7,12 +7,12 @@ ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448571"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543816"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Bérlő hozzáadása a Azure Stack hubhoz való használathoz és számlázáshoz
 
@@ -52,22 +52,22 @@ Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner
 1. Nyisson meg egy emelt szintű parancssorban a Windows PowerShellt, és futtassa a következőket:  
 
    ```powershell
-   Add-AzureRmAccount
+   Add-AzAccount
    ```
 
    >[!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzureRmAccount**használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRmAccount-Scope Process` .
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzAccount** használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzAccount-Scope Process` .
 
 2. Adja meg az Azure-beli hitelesítő adatait.
 3. A PowerShell-munkamenetben futtassa a következőket:
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell-paraméterek
+### <a name="new-azresource-powershell-parameters"></a>New-AzResource PowerShell-paraméterek
 
-A következő szakasz a **New-AzureRmResource** parancsmag paramétereit ismerteti:
+A következő szakasz a **New-AzResource** parancsmag paramétereit ismerteti:
 
 | Paraméter | Leírás |
 | --- | --- |

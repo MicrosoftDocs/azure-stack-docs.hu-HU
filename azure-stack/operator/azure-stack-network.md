@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 915c0ec4a661bbc039a7dc4d40f72ed83d135915
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: dc9273ba215c819595099aa35e6b3487623f6cd2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545244"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Hálózatintegráció tervezése Azure Stackhez
 
@@ -27,12 +27,12 @@ Az Azure Stack megoldásnak egy rugalmas és magas rendelkezésre állású fizi
 
 ![Ajánlott Azure Stack hálózati kialakítás](media/azure-stack-network/physical-network.svg)
 
-## <a name="bandwidth-allocation"></a>Sávszélesség kiosztása
+### <a name="bandwidth-allocation"></a>Sávszélesség kiosztása
 
-Azure Stack hub a Windows Server 2019 feladatátvevő fürt és a közvetlen tárolóhelyek technológiájának használatával készült. Az Azure Stack hub fizikai hálózati konfigurációjának egy része a forgalom elkülönítését és a sávszélesség-garanciákat használja annak biztosítására, hogy a közvetlen tárolóhelyek kommunikációja megfeleljen a megoldás által igényelt teljesítménynek és méretnek. A hálózati konfiguráció forgalmi osztályokat használ a közvetlen tárolóhelyek elkülönítésére a Azure Stack hub-infrastruktúra és/vagy bérlő által a hálózat kihasználtsága által nyújtott RDMA-alapú kommunikációtól.
+Azure Stack hub a Windows Server 2019 feladatátvevő fürt és a közvetlen tárolóhelyek technológiájának használatával készült. A Azure Stack hub fizikai hálózati konfigurációjának egy része a forgalom elkülönítésének és a sávszélesség-garanciáknak a kihasználásával biztosítható, hogy a közvetlen tárolóhelyek kommunikációja megfeleljen a megoldás által igényelt teljesítménynek és méretnek. A hálózati konfiguráció forgalmi osztályokat használ a közvetlen tárolóhelyek elkülönítésére a Azure Stack hub-infrastruktúra és/vagy bérlő által a hálózat kihasználtsága által nyújtott RDMA-alapú kommunikációtól. A Windows Server 2019-hez definiált jelenlegi ajánlott eljárásokhoz való igazodás érdekében Azure Stack hub újabb forgalmi osztályt vagy prioritást használ a kiszolgáló és a kiszolgálók közötti kommunikáció további elkülönítéséhez a feladatátvételi fürtszolgáltatások közötti kommunikáció támogatásához. Az új forgalmi osztály definíciója úgy lesz konfigurálva, hogy az elérhető fizikai sávszélesség 2%-át lefoglalja. Ezt a forgalmi osztályt és sávszélesség-foglalási konfigurációt az Azure Stack hub-megoldás és a Azure Stack hub gazdagépén vagy kiszolgálóin lévő, a rack (ToR) kapcsolóinak változása hajtja végre. Vegye figyelembe, hogy a módosítások nem szükségesek az ügyfél szegélyének hálózati eszközein. Ezek a változások nagyobb rugalmasságot biztosítanak a feladatátvételi fürt kommunikációjához, és az olyan helyzetek elkerülésére szolgálnak, ahol a hálózati sávszélesség teljes mértékben felhasználható, és így a feladatátvételi fürt vezérlő üzenetei megszakadnak. Vegye figyelembe, hogy a feladatátvevő fürt kommunikációja az Azure Stack hub-infrastruktúra kritikus összetevője, és ha hosszú ideig megszakad, a közvetlen tárolóhelyek vagy más olyan szolgáltatások instabilitásához vezethetnek, amelyek végül hatással lesznek a bérlő vagy a végfelhasználói munkaterhelés stabilitására.
 
 > [!NOTE]
-> Azure Stack hub következő frissítése további forgalmi osztályt tartalmaz. A módosítás előkészítéseként a Microsoft azt javasolja, hogy forduljon az OEM-hez, és gondoskodjon arról, hogy a szükséges módosításokat megszervezze a rack (ToR) hálózati kapcsolókon. Ennek a ToR-változásnak a megkezdése előtt, vagy a következő kiadásra való frissítés után is elvégezhető.
+> A leírt módosítások a 2008-es kiadásban egy Azure Stack hub rendszer gazdagép szintjén lesznek hozzáadva. Kérje meg az OEM-t, hogy rendezze a szükséges módosításokat a ToR hálózati kapcsolókon. Ez a ToR-változás a 2008-es kiadásra való frissítés előtt vagy a 2008-es frissítés után végezhető el. A feladatátvevő fürt kommunikációjának javítása érdekében a ToR-kapcsolók konfigurációjának módosítása szükséges.
 
 ## <a name="logical-networks"></a>Logikai hálózatok
 
@@ -68,9 +68,9 @@ A HLH az üzembe helyezési virtuális gépet (DVM) is üzemelteti. A DVM Azure 
 
 Ez a/20 (4096 IP-cím) hálózat magán a Azure Stack régióban (nem a Azure Stack rendszer szegélyének kapcsoló eszközein halad át), és több alhálózatra van osztva, néhány példa:
 
-- **Storage Network**: egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
-- **Belső virtuális IP-hálózat**: a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
-- **Container Network**: a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
+- **Storage Network** : egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
+- **Belső virtuális IP-hálózat** : a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
+- **Container Network** : a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
 
 Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack hub-infrastruktúra futtatását a tárolókban. Emellett ez az új magánhálózati IP-terület lehetővé teszi, hogy a telepítés előtt csökkentse a szükséges irányítható IP-területet. Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket a telepítés előtt csökkentse a szükséges irányítható IP-területet. A magánhálózati IP-címekre vonatkozó útmutatásért javasoljuk, hogy kövesse az  [RFC 1918-es dokumentumot](https://tools.ietf.org/html/rfc1918).
 
@@ -79,7 +79,7 @@ A 1910 előtt üzembe helyezett rendszerek esetében ez a/20 alhálózat egy tov
 > [!NOTE]
 > A/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
 
-Javítási **lépések**: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS**üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
+Javítási **lépések** : a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS** üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
 
 ### <a name="azure-stack-infrastructure-network"></a>Infrastruktúra-hálózat Azure Stack
 

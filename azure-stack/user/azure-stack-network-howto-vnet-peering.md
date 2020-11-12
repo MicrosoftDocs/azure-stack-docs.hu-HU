@@ -1,22 +1,22 @@
 ---
-title: Két Azure Stack hub összekötése VNET-társításon keresztül
-description: Ismerje meg, hogyan csatlakoztatható két Azure Stack hub a VNET-társításon keresztül.
+title: Két Azure Stack hub-virtuális hálózatok összekötése
+description: Ismerkedjen meg a két Azure Stack hubok összekapcsolásával.
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 6ce27df08aeb885c6a04f97bb2b16292a6ffca96
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572527"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543391"
 ---
-# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>virtuális társhálózatok létesítése a Azure Stack hub virtuális gépekkel
+# <a name="vnet-to-vnet-connectivity-with-rras"></a>VNet-VNet kapcsolat létesítése az RRAS használatával
 
-Ugyanahhoz a Azure Stack hub-környezethez két Azure Stack hub-virtuális hálózatok is csatlakoztathat egymáshoz. Jelenleg nem lehet csatlakoztatni Azure Stack hub-virtuális hálózatok a beépített [Virtual Network átjáró](./azure-stack-network-differences.md)használatával. A két Azure Stack hub-virtuális hálózatok közötti VPN-alagút létrehozásához NVA-készülékeket kell használnia. Ebben a cikkben a sablonra vonatkozó hivatkozásokban két Windows Server 2016 virtuális gép van telepítve az RRAS szolgáltatással. A két RRAS-kiszolgáló úgy van konfigurálva, hogy S2SVPN IKEv2-alagutat hozzon létre két virtuális hálózatok között. A megfelelő NSG és UDR szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes **belső**VNET. 
+Ugyanahhoz a Azure Stack hub-környezethez két Azure Stack hub-virtuális hálózatok is csatlakoztathat egymáshoz. Jelenleg nem lehet csatlakoztatni Azure Stack hub-virtuális hálózatok a beépített [Virtual Network átjáró](./azure-stack-network-differences.md)használatával. A két Azure Stack hub-virtuális hálózatok közötti VPN-alagút létrehozásához NVA-készülékeket kell használnia. Ebben a cikkben a sablonra vonatkozó hivatkozásokban két Windows Server 2016 virtuális gép van telepítve az RRAS szolgáltatással. A két RRAS-kiszolgáló úgy van konfigurálva, hogy S2SVPN IKEv2-alagutat hozzon létre két virtuális hálózatok között. A megfelelő NSG és UDR szabályok úgy jönnek létre, hogy lehetővé tegyék az alhálózatok közötti útválasztást az egyes **belső** VNET. 
 
 Ez az üzembe helyezési minta az az alap, amely lehetővé teszi, hogy a VPN-alagutak ne csak Azure Stack hub-példányon belül jöjjenek létre, hanem Azure Stack hub-példányok és más erőforrások, például a Windows RRAS S2S VPN-alagutak használatát használó helyszíni hálózatok számára is. 
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d81f7bc0894ea204b9cd956f30e3f302747a6de6
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 39cb4e97c0a73b1299df3f84ce45d7f4db820262
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111437"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544258"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára
 
@@ -61,5 +61,5 @@ Elérhető egy [minta alias-fájl](https://raw.githubusercontent.com/Azure/azure
 ## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](../user/azure-stack-deploy-template-command-line.md )
-- [Kapcsolódás a PowerShell-lel](azure-stack-powershell-install.md)
+- [Kapcsolódás a PowerShell-lel](powershell-install-az-module.md)
 - [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)

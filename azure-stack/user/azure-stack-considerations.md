@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946462"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543561"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -41,7 +41,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 | Elérhető szolgáltatások | Tekintse meg az [Azure-termékek](https://azure.microsoft.com/services/?b=17.04b)listáját. Az elérhető szolgáltatások az Azure-régiótól eltérőek. | Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A tényleges szolgáltatások attól függően változnak, hogy a szervezet vagy a szolgáltató milyen ajánlatot tesz.
 | Azure Resource Manager végpont * | `https://management.azure.com` | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: `https://management.local.azurestack.external` .
 | Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: `https://portal.local.azurestack.external` .
-| Region | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi**lesz.
+| Régió | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi** lesz.
 | Erőforráscsoportok | Az erőforráscsoportok A régiókra terjedhetnek. | Mind az integrált rendszerek, mind a fejlesztői csomag esetében csak egy régió van.
 |Támogatott névterek, erőforrástípusok és API-verziók | A legújabb (vagy korábbi verziók, amelyek még nem elavultak). | Azure Stack hub bizonyos verziókat támogat. Tekintse meg a jelen cikk [verzióra vonatkozó követelmények](#version-requirements) című szakaszát.
 | | |
@@ -52,9 +52,9 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 
 A Microsoft olyan eszközöket és útmutatást biztosít, amelyek segítenek az Azure Stack hub fejlesztésében.
 
-| Ajánlás | Referencia |
+| Ajánlás | Hivatkozások |
 | -------- | ------------- |
-| Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - [A PowerShell telepítése](../operator/azure-stack-powershell-install.md)<br>- [Eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- [A PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- [A Visual Studio telepítése](azure-stack-install-visual-studio.md)
+| Telepítse a megfelelő eszközöket a fejlesztői munkaállomásra. | - [A PowerShell telepítése](../operator/powershell-install-az-module.md)<br>- [Eszközök letöltése](../operator/azure-stack-powershell-download.md)<br>- [A PowerShell konfigurálása](azure-stack-powershell-configure-user.md)<br>- [A Visual Studio telepítése](azure-stack-install-visual-studio.md)
 | Tekintse át a következő elemekre vonatkozó információkat:<br>– Azure Resource Manager a sablon szempontjait.<br>– Útmutató a Gyorsindítás sablonokhoz.<br>– Az Azure-ban Azure Stack hub fejlesztéséhez használható irányelvmodul segítségével. | [Fejlesztés Azure Stack hub-hoz](azure-stack-developer.md) |
 | Tekintse át és kövesse a sablonok ajánlott eljárásait. | [Resource Manager gyorsindítási sablonok](https://aka.ms/aa6yz42)
 | | |
@@ -68,14 +68,14 @@ Annak ellenőrzéséhez, hogy a Azure PowerShell megfelelő verzióját használ
 > [!NOTE]
 > Ha a Azure Stack Development Kit használja, és rendelkezik rendszergazdai hozzáféréssel, tekintse meg a [jelenlegi verzió meghatározása](../operator/azure-stack-updates.md) című szakaszt a Azure stack hub-Build meghatározásához.
 
-Más API-k esetén futtassa a következő PowerShell-parancsot a Azure Stack hub-előfizetés által támogatott névterek, erőforrástípusok és API-verziók kimenetének kinyomtatásához (a tulajdonságok szintjén továbbra is lehetnek különbségek). Ahhoz, hogy a parancs működjön, rendelkeznie kell egy Azure Stack hub-környezethez már [telepített](../operator/azure-stack-powershell-install.md) és [konfigurált](azure-stack-powershell-configure-user.md) PowerShell-lel. Azure Stack hub-ajánlathoz is előfizetéssel kell rendelkeznie.
+Más API-k esetén futtassa a következő PowerShell-parancsot a Azure Stack hub-előfizetés által támogatott névterek, erőforrástípusok és API-verziók kimenetének kinyomtatásához (a tulajdonságok szintjén továbbra is lehetnek különbségek). Ahhoz, hogy a parancs működjön, rendelkeznie kell egy Azure Stack hub-környezethez már [telepített](../operator/powershell-install-az-module.md) és [konfigurált](azure-stack-powershell-configure-user.md) PowerShell-lel. Azure Stack hub-ajánlathoz is előfizetéssel kell rendelkeznie.
 
 ```powershell
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Példa kimenetre (csonkolt): ![ példa a Get-AzureRmResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
+Példa kimenet (csonkolt): ![ példa Get-AzResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>Következő lépések
 

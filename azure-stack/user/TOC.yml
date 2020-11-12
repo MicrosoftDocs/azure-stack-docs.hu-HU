@@ -48,7 +48,7 @@
                 - name: Azure Stack hub PowerShell – áttekintés
                   href: azure-stack-powershell-overview.md
                 - name: Azure Stack hub PowerShell telepítése
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Kapcsolódás a PowerShell-lel
                   href: azure-stack-powershell-configure-user.md
@@ -189,6 +189,8 @@
                       href: network-virtual-appliance.md
                     - name: Helyek közötti kapcsolatok – problémamegoldás
                       href: site-to-site.md
+                - name: Virtual Network peering
+                  href: virtual-network-peering.md
                 - name: iDNS Azure Stack hub-hoz
                   href: azure-stack-understanding-dns.md
                 - name: DNS Azure Stack központban
@@ -301,19 +303,19 @@
       items:
         - name: Hálózati minták
           items:
-            - name: VNet-társítás virtuális gépekkel
-              href: azure-stack-network-howto-vnet-peering.md
             - name: Külső gyártótól származó NVA használata (Fortinet FortiGate NVA)
               items:
-                - name: VNet-társítás a FortiGate
+                - name: VNet VNet-kapcsolattal a FortiGate
                   href: azure-stack-network-howto-vnet-to-vnet.md
                 - name: VPN beállítása helyszíni rendszerre
                   href: azure-stack-network-howto-vnet-to-onprem.md
-                - name: VNET – VNET-kapcsolatok
+                - name: Azure Stack hub-példányok közötti kapcsolat VNet
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
             - name: Az RRAS használata
               items:
-                - name: Több helyek közötti VPN beállítása
+                - name: VNet-VNet kapcsolat létesítése az RRAS használatával
+                  href: azure-stack-network-howto-vnet-peering.md
+                - name: Több helyek közötti VPN-alagút beállítása
                   href: network-howto-vpn-tunnel.md
                 - name: VPN-alagút létrehozása (GRE)
                   href: network-howto-vpn-tunnel-gre.md

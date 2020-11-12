@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815138"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543595"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -201,16 +201,16 @@ A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja me
 
 Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a PowerShell segítségével számos figyelési megoldást engedélyezhet a Azure Stack hub-nal való integráláshoz.
 
-1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](azure-stack-powershell-install.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdai) végpontot ( https://adminmanagement . [ régió]. [External_FQDN]).
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](powershell-install-az-module.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdai) végpontot ( https://adminmanagement . [ régió]. [External_FQDN]).
 
 2. Futtassa a következő parancsokat az Azure Stack hub-környezethez Azure Stack hub-operátorként való kapcsolódáshoz:
 
    ```powershell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+   Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Használjon olyan parancsokat, mint például az alábbi példák a riasztásokkal való együttműködésre:

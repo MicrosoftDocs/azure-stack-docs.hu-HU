@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621316"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543935"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -33,7 +33,7 @@ A virtuális gép Marketplace-elemének létrehozása előtt tegye a következő
 
 Egyéni Piactéri elem létrehozásához tegye a következőket:
 
-1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack hub Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek**mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újra felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket az Azure Stack hub-portálon megjelenő elem termék adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
+1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack hub Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek** mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újra felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket az Azure Stack hub-portálon megjelenő elem termék adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
 
 2. Hozzon létre egy Azure Resource Manager sablont, vagy használja a Windows/Linux rendszerhez készült minta sablonokat. Ezek a sablonok az 1. lépésben letöltött csomagoló Tool. zip fájlban találhatók. Használhatja a sablont, és módosíthatja a szövegmezőket, vagy letöltheti az előre konfigurált sablont a GitHubról. Azure Resource Manager-sablonokkal kapcsolatos további információkért lásd: [Azure Resource Manager sablonok](/azure/azure-resource-manager/resource-group-authoring-templates).
 
@@ -111,7 +111,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     - (6) – a közzétevő jogi neve.
     - (7) – az egyes ikonok elérési útja és neve.
 
-5. Az **MS-Resource**értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
+5. Az **MS-Resource** értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
 
     ```json
     {
@@ -130,7 +130,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 8. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
 
-9. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis**, **közepes**, **nagy**és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
+9. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis** , **közepes** , **nagy** és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
 
     > [!NOTE]
     > A Piactéri elem megfelelő létrehozásához mind a négy ikon mérete (kis, közepes, nagy, széles) szükséges.
@@ -158,8 +158,8 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. Futtassa a következő szkriptet az erőforrás katalógusba történő importálásához:
@@ -169,9 +169,9 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
-5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az értéket lekérheti `GalleryItemURI` az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet**a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
+5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az értéket lekérheti `GalleryItemURI` az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet** a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
 
-   A katalógus-csomag befejezése és az **Add-AzsGalleryItem**használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
+   A katalógus-csomag befejezése és az **Add-AzsGalleryItem** használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
 
    [![Egyéni Marketplace-elemek feltöltve](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Egyéni Marketplace-elemek feltöltve")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
@@ -182,14 +182,14 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-7. A Piactéri elemeket a **Remove-AzureRMGalleryItem** parancsmag használatával távolíthatja el. Például:
+6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Ilyenek többek között:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
    > [!NOTE]
-   > Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása**alatt lehetőséget.
+   > Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása** alatt lehetőséget.
    >
    >
 
@@ -197,7 +197,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Name | Kötelező | Típus | Korlátozások | Leírás |
+| Név | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | Név |X |Sztring |[A-Za-z0-9] + | |
 | Publisher |X |Sztring |[A-Za-z0-9] + | |
@@ -205,7 +205,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="metadata"></a>Metaadatok
 
-| Name | Kötelező | Típus | Korlátozások | Leírás |
+| Név | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
@@ -218,7 +218,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Name | Szélesség | Magasság | Jegyzetek |
+| Név | Szélesség | Magasság | Jegyzetek |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -228,13 +228,13 @@ A piactér a következő ikonokat használja:
 
 ### <a name="categories"></a>Kategóriák
 
-Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja Azure Stack hub egyik meglévő kategóriáját (**számítás**, **adatok + tárolás**stb.), vagy választhat egy újat is.
+Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja Azure Stack hub egyik meglévő kategóriáját ( **számítás** , **adatok + tárolás** stb.), vagy választhat egy újat is.
 
 ### <a name="links"></a>Hivatkozások
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Name | Kötelező | Típus | Korlátozások | Leírás |
+| Név | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
@@ -243,7 +243,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Name | Kötelező | Típus | Korlátozások | Leírás |
+| Név | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Érték |X |Sztring |Legfeljebb 30 karakter. | |

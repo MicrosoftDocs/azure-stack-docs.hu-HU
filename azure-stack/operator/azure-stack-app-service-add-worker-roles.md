@@ -7,14 +7,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695325"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544734"
 ---
-# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása Azure App Service Azure Stack hub-ban
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása az Azure App Service-hez az Azure Stack Hubon
 
 Ez a dokumentum útmutatást nyújt az infrastruktúra és a feldolgozói szerepkörök méretezéséhez Azure App Service Azure Stack központban. Részletesen ismertetjük mindazokat a lépéseket, amelyek szükségesek a további feldolgozói szerepkörök létrehozásához bármilyen méretű alkalmazások támogatásához.
 
@@ -37,7 +37,7 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
+    Login-AzAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
@@ -50,11 +50,11 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
     $TotalCapacity = 2  
 
     # Get current scale set
-    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
 
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
-    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
    ```    
 
    > [!NOTE]
@@ -72,13 +72,13 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
 
     ![App Service az Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image01.png)
 
-3. Kattintson a **szerepkörök**elemre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
+3. Kattintson a **szerepkörök** elemre. Itt láthatja az összes telepített App Service-szerepkör részletezését.
 
-4. Kattintson a jobb gombbal a méretezni kívánt típus sorára, majd kattintson a **méretezési csoport**elemre.
+4. Kattintson a jobb gombbal a méretezni kívánt típus sorára, majd kattintson a **méretezési csoport** elemre.
 
     ![Méretezési csoport App Service szerepkörök a Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Kattintson a **skálázás**elemre, válassza ki a méretezni kívánt példányok számát, majd kattintson a **Mentés**gombra.
+5. Kattintson a **skálázás** elemre, válassza ki a méretezni kívánt példányok számát, majd kattintson a **Mentés** gombra.
 
     ![Példányok beállítása App Service szerepkörökre a Azure Stack hub felügyeleti portálján](media/azure-stack-app-service-add-worker-roles/image03.png)
 
@@ -93,8 +93,8 @@ Miután teljesen üzembe lettek és készen állnak, a dolgozók elérhetővé v
 ![A Azure Stack hub felügyeleti portál új App Service tervének díjszabása](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> A felügyeleti, az előtér-vagy a közzétevői szerepkörök felskálázásához kövesse ugyanezen lépéseket a megfelelő szerepkör típusának kiválasztásával. A vezérlők nem helyezhetők üzembe méretezési csoportként, ezért a telepítéskor a kettőt telepíteni kell az összes éles környezetben.
+> A felügyeleti, a kezelőfelületi vagy a közzétevői szerepkör horizontális felskálázásához kövesse ugyanazokat a lépéseket, a megfelelő szerepkör kiválasztásával. A vezérlők nem helyezhetők üzembe méretezési csoportként, ezért a telepítéskor kettőt kell üzembe helyezni az összes éles környezethez.
 
-### <a name="next-steps"></a>További lépések
+### <a name="next-steps"></a>Következő lépések
 
 [Központi telepítés forrásának konfigurálása](azure-stack-app-service-configure-deployment-sources.md)

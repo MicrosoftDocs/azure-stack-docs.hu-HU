@@ -7,12 +7,12 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: d6e8d9a6df51ec71b144ca5ae145acd3ae10a12c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544037"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
@@ -60,6 +60,21 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
    ![Csomópont hozzáadása – részletek](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+Csomópont hozzáadásához használja az **Add-AzsScaleUnitNode** parancsmagot.  
+
+Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node* ,  *name_of_scale_unit_cluster* , *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
+
+  > [!Note]  
+  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
+
+**Csomópont hozzáadása:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
 Csomópont hozzáadásához használja a **New-AzsScaleUnitNodeObject** parancsmagot.  
@@ -75,21 +90,6 @@ Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélj
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-Csomópont hozzáadásához használja az **Add-AzsScaleUnitNode** parancsmagot.  
-
-Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node* ,  *name_of_scale_unit_cluster* , *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
-
-  > [!Note]  
-  > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
-
-**Csomópont hozzáadása:**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---
@@ -115,7 +115,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 |Állapot               |Leírás  |
 |---------------------|---------|
-|Futó              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
+|Fut              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva              |A skálázási egység csomópontja vagy le van zárva, vagy nem érhető el.|
 |Bővülő            |Egy vagy több méretezési egység csomópontja jelenleg számítási kapacitásként van hozzáadva.|
 |Tároló konfigurálása  |A számítási kapacitás ki lett bontva, és a tárolási konfiguráció fut.|
@@ -126,7 +126,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 |Állapot                |Leírás  |
 |----------------------|---------|
-|Futó               |A csomópont aktívan részt vesz a skálázási egységben.|
+|Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
 |Javítása             |A csomópont aktívan javítás alatt áll.|
@@ -150,5 +150,5 @@ A csomópontok hozzáadásakor a következő gyakori problémák észlelhetők.
 - Szervizelés: ebben az esetben a tárolási konfigurációs feladat meghiúsult. Ehhez a problémához kapcsolatba kell lépnie a támogatási szolgálattal.
 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 [Nyilvános IP-címek hozzáadása](azure-stack-add-ips.md) 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub Readiness-ellenőrzővel ellenőrizheti Azure Stack hub Graph-integrációját.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1abb44838e0c70764d08a4aa47a0fdf73660072d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173843"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545601"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Azure Stack hub gráf-integrációjának ellenőrzése
 
@@ -56,16 +56,16 @@ A következő előfeltételeknek kell teljesülniük.
 1. Egy olyan számítógépen, amely megfelel az előfeltételeknek, nyisson meg egy rendszergazdai PowerShell-parancssort, majd futtassa a következő parancsot a AzsReadinessChecker telepítéséhez:
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
-1. A PowerShell-parancssorból futtassa a következő parancsot a *$graphCredential* változónak a Graph-fiókhoz való beállításához. Cserélje `contoso\graphservice` le a t a fiókra `domain\username` a formátum használatával.
+1. A PowerShell-parancssorból futtassa a következő parancsot a *$graphCredential* változónak a Graph-fiókhoz való beállításához. Cserélje le a `contoso\graphservice` t a fiókra a `domain\username` formátum használatával.
 
     ```powershell
     $graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"
     ```
 
-1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A értéket az erdő `-ForestFQDN` gyökeréhez tartozó FQDN értékként kell megadni.
+1. A PowerShell-parancssorból futtassa a következő parancsot a Graph szolgáltatás érvényesítésének megkezdéséhez. A értéket az erdő gyökeréhez tartozó FQDN értékként kell megadni `-ForestFQDN` .
 
     ```powershell
     Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential
@@ -99,22 +99,22 @@ A következő előfeltételeknek kell teljesülniük.
 
 ## <a name="report-and-log-file"></a>Jelentés és naplófájl
 
-A rendszer minden alkalommal futtatja az eredményeket a **AzsReadinessChecker. log** és a **AzsReadinessCheckerReport. JSON**fájlban. A fájlok helye a PowerShell érvényesítési eredményeivel jelenik meg.
+Minden alkalommal, amikor az érvényesítés lefut, az eredményeket a **AzsReadinessChecker. log** és **aAzsReadinessCheckerReport.js** bejegyzi. A fájlok helye a PowerShell érvényesítési eredményeivel jelenik meg.
 
 Az érvényesítési fájlok segítségével megoszthatja az állapotot az Azure Stack hub üzembe helyezése vagy az érvényesítési problémák vizsgálata előtt. Mindkét fájl megőrzi az összes további érvényesítési ellenőrzés eredményét. A jelentés megadja az üzembe helyezési csoportnak az identitás konfigurációjának megerősítését. A naplófájl segítséget nyújthat az üzembe helyezéshez vagy a támogatási csoporthoz az érvényesítési problémák kivizsgálásához.
 
-Alapértelmezés szerint mindkét fájl íródik a `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`következőre:.
+Alapértelmezés szerint mindkét fájl íródik a következőre: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\` .
 
 Használja
 
 * `-OutputPath`: A futtatási parancs végén található *path* paraméter egy másik jelentés helyének megadásához.
-* `-CleanReport`: A Run parancs végén található paraméterrel törli a korábbi jelentési információk *AzsReadinessCheckerReport. JSON* fájlját. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
+* `-CleanReport`: A futtatási parancs végén található paraméterrel törölheti *AzsReadinessCheckerReport.jsa* korábbi jelentési információk alapján. További információ: [Azure stack hub-ellenőrzési jelentés](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Érvényesítési hibák
 
-Ha egy érvényesítési ellenőrzés sikertelen, a hiba részletei megjelennek a PowerShell ablakban. Az eszköz az *AzsGraphIntegration. log naplófájlba*is naplózza az adatokat.
+Ha egy érvényesítési ellenőrzés sikertelen, a hiba részletei megjelennek a PowerShell ablakban. Az eszköz az *AzsGraphIntegration. log naplófájlba* is naplózza az adatokat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A készültségi jelentés megtekintése](azure-stack-validation-report.md)  
 [Általános Azure Stack hub integrációs szempontjai](azure-stack-datacenter-integration.md)  

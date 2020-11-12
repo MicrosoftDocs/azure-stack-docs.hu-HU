@@ -3,16 +3,16 @@ title: Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 description: Hozza létre az ASK motor Azure Stack hub-on való futtatásának követelményeit.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573802"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543527"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 
@@ -46,8 +46,8 @@ Megadhatja a következő elemeket.
 | Titkos nyilvános kulcs | Ha nyílt SSH-kapcsolattal szeretné használni a fejlesztői gépről a webalkalmazást futtató Azure Stack hub-példányban található kiszolgálói virtuális gépre, létre kell hoznia egy Secure Shell (SSH) nyilvános és titkos kulcspárt. | Kötelező | A kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása](./azure-stack-dev-start-howto-ssh-public-key.md).|
 
 
-> [!NOTE]  
-> Az AK-motor előfeltételeit az Azure CLI-vel is létrehozhatja [Azure stack hub](./azure-stack-version-profiles-azurecli2.md) vagy [Azure stack hub PowerShell](../operator/azure-stack-powershell-install.md)számára.
+> [!Note]  
+> Az AK-motor előfeltételeit az Azure CLI-vel is létrehozhatja [Azure stack hub](./azure-stack-version-profiles-azurecli2.md) vagy [Azure stack hub PowerShell](../operator/powershell-install-az-module.md)számára.
 
 ## <a name="matching-engine-to-base-image-version"></a>Illeszkedő motor az alaprendszerkép verziójához
 

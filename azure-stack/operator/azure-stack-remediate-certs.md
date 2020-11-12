@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
-ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94493630"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545345"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványokkal kapcsolatos gyakori problémák elhárítása
 
@@ -105,7 +105,7 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    $PSVersionTable.PSVersion
    ```
 
-- Konfigurálja [a powershellt Azure stack hubhoz](azure-stack-powershell-install.md).
+- Konfigurálja [a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 - Töltse le az [Azure stack hub Readiness-ellenőrző](https://aka.ms/AzsReadinessChecker) eszköz legújabb verzióját.
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>Meglévő PFX-fájl importálása és exportálása
@@ -113,7 +113,7 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
 1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort az előfeltételeket teljesítő számítógépeken, majd futtassa a következő parancsot az Azure Stack hub Readiness-ellenőrző telepítéséhez:
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
 2. A PowerShell-parancssorból futtassa a következő parancsmagot a PFX-jelszó megadásához. Ha a rendszer kéri, adja meg a jelszót:
@@ -144,6 +144,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [További információ a Azure Stack hub biztonságáról](azure-stack-rotate-secrets.md)

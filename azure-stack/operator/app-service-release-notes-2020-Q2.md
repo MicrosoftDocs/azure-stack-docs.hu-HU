@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489742"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544717"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
 
@@ -53,13 +53,13 @@ Mielőtt megkezdené a Azure App Service frissítését a Azure Stack a 2020 Q2-
 
 A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javításokat és javításokat tartalmazza:
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök** frissítései. Konzisztens a Azure Stack Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.13021**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.13021** frissítése.
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései** :
   - ASP.NET-keretrendszer 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core v2 13.1.19331.0 modul
@@ -76,13 +76,13 @@ A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javít�
     - 6.12.0
     - 6.13.4
   
-- Az **összes szerepkör mögöttes operációs rendszerének frissítései**:
+- Az **összes szerepkör mögöttes operációs rendszerének frissítései** :
   - [2020-04 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4550929)](https://support.microsoft.com/help/4550929)
   - [2020-04 karbantartási verem frissítése a Windows Server 2016 x64-alapú rendszerekhez (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **A Windows Server összegző frissítései mostantól a központi telepítés és a frissítés részeként lesznek alkalmazva a vezérlő szerepköreire**
 
-- Az **alapértelmezett virtuális gép és a méretezési csoport frissítése az új központi telepítésekhez**: a nyilvános felhőalapú szolgáltatással való konzisztencia fenntartása érdekében a Azure app Service új központi telepítései a Azure stack hub-on a következő SKU-ket fogják használni az erőforrás-szolgáltató üzemeltetéséhez használt mögöttes gépek és méretezési csoportok számára.
+- Az **alapértelmezett virtuális gép és a méretezési csoport frissítése az új központi telepítésekhez** : a nyilvános felhőalapú szolgáltatással való konzisztencia fenntartása érdekében a Azure app Service új központi telepítései a Azure stack hub-on a következő SKU-ket fogják használni az erőforrás-szolgáltató üzemeltetéséhez használt mögöttes gépek és méretezési csoportok számára.
   
   | Szerepkör | Minimális SKU |
   | --- | --- |
@@ -131,8 +131,9 @@ Az ügyfeleknek a következő szkriptet kell végrehajtaniuk a appservice_hostin
 
 A szkriptnek a következő feltételekkel kell futnia
 
-1. Rendszergazda jogosultsággal rendelkező felhasználó, például az SQL SA-fiók;
-1. Ha az SQL always on szolgáltatást használja, győződjön meg arról, hogy az SQL-példányon fut a parancsfájl, amely tartalmazza az összes App Service bejelentkezést az űrlapon:
+- Rendszergazda jogosultsággal rendelkező felhasználó, például az SQL SA-fiók;
+- Ha az SQL always on szolgáltatást használja, győződjön meg arról, hogy az SQL-példányon fut a parancsfájl, amely tartalmazza az összes App Service bejelentkezést az űrlapon:
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

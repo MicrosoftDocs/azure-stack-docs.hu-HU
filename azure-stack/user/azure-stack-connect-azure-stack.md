@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631399"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545756"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
@@ -26,7 +26,7 @@ Egy Távoli asztali kapcsolat egyetlen egyidejű felhasználó együttműködik 
 
 1. Nyisson meg egy Távoli asztali kapcsolat, és kapcsolódjon a fejlesztői csomaghoz. Adja meg a **AzureStack\AzureStackAdmin** nevet és a Azure stack hub telepítésekor megadott rendszergazdai jelszót.  
 
-2. A fejlesztői készlet számítógépén nyissa meg a Kiszolgálókezelő eszközt, kattintson a **helyi kiszolgáló**elemre, kapcsolja ki az Internet Explorer fokozott biztonsági szolgáltatását, majd a Kiszolgálókezelő elemet.
+2. A fejlesztői készlet számítógépén nyissa meg a Kiszolgálókezelő eszközt, kattintson a **helyi kiszolgáló** elemre, kapcsolja ki az Internet Explorer fokozott biztonsági szolgáltatását, majd a Kiszolgálókezelő elemet.
 
 3. A portál megnyitásához lépjen a be, `https://portal.local.azurestack.external/` és jelentkezzen be a felhasználói hitelesítő adatok használatával.
 
@@ -40,7 +40,7 @@ Létrehozhat egy megosztott bújtatási VPN-kapcsolatot egy Azure Stack Developm
 
 ### <a name="prerequisites"></a>Előfeltételek
 
-* Telepítse [Azure stack hub-kompatibilis Azure PowerShell](../operator/azure-stack-powershell-install.md) a helyi számítógépre.  
+* Telepítse [Azure stack hub-kompatibilis Azure PowerShell](../operator/powershell-install-az-module.md) a helyi számítógépre.  
 * Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md). 
 
 ### <a name="configure-vpn-connectivity"></a>VPN-kapcsolat konfigurálása
@@ -93,7 +93,7 @@ Kapcsolódjon az Azure Stack hub-példányhoz a következő két módszer egyik�
 
   Amikor a rendszer kéri, bízza a Azure Stack hub-gazdagépet, és telepítse a tanúsítványt a **AzureStackCertificateAuthority** -ből a helyi számítógép tanúsítványtárolóba. Előfordulhat, hogy a parancssor a PowerShell-munkamenet ablaka mögött jelenik meg. 
 
-* A helyi számítógépen lépjen a **hálózati beállítások**  >  **VPN** > válassza a `azurestack`  >  **Csatlakozás**lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
+* A helyi számítógépen lépjen a **hálózati beállítások**  >  **VPN** > válassza a `azurestack`  >  **Csatlakozás** lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (AzureStack\AzureStackAdmin) és a jelszót.
 
 ### <a name="test-the-vpn-connectivity"></a>A VPN-kapcsolat tesztelése
 

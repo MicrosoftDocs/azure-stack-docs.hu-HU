@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488620"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544190"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -74,8 +74,8 @@ Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely
 Igény szerint létrehozhat egy fiókot a Graph szolgáltatáshoz a meglévő Active Directoryban. Akkor hajtsa végre ezt a lépést, ha még nem rendelkezik a használni kívánt fiókkal.
 
 1. A meglévő Active Directory hozza létre a következő felhasználói fiókot (javaslat):
-   - **Felhasználónév**: graphservice
-   - **Jelszó**: Használjon erős jelszót, és konfigurálja a jelszót, hogy soha ne járjon le.
+   - **Felhasználónév** : graphservice
+   - **Jelszó** : Használjon erős jelszót, és konfigurálja a jelszót, hogy soha ne járjon le.
 
    Nincs szükség különleges engedélyekre vagy tagságra.
 
@@ -87,16 +87,26 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Most, hogy csatlakozott a Kiemelt végponthoz, futtassa a következő parancsot: 
+2. Most, hogy már rendelkezik egy, a privilegizált végponttal rendelkező munkamenettel, futtassa a következő parancsot: 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
-   Ha a rendszer kéri, válassza ki a Graph szolgáltatáshoz használni kívánt felhasználói fiók hitelesítő adatait (például graphservice). A Register-DirectoryService parancsmag bemenetének az erdő erdő neve/legfelső tartományának kell lennie, nem pedig az erdőben lévő többi tartománynak.
+   Ha a rendszer kéri, válassza ki a Graph szolgáltatáshoz használni kívánt felhasználói fiók hitelesítő adatait (például graphservice). Az Register-DirectoryService parancsmag bemenetének az erdőben lévő erdő neve/legfelső tartományának kell lennie, nem pedig az erdő többi tartományának.
 
    > [!IMPORTANT]
    > Várjon, amíg a hitelesítő adatok előugró ablaka (a lekéréses hitelesítő adatok nem támogatottak a privilegizált végponton), és adja meg a Graph szolgáltatás fiókjának hitelesítő adatait.
@@ -105,8 +115,8 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
 
    |Paraméter|Leírás|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Megadja, hogy a rendszer a javasolt gyökértartomány helyett gyermektartomány használatát használja.|
-   |`-Force`|Az összes ellenőrzési ellenőrzés mellőzése.|
+   |`SkipRootDomainValidation`|Megadja, hogy a rendszer a javasolt gyökértartomány helyett gyermektartomány használatát használja.|
+   |`ValidateParameters`|Az összes ellenőrzési ellenőrzés mellőzése.|
 
 #### <a name="graph-protocols-and-ports"></a>Graph protokollok és portok
 

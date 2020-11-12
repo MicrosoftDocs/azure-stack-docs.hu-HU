@@ -3,16 +3,16 @@ title: Azure Stack hub-eszközök letöltése a GitHubról
 description: Megtudhatja, hogyan töltheti le az Azure Stack hub használatához szükséges eszközöket.
 author: mattbriggs
 ms.topic: article
-ms.date: 8/28/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 023e04d807ff34f78bd4acbc68487e8893831ba4
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363731"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545057"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Azure Stack hub-eszközök letöltése a GitHubról
 
@@ -74,7 +74,7 @@ Az Azure Stack hub AzureRM moduljának használatával kapcsolatos további info
 
 
 
-További információ az az modul Azure Stack hub-hoz való használatáról: a [PowerShell telepítése az előnézet modul for Azure stack hub](powershell-install-az-module.md).
+---
 
 ---
 
@@ -88,7 +88,7 @@ A **AzureStack-Tools** adattár PowerShell-modulokkal rendelkezik, amelyek támo
 | [Resource Manager-szabályzat Azure Stack hubhoz](../user/azure-stack-policy-module.md) | Ezzel a modullal konfigurálhat egy Azure-előfizetést vagy egy Azure-erőforráscsoportot ugyanazzal a verziószámozással és szolgáltatással, mint Azure Stack hub. | Felhőalapú operátorok és felhasználók |
 | [Regisztrálás az Azure-ban](azure-stack-registration.md ) | Ezzel a modullal regisztrálhat ASDK-példányát az Azure-ban. A regisztráció után letöltheti az Azure Marketplace-elemeket Azure Stack központban. | Felhőbeli operátorok |
 | [Azure Stack hub üzembe helyezése](../asdk/asdk-install.md) | Ezzel a modullal előkészítheti az Azure Stack hub-gazdaszámítógépet az Azure Stack hub virtuális merevlemez (VHD) lemezképének használatával történő üzembe helyezéséhez és újbóli üzembe helyezéséhez. | Felhőbeli operátorok|
-| [Csatlakozás Azure Stack hubhoz](azure-stack-powershell-install.md) | Ezzel a modullal konfigurálhatja a VPN-kapcsolatot Azure Stack hubhoz. | Felhőalapú operátorok és felhasználók |
+| [Csatlakozás Azure Stack hubhoz](azure-stack-powershell-configure-admin.md) | Ezzel a modullal konfigurálhatja a VPN-kapcsolatot Azure Stack hubhoz. | Felhőalapú operátorok és felhasználók |
 | [Sablon-érvényesítő](../user/azure-stack-validate-templates.md) | Ezzel a modullal ellenőrizheti, hogy van-e telepítve meglévő vagy új sablon Azure Stack hubhoz. | Felhőalapú operátorok és felhasználók|
 
 ## <a name="next-steps"></a>Következő lépések

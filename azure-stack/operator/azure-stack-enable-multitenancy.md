@@ -3,16 +3,16 @@ title: Több-bérlő konfigurálása Azure Stack központban
 description: Megtudhatja, hogyan engedélyezheti és tilthatja le több Azure Active Directory bérlőt Azure Stack hub-ban.
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291209"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544224"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Több-bérlő konfigurálása Azure Stack központban
 
@@ -31,8 +31,8 @@ Ha Ön egy felhőalapú megoldás-szolgáltató (CSP), akkor további módon [ko
 A Azure Stack hub-beli több bérlő konfigurálása előtt néhány előfeltételt kell figyelembe vennie:
   
  - Önnek és Mary-nek koordinálnia kell a felügyeleti lépéseket mind a Directory Azure Stack hub (contoso), mind a Guest Directory (Fabrikam) között.
- - Győződjön meg arról, hogy [telepítette](azure-stack-powershell-install.md) és [konfigurálta](azure-stack-powershell-configure-admin.md) a PowerShellt Azure stack hubhoz.
- - [Töltse le az Azure stack hub-eszközöket](azure-stack-powershell-download.md), és importálja az Identity modulokat:
+ - Győződjön meg arról, hogy [telepítette](powershell-install-az-module.md) és [konfigurálta](azure-stack-powershell-configure-admin.md) a PowerShellt Azure stack hubhoz.
+ - [Töltse le az Azure stack hub-eszközöket](azure-stack-powershell-download.md), és importálja a csatlakozási és Identity modulokat:
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1

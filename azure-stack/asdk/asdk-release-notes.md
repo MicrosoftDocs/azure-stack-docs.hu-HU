@@ -3,22 +3,33 @@ title: ASDK kibocsátási megjegyzései
 description: A Azure Stack Development Kit (ASDK) javításai, javításai és ismert problémái.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6bbbc76acd38984924c454c26204f1edb0d68142
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543408"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
 Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon ellenőrizze a](../operator/azure-stack-updates.md)következőt:.
 
 Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)való feliratkozással naprakész maradhat a ASDK újdonságai.
+
+::: moniker range="azs-2008"
+## <a name="build-120081388"></a>1.2008.13.88 létrehozása
+
+### <a name="new-features"></a>Új funkciók
+
+- Az ebben a kiadásban rögzített problémák, változások és új funkciók listáját a [Azure stack kibocsátási megjegyzései](../operator/release-notes.md)című szakaszban találja.
+
+### <a name="fixed-and-known-issues"></a>Rögzített és ismert problémák
+
+::: moniker-end
 
 ::: moniker range="azs-2005"
 ## <a name="build-12005040"></a>1.2005.0.40 létrehozása
@@ -73,7 +84,6 @@ Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára
 ::: moniker-end
 
 ::: moniker range="azs-1910"
-
 ## <a name="build-11910058"></a>1.1910.0.58 létrehozása
 
 ### <a name="new-features"></a>Új funkciók

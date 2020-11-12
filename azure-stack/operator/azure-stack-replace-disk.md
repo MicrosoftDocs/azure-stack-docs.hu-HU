@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367846"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545380"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Azure Stack hub fizikai lemezének cseréje
 
@@ -48,7 +48,7 @@ A lemez cseréje után Azure Stack hub automatikusan felfedi az új lemezt, és 
 
 A lemez cseréje után megfigyelheti a virtuális lemez állapotának állapotát, és javíthatja a feladatok előrehaladását Azure Stack hub PowerShell használatával.
 
-1. Győződjön meg arról, hogy telepítve van Azure Stack hub PowerShell. További információ: a [PowerShell telepítése Azure stack hubhoz](azure-stack-powershell-install.md).
+1. Győződjön meg arról, hogy telepítve van Azure Stack hub PowerShell. További információ: a [PowerShell telepítése Azure stack hubhoz](powershell-install-az-module.md).
 2. Kapcsolódjon Azure Stack hubhoz a PowerShell-lel kezelőként. További információ: [kapcsolódás Azure stack hubhoz a PowerShell-lel kezelőként](azure-stack-powershell-configure-admin.md).
 3. Futtassa a következő parancsmagokat a virtuális lemez állapotának és javítási állapotának ellenőrzéséhez:
 
@@ -90,7 +90,7 @@ A lemez cseréje után nyomon követheti a virtuális lemez állapotának állap
         Get-VirtualDisk -CimSession s-cluster
     ```
 
-   ![A Get-VirtualDisk parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Get-VirtualDisk parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Futtassa a következő parancsot a tárolási feladatok aktuális állapotának megtekintéséhez:
 
@@ -98,7 +98,7 @@ A lemez cseréje után nyomon követheti a virtuális lemez állapotának állap
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
 
-    ![A Get-StorageJob parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+    ![Get-StorageJob parancs PowerShell-kimenete](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 4. A Azure Stack hub rendszerállapotának ellenőrzése. Útmutatásért lásd: [Azure stack hub rendszer állapotának ellenőrzése](azure-stack-diagnostic-test.md).
 

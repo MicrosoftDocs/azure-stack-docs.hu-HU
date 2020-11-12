@@ -3,16 +3,16 @@ title: Tárolási kapacitás kezelése Azure Stack központban
 description: Megtudhatja, hogyan figyelheti és kezelheti a tárolási kapacitást és a rendelkezésre állást Azure Stack hub-ban.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 5c43988ff39e0e87c1faeda43245df2a3130e008
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415334"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545499"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -20,7 +20,7 @@ Ez a cikk segítséget nyújt Azure Stack a központi felhőalapú üzemeltetők
 
 Felhőbeli operátorként korlátozott mennyiségű tárterülettel dolgozhat a szolgáltatással. A tárterület mennyiségét az Ön által megvalósított megoldás határozza meg. A megoldást a SZÁMÍTÓGÉPGYÁRTÓ gyártója adja meg többcsomópontos megoldás használata esetén, vagy azt a hardver adja meg, amelyre telepíti a Azure Stack Development Kit (ASDK).
 
-Az Azure Stack hub csak a tárolási kapacitás bővítését támogatja további skálázási egység csomópontjainak hozzáadásával. További információ: [további skálázási egységekkel rendelkező csomópontok hozzáadása Azure stack hub-ban](azure-stack-add-scale-node.md). A physcial lemezek hozzáadása a csomópontokhoz nem bővíti a tárolókapacitást.
+Az Azure Stack hub csak a tárolási kapacitás bővítését támogatja további skálázási egység csomópontjainak hozzáadásával. További információ: [további skálázási egységekkel rendelkező csomópontok hozzáadása Azure stack hub-ban](azure-stack-add-scale-node.md). A fizikai lemezek a csomópontokhoz való hozzáadása nem bővíti a tárolási kapacitást.
 
 Fontos, hogy [Figyelje](#monitor-shares) a rendelkezésre álló tárolót a hatékony műveletek fenntartása érdekében. Ha a kötet fennmaradó szabad kapacitása korlátozott, tervezze meg a [rendelkezésre álló terület felügyeletét](#manage-available-space) , hogy megakadályozza a megosztások kapacitásának kifogyása.
 
@@ -69,7 +69,7 @@ A **felügyelt lemezek** leegyszerűsítik az Azure IaaS virtuális gépek lemez
 
 Javasoljuk, hogy a virtuális gépekhez Managed Disks használjon a könnyebb felügyelet és a kapacitás elosztása érdekében. A Managed Disks használata előtt nem kell előkészítenie a Storage-fiókot és-tárolókat. Több felügyelt lemez létrehozásakor a lemezek több kötetre oszlanak, ami segít a kötetek kapacitásának kiegyensúlyozásában.  
 
-A nem **felügyelt lemezek** az Azure Storage-fiókokban blobként tárolt VHD-fájlok. A bérlők által létrehozott blobokat virtuálisgép-lemeznek nevezzük, és tárolókban tárolódnak a Storage-fiókokban. Azt javasoljuk, hogy a nem felügyelt lemezeket csak olyan virtuális gépek esetében használja, amelyek csak a harmadik féltől származó eszközökkel kompatibilisek, csak az Azure nem felügyelt lemezeket támogatják.
+A nem **felügyelt lemezek** az Azure Storage-fiókokban blobként tárolt VHD-fájlok. A bérlők által létrehozott blobokat virtuálisgép-lemeznek nevezzük, és tárolókban tárolódnak a Storage-fiókokban. Javasoljuk, hogy a nem felügyelt lemezeket csak olyan virtuális gépek esetében használja, amelyeknek kompatibilisnek kell lenniük a harmadik féltől származó eszközökkel, csak Azure-Unmanaged lemezeket támogatnak.
 
 A bérlőknek szóló útmutatás az egyes lemezek külön tárolóba helyezése a virtuális gép teljesítményének növelése érdekében.
 
@@ -343,6 +343,6 @@ A terület kezelésének legszélsőségesebb módszere a nem felügyelt lemezek
 
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](./tutorial-offer-services.md?view=azs-2002)című témakört.

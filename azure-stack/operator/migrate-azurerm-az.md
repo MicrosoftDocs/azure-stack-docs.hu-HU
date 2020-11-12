@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729236"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546171"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrálás a AzureRM-ről a Azure PowerShell az Azure Stack hub-ban
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>Az aktuális parancsfájlok használata a AzureRM
 
-Ez az a legfontosabb lépés! Futtasson meglévő parancsfájlokat, és győződjön meg arról, hogy a AzureRM (__2.5.0__) _legújabb_ kiadásával működnek. Ha a szkriptek nem működnek, tekintse át [az AzureRM áttelepítési útmutatóját](/powershell/azure/azurerm/migration-guide.6.0.0).
+Ez az a legfontosabb lépés! Futtasson meglévő parancsfájlokat, és győződjön meg arról, hogy a AzureRM ( __2.5.0__ ) _legújabb_ kiadásával működnek. Ha a szkriptek nem működnek, tekintse át [az AzureRM áttelepítési útmutatóját](/powershell/azure/azurerm/migration-guide.6.0.0).
 
 ## <a name="install-the-azure-powershell-az-module"></a>Az Azure PowerShell Az modul telepítése
 
@@ -41,7 +41,7 @@ Az első lépés az Az modul telepítése a platformra. Az Az telepítésekor aj
 
 Az Azure PowerShell Az modul telepítéséhez hajtsa végre az alábbi lépéseket:
 
-* __Ajánlott__: [távolítsa el a AzureRM modult](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
+* __Ajánlott__ : [távolítsa el a AzureRM modult](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Győződjön meg róla, hogy az AzureRM _összes_ telepített verzióját eltávolítja, és nem csak a legutóbbi verziót.
 * [Az Az modul telepítése](/powershell/azure/install-az-ps)
 
@@ -74,11 +74,11 @@ Van néhány kivétel is ez alól a szabály alól, amelyeket érdemes figyelemb
 
 | AzureRM modul | Az modul | Módosult a parancsmag utótagja? |
 |----------------|-----------|------------------------|
-| AzureRM.Profile | Az.Accounts | Igen |
-| AzureRM.Insights | Az.Monitor | Igen |
-| AzureRM.Tags | Az.Resources | Nem |
-| AzureRM.UsageAggregates | Az.Billing | Nem |
-| AzureRM.Consumption | Az.Billing | Nem |
+| AzureRM.Profile | Az.Accounts | Yes |
+| AzureRM.Insights | Az.Monitor | Yes |
+| AzureRM.Tags | Az.Resources | No |
+| AzureRM.UsageAggregates | Az.Billing | No |
+| AzureRM.Consumption | Az.Billing | No |
 
 ## <a name="summary"></a>Összefoglalás
 
@@ -208,7 +208,7 @@ RequiredModules = @(@{ModuleName="AzureRM.Profile"; ModuleVersion="5.8.2"})
 A következőre kell módosítani:
 
 ```powershell
-RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
+RequiredModules = @(@{ModuleName="Az.Accounts"; ModuleVersion="1.0.0"})
 ```
 
 ### <a name="removed-modules"></a>Eltávolított modulok
@@ -391,7 +391,7 @@ $task.Wait()
 
 - A `PSAppServicePlan`, `PSCertificate`, `PSCloningInfo` és `PSSite` objektum elavult tulajdonságai el lettek távolítva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a Azure Stack hub PowerShell-ről: Ismerkedés [a PowerShell-lel Azure stack hub-ban](../user/azure-stack-powershell-overview.md)
 - Telepítse a PowerShell az modult, lásd: a [PowerShell telepítése az Azure stack hub](powershell-install-az-module.md) -hoz
