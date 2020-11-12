@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571881"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547092"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -44,18 +44,18 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza **az erőforrás létrehozása**  >  **számítási**  >  **CommVault**lehetőséget.
+2. Válassza **az erőforrás létrehozása**  >  **számítási**  >  **CommVault** lehetőséget.
 
     > [!NOTE]  
     > Ha a CommVault nem érhető el, forduljon a felhő üzemeltetőjéhez.
 
     ![Virtuális gép létrehozása](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Alapbeállítások konfigurálása a **virtuális gép létrehozása, 1**alapkonfiguráció:
+3. Alapbeállítások konfigurálása a **virtuális gép létrehozása, 1** alapkonfiguráció:
 
     a. Adjon meg egy **nevet**.
 
-    b. Válassza a **standard HDD**lehetőséget.
+    b. Válassza a **standard HDD** lehetőséget.
     
     c. Adjon meg egy **felhasználónevet**.
     
@@ -67,9 +67,9 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     : Válasszon ki egy **erőforráscsoportot**.
     
-    h. Válassza ki az Azure Stack hub **helyét** . Ha ASDK használ, válassza a **helyi**lehetőséget.
+    h. Válassza ki az Azure Stack hub **helyét** . Ha ASDK használ, válassza a **helyi** lehetőséget.
     
-    i. Válassza az **OK** lehetőséget.
+    i. Kattintson az **OK** gombra.
 
     ![Az "irányítópult > új > virtuális gép létrehozása > méret választása" párbeszédpanel megjeleníti a virtuális gép méretezési lehetőségeinek listáját.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
 
@@ -79,11 +79,11 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
 
 5. Válassza ki a CommVault virtuális gép beállításait.
 
-    a. Állítsa a rendelkezésre állást **nincs**értékre.
+    a. Állítsa a rendelkezésre állást **nincs** értékre.
     
     b. A felügyelt lemezek használatához válassza az **Igen** lehetőséget.
     
-    c. Válassza ki a **virtuális hálózat**alapértelmezett VNet.
+    c. Válassza ki a **virtuális hálózat** alapértelmezett VNet.
     
     d. Válassza ki az alapértelmezett **alhálózatot**.
     
@@ -93,17 +93,17 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     : Nyissa meg a HTTP (80), HTTPS (443), SSH (22) és RDP (3389) portot.
     
-    h. Válassza a **nincsenek kiterjesztések**lehetőséget.
+    h. Válassza a **nincsenek kiterjesztések** lehetőséget.
     
-    i. Válassza az **engedélyezve** lehetőséget a **rendszerindítási diagnosztika**számára.
+    i. Válassza az **engedélyezve** lehetőséget a **rendszerindítási diagnosztika** számára.
     
-    j. Hagyja **Letiltva**a **vendég operációs rendszer diagnosztika** beállítását.
+    j. Hagyja **Letiltva** a **vendég operációs rendszer diagnosztika** beállítását.
     
     k. Hagyja meg az alapértelmezett **diagnosztikai Storage-fiókot**.
     
-    l. Válassza az **OK** lehetőséget.
+    l. Kattintson az **OK** gombra.
 
-6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Válassza az **OK** lehetőséget.
+6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Kattintson az **OK** gombra.
 
 ## <a name="get-your-service-principal"></a>Az egyszerű szolgáltatás beszerzése
 
@@ -124,18 +124,18 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 2. Telepítse Azure Stack hub PowerShell-t és Azure Stack hub-eszközöket a CommVault virtuális gépre.
 
-    a. Az Azure Stack hub PowerShell telepítésével kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    a. Az Azure Stack hub PowerShell telepítésével kapcsolatos utasításokért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Azure Stack hub-eszközök telepítésére vonatkozó utasításokért lásd: [Azure stack hub-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
-3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **CommVault**  >  **CommVault Commcell-konzol**elemet.
+3. Miután a CommVault a CommVault virtuális gépre települ, nyissa meg a Commcell-konzolt. A Start menüben válassza a **CommVault**  >  **CommVault Commcell-konzol** elemet.
 
     ![A Commcell-konzolon van egy navigációs ablaktábla a bal oldalon, amely a Commcell böngésző címmel rendelkezik. A jobb oldali ablaktábla egy Első lépések füles lapot jelenít meg.](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
-4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **felhő**lehetőséget.
+4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **felhő** lehetőséget.
 
-5. Adja hozzá a Storage-készlet nevét. Kattintson a **Tovább** gombra.
+5. Adja hozzá a Storage-készlet nevét. Válassza a **Tovább** gombot.
 
-6. Válassza **Create**a  >  **Felhőbeli tároló**létrehozása lehetőséget.
+6. Válassza **Create** a  >  **Felhőbeli tároló** létrehozása lehetőséget.
 
     ![A StorageDevice # párbeszédpanel az általános Többlapos oldalt jeleníti meg a létrehozandó tárolóeszköz megadására szolgáló különböző listával és szövegmezővel.](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
@@ -145,15 +145,15 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 9. Adja meg a Storage-fiókjához tartozó hozzáférési adatokat. Itt megtalálhatja az Azure Storage-fiók beállításával kapcsolatos utasításokat. Hozzáférési információk:
 
-    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https: \/ /backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
+    -  **Service Host** : szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https: \/ /backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
     
-    -   **Fiók neve**: használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
+    -   **Fiók neve** : használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
     
-    -   **Hozzáférési kulcs**: szerezze be a hozzáférési kulcsot a tárolási erőforrás hozzáférési kulcsok paneljéről.
+    -   **Hozzáférési kulcs** : szerezze be a hozzáférési kulcsot a tárolási erőforrás hozzáférési kulcsok paneljéről.
     
-    -   **Tároló**: a tároló neve. Ebben az esetben a mybackups.
+    -   **Tároló** : a tároló neve. Ebben az esetben a mybackups.
     
-    -   **Tárolási osztály**: hagyja meg a felhasználói tároló alapértelmezett tárolási osztályát.
+    -   **Tárolási osztály** : hagyja meg a felhasználói tároló alapértelmezett tárolási osztályát.
 
 10. Hozzon létre egy Microsoft Azure Stack hub-ügyfelet [egy Microsoft Azure stack hub-ügyfél létrehozásához](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) szükséges utasítások követésével
 

@@ -3,16 +3,16 @@ title: Azure Stack hub-operátor hozzáférési munkaállomása
 description: Megtudhatja, hogyan tölthet le és konfigurálhat egy Azure Stack hub-kezelői hozzáférési munkaállomást.
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: c636f0d44648e4682bb19a64d66cad43d2add64b
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415351"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546973"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -128,6 +128,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+A ERCS virtuális gép IP-címének lekérése a AzureStackStampInformation.jsfájlból:
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 A OAW virtuális gép létrehozása a HLH DeploymentData.jshasználatával:
 
 ```powershell
@@ -144,6 +154,7 @@ A New-OAW két paraméter-készlet érhető el. A választható paraméterek sz�
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ A következő táblázat felsorolja az egyes paraméterek definícióját.
 | VirtualProcessorCount      | Választható | A virtuális géphez hozzárendelni kívánt virtuális processzorok száma. Az alapértelmezett érték **8**.        |
 | VirtualMachineDiffDiskPath | Választható | Az ideiglenes diff lemez fájljainak tárolási útvonala, miközben a felügyeleti virtuális gép aktív volt. Az alapértelmezett érték a parancsfájl ugyanazon **DiffDisks** tartozó alkönyvtár. |
 | AzureStackCertificatePath  | Választható | Az Azure Stack hub-hozzáféréshez a virtuális gépre importálandó tanúsítványok elérési útja. |
+| AzSStampInfoFilePath       | Választható | AzureStackStampInformation.jselérési útja a fájlon, ahol a parancsfájl lekérheti a ERCS virtuális gép IP-címeit. |
 | CertificatePassword        | Választható | Az Azure Stack hub-hozzáféréshez a virtuális gépre importálandó tanúsítvány jelszava. |
 | ERCSVMIP                   | Választható | A virtuális gép megbízható ERCS felvenni kívánt Azure Stack hub IP-címe. A **-SkipNetworkConfiguration** beállítása nem lép érvénybe. |
 SkipNetworkConfiguration     | Választható | Kihagyja a virtuális gép hálózati konfigurációját, hogy a felhasználó később konfigurálható legyen. |
@@ -252,6 +265,6 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
    Remove-OAW.ps1 -VirtualMachineName AzSOAW
    ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack felügyeleti feladatok](azure-stack-manage-basics.md)

@@ -7,14 +7,14 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: dc74c40611dd680b8b0d893e06b6935beae7a5f6
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573904"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547075"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
 Ez a cikk bemutatja, hogyan használható a megoldás a Azure Stack hub Resource Manager-sablonnal. A megoldás több, társított virtuális hálózattal rendelkező erőforráscsoportot hoz létre, és hogyan lehet ezeket a rendszereket összekapcsolni.
 
@@ -48,13 +48,13 @@ Ez egy több lépésből álló folyamat. Ebben a megoldásban az Azure Stack hu
 
 ### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Webes rétegek üzembe helyezése Azure Stack hub-példányok PPE1
 
-1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása** lehetőséget.
 
-2. Válassza a **sablon központi telepítése**lehetőséget.
+2. Válassza a **sablon központi telepítése** lehetőséget.
 
     ![Az "irányítópult > új" párbeszédpanel különböző lehetőségeket mutat be. A "Template deployment" gomb ki van emelve.](./media/azure-stack-network-howto-vpn-tunnel/image3.png)
 
-3. Másolja és illessze be a azuredeploy.jstartalmát az **Azure-intelligens-Edge-Patterns/RRAS-vnet-vpntunnel** adattárból a sablon ablakba. Ekkor megjelenik a sablonban található erőforrások, majd válassza a **Mentés**lehetőséget.
+3. Másolja és illessze be a azuredeploy.jstartalmát az **Azure-intelligens-Edge-Patterns/RRAS-vnet-vpntunnel** adattárból a sablon ablakba. Ekkor megjelenik a sablonban található erőforrások, majd válassza a **Mentés** lehetőséget.
 
     ![Az "irányítópult > új > üzembe helyezési megoldás sablonja > szerkesztési sablon" párbeszédpanelen található egy ablak, amelyben a azuredeploy.jsfájl beillesztett.](./media/azure-stack-network-howto-vpn-tunnel/image4.png)
 
@@ -92,25 +92,25 @@ Ugyanazt a folyamatot használhatja, mint a **Webplatformot** , de az itt látha
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Alagút létrehozása webes rétegekből az alkalmazás szintjéig
 
-1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása** lehetőséget.
 
-2. Válassza a **sablon központi telepítése**lehetőséget.
+2. Válassza a **sablon központi telepítése** lehetőséget.
 
-3. Illessze be **azuredeploy.tunnel.ike.js**a tartalmát a következőre:.
+3. Illessze be **azuredeploy.tunnel.ike.js** a tartalmát a következőre:.
 
-4. Válassza a **Paraméterek szerkesztése**lehetőséget.
+4. Válassza a **Paraméterek szerkesztése** lehetőséget.
 
 ![Az "irányítópult > új > a megoldás sablonjának üzembe helyezése > paraméterek" párbeszédpanelen egy "erőforráscsoport" szövegmező és egy választógomb látható. A "meglévő használata" gomb van kiválasztva, a szöveg pedig "webrétegű". Négy másik kiemelt szövegmező tartalmazza a sablon paramétereit.](./media/azure-stack-network-howto-vpn-tunnel/image11.png)
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>Alagút létrehozása az alkalmazás szintjéről a webes szintjére
 
-1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása** lehetőséget.
 
-2. Válassza a **template Deployment**lehetőséget.
+2. Válassza a **template Deployment** lehetőséget.
 
-3. Illessze be **azuredeploy.tunnel.ike.js**a tartalmát a következőre:.
+3. Illessze be **azuredeploy.tunnel.ike.js** a tartalmát a következőre:.
 
-4. Válassza a **Paraméterek szerkesztése**lehetőséget.
+4. Válassza a **Paraméterek szerkesztése** lehetőséget.
 
 ![Az "irányítópult > új > a megoldás sablonjának üzembe helyezése > paraméterek" párbeszédpanelen egy "erőforráscsoport" szövegmező és egy választógomb látható. A "meglévő használata" gomb van kiválasztva, a szöveg pedig "AppTier". Négy másik kiemelt szövegmező tartalmazza a sablon paramétereit.](./media/azure-stack-network-howto-vpn-tunnel/image12.png)
 
@@ -159,13 +159,13 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 ### <a name="configure-app-tier-to-db-tier"></a>Az alkalmazási rétegek konfigurálása az adatbázis-szinten
 
-1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása**lehetőséget.
+1. Nyissa meg az Azure Stack hub felhasználói portált, és válassza az **erőforrás létrehozása** lehetőséget.
 
-2. Válassza a **template Deployment**lehetőséget.
+2. Válassza a **template Deployment** lehetőséget.
 
-3. Illessze be **azuredeploy.tunnel.ike.js**a tartalmát a következőre:.
+3. Illessze be **azuredeploy.tunnel.ike.js** a tartalmát a következőre:.
 
-4. Válassza a **Paraméterek szerkesztése**lehetőséget.
+4. Válassza a **Paraméterek szerkesztése** lehetőséget.
 
     ![Az "irányítópult > új > a megoldás sablonjának üzembe helyezése > paraméterek" párbeszédpanelen egy "erőforráscsoport" szövegmező és egy választógomb látható. A "meglévő használata" gomb van kiválasztva, a szöveg pedig "AppTier". Három másik kiemelt szövegmező tartalmazza a sablon paramétereit.](./media/azure-stack-network-howto-vpn-tunnel/image20.png)
 
@@ -177,9 +177,9 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 2. Nyissa meg az RRAS virtuális gépet (a AppTier).
 
-3. Válassza a **bővítmények** és az egyéni R-**szkriptek bővítménye**elemet.
+3. Válassza a **bővítmények** és az egyéni R- **szkriptek bővítménye** elemet.
 
-4. Keresse meg a parancsfájlok könyvtárat az **Azure-intelligens-Edge-Patterns/RRAS-vnet-vpntunnel** adattárban. Válassza a **Get-VPNS2SInterfaceStatus.ps1**lehetőséget.
+4. Keresse meg a parancsfájlok könyvtárat az **Azure-intelligens-Edge-Patterns/RRAS-vnet-vpntunnel** adattárban. Válassza a **Get-VPNS2SInterfaceStatus.ps1** lehetőséget.
 
     ![A párbeszédpanel "irányítópult > erőforráscsoportok > AppTier > AppTier-RRAS-Extensions > CustomScriptExtension". A részletes állapot értéke "kiépítés sikerült". A részletek egy jegyzettömb-ablakban vannak átfedésben.](./media/azure-stack-network-howto-vpn-tunnel/image21.png)
 
@@ -187,11 +187,11 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
     **DBTier**
 
-    ![A DBTier-on a PowerShell-ablak a Get-VpnS2SInterface parancs végrehajtását jeleníti meg, amely a helyek közötti kapcsolat részleteit jeleníti meg. A ConnectionState csatlakoztatva van.](./media/azure-stack-network-howto-vpn-tunnel/image22.png)
+    ![A DBTier-ben a PowerShell-ablak a Get-VpnS2SInterface parancs végrehajtását jeleníti meg, amely a helyek közötti kapcsolat részleteit jeleníti meg. A ConnectionState csatlakoztatva van.](./media/azure-stack-network-howto-vpn-tunnel/image22.png)
 
     **AppTier**
 
-    ![A AppTier-on a PowerShell-ablak a Get-VpnS2SInterface parancs végrehajtását jeleníti meg, amely a helyek közötti kapcsolat részleteit jeleníti meg. A ConnectionState két célhelyhez van csatlakoztatva.](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
+    ![A AppTier-ben a PowerShell-ablak a Get-VpnS2SInterface parancs végrehajtását jeleníti meg, amely a helyek közötti kapcsolat részleteit jeleníti meg. A ConnectionState két célhelyhez van csatlakoztatva.](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
 
     > [!NOTE]  
     > Az RDP-t az egyik gépről a másodikra is tesztelheti, a másodiktól az elsőig.

@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 72652f1a681ed630bdc67745f24c6e472101915f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574244"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546854"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
 
@@ -37,7 +37,7 @@ Az Azure Stack hub központi telepítési séma támogatja a hibrid profilokat a
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Hozzáférés Azure Stack hubhoz
-- [Azure stack hub PowerShell telepítve](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) a felügyeleti végpontokat elérő gépre
+- [Azure stack hub PowerShell telepítve](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json) a felügyeleti végpontokat elérő gépre
 
 ## <a name="install-resource-manager-tools-extension"></a>Resource Manager-eszközök bővítményének telepítése
 
@@ -45,7 +45,7 @@ A Resource Manager-eszközök bővítményének telepítéséhez kövesse az al�
 
 1. Nyissa meg a Visual Studio Code-ot.
 2. A CTRL+SHIFT+X billentyűkombinációval nyissa meg a Bővítmények ablaktáblát
-3. Keresse meg a `Azure Resource Manager Tools` elemet, majd válassza a **telepítés**lehetőséget.
+3. Keresse meg a `Azure Resource Manager Tools` elemet, majd válassza a **telepítés** lehetőséget.
 4. A bővítmény telepítésének befejezéséhez válassza az **Újrabetöltés** lehetőséget.
 
 ## <a name="get-a-template"></a>Sablon beszerzése

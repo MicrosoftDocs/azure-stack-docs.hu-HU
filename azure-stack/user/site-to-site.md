@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623336"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546871"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibaelhárítása
 
@@ -30,7 +30,7 @@ Azure-támogatási kérelmet is küldhet. Tekintse meg [Azure stack hub támogat
 Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel kezdődtek,](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters) forduljon a Azure stack hub-kezelőhöz a Build verziójával kapcsolatos további információkért.
 
 > [!IMPORTANT]
-> S2S-alagút használata esetén a csomagok további fejlécekkel vannak beágyazva. Ez a beágyazás növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen az MTU-t **1400** bájtra állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> S2S-alagút használata esetén a csomagok további fejlécekkel vannak beágyazva. Ez a beágyazás növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350** -es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen az MTU-t **1400** bájtra állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 
 - Győződjön meg arról, hogy a VPN-konfiguráció útvonal-alapú (IKEv2). Azure Stack hub nem támogatja a házirend-alapú (IKEv1) konfigurációkat.
 
@@ -48,14 +48,14 @@ Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel
 
 - Hasonlítsa össze a helyszíni VPN-eszköz megosztott kulcsát a AzSH virtuális hálózati VPN-kapcsolattal, hogy ellenőrizze a kulcsok egyezését. A AzSH VPN-kapcsolat megosztott kulcsának megtekintéséhez használja az alábbi módszerek egyikét:
 
-  - **Azure stack hub bérlői portál**: lépjen a létrehozott VPN Gateway-helyek közötti kapcsolathoz. A **Beállítások** szakaszban válassza a **megosztott kulcs**elemet.
+  - **Azure stack hub bérlői portál** : lépjen a létrehozott VPN Gateway-helyek közötti kapcsolathoz. A **Beállítások** szakaszban válassza a **megosztott kulcs** elemet.
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN-kapcsolat":::
 
-  - **Azure PowerShell**: használja a következő PowerShell-parancsot:
+  - **Azure PowerShell** : használja a következő PowerShell-parancsot:
 
       ```powershell
-      Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
       ```
 
 ## <a name="status-connected--traffic-not-flowing"></a>"Csatlakoztatott" állapot – nem áramló forgalom

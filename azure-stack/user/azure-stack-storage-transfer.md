@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 3f3f39a03220150a71fddc090cc6aeb84525bab9
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818980"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546548"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
 
@@ -69,7 +69,7 @@ A AzCopy API-verziójának a Azure Stack hub támogatásához való konfigurál�
 
 A AzCopy 10,1-es verziójában a Azure Stack hub következő szolgáltatásai támogatottak:
 
-| Funkció | Támogatott műveletek |
+| Jellemző | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -111,19 +111,19 @@ Azure PowerShell egy modul, amely parancsmagokat biztosít a szolgáltatások Az
 
 ### <a name="install-and-configure-powershell-for-azure-stack-hub"></a>A PowerShell telepítése és konfigurálása Azure Stack hubhoz
 
-Azure Stack hub-kompatibilis Azure PowerShell modulok szükségesek az Azure Stack hub használatához. További információ: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md) , és [Az Azure stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md).
+Azure Stack hub-kompatibilis Azure PowerShell modulok szükségesek az Azure Stack hub használatához. További információ: a [PowerShell telepítése Azure stack hubhoz](../operator/powershell-install-az-module.md) , és [Az Azure stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>PowerShell-minta parancsfájl az Azure Stack hub-hoz 
 
-Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack hubhoz](../operator/azure-stack-powershell-install.md). Ez a szkript segítséget nyújt a konfiguráció végrehajtásában, és felkéri a Azure Stack hub bérlői hitelesítő adatait, hogy a fiókját hozzáadja a helyi PowerShell-környezethez. A szkript ezután beállítja az alapértelmezett Azure-előfizetést, létrehoz egy új Storage-fiókot az Azure-ban, létrehoz egy új tárolót az új Storage-fiókban, és feltölt egy meglévő lemezképfájlt (blobot) a tárolóba. Miután a parancsfájl felsorolja az adott tárolóban lévő összes blobot, a rendszer létrehoz egy új célhelyet a helyi számítógépen, és letölti a lemezképfájlt.
+Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack hubhoz](../operator/powershell-install-az-module.md). Ez a szkript segítséget nyújt a konfiguráció végrehajtásában, és felkéri a Azure Stack hub bérlői hitelesítő adatait, hogy a fiókját hozzáadja a helyi PowerShell-környezethez. A szkript ezután beállítja az alapértelmezett Azure-előfizetést, létrehoz egy új Storage-fiókot az Azure-ban, létrehoz egy új tárolót az új Storage-fiókban, és feltölt egy meglévő lemezképfájlt (blobot) a tárolóba. Miután a parancsfájl felsorolja az adott tárolóban lévő összes blobot, a rendszer létrehoz egy új célhelyet a helyi számítógépen, és letölti a lemezképfájlt.
 
-1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
+1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/powershell-install-az-module.md).
 2. Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
-3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként**lehetőséget, majd kattintson az új **fájl**elemre  >  **New** egy új parancsfájl létrehozásához.
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >  **New** egy új parancsfájl létrehozásához.
 4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
 5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
    > [!NOTE]
-   > Ezt a parancsfájlt a **AzureStack_Tools**gyökérkönyvtárában kell futtatni.
+   > Ezt a parancsfájlt a **AzureStack_Tools** gyökérkönyvtárában kell futtatni.
 
 ```powershell  
 # begin
@@ -146,24 +146,24 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Configure the PowerShell environment
-# Register an AzureRM environment that targets your Azure Stack Hub instance
-Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+# Register an Az environment that targets your Azure Stack Hub instance
+Add-AzEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a new Resource Group 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a new storage account.
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
 
 # Set a default storage account.
-Set-AzureRmCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
 New-AzureStorageContainer -Name $ContainerName -Permission Off
@@ -191,21 +191,21 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 Azure Stack hub jelenleg kompatibilis Azure PowerShell moduljának verziója 1.2.11 a felhasználói műveletekhez. Eltér a Azure PowerShell legújabb verziójától. Ez a különbség a tárolási szolgáltatások működését befolyásolja a következő módon:
 
-A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzureRmStorageAccountKey` két tulajdonsággal rendelkezik: `Key1` és `Key2` , míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
+A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzStorageAccountKey` két tulajdonsággal rendelkezik: `Key1` és `Key2` , míg az aktuális Azure-verzió az összes fiók kulcsát tartalmazó tömböt ad vissza.
 
 ```powershell
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.4, and later versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Value[0]
 
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.3.2, and previous versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Key1
 ```
 
-További információ: [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
+További információ: [Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -228,7 +228,7 @@ A parancsfájl futtatása előtt győződjön meg arról, hogy sikeresen kapcsol
 
 1. Nyissa meg a kedvenc szövegszerkesztőjét, majd másolja és illessze be az előző szkriptet a szerkesztőbe.
 2. Frissítse a szkript változóit a konfigurációs beállításoknak megfelelően.
-3. A szükséges változók frissítése után mentse a parancsfájlt, és lépjen ki a szerkesztőből. A következő lépések feltételezik, hogy elnevezte a parancsfájlt **my_storage_sample. sh**néven.
+3. A szükséges változók frissítése után mentse a parancsfájlt, és lépjen ki a szerkesztőből. A következő lépések feltételezik, hogy elnevezte a parancsfájlt **my_storage_sample. sh** néven.
 4. A parancsfájlt végrehajthatóként kell megjelölnie, ha szükséges: `chmod +x my_storage_sample.sh`
 5. Futtassa a szkriptet. Például a Bashben: `./my_storage_sample.sh`
 

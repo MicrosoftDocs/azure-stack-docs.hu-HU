@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623149"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546956"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Az Azure Stack hub Event Hubs áttekintése
 
@@ -38,11 +38,11 @@ Olyan hibrid megoldásokat hozhat létre, amelyek helyileg töltik fel és dolgo
 
 [![Hibrid megoldások diagramja](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
-## <a name="features"></a>Funkciók 
+## <a name="features"></a>Szolgáltatások 
 
 A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltatási paritást kínálnak. Ez a paritás azt jelenti, hogy az SDK-k, minták, PowerShell, CLI és portálok hasonló élményt nyújtanak, néhány különbséggel. A következő táblázat összefoglalja, hogy a szolgáltatások rendelkezésre állása milyen magas szintű különbségeket tartalmaz a kiadások között.  
 
-| Funkció | Event Hubs az Azure Stack Hubon | Azure Event Hubs |
+| Jellemző | Event Hubs az Azure Stack Hubon | Azure Event Hubs |
 |-|-|-|-|
 | Kezelői rendszergazdai élmény | ✔ | ✘ |
 | Kafka-támogatás | ✔ | ✔ |
@@ -53,7 +53,7 @@ A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltat
 | Azure Monitor | ✔ | ✔ |
 | Funkció automatikus kivonása | ✘ | ✔ |
 
-Az Azure erőforrás-kezelési műveletei Azure Resource Manager sablonok, a [PowerShell](/powershell/module/azurerm.eventhub/)és az [Azure CLI](/cli/azure/eventhubs/eventhub/)használatával is elvégezhetők. Jelenleg a PowerShellben és az Azure CLI-ben a kezelői felügyeleti műveletek nem támogatottak.
+Az Azure erőforrás-kezelési műveletei Azure Resource Manager sablonok, a [PowerShell](/powershell/module/Az.eventhub/)és az [Azure CLI](/cli/azure/eventhubs/eventhub/)használatával is elvégezhetők. Jelenleg a PowerShellben és az Azure CLI-ben a kezelői felügyeleti műveletek nem támogatottak.
 
 ## <a name="feature-documentation"></a>A szolgáltatás dokumentációja
 
@@ -74,7 +74,7 @@ Ha többet szeretne megtudni a Event Hubs Azure Stack hub-kezelői felülettel k
 - Naplók gyűjtése.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha Event Hubs nem érhető el az előfizetésben, akkor a rendszergazdával együttműködve [telepítse a Event Hubst Azure stack hub erőforrás-szolgáltatón](../operator/event-hubs-rp-overview.md).
 

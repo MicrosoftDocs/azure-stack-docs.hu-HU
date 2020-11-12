@@ -7,12 +7,12 @@ ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448622"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546480"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 
@@ -34,7 +34,7 @@ Az API-profilok erőforrás-szolgáltatók és szolgáltatási verziók kombiná
 
 - A [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)telepítéséhez kövesse a hivatalos utasításokat.
 - A [Ruby](https://www.ruby-lang.org/en/documentation/installation/)telepítéséhez kövesse a hivatalos utasításokat.
-  - A telepítésekor válassza **a Ruby to PATH változó hozzáadása**lehetőséget.
+  - A telepítésekor válassza **a Ruby to PATH változó hozzáadása** lehetőséget.
   - Ha a rendszer a Ruby telepítésekor kéri, telepítse a fejlesztői csomagot.
   - Ezután telepítse a köteget a következő parancs használatával: 
 
@@ -70,7 +70,7 @@ A Azure Resource Manager Ruby SDK előzetes verzióban érhető el, és valósz�
 
 ## <a name="use-the-azure_sdk-gem"></a>A azure_sdk gem használata
 
-A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gem egy **legújabb**   profilt tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Az Azure Stack hub-hoz készült, **V2017_03_09** és **V2019_03_01_Hybrid**verziószámú profilokat tartalmaz.
+A **azure_sdk** gem a Ruby SDK által támogatott drágakövek összesítése. Ez a gem egy **legújabb** profilt tartalmaz, amely az összes szolgáltatás legújabb verzióját támogatja. Az Azure Stack hub-hoz készült, **V2017_03_09** és **V2019_03_01_Hybrid** verziószámú profilokat tartalmaz.
 
 A következő paranccsal telepítheti a azure_sdk összesítő gem-t:  
 
@@ -136,9 +136,9 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 A **Azure_sdk** összesített gem a következő 3 profillal rendelkezik:
 
-- **V2019_03_01_Hybrid**: az Azure stack hub-hoz készült profil. Ezt a profilt a Azure Stack hub 1904-es vagy újabb verziójában elérhető szolgáltatások legújabb verzióihoz használhatja.
-- **V2017_03_09**: az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások a leghatékonyabban kompatibilisek legyenek Azure Stack hub 1808-es vagy korábbi verziójával.
-- **Legújabb**: a profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
+- **V2019_03_01_Hybrid** : az Azure stack hub-hoz készült profil. Ezt a profilt a Azure Stack hub 1904-es vagy újabb verziójában elérhető szolgáltatások legújabb verzióihoz használhatja.
+- **V2017_03_09** : az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások a leghatékonyabban kompatibilisek legyenek Azure Stack hub 1808-es vagy korábbi verziójával.
+- **Legújabb** : a profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
 
 Azure Stack hub-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalását](azure-stack-version-profiles.md#summary-of-api-profiles)ismertető témakört.
 
@@ -306,5 +306,5 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
+- [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)  

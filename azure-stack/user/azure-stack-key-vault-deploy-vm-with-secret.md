@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573819"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546446"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Azure Stack hub virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával
 
@@ -28,7 +28,7 @@ A Azure Stack hub Key vaultban az értékeket, például a jelszót titkos kulcs
 ## <a name="prerequisites"></a>Előfeltételek
 
 * Elő kell fizetnie egy olyan ajánlatra, amely tartalmazza a Key Vault szolgáltatást.
-* [Telepítse a PowerShellt Azure Stack hubhoz.](../operator/azure-stack-powershell-install.md)
+* [Telepítse a PowerShellt Azure Stack hubhoz.](../operator/powershell-install-az-module.md)
 * [Konfigurálja a PowerShell-környezetet.](azure-stack-powershell-configure-user.md)
 
 A következő lépések ismertetik a virtuális gép létrehozásához szükséges folyamatot a Key Vault tárolt jelszó beolvasásával:
@@ -51,11 +51,11 @@ $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "MySecret"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
@@ -110,7 +110,7 @@ Frissítse a `azuredeploy.parameters.json` fájlt a kulcstároló URI-ja, a secr
 Most telepítse a sablont a következő PowerShell-parancsfájl használatával:
 
 ```powershell  
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `

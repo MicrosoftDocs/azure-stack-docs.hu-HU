@@ -3,16 +3,16 @@ title: PowerShell Azure Stack hub-ban
 description: Azure Stack központban található PowerShell számos modult és kontextust tartalmaz.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 7103a2a8268ffb4c8cbbc84f35e6e1a6a90992c3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567042"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546582"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Ismerkedés a PowerShell-lel Azure Stack hub-ban
 
@@ -35,7 +35,7 @@ Az erőforrás-szolgáltatók mindkét funkciót és vezérlőt biztosítják az
 
 A következő blokk diagram a PowerShell-modulok készletei közötti kapcsolatokat mutatja. A gépről betöltheti a PowerShell-modulokat, és felügyelheti a globális Azure-és Azure Stack hubot is.
 
-![Azure Stack hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
+![Azure Stack hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powershell.svg)
 
 ### <a name="global-azure"></a>Globális Azure
 
@@ -43,11 +43,11 @@ Azure PowerShell olyan parancsmagokat tartalmaz, amelyek a Azure Resource Manage
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack hub Resource Manager
 
-Azure Stack hub PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager korábbi verzióit használják. Ezek a parancsmagok kompatibilisek az Azure Stack hub erőforrás-szolgáltatókkal. Azure Stack hub minden erőforrás-szolgáltatója a globális Azure-ban található szolgáltató egy régebbi verzióját használja. Az Azure Stack hub által támogatott összes szolgáltató verziójának koordinálásához használhatja az API-profilokat. Azure Stack hub PowerShell a PowerShell 5,1-et használja, és csak Windows rendszeren érhető el. További információ: [az API-verziók profiljainak kezelése Azure stack központban](azure-stack-version-profiles.md).
+Azure Stack hub PowerShell olyan parancsmagokat biztosít, amelyek a Azure Resource Manager korábbi verzióit használják. Ezek a parancsmagok kompatibilisek az Azure Stack hub erőforrás-szolgáltatókkal. Azure Stack hub minden erőforrás-szolgáltatója a globális Azure-ban található szolgáltató egy régebbi verzióját használja. Az Azure Stack hub által támogatott összes szolgáltató verziójának koordinálásához használhatja az API-profilokat. További információ: [az API-verziók profiljainak kezelése Azure stack központban](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-hub-administrator"></a>Azure Stack hub rendszergazdája
 
-Azure Stack hub erőforrás-szolgáltatók készletét teszi elérhetővé a Felhőbeli operátor számára, így az operátor Azure Stack hub telepítését és karbantartását is lehetővé teszi. A globális Azure-ban ez az interakció a felhasználótól származik, és az Azure részeként kezeli a színfalak mögött. A Azure Stack hub használatával azonban a vállalatok támogatják a privát felhőket. A feladatok végrehajtásához az operátor az Azure Stack hub felügyeleti API-kkal kommunikál. További információ: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+Azure Stack hub erőforrás-szolgáltatók készletét teszi elérhetővé a Felhőbeli operátor számára, így az operátor Azure Stack hub telepítését és karbantartását is lehetővé teszi. A globális Azure-ban ez az interakció a felhasználótól származik, és az Azure részeként kezeli a színfalak mögött. Azure Stack hub; a vállalatok azonban támogatni tudják a privát felhőket. A feladatok végrehajtásához az operátor az Azure Stack hub felügyeleti API-kkal kommunikál. További információ: a [PowerShell telepítése Azure stack hubhoz](../operator/powershell-install-az-module.md).
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Azure Stack hub privilegizált végpontja
 
@@ -55,13 +55,13 @@ Azure Stack hub operátori tevékenységeihez, például a telepítés tesztelé
 
 ### <a name="azure-stack-hub-tools"></a>Azure Stack hub-eszközök
 
-Azure Stack hub parancsfájlokat és további parancsmagokat tesz elérhetővé egy GitHub-tárházban, a *AzureStack-eszközökben*. A AzureStack-Tools PowerShell-modulokat működtet az erőforrások Azure Stack hubhoz való felügyeletéhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitra vagy egy Windows-alapú külső ügyfélre. További információért lépjen a [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) oldalra.
+Azure Stack hub parancsfájlokat és további parancsmagokat tesz elérhetővé egy GitHub-tárházban, a *AzureStack-eszközökben*. A AzureStack-Tools PowerShell-modulokat üzemeltet az erőforrások Azure Stack hubhoz való felügyeletéhez és üzembe helyezéséhez. Ha VPN-kapcsolat létesítését tervezi, letöltheti ezeket a PowerShell-modulokat a Azure Stack Development Kitra vagy egy Windows-alapú külső ügyfélre. További információért lépjen a [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) oldalra.
 
 ## <a name="work-with-powershell-in-azure-stack-hub"></a>A PowerShell használata Azure Stack hub-ban
 
 A PowerShell programozási módszert biztosít a Azure Resource Manager való interakcióhoz. Dolgozhat interaktív parancssorral, vagy ha automatizálja a feladatokat, írhat parancsfájlokat.
 
-Ha sok időt tölt a Azure Stack hub PowerShell használatával, akkor a modulok telepítését és újratelepítését is megtalálhatja. Ha egyszerre dolgozik a globális Azure-ban, ez a rutin kihívást jelenthet, mivel a célnak megfelelően el kell távolítania és újra kell telepítenie a modulokat. 
+Ha sok időt tölt a Azure Stack hub PowerShell használatával, akkor a modulok telepítését és újratelepítését is megtalálhatja. Ha egyszerre dolgozik a globális Azure-ban, ez a rutin kihívást jelenthet, mivel a célnak megfelelően el kell távolítania és újra kell telepítenie a modulokat.
 
 A Docker-tárolók segítségével elkülönítheti a PowerShell egyes verzióit a helyi gépen. Ha Docker-tárolókat szeretne használni, hogy a PowerShell-modul PowerShell-modul készletére váltson, a PowerShell [futtatásához használja a Docker használata](azure-stack-powershell-user-docker.md)című témakört.
 
@@ -69,5 +69,5 @@ A Docker-tárolók segítségével elkülönítheti a PowerShell egyes verzióit
 ## <a name="next-steps"></a>Következő lépések
 
 - További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack hub-ban.
-- Telepítse [Azure stack hub PowerShellt](../operator/azure-stack-powershell-install.md).
+- Telepítse [Azure stack hub PowerShellt](../operator/powershell-install-az-module.md).
 - További információ a Felhőbeli konzisztencia [Azure Resource Manager-sablonok](azure-stack-develop-templates.md) létrehozásáról.

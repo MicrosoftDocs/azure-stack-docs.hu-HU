@@ -7,12 +7,12 @@ ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 717eb2cf7ea9ee15c528059462a6f7553bba53e2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547041"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Kapcsolódás Azure Stack hubhoz a PowerShell-lel felhasználóként
 
@@ -28,7 +28,7 @@ A telepítő beszerzése:
 
 Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)vagy egy Windows-alapú külső ügyfélről, ha [VPN-kapcsolaton keresztül csatlakozik](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn):
 
-* Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
+* Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/powershell-install-az-module.md).
 * Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
 
 Ügyeljen arra, hogy a következő parancsfájl-változókat a Azure Stack hub-konfiguráció értékeit cserélje le:
@@ -41,25 +41,25 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Kapcsolódás Azure Stack hubhoz az Azure AD-vel
 
 ```powershell  
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
-    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+    Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Kapcsolódás Azure Stack hubhoz AD FS
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
-  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+  Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
+  Login-AzAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## <a name="register-resource-providers"></a>Erőforrás-szolgáltatók regisztrálása
@@ -67,10 +67,10 @@ Konfigurálja ezeket az előfeltételeket a [fejlesztői készletből](../asdk/a
 Az erőforrás-szolgáltatók nincsenek automatikusan regisztrálva olyan új felhasználói előfizetésekhez, amelyek nem rendelkeznek a portálon keresztül telepített erőforrásokkal. A következő parancsfájl futtatásával explicit módon regisztrálhat egy erőforrás-szolgáltatót:
 
 ```powershell  
-foreach($s in (Get-AzureRmSubscription)) {
-        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+foreach($s in (Get-AzSubscription)) {
+        Select-AzSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
-Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
+Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
     }
 ```
 
@@ -81,7 +81,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 Ha minden beállítással rendelkezik, tesztelje a kapcsolatot a PowerShell használatával a Azure Stack hub erőforrásainak létrehozásához. Tesztként hozzon létre egy erőforráscsoportot egy alkalmazáshoz, és adjon hozzá egy virtuális gépet. Futtassa a következő parancsot egy "MyResourceGroup" nevű erőforráscsoport létrehozásához:
 
 ```powershell  
-New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Következő lépések

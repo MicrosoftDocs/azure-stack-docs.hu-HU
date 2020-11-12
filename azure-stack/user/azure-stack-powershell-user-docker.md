@@ -3,16 +3,16 @@ title: A Docker használata a PowerShell futtatásához Azure Stack központban
 description: A Docker használata a PowerShell futtatásához Azure Stack központban
 author: mattbriggs
 ms.topic: how-to
-ms.date: 8/17/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573734"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546786"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>A Azure Stack hub PowerShellének futtatása a Docker használatával
 
@@ -39,6 +39,63 @@ Ahhoz, hogy a PowerShell használatával hozzáférhessen a Azure Stack hub erő
 2. Jegyezze fel az alkalmazás AZONOSÍTÓját, a titkos kulcsot, a bérlői azonosítót és az objektumazonosítót a későbbi használatra.
 
 ## <a name="run-powershell-in-docker"></a>A PowerShell futtatása a Docker-ben
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
+Ebben az útmutatóban egy Linux-alapú tároló-rendszerképet fog futtatni, amely tartalmazza a PowerShellt és az Azure Stack hub szükséges modulját.
+
+1. A Docker-t Linux-tároló használatával kell futtatnia. A Docker futtatásakor váltson a Linux-tárolók elemre.
+
+1. Futtassa a Docker-t egy olyan gépről, amely ugyanahhoz a tartományhoz csatlakozik, mint Azure Stack hub. Ha a Azure Stack Development Kit (ASDK) használja, telepítenie kell [a VPN-t a távoli gépen](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
+
+
+## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Az Azure Stack hub az modul telepítése Linux-tárolón
+
+1. A parancssorból futtassa a következő Docker-parancsot a PowerShell Ubuntu-tárolóban való futtatásához:
+
+    ```bash
+    docker run -it mcr.microsoft.com/azurestack/powershell
+    ```
+
+    Futtathat Ubuntut, Debiant vagy CentOS-t is. A következő Docker-fájlokat találhatja meg a GitHub-adattárban: [azurestack-PowerShell](https://github.com/Azure/azurestack-powershell). A Docker-fájlok legújabb változásairól a GitHub-tárházban tájékozódhat. Minden operációs rendszer címkével rendelkezik. Cserélje le a címkét, a kettőspont utáni szakaszt a kívánt operációs rendszer címkéjére.
+
+    | Linux | Docker-rendszerkép |
+    | --- | --- |
+    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
+    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
+    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
+
+2. A rendszerhéj készen áll a parancsmagokra. A rendszerhéj-kapcsolat teszteléséhez jelentkezzen be, majd futtassa a alkalmazást `Test-AzureStack.ps1` .
+
+    Először hozza létre a szolgáltatás egyszerű hitelesítő adatait. Szüksége lesz a **titkos** és az **alkalmazás-azonosítóra**. A tároló ellenőrzésekor is szüksége lesz az **objektum-azonosítóra** `Test-AzureStack.ps1` . Előfordulhat, hogy egy egyszerű szolgáltatást kell kérnie a Felhőbeli operátortól.
+
+    Adja meg a következő parancsmagokat a Service elvi objektum létrehozásához:
+
+    ```powershell  
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    ```
+
+5. Kapcsolódjon a környezethez a következő parancsfájl futtatásával az Azure Stack hub-példány következő értékeivel.
+
+    | Érték | Leírás |
+    | --- | --- |
+    | A környezet neve. | Az Azure Stack hub-környezet neve. |
+    | Resource Manager-végpont | A Resource Manager URL-címe. Ha nem tudja, vegye fel a kapcsolatot a Felhőbeli szolgáltatójával. A következőhöz hasonlóan fog kinézni: `https://management.region.domain.com`. | 
+    | Címtár-bérlő azonosítója | Az Azure Stack hub bérlői könyvtárának azonosítója. | 
+    | Hitelesítő adat | A szolgáltatásnevet tartalmazó objektum. Ebben az esetben `$pscredential` .  |
+
+    ```powershell
+    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
+    ```
+
+   A PowerShell visszaadja a fiók objektumát.
+
+7. Tesztelje a környezetet úgy, hogy futtatja a `Test-AzureStack.ps1` szkriptet a tárolóban. Az egyszerű szolgáltatásnév- **objektum azonosítójának** meghatározása. Ha nem jelöli meg az objektumazonosítót, a szkript továbbra is futni fog, de csak a bérlői (felhasználói) modulok tesztelésére és a rendszergazdai jogosultságokat igénylő modulok meghibásodására lesz szükség.
+
+    ```powershell  
+    ./Test-AzureStack.ps1 <Object ID>
+    ```
 
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/rm)
 
@@ -104,63 +161,6 @@ A Docker megnyitja a Microsoft */Windowsservercore Microsoft-* rendszerképét, 
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
-
-### <a name="az-modules"></a>[Az modulok](#tab/az)
-
-Ebben az útmutatóban egy Linux-alapú tároló-rendszerképet fog futtatni, amely tartalmazza a PowerShellt és az Azure Stack hub szükséges modulját.
-
-1. A Docker-t Linux-tároló használatával kell futtatnia. A Docker futtatásakor váltson a Linux-tárolók elemre.
-
-1. Futtassa a Docker-t egy olyan gépről, amely ugyanahhoz a tartományhoz csatlakozik, mint Azure Stack hub. Ha a Azure Stack Development Kit (ASDK) használja, telepítenie kell [a VPN-t a távoli gépen](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
-
-
-## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Az Azure Stack hub az modul telepítése Linux-tárolón
-
-1. A parancssorból futtassa a következő Docker-parancsot a PowerShell Ubuntu-tárolóban való futtatásához:
-
-    ```bash
-    docker run -it mcr.microsoft.com/azurestack/powershell
-    ```
-
-    Futtathat Ubuntut, Debiant vagy CentOS-t is. A következő Docker-fájlokat találhatja meg a GitHub-adattárban: [azurestack-PowerShell](https://github.com/Azure/azurestack-powershell). A Docker-fájlok legújabb változásairól a GitHub-tárházban tájékozódhat. Minden operációs rendszer címkével rendelkezik. Cserélje le a címkét, a kettőspont utáni szakaszt a kívánt operációs rendszer címkéjére.
-
-    | Linux | Docker-rendszerkép |
-    | --- | --- |
-    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
-    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
-    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
-
-2. A rendszerhéj készen áll a parancsmagokra. A rendszerhéj-kapcsolat teszteléséhez jelentkezzen be, majd futtassa a alkalmazást `Test-AzureStack.ps1` .
-
-    Először hozza létre a szolgáltatás egyszerű hitelesítő adatait. Szüksége lesz a **titkos** és az **alkalmazás-azonosítóra**. A tároló ellenőrzésekor is szüksége lesz az **objektum-azonosítóra** `Test-AzureStack.ps1` . Előfordulhat, hogy egy egyszerű szolgáltatást kell kérnie a Felhőbeli operátortól.
-
-    Adja meg a következő parancsmagokat a Service elvi objektum létrehozásához:
-
-    ```powershell  
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    ```
-
-5. Kapcsolódjon a környezethez a következő parancsfájl futtatásával az Azure Stack hub-példány következő értékeivel.
-
-    | Érték | Leírás |
-    | --- | --- |
-    | A környezet neve. | Az Azure Stack hub-környezet neve. |
-    | Resource Manager-végpont | A Resource Manager URL-címe. Ha nem tudja, vegye fel a kapcsolatot a Felhőbeli szolgáltatójával. A következőhöz hasonlóan fog kinézni: `https://management.region.domain.com`. | 
-    | Címtár-bérlő azonosítója | Az Azure Stack hub bérlői könyvtárának azonosítója. | 
-    | Hitelesítő adat | A szolgáltatásnevet tartalmazó objektum. Ebben az esetben `$pscredential` .  |
-
-    ```powershell
-    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
-    ```
-
-   A PowerShell visszaadja a fiók objektumát.
-
-7. Tesztelje a környezetet úgy, hogy futtatja a `Test-AzureStack.ps1` szkriptet a tárolóban. Az egyszerű szolgáltatásnév- **objektum azonosítójának**meghatározása. Ha nem jelöli meg az objektumazonosítót, a szkript továbbra is futni fog, de csak a bérlői (felhasználói) modulok tesztelésére és a rendszergazdai jogosultságokat igénylő modulok meghibásodására lesz szükség.
-
-    ```powershell  
-    ./Test-AzureStack.ps1 <Object ID>
     ```
 
 ---

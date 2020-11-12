@@ -5,30 +5,31 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899839"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546922"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Graphics Processing Unit (GPU) virtuális gép (VM) Azure Stack hub-on
 
 *A következőkre vonatkozik: Azure Stack integrált rendszerek*
 
-Ebből a cikkből megtudhatja, hogy mely grafikus processzor-(GPU-) modellek támogatottak az Azure Stack hub többcsomópontos rendszeren. A GPU-k által használt illesztőprogramok telepítésével kapcsolatos utasításokat is megtalálhatja. Az Azure Stack hub GPU-támogatása olyan megoldásokat tesz lehetővé, mint például a mesterséges intelligencia, a képzés, a következtetések és az adatvizualizáció. Az AMD Radeon ösztön MI25 használható olyan grafikus igényű alkalmazások támogatásához, mint az Autodesk AutoCAD.
+Ez a cikk azt ismerteti, hogy a grafikus processzor-(GPU-) modellek támogatottak-e egy Azure Stack hub többcsomópontos rendszeren. A GPU-k által használt illesztőprogramok telepítésével kapcsolatos utasításokat is megtalálhatja. Az Azure Stack hub GPU-támogatása olyan megoldásokat tesz lehetővé, mint például a mesterséges intelligencia, a képzés, a következtetések és az adatvizualizáció. Az AMD Radeon ösztön MI25 használható olyan grafikus igényű alkalmazások támogatásához, mint az Autodesk AutoCAD.
 
 Három GPU-modell közül választhat a nyilvános előzetes verzióban. Ezek az NVIDIA V100, az NVIDIA T4 és az AMD MI25 GPU-k számára érhetők el. Ezek a fizikai GPU-k az alábbi Azure N sorozatú virtuális gépek (VM) típusaihoz igazodnak:
 - [NCv3](/azure/virtual-machines/ncv3-series)
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
-- NCas_v4
+- [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
 > [!IMPORTANT]  
 > A Azure Stack hub GPU-támogatás jelenleg nyilvános előzetes verzióban érhető el. Az előzetes verzióban való részvételhez fejezze be az űrlapot a következő címen: [aka.MS/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: a [Microsoft Azure előzetes verziójának kiegészítő használati feltételei](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik.
+> További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="ncv3"></a>NCv3
 
@@ -48,18 +49,14 @@ A NVv4 sorozatú virtuális gépeket az [AMD Radeon ösztön MI25](https://www.a
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_v4"></a>NCas_v4
-
-Ez az új NVIDIA T4 VM-méret lehetővé teszi, hogy a Light ML, a következtetések és a vizualizáció számítási feladatait Azure Stack hub-on futtassa. Jelenleg ez a virtuálisgép-méret *nem* érhető el a portálon az üzembe helyezéshez, és a PowerShell/CLI-t kell használni.
-
+## <a name="ncast4_v3"></a>NCasT4_v3
 
 | Méret | vCPU | Memória: GiB | GPU | GPU memória: GiB | Adatlemezek max. száma | Hálózati adapterek maximális száma | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
-
+| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_T4_v3 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_T4_v3 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_T4_v3 |64 |448 | 4 | 64 | 32 | 8 |
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>A virtuális gépek javításának és frissítésének, cserélhető működésének viselkedése 
 
@@ -70,17 +67,25 @@ A GPU-beli virtuális gépek az olyan műveletek során, mint a patch és a Upda
 | Virtuális gép állapota  | Nem érhető el a és a frissítés után a manuális indítási művelet nélkül | Nem érhető el a frissítés során. Elérhető post Update manuális művelettel | Nem érhető el a frissítés során. Elérhető post Update manuális művelettel| 
 | Manuális művelet | Ha a virtuális gépet elérhetővé kell tenni a frissítés során, ha rendelkezésre állnak GPU-partíciók, a virtuális gép újraindulhat a portálról az **Újraindítás** gombra kattintva. A frissítés után indítsa újra a virtuális gépet a portálról az **Újraindítás** gomb használatával | A virtuális gép nem tehető elérhetővé a frissítés során. A frissítés befejezését követően a virtuális gépet le kell állítani a **Leállítás** gombbal, és a "Start" gomb használatával kell elindítani a biztonsági mentést. | A virtuális gép nem tehető elérhetővé a frissítés során. A frissítés befejezését követően a virtuális gépet le kell állítani a **Leállítás** gomb használatával, és a **Start** gomb használatával kell elindítani a biztonsági mentést.| 
 
-## <a name="guest-driver-installation"></a>Vendég illesztőprogram telepítése 
+## <a name="guest-driver-installation"></a>Vendég illesztőprogram telepítése
 
 ### <a name="amd-mi25"></a>AMD MI25
+
 A [Windows rendszert futtató N sorozatú virtuális gépeken az AMD GPU-illesztőprogramok telepítése](/azure/virtual-machines/windows/n-series-amd-driver-setup) című cikk útmutatást nyújt az illesztőprogram telepítéséhez az AMD Radeon ösztön-MI25 a NVv4 GPU-P használatára képes virtuális gépen, valamint az illesztőprogramok telepítésének ellenőrzéséhez szükséges lépéseket. Ez a bővítmény csak csatlakoztatott módban működik.
 
 ### <a name="nvidia"></a>NVIDIA
 
-A virtuális gépen a CUDA vagy a GRID számítási feladatok futtatásához NVIDIA-illesztőprogramok szükségesek. Győződjön meg arról, hogy rendelkezik a megfelelő hálózati licenccel, valamint a konfigurált licenckiszolgálóval, mielőtt a bővítmény használatával telepítené a GRID-illesztőprogramokat a virtuális gépen. [Ennek](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html) segítségével megtudhatja, hogyan állíthatja be a licenckiszolgálót. A CUDA-illesztőprogramok nem igényelnek licenckiszolgálót.
+Az NVIDIA-illesztőprogramokat a virtuális gépen kell telepíteni a CUDA vagy a GRID számítási feladatokhoz a GPU használatával.
 
-Az NVIDIA CUDA-szárítókat és a GRID-illesztőprogramokat manuálisan kell telepíteni a virtuális gépre. A Tesla CUDA-illesztőprogramok az NVIDIA [letöltési webhelyéről](https://www.nvidia.com/Download/index.aspx)szerezhetők be. A GRID-illesztőprogramok az NVIDIA Application hub használatával tölthetők le, amennyiben rendelkezik a szükséges licencekkel.
+#### <a name="use-case-graphicsvisualization"></a>Használati eset: grafika/vizualizáció
 
-## <a name="next-steps"></a>Következő lépések 
+Ehhez a forgatókönyvhöz a GRID-illesztőprogramok használata szükséges. A GRID-illesztőprogramok az NVIDIA Application hub használatával tölthetők le, amennyiben rendelkezik a szükséges licencekkel. A GRID-illesztőprogramokhoz szükség van egy RÁCSos licenckiszolgálóra is a megfelelő hálózati licenccel, mielőtt a virtuális gépen a GRID-illesztőprogramokat kellene használnia. Ennek segítségével megtudhatja, hogyan állíthatja be a licenckiszolgálót.
 
-[Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)
+#### <a name="use-case-computecuda"></a>Használati eset: számítás/CUDA
+
+Az NVIDIA CUDA-szárítókat és a GRID-illesztőprogramokat manuálisan kell telepíteni a virtuális gépre. A Tesla CUDA-illesztőprogramok az NVIDIA [letöltési webhelyéről](https://www.nvidia.com/Download/index.aspx)szerezhetők be. A CUDA-illesztőprogramok nem igényelnek licenckiszolgálót.
+
+## <a name="next-steps"></a>Következő lépések
+
+- [NVIDIA GPU-illesztőprogramok telepítése a Linuxon futó N sorozatú virtuális gépeken](/azure/virtual-machines/linux/n-series-driver-setup)
+- [Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)

@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448673"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546497"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
 
@@ -46,9 +46,9 @@ Az Azure go SDK-val kapcsolatos további információkért tekintse meg az aláb
 - Az Azure go SDK a [Go nyelvhez készült Azure SDK telepítéséhez](/go/azure/azure-sdk-go-install).
 - Az Azure go SDK nyilvánosan elérhető a GitHubon az [Azure-SDK-for-go](https://github.com/Azure/azure-sdk-for-go) adattárban.
 
-### <a name="go-autorest-dependencies"></a>Go-autorest-függőségek
+### <a name="go-autorest-dependencies"></a>Go-AutoRest függőségek
 
-A go SDK az Azure **Go-autorest-** moduloktól függ, hogy Azure Resource Manager-végpontoknak küldje el a REST-kérelmeket. Importálnia kell az Azure go **-autorest** modul függőségeit az [Azure go-autorest](https://github.com/Azure/go-autorest)szolgáltatásból a githubon. A bash-parancsokat a **telepítés** szakaszban találja.
+A go SDK az Azure **Go-autorest-** moduloktól függ, hogy Azure Resource Manager-végpontoknak küldje el a REST-kérelmeket. Importálnia kell az Azure **Go-autorest-** modul függőségeit az [Azure Go-AutoRest a githubon](https://github.com/Azure/go-autorest). A bash-parancsokat a **telepítés** szakaszban találja.
 
 ## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>A go SDK-profilok használata az Azure Stack hub-on
 
@@ -174,7 +174,7 @@ Az engedélyezést be kell állítani az erőforrás-ügyfél engedélyezéseké
 Ez a példa egy olyan go-kódot mutat be, amely egy virtuális hálózatot hoz létre Azure Stack hub-on. A go SDK-val kapcsolatos teljes példákért tekintse meg az [Azure go SDK Samples adattárát](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack hub-minták a tárház szolgáltatási mappáiban található hibrid útvonalon érhetők el.
 
 > [!NOTE]  
-> Az ebben a példában szereplő kód futtatásához ellenőrizze, hogy a használt előfizetésben **regisztrálva**van-e a **hálózati** erőforrás-szolgáltató. Az ellenőrzéshez keresse meg az előfizetést az Azure Stack hub portálon, és válassza az **erőforrás-szolgáltatók lehetőséget.**
+> Az ebben a példában szereplő kód futtatásához ellenőrizze, hogy a használt előfizetésben **regisztrálva** van-e a **hálózati** erőforrás-szolgáltató. Az ellenőrzéshez keresse meg az előfizetést az Azure Stack hub portálon, és válassza az **erőforrás-szolgáltatók lehetőséget.**
 
 1. Importálja a szükséges csomagokat a kódban. A hálózati modul importálásához használja a Azure Stack hub legújabb elérhető profilját:
 
@@ -299,5 +299,5 @@ A go SDK-val a Azure Stack hub számára elérhető mintakód-minták a követke
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [A PowerShell telepítése Azure Stack hubhoz](../operator/azure-stack-powershell-install.md)
+- [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

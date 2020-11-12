@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 89a6b4da29796cd29d988ea5869330a1486ce420
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107099"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546514"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>A Visual Studio telepítése és kapcsolódás Azure Stack hubhoz
 
@@ -24,13 +24,13 @@ A Visual Studióval Azure Resource Manager [sablonokat](azure-stack-arm-template
 
 2. Nyissa meg a **Microsoft webplatform-telepítőt**.
 
-3. Keressen rá a **Visual Studio Community 2015-re Microsoft Azure SDK-2.9.6**. Kattintson a **Hozzáadás**, majd a **telepítés**gombra.
+3. Keressen rá a **Visual Studio Community 2015-re Microsoft Azure SDK-2.9.6**. Kattintson a **Hozzáadás** , majd a **telepítés** gombra.
 
 4. Távolítsa el az Azure SDK részeként telepített **Microsoft Azure PowerShell** .
 
     ![Képernyőkép a WebPI telepítési lépéseiről](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Telepítse a powershellt Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+5. [Telepítse a powershellt Azure stack hubhoz](../operator/powershell-install-az-module.md).
 
 6. A telepítés befejezése után indítsa újra a számítógépet.
 
@@ -38,9 +38,9 @@ A Visual Studióval Azure Resource Manager [sablonokat](azure-stack-arm-template
 
 1. Indítsa el a Visual studiót.
 
-2. A **nézet** menüben válassza a **Cloud Explorer**lehetőséget.
+2. A **nézet** menüben válassza a **Cloud Explorer** lehetőséget.
 
-3. Válassza a **fiókok kezelése**lehetőséget, majd az új ablaktáblán jelentkezzen be Azure Active Directory (Azure ad) hitelesítő adataival.  
+3. Válassza a **fiókok kezelése** lehetőséget, majd az új ablaktáblán jelentkezzen be Azure Active Directory (Azure ad) hitelesítő adataival.  
 
     ![Képernyőfelvétel: a Cloud Explorer a bejelentkezett és Azure Stack hubhoz való csatlakozás után a thas mutatja](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -50,11 +50,11 @@ A bejelentkezést követően [sablonok üzembe helyezésével](azure-stack-deplo
 
 1. Indítsa el a Visual studiót.
 
-2. Az **eszközök**területen válassza a **Beállítások lehetőséget**.
+2. Az **eszközök** területen válassza a **Beállítások lehetőséget**.
 
-3. Bontsa ki a **környezet** elemet a navigációs ablaktáblán, és válassza a **fiókok**lehetőséget.
+3. Bontsa ki a **környezet** elemet a navigációs ablaktáblán, és válassza a **fiókok** lehetőséget.
 
-4. Válassza a **Hozzáadás**lehetőséget, majd adja meg a felhasználói Azure Resource Manger-végpontot. A Azure Stack Development Kit (ASDK) esetében az URL-cím a következő: `https://management.local.azurestack/external` .  Azure Stack hub integrált rendszerek esetében az URL-cím a következő: `https://management.[Region}.[External FQDN]` .
+4. Válassza a **Hozzáadás** lehetőséget, majd adja meg a felhasználói Azure Resource Manger-végpontot. A Azure Stack Development Kit (ASDK) esetében az URL-cím a következő: `https://management.local.azurestack/external` .  Azure Stack hub integrált rendszerek esetében az URL-cím a következő: `https://management.[Region}.[External FQDN]` .
 
     ![Új Azure Cloud Discovery-végpont hozzáadása](./media/azure-stack-install-visual-studio/image5.png)
 

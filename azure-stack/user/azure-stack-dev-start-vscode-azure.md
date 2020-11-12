@@ -7,12 +7,12 @@ ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: 66a4a8f846002cc126d4861e1acc52b672e78dc5
-ms.sourcegitcommit: 68c00d9ee7c5a9e7da6d41e2f753c0f93d26238e
+ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91211159"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546701"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
@@ -34,7 +34,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 
 1. Futtassa az **Identity** scriptet Azure stack Hub-eszközökről a githubon.
 
-    - A szkript futtatása előtt telepítenie kell a PowerShellt, és konfigurálnia kell a környezetét. Útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/azure-stack-powershell-install.md).
+    - A szkript futtatása előtt telepítenie kell a PowerShellt, és konfigurálnia kell a környezetét. Útmutatásért lásd: a [PowerShell telepítése Azure stack hubhoz](../operator/powershell-install-az-module.md).
 
     - Az **Identity** script utasításait és parancsfájlját lásd: [AzureStack-Tools/Identity](https://aka.ms/aa6z611).
 
@@ -53,7 +53,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 
 4. A keresőmezőbe írja be a `Azure Account` kifejezést.
 
-5. Válassza az **Azure-fiók** lehetőséget, és válassza a **telepítés**lehetőséget.
+5. Válassza az **Azure-fiók** lehetőséget, és válassza a **telepítés** lehetőséget.
 
       ![Azure Stack hub Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
 
@@ -70,7 +70,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 
     Jegyezze fel a Return JSON-t. Szüksége lesz a és tulajdonság értékeire `loginEndpoint` `audiences` .
 
-8. Nyomja le **a CTRL + SHIFT + P** billentyűkombinációt, majd válassza a **Beállítások: felhasználói beállítások (JSON) megnyitása**lehetőséget.
+8. Nyomja le **a CTRL + SHIFT + P** billentyűkombinációt, majd válassza a **Beállítások: felhasználói beállítások (JSON) megnyitása** lehetőséget.
 
 9. A Kódszerkesztő alkalmazásban frissítse a következő JSON-kódrészletet a környezetéhez tartozó értékekkel, majd illessze be a kódrészletet a Settings (beállítások) blokkba.
 
@@ -97,9 +97,9 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
       "azure.cloud": "AzurePPE"
       ```
 
-10. Mentse a felhasználói beállításokat, és használja a **CTRL + SHIFT + P billentyűkombinációt** . Válassza ki az **Azure-t: Jelentkezzen be az Azure-felhőbe**. Az új lehetőség, a **AzurePPE**, megjelenik a célok listájában.
+10. Mentse a felhasználói beállításokat, és használja a **CTRL + SHIFT + P billentyűkombinációt** . Válassza ki az **Azure-t: Jelentkezzen be az Azure-felhőbe**. Az új lehetőség, a **AzurePPE** , megjelenik a célok listájában.
 
-11. Válassza a **AzurePPE**lehetőséget. A hitelesítés lap betöltődik a böngészőben. Jelentkezzen be a végpontba.
+11. Válassza a **AzurePPE** lehetőséget. A hitelesítés lap betöltődik a böngészőben. Jelentkezzen be a végpontba.
 
 12. Annak ellenőrzéséhez, hogy sikeresen bejelentkezett-e a Azure Stack hub-előfizetésbe, használja a **CTRL + SHIFT + P billentyűkombinációt** , és válassza az **Azure lehetőséget: válassza az előfizetés lehetőséget** , és ellenőrizze, hogy elérhető-e az előfizetés.
 
