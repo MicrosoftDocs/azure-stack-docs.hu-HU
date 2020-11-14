@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/12/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546055"
+ms.locfileid: "94567258"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -70,11 +70,17 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Azure Stack hub blob Storage mostantól lehetővé teszi a felhasználók számára, hogy egy nem módosítható blobot használjanak. Ha nem módosítható szabályzatokat állít be egy tárolón, az üzleti szempontból kritikus fontosságú adatobjektumokat egy féreg (egyszer írható, olvasás) állapotba is tárolhatja. Ebben a kiadásban a nem módosítható házirendek csak a REST API vagy az ügyféloldali SDK-k használatával állíthatók be. Ebben a kiadásban nem lehet hozzáfűzni a Blobok írásait is. A nem módosítható Blobokkal kapcsolatos további információkért lásd: [az üzleti szempontból kritikus blob-adatok tárolása a](/azure/storage/blobs/storage-blob-immutable-storage)nem módosítható tárolóval.
 - Az Azure Stack hub Storage mostantól támogatja az Azure Storage Services API 2019-07-07-es verzióját. Az új REST API verziójával kompatibilis Azure-ügyfél kódtárait lásd: [Azure stack hub Storage fejlesztői eszközök](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - A Azure Stack hub számítási funkciója mostantól támogatja az Azure számítási API-k 2020-06-01-es verzióját, az összes elérhető funkció egy részhalmazával.
+- Azure Stack hub által felügyelt lemezek mostantól támogatják az Azure Disk APIs **2019-03-01** -es verzióját, az elérhető funkciók egy részhalmazával.
 - A Windows felügyeleti központ előzetes verziója, amely most már csatlakozhat Azure Stack központhoz, és részletes betekintést nyújt az infrastruktúrába a támogatási műveletek során (az adattörés szükséges).
 - Lehetőség a bejelentkezési szalagcím hozzáadására a rendszerjogosultságú végponthoz (PEP) a központi telepítési időpontban.
 - Kiadta a több **exkluzív műveleti** szalagcímet, amelyek javítják a rendszeren jelenleg zajló műveletek láthatóságát, és letiltják a felhasználók számára, hogy minden más kizárólagos műveletet kezdeményezzenek (és ezt követően sikertelenek).
 - Két új szalagcím bevezetése az egyes Azure Stack hub Marketplace-elemek Product (termék) oldalán. Ha a piactér letöltése sikertelen, a kezelők megtekinthetik a hibák részleteit, és megkísérlik a probléma megoldására a javasolt lépéseket.
 - Kiadta a minősítési eszközt az ügyfelek számára a visszajelzések megadásához. Ez lehetővé teszi Azure Stack hub számára a felhasználói élmény mérését és optimalizálását.
+- Azure Stack hub ezen kiadása az Azure Kubernetes Service (ak) és a Azure Container Registry (ACR) privát előzetes verzióját tartalmazza. A privát előzetes verzió célja, hogy visszajelzést gyűjtsön a Azure Stack hub-on található AK-ra és ACR-re vonatkozó minőségi, funkciókkal és felhasználói élménysel kapcsolatban.
+- Ebben a kiadásban az Azure CNI és a Windows-tárolók nyilvános előzetes verziója szerepel az [AK Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)használatával. Az API-modellben való használatról a következő [példában talál példát a githubon](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json).
+- A [Istio 1,3 üzembe helyezése](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh) mostantól támogatott az [AK Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)által üzembe helyezett fürtökön. További információkért [tekintse meg az itt található utasításokat](../user/kubernetes-aks-engine-service-account.md).
+- Mostantól támogatott a [magánhálózatok](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster) üzembe helyezése az [AK Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md)használatával.
+- Ez a kiadás támogatja az Azure-beli és Azure Stack hub Key Vault-példányok [Kubernetes-konfigurációs titkainak beszerzését](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) .
 
 ### <a name="improvements"></a>Fejlesztései
 
@@ -84,6 +90,8 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Az indítási és leállítási folyamat változásai az infrastruktúra-szerepkör példányain és azok függőségei a méretezési egység csomópontjain. Ez növeli a Azure Stack hub indítási és leállítási megbízhatóságát.
 - A **test-AzureStack** Validation Tool **AzSScenarios** csomagja frissítve lett, hogy a Cloud Service Providers futtassa ezt a Suite-t, hogy az összes ügyfél fiókján engedélyezve legyen a többtényezős hitelesítés.
 - A riasztások megbízhatóságának növelése az életciklus-műveletek során felmerülő 29 ügyfél-riasztások felszámolási logikájának hozzáadásával.
+- Most már megtekintheti a napló-gyűjtemény részletes HTML-jelentését, amely részletesen ismerteti a naplók szerepköreinek, időtartamának és állapotának részleteit. A jelentés célja, hogy segítséget nyújtson a felhasználóknak a gyűjtött naplók összefoglalásában. A Microsoft ügyfélszolgálati szolgálatai ezután gyorsan felhasználhatják a jelentést a naplófájlok kiértékeléséhez, és segítenek a rendszerproblémák elhárításában és enyhítésében.
+- Az infrastruktúra-hibák észlelésének lefedettsége már 7 új figyelő hozzáadásával bővült a felhasználói forgatókönyvek (például a CPU-kihasználtság és a memóriahasználat) között, ami segít a hibák észlelésének megbízhatóságának növelésében.
 
 ### <a name="changes"></a>Módosítások
 
@@ -226,7 +234,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.20.82](https://support.microsoft.com/help/4592228)
+- [Azure Stack hub gyorsjavítási 1.2005.21.84](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

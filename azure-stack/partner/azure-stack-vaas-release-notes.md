@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
+ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764630"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94580810"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
@@ -30,6 +30,38 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
 
 - Hibajavítások
   - Rögzített tesztek Test101LinuxEmptyAttachedDiskManagedDisk, Test101WindowsEmptyAttachedDiskManagedDisk.
+
+## <a name="version-4442"></a>4.4.4.2 verziója
+
+2020 november 11
+
+- A rendszer frissítette az ÜGYFÉLOLDALI szolgáltatás-ellenőrzési munkafolyamatot, hogy a teszt aláírt OEM-bővítmény csomagot automatikusan a teljes AzureStack-frissítés után telepítse.
+  - A javítás előtt az AzureStack teljes frissítés után nem sikerül telepítenie egy Test-Signed OEM-bővítményt a bélyegzőn. Az Varga AzureStack-frissítést alkalmaz, majd kizárja a futtatást.
+  - Ez meg lett javítva, és látnia kell, hogy a megadott AzureStack Update és test-aláírt OEM-bővítmény csomag telepítése ÜGYFÉLOLDALI ellenőrzési munkafolyamatot tartalmaz.
+- OEM-csomag érvényesítési bővítményének hozzáadva az "OEM-ellenőrzési munkafolyamathoz"
+  - Ez a bővítmény a bélyegző frissítéseinek kirúgása előtt fog futni.
+  - A bővítmény ellenőrzi az OEM-bővítmény csomagjának tartalmát és a oemMetadata.xml elemeit.
+  - Ha bármilyen hiba/probléma merült fel az OEM-bővítmény csomaggal kapcsolatban, azt a rendszer beolvassa, mielőtt az első lépések elindulnak.
+  - Ezek az érvényesítések a csomag aláírásának időpontjában futottak, és az alapszolgáltatások tesztelését követően futtatták.  
+- A AzureStack és a AzureRM PowerShell-modulok újabb verziójának telepítéséhez a reqs előzetes verziója frissítve lett
+  - AzureStack PS-modul verziója 1.8.2
+  - AzureRM PS-modul 2.5.0-es verzió
+- Másodlagos szolgáltatások frissítései.
+
+## <a name="version-443112"></a>4.4.3.112 verziója
+
+2020 augusztus 23
+
+- Szolgáltatás frissítései.
+  - A szolgáltatás központi telepítésének frissítései.
+  - A szolgáltatás hitelesítési módszereinek frissítése megtörtént.
+
+## <a name="version-44368"></a>4.4.3.68 verziója
+
+2020 június 30
+
+- Szolgáltatás frissítései.
+  - Áthelyezte a szolgáltatást Service Fabric-ben való futtatásra.
 
 ## <a name="version-4421"></a>4.4.2.1 verziója
 
@@ -55,7 +87,6 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
   - Vegye fel vaashelp@microsoft.com a kapcsolatot, ha az alábbi tesztelési esetek nem futnak az OEM-ellenőrzési munkafolyamat során:
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
-
 
 ## <a name="version-4353"></a>4.3.5.3 verziója
 
@@ -124,7 +155,7 @@ Ez a cikk a Azure Stack hub szolgáltatásként történő érvényesítésének
 Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, és az OEM-frissítési csomag verziószáma nem 1810 vagy újabb, hibaüzenet jelenik meg, ha megkapja az OEM-frissítés lépését. Ez a hiba egy hiba. Javítás fejlesztése folyamatban van. A kockázatcsökkentő lépések a következők:
 
 1. Futtassa az OEM-frissítést a szokásos módon.
-2. Tesztelje a AzureStack a csomag sikeres alkalmazása után, és mentse a kimenetet.
+2. Test-AzureStack végrehajtása a csomag sikeres alkalmazása és a kimenet mentése után.
 3. A teszt megszakítása.
 4. Küldje el a mentett kimenetet, VaaSHelp@microsoft.com hogy megkapja a Futtatás eredményét.
 

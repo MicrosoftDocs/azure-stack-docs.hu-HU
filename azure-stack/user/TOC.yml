@@ -169,7 +169,7 @@
                   href: azure-stack-storage-transfer.md
                 - name: A Storage Explorer csatlakoztatása
                   href: azure-stack-storage-connect-se.md
-            - name: Network (Hálózat)
+            - name: Hálózat
               items:
                 - name: Áttekintés
                   href: azure-stack-network-overview.md
@@ -298,6 +298,8 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: NodeJS-webalkalmazás üzembe helyezése
               href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: GPU IoT-modul üzembe helyezése
+          href: gpu-deploy-sample-module.md
     - name: Alapvető minták üzembe helyezése
       href: deploy-foundational-patterns.md
       items:
@@ -337,7 +339,7 @@
               href: azure-stack-network-howto-backup-storage.md
             - name: Előfizetés-erőforrások másolása
               href: azure-stack-network-howto-backup-replicator.md
-- name: Alapelvek
+- name: Fogalmak
   items:
     - name: IaaS architektúrák
       items:
@@ -351,7 +353,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Hálózati virtuális berendezések
           href: iaas-architecture-nva-architecture.md
-- name: Referencia
+- name: Hivatkozás
   items:
     - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview

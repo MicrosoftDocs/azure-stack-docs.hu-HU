@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 077ff172b1a8c1d68f823f521a17729d47a03eac
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 3f5a53ce1bfb219db05e92d361f8d4018f755dad
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546616"
+ms.locfileid: "94567241"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -27,7 +27,7 @@ A felügyelt lemezek alapértelmezés szerint engedélyezve vannak a virtuális 
 | Jellemző | Azure (globális) | Azure Stack Hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
-|Kép          | Felügyelt egyéni rendszerkép |Támogatott|
+|Rendszerkép          | Felügyelt egyéni rendszerkép |Támogatott|
 |Biztonsági mentési beállítások | Azure Backup szolgáltatás |Még nem támogatott |
 |Vész-helyreállítási lehetőségek | Azure Site Recovery |Még nem támogatott|
 |Lemez típusa     |Prémium SSD, standard SSD és standard HDD. |Prémium SSD, standard HDD |
@@ -37,7 +37,7 @@ A felügyelt lemezek alapértelmezés szerint engedélyezve vannak a virtuális 
 |Lemezméret  |Azure Premium Disk: P4 (32 GiB) – P80 (32 TiB)<br>Azure standard SSD lemez: E10 (128 GiB) – E80 (32 TiB)<br>Azure standard HDD lemez: S4 (32 GiB) – S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1023 GiB |
 |Lemezek pillanatképének másolása|A futó virtuális gépekhez csatolt Snapshot Azure Managed Disks.|Még nem támogatott |
 |Lemezek teljesítményének analitikai |Összesített mérőszámok és lemezes mérőszámok támogatottak. |Még nem támogatott |
-|Áttelepítés      |Adja meg az eszközt a meglévő, nem felügyelt Azure Resource Manager virtuális gépekről való áttelepítéshez anélkül, hogy újra létre kellene hoznia a virtuális gépet.  |Még nem támogatott |
+|Migrálás      |Adja meg az eszközt a meglévő, nem felügyelt Azure Resource Manager virtuális gépekről való áttelepítéshez anélkül, hogy újra létre kellene hoznia a virtuális gépet.  |Még nem támogatott |
 
 > [!NOTE]  
 > A felügyelt lemezek IOPs és átviteli sebessége Azure Stack hub-ban nem kiosztott szám, hanem a Azure Stack hub-ban futó hardverek és munkaterhelések is befolyásolhatják.
@@ -53,8 +53,19 @@ A tárolási metrikákkal kapcsolatban is különbségek vannak:
 
 Azure Stack hub Managed Disks a következő API-verziókat támogatja:
 
+::: moniker range=">=azs-2008"
+- 2019-03-01
+- 2018-09-30
+- 2018-06-01
+- 2018-04-01
+- 2017-03-30
+::: moniker-end
+
+::: moniker range="<=azs-2005"
+
 - 2017-03-30
 - 2017-12-01 (csak felügyelt lemezképek, nincsenek lemezek, Pillanatképek nélkül)
+::: moniker-end
 
 ## <a name="convert-to-managed-disks"></a>Átalakítás felügyelt lemezekre
 
