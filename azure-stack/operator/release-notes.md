@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567258"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630821"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -33,9 +33,10 @@ Ha egy másik verzió kibocsátási megjegyzéseit szeretné elérni, a bal olda
 
 A frissítés alkalmazása előtt mindenképpen tekintse át a következő információkat:
 
-- [Ismert problémák](known-issues.md)
-- [Biztonsági frissítések](release-notes-security-updates.md)
 - [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](release-notes-checklist.md)
+- [Ismert problémák](known-issues.md)
+- [Gyorsjavítások](#hotfixes)
+- [Biztonsági frissítések](release-notes-security-updates.md)
 
 A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért lásd: [a Azure stack hub javításával és frissítésével kapcsolatos hibák elhárítása](azure-stack-troubleshooting.md).
 
@@ -117,7 +118,7 @@ További információ a Azure Stack hub ezen frissítésében található bizton
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
+Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
 
 > [!NOTE]
 > Azure Stack hub gyorsjavítási kiadásai kumulatívak; a legújabb gyorsjavítást csak akkor kell telepíteni, ha az adott verzióhoz tartozó korábbi gyorsjavítások összes javítását beolvassa.
@@ -126,7 +127,7 @@ További információkért tekintse meg a [karbantartási szabályzatot](azure-s
 
 Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>Előfeltételek: az 2008-es frissítés alkalmazása előtt
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Gyorsjavítások előfeltételei: az 2008-es frissítés alkalmazása előtt
 
 Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
 

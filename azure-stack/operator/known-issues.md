@@ -7,12 +7,12 @@ ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8fd2bf37b959670923586234f361d7370ebe2508
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
+ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567224"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616977"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -86,7 +86,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha a **munkamenet-affinitást** egy terheléselosztó esetében engedélyezi, a 2 rekordos kivonat a PA IP-címet (fizikai cím IP) használja a virtuális gépekhez rendelt magánhálózati IP-címek helyett. Olyan esetekben, amikor a terheléselosztó felé irányuló forgalom egy VPN-en keresztül érkezik, vagy ha az összes ügyfél-virtuális gép (forrás IP-címe) ugyanazon a csomóponton található, és a munkamenet-affinitás is engedélyezve van, az összes forgalmat egyetlen háttérbeli virtuális gépre irányítja a rendszer.
 - Előfordulás: gyakori
 
-## <a name="compute"></a>Compute
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -204,7 +204,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
 - Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub-telepítés frissítési folyamata során.
 
-## <a name="storage"></a>Tárolás
+## <a name="storage"></a>Storage
 
 ### <a name="retention-period-reverts-to-0"></a>A megőrzési idő visszaállt 0-ra
 
@@ -409,7 +409,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy meglévő Storage-fiókkal állítja be az SQL virtuális gépek automatikus biztonsági mentését, a hiba **SQL Server IaaS-ügynökkel meghiúsul: az alapul szolgáló kapcsolat bezárult: váratlan hiba történt a küldéskor.**
 - Előfordulás: gyakori
 
-## <a name="storage"></a>Tárolás
+## <a name="storage"></a>Storage
 
 ### <a name="retention-period-revert-to-0"></a>Megőrzési időszak visszavonása 0-ra
 
@@ -444,7 +444,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)
