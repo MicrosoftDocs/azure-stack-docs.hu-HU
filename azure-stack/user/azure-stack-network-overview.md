@@ -3,16 +3,16 @@ title: Az Azure Stack hub hálózatkezelésének bemutatása
 description: Tudnivalók a Azure Stack hub hálózatkezeléséről
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/16/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1e850e766300ff4d1b24328ba47c8458a903732a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 2cb8ede31a91ba05102c55591a4942f512bce0c8
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111948"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674472"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Az Azure Stack hub hálózatkezelésének bemutatása
 
@@ -23,7 +23,9 @@ Azure Stack hub különböző típusú hálózati képességeket biztosít, amel
 - **Internetkapcsolat**  
     Kommunikáció Azure Stack hub-erőforrásokkal az interneten keresztül.
 - **Helyszíni kapcsolatok**  
-    Helyszíni hálózat csatlakoztatása Azure Stack hub-erőforrásokhoz virtuális magánhálózati (VPN) kapcsolaton keresztül az interneten keresztül, vagy az Azure Stack hub-hoz való dedikált kapcsolaton keresztül.
+    Helyszíni hálózat csatlakoztatása Azure Stack hub-erőforrásokhoz virtuális magánhálózati (VPN) kapcsolaton keresztül az interneten keresztül, vagy az Azure Stack hub-hoz való dedikált kapcsolaton keresztül. 
+    > [!IMPORTANT]
+    > A helyszíni erőforrások eléréséhez létre kell hoznia egy VPN-vagy nyilvános IP-kapcsolatot.
 - **Terheléselosztás és forgalom iránya**  
     A forgalom terheléselosztása ugyanazon a helyen található kiszolgálókra, és a különböző helyekre irányuló kiszolgálók közötti közvetlen forgalom.
 - **Biztonság**  

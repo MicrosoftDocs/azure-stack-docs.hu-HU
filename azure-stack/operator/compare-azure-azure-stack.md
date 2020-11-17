@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866156"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674496"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségek
 
@@ -21,7 +21,7 @@ A Microsoft egy Azure-ökoszisztémában biztosítja az Azure-t és a Azure Stac
 
 Ez a cikk a globális Azure, Azure Stack hub és a Azure Stack HCI képességek közötti különbségeket ismerteti. Általános forgatókönyvekre vonatkozó ajánlásokat tartalmaz, amelyek segítségével a legjobb választást nyújthatja a szervezete számára a Microsoft felhőalapú szolgáltatásainak biztosításához.
 
-![Az Azure ökoszisztéma áttekintése](./media/compare-azure-azure-stack/azure-family.svg)
+![Az Azure ökoszisztéma áttekintése](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>Globális Azure
 
@@ -40,7 +40,7 @@ Azure Stack hub az Azure kiterjesztése, amely a felhő-számítástechnika ruga
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Piactér
-- Tárolók
+- Containers
 - Felügyeleti eszközök (csomagok, ajánlatok, RBAC stb.)
 
 Az Azure Stack hub Péter képességei nem kötelezőek, mert Azure Stack hub nem a Microsoft által üzemeltetett, hanem ügyfeleink által működtetett. Ez azt jelenti, hogy bármely olyan Pásti-szolgáltatást kínálhat, amelyet a végfelhasználók számára kíván elkészíteni, ha készen áll arra, hogy elvonta az alapul szolgáló infrastruktúrát és folyamatokat. Az Azure Stack hub azonban több opcionális, például App Service, SQL-adatbázist és MySQL-adatbázist is tartalmaz. Ezek erőforrás-szolgáltatóként érkeznek, így több-bérlős használatra készek, a standard szintű Azure Stack hub-frissítésekkel együtt, amelyek láthatók a Azure Stack hub portálon, és jól integrálva van az Azure Stack hub-val.

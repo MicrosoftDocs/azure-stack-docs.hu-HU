@@ -3,22 +3,22 @@ title: ASDK kibocsátási megjegyzései
 description: A Azure Stack Development Kit (ASDK) javításai, javításai és ismert problémái.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ea7c991a1d9b16580cb4fbd7f812ec776da6e084
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543408"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674302"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
 Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon ellenőrizze a](../operator/azure-stack-updates.md)következőt:.
 
-Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)való feliratkozással naprakész maradhat a ASDK újdonságai.
+Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára](https://aka.ms/asdkrss)való feliratkozással naprakész maradhat a ASDK újdonságai.
 
 ::: moniker range="azs-2008"
 ## <a name="build-120081388"></a>1.2008.13.88 létrehozása

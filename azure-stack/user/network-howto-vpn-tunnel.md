@@ -3,16 +3,16 @@ title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547075"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674636"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
@@ -22,11 +22,11 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 ## <a name="scenarios"></a>Forgatókönyvek
 
-![Öt VPN-forgatókönyv diagrammed: két erőforráscsoport között egy adott előfizetésen belül. két csoport között a saját előfizetésében; két csoport között külön stack-példányokban; egy csoport és helyi erőforrás között a helyszínen; és több VPN-alagút.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![Öt VPN-forgatókönyv diagrammed: két erőforráscsoport között egy adott előfizetésen belül. két csoport között a saját előfizetésében; két csoport között külön stack-példányokban; egy csoport és helyi erőforrás között a helyszínen; és több VPN-alagút.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>Több VPN-alagút létrehozása
 
-![Az ábrán két erőforráscsoport látható, amelyek mindegyike a saját előfizetésében és a stack-példányában található, VPN-kapcsolattal. továbbá a két csoport egyike a helyszíni helyi erőforrásokhoz VPN-kapcsolaton keresztül.](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![Az ábrán két erőforráscsoport látható, amelyek mindegyike a saját előfizetésében és a stack-példányában található, VPN-kapcsolattal. továbbá a két csoport egyike a helyszíni helyi erőforrásokhoz VPN-kapcsolaton keresztül.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  Helyezzen üzembe egy háromrétegű alkalmazást, web, app és DB adatbázist.
 
@@ -42,7 +42,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 Ez egy több lépésből álló folyamat. Ebben a megoldásban az Azure Stack hub portált fogja használni. Azonban használhatja a PowerShellt, az Azure CLI-t vagy más infrastruktúra-kóddal rendelkező eszközöket a kimenetek rögzítéséhez és bemenetként való felhasználásához.
 
-![A diagram öt lépést mutat be a VPN-alagutak két infrastruktúra közötti üzembe helyezéséhez. Az első két lépés két infrastruktúrát hoz létre egy sablonból. A következő két lépés két VPN-alagutat hoz létre egy sablonból, az utolsó lépés pedig összekapcsolja az alagutakat.](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![A diagram öt lépést mutat be a VPN-alagutak két infrastruktúra közötti üzembe helyezéséhez. Az első két lépés két infrastruktúrát hoz létre egy sablonból. A következő két lépés két VPN-alagutat hoz létre egy sablonból, az utolsó lépés pedig összekapcsolja az alagutakat.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>Útmutatás
 
@@ -177,7 +177,7 @@ Ha megtekinti az egyéni parancsfájl-bővítmény kimenetét, megtekintheti a l
 
 2. Nyissa meg az RRAS virtuális gépet (a AppTier).
 
-3. Válassza a **bővítmények** és az egyéni R- **szkriptek bővítménye** elemet.
+3. Válassza a **bővítmények** és az egyéni R-**szkriptek bővítménye** elemet.
 
 4. Keresse meg a parancsfájlok könyvtárat az **Azure-intelligens-Edge-Patterns/RRAS-vnet-vpntunnel** adattárban. Válassza a **Get-VPNS2SInterfaceStatus.ps1** lehetőséget.
 

@@ -3,16 +3,16 @@ title: VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 description: Megtudhatja, hogyan hozhat létre VPN-alagutat az Azure Stack hub IPSEC szolgáltatásával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 50594cd976fc502d25f3e54c980fd2cf3702d046
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 3ceab07ebb6743e0ece9e6cb3d33ee08588d8992
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574074"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674609"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 
@@ -50,7 +50,7 @@ A sablonokat az [Azure intelligens Edge Pattern](https://github.com/Azure-Sample
 
 Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tartalmazza.  A rendszergazdának (rrasadmin) jelszót kell használnia, és a saját tárolási blobját is használhatja SAS-token használatával.  Ügyeljen arra, hogy ezeket az értékeket a jogi tartományokon belül tárolja, mivel a telepítés sikertelen lehet.  A PowerShell DSC-csomag minden RRAS virtuális gépen fut, és az Útválasztás és az összes szükséges függő szolgáltatás és szolgáltatás telepítése történik.  Ezt a DSC-t szükség esetén tovább lehet testreszabni.  Az egyéni szkriptek bővítménye a következő parancsfájlt futtatja, és Add-Site2SiteIKE.ps1 konfigurálja a VPNS2S-alagutat a két RRAS-kiszolgáló között egy megosztott kulccsal.  Az egyéni szkriptek bővítményének részletes kimenetét megtekintve megtekintheti a VPN-alagút konfigurációjának eredményét.
 
-![A S2SVPNTunnel című diagram két, helyek közötti VPN-alagúthoz csatlakoztatott virtuális hálózatok mutat be.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![A S2SVPNTunnel című diagram két, helyek közötti VPN-alagúthoz csatlakoztatott virtuális hálózatok mutat be.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.svg)
 
 ## <a name="next-steps"></a>Következő lépések
 

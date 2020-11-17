@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
-ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
+ms.openlocfilehash: 8207975a5763b9ee6edc8842bd27369c4fb355eb
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616977"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674421"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -61,7 +61,8 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound-szabály nem hozható létre
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a virtuális gép létrehozása során nem hozható létre explicit **DenyAllOutbound** -szabály az internetre, mivel ez megakadályozza a virtuális gép telepítésének befejezéséhez szükséges kommunikációt a NSG.
+- Ok: a virtuális gép létrehozása során nem hozható létre explicit **DenyAllOutbound** -szabály az internetre, mivel ez megakadályozza a virtuális gép telepítésének befejezéséhez szükséges kommunikációt a NSG. Emellett a virtuális gépek üzembe helyezéséhez szükséges két alapvető IP-címet is megtagadja: DHCP IP: 169.254.169.254 és DNS IP: 168.63.129.16.
+
 - Szervizelés: engedélyezze a kimenő adatforgalmat a virtuális gépek létrehozásakor, és módosítsa a NSG, hogy letiltsa a szükséges forgalmat a virtuális gép létrehozása után.
 - Előfordulás: gyakori
 
@@ -173,7 +174,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>A VM-bővítmények használata az Ubuntu Server 20,04-ben
 
-- Alkalmazható: Ez a probléma az **Ubuntu Server 20,04 LTS** -re vonatkozik.
+- Alkalmazható: Ez a probléma az **Ubuntu Server 20,04 LTS**-re vonatkozik.
 - Ok: egyes Linux-disztribúciók áttértek a Python 3,8-re, és eltávolította a `/usr/bin/python` teljes Python örökölt BelépésiPont. A Python 3. x verzióra váltott Linux-disztribúciós felhasználóknak biztosítaniuk kell a régi `/usr/bin/python` belépési pont létezését, mielőtt telepítené a bővítményeket a virtuális gépekre. Ellenkező esetben előfordulhat, hogy a bővítmény telepítése sikertelen lesz.
 - Szervizelés: hajtsa végre a megoldás lépéseit a [Python 3-kompatibilis Linux Azure Virtual Machines rendszerekben a virtuálisgép-bővítmények használatával](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3) , de hagyja ki a 2. lépést, mert az Azure stack hub nem rendelkezik a **parancs futtatására** szolgáló funkcióval.
 
@@ -267,7 +268,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="storage-account-options"></a>Tárfiók-beállítások
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
-- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor** ) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
+- Ok: a felhasználói portálon a Storage-fiókok neve **Storage-fiókként (blob, fájl, tábla, üzenetsor**) jelenik meg. Azure Stack hub esetében azonban a **fájl** nem támogatott.
 - Előfordulás: gyakori
 
 ### <a name="create-managed-disk-snapshot"></a>Felügyelt lemez pillanatképének létrehozása
@@ -444,7 +445,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a bal oldalon a tartalomjegyzék legördülő menüjét, és válassza ki a megjeleníteni kívánt verziót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A frissítési tevékenységre vonatkozó ellenőrzőlista áttekintése](release-notes-checklist.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)

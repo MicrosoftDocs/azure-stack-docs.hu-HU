@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 762a41b52506e4f5ff4a57a5eab95daba489d98f
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630821"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674455"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -71,7 +71,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 - Azure Stack hub blob Storage mostantól lehetővé teszi a felhasználók számára, hogy egy nem módosítható blobot használjanak. Ha nem módosítható szabályzatokat állít be egy tárolón, az üzleti szempontból kritikus fontosságú adatobjektumokat egy féreg (egyszer írható, olvasás) állapotba is tárolhatja. Ebben a kiadásban a nem módosítható házirendek csak a REST API vagy az ügyféloldali SDK-k használatával állíthatók be. Ebben a kiadásban nem lehet hozzáfűzni a Blobok írásait is. A nem módosítható Blobokkal kapcsolatos további információkért lásd: [az üzleti szempontból kritikus blob-adatok tárolása a](/azure/storage/blobs/storage-blob-immutable-storage)nem módosítható tárolóval.
 - Az Azure Stack hub Storage mostantól támogatja az Azure Storage Services API 2019-07-07-es verzióját. Az új REST API verziójával kompatibilis Azure-ügyfél kódtárait lásd: [Azure stack hub Storage fejlesztői eszközök](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - A Azure Stack hub számítási funkciója mostantól támogatja az Azure számítási API-k 2020-06-01-es verzióját, az összes elérhető funkció egy részhalmazával.
-- Azure Stack hub által felügyelt lemezek mostantól támogatják az Azure Disk APIs **2019-03-01** -es verzióját, az elérhető funkciók egy részhalmazával.
+- Azure Stack hub által felügyelt lemezek mostantól támogatják az Azure Disk APIs **2019-03-01**-es verzióját, az elérhető funkciók egy részhalmazával.
 - A Windows felügyeleti központ előzetes verziója, amely most már csatlakozhat Azure Stack központhoz, és részletes betekintést nyújt az infrastruktúrába a támogatási műveletek során (az adattörés szükséges).
 - Lehetőség a bejelentkezési szalagcím hozzáadására a rendszerjogosultságú végponthoz (PEP) a központi telepítési időpontban.
 - Kiadta a több **exkluzív műveleti** szalagcímet, amelyek javítják a rendszeren jelenleg zajló műveletek láthatóságát, és letiltják a felhasználók számára, hogy minden más kizárólagos műveletet kezdeményezzenek (és ezt követően sikertelenek).
@@ -103,7 +103,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
   Vegye figyelembe, hogy ezek a módosítások egy Azure Stack hub rendszer gazdagép szintjén lesznek hozzáadva. Forduljon a SZÁMÍTÓGÉPGYÁRTÓhoz, és gondoskodjon arról, hogy a szükséges módosítások a ToR-hálózati kapcsolókon legyenek. Ez a ToR-változás a 2008-es kiadásra való frissítés előtt vagy a 2008-es frissítés után végezhető el. További információt a [hálózati integráció dokumentációjában](azure-stack-network.md)talál.
 
-  - A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3** , hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak az Azure erőforrás Manager-sablonok használatával használhatók.
+  - A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3**, hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak az Azure erőforrás Manager-sablonok használatával használhatók.
 
 ### <a name="fixes"></a>Javítások
 
@@ -129,9 +129,12 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Gyorsjavítások előfeltételei: az 2008-es frissítés alkalmazása előtt
 
-Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
+Azure Stack hub 2008-es kiadását a 2005-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
+- [Azure Stack hub gyorsjavítási 1.2005.21.84](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Az 2008-es frissítés sikeres alkalmazása után
+
+Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
@@ -186,7 +189,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 ### <a name="changes"></a>Módosítások
 
-- Eltávolította a leállításhoz, leállításhoz és az infrastruktúra szerepkör-példányának újraindításához szükséges műveleteket a felügyeleti portálról. A kapcsolódó API-k is el lettek távolítva a háló erőforrás-szolgáltatóban. A következő PowerShell-parancsmagok a rendszergazda RM-modulban és az előzetes verzióban Azure Stack hub-ban már nem működnek: **stop-AzsInfrastructureRoleInstance** , **disable-InfrastructureRoleInstance** , és **restart-InfrastructureRoleInstance**. Ezek a parancsmagok el lesznek távolítva a Azure Stack hub következő rendszergazdájától az Module kiadásával.
+- Eltávolította a leállításhoz, leállításhoz és az infrastruktúra szerepkör-példányának újraindításához szükséges műveleteket a felügyeleti portálról. A kapcsolódó API-k is el lettek távolítva a háló erőforrás-szolgáltatóban. A következő PowerShell-parancsmagok a rendszergazda RM-modulban és az előzetes verzióban Azure Stack hub-ban már nem működnek: **stop-AzsInfrastructureRoleInstance**, **disable-InfrastructureRoleInstance**, és **restart-InfrastructureRoleInstance**. Ezek a parancsmagok el lesznek távolítva a Azure Stack hub következő rendszergazdájától az Module kiadásával.
 - A Azure Stack hub 2005 mostantól csak [az Azure stack hub 2020 (87. x verzió) App Service](app-service-release-notes-2020-Q2.md)támogatja.
 - A hardver figyeléséhez szükséges felhasználói titkosítási beállítás a DES-ról az AES-ra változott a biztonság fokozása érdekében. Forduljon a hardveres partnerhez, és Ismerje meg, hogyan módosíthatja az alapszintű felügyeleti vezérlő (BMC) beállítását. Előfordulhat, hogy a BMC-ben történt módosítás után a **BmcCredential** újból futtatnia kell a parancsot a jogosultsági végpont használatával. További információ: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)
 
