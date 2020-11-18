@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ihcherie
+ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414146"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94875076"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -166,6 +166,10 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 11/17/2020: Azure Monitor, frissítés és konfiguráció kezelése – verzió 1.13.27
+- 11/17/2020: Azure Monitor Dependency Agent-version 9.10.6.11730
+- 11/17/2020: Azure Monitor Dependency Agent Linux rendszerű virtuális gépekhez – verzió 9.10.6.11730
+- 11/17/2020: Azure Monitor, frissítés és konfiguráció kezelése – verzió 1.0.18053.0
 - 11/05/2020: SQL Server 2017 standard on Windows Server 2016 – saját licenc-verzió 14.0.20201015
 - 11/05/2020: SQL Server 2017 standard a Windows Server 2016-on – a go-verzió 14.0.20201015
 - 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201015
@@ -494,7 +498,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 5/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
 - 5/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

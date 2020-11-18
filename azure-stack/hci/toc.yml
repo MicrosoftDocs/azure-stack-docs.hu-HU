@@ -74,6 +74,8 @@
           href: manage/update-cluster.md
         - name: A fürt figyelése
           href: manage/monitor-cluster.md
+        - name: Adatközponti tűzfal használata
+          href: manage/use-datacenter-firewall.md
         - name: A DISKSPD használata a számítási feladatok teszteléséhez
           href: manage/diskspd-overview.md
         - name: Kiszolgálók hozzáadása vagy eltávolítása

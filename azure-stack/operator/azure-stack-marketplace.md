@@ -5,14 +5,14 @@ author: sethmanheim
 ms.topic: article
 ms.date: 11/09/2020
 ms.author: sethm
-ms.reviewer: ihcherie
+ms.reviewer: gara
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 99dc19841bb57beae626ed7ca0a0c18b38ad4f1d
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b5f9fb7c7e3379b773d4168c72486d7333fd88fb
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414187"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94875059"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack hub Marketplace – áttekintés
 
@@ -41,7 +41,7 @@ Az Azure Stack hub piactéren közzétett minden elem az Azure Gallery-csomag (.
 
 A 1803-es és újabb verziókban a Azure Stack hub a képeket az Azure-ból való letöltéskor vagy Egyéni rendszerképek feltöltésekor a ritka fájlokra konvertálja. Ez a folyamat időt vesz igénybe egy kép hozzáadásakor, de helyet takarít meg, és felgyorsítja a rendszerképek üzembe helyezését. Az átalakítás csak az új lemezképekre vonatkozik. A meglévő lemezképek nem változnak.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Meglévő Piactéri elemek letöltése az Azure-ból és közzététel Azure Stack hubhoz](azure-stack-download-azure-marketplace-item.md)  
 * [Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)
