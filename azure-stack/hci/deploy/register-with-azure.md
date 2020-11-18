@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.date: 11/17/2020
+ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297891"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785784"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI összekötése az Azure-ba
 
@@ -65,7 +65,7 @@ Az alábbi eljárás segítségével regisztrálhat egy Azure Stack HCI-fürtöt
 3. Telepítse a szükséges parancsmagokat:
 
    ```PowerShell
-   Install-Module Az.StackHCI
+   Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
    > [!NOTE]

@@ -1,21 +1,21 @@
 ---
 title: Állandó tároló használata Windows-tárolóban
 description: Állandó tárterület használata Windows-tárolókban és Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiókok számára
-author: abha
+author: abhilashaagarwala
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 19b934e4bdec9e0ab6f4e7808dfea6e6fb648245
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778119"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94784852"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Állandó tárterület használata Windows-tárolókban és Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiókok számára
 
-Az állandó kötet a Kubernetes hüvelyekkel való használatra kiépített tárterületet jelöli. Egy állandó kötetet egy vagy több hüvely is használhat, és hosszú távú tárolást jelent. Emellett a pod vagy a Node életciklustól függetlenül is.Ebből a szakaszból megtudhatja, hogyan hozhat létre állandó kötetet, és hogyan használhatja ezt a kötetet a Windows-alkalmazásban.
+Az állandó kötet a Kubernetes hüvelyekkel való használatra kiépített tárterületet jelöli. Egy állandó kötetet egy vagy több hüvely is használhat, és hosszú távú tárolást jelent. Emellett a pod vagy a Node életciklustól függetlenül is.  Ebből a szakaszból megtudhatja, hogyan hozhat létre állandó kötetet, és hogyan használhatja ezt a kötetet a Windows-alkalmazásban.
 
 ## <a name="before-you-begin"></a>Előkészületek
 
@@ -27,7 +27,7 @@ A kezdéshez a következők szükségesek:
 
 ## <a name="create-a-persistent-volume-claim"></a>Állandó kötet jogcímek létrehozása
 
-Az állandó mennyiségi jogcímek a tárolók tárolási osztály alapján történő automatikus kiépítésére szolgálnak.Mennyiségi jogcím létrehozásához először hozzon létre egy nevű fájlt, `pvc-akshci-csi.yaml` és másolja a következő YAML-definícióba. A jogcím 10 GB méretű lemezt kér *ReadWriteOnce*-   hozzáféréssel. Az *alapértelmezett*   tárolási osztály a tárolási osztályként (vhdx) van megadva.  
+Az állandó mennyiségi jogcímek a tárolók tárolási osztály alapján történő automatikus kiépítésére szolgálnak. Mennyiségi jogcím létrehozásához először hozzon létre egy nevű fájlt, `pvc-akshci-csi.yaml` és másolja a következő YAML-definícióba. A jogcím 10 GB méretű lemezt kér *ReadWriteOnce*-   hozzáféréssel. Az *alapértelmezett*   tárolási osztály a tárolási osztályként (vhdx) van megadva.  
 
 ```yaml
 apiVersion: v1
@@ -41,11 +41,11 @@ spec:
   requests:
    storage: 10Gi
 ```
-A kötet létrehozásához futtassa a következő parancsokat egy felügyeleti PowerShell-munkamenetben az Azure Stack HCI-fürt egyik kiszolgálóján (például az [ENTER-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) vagy a távoli asztal használatával a kiszolgálóhoz való kapcsolódáshoz): 
+A kötet létrehozásához futtassa a következő parancsokat egy felügyeleti PowerShell-munkamenetben az Azure Stack HCI-fürt egyik kiszolgálóján (például az [ENTER-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) vagy a távoli asztal használatával a kiszolgálóhoz való kapcsolódáshoz): 
 
 
 ```PowerShell
-kubectl create -f pvc-akshci-csi.yaml 
+kubectl create -f pvc-akshci-csi.yaml 
 ```
 A következő kimenet azt mutatja, hogy az állandó kötet jogcíme sikeresen létrejött:
 
@@ -56,9 +56,9 @@ persistentvolumeclaim/pvc-akshci-csi created
 
 ## <a name="use-persistent-volume"></a>Állandó kötet használata
 
-Állandó kötet használatához hozzon létre egy winwebserver. YAML nevű fájlt, és másolja a következő YAML-definícióba.Ezután létre fog hozni egy Pod-t, amely hozzáférést biztosít az állandó mennyiségi jogcímek és a vhdx számára. 
+Állandó kötet használatához hozzon létre egy winwebserver. YAML nevű fájlt, és másolja a következő YAML-definícióba. Ezután létre fog hozni egy Pod-t, amely hozzáférést biztosít az állandó mennyiségi jogcímek és a vhdx számára. 
 
-Az alábbi YAML-definícióban a *mountPath* a kötet egy tárolón belüli csatlakoztatásának elérési útja. Sikeres Pod-létrehozás után megjelenik a * \\ C* -ben létrehozott alkönyvtár *mnt* , valamint a *mnt*belül létrehozott alkönyvtár *akshciscsi* .
+Az alábbi YAML-definícióban a *mountPath* a kötet egy tárolón belüli csatlakoztatásának elérési útja. Sikeres Pod-létrehozás után megjelenik a *\\ C* -ben létrehozott alkönyvtár *mnt* , valamint a *mnt* belül létrehozott alkönyvtár *akshciscsi* .
 
 
 ```yaml
@@ -98,24 +98,24 @@ spec:
 A fenti YAML-definícióval rendelkező Pod létrehozásához futtassa a következőt:
 
 ```PowerShell
-Kubectl create -f winwebserver.yaml 
+Kubectl create -f winwebserver.yaml 
 ```
 
 A következő parancs futtatásával gondoskodhat arról, hogy a pod fut:. Várjon néhány percet, amíg a pod fut állapotban van, mivel a rendszerkép húzása időt vesz igénybe.
 
 ```PowerShell
-kubectl get pods -o wide 
+kubectl get pods -o wide 
 ```
-Miután a pod fut, tekintse meg a pod állapotát a következő parancs futtatásával: 
+Miután a pod fut, tekintse meg a pod állapotát a következő parancs futtatásával: 
 
 ```PowerShell
-kubectl.exe describe pod %podName% 
+kubectl.exe describe pod %podName% 
 ```
 
 Az alábbi parancs futtatásával ellenőrizheti, hogy a kötet csatlakoztatva van-e a hüvelyben:
 
 ```PowerShell
-kubectl exec -it %podname% cmd.exe 
+kubectl exec -it %podname% cmd.exe 
 ```
 
 ## <a name="delete-a-persistent-volume-claim"></a>Állandó kötet jogcímek törlése
@@ -154,7 +154,7 @@ add-computer --domainame "YourDomainName" -restart
 
 Miután az összes Windows-feldolgozó csomópont csatlakoztatva lett egy tartományhoz, kövesse a [gMSA konfigurálása](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) című szakasz lépéseit a Kubernetes gMSA egyéni erőforrás-definíciók és webhookok a Kubernetes-fürtön való alkalmazásához.
 
-A Windows-tárolóval és a gMSA kapcsolatos további információkért tekintse meg a [Windows-tárolókat és a gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
+A Windows-tárolóval és a gMSA kapcsolatos további információkért tekintse meg a [Windows-tárolókat és a gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>Következő lépések
 - [Helyezzen üzembe egy Windows-alkalmazást a Kubernetes-fürtön](./deploy-windows-application.md).

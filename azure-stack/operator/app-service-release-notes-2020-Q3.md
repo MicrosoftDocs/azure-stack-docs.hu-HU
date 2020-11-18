@@ -1,19 +1,19 @@
 ---
-title: App Service Azure Stack hub 2002 Q3 kibocsátási megjegyzései
-description: Ismerje meg, hogy mi a 2002 Q3-kiadás a Azure Stack hub App Service, az ismert problémák és a frissítés letöltésének helyétől.
+title: App Service Azure Stack hub 2020 Q3 kibocsátási megjegyzései
+description: Ismerje meg, hogy mi a 2020 Q3-kiadás a Azure Stack hub App Service, az ismert problémák és a frissítés letöltésének helyétől.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548659"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785872"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>App Service Azure Stack hub 2020 Q3 kibocsátási megjegyzései
 
@@ -61,7 +61,7 @@ A Azure App Service on Azure Stack Update Q3 a következő javításokat és jav
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítései** :
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
   - ASP.NET Core 2.1.22
   - ASP.NET Core 2.2.14
   - ASP.NET Core 3.1.8
@@ -86,7 +86,7 @@ A Azure App Service on Azure Stack Update Q3 a következő javításokat és jav
     - 9.0.31
   - Frissített kudu – 90.21005.4823
 
-- Az **összes szerepkör mögöttes operációs rendszerének frissítései** :
+- Az **összes szerepkör mögöttes operációs rendszerének frissítései**:
   - [2020-10 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4580346)](https://support.microsoft.com/help/4580346)
   - [2020-09 karbantartási verem frissítése a Windows Server 2016 x64-alapú rendszerekhez (KB4576750)](https://support.microsoft.com/help/4576750)
   - Defender-definíció 1.325.755.0
@@ -102,6 +102,8 @@ A Azure App Service on Azure Stack Update Q3 a következő javításokat és jav
 - A függvények figyelése mostantól lekérheti az adatok lekérését a TLS 1,2-t végrehajtó tárolási végpontokról
 
 - Várakozás a felügyeleti kiszolgálók felé a felhő üzembe helyezése lépésen kívüli lépésre a telepítés során az üzembe helyezés és a frissítés megbízhatóságának növelése érdekében
+
+- A probléma, amellyel a dolgozók nem tudják befejezni az állapot-ellenőrzési gyakorlatot a feldolgozó futásidejű naplófájlja miatt  Ebben a frissítésben a tisztítási logikát javítottuk.
 
 ## <a name="pre-update-steps"></a>Frissítés előtti lépések
 

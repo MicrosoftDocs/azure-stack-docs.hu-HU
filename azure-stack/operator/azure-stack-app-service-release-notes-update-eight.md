@@ -4,16 +4,16 @@ description: Frissítse a Azure Stack hub App Service-es kiadási megjegyzéseit
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 4c89f139c2fc0f80a80fc70ab6d5842a7ffffd4f
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489708"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785803"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service Azure Stack hub Update 8 kibocsátási megjegyzései
 
@@ -54,7 +54,7 @@ A Azure App Service on Azure Stack hub Update 8 a következő javításokat és 
 
 - Frissítések **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközökhöz**. Konzisztens a Azure Stack Portal SDK verziójával.
 
-- Az **Azure functions Runtime** és a **v 1.0.12615**frissítése.
+- Az **Azure functions Runtime** és a **v 1.0.12615** frissítése.
 
 - Az alapszolgáltatás frissítése a megbízhatóság és a hibaüzenetek javítása érdekében, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
@@ -98,7 +98,7 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
 - Másolja a `appservice_hostingAdmin` bejelentkezést a most másodlagos SQL-csomópontból;
 
-    **VAGY**
+    **OR**
 
 - Az SQL-fürt feladatátvétele az előző aktív csomópontra.
 
@@ -298,7 +298,26 @@ Hajtsa végre az alábbi műveletek egyikét, és válassza az újra lehetőség
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-2002)dokumentációját.
+Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-1907&preserve-view=true)dokumentációját.
+
+- A bérlők nem hozhatnak létre App Service csomagot a bérlői portálon a App Service Plan nézet új funkciójával
+
+Új alkalmazás létrehozásakor a bérlők App Service terveket hozhatnak létre az alkalmazás létrehozása munkafolyamatban, illetve az aktuális alkalmazás App Service tervének módosításakor, vagy az App Service terv Marketplace-elemén keresztül.
+
+- A leválasztott környezetek nem támogatják az egyéni tartományokat
+
+App Service végrehajtja a tartomány tulajdonjogának ellenőrzését a nyilvános DNS-végpontokon, mivel az egyéni tartományok nem támogatottak a leválasztott forgatókönyvekben.
+
+- Bizonyos esetekben a dolgozók nem tudják kielégíteni az állapot-ellenőrzéseket (kevés a szabad lemezterület)
+
+Bizonyos esetekben, amikor nagy számú helyet foglalnak le egy feldolgozóhoz, vagy egy hely nagy mennyiségű kérelmet kezel, a feldolgozó nagy számú futásidejű naplófájlt hoz majd a C:\DWAS\LogFiles.-ben.  Ezt a naplófájlok tisztítási logikájának hibája okozza.  
+
+Ennek a hibának a kijavítása az egyes feldolgozók számára, és a mappa tartalmának törlése.
+
+Ezt a problémát a 2020-es [Azure stack hub-beli app Serviceban](app-service-release-notes-2020-Q3.md)javítottuk, ezért javasoljuk, hogy a lehető leghamarabb frissítsen a 2020 Q3 kiadásra.
+
+> [!IMPORTANT]
+> A Azure Stack hub 2020-es verziójának Azure App Servicera való frissítéséhez frissítenie **kell** a Azure Stack hub 2008
 
 ## <a name="next-steps"></a>Következő lépések
 

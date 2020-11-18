@@ -74,6 +74,8 @@
           href: manage/update-cluster.md
         - name: A fürt figyelése
           href: manage/monitor-cluster.md
+        - name: A DISKSPD használata a számítási feladatok teszteléséhez
+          href: manage/diskspd-overview.md
         - name: Kiszolgálók hozzáadása vagy eltávolítása
           href: manage/add-cluster.md
         - name: Kiszolgáló offline állapotba állítása karbantartás céljából
@@ -122,7 +124,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
         - name: Gazdagép hálózatkezelésének megtervezése
           href: concepts/plan-host-networking.md
@@ -134,6 +136,8 @@
           href: concepts/network-controller-overview.md
         - name: Hálózati vezérlő megtervezése
           href: concepts/network-controller.md
+        - name: Az adatközpont tűzfala – áttekintés
+          href: concepts/datacenter-firewall-overview.md
         - name: A szoftver Load Balancer áttekintése
           href: concepts/software-load-balancer.md
         - name: A RAS-átjáró áttekintése

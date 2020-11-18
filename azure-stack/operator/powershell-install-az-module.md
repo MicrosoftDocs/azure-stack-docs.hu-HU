@@ -3,16 +3,16 @@ title: A PowerShell telepítése az Azure Stack hub modulhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2020
-ms.openlocfilehash: de226383fc5109cd702c4883754766664ea9ab73
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/27/2020
+ms.openlocfilehash: 3666965dd3cfe7827fc9ea4c12b06d40ad210ac6
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546939"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785838"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>A PowerShell telepítése az Azure Stack hub modulhoz
 
@@ -33,9 +33,9 @@ Az Azure Stack hub-kompatibilis PowerShell az a modulok az internethez csatlakoz
 
 ## <a name="1-verify-your-prerequisites"></a>1. Ellenőrizze az előfeltételeket
 
-Az az modulok csak a 2002-es frissítéssel és a legújabb [gyorsjavítással](./release-notes.md?view=azs-2002#hotfixes)támogatottak [Azure stack központban](./release-notes.md?view=azs-2002#2002-build-reference) .
+Az az modulokat a 2002-es vagy újabb frissítéssel rendelkező Azure Stack hub támogatja, valamint a jelenleg telepített gyorsjavítások. További információért tekintse meg az [Azure stack hub kibocsátási megjegyzéseit](release-notes.md) .
 
-Az Azure PowerShell Windows rendszeren a PowerShell 5.1 vagy újabb, más platformon a PowerShell Core 6.x vagy újabb verziójával működik. Telepítenie kell a [PowerShell Core legújabb verzióját](/powershell/scripting/install/installing-powershell#powershell-core) az operációs rendszer számára. A Azure PowerShell nem rendelkezik további követelményekkel a PowerShell Core-on való futtatáskor.
+A Azure PowerShell az modulok a PowerShell 5,1-es vagy újabb verziójával működnek a Windowson, vagy a PowerShell Core 6. x-es és újabb verzióiban minden platformon. Telepítenie kell a [PowerShell Core legújabb verzióját](/powershell/scripting/install/installing-powershell#powershell-core) az operációs rendszer számára. A Azure PowerShell nem rendelkezik további követelményekkel a PowerShell Core-on való futtatáskor.
 
 A PowerShell verziójának megtekintéséhez futtassa az alábbi parancsot:
 

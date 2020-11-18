@@ -1,19 +1,19 @@
 ---
-title: App Service Azure Stack hub 2002 Q2 kibocsátási megjegyzései
-description: Ismerje meg, mi a 2002 Q2-kiadás a Azure Stack hub App Service, az ismert problémák és a frissítés letöltésének helyétől.
+title: App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
+description: Ismerje meg, mi a 2020 Q2-kiadás a Azure Stack hub App Service, az ismert problémák és a frissítés letöltésének helyétől.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6534a4539fc4e0fd699b21e84490f1d25be1dfe1
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544717"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785855"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service Azure Stack hub 2020 Q2 kibocsátási megjegyzései
 
@@ -59,7 +59,7 @@ A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javít�
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
-- **A következő alkalmazás-keretrendszerek és eszközök frissítései** :
+- **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
   - ASP.NET-keretrendszer 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core v2 13.1.19331.0 modul
@@ -76,13 +76,13 @@ A (z) Azure Stack Q2-es frissítésének Azure App Service a következő javít�
     - 6.12.0
     - 6.13.4
   
-- Az **összes szerepkör mögöttes operációs rendszerének frissítései** :
+- Az **összes szerepkör mögöttes operációs rendszerének frissítései**:
   - [2020-04 összegző frissítés a Windows Server 2016 x64-alapú rendszerekhez (KB4550929)](https://support.microsoft.com/help/4550929)
   - [2020-04 karbantartási verem frissítése a Windows Server 2016 x64-alapú rendszerekhez (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **A Windows Server összegző frissítései mostantól a központi telepítés és a frissítés részeként lesznek alkalmazva a vezérlő szerepköreire**
 
-- Az **alapértelmezett virtuális gép és a méretezési csoport frissítése az új központi telepítésekhez** : a nyilvános felhőalapú szolgáltatással való konzisztencia fenntartása érdekében a Azure app Service új központi telepítései a Azure stack hub-on a következő SKU-ket fogják használni az erőforrás-szolgáltató üzemeltetéséhez használt mögöttes gépek és méretezési csoportok számára.
+- Az **alapértelmezett virtuális gép és a méretezési csoport frissítése az új központi telepítésekhez**: a nyilvános felhőalapú szolgáltatással való konzisztencia fenntartása érdekében a Azure app Service új központi telepítései a Azure stack hub-on a következő SKU-ket fogják használni az erőforrás-szolgáltató üzemeltetéséhez használt mögöttes gépek és méretezési csoportok számára.
   
   | Szerepkör | Minimális SKU |
   | --- | --- |
@@ -223,6 +223,17 @@ A szkriptnek a következő feltételekkel kell futnia
 - A leválasztott környezetek nem támogatják az egyéni tartományokat
 
 App Service végrehajtja a tartomány tulajdonjogának ellenőrzését a nyilvános DNS-végpontokon, mivel az egyéni tartományok nem támogatottak a leválasztott forgatókönyvekben.
+
+- Bizonyos esetekben a dolgozók nem tudják kielégíteni az állapot-ellenőrzéseket (kevés a szabad lemezterület)
+
+Bizonyos esetekben, amikor nagy számú helyet foglalnak le egy feldolgozóhoz, vagy egy hely nagy mennyiségű kérelmet kezel, a feldolgozó nagy számú futásidejű naplófájlt hoz majd a C:\DWAS\LogFiles.-ben.  Ezt a naplófájlok tisztítási logikájának hibája okozza.  
+
+Ennek a hibának a kijavítása az egyes feldolgozók számára, és a mappa tartalmának törlése.
+
+Ezt a problémát a 2020-es [Azure stack hub-beli app Serviceban](app-service-release-notes-2020-Q3.md)javítottuk, ezért javasoljuk, hogy a lehető leghamarabb frissítsen a 2020 Q3 kiadásra.
+
+> [!IMPORTANT]
+> A Azure Stack hub 2020-es verziójának Azure App Servicera való frissítéséhez frissítenie **kell** a Azure Stack hub 2008
 
 ## <a name="next-steps"></a>Következő lépések
 
