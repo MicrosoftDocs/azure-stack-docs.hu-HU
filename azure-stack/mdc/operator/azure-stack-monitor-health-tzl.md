@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4212aa524baf60b65eaca46e6750c7af78197135
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329702"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885784"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Állapot- és riasztásmonitorozás az Azure Stackben
 
@@ -53,7 +53,7 @@ Ha meg szeretné tekinteni az állapotot a portálon, kattintson arra a régiór
 Az erőforrás-szolgáltatóra vagy az infrastruktúra-szerepkörre kattintva részletesebb információkat jeleníthet meg.
 
 > [!WARNING]  
-> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás** , az **Újraindítás** vagy a **Leállítás** lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> A hibaelhárítással kapcsolatos segítségért tegye fel a problémát a [Azure stack fórumba](https://aka.ms/azurestackforum).
+> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás** vagy a **Leállítás** lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> A hibaelhárítással kapcsolatos segítségért tegye fel a problémát a [Azure stack fórumba](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Riasztások megtekintése
@@ -73,7 +73,7 @@ A **riasztások** panel támogatja az állapot (aktív vagy lezárt) és a súly
 
 A **View API** művelet megjeleníti a listanézet létrehozásához használt REST API. Ez a művelet gyors módszert biztosít a riasztások lekérdezéséhez használható REST API szintaxis megismerésére. Ezt az API-t használhatja automatizálás vagy a meglévő adatközpont-figyelési, jelentéskészítési és jegyeladási megoldásokkal való integrációhoz.
 
-Egy adott riasztásra kattintva megtekintheti a riasztás részleteit. A riasztás részletei megjelenítik a riasztáshoz társított összes mezőt, és lehetővé teszik a gyors navigálást a riasztás érintett összetevőjéhez és forrásához. A következő riasztás például akkor fordul elő, ha az infrastruktúra-szerepkörök egyik példánya offline állapotba kerül, vagy nem érhető el. Az aka.ms mutató hivatkozásokat a riasztások [aka.MS hivatkozásának részletes ismertetése](aks-refer-table-tzl.md)szakaszában találja.
+Egy adott riasztásra kattintva megtekintheti a riasztás részleteit. A riasztás részletei megjelenítik a riasztáshoz társított összes mezőt, és lehetővé teszik a gyors navigálást a riasztás érintett összetevőjéhez és forrásához. A következő riasztás például akkor fordul elő, ha az infrastruktúra-szerepkörök egyik példánya offline állapotba kerül, vagy nem érhető el. A cikk megtekintéséhez tekintse meg a riasztás részleteit ismertető **szakaszban található** [Kereszthivatkozási hivatkozást](aks-refer-table-tzl.md) .
 
 ![A riasztás részletei panel Azure Stack felügyeleti portálon](media/azure-stack-monitor-health/alert-detail.png)
 
