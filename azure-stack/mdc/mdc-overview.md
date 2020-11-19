@@ -1,6 +1,6 @@
 ---
 title: A moduláris adatközpont áttekintése |
-description: A moduláris adatközpont egy hordozható, gyorsan telepíthető adatközpont, amely alkalmas a nagyméretű, ideiglenes és rögzített értékű parancssori műveletek támogatásához.
+description: Az Azure Modular Datacenter egy hordozható, gyorsan telepíthető adatközpont, amely alkalmas a nagyméretű, ideiglenes és rögzített értékű parancssori műveletek támogatásához.
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
@@ -8,55 +8,58 @@ ms.topic: overview
 ms.date: 11/06/2020
 ms.reviewer: prchint
 ms.lastreviewed: 11/06/2020
-ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: eabafd31d25a59cd43daa1a0779afed0a80f8354
+ms.sourcegitcommit: 25b234330df4e753ed2dd480c208ec88cd90234c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383404"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94924316"
 ---
-# <a name="modular-data-center-overview"></a>A moduláris adatközpont áttekintése 
+# <a name="modular-datacenter-overview"></a>A moduláris adatközpont áttekintése
 
-A moduláris adatközpont (MDC) Azure Stack hub-alapú. A MDC egy hordozható, gyorsan telepíthető adatközpont, amely alkalmas a nagyméretű harci műveletek támogatására az ideiglenes és rögzített parancsokban.
+Az Azure Modular Datacenter (MDC) Azure Stack hub-on alapul. A MDC egy hordozható, gyorsan telepíthető adatközpont, amely alkalmas a nagyméretű harci műveletek támogatására az ideiglenes és rögzített parancsokban.
 
-Az Azure Stack hub egy vízszintesen és vertikálisan méretezhető megoldás, amely több-bérlős, natív hibrid felhős képességeket biztosít a IaaS és a Péter-szolgáltatások számára az Edge környezetekhez, és számos moduláris forgatókönyvet támogat az ideiglenes és a rögzített parancsok és az expedíciós erők számára. Az Azure Stack hub egy integrált hardver-és szoftver-berendezés, amely számos különböző kapacitásban kapható a csomópont-méretezési egységeken keresztül, és a bővítményekkel érhető el, beleértve a általános célú grafikus feldolgozási egység (GPU) által engedélyezett konfigurációkat és a bővíthető külső tárolót.
+Az Azure Stack hub egy vízszintesen és vertikálisan méretezhető megoldás, amely több-bérlős, natív hibrid felhős képességeket biztosít a szolgáltatásként nyújtott infrastruktúra (IaaS) és a platform-szolgáltatásként szolgáló szolgáltatások (Pásti) számára a peremhálózati környezetekben. Az Azure Stack hub számos moduláris forgatókönyvet támogat az ideiglenes és a rögzített parancsok és az expedíciós erők számára.
 
-## <a name="how-you-can-use-the-mdc"></a>A MDC használata
+Az Azure Stack hub egy integrált hardver-és szoftver-berendezés, amely számos különböző kapacitásban kapható a csomópontok méretezési egysége alapján. Az Azure Stack hub bővítményekkel érhető el, amelyek közé tartoznak az általános célú grafikus feldolgozási egység (GPU) által engedélyezett konfigurációk és a bővíthető külső tárolók.
 
-A Azure Stack négy alapvető alapelvet biztosít, amelyek összhangban vannak az Azure képességeivel, és bővítik a moduláris Edge-forgatókönyveket. 
+## <a name="use-mdc"></a>MDC használata
+
+A Azure Stack négy alapvető alapelvet biztosít, amelyek összhangban vannak az Azure képességeivel, és bővítik a moduláris Edge-forgatókönyveket.
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Alkalmazások fejlesztése és továbbítása közös DevOps-modellel, beleértve az API-szimmetriát az Azure-ban
 
-Az Azure és a Azure Stack közötti konzisztencia azt jelenti, hogy a megoldások egyszer lettek kifejlesztve, a különböző használati esetek támogatásához, valamint az olyan közös eszközök használatával, mint például a Azure Key Vault a kulcskezelő és a Azure Monitor erőforrás-figyeléshez és-felügyelethez. A Azure Stack a helyszíni adatokkal, alkalmazásokkal és eszközökkel, valamint DevOps és biztonságos műveletekkel (például a kulcskezelő szolgáltatással) való együttműködésre használható.
+Az Azure és a Azure Stack közötti konzisztencia azt jelenti, hogy a megoldások egyszer lettek kifejlesztve, a különböző használati esetek támogatásához, valamint az eszközök közös eszközkészletének használatával biztosítva és tartósan. Többek között az erőforrás-figyeléshez és-felügyelethez Azure Key Vault a kulcskezelő és a Azure Monitor. A Azure Stack a helyszíni adatokkal, alkalmazásokkal és eszközökkel, valamint DevOps és biztonságos műveletekkel (például a kulcskezelő szolgáltatással) való együttműködésre használható.
 
 ### <a name="deliver-azure-services-on-premises"></a>Helyszíni Azure-szolgáltatások megvalósítása
 
-A Azure Stack a hátrányos helyzetű (megtámadó, túlterhelt vagy megtagadott) kommunikációs környezetekben, valamint robusztus kommunikációs környezetekben futnak, és nem függ az Azure-hoz való kapcsolattól a Mission alkalmazások végrehajtásához és a helyi műveletek engedélyezéséhez. 
+A Azure Stack a hátrányos helyzetű (nem tesztelt, túlzsúfolt vagy megtagadott) kommunikációs környezetekben és robusztus kommunikációs környezetekben futnak. A Azure Stack nem függ az Azure-hoz való kapcsolattól a Mission alkalmazások végrehajtásához és a helyi műveletek engedélyezéséhez.
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>Integrált hardveres és szoftveres kézbesítési élmény használata
 
-A moduláris Edge számos olyan képességet igényel, amely nem csak az alapkonfigurációt és a tárolási szolgáltatásokat nyújtja, hanem a gépi tanulás, az AI és az elemzés speciális funkcióit is. A biztonságos felhőhöz való csatlakozás lehetősége a moduláris szélétől, ha az képes, vagy fordítva, a megszorító környezetekben való egymástól függetlenül való működéshez elengedhetetlen a döntések meghozatalához szükséges adatokhoz való hozzáférés biztosítása.
+A moduláris Edge számos olyan képességet igényel, amely alapkonfigurációt és tárolási szolgáltatásokat biztosít, valamint a gépi tanulás, az AI és az elemzés speciális képességeit is. A biztonságos felhőhöz való csatlakozás lehetősége a moduláris szélétől, amikor a vagy a szolgáltatástól függetlenül, a megszorító környezetekben való működtetése kritikus fontosságú a döntések meghozatalához szükséges adatokhoz való hozzáférés biztosításához.
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>Az adatközpont biztonságos és hibrid Felhőbeli biztonsági műveletekkel is elérhető
 
-A Azure Stack Felhőbeli natív kialakítása eltávolítja a hagyományos virtualizációs környezetek működési bonyolultságát azáltal, hogy a rendszergazdák kiválaszthatják, hogy mikor kell kiválasztaniuk a teljes műveletet a telepítési folyamaton keresztül, valamint a rendszerbe natív módon épített Azure Stack felügyeleti hálót.
+A Azure Stack Felhőbeli natív kialakítása eltávolítja a hagyományos virtualizációs környezetek működési bonyolultságát. A rendszergazdák kiválaszthatják, hogy mikor kell a teljes műveletet a telepítési folyamaton és a rendszerbe natív módon beépített Azure Stack felügyeleti hálón kijavítani és összehangolni.
 
-A Microsoft által felügyelt, illetve a Microsoft által kezelt, a Azure Stack eszközökhöz készült szolgáltatással végzett felügyeletet engedélyezheti, ha a felhasználók számára megfelelő hozzáférést biztosít a RBAC a felügyeleti portálon, a privilegizált felügyeleti végponton vagy a parancssori felületen keresztüli műveletek végrehajtásához. Ez lehetővé teszi az összes javítási és egyéb felügyeleti és figyelési tevékenység végrehajtását a Microsoft számára. Azure Stack a mező bővíthető és frissíthető a biztonságos felügyeleti portálon vagy a Command-Line Interface (CLI) parancsokon keresztül, amelyek mind a biztonsági, mind a IaaS-és a Péter-funkciók frissítésével biztosítják a kereskedelmi paritás az Azure-ban való fenntartását, ahol ez a helyi vagy távoli hálózatokon 
+A Microsoft vagy a Microsoft által felügyelt, a Azure Stack eszközökhöz tartozó területen végzett Távsegítség-felügyeletet engedélyezheti, ha a felhasználók számára megfelelő hozzáférést biztosít a szerepköralapú hozzáférés-vezérlés (RBAC) segítségével, hogy műveleteket hajtson végre a felügyeleti portálon, a privilegizált felügyeleti végponton vagy a parancssori felületen (CLI). Ez a funkció lehetővé teszi az összes javítási és egyéb felügyeleti és figyelési tevékenység végrehajtását a Microsoft számára. Azure Stack a mező a biztonságos felügyeleti Portálon és a CLI-parancsokon keresztül frissíthető, és a biztonsági frissítéseket, a IaaS és a Pásti-frissítéseket egyaránt alkalmazza a kereskedelmi paritás az Azure-ban való fenntartására, ahol szükséges, helyi vagy távoli hálózatokból.
 
-## <a name="benefits-of-using-the-mdc"></a>A MDC használatának előnyei
+## <a name="benefits-of-using-mdc"></a>A MDC használatának előnyei
 
 A MDC egységes környezetet támogat az Azure-ban a hátrányos kommunikációs környezetekben:
- - Statikus, moduláris, gyors üzembe helyezhető adatközpontok az Azure Cloud Services használatával a nagy elemzési alkalmazások számára a moduláris operatív központokban (TOC).
- - Az Azure moduláris peremhálózat-kínálata biztosítja a felhő és a peremhálózat közötti következetességet, és egy egyedülálló módszert kínál a IaaS-primitívek, például a virtuális gépek, a tárolók és a virtuális hálózatok támogatásához.
- - Azure Active Directory és szerepköralapú hozzáférés-vezérlés támogatása
- - Általános felügyeleti felületek
- - API-szimmetria és a Microsoft, harmadik féltől származó és nyílt forráskódú DevOps-eszközök támogatása
- - Felügyelet és monitorozás az Azure Log Analytics és Azure Security Center használatával
- - A hibrid felhő lehetővé teszi a felhő-számítástechnika rugalmasságát a helyszíni környezetben és az Edge-ben.<br>A következőket teheti:
+
+ - Statikus, moduláris, gyors üzembe helyezhető adatközpontok az Azure Cloud Services szolgáltatással a nagyméretű analitikai alkalmazások számára moduláris operatív központokban.
+ - Az Azure Modular Edge-ajánlatai a felhő és a peremhálózat közötti konzisztencia fenntartására szolgálnak a IaaS primitívek, például a virtuális gépek, a tárolók és a virtuális hálózatok támogatásához.
+ - Azure Active Directory és RBAC támogatása.
+ - Gyakori felügyeleti felületek.
+ - API-szimmetria és a Microsoft, harmadik féltől származó és nyílt forráskódú DevOps-eszközök támogatása.
+ - Felügyelet és monitorozás az Azure Log Analytics és Azure Security Center használatával.
+ - A felhőalapú számítástechnika rugalmassága a helyszíni környezet és a peremhálózat számára a hibrid felhő engedélyezése révén.<br>A következőket teheti:
      - Az Azure-ban és a helyszíni környezetekben konzisztens módon használhat programkódot, és a felhőben natív alkalmazásokat is futtathat.
      - Hagyományos virtualizált számítási feladatok futtatása az Azure-szolgáltatásokhoz való opcionális csatlakozással.
      - Vigye át az adatait a felhőbe, vagy tartsa meg a szuverén adatközpontban a megfelelőség fenntartása érdekében.
-     - Hardveres gyorsítású gépi tanulási, tárolós vagy virtualizált munkaterhelések futtatása az intelligens peremhálózat minden részén.
+     - Hardveres gyorsítású gépi tanulási, tárolós vagy virtualizált munkaterhelések futtatása az intelligens peremen.
 
 ## <a name="next-steps"></a>Következő lépések
 
