@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 11/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 762a41b52506e4f5ff4a57a5eab95daba489d98f
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674455"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885801"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -367,7 +367,7 @@ Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Azure Stack hub gyorsjavítási 1.2002.62.165](https://support.microsoft.com/help/4594758)
 ::: moniker-end
 
 <!------------------------------------------------------------>
