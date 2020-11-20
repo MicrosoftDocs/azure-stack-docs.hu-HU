@@ -160,6 +160,12 @@
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
     - name: Azure regisztrációs PowerShell-parancsok
       href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+    - name: Go-csomag az ARM Azure Stack HCI szolgáltatás API-hoz
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
+    - name: Azure Stack HCI Java szolgáltatási osztályok és felületek
+      href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
+    - name: Azure Stack HCI Management Service Python-csomag
+      href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Hyper-V PowerShell-parancsok
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-parancsok
@@ -192,7 +198,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
