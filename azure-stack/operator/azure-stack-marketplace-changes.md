@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875076"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970214"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -166,6 +166,12 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 11/18/2020: SQL Server 2019 standard on Windows Server 2019 – saját licenc-verzió 15.0.20201015
+- 11/18/2020: SQL Server 2019 standard a Windows Server 2019-on – a go-verzió 15.0.20201015
+- 11/18/2020: ingyenes SQL Server licenc: SQL 2019 Developer on Windows Server 2019 – saját licenc-verzió 15.0.20201015
+- 11/18/2020: ingyenes SQL Server licenc: SQL 2019 Developer a Windows Server 2019-on – a go-verzió 15.0.20201015
+- 11/18/2020: SQL Server 2019 Enterprise Windows Server 2019 rendszeren – saját licenc-verzió 15.0.20201015
+- 11/18/2020: SQL Server 2019 Enterprise a Windows Server 2019-on – a go-verzió 15.0.20201015
 - 11/17/2020: Azure Monitor, frissítés és konfiguráció kezelése – verzió 1.13.27
 - 11/17/2020: Azure Monitor Dependency Agent-version 9.10.6.11730
 - 11/17/2020: Azure Monitor Dependency Agent Linux rendszerű virtuális gépekhez – verzió 9.10.6.11730

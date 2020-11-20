@@ -8,12 +8,12 @@ ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 44d13890efa7b5150216569ec2ab0f45bac8e7fa
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 896898acb8c6d98c77a32d0710b5f9c44b3ab65d
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544377"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970231"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -25,7 +25,7 @@ Előfordulhat például, hogy rendelkezik egy Azure Resource Managert használó
 
 A felhasználóhoz hasonlóan az alkalmazásnak hitelesítő adatokat kell megadnia a hitelesítés során. Ez a hitelesítés két elemet tartalmaz:
 
-- Egy **alkalmazás-azonosító** , más néven ügyfél-azonosító. Egy GUID, amely egyedileg azonosítja az alkalmazás regisztrációját a Active Directory-bérlőben.
+- Egy **alkalmazás-azonosító**, más néven ügyfél-azonosító. Egy GUID, amely egyedileg azonosítja az alkalmazás regisztrációját a Active Directory-bérlőben.
 - Az alkalmazás-AZONOSÍTÓhoz tartozó **titok** . Létrehozhat egy ügyfél titkos karakterláncot (a jelszóhoz hasonlóan), vagy megadhat egy X509-tanúsítványt (amely a nyilvános kulcsot használja).
 
 Ha a saját identitása alatt futtat egy alkalmazást, az a következő okok miatt előnyösebb a felhasználó identitásának futtatásakor:
@@ -42,6 +42,10 @@ Ez a cikk egy egyszerű szolgáltatásnév létrehozásának és kezelésének f
 - **Active Directory összevonási szolgáltatások (AD FS) (AD FS)**. A AD FS egyszerűsített, biztonságos identitás-összevonást és webes egyszeri bejelentkezési (SSO) képességeket biztosít. AD FS a csatlakoztatott és a leválasztott Azure Stack hub-példányokkal is használható.
 
 Ezután megtudhatja, hogyan rendelheti hozzá az egyszerű szolgáltatást egy szerepkörhöz, és korlátozza az erőforrás-hozzáférését.
+
+::: zone pivot="state-disconnected"
+<!-- this is intentionally a noop -->
+::: zone-end
 
 ::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Azure AD-alkalmazás identitásának kezelése
@@ -334,7 +338,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 
    > [!NOTE]
    > Egy adott erőforráshoz tartozó szerepkör-hozzárendelések hozzáadásához a felhasználói fióknak olyan szerepkörhöz kell tartoznia, amely deklarálja az `Microsoft.Authorization/roleAssignments/write` engedélyt. Például a [tulajdonos](/azure/role-based-access-control/built-in-roles#owner) vagy a [felhasználói hozzáférés rendszergazdai](/azure/role-based-access-control/built-in-roles#user-access-administrator) beépített szerepkörei.  
-2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az alkalmazás elérését. Ebben a példában az alkalmazás egyszerű szolgáltatását rendeli hozzá egy szerepkörhöz az előfizetés hatókörében, az **előfizetések** , majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
+2. Navigáljon ahhoz az erőforráshoz, amely számára engedélyezni szeretné az alkalmazás elérését. Ebben a példában az alkalmazás egyszerű szolgáltatását rendeli hozzá egy szerepkörhöz az előfizetés hatókörében, az **előfizetések**, majd egy adott előfizetés kiválasztásával. Ehelyett kijelölhet egy erőforráscsoportot, vagy egy adott erőforrást, például egy virtuális gépet.
 
      ![Előfizetés kiválasztása hozzárendeléshez](./media/azure-stack-create-service-principal/select-subscription.png)
 
