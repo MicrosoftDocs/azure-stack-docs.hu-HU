@@ -166,6 +166,8 @@
       href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
     - name: Azure Stack HCI Management Service Python-csomag
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
+    - name: Azure Stack HCI JavaScript-csomag
+      href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
     - name: Hyper-V PowerShell-parancsok
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-parancsok

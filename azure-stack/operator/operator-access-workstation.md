@@ -7,12 +7,12 @@ ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
+ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546973"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95006820"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
+$expectedHash = '459D8BA232E4315372FCE7CDD705057D051C1BD60772FC36E0136C741C27A273'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +82,7 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
 | [Microsoft Edge vállalatoknak](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [Az modulok](./powershell-install-az-module.md)                         | \[SystemDrive \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive \] \Program Files\PowerShell\7                                                                       |
-| [Azure parancssori felület (CLI)](/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Azure Command-Line felület (CLI)](/cli/azure/?view=azure-cli-latest) | \[SystemDrive \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive \] \Program Files (x86) \Microsoft Azure Storage Explorer                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – eszközök](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[SystemDrive \] \VMSoftware\AzureStack-Tools                                                    |
@@ -96,7 +96,7 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
    'C:\Version\Get-Version.ps1'
    ```
 
-   Ilyenek többek között:
+   Például:
 
    ![Képernyőkép a PowerShell-parancsmagról a OAW virtuális gép verziójának vizsgálatához](./media/operator-access-workstation/check-hardware-lifecycle-host-version.png)
 
@@ -203,7 +203,7 @@ New-OAW
 
 A következő táblázat felsorolja az egyes paraméterek definícióját.
 
-| Paraméter   | Kötelező vagy nem kötelező  | Leírás       |
+| Paraméter   | Kötelező vagy nem kötelező  | Description       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Kötelező | A virtuális gép helyi rendszergazdai fiókjának AdminUser tartozó jelszó. |
 | IPAddress                  | Kötelező | A virtuális gépen a TCP/IP konfigurálására szolgáló statikus IPv4-cím.                                                |
@@ -234,15 +234,15 @@ SkipNetworkConfiguration     | Választható | Kihagyja a virtuális gép háló
    'C:\Version\Get-Version.ps1'
    ```
 
-   Ilyenek többek között:
+   Például:
 
    ![A hardver életciklus-gazdagép verziójának ellenőrzését szolgáló PowerShell-parancsmag képernyőképe](./media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Fájlok átvitele a HLH és a OAW között
 
-Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Ilyenek többek között:
+Ha fájlokat kell átvinnie a HLH és a OAW között, hozzon létre egy SMB-megosztást a [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) parancsmag használatával. A New-SmbShare egy fájlrendszerbeli mappát tesz elérhetővé a távoli ügyfelek számára kiszolgálói üzenetblokk (SMB) megosztásként. Például:
 
-A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Ilyenek többek között:
+A parancsmag által létrehozott megosztás törléséhez használja a [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) parancsmagot. Például:
 
 ## <a name="remove-the-oaw-vm"></a>A OAW virtuális gép eltávolítása
 
@@ -259,7 +259,7 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
 
    Ahol az az \<name\> eltávolítandó virtuális gép neve. Alapértelmezés szerint a név **AzSOAW**.
 
-   Ilyenek többek között:
+   Például:
 
    ```powershell
    Remove-OAW.ps1 -VirtualMachineName AzSOAW
