@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/04/2020
-ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.date: 11/24/2020
+ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363894"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812628"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI – gyakori kérdések
 A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
@@ -68,7 +68,7 @@ Ez az Ön által használt funkcióktól függ. Azure Stack HCI-nek legalább 12
 
 **Hová kerül ténylegesen a szinkronizált adatok?**
 
-Azure Stack HCI szinkronizál a kezdeti regisztráció során kiválasztott Azure-régióval. Az alapértelmezett érték az USA keleti régiója. Azure Stack HCI a Nyugat-Európában is elérhető, és több régióra is dolgozunk. Ha például regisztrált az USA keleti régiójában, akkor az adatai csak az adott régióban szinkronizálhatók, és csak a Egyesült Államokon, biztonságos, Microsoft által üzemeltetett adatközpontban tárolódnak. További információ: az [adattárolás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI szinkronizál az Azure-val, és biztonságos, Microsoft által működtetett adatközpontban tárolja az adattárolást. További információ: az [adattárolás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Leválasztva vagy "Air-gapped"
 

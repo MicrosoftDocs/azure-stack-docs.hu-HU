@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: a67b950f91d502378a151031e25a68f861494555
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572857"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812644"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL típusú erőforrás-szolgáltató frissítése
 
@@ -24,7 +24,7 @@ Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hu
 
 |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
-  |2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2008, 2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
   |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -63,8 +63,8 @@ A következő paramétereket adhatja meg a parancssorból a **UpdateSQLProvider.
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** |Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | Nem |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
+| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | No |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
 
 ## <a name="update-script-powershell-example"></a>Parancsfájl PowerShell-példa frissítése
 

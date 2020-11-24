@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 035e1cc2e78aaebcc0ea653354d00f617d7e95c5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5becaf3bca62d4e37bac266649bf3821dc5a652e
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91585924"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812680"
 ---
 # <a name="sql-resource-provider-11930-release-notes"></a>SQL Resource Provider 1.1.93.0 kibocsátási megjegyzései
 
@@ -23,7 +23,7 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 
 > |Támogatott Azure Stack hub-verzió|SQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |2005-es verzió|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
+> |2008-es verzió, 2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 
 Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-- **Frissítse az alapszintű virtuális gépet egy speciális Windows-kiszolgálóra.** Ez a Windows Server-verzió a Azure Stack hub-bővítményhez tartozó RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren. Győződjön meg arról, hogy az SQL-erőforrás-szolgáltató ezen verziójára való üzembe helyezése vagy frissítése előtt letölti a **Microsoft AzureStack kiegészítő Windows Server-kiszolgáló csak belső** lemezképét.
+- **Frissítse az alapszintű virtuális gépet egy speciális Windows-kiszolgálóra.** Ez a Windows Server-verzió a Azure Stack hub Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren. Győződjön meg arról, hogy a **Microsoft AzureStack Add-On RP Windows Server csak belső** lemezképet tölti le, mielőtt telepítené vagy FRISSÍTENÉ az SQL erőforrás-szolgáltató ezen verzióját.
 - **Az árva adatbázis metaadatainak és az üzemeltetési kiszolgáló metaadatainak eltávolításának támogatása.** Ha egy üzemeltetési kiszolgáló már nem csatlakoztatható, a bérlő el fogja távolítani az árva adatbázis-metaadatokat a portálról. Ha az üzemeltetési kiszolgálóhoz nem kapcsolódik árva adatbázis-metaadatok, az operátor el tudja távolítani az árva üzemeltetési kiszolgáló metaadatait a felügyeleti portálról.
 - **A titkok rotációjának végrehajtásakor nem kötelező argumentumot KeyVaultPfxPassword.** További részletekért olvassa el [ezt a dokumentumot](azure-stack-sql-resource-provider-maintain.md#secrets-rotation) .
 - **További hibajavítások.**

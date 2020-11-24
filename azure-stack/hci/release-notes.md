@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: 6116710b6fe1fa9ee909e29ee337d7000caf06ac
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/24/2020
+ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517175"
+ms.locfileid: "95812723"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
@@ -31,7 +31,7 @@ Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javí
    >
    > 2. Kapcsolódjon helyileg vagy a következő fürtcsomópontok egyikéhez sem `Enter-PSSession <server-name>`
    >
-   > 3. Töltse le a AzStackHCI v 0.4.0 regisztrációs modult a PowerShell-galéria. `Install-Module Az.StackHCI`A legújabb modul beszerzéséhez futtassa a parancsot.
+   > 3. Töltse le a AzStackHCI v 0.4.1 regisztrációs modult a PowerShell-galéria. `Install-Module -Name Az.StackHCI`A legújabb modul beszerzéséhez futtassa a parancsot.
    >
    > 4. A regisztráció kijavításához futtassa a következő parancsot. Használja a fürt eredeti regisztrálásához használt előfizetés-azonosítót. `Get-AzureStackHCI` Megjeleníti az aktuális ARM URI-t, amely tartalmazza az előfizetési adatokat.
    >

@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572806"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812665"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -30,21 +30,21 @@ Az Azure Stack hub SQL erőforrás-szolgáltató üzembe helyezése előtt több
 
 - Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
   * Az SQL RP <= 1.1.47.0 verziójában töltse le a **Windows server 2016 Datacenter-Server Core** rendszerképet.
-  * Az SQL RP-es verzió >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack beépülő modul csak a Windows Server belső** verzióját. Ez a Windows Server-verzió a Azure Stack kiegészítő RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
+  * Az SQL RP >= 1.1.93.0 verziójában töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
 
 
 - Töltse le az SQL Resource Provider bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
   |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
-  |2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2008, 2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
   |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
 
 - Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
-    |Előfeltétel|Hivatkozás|
+    |Előfeltétel|Referencia|
     |-----|-----|
     |A feltételes DNS-továbbítás helyesen van beállítva.|[Azure Stack hub Datacenter-integráció – DNS](azure-stack-integrate-dns.md)|
     |Az erőforrás-szolgáltatók bejövő portjai nyitva vannak.|[Azure Stack hub Datacenter-integráció – bejövő portok és protokollok](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -110,7 +110,7 @@ Miután telepítette az összes előfeltételt, futtassa a **DeploySqlProvider.p
 Az SQL-erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta az SQL Resource Provider bináris fájljait. 
 
 > [!IMPORTANT]
-> A már betöltött PowerShell-modulok által okozott lehetséges problémák elkerülése érdekében javasoljuk, hogy használjon egy új PowerShell-ablakot. Vagy a Clear-azurermcontext használatával törölheti is a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
+> Javasoljuk, hogy a **Clear-AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
 
 Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat hajtja végre:
 
@@ -134,13 +134,13 @@ A következő paramétereket adhatja meg a parancssorból. Ha nem, vagy ha valam
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. A szkript sikertelen lesz, ha a AzCredential használt fiók többtényezős hitelesítést (MFA) igényel.| _Kötelező_ |
 | **VMLocalCredential** | Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
 | **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
-| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud**használatával. | AzureCloud |
-| **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerek esetében_kötelező_ ) |
+| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud** használatával. | AzureCloud |
+| **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerek esetében _kötelező_ ) |
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
+| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Az SQL-erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 

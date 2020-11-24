@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/23/2020
+ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517124"
+ms.locfileid: "95812617"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI összekötése az Azure-ba
 
@@ -68,7 +68,7 @@ Az alábbi eljárás segítségével regisztrálhat egy Azure Stack HCI-fürtöt
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
-   Ha már telepítette a [november 23., 2020 előzetes frissítést (KB4586852)](../release-notes.md) , és most már regisztrálta a fürtöt az Azure-ban, akkor az az. StackHCI:
+   Ha már telepítette a [(z) november 23., 2020 előzetes frissítést (KB4586852)](../release-notes.md) a fürt összes kiszolgálóján, és most már regisztrálja a fürtöt az Azure-ban, akkor az az. StackHCI:
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -95,7 +95,7 @@ Az alábbi eljárás segítségével regisztrálhat egy Azure Stack HCI-fürtöt
 
 A regisztrációs munkafolyamat felismeri, amikor bejelentkezett, és folytatja a befejezést. Ezután látnia kell a fürtöt a Azure Portalban.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Most már készen áll a következőkre:
 
