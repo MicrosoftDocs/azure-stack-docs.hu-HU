@@ -3,15 +3,15 @@ title: Azure Stack hub Key Vault titkok elérésének engedélyezése az alkalma
 description: Megtudhatja, hogyan futtathat olyan minta alkalmazást, amely a kulcsokat és titkos kulcsokat egy Azure Stack hub kulcstartójában kéri le.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 1d12e1bf449a923e97d871d3971b97dbe19c2849
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: b30a99182f1c8c1392ae73ec0e70bc06b35a343f
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518296"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack hub Key Vault titkok elérésének engedélyezése az alkalmazások számára
 
@@ -37,6 +37,8 @@ Készítse elő a minta alkalmazást a Azure Portal vagy a PowerShell használat
 > Alapértelmezés szerint a PowerShell-parancsfájl új alkalmazást hoz létre Active Directoryban. Azonban regisztrálhat egy meglévő alkalmazást is.
 
 A következő parancsfájl futtatása előtt győződjön meg arról, hogy megadja a és a változók értékeit `aadTenantName` `applicationPassword` . Ha nem ad meg értéket a értékhez `applicationPassword` , ez a szkript véletlenszerűen generált jelszót hoz létre.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
 
 ```powershell
 $vaultName           = 'myVault'
@@ -121,16 +123,105 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+```powershell
+$vaultName           = 'myVault'
+$resourceGroupName   = 'myResourceGroup'
+$applicationName     = 'myApp'
+$location            = 'local'
+
+# Password for the application. If not specified, this script generates a random password during app creation.
+$applicationPassword = ''
+
+# Function to generate a random password for the application.
+Function GenerateSymmetricKey()
+{
+    $key = New-Object byte[](32)
+    $rng = [System.Security.Cryptography.RNGCryptoServiceProvider]::Create()
+    $rng.GetBytes($key)
+    return [System.Convert]::ToBase64String($key)
+}
+
+Write-Host 'Please log into your Azure Stack Hub user environment' -foregroundcolor Green
+
+$tenantARM = "https://management.local.azurestack.external"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+
+# Configure the Azure Stack Hub operator's PowerShell environment.
+Add-AzureRMEnvironment `
+  -Name "AzureStackUser" `
+  -ArmEndpoint $tenantARM
+
+$TenantID = Get-AzsDirectoryTenantId `
+  -AADTenantName $aadTenantName `
+  -EnvironmentName AzureStackUser
+
+# Sign in to the user portal.
+Add-AzureRMAccount `
+  -EnvironmentName "AzureStackUser" `
+  -TenantId $TenantID `
+
+$now = [System.DateTime]::Now
+$oneYearFromNow = $now.AddYears(1)
+
+$applicationPassword = GenerateSymmetricKey
+
+# Create a new Azure AD application.
+$identifierUri = [string]::Format("http://localhost:8080/{0}",[Guid]::NewGuid().ToString("N"))
+$homePage = "https://contoso.com"
+
+Write-Host "Creating a new AAD Application"
+$ADApp = New-AzureRMADApplication `
+  -DisplayName $applicationName `
+  -HomePage $homePage `
+  -IdentifierUris $identifierUri `
+  -StartDate $now `
+  -EndDate $oneYearFromNow `
+  -Password $applicationPassword
+
+Write-Host "Creating a new AAD service principal"
+$servicePrincipal = New-AzureRMADServicePrincipal `
+  -ApplicationId $ADApp.ApplicationId
+
+# Create a new resource group and a key vault in that resource group.
+New-AzureRMResourceGroup `
+  -Name $resourceGroupName `
+  -Location $location
+
+Write-Host "Creating vault $vaultName"
+$vault = New-AzureRMKeyVault -VaultName $vaultName `
+  -ResourceGroupName $resourceGroupName `
+  -Sku standard `
+  -Location $location
+
+# Specify full privileges to the vault for the application.
+Write-Host "Setting access policy"
+Set-AzureRMKeyVaultAccessPolicy -VaultName $vaultName `
+  -ObjectId $servicePrincipal.Id `
+  -PermissionsToKeys all `
+  -PermissionsToSecrets all
+
+Write-Host "Paste the following settings into the app.config file for the HelloKeyVault project:"
+'<add key="VaultUrl" value="' + $vault.VaultUri + '"/>'
+'<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
+'<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
+Write-Host
+```
+
+---
+
+
 
 Az alábbi képen a kulcstároló létrehozásához használt parancsfájl kimenete látható:
 
 ![Key Vault hozzáférési kulcsokkal](media/azure-stack-key-vault-sample-app/settingsoutput.png)
 
-Jegyezze fel az előző szkript által visszaadott **VaultUrl** , **AuthClientId** és **AuthClientSecret** értékeket. Ezeket az értékeket használhatja a **HelloKeyVault** alkalmazás futtatásához.
+Jegyezze fel az előző szkript által visszaadott **VaultUrl**, **AuthClientId** és **AuthClientSecret** értékeket. Ezeket az értékeket használhatja a **HelloKeyVault** alkalmazás futtatásához.
 
 ## <a name="download-and-configure-the-sample-application"></a>A minta alkalmazás letöltése és konfigurálása
 
-Töltse le a Key Vault-mintát az Azure [Key Vault Client Samples](https://www.microsoft.com/download/details.aspx?id=45343) oldaláról. Bontsa ki a. zip-fájl tartalmát a fejlesztői munkaállomáson. A Samples mappában két alkalmazás található; Ez a cikk a **HelloKeyVault** -t használja.
+Töltse le a Key Vault-mintát az Azure [Key Vault Client Samples](https://www.microsoft.com/download/details.aspx?id=45343) oldaláról. Bontsa ki a. zip-fájl tartalmát a fejlesztői munkaállomáson. A Samples mappában két alkalmazás található; Ez a cikk a **HelloKeyVault**-t használja.
 
 A **HelloKeyVault** minta betöltése:
 
@@ -142,7 +233,7 @@ A **HelloKeyVault** minta betöltése:
 A Visual Studióban:
 
 1. Nyissa meg a HelloKeyVault\App.config fájlt, és keresse meg a `<appSettings>` elemet.
-2. Frissítse a **VaultUrl** , a **AuthClientId** és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint a App.config fájl helyőrzőt tartalmaz a következőhöz: `AuthCertThumbprint` . A helyőrzőt cserélje le a következőre: `AuthClientSecret` .
+2. Frissítse a **VaultUrl**, a **AuthClientId** és a **AuthCertThumbprint** kulcsokat a kulcstartó létrehozásakor visszaadott értékekkel. Alapértelmezés szerint a App.config fájl helyőrzőt tartalmaz a következőhöz: `AuthCertThumbprint` . A helyőrzőt cserélje le a következőre: `AuthClientSecret` .
 
    ```xml
    <appSettings>
@@ -163,7 +254,7 @@ A **HelloKeyVault** futtatásakor az alkalmazás bejelentkezik az Azure ad-be, m
 A **HelloKeyVault** minta a következőre használható:
 
 * Olyan alapszintű műveleteket hajthat végre, mint például a kulcsok és a titkos kódok létrehozása, titkosítása, becsomagolása és törlése.
-* Adja át a paramétereket `encrypt` , például a és `decrypt` a **HelloKeyVault** , és alkalmazza a megadott módosításokat egy kulcstartóra.
+* Adja át a paramétereket `encrypt` , például a és `decrypt` a **HelloKeyVault**, és alkalmazza a megadott módosításokat egy kulcstartóra.
 
 ## <a name="next-steps"></a>Következő lépések
 

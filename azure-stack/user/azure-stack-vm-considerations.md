@@ -3,16 +3,16 @@ title: Azure Stack hub VM-funkciók
 description: Ismerkedjen meg a különböző funkciókkal és szempontokkal, amikor Azure Stack hub-beli virtuális gépekkel dolgozik.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546990"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518279"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -20,7 +20,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 
 ## <a name="vm-differences"></a>VIRTUÁLIS gépek közötti különbségek
 
-| Jellemző | Azure (globális) | Azure Stack Hub |
+| Funkció | Azure (globális) | Azure Stack Hub |
 | --- | --- | --- |
 | Virtuálisgép-rendszerképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincsenek elérhető lemezképek az Azure Stack hub piactéren. A Azure Stack hub-felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack hub piactéren, mielőtt a felhasználók használni tudják őket. |
 | VHD-generáció | A 2. generációs virtuális gépek olyan kulcsfontosságú funkciókat támogatnak, amelyek az egy virtuális gép létrehozásakor nem támogatottak. A szolgáltatások közé tartozik a megnövekedett memória, az Intel Software Guard Extensions (Intel SGX ENKLÁVÉHOZ) és a virtualizált állandó memória (vPMEM). A 2. generációs virtuális gépek előállítása olyan szolgáltatásokkal rendelkezik, amelyek még nem támogatottak az Azure-ban. További információ: [2. generációs virtuális gépek támogatása az Azure](/azure/virtual-machines/windows/generation-2) -ban  | Azure Stack hub csak egy virtuális gép létrehozását támogatja. A VHDX-ből a VHD-fájlformátumba konvertálhat egy virtuális gépet, és dinamikusan bővült egy rögzített méretű lemezre. A virtuális gép generációja nem módosítható. További információ: 2. [generációs virtuális gépek támogatása az Azure](/azure/virtual-machines/windows/generation-2)-ban. |
@@ -72,7 +72,9 @@ A virtuálisgép-méretek és a hozzájuk tartozó erőforrás-mennyiségek konz
 
 Azure Stack hub a bővítmények egy kis készletét tartalmazza. A frissítések és további bővítmények a Marketplace Syndication használatával érhetők el.
 
-Használja az alábbi PowerShell-szkriptet az Azure Stack hub-környezetben elérhető virtuálisgép-bővítmények listájának lekéréséhez:
+Használja az alábbi PowerShell-szkriptet az Azure Stack hub-környezetben elérhető virtuálisgép-bővítmények listájának lekéréséhez.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 ```powershell
 Get-AzVmImagePublisher -Location local | `
@@ -81,6 +83,16 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 Ha egy virtuális gép telepítésének kiépítése túl sokáig tart, hagyja meg a kiépítési időtúllépést ahelyett, hogy le kellene állítania a virtuális gép felszabadításának vagy törlésének folyamatát.
 
@@ -92,6 +104,8 @@ Az Azure Stack hub virtuálisgép-szolgáltatásai a következő API-verziókat 
 
 Az alábbi PowerShell-szkripttel beolvashatja az Azure Stack hub-környezetben elérhető virtuálisgép-funkciók API-verzióit:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
+
 ```powershell
 Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -99,6 +113,19 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 A támogatott erőforrástípusok és API-verziók listája eltérő lehet, ha a Felhőbeli kezelő egy újabb verzióra frissíti az Azure Stack hub-környezetet.
 

@@ -3,16 +3,16 @@ title: A ASDK telepítése a parancssorból a PowerShell használatával
 description: Megtudhatja, hogyan helyezheti üzembe a ASDK a parancssorból a PowerShell használatával.
 author: justinha
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 10/14/2020
+ms.openlocfilehash: 1d6df818c76e564423511a927ee1279cbf3f5279
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106930"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517378"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -83,10 +83,10 @@ Futtassa a következő PowerShell-parancsokat a ASDK üzembe helyezéséhez az A
 
 A ASDK telepítése néhány percet vesz igénybe az Azure AD-beli hitelesítő adatok megadásához. Adja meg az Azure AD-bérlő globális rendszergazdai hitelesítő adatait.
 
-Az üzembe helyezést követően Azure Active Directory globális rendszergazdai jogosultság nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
+Az üzembe helyezést követően Azure Active Directory globális rendszergazdai jogosultság nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés* tulajdonosa.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Azure Stack üzembe helyezése AD FS használatával 
-Ha a ASDK a  **AD FS használatával**szeretné központilag telepíteni az identitás-szolgáltatóként, futtassa a következő PowerShell-parancsokat (csak hozzá kell adnia a-UseADFS paramétert):
+Ha a ASDK a  **AD FS használatával** szeretné központilag telepíteni az identitás-szolgáltatóként, futtassa a következő PowerShell-parancsokat (csak hozzá kell adnia a-UseADFS paramétert):
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -106,6 +106,7 @@ Az üzembe helyezési folyamat néhány órát is igénybe vehet, amíg a rendsz
 A teljes Azure AD-telepítést parancsfájlként is elvégezheti. Íme néhány Megjegyzés, amely tartalmaz néhány választható paramétert.
 
 Ha az Azure AD-identitás csak **egy** Azure ad-címtárhoz van társítva:
+
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 

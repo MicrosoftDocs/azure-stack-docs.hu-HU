@@ -3,16 +3,16 @@ title: Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack hub
 description: Részletes útmutató a Azure Stack hub Azure App Service méretezéséhez
 author: bryanla
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 11/15/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/15/2020
+ms.openlocfilehash: 3265b77fc6a26a4e43b82d0997ec3e883a29f9da
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544734"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518092"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása az Azure App Service-hez az Azure Stack Hubon
 
@@ -29,40 +29,79 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
 
 ## <a name="add-additional-workers-with-powershell"></a>További feldolgozók hozzáadása a PowerShell-lel
 
+
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 1. [Az Azure Stack hub felügyeleti környezetének beállítása a PowerShellben](azure-stack-powershell-configure-admin.md)
 
-2. Ez a példa a méretezési csoport felskálázására használható:
-   ```powershell
-   
+2. Ez a példa a méretezési csoport felskálázására használható.
+
+    ```powershell
+    
     ##### Scale out the AppService Role instances ######
-   
+    
     # Set context to AzureStack admin.
     Login-AzAccount -EnvironmentName AzureStackAdmin
-                                                 
+                                                    
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
-
+    
     ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
     $ScaleSetName = "SharedWorkerTierScaleSet"
-
+    
     ## TotalCapacity is sum of the instances needed at the end of operation. 
     ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
     $TotalCapacity = 2  
-
+    
     # Get current scale set
     $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
-
+    
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
     Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
-   ```    
+    ```    
 
-   > [!NOTE]
-   > Ez a lépés a szerepkör típusától és a példányok számától függően több órát is igénybe vehet.
-   >
-   >
+    > [!NOTE]
+    > Ez a lépés a szerepkör típusától és a példányok számától függően több órát is igénybe vehet.
 
 3. Az új szerepkör-példányok állapotának figyelése a App Service felügyeletben. Egy adott szerepkör-példány állapotának megtekintéséhez kattintson a listában a szerepkör típusára.
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+1. [Az Azure Stack hub felügyeleti környezetének beállítása a PowerShellben](azure-stack-powershell-configure-admin.md)
+
+2. Ez a példa a méretezési csoport felskálázására használható.
+
+    ```powershell
+    
+    ##### Scale out the AppService Role instances ######
+    
+    # Set context to AzureRMureStack admin.
+    Login-AzureRMAccount -EnvironmentName AzureRMureStackAdmin
+                                                    
+    ## Name of the Resource group where AppService is deployed.
+    $AppServiceResourceGroupName = "AppService.local"
+    
+    ## Name of the ScaleSet : e.g. FrontEndsScaleSet, ManagementServersScaleSet, PublishersScaleSet , LargeWorkerTierScaleSet,      MediumWorkerTierScaleSet, SmallWorkerTierScaleSet, SharedWorkerTierScaleSet
+    $ScaleSetName = "SharedWorkerTierScaleSet"
+    
+    ## TotalCapacity is sum of the instances needed at the end of operation. 
+    ## e.g. if your VMSS has 1 instance(s) currently and you need 1 more the TotalCapacity should be set to 2
+    $TotalCapacity = 2  
+    
+    # Get current scale set
+    $vmss = Get-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    
+    # Set and update the capacity
+    $vmss.sku.capacity = $TotalCapacity
+    Update-AzureRMVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    ```   
+
+    > [!NOTE]
+    > Ez a lépés a szerepkör típusától és a példányok számától függően több órát is igénybe vehet.
+
+3. Az új szerepkör-példányok állapotának figyelése a App Service felügyeletben. Egy adott szerepkör-példány állapotának megtekintéséhez kattintson a listában a szerepkör típusára.
+---
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>További feldolgozók hozzáadása a felügyeleti portál használatával
 

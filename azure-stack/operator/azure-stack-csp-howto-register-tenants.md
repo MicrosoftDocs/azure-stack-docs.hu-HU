@@ -3,16 +3,16 @@ title: Bérlők hozzáadása a Azure Stack hubhoz való használathoz és száml
 description: Megtudhatja, hogyan adhat hozzá bérlőt a használathoz és a számlázáshoz Azure Stack hub-ra.
 author: sethmanheim
 ms.topic: article
-ms.date: 9/02/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543816"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517888"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Bérlő hozzáadása a Azure Stack hubhoz való használathoz és számlázáshoz
 
@@ -49,6 +49,8 @@ Alapértelmezés szerint Ön, mint CSP, nem férhet hozzá a végfelhasználó A
 
 Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner Center ügyfél-identitását használva jelenti az ügyfelek használatát. Ezzel a lépéssel biztosítható, hogy minden ügyfél használati adatait az adott ügyfél egyéni CSP-előfizetése alatt jelentse. Így egyszerűbbé válik a használat és a számlázás. Ennek a lépésnek a végrehajtásához először [regisztrálnia kell Azure stack hubot](azure-stack-registration.md).
 
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 1. Nyisson meg egy emelt szintű parancssorban a Windows PowerShellt, és futtassa a következőket:  
 
    ```powershell
@@ -65,7 +67,7 @@ Frissítse a regisztrációt az új ügyfél-előfizetéssel. Az Azure a partner
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azresource-powershell-parameters"></a>New-AzResource PowerShell-paraméterek
+**New-AzResource PowerShell-paraméterek**
 
 A következő szakasz a **New-AzResource** parancsmag paramétereit ismerteti:
 
@@ -75,6 +77,38 @@ A következő szakasz a **New-AzResource** parancsmag paramétereit ismerteti:
 | customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést az Azure Stack hub-ba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. |
 | resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
 | registrationName | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum.
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+1. Nyisson meg egy emelt szintű parancssorban a Windows PowerShellt, és futtassa a következőket:  
+
+   ```powershell
+   Add-AzureRMAccount
+   ```
+
+   >[!NOTE]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az **Add-AzAccount** használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzAccount-Scope Process` .
+
+2. Adja meg az Azure-beli hitelesítő adatait.
+3. A PowerShell-munkamenetben futtassa a következőket:
+
+   ```powershell
+   New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   ```
+
+**New-AzureRMResource PowerShell-paraméterek**
+
+A következő szakasz a **New-AzureRMResource** parancsmag paramétereit ismerteti:
+
+| Paraméter | Leírás |
+| --- | --- |
+|registrationSubscriptionID | Az Azure Stack hub kezdeti regisztrálásához használt Azure-előfizetés.|
+| customerSubscriptionID | A regisztrálni kívánt ügyfélhez tartozó Azure-előfizetés (nem Azure Stack hub). Létre kell hozni a CSP-ajánlatban. A gyakorlatban ez a partner centeren keresztül történik. Ha egy ügyfél több Azure Active Directory Bérlővel rendelkezik, ezt az előfizetést az Azure Stack hub-ba való bejelentkezéshez használt bérlőben kell létrehozni. Az ügyfél-előfizetés azonosítója megkülönbözteti a kis-és nagybetűket. |
+| resourceGroup | Az Azure-beli erőforráscsoport, amelyben a rendszer a regisztrációt tárolja. |
+| registrationName | Az Azure Stack hub regisztrációjának neve. Ez egy, az Azure-ban tárolt objektum.
+
+---
+
 
 > [!NOTE]  
 > A bérlőket az általuk használt Azure Stack-hubhoz kell regisztrálni. Ha két Azure Stack hub üzemelő példánya van, és a bérlő mindkettőt használja, frissítenie kell az egyes üzemelő példányok kezdeti regisztrációját a bérlői előfizetéssel.

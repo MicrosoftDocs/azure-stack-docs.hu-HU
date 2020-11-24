@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/17/2020
-ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785784"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517124"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI összekötése az Azure-ba
 
@@ -62,10 +62,16 @@ Az alábbi eljárás segítségével regisztrálhat egy Azure Stack HCI-fürtöt
    Install-WindowsFeature RSAT-Azure-Stack-HCI
    ```
 
-3. Telepítse a szükséges parancsmagokat:
+3. Telepítse a szükséges parancsmagokat. Ha a nyilvános előzetes lemezképből Azure Stack HCI-t helyez üzembe, az az. StackHCI PowerShell-modul verziójának 0.3.1 kell használnia:
 
    ```PowerShell
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
+   ```
+
+   Ha már telepítette a [november 23., 2020 előzetes frissítést (KB4586852)](../release-notes.md) , és most már regisztrálta a fürtöt az Azure-ban, akkor az az. StackHCI:
+
+   ```PowerShell
+   Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]

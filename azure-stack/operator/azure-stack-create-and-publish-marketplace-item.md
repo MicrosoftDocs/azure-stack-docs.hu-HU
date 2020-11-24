@@ -3,16 +3,16 @@ title: Marketplace-elemek létrehozása és közzététele Azure Stack központb
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543935"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518041"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -106,7 +106,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     - (1) – az ajánlat neve.
     - (2) – a közzétevő neve, szóköz nélkül.
     - (3) – a sablon verziója szóköz nélkül.
-    - (4) – a név, amelyet az ügyfelek látnak.
+    - (4) – az ügyfelek által megjelenített név.
     - (5) – a közzétevő neve, amelyet az ügyfelek látnak.
     - (6) – a közzétevő jogi neve.
     - (7) – az egyes ikonok elérési útja és neve.
@@ -130,7 +130,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 8. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
 
-9. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis** , **közepes** , **nagy** és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
+9. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis**, **közepes**, **nagy** és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
 
     > [!NOTE]
     > A Piactéri elem megfelelő létrehozásához mind a négy ikon mérete (kis, közepes, nagy, széles) szükséges.
@@ -149,6 +149,8 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     >
 
 ## <a name="publish-a-marketplace-item"></a>Piactér-elemek közzététele
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
 
 1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack hub tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
 
@@ -182,22 +184,65 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Ilyenek többek között:
+6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása** alatt lehetőséget.
-   >
-   >
+> [!Note]  
+> Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása** alatt lehetőséget.
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+1. Az Azure Blob Storage-ba való feltöltéséhez használja a PowerShellt vagy a Azure Storage Explorer. Feltöltheti a helyi Azure Stack hub tárolóba, vagy feltöltheti az Azure Storage-ba, amely a csomag ideiglenes helye. Győződjön meg arról, hogy a blob nyilvánosan elérhető.
+
+2. Ha a katalógus-csomagot Azure Stack hubhoz szeretné importálni, az első lépés az ügyfél virtuális géphez való távoli kapcsolódás (RDP), hogy az imént létrehozott fájlt a Azure Stack hubhoz másolja.
+
+3. Környezet hozzáadása:
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. Futtassa a következő szkriptet az erőforrás katalógusba történő importálásához:
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. Ellenőrizze, hogy rendelkezik-e az elemek tárolására elérhető érvényes Storage-fiókkal. Az értéket lekérheti `GalleryItemURI` az Azure stack hub felügyeleti portálján. Válassza ki a **Storage-fiók-> blob tulajdonságai-> URL-címet** a. azpkg kiterjesztéssel. A Storage-fiók csak ideiglenes használatra szolgál, hogy közzé lehessen tenni a piactéren.
+
+   A katalógus-csomag befejezése és az **Add-AzsGalleryItem** használatával való feltöltése után az egyéni virtuális gép ekkor megjelenik a piactéren, valamint az **erőforrás létrehozása** nézetben. Vegye figyelembe, hogy az egyéni katalógus-csomag nem látható a **piactér-kezelésben**.
+
+   [![Egyéni Marketplace-elemek feltöltve](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Egyéni Marketplace-elemek feltöltve")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. Miután sikeresen közzétette az elemet a piactéren, törölheti a tartalmat a Storage-fiókból.
+
+   Az alapértelmezett katalógus-összetevők és az egyéni katalógus-összetevők mostantól hitelesítés nélkül elérhetők a következő URL-címeken keresztül:
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> Előfordulhat, hogy a piactér felhasználói felülete hibát jelez az elemek eltávolítása után. A hiba elhárításához kattintson a **Beállítások** elemre a portálon. Ezután válassza a **módosítások elvetése** a **portál testreszabása** alatt lehetőséget.
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Hivatkozás: Marketplace-elem manifest.jsbekapcsolva
 
 ### <a name="identity-information"></a>Azonosító adatok
 
-| Név | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | Név |X |Sztring |[A-Za-z0-9] + | |
 | Publisher |X |Sztring |[A-Za-z0-9] + | |
@@ -205,7 +250,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 ### <a name="metadata"></a>Metaadatok
 
-| Név | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |80 karakteres javaslat |Előfordulhat, hogy a portál nem jeleníti meg helyesen az elemnév nevét, ha az 80 karakternél hosszabb. |
 | PublisherDisplayName |X |Sztring |30 karakterből álló javaslat |Előfordulhat, hogy a portál nem jeleníti meg megfelelően a közzétevő nevét, ha az hosszabb 30 karakternél. |
@@ -218,7 +263,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
 
 A piactér a következő ikonokat használja:
 
-| Név | Szélesség | Magasság | Jegyzetek |
+| Name | Szélesség | Magasság | Jegyzetek |
 | --- | --- | --- | --- |
 | Széles |255 px |115 px |Mindig szükséges |
 | Nagy |115 px |115 px |Mindig szükséges |
@@ -228,13 +273,13 @@ A piactér a következő ikonokat használja:
 
 ### <a name="categories"></a>Kategóriák
 
-Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja Azure Stack hub egyik meglévő kategóriáját ( **számítás** , **adatok + tárolás** stb.), vagy választhat egy újat is.
+Minden Piactéri elemnek címkével kell rendelkeznie, amely meghatározza, hogy az elem hol jelenik meg a portál felhasználói felületén. Kiválaszthatja Azure Stack hub egyik meglévő kategóriáját (**számítás**, **adatok + tárolás** stb.), vagy választhat egy újat is.
 
 ### <a name="links"></a>Hivatkozások
 
 Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásokat. A hivatkozások nevek és URI-k listájaként vannak megadva:
 
-| Név | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 64 karakter hosszú lehet. | |
 | URI |X |URI | | |
@@ -243,7 +288,7 @@ Minden Piactéri tétel tartalmazhat további tartalmakra mutató hivatkozásoka
 
 Az előző metaadatok mellett a piactér-szerzők az alábbi formában is biztosíthatnak egyéni kulcs/érték párokat:
 
-| Név | Kötelező | Típus | Korlátozások | Leírás |
+| Name | Kötelező | Típus | Korlátozások | Leírás |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sztring |Legfeljebb 25 karakter hosszú lehet. | |
 | Érték |X |Sztring |Legfeljebb 30 karakter. | |

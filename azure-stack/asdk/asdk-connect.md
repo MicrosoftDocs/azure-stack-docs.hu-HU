@@ -3,16 +3,16 @@ title: Kapcsolódás a ASDK
 description: Megtudhatja, hogyan csatlakozhat a Azure Stack Development Kithoz (ASDK).
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: knithinc
-ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 7970bf0f4e90792f9fe28534eab1bfa53ce7f39b
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543477"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517480"
 ---
 # <a name="connect-to-the-asdk"></a>Kapcsolódás a ASDK
 
@@ -31,7 +31,7 @@ Egyetlen egyidejű felhasználó a Azure Stack felügyeleti portálon vagy a fel
 
 1. Nyissa meg Távoli asztali kapcsolat (mstc.exe), és kapcsolódjon a ASDK gazdagép számítógépének IP-címéhez. Győződjön meg arról, hogy olyan fiókot használ, amely a ASDK-gazdaszámítógépre való távoli bejelentkezéshez van hitelesítve. Alapértelmezés szerint a **AzureStack\AzureStackAdmin** rendelkezik a ASDK gazdagép számítógépéhez való távoli hozzáféréshez szükséges engedélyekkel.  
 
-2. A ASDK gazdagépen nyissa meg a Kiszolgálókezelő (ServerManager.exe) eszközt. Válassza a **helyi kiszolgáló** lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait** , majd a Kiszolgálókezelő bezárását.
+2. A ASDK gazdagépen nyissa meg a Kiszolgálókezelő (ServerManager.exe) eszközt. Válassza a **helyi kiszolgáló** lehetőséget, kapcsolja ki az **Internet Explorer fokozott biztonsági beállításait**, majd a Kiszolgálókezelő bezárását.
 
 3. Jelentkezzen be a felügyeleti portálra **AzureStack\CloudAdmin** , vagy használjon más Azure stack kezelői hitelesítő adatokat. A ASDK felügyeleti portál címe: `https://adminportal.local.azurestack.external` .
 
@@ -58,7 +58,9 @@ A VPN-kapcsolat ASDK való beállítása előtt győződjön meg arról, hogy te
 
 ### <a name="set-up-vpn-connectivity"></a>VPN-kapcsolat beállítása
 
-Ha VPN-kapcsolat létesítését szeretné létrehozni a ASDK, nyissa meg a PowerShellt rendszergazdaként a helyi Windows-alapú számítógépen. Ezután futtassa a következő szkriptet (frissítse a környezete IP-címét és a jelszó értékeit):
+Ha VPN-kapcsolat létesítését szeretné létrehozni a ASDK, nyissa meg a PowerShellt rendszergazdaként a helyi Windows-alapú számítógépen. Ezután futtassa a következő szkriptet (frissítse a környezete IP-címét és a jelszó értékeit).
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
@@ -74,7 +76,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
-$hostIP = "<Azure Stack host IP address>"
+$hostIP = "<Azure Stack Hub host IP address>"
 
 $Password = ConvertTo-SecureString `
   "<operator's password provided when deploying Azure Stack>" `
@@ -92,6 +94,40 @@ Add-AzsVpnConnection `
 
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+```powershell
+# Change directories to the default Azure Stack tools directory
+cd C:\AzureStack-Tools-master
+
+# Configure Windows Remote Management (WinRM), if it's not already configured.
+winrm quickconfig  
+
+Set-ExecutionPolicy RemoteSigned
+
+# Import the Connect module.
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+
+$hostIP = "<Azure Stack Hub host IP address>"
+
+$Password = ConvertTo-SecureString `
+  "<operator's password provided when deploying Azure Stack>" `
+  -AsPlainText `
+  -Force
+
+Set-Item wsman:\localhost\Client\TrustedHosts `
+  -Value $hostIP `
+  -Concatenate
+
+# Create a VPN connection entry for the local user.
+Add-AzsVpnConnection `
+  -ServerAddress $hostIP `
+  -Password $Password
+
+```
+---
 Ha a telepítés sikeres, **Azure stack** jelenik meg a VPN-kapcsolatok listájában:
 
 ![Hálózati kapcsolatok](media/asdk-connect/vpn.png)  
@@ -107,7 +143,7 @@ Ha a telepítés sikeres, **Azure stack** jelenik meg a VPN-kapcsolatok listáj�
       -Password $Password
     ```
 
-  * A helyi számítógépen válassza a **hálózati beállítások**  >  **VPN**  >  **Azure stack** a  >  **Csatlakozás** lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet ( **AzureStack\AzureStackAdmin** ) és a jelszavát.
+  * A helyi számítógépen válassza a **hálózati beállítások**  >  **VPN**  >  **Azure stack** a  >  **Csatlakozás** lehetőséget. A bejelentkezési kérésben adja meg a felhasználónevet (**AzureStack\AzureStackAdmin**) és a jelszavát.
 
 Amikor először csatlakozik, a rendszer arra kéri, hogy telepítse a Azure Stack főtanúsítványt a **AzureStackCertificateAuthority** a helyi számítógép tanúsítványtárolójában. Ez a lépés hozzáadja a ASDK-hitelesítésszolgáltatót (CA) a megbízható gazdagépek listájához. A tanúsítvány telepítéséhez kattintson az **Igen** gombra.
 

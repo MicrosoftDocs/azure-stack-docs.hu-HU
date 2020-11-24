@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan regisztrálhat Azure Stack hub integrált rendszereit az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
-ms.lastreviewed: 10/16/2020
+ms.lastreviewed: 11/19/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b3c5eaebf082ac84ff4ea231f329385c6ad4e108
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 88928837377f478249e252021c1d610d99606679
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545431"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517735"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -102,7 +102,7 @@ Annak érdekében, hogy a legújabb verziót használja, törölje az Azure Stac
 
 ### <a name="determine-your-unique-registration-name"></a>Egyedi regisztrációs név meghatározása
 
-A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID** -t használja.
+A regisztrációs parancsfájl futtatásakor egyedi regisztrációs nevet kell megadnia. Az Azure Stack hub-előfizetés Azure-regisztrációval való összekapcsolásának egyszerű módja, ha az Azure Stack hub **Cloud ID**-t használja.
 
 > [!NOTE]
 > A Capacity-alapú számlázási modell használatával Azure Stack hub-regisztrációk esetében módosítania kell az egyedi nevet, ha az éves előfizetések lejárta után az újbóli regisztráció lejár, kivéve, ha [törli a lejárt regisztrációt](#renew-or-change-registration) , és újra regisztrálja magát az Azure-ban.
@@ -119,6 +119,8 @@ Ezekkel a lépésekkel regisztrálhat Azure Stack hubot az Azure-ban az utólago
 
 A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz. Ezekben a környezetekben regisztrálnia kell az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, majd konfigurálnia kell a számlázási modellt.
 
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
+
 1. Ha regisztrálni szeretné az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
 
 2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
@@ -129,7 +131,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
    >[!Note]
    > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzAccount-Scope Process`
@@ -160,7 +162,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 7. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot. Futtatandó PowerShell:  
 
@@ -175,6 +177,66 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    ```
    További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
 
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+1. Ha regisztrálni szeretné az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
+
+2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRMAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
+
+   ```powershell
+   Add-AzureRMAccount -EnvironmentName "<environment name>"
+   ```
+
+   | Paraméter | Leírás |  
+   |-----|-----|
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+
+   >[!Note]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy egyszerűen csak szeretné váltani a fiókokat, az Add-AzureRMAccount használatával történő bejelentkezés előtt futtassa a következő parancsmagot: `Remove-AzureRMAccount-Scope Process`
+
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon a **AzureStack-Tools –** az könyvtár **regisztrációs** mappájához, amelyet az Azure stack hub-eszközök letöltésekor hozott létre. Importálja a **RegisterWithAzure. psm1** modult a PowerShell használatával:
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+6. Ezután ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a kontextus lenne az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt. Futtatandó PowerShell:
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | Paraméter | Leírás |  
+   |-----|-----|
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+
+7. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot. Futtatandó PowerShell:  
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -BillingModel PayAsYouUse `
+      -RegistrationName $RegistrationName
+   ```
+   További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
+
+---
+
    A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik a **"saját környezet regisztrálása és aktiválása a megadott paraméterek használatával** " üzenet.
 
 ## <a name="register-with-capacity-billing"></a>Regisztrálás kapacitás-számlázással
@@ -186,6 +248,8 @@ Az alábbi lépésekkel regisztrálhat Azure Stack hubot az Azure-ban a kapacit�
 
 A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz. Ezekben a környezetekben regisztrálnia kell az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, majd konfigurálnia kell a számlázási modellt.
 
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
+
 1. Ha regisztrálni szeretné az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
 
 2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
@@ -196,7 +260,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** , **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
 
 3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
 
@@ -226,6 +290,52 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    > A **set-AzsRegistration** parancsmag UsageReportingEnabled paraméterével letilthatja a használati jelentéskészítést úgy, hogy a paraméter hamis értékre van állítva. 
    
    További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+1. Ha regisztrálni szeretné az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd az alábbi paramétereket).
+
+2. Adja hozzá a AzureRMure stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRMAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiókja konfigurációjától függően kétfaktoros hitelesítést kell használnia.
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | Paraméter | Leírás |  
+   |-----|-----|
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment** vagy kínai Azure-előfizetés használata, **AzureChinaCloud**.  |
+
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. Indítsa el a PowerShell ISE-t rendszergazdaként, és navigáljon az Azure Stack hub-eszközök letöltésekor létrehozott **AzureStack-Tools-Master** könyvtár **regisztrációs** mappájához. Importálja a **RegisterWithAzure. psm1** modult a PowerShell használatával:
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -AgreementNumber <EA agreement number> `
+      -BillingModel Capacity `
+      -RegistrationName $RegistrationName
+   ```
+   > [!Note]  
+   > A **set-AzsRegistration** parancsmag UsageReportingEnabled paraméterével letilthatja a használati jelentéskészítést úgy, hogy a paraméter hamis értékre van állítva. 
+   
+   További információ a Set-AzsRegistration parancsmagról: [regisztrációs hivatkozás](#registration-reference).
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -334,14 +444,14 @@ A **régió kezelése** csempével ellenőrizheti, hogy az Azure stack hub regis
 
 2. Az irányítópulton válassza a **régió kezelése** lehetőséget.
 
-3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható** , **nem regisztrálható** vagy nem **járt le**.
+3. Válassza ki a **Tulajdonságok** elemet. Ez a panel a környezet állapotát és részleteit jeleníti meg. Az állapot **regisztrálható**, **nem regisztrálható** vagy nem **járt le**.
 
     [![Régió-felügyeleti csempe Azure Stack hub felügyeleti portálon](media/azure-stack-registration/admin1sm.png "Régió-felügyeleti csempe")](media/azure-stack-registration/admin1.png#lightbox)
 
     Ha regisztrálva van, a tulajdonságok a következők:
     
-    - **Regisztrációs előfizetés azonosítója** : az Azure-előfizetési azonosító regisztrálva van, és Azure stack hubhoz van társítva.
-    - **Regisztrációs erőforráscsoport** : az Azure stack hub-erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
+    - **Regisztrációs előfizetés azonosítója**: az Azure-előfizetési azonosító regisztrálva van, és Azure stack hubhoz van társítva.
+    - **Regisztrációs erőforráscsoport**: az Azure stack hub-erőforrásokat tartalmazó társított előfizetésben található Azure-erőforráscsoport.
 
 4. A Azure Portal használatával megtekintheti Azure Stack hub regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com) az Azure stack hub regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás** lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, és válassza ki a regisztrációs nevet.
 
@@ -375,27 +485,58 @@ A következő információk szükségesek a [felügyeleti portálról](#verify-a
 
 Ha módosítani szeretné a használt előfizetést, először futtatnia kell a **Remove-AzsRegistration** parancsmagot, majd ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ezután futtassa a **set-AzsRegistration** parancsot bármilyen módosított paraméterrel, beleértve a következőt: `<billing model>` . A **Remove-AzsRegistration** futtatása közben be kell jelentkeznie a regisztráció során használt előfizetésbe, és a és a paraméterek használati értékeit a `RegistrationName` `ResourceGroupName` [felügyeleti portálon](#verify-azure-stack-hub-registration)látható módon kell megadnia:
 
-  ```powershell  
-  # select the subscription used during the registration (shown in portal)
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # unregister using the parameter values from portal
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  # switch to new subscription id
-  Select-AzSubscription -Subscription '<New subscription ID>'
-  # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
-  ```
+### <a name="az-modules"></a>[Az modulok](#tab/az3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzureRMSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+---
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>A számlázási modell módosítása, a szolgáltatások felkínálása vagy a példány újbóli regisztrálása
 
 Ez a szakasz akkor érvényes, ha módosítani szeretné a számlázási modellt, a szolgáltatások kínálatát, vagy ha újra szeretné regisztrálni a példányt. Ebben az esetben a regisztrációs függvényt kell meghívnia az új értékek beállítására. Nem kell először eltávolítania az aktuális regisztrációt. Jelentkezzen be a [felügyeleti portálon](#verify-azure-stack-hub-registration)megjelenő előfizetés-azonosítóba, majd futtassa újra a regisztrációt egy új `BillingModel` értékkel, miközben a `RegistrationName` és a `ResourceGroupName` Paraméterek értékei megegyeznek a [felügyeleti portálon](#verify-azure-stack-hub-registration)látható értékekkel:
 
-  ```powershell  
-  # select the subscription used during the registration
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  ```
+### <a name="az-modules"></a>[Az modulok](#tab/az4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -435,7 +576,7 @@ Vagy használhatja a regisztrációs név és a regisztrációs erőforráscsopo
 Ha a számlázási modellt egy csatlakoztatott állapotban lévő, leválasztott állapotból a kapacitás számlázására módosítja, akkor a csatlakoztatott [modell lépései](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance)után újra regisztrálnia kell. 
 
 >[!Note] 
->Ez nem változtatja meg az identitási modellt, csak a számlázási mechanizmust, és továbbra is az ADFS-t fogja használni az identitás forrásaként.
+>Ez nem változtatja meg az identitási modellt, csak a számlázási mechanizmust, és továbbra is a AD FS fogja használni az identitás forrásaként.
 
 ### <a name="re-register-using-disconnected-steps"></a>Újbóli regisztrálás a leválasztott lépések használatával
 

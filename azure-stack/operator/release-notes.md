@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 861dbb6a665664619bd06cd15d1e1b7fe86a9e8e
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885801"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518364"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -130,7 +130,8 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Gyorsjavítások előfeltételei: az 2008-es frissítés alkalmazása előtt
 
 Azure Stack hub 2008-es kiadását a 2005-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
-- [Azure Stack hub gyorsjavítási 1.2005.21.84](https://support.microsoft.com/help/4592779)
+
+- [Azure Stack hub gyorsjavítási 1.2005.23.88](https://support.microsoft.com/help/4595068)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Az 2008-es frissítés sikeres alkalmazása után
 
@@ -138,7 +139,7 @@ Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- Nem érhető el Azure Stack hub gyorsjavítás a 2008-es kiadáshoz.
+- [Azure Stack hub gyorsjavítási 1.2008.15.92](https://support.microsoft.com/help/4595069)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -238,7 +239,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.21.84](https://support.microsoft.com/help/4592779)
+- [Azure Stack hub gyorsjavítási 1.2005.23.88](https://support.microsoft.com/help/4595068)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

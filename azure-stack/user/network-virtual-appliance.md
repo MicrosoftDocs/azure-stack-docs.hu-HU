@@ -3,16 +3,16 @@ title: A hálózati virtuális berendezésekkel kapcsolatos problémák elhárí
 description: A virtuális gép vagy a VPN-kapcsolat problémáinak elhárítása Microsoft Azure Stack hub hálózati virtuális berendezésének (NVA) használata esetén.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546888"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517148"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>A hálózati virtuális berendezésekkel kapcsolatos problémák elhárítása
 
@@ -55,15 +55,15 @@ Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, 
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>Győződjön meg arról, hogy engedélyezve van-e az IP-továbbítás a NVA
 
-#### <a name="use-the-azure-stack-hub-portal"></a>Az Azure Stack hub portál használata
+### <a name="portal"></a>[Portál](#tab/portal)
 
 1. Keresse meg a NVA erőforrást az Azure Stack hub portálon, válassza a **hálózatkezelés** lehetőséget, majd válassza ki a hálózati adaptert.
 2. A **hálózati adapter** lapon válassza az **IP-konfiguráció** lehetőséget.
 3. Győződjön meg arról, hogy az IP-továbbítás engedélyezve van.
 
-#### <a name="use-powershell"></a>A PowerShell használata
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
-1. Futtassa az alábbi parancsot. Cserélje le az értékeket a szögletes zárójelbe az adataival.
+1. Futtassa az alábbi parancsot: Cserélje le az értékeket a szögletes zárójelbe az adataival.
 
    ```powershell
    Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -81,6 +81,29 @@ Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, 
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
+
+1. Futtassa az alábbi parancsot: Cserélje le az értékeket a szögletes zárójelbe az adataival.
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. Keresse meg a **EnableIPForwarding** tulajdonságot.
+
+3. Ha az IP-továbbítás nincs engedélyezve, futtassa a következő parancsokat az engedélyezéséhez:
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Annak megállapítása, hogy a forgalom átirányítható-e a NVA
 

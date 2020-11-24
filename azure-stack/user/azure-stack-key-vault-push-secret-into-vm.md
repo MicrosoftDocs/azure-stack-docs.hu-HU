@@ -3,15 +3,15 @@ title: Virtuális gép üzembe helyezése biztonságos tárolt tanúsítvánnyal
 description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet, és hogyan küldhet rá tanúsítványokat Azure Stack hub kulcstartójának használatával
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: a326004b5ed100b0fc7eeb841dd0fbc4ded9ee5a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546242"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518160"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Biztonságos tárolt tanúsítvánnyal rendelkező virtuális gép üzembe helyezése Azure Stack hub-on
 
@@ -48,6 +48,8 @@ A következő szkript egy. pfx formátumú tanúsítványt hoz létre, létrehoz
 
 > [!IMPORTANT]
 > A `-EnabledForDeployment` Key Vault létrehozásakor a paramétert kell használnia. Ez a paraméter biztosítja, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -107,6 +109,70 @@ Set-AzureKeyVaultSecret `
   -Name $secretName `
    -SecretValue $secret
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+```powershell
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
+  -Password $pwd
+
+# Create a key vault and upload the certificate into the key vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
+$certPassword = "<Password used to export the certificate>"
+
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
+```
+
+---
+
+
 
 A parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t. Jegyezze fel ezt az URI-t, mert a [leküldéses tanúsítványban a Windows Resource Manager-sablonra](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)kell hivatkoznia. Töltse le a [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) template mappát a fejlesztői számítógépére. Ez a mappa tartalmazza a fájlok **azuredeploy.js** és **azuredeploy.parameters.js** , amelyekre a következő lépésekben szüksége van.
 
@@ -153,6 +219,8 @@ A ( **azuredeploy.parameters.json** z `vaultName` ), titkos URI azonosítóval �
 
 A sablon üzembe helyezéséhez használja a következő PowerShell-parancsfájlt:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
+
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzResourceGroupDeployment `
@@ -161,6 +229,19 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+```powershell
+# Deploy a Resource Manager template to create a VM and push the secret to it
+New-AzureRMResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+---
+
+
 
 A sablon sikeres központi telepítésekor a következő kimenet jelenik meg:
 

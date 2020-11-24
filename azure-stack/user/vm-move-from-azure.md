@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519419"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516936"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Virtuális gép áthelyezése az Azure-ból Azure Stack hubhoz
 
@@ -33,7 +33,15 @@ Keresse meg a virtuális merevlemez előkészítésekor a saját igényeinek meg
 ::: moniker range="<=azs-1910"
 - Kövesse a [Windows VHD letöltése az Azure-ból](/azure/virtual-machines/windows/download-vhd) című témakör utasításait a virtuális merevlemez megfelelő általánosításához és letöltéséhez, mielőtt áthelyezi azt Azure stack hubhoz.
 - Amikor kiépíti a virtuális gépet az Azure-ban, használja a PowerShellt. Készítse elő a `-ProvisionVMAgent` jelölést a jelző nélkül.
-- Az Azure-beli virtuális gép általánosítása előtt távolítsa el az összes virtuálisgép-bővítményt a **Remove-azurermvmextension paranccsal** parancsmag használatával a virtuális gépről. A következő lépésekkel megkeresheti, hogy mely virtuálisgép-bővítményeket telepíti a rendszer `Windows (C:) > WindowsAzure > Logs > Plugins` .
+- Az Azure-beli virtuális gép általánosítása előtt távolítsa el az összes virtuálisgép-bővítményt a virtuális gép parancsmagjának használatával. A következő lépésekkel megkeresheti, hogy mely virtuálisgép-bővítményeket telepíti a rendszer `Windows (C:) > WindowsAzure > Logs > Plugins` .
+
+Használja az az PowerShell-modult:
+
+```powershell  
+Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```
+
+Használja a AzureRM PowerShell-modult:
 
 ```powershell  
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
@@ -68,17 +76,17 @@ Kövesse a [Windows VHD letöltése az Azure-ból](/azure/virtual-machines/windo
 
    1. A VHD-fájl letöltéséhez készítsen egy közös hozzáférésű aláírás (SAS) URL-címet. Az URL-cím létrehozásakor a rendszer lejárati időt rendel az URL-címhez.
 
-   1. A virtuális gép paneljének menüjében válassza a **lemezek**lehetőséget.
+   1. A virtuális gép paneljének menüjében válassza a **lemezek** lehetőséget.
 
-   1. Válassza ki a virtuális gép operációsrendszer-lemezét, majd válassza a **lemez exportálása**lehetőséget.
+   1. Válassza ki a virtuális gép operációsrendszer-lemezét, majd válassza a **lemez exportálása** lehetőséget.
 
    1. Állítsa be az URL-cím lejárati idejét 36000-ra.
 
-   1. Válassza az **URL-cím előállítása**lehetőséget.
+   1. Válassza az **URL-cím előállítása** lehetőséget.
 
    1. Az URL-cím előállítása.
 
-   1. A létrehozott URL-cím alatt válassza **a VHD-fájl letöltése**lehetőséget.
+   1. A létrehozott URL-cím alatt válassza **a VHD-fájl letöltése** lehetőséget.
 
    1. Előfordulhat, hogy a letöltés indításához a böngésző **Mentés** elemét kell választania. A VHD-fájl alapértelmezett neve **ABCD**.
 
@@ -109,6 +117,6 @@ Az egyéni lemezképek két formában jelennek meg: **specializált** és **ált
 
 [!INCLUDE [Create the image in Azure Stack Hub](../includes/user-compute-create-image.md)]
 ---
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Virtuális gép áthelyezése Azure Stack hub-ra – áttekintés](vm-move-overview.md)

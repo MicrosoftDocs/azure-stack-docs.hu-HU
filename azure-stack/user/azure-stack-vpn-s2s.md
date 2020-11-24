@@ -4,15 +4,15 @@ description: 'További információk: az IPsec/IKE-szabályzat konfigurálása a
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 071f8285d4a9f989f295b4d87e3203250763760f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546820"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518245"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -162,15 +162,30 @@ A Resource Manager parancsmagjainak használatához váltson át PowerShell mód
 
 Nyissa meg a PowerShell-konzolt, és kapcsolódjon a fiókjához; például:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+```powershell
+Connect-AzureRMAccount
+Select-AzureRMSubscription -SubscriptionName $Sub1
+New-AzureRMResourceGroup -Name $RG1 -Location $Location1
+```
+
+---
+
+
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. a virtuális hálózat, a VPN-átjáró és a helyi hálózati átjáró létrehozása
 
-Az alábbi példa létrehozza a virtuális hálózatot, a **TestVNet1** , valamint a három alhálózatot és a VPN-átjárót. Az értékek behelyettesítése esetén fontos, hogy az átjáró alhálózatának **GatewaySubnet** nevezze el. Ha ezt másként nevezi el, az átjáró létrehozása meghiúsul.
+Az alábbi példa létrehozza a virtuális hálózatot, a **TestVNet1**, valamint a három alhálózatot és a VPN-átjárót. Az értékek behelyettesítése esetén fontos, hogy az átjáró alhálózatának **GatewaySubnet** nevezze el. Ha ezt másként nevezi el, az átjáró létrehozása meghiúsul.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
 
 ```powershell
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -198,6 +213,37 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+```powershell
+$fesub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+$besub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$gwsub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+
+New-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
+
+$gw1pip1 = New-AzureRMPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+
+$vnet1 = Get-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+
+$subnet1 = Get-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+-VirtualNetwork $vnet1
+
+$gw1ipconf1 = New-AzureRMVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
+-Subnet $subnet1 -PublicIpAddress $gw1pip1
+
+New-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku VpnGw1
+
+New-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
+$LNGPrefix61,$LNGPrefix62
+```
+---
+
+
+
 ### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>2. lépés – helyek közötti VPN-kapcsolat létrehozása IPsec/IKE-házirenddel
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. IPsec/IKE-szabályzat létrehozása
@@ -207,9 +253,19 @@ Ez a példa egy IPsec/IKE-házirendet hoz létre a következő algoritmusokkal �
 - IKEv2: AES128, SHA1, DHGroup14
 - IPsec: AES256, SHA256, none, SA élettartam 14400 másodperc és 102400000KB
 
+### <a name="az-modules"></a>[Az modulok](#tab/az3)
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm3)
+
+```powershell
+$ipsecpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+```
+---
+
+
 
 Ha IPsec-GCMAES használ, ugyanazt a GCMAES algoritmust és a kulcs hosszát kell használnia az IPsec-titkosítás és az integritás esetében is.
 
@@ -217,12 +273,25 @@ Ha IPsec-GCMAES használ, ugyanazt a GCMAES algoritmust és a kulcs hosszát kel
 
 Hozzon létre egy helyek közötti VPN-kapcsolatokat, és alkalmazza a korábban létrehozott IPsec/IKE-szabályzatot:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az4)
+
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $lng6 = Get-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm4)
+
+```powershell
+$vnet1gw = Get-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$lng6 = Get-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
+
+New-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
+```
+---
+
+
 
 > [!IMPORTANT]
 > Ha egy kapcsolathoz IPsec/IKE-házirend van megadva, az Azure VPN Gateway csak az IPsec/IKE-javaslatot küldi el vagy fogadja el az adott kapcsolaton megadott titkosítási algoritmusokkal és fő erősségekkel. Győződjön meg arról, hogy a kapcsolat a helyszíni VPN-eszközt használja, vagy fogadja el a pontos szabályzat-kombinációt, ellenkező esetben a helyek közötti VPN-alagutat nem lehet létrehozni.
@@ -240,7 +309,9 @@ Az előző szakasz azt mutatta be, hogyan kezelhetők az IPsec/IKE-szabályzatok
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. a kapcsolat IPsec/IKE-szabályzatának megjelenítése
 
-Az alábbi példa bemutatja, hogyan kérheti le az IPsec/IKE-házirendet egy adott kapcsolatban. A parancsfájlok az előző gyakorlatokból is folytatódnak:
+Az alábbi példa bemutatja, hogyan kérheti le az IPsec/IKE-házirendet egy adott kapcsolatban. A parancsfájlok az előző gyakorlatokból is folytatódnak.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az5)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -261,12 +332,39 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm5)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Az utolsó parancs felsorolja a kapcsolatban konfigurált aktuális IPsec/IKE-házirendet, ha van ilyen. A következő példa a kapcsolatok kimenetét szemlélteti:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+
+---
+
+
 
 Ha nincs konfigurálva IPsec/IKE-házirend, a parancs `$connection6.policy` üres értéket kap. Ez nem jelenti azt, hogy az IPsec/IKE nincs konfigurálva a kapcsolatban; Ez azt jelenti, hogy nincs Egyéni IPsec/IKE-szabályzat. A tényleges kapcsolat a helyszíni VPN-eszköz és az Azure VPN Gateway között egyeztetett alapértelmezett házirendet használja.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. IPsec/IKE-házirend hozzáadása vagy frissítése a kapcsolatok számára
 
 Az új szabályzat hozzáadásának vagy egy meglévő házirend frissítésének lépései azonosak: hozzon létre egy új szabályzatot, majd alkalmazza az új házirendet a kapcsolódásra:
+
+### <a name="az-modules"></a>[Az modulok](#tab/az8)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -279,8 +377,26 @@ $connection6.SharedKey = "AzS123"
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm8)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+$newpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+
+$connection6.SharedKey = "AzS123"
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
+```
+---
+
+
 
 A kapcsolódás ismételt megadásával ellenőrizze, hogy a házirend frissítve van-e:
+
+### <a name="az-modules"></a>[Az modulok](#tab/az6)
 
 ```powershell
 $connection6 = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -299,10 +415,34 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm6)
+
+```powershell
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Az utolsó sorból származó kimenetnek az alábbi példában látható módon kell megjelennie:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+---
+
+
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. IPsec/IKE-szabályzat eltávolítása egy kapcsolatban
 
 Miután eltávolította az egyéni házirendet egy kapcsolatból, az Azure VPN Gateway visszavált az [alapértelmezett IPSec/IKE-javaslatra](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), és újraegyezteti a helyszíni VPN-eszközzel.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az7)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -314,6 +454,21 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm7)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.SharedKey = "AzS123"
+$currentpolicy = $connection6.IpsecPolicies[0]
+$connection6.IpsecPolicies.Remove($currentpolicy)
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
+```
+---
+
+
 
 Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távolítva a kapcsolatban.
 

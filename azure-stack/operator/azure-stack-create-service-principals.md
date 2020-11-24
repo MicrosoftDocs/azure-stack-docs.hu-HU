@@ -4,16 +4,16 @@ description: Megtudhatja, hogyan érheti el Azure Stack hub-erőforrásokat egy 
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.lastreviewed: 05/07/2020
+ms.date: 11/16/2020
+ms.lastreviewed: 11/16/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 896898acb8c6d98c77a32d0710b5f9c44b3ab65d
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: 54e3064a472803a9957f082c5729e84861e33b12
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970231"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517956"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -96,15 +96,17 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
 | \<YourCertificateLocation\> | A X509-tanúsítvány helye a helyi tanúsítványtárolóban. | "Tanúsítvány: \ CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | Az új alkalmazás regisztrálásának leíró neve. | "Saját felügyeleti eszköz" |
 
-1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsfájlt:
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
-   ```powershell  
+1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa az alábbi szkriptet.
+
+    ```powershell  
     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
     $Creds = Get-Credential
-
+    
     # Create a PSSession to the Privileged Endpoint VM
     $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
+    
     # Use the Get-Item cmdlet to retrieve your certificate.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
     # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
@@ -114,7 +116,7 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
-
+    
     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - Az endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
@@ -122,22 +124,22 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
-
+    
     # Register and set an Az environment that targets your Azure Stack Hub instance
     Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-
+    
     # Sign in using the new service principal
     $SpSignin = Connect-AzAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $SpObject.Thumbprint `
     -ApplicationId $SpObject.ClientId `
     -TenantId $TenantID
-
+    
     # Output the service principal details
     $SpObject
+    
+    ```
 
-   ```
-   
 2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `Thumbprint` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
 
    ```shell
@@ -151,6 +153,65 @@ Ha rendelkezik tanúsítvánnyal, az alkalmazás regisztrálásához és az egys
    ```
 
 Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa az alábbi szkriptet.
+
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the Get-Item cmdlet to retrieve your certificate.
+    # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
+    # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+    $Cert = Get-Item "<YourCertificateLocation>"
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $SpSignin = Connect-AzureRMAccount -Environment "AzureStackUser" `
+    -ServicePrincipal `
+    -CertificateThumbprint $SpObject.Thumbprint `
+    -ApplicationId $SpObject.ClientId `
+    -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
+
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `Thumbprint` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
+
+   ```shell
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   ClientSecret          :
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
+
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
+
+---
 
 ### <a name="update-a-certificate-credential"></a>Tanúsítvány hitelesítő adatainak frissítése
 
@@ -211,39 +272,41 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
 | \<PepVM\> | A rendszerjogosultságú végpont virtuális gép neve a Azure Stack hub-példányon. | "AzS-ERCS01" |
 | \<YourAppName\> | Az új alkalmazás regisztrálásának leíró neve. | "Saját felügyeleti eszköz" |
 
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
+
 1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
 
-     ```powershell  
-     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
-     $Creds = Get-Credential
-
-     # Create a PSSession to the Privileged Endpoint VM
-     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
-     # Use the privileged endpoint to create the new app registration (and service principal object)
-     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
-     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
-     $Session | Remove-PSSession
-
-     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
-     # - Az endpoint used for Azure Resource Manager operations 
-     # - Audience for acquiring an OAuth token used to access Graph API 
-     # - GUID of the directory tenant
-     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-     $TenantID = $AzureStackInfo.AADTenantID
-
-     # Register and set an Az environment that targets your Azure Stack Hub instance
-     Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
-
-     # Sign in using the new service principal
-     $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
-     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
-     $SpSignin = Connect-AzAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
-
-     # Output the service principal details
-     $SpObject
-     ```
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - Az endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an Az environment that targets your Azure Stack Hub instance
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+    $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+    $SpSignin = Connect-AzAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
 
 2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `ClientSecret` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
 
@@ -258,6 +321,57 @@ Most létrehoz egy másik alkalmazás-regisztrációt, de ezúttal megadja az ü
      ```
 
 Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+1. Nyisson meg egy rendszergazda jogú Windows PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
+
+    ```powershell  
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+    $Creds = Get-Credential
+    
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
+    
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
+    $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+    $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+    $TenantID = $AzureStackInfo.AADTenantID
+    
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    
+    # Sign in using the new service principal
+    $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+    $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+    $SpSignin = Connect-AzureRMAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+    
+    # Output the service principal details
+    $SpObject
+    ```
+
+2. A parancsfájl befejeződése után megjeleníti az alkalmazás regisztrációs adatait, beleértve az egyszerű szolgáltatásnév hitelesítő adatait. A `ClientID` és a `ClientSecret` hitelesítve van, és később jogosultak a Azure Resource Manager által felügyelt erőforrásokhoz való hozzáférésre.
+
+     ```shell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : 6RUWLRoBw3EebBLgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : azs-ercs01
+     RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
+     ```
+
+Tartsa megnyitva a PowerShell-konzol munkamenetét, ahogy azt a `ApplicationIdentifier` következő szakaszban szereplő értékkel használja.
+
+---
 
 ### <a name="update-a-client-secret"></a>Ügyfél titkos kulcsának frissítése
 

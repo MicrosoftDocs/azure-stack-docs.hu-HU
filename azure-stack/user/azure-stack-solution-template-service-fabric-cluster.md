@@ -3,16 +3,16 @@ title: Biztonságos Service Fabric-fürt üzembe helyezése Azure Stack központ
 description: Megtudhatja, hogyan helyezhet üzembe biztonságos Service Fabric-fürtöt Azure Stack hub-ban
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546276"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518313"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric-fürt üzembe helyezése Azure Stack központban
 
@@ -54,62 +54,126 @@ A következő szkripttel hozza létre a Key Vault, és adja hozzá a *fürt tan�
 > [!TIP]  
 > Ahhoz, hogy a szkript sikeres legyen, egy nyilvános ajánlatnak kell lennie, amely tartalmazza a számítási, hálózati, tárolási és Key Vault szolgáltatásokat. 
 
-  ```powershell
-    function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
-        {
-            return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
-        }
-    
-    function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
-       {
-            $keyVaultSecretName = "ClusterCertificate"
-            $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
-            $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    
-            $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
-                data     = $pfxAsBase64EncodedString
-                dataType = 'pfx'
-                password = $Password
-            })
-    
-            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
-            
-            $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
-    
-            Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
-            
-            Write-Host "Secret Id: " -ForegroundColor Green
-            (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
-    
-            Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
-            $pfxCertObject.Thumbprint
-       }
-    
-    #========================== CHANGE THESE VALUES ===============================
-    $armEndpoint = "https://management.local.azurestack.external"
-    $tenantId = "your_tenant_ID"
-    $location = "local"
-    $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
-    $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
-    #==============================================================================
-    
-    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzAccount -Environment AzureStack -TenantId $tenantId
-    
-    $rgName = "sfvaultrg"
-    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzResourceGroup -Name $rgName -Location $location
-    
-    Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
-    
-    Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
-    Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
-   ``` 
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzureRMKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzureRMAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzureRMResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzureRMKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+
+---
+
+ 
 
 
 További információ: [a Azure stack Hub Key Vault kezelése a PowerShell](azure-stack-key-vault-manage-powershell.md)-lel.

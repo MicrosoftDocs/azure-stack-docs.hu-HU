@@ -3,16 +3,16 @@ title: Helyek közötti VPN-kapcsolatok hibakeresése Azure Stack központban
 description: A helyek közötti VPN-kapcsolat a helyszíni hálózat és egy Azure Stack hub virtuális hálózat között történő konfigurálása után elvégzendő hibaelhárítási lépések.
 author: sethmanheim
 ms.author: sethm
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546871"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518194"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibaelhárítása
 
@@ -30,7 +30,7 @@ Azure-támogatási kérelmet is küldhet. Tekintse meg [Azure stack hub támogat
 Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel kezdődtek,](../user/azure-stack-vpn-gateway-settings.md#ike-phase-1-main-mode-parameters) forduljon a Azure stack hub-kezelőhöz a Build verziójával kapcsolatos további információkért.
 
 > [!IMPORTANT]
-> S2S-alagút használata esetén a csomagok további fejlécekkel vannak beágyazva. Ez a beágyazás növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350** -es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen az MTU-t **1400** bájtra állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> S2S-alagút használata esetén a csomagok további fejlécekkel vannak beágyazva. Ez a beágyazás növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen az MTU-t **1400** bájtra állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 
 - Győződjön meg arról, hogy a VPN-konfiguráció útvonal-alapú (IKEv2). Azure Stack hub nem támogatja a házirend-alapú (IKEv1) konfigurációkat.
 
@@ -46,19 +46,37 @@ Az IPsec/IKEV2 Azure Stack hub alapértelmezett paraméterei [a 1910-es buildtel
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>"Nincs csatlakoztatva" állapot – időszakos leválasztások
 
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 - Hasonlítsa össze a helyszíni VPN-eszköz megosztott kulcsát a AzSH virtuális hálózati VPN-kapcsolattal, hogy ellenőrizze a kulcsok egyezését. A AzSH VPN-kapcsolat megosztott kulcsának megtekintéséhez használja az alábbi módszerek egyikét:
 
-  - **Azure stack hub bérlői portál** : lépjen a létrehozott VPN Gateway-helyek közötti kapcsolathoz. A **Beállítások** szakaszban válassza a **megosztott kulcs** elemet.
+  - **Azure stack hub bérlői portál**: lépjen a létrehozott VPN Gateway-helyek közötti kapcsolathoz. A **Beállítások** szakaszban válassza a **megosztott kulcs** elemet.
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN-kapcsolat":::
 
-  - **Azure PowerShell** : használja a következő PowerShell-parancsot:
+  - **Azure PowerShell**: használja a következő PowerShell-parancsot:
 
-      ```powershell
-      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>"Csatlakoztatott" állapot – nem áramló forgalom
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+- Hasonlítsa össze a helyszíni VPN-eszköz megosztott kulcsát a AzSH virtuális hálózati VPN-kapcsolattal, hogy ellenőrizze a kulcsok egyezését. A AzSH VPN-kapcsolat megosztott kulcsának megtekintéséhez használja az alábbi módszerek egyikét:
+
+  - **Azure stack hub bérlői portál**: lépjen a létrehozott VPN Gateway-helyek közötti kapcsolathoz. A **Beállítások** szakaszban válassza a **megosztott kulcs** elemet.
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN-kapcsolat":::
+
+  - **Azure PowerShell**: használja a következő PowerShell-parancsot:
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>"Csatlakoztatott" állapot – nem áramló forgalom
 
 - Ellenőrizze, és távolítsa el a felhasználó által definiált útválasztási (UDR) és hálózati biztonsági csoportokat (NSG) az átjáró alhálózatán, majd tesztelje az eredményt. Ha a probléma megoldódott, ellenőrizze a UDR vagy NSG alkalmazott beállításokat.
 

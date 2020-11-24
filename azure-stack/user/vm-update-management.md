@@ -3,27 +3,27 @@ title: VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack
 description: A Azure Automation Azure Monitor for VMs, Update Management, Change Tracking és leltározási megoldásait használhatja a Azure Stack hub-ban üzembe helyezett Windows-és Linux-alapú virtuális gépek felügyeletéhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: c30d254e3b9e17fa817d778e8f43b9611cb390cf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383666"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517361"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>VIRTUÁLIS gépek frissítési és kezelési automatizálása Azure Stack központban
 Az Azure Stack hub használatával üzembe helyezett Windows-és Linux-alapú virtuális gépek (VM-EK) kezeléséhez használja az alábbi Azure Automation megoldás-szolgáltatásokat:
 
-- **[Update Management](/azure/automation/update-management/overview)** : a Update Management megoldással gyorsan elemezheti az összes ügynök számítógépén elérhető frissítések állapotát, és kezelheti a Windows és Linux rendszerű virtuális gépek szükséges frissítéseinek telepítését.
+- **[Update Management](/azure/automation/update-management/overview)**: a Update Management megoldással gyorsan elemezheti az összes ügynök számítógépén elérhető frissítések állapotát, és kezelheti a Windows és Linux rendszerű virtuális gépek szükséges frissítéseinek telepítését.
 
-- **[Change Tracking](/azure/automation/automation-change-tracking)** : a telepített szoftverek, a Windows-szolgáltatások, a Windows-beállításjegyzék és-fájlok, valamint a figyelt kiszolgálókon található Linux-démonok módosításai a felhőben a Azure monitor szolgáltatásba kerülnek feldolgozásra. A felhőszolgáltatás egy logikát alkalmaz a kapott adatokon, és rögzíti azokat. A Change Tracking irányítópulton található információk használatával egyszerűen megtekintheti a kiszolgálói infrastruktúrában végrehajtott módosításokat.
+- **[Change Tracking](/azure/automation/automation-change-tracking)**: a telepített szoftverek, a Windows-szolgáltatások, a Windows-beállításjegyzék és-fájlok, valamint a figyelt kiszolgálókon található Linux-démonok módosításai a felhőben a Azure monitor szolgáltatásba kerülnek feldolgozásra. A felhőszolgáltatás egy logikát alkalmaz a kapott adatokon, és rögzíti azokat. A Change Tracking irányítópulton található információk használatával egyszerűen megtekintheti a kiszolgálói infrastruktúrában végrehajtott módosításokat.
 
 - **[Leltár](/azure/automation/automation-vm-inventory)**. Egy Azure Stack hub-alapú virtuális gép leltározási követése egy böngészőalapú felhasználói felületet biztosít a leltár-gyűjtemény beállításához és konfigurálásához.
 
-- **[Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview)** : a Azure monitor for VMS figyeli az Azure-beli és a Azure stack hub-beli virtuális gépeket és a virtuálisgép-méretezési csoportokat a skálán. Elemzi a Windows-és Linux-alapú virtuális gépek teljesítményét és állapotát, valamint figyeli a folyamatokat és a függőségeket más erőforrásokra és külső folyamatokra.
+- **[Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview)**: a Azure monitor for VMS figyeli az Azure-beli és a Azure stack hub-beli virtuális gépeket és a virtuálisgép-méretezési csoportokat a skálán. Elemzi a Windows-és Linux-alapú virtuális gépek teljesítményét és állapotát, valamint figyeli a folyamatokat és a függőségeket más erőforrásokra és külső folyamatokra.
 
 > [!IMPORTANT]
 > Ezek a megoldások megegyeznek az Azure-beli virtuális gépek kezeléséhez használt megoldásokkal. Mind az Azure-, mind a Azure Stack hub-beli virtuális gépek ugyanúgy kezelhetők, mint ugyanazon a felületen, ugyanazokat az eszközöket használva. Az Azure Stack hub virtuális gépek is ugyanazok, mint az Azure virtuális gépek, ha a Update Management, a Change Tracking, a leltár és a Azure Monitor for VMs megoldásokat használja az Azure Stack hub használatával.
@@ -43,7 +43,7 @@ Ezután [létre kell hoznia egy Automation-fiókot](/azure/automation/automation
 
 1. A Azure Portal lépjen a használni kívánt Automation-fiókra.
 
-2. Válassza ki az engedélyezni kívánt megoldást ( **leltár** , **változások követése** vagy **frissítés kezelése** ).
+2. Válassza ki az engedélyezni kívánt megoldást ( **leltár**, **változások követése** vagy **frissítés kezelése**).
 
 3. Használja a **munkaterület kiválasztása...** legördülő listát a használni kívánt log Analytics-munkaterület kiválasztásához.
 
@@ -72,7 +72,7 @@ Miután engedélyezte a Azure Automation megoldásokat a Azure Portalban, be kel
 
    ![A "Home > Marketplace felügyeleti > Hozzáadás az Azure-ból > Azure Monitor, frissítés és konfiguráció kezelése" párbeszédpanel leírja a bővítményt, és a letöltés gombot.](media//vm-update-management/2.PNG) 
 
-A Azure Monitor for VMs Map megoldás engedélyezéséhez és a hálózati függőségek betekintéséhez töltse le a **Azure Monitor Dependency Agent** :
+A Azure Monitor for VMs Map megoldás engedélyezéséhez és a hálózati függőségek betekintéséhez töltse le a **Azure Monitor Dependency Agent**:
 
    ![A "Home > Marketplace felügyeleti > Hozzáadás az Azure-ból > Azure Monitor Dependency Agent" párbeszédpanel leírja a bővítményt, és letölti a letöltés gombot.](media//vm-update-management/2-dependency.PNG) 
 
@@ -89,7 +89,7 @@ Az alábbi lépéseket követve engedélyezheti Azure Stack hub-beli virtuális 
 
    [![A "bővítmény telepítése" párbeszédpanel szövegmezőket tartalmaz az Azure munkaterület azonosítója és a WorkspaceKey.](media//vm-update-management/4-sm.PNG "A munkaterület azonosítója és a kulcs megadása")](media//vm-update-management/4-lg.PNG) 
 
-4. A [Update Management dokumentációjában](/azure/automation/update-management/overview)leírtaknak megfelelően engedélyeznie kell a Update Management megoldást minden felügyelni kívánt virtuális géphez. Ha engedélyezni szeretné a megoldást a munkaterületre jelentést küldő összes virtuális gépre vonatkozóan, válassza a **kezelés** , majd a **számítógépek kezelése** lehetőséget, és jelölje be az **Engedélyezés az összes elérhető és jövőbeli gépen** beállítást.
+4. A [Update Management dokumentációjában](/azure/automation/update-management/overview)leírtaknak megfelelően engedélyeznie kell a Update Management megoldást minden felügyelni kívánt virtuális géphez. Ha engedélyezni szeretné a megoldást a munkaterületre jelentést küldő összes virtuális gépre vonatkozóan, válassza a **kezelés**, majd a **számítógépek kezelése** lehetőséget, és jelölje be az **Engedélyezés az összes elérhető és jövőbeli gépen** beállítást.
 
    [![A gépek kezelése – Update Management párbeszédpanel megjeleníti azokat a gépeket, amelyeken nincs engedélyezve a Update Management. Három engedélyező beállítás van megadva, és az "engedélyezés az összes elérhető és jövőbeli gépen" beállítás ki van választva és ki van emelve. Engedélyezhető gomb.](media//vm-update-management/5-sm.PNG "Update Management megoldás engedélyezése minden gépen")](media//vm-update-management/5-lg.PNG) 
 
@@ -113,6 +113,8 @@ A frissítés központi telepítési ütemtervének létrehozásához PowerShell
 
 Az alábbi példa bemutatja, hogyan teheti meg ezt:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -122,21 +124,36 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Azure Stack hub-on futó Azure Monitor for VMs engedélyezése
-Miután a virtuális gép rendelkezik a **Azure monitor, a frissítés és a konfiguráció kezelésével** , valamint a **Azure monitor Dependency Agent** bővítmények telepítésével, a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) megoldásban elkezdi a jelentéskészítési adatgyűjtést. 
+Miután a virtuális gép rendelkezik a **Azure monitor, a frissítés és a konfiguráció kezelésével**, valamint a **Azure monitor Dependency Agent** bővítmények telepítésével, a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) megoldásban elkezdi a jelentéskészítési adatgyűjtést. 
 
 > [!TIP]
 > A **Azure Monitor Dependency Agent** kiterjesztéshez nincs szükség paraméterre. A Azure Monitor for VMs Map-függőségi ügynök nem küld magába adatokat, és nem igényel semmilyen módosítást a tűzfalakon vagy a portokon. A leképezési adatokat a Log Analytics ügynök mindig továbbítja a Azure Monitor szolgáltatásnak közvetlenül vagy a [OMS-átjárón](/azure/azure-monitor/platform/gateway) keresztül, ha az informatikai biztonsági házirendek nem engedélyezik a hálózaton lévő számítógépek számára az internethez való kapcsolódást.
 
 Azure Monitor for VMs olyan teljesítménymutatókat tartalmaz, amelyek több fő teljesítménymutatót (KPI-ket) céloznak meg, amelyek segítségével meghatározhatja, hogy a virtuális gépek milyen jól működnek. A diagramok egy adott időszakban jelenítik meg az erőforrás-használatot, így azonosíthatja a szűk keresztmetszeteket és a rendellenességeket. Átválthat egy perspektívára is, amely felsorolja az egyes gépeket, hogy megtekintse az erőforrás-használatot a kijelölt metrika alapján. Habár a teljesítmény kezelése során számos szempontot figyelembe kell venni, Azure Monitor for VMs figyeli a processzorral, a memóriával, a hálózati adapterrel és a lemezekkel kapcsolatos fő operációsrendszer-teljesítménymutatókat. A teljesítmény-diagramok kiegészítik az állapotfigyelő funkciót, és segítenek a rendszerösszetevők lehetséges meghibásodását jelző problémák megoldásában. A Azure Monitor for VMs Emellett támogatja a kapacitás megtervezését és finomhangolását, valamint a hatékonyság elérését.
 
-   ![Azure Monitor virtuális gépek teljesítményének lapja](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Azure Monitor virtuális gépek teljesítményének lapja](http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 A felderített alkalmazás-összetevők megtekintését Azure Stack hub-on futó Windows-és Linux virtuális gépeken két módon lehet megfigyelni Azure Monitor for VMs. Az első közvetlenül egy virtuális gépről származik, a második pedig a Azure Monitor-ból származó virtuális gépek csoportjai között.
 A [Azure monitor for VMS Map használata az App Components megismeréséhez](/azure/azure-monitor/insights/vminsights-maps) című cikk segítséget nyújt a két perspektíva közötti élmény megértésében és a Térkép funkció használatának módjában.
 
-   ![Azure Monitor virtuális gépek térképének lapja](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ! [Azure Monitor virtuális gépek térképének lapja] ((http:/docs. microsoft. com/Azure/Azure-monitor/bepillantások/média/vminsights-Maps/map-multivm-azure-monitor-01.png)
 
 Ha a [Azure monitor for VMS](/azure/azure-monitor/insights/vminsights-overview) nem jelenít meg teljesítményadatokat, a [LogAnalytics-munkaterület](/azure/azure-monitor/platform/data-sources-performance-counters) speciális beállításainál engedélyeznie kell a Windows és a Linux teljesítményadatok gyűjtését.
 

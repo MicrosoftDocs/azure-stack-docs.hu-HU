@@ -3,16 +3,16 @@ title: Azure Site Recovery feladat-visszavételi eszköz felhasználói útmutat
 description: Megtudhatja, hogyan használhatja a Azure Site Recovery feladat-visszavétel eszközt a virtuális gépek (VM-EK) elleni védelemhez.
 author: sethmanheim
 ms.author: sethm
-ms.date: 9/18/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 2b57527f3a65e97f5b83ada115faa63ace563ea4
-ms.sourcegitcommit: 0f2852c3302c6723e7afad637f55b80359182ae3
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 0cb3bccab11d337a8a8804578233edb95ac02dc6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366250"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517225"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Azure Site Recovery feladat-visszavételi eszköz
 
@@ -20,13 +20,16 @@ Csatlakoztatott környezetben a Azure Site Recovery használatával biztosíthat
 
 Kimaradás esetén a Azure Stack hub operátor a *feladatátvételi* eljáráson keresztül halad át; Ha Azure Stack hub újra működik, a feladat- *visszavételi* folyamaton haladnak át. A feladatátvételi folyamatot ebben a [site Recovery cikkben](/azure/site-recovery/azure-stack-site-recovery)ismertetjük, de a feladat-visszavételi folyamat több manuális lépést is magában foglal:
 
-- Állítsa le az Azure-ban futó virtuális gépet.
-- Töltse le a VHD-ket.
-- Töltse fel a virtuális merevlemezeket Azure Stack hubhoz.
-- Hozza létre újra a virtuális gépeket.
-- Végezetül indítsa el Azure Stack hub-on futó virtuális gépet. 
+1. Állítsa le az Azure-ban futó virtuális gépet.
+2. Töltse le a VHD-ket.
+3. Töltse fel a virtuális merevlemezeket Azure Stack hubhoz.
+4. Hozza létre újra a virtuális gépeket.
+5. Végezetül indítsa el Azure Stack hub-on futó virtuális gépet. 
 
 Mivel ez a folyamat hibás és időigényes lehet, a létrehozott szkripteket a folyamat felgyorsításához és automatizálásához.
+
+> [!Note]  
+> Az Azure Site Recovery eszköz az Azure Stack hub az modulokat igényli. Ha az Azure Stack hub AzureRM modulját futtatja, akkor frissítenie kell a munkaállomást, vagy a Azure Site Recovery feladat-visszavételi eszközt egy elkülönített környezetben kell használnia az az modulokkal. További információ: a [PowerShell telepítése az Azure stack hub modulhoz](powershell-install-az-module.md).
 
 ## <a name="failback-procedure"></a>Feladat-visszavételi eljárás
 
@@ -59,7 +62,7 @@ A feladat-visszavételi eljárás végrehajtásához a következő előfeltétel
 - választható [Töltse le a AzCopy 10-es verzióját](/azure/storage/common/storage-use-azcopy-v10).
 
   - A blob **AzCopy** használatával történő másolása gyorsabb, de a blob-fájl ideiglenes tárolásához további helyi lemezterület szükséges.
-  - Ha a **AzCopy** nincs használatban, a VHD-másolás a **AzStorageBlobCopy**használatával történik. Ez azt jelenti, hogy nincs szükség helyi tárterületre, de a folyamat tovább tart.
+  - Ha a **AzCopy** nincs használatban, a VHD-másolás a **AzStorageBlobCopy** használatával történik. Ez azt jelenti, hogy nincs szükség helyi tárterületre, de a folyamat tovább tart.
 
 - Hozzáférés a Azure Portal lévő erőforrásokhoz, és hozzáférés a Azure Stack hub-beli erőforrások létrehozásához.
 
@@ -89,11 +92,11 @@ Vegye figyelembe az alábbi szempontokat:
 
    :::image type="content" source="media/site-recovery-failback/sasperms.png" alt-text="SAS-jogkivonat engedélyei":::
 
-- Megadhatja a tárolási végpontot, amely tartalmazza a régiót és a teljes tartománynevet is. például, `regionname.azurestack.microsoft.com` vagy az Azure stack hub környezetének neve, például: `AzureStackTenant` . Ha a környezet nevét használja, a **Get-AzEnvironment**használatával kell szerepelnie.
+- Megadhatja a tárolási végpontot, amely tartalmazza a régiót és a teljes tartománynevet is. például, `regionname.azurestack.microsoft.com` vagy az Azure stack hub környezetének neve, például: `AzureStackTenant` . Ha a környezet nevét használja, a **Get-AzEnvironment** használatával kell szerepelnie.
 
 - Dönthet úgy, hogy a **AzCopy** vagy a **AzStorageBlobCopy** használatával másolja a VHD-t az Azure-ból Azure stack hub-ba. A **AzCopy** gyorsabb, de először le kell töltenie a VHD-fájlokat a helyi mappába:
-  - A **AzCopy**használatához adja meg a paramétereket `-AzCopyPath` és a `-VhdLocalFolder` (a VHD-k másolási útvonalát).
-  - Ha nincs elég hely helyileg, dönthet úgy, hogy a virtuális merevlemezt közvetlenül, **AzCopy**nélkül másolja, és kihagyja a paramétereket `-AzCopyPath` és `-VhdLocalFolder` . Alapértelmezés szerint ez a parancs a **AzStorageBlobCopy** használatával másolja át közvetlenül az Azure stack hub Storage-fiókba.
+  - A **AzCopy** használatához adja meg a paramétereket `-AzCopyPath` és a `-VhdLocalFolder` (a VHD-k másolási útvonalát).
+  - Ha nincs elég hely helyileg, dönthet úgy, hogy a virtuális merevlemezt közvetlenül, **AzCopy** nélkül másolja, és kihagyja a paramétereket `-AzCopyPath` és `-VhdLocalFolder` . Alapértelmezés szerint ez a parancs a **AzStorageBlobCopy** használatával másolja át közvetlenül az Azure stack hub Storage-fiókba.
 
 ## <a name="step-2-generate-resource-manager-templates"></a>2. lépés: Resource Manager-sablonok előállítása
 

@@ -3,16 +3,16 @@ title: Azure Stack hub virtuális gép üzembe helyezése Key Vault tárolt jels
 description: Megtudhatja, hogyan helyezhet üzembe egy virtuális gépet egy Azure Stack hub Key vaultban tárolt jelszó használatával.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 963a4d7bc6cd61ae724e4f087861e19d918fea7d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546446"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518177"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Azure Stack hub virtuális gép üzembe helyezése Key Vault tárolt jelszó használatával
 
@@ -44,6 +44,8 @@ A következő lépések ismertetik a virtuális gép létrehozásához szükség
 
 A következő szkript egy kulcstartót hoz létre, és a Key vaultban tárolja a jelszót. A `-EnabledForDeployment` Key Vault létrehozásakor használja a paramétert. Ez a paraméter gondoskodik arról, hogy a kulcstároló Azure Resource Manager-sablonokból is hivatkozhat.
 
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
+
 ```powershell
 
 $vaultName = "contosovault"
@@ -69,6 +71,35 @@ Set-AzureKeyVaultSecret `
   -SecretValue $secretValue
 
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+```powershell
+
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "MySecret"
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location
+  -EnabledForTemplateDeployment
+
+$secretValue = ConvertTo-SecureString -String '<Password for your virtual machine>' -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+  -SecretValue $secretValue
+
+```
+---
 
 Az előző parancsfájl futtatásakor a kimenet tartalmazza a titkos URI-t (Uniform Resource Identifier). Jegyezze fel ezt az URI-t. Hivatkoznia kell rá a [Windows rendszerű virtuális gép üzembe helyezése jelszóval a Key Vault-](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) sablonban. Töltse le a [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) mappát a fejlesztői számítógépére. Ez a mappa tartalmazza a `azuredeploy.json` és a `azuredeploy.parameters.json` fájlokat, amelyekre a következő lépésekben szüksége lesz.
 
@@ -109,6 +140,8 @@ Frissítse a `azuredeploy.parameters.json` fájlt a kulcstároló URI-ja, a secr
 
 Most telepítse a sablont a következő PowerShell-parancsfájl használatával:
 
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
+
 ```powershell  
 New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
@@ -116,6 +149,18 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+```powershell  
+New-AzureRMResourceGroupDeployment `
+  -Name KVPwdDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+
+---
+
 
 A sablon sikeres központi telepítésekor a következő kimenetet eredményezi:
 

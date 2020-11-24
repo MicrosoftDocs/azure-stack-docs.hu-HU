@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/3/2020
-ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
-ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
+ms.date: 11/23/2020
+ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93344864"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517072"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
@@ -69,8 +69,8 @@ Keményen dolgozunk a további képességek létrehozásán.
 Feliratkozhat további Azure Hybrid Services-szolgáltatásokra is:
 
 - **Azure site Recovery** a magas rendelkezésre álláshoz és a vész-helyreállítási szolgáltatáshoz (DRaaS).
-- **Azure monitor** , egy központosított központ, amely nyomon követheti, hogy mi történik az alkalmazások, a hálózat és az infrastruktúra között – az AI által működtetett fejlett elemzési szolgáltatásokkal.
-- **Felhőbeli tanúsító** , hogy az Azure-t használja a fürt Kvórumának egyszerű tie-megszakítójának.
+- **Azure monitor**, egy központosított központ, amely nyomon követheti, hogy mi történik az alkalmazások, a hálózat és az infrastruktúra között – az AI által működtetett fejlett elemzési szolgáltatásokkal.
+- **Felhőbeli tanúsító**, hogy az Azure-t használja a fürt Kvórumának egyszerű tie-megszakítójának.
 - **Azure Backup** a telephelyen kívüli adatvédelem és a ransomware elleni védelem érdekében.
 - **Azure-Update Management** az Azure-ban és a helyszínen futó Windows rendszerű virtuális gépek frissítésének értékeléséhez és frissítéséhez.
 - **Azure hálózati adapter** a helyszíni erőforrások és az Azure-beli virtuális gépek pont – hely típusú VPN-kapcsolaton keresztüli összekapcsolásához.
@@ -98,6 +98,7 @@ A kezdéshez a következőkre lesz szüksége:
 - [Azure-előfizetés](https://azure.microsoft.com/)
 - A fürt minden olyan kiszolgálójának internetkapcsolata, amely HTTPS-alapú kimenő forgalomon keresztül tud csatlakozni a következő végpontra legalább 30 naponként: *-azurestackhci-usage.azurewebsites.net
 - A helyek között kiterjesztett fürtök esetében legalább 1 1 GB-os kapcsolatra van szükség a helyek között (a 25 GB-os RDMA-kapcsolat előnyben részesített), és 5 ms-os átlagos késéssel kell rendelkeznie, ha szinkron replikálást szeretne végezni, ha mindkét helyen egyszerre történik az írás.
+- Ha a szoftveres hálózatkezelés (SDN) használatát tervezi, szüksége lesz egy virtuális merevlemezre (VHD) a Azure Stack HCI operációs rendszerhez a hálózati vezérlő virtuális gépek létrehozásához (lásd: a [hálózati vezérlő üzembe helyezésének tervezése](concepts/network-controller.md))
 
 További információ: [rendszerkövetelmények](concepts/system-requirements.md). Az Azure Kubernetes Service Azure Stack HCI-követelményekkel kapcsolatban lásd: az [AK-követelmények Azure stack HCI](../aks-hci/overview.md#what-you-need-to-get-started)-ben.
 
@@ -199,20 +200,20 @@ A szervezet digitális átalakításának köszönhetően a nyilvános Cloud Ser
 
 A Windows felügyeleti központ 2009-es verziója számos funkciót biztosít a HCI Azure Stackához, beleértve a következőket:
 
-- **Azure Kubernetes szolgáltatás üzemeltetési képességei** : most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban** : a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
+- **Azure Kubernetes szolgáltatás üzemeltetési képességei**: most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
 
 A Windows felügyeleti központ új szolgáltatásaival kapcsolatos részletekért tekintse meg a [Windows felügyeleti központ blogját](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
 A Azure Stack HCI-t futtató fürtökön a következő új funkciók jelennek meg a Windows Server 2019-alapú megoldásaihoz képest: 20H2.
 
-- **Új funkciók a Windows felügyeleti központban** : a hiperkonvergens-fürtöket intuitív felhasználói felületen keresztül hozhatja létre és frissítheti, Azure stack a HCI-t minden eddiginél könnyebben használhatja.
-- Kibővített **fürtök automatikus feladatátvételhez** : a többhelyes fürtözés a tárolási replika replikálásával és az automatikus virtuális gép feladatátvétele natív vész-helyreállítást és üzletmenet-folytonosságot biztosít a közvetlen tárolóhelyek használó fürtök számára.
-- **Affinitás és affinitási szabályok** : ezeket ugyanúgy használhatja, hogy az Azure hogyan használja Availability Zones a virtuális gépek és a tárolók összekapcsolását a több tartalék tartománnyal rendelkező fürtökön, például a kiterjesztett fürtökön.
-- **Azure Portal integráció** : az Azure stack HCI-hez készült Azure Portal-élmény úgy lett kialakítva, hogy az összes Azure stack HCI-fürtöt megtekintse a világ minden részén, a fejlesztés új szolgáltatásaival.
+- **Új funkciók a Windows felügyeleti központban**: a hiperkonvergens-fürtöket intuitív felhasználói felületen keresztül hozhatja létre és frissítheti, Azure stack a HCI-t minden eddiginél könnyebben használhatja.
+- Kibővített **fürtök automatikus feladatátvételhez**: a többhelyes fürtözés a tárolási replika replikálásával és az automatikus virtuális gép feladatátvétele natív vész-helyreállítást és üzletmenet-folytonosságot biztosít a közvetlen tárolóhelyek használó fürtök számára.
+- **Affinitás és affinitási szabályok**: ezeket ugyanúgy használhatja, hogy az Azure hogyan használja Availability Zones a virtuális gépek és a tárolók összekapcsolását a több tartalék tartománnyal rendelkező fürtökön, például a kiterjesztett fürtökön.
+- **Azure Portal integráció**: az Azure stack HCI-hez készült Azure Portal-élmény úgy lett kialakítva, hogy az összes Azure stack HCI-fürtöt megtekintse a világ minden részén, a fejlesztés új szolgáltatásaival.
 - **GPU-gyorsítás a nagy teljesítményű** számítási feladatokhoz: az AI/ml-alkalmazások kihasználhatják a GPU-k teljesítményének növelését.
-- **BitLocker-titkosítás** : mostantól a BitLocker használatával titkosíthatja az adatkötetek tartalmát Azure stack HCI-ben, így a kormányzat és más ügyfelek is megmaradnak a szabványoknak, például az FIPS 140-2-es és a HIPAA-nek.
-- **Javított közvetlen tárolóhelyek mennyiségi javítási sebesség** : a kötetek gyors és zökkenőmentes javítása.
+- **BitLocker-titkosítás**: mostantól a BitLocker használatával titkosíthatja az adatkötetek tartalmát Azure stack HCI-ben, így a kormányzat és más ügyfelek is megmaradnak a szabványoknak, például az FIPS 140-2-es és a HIPAA-nek.
+- **Javított közvetlen tárolóhelyek mennyiségi javítási sebesség**: a kötetek gyors és zökkenőmentes javítása.
 
 A Windows felügyeleti központ, a 20H2 verzió új fürtöt is biztosít a Windows Server-alapú fürtökhöz, beleértve az eredeti Azure Stack HCI-megoldásokat is. Ha pedig az új fürt létrehozása varázslót a Windows Serverrel is használhatja, a Windows Server-fürtök nem hozhatók létre a Közvetlen tárolóhelyek; erre a Azure Stack HCI operációs rendszerre van szükség.
 

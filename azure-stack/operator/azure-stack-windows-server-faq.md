@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: A Windows Serverhez készült Azure Stack hub Marketplace-re vonatkozó gyakori kérdések listája.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 3c0022c49d7af3df7da6b3551bf1e51848e5506a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545725"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517446"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack hub Marketplace – gyakori kérdések
 
@@ -35,9 +35,9 @@ Ezután, ha bármelyik virtuálisgép-méretezési csoport egy adott verzióra h
 
 A Microsoft a Windows Server rendszerképeinek két verzióját kínálja Azure Stack hub Marketplace-en keresztül. A rendszerképnek csak egy verziója használható Azure Stack hub-környezetben.  
 
-- Utólagos **fizetés (TB)** : ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
+- Utólagos **fizetés (TB)**: ezek a lemezképek a teljes díjszabású Windows-mérőszámokat futtatják.
    Ki használja ezt a lehetőséget: Nagyvállalati Szerződés (EA) ügyfelek, akik a használati *Számlázási modellt* használják; Azok a kriptográfiai szolgáltatók, akik nem szeretnék használni a SPLA-licencelést.
-- **Saját licenc használata (BYOL)** : ezek a képek alapszintű mérőórákat futtatnak.
+- **Saját licenc használata (BYOL)**: ezek a képek alapszintű mérőórákat futtatnak.
    Ki használja ezt a lehetőséget: nagyvállalati szerződéssel rendelkező ügyfelek Windows Server licenccel; A SPLA licencelést használó CSP-ket.
 
 A Azure Hybrid Use Benefit (AHUB) nem támogatott Azure Stack hub-on. A "Capacity" modellen keresztül licenccel rendelkező ügyfeleknek a BYOL-rendszerképet kell használniuk. Ha a Azure Stack Development Kitt (ASDK) teszteli, használhatja ezeket a lehetőségeket.
@@ -51,28 +51,44 @@ Ha a lemezkép mindkét verzióját letölti, akkor a Azure Stack hub piactéren
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Mi a teendő, ha a felhasználó helytelenül ellenőrizte a korábbi Windows-buildek "licencem" mezőjét, és nem rendelkezik licenccel?
 
 A BYOL és a TB modell közötti váltáshoz a következő parancsfájl futtatásával módosíthatja a licencelési modell attribútumát:
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
-A virtuális gép licencének típusát a következő parancs futtatásával tekintheti meg. Ha a licencelési modell **Windows_Server** , akkor a BYOL díját kell megfizetnie. Ellenkező esetben a Windows-mérőszámot a TB modell alapján számítjuk fel:
+A virtuális gép licencének típusát a következő parancs futtatásával tekintheti meg. Ha a licencelési modell **Windows_Server**, akkor a BYOL díját kell megfizetnie. Ellenkező esetben a Windows-mérőszámot a TB modell alapján számítjuk fel:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Mi a helyzet akkor, ha egy régebbi rendszerképem van, és a felhasználó elfelejtettem a "licenccel rendelkezem" jelölőnégyzetet, vagy saját rendszerképeket használunk, és rendelkezünk Nagyvállalati Szerződés jogosultsággal?
 
 A BYOL modellre a következő parancsok futtatásával módosíthatja a licencelési modell attribútumot:
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Mi a helyzet a Windows Servert használó más virtuális gépekkel, például az SQL vagy a Machine Learning Server?
 
@@ -129,7 +145,7 @@ Az [automatikus VM-aktiválás](/previous-versions/windows/it-pro/windows-server
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információkat az következő cikkekben talál:
+További információért tekintse át a következő cikkeket:
 
 - [Az Azure Stack hub Marketplace áttekintése](azure-stack-marketplace.md)
 - [Marketplace-elemek letöltése az Azure-ból Azure Stack hubhoz](azure-stack-download-azure-marketplace-item.md)

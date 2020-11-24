@@ -3,16 +3,16 @@ title: Adatátviteli eszközök használata Azure Stack hub Storage-ban
 description: További információ az Azure Stack hub Storage adatátviteli eszközeiről.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: d35ee0999dfa25e5cee12ff3df3c91b945733430
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546548"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518024"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
 
@@ -69,7 +69,7 @@ A AzCopy API-verziójának a Azure Stack hub támogatásához való konfigurál�
 
 A AzCopy 10,1-es verziójában a Azure Stack hub következő szolgáltatásai támogatottak:
 
-| Jellemző | Támogatott műveletek |
+| Funkció | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -114,6 +114,7 @@ Azure PowerShell egy modul, amely parancsmagokat biztosít a szolgáltatások Az
 Azure Stack hub-kompatibilis Azure PowerShell modulok szükségesek az Azure Stack hub használatához. További információ: a [PowerShell telepítése Azure stack hubhoz](../operator/powershell-install-az-module.md) , és [Az Azure stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>PowerShell-minta parancsfájl az Azure Stack hub-hoz 
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack hubhoz](../operator/powershell-install-az-module.md). Ez a szkript segítséget nyújt a konfiguráció végrehajtásában, és felkéri a Azure Stack hub bérlői hitelesítő adatait, hogy a fiókját hozzáadja a helyi PowerShell-környezethez. A szkript ezután beállítja az alapértelmezett Azure-előfizetést, létrehoz egy új Storage-fiókot az Azure-ban, létrehoz egy új tárolót az új Storage-fiókban, és feltölt egy meglévő lemezképfájlt (blobot) a tárolóba. Miután a parancsfájl felsorolja az adott tárolóban lévő összes blobot, a rendszer létrehoz egy új célhelyet a helyi számítógépen, és letölti a lemezképfájlt.
 
@@ -186,6 +187,83 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 # end
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack hubhoz](../operator/azure-stack-powershell-install.md). Ez a szkript segítséget nyújt a konfiguráció végrehajtásában, és felkéri a Azure Stack hub bérlői hitelesítő adatait, hogy a fiókját hozzáadja a helyi PowerShell-környezethez. A szkript ezután beállítja az alapértelmezett Azure-előfizetést, létrehoz egy új Storage-fiókot az Azure-ban, létrehoz egy új tárolót az új Storage-fiókban, és feltölt egy meglévő lemezképfájlt (blobot) a tárolóba. Miután a parancsfájl felsorolja az adott tárolóban lévő összes blobot, a rendszer létrehoz egy új célhelyet a helyi számítógépen, és letölti a lemezképfájlt.
+
+1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
+2. Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >  **New** egy új parancsfájl létrehozásához.
+4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
+5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
+   > [!NOTE]
+   > Ezt a parancsfájlt a **AzureStack_Tools** gyökérkönyvtárában kell futtatni.
+
+```powershell  
+# begin
+
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack Hub environment name
+$ARMEndPoint = "https://management.local.azurestack.external" 
+$GraphAudience = "https://graph.windows.net/" 
+$AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
+
+$SubscriptionName = "basic" # Update with the name of your subscription.
+$ResourceGroupName = "myTestRG" # Give a name to your new resource group.
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
+$Location = "Local" # Choose "Local" as an example.
+$ContainerName = "photo" # Give a name to your new container.
+$ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
+
+# Import the Connect PowerShell module"
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Configure the PowerShell environment
+# Register an AzureRM environment that targets your Azure Stack Hub instance
+Add-AzureRMEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+
+# Login
+$TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
+Add-AzureRMAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+
+# Set a default Azure subscription.
+Select-AzureRMSubscription -SubscriptionName $SubscriptionName
+
+# Create a new Resource Group 
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+
+# Create a new storage account.
+New-AzureRMStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+
+# Set a default storage account.
+Set-AzureRMCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+
+# Create a new container.
+New-AzureRMureStorageContainer -Name $ContainerName -Permission Off
+
+# Upload a blob into a container.
+Set-AzureRMureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+
+# List all blobs in a container.
+Get-AzureRMureStorageBlob -Container $ContainerName
+
+# Download blobs from the container:
+# Get a reference to a list of all blobs in a container.
+$blobs = Get-AzureStorageBlob -Container $ContainerName
+
+# Create the destination directory.
+New-Item -Path $DestinationFolder -ItemType Directory -Force  
+
+# Download blobs into the local destination directory.
+$blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
+
+# end
+```
+
+---
+
+
 
 ### <a name="powershell-known-issues"></a>PowerShell – ismert problémák
 
@@ -205,7 +283,7 @@ A 1.2.11 verziójának visszatérési értékének formátuma `Get-AzStorageAcco
 -AccountName "MyStorageAccount").Key1
 ```
 
-További információ: [Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
+További információ: [Get-AzureRMStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 

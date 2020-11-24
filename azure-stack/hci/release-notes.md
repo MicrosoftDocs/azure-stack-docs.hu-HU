@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/10/2020
-ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.date: 11/23/2020
+ms.openlocfilehash: 6116710b6fe1fa9ee909e29ee337d7000caf06ac
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441174"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517175"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
@@ -20,12 +20,53 @@ ms.locfileid: "94441174"
 
 Ez a cikk a Azure Stack HCI nyilvános előzetes frissítési csomagjainak tartalmát ismerteti.
 
+## <a name="november-23-2020-preview-update-kb4586852"></a>November 23, 2020 előzetes frissítés (KB4586852)
+
+Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javításait tartalmazza. 
+
+   > [!IMPORTANT]
+   > Ha Azure Stack HCI-fürtöket a nyilvános előzetes rendszerkép használatával konfigurálták és regisztrálták, akkor az KB4586852-frissítés telepítése után ki kell javítania az Azure-regisztrációt, hogy használni lehessen a frissítés által kínált új szolgáltatásokat. A frissítés telepítése után hajtsa végre az alábbi lépéseket az egyes fürtökön:
+   >
+   > 1. Győződjön meg arról, hogy a fürt összes kiszolgálója frissült a KB4586852. Ha nem, akkor a javítás sikertelen lesz, és jelzi a frissíteni kívánt csomópont (oka) t.
+   >
+   > 2. Kapcsolódjon helyileg vagy a következő fürtcsomópontok egyikéhez sem `Enter-PSSession <server-name>`
+   >
+   > 3. Töltse le a AzStackHCI v 0.4.0 regisztrációs modult a PowerShell-galéria. `Install-Module Az.StackHCI`A legújabb modul beszerzéséhez futtassa a parancsot.
+   >
+   > 4. A regisztráció kijavításához futtassa a következő parancsot. Használja a fürt eredeti regisztrálásához használt előfizetés-azonosítót. `Get-AzureStackHCI` Megjeleníti az aktuális ARM URI-t, amely tartalmazza az előfizetési adatokat.
+   >
+   >   ```PowerShell
+   >   Register-AzStackHCI -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -RepairRegistration
+   >   ```
+   > 
+
+### <a name="improvements-and-fixes"></a>Javítások és javítások
+Ez a nem biztonsági frissítés tartalmazza a minőségi frissítéseket. A legfontosabb változások a következők: 
+
+- Ezzel a frissítéssel Azure Stack HCI-ügyfelek, akik érvényes Windows Server 2019 Datacenter Edition licenccel rendelkeznek, a Azure Stack HCI-ben üzemeltetett virtuális gépek (VM-EK) kényelmes aktiválásához használhatják őket anélkül, hogy az egyes virtuális gépekhez tartozó termékkulcsot kellene kezelnie. A Windows felügyeleti központot vagy a PowerShellt használhatja a nem használt Windows Server 2019 Datacenter Edition aktiválási kulcs beírásához közvetlenül a Azure Stack HCI-gazdagépre, hogy engedélyezze az automatikus VM-aktiválást (AVMA). A Windows Server 2019-es vagy korábbi verzióját futtató virtuális gépek ezután öröklik az aktiválást a gazdagépről. A megadott kulcs lehet a mennyiségi licencelési központból beszerzett több aktiválási kulcs (MAK), az OEM-kiszolgálóra alkalmazott eredetiséget igazoló tanúsítvány (COA) matricán lévő kulcs, vagy a Windows Server 2019 Datacenter Edition kereskedelmi dobozos példányának kulcsa. Ebben a kiadásban az általános mennyiségi licenckulcs (GVLK) nem támogatott.
+
+- Azure Stack HCI most gyűjti a szükséges diagnosztikai adatokat, amelyek minimálisan szükségesek ahhoz, hogy az eszköz biztonságos, naprakész és a várt módon legyen végrehajtva. A szükséges diagnosztikai adatok egy korlátozott adathalmazt gyűjtenek, amely kritikus fontosságú az eszköz és a konfigurációjának megismeréséhez. Ez az érték segít azonosítani az adott hardver-vagy szoftver-konfiguráción esetlegesen felmerülő problémákat.  
+
+### <a name="known-issues-in-this-update"></a>A frissítés ismert problémái
+A Microsoft jelenleg nem ismeri a frissítéssel kapcsolatos problémákat.
+
+### <a name="how-to-get-this-update"></a>A frissítés beszerzése 
+A [Azure stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -hoz készült november 23, 2020 biztonsági frissítés (KB4586852) Windows Update keresztül érhető el. A Azure Stack HCI-fürtön való telepítéséhez lásd: [Azure stack HCI-fürtök frissítése](manage/update-cluster.md).
+
+### <a name="file-information"></a>Fájl adatai
+Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1381) a 4586852-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/5/c/6/5c6f8c37-3e0b-4239-a6d9-9c709e18e869/4586852.csv)letöltésével töltheti le.
+
+   > [!NOTE]
+   > Egyes fájlok hibásan rendelkeznek "nem alkalmazható" értékkel a CSV-fájl "file version" oszlopában. Ez hamis pozitív vagy hamis negatív értéket eredményezhet, ha valamilyen harmadik féltől származó vizsgálati eszközt használ a Build ellenőrzéséhez.
+
 ## <a name="november-10-2020-security-update-kb4586811"></a>November 10, 2020 biztonsági frissítés (KB4586811)
 
 Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javításait tartalmazza.
 
 ### <a name="improvements-and-fixes"></a>Javítások és javítások
-Ez a frissítés a belső operációsrendszer-funkciókra vonatkozó különféle biztonsági funkciókat tartalmaz. Ebben a kiadásban nincsenek dokumentálva további problémák.
+Ez a frissítés a belső operációsrendszer-funkciókra vonatkozó különféle biztonsági funkciókat tartalmaz. A biztonsági réseket úgy oldja meg, hogy megakadályozza a rendszerfiókként futó alkalmazások nyomtatását a fájlokra mutató helyi portokra. Sikertelen nyomtatási feladatok naplójának 50-as hibája: "a kérelem nem támogatott" a 372-es AZONOSÍTÓJÚ eseménynél a PrintService\Admin-eseménynaplóban. A probléma jövőbeli megoldásához győződjön meg arról, hogy az alkalmazások vagy szolgáltatások egy adott felhasználói vagy szolgáltatási fiókkal futnak.
+
+Ebben a kiadásban nincsenek dokumentálva további problémák.
 
 A megoldott biztonsági rések részletes ismertetését a [biztonsági frissítési útmutatóban](https://portal.msrc.microsoft.com/security-guidance)találja.
 

@@ -3,16 +3,16 @@ title: Külső figyelési megoldás integrálása Azure Stack hubhoz
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot egy külső figyelési megoldással az adatközpontjában.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543595"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517701"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -67,7 +67,7 @@ A Nagios-figyelési beépülő modul a partneri Cloudbase-megoldásokkal együtt
 
 A beépülő modul Pythonban van megírva, és kihasználja az állapot erőforrás-szolgáltató REST API. Alapszintű funkciókat biztosít a riasztások lekéréséhez és bezárásához Azure Stack központban. A System Center felügyeleti csomaghoz hasonlóan több Azure Stack hub üzemelő példány hozzáadását és értesítések küldését is lehetővé teszi.
 
-Az 1,2-es verzióban az Azure Stack hub – a Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést egy titkos vagy tanúsítvánnyal rendelkező egyszerű szolgáltatásnév használatával. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja Azure Stack hub üzemelő példányait az Azure AD-vel, és az identitásrendszer AD FS.
+Az 1,2-es verzióban az Azure Stack hub-Nagios beépülő modul a Microsoft ADAL-függvénytárat használja, és támogatja a hitelesítést az egyszerű szolgáltatás használatával titkos vagy tanúsítvánnyal. Emellett a konfigurációt egy új paraméterekkel rendelkező, egyetlen konfigurációs fájllal egyszerűsítettük. Mostantól támogatja Azure Stack hub üzemelő példányait az Azure AD-vel, és az identitásrendszer AD FS.
 
 > [!IMPORTANT]
 > AD FS csak az interaktív bejelentkezési munkameneteket támogatja. Ha nem interaktív bejelentkezésre van szüksége egy automatikus forgatókönyvhöz, SPN-t kell használnia.
@@ -151,7 +151,7 @@ A többi konfigurációs fájl opcionális konfigurációs beállításokat tart
 
 ### <a name="update-nagios-configuration"></a>A Nagios konfigurációjának frissítése
 
-A Nagios konfigurációját frissíteni kell az Azure Stack hub – a Nagios beépülő modul betöltésének biztosításához.
+A Nagios konfigurációját frissíteni kell annak érdekében, hogy az Azure Stack hub-Nagios beépülő modul betöltődik.
 
 1. Nyissa meg a következő fájlt:
 
@@ -201,6 +201,8 @@ A beépülő modul hibaelhárítása úgy történik, hogy manuálisan hívja me
 
 Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a PowerShell segítségével számos figyelési megoldást engedélyezhet a Azure Stack hub-nal való integráláshoz.
 
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](powershell-install-az-module.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdai) végpontot ( https://adminmanagement . [ régió]. [External_FQDN]).
 
 2. Futtassa a következő parancsokat az Azure Stack hub-környezethez Azure Stack hub-operátorként való kapcsolódáshoz:
@@ -214,26 +216,66 @@ Ha nem használ Operations Manager, a Nagios vagy a Nagios-alapú megoldást, a 
    ```
 
 3. Használjon olyan parancsokat, mint például az alábbi példák a riasztásokkal való együttműködésre:
+
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
+
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+   Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+1. A PowerShell használatához győződjön meg arról, hogy a [PowerShell telepítve van és konfigurálva](powershell-install-az-module.md) van egy Azure stack hub-kezelő környezethez. Telepítse a PowerShellt egy helyi számítógépre, amely elérheti a Resource Manager-(rendszergazdai) végpontot ( https://adminmanagement . [ régió]. [External_FQDN]).
+
+2. Futtassa a következő parancsokat az Azure Stack hub-környezethez Azure Stack hub-operátorként való kapcsolódáshoz:
+
    ```powershell
-    # Retrieve all alerts
-    $Alerts = Get-AzsAlert
-    $Alerts
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-    # Filter for active alerts
-    $Active = $Alerts | Where-Object { $_.State -eq "active" }
-    $Active
+   Connect-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+   ```
 
-    # Close alert
-    Close-AzsAlert -AlertID "ID"
+3. Használjon olyan parancsokat, mint például az alábbi példák a riasztásokkal való együttműködésre:
 
-    #Retrieve resource provider health
-    $RPHealth = Get-AzsRPHealth
-    $RPHealth
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
 
-    # Retrieve infrastructure role instance health
-    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
-    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-    ```
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+---
 
 ## <a name="learn-more"></a>További információ
 

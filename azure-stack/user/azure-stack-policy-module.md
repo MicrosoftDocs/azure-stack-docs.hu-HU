@@ -3,15 +3,15 @@ title: Az Azure Stack hub házirend moduljának használata
 description: Ismerje meg, hogyan kényszerítheti az Azure-előfizetést úgy, hogy az Azure Stack hub-előfizetéshez hasonlóan viselkedjen
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547058"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518126"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Az Azure-szabályzat kezelése az Azure Stack hub házirend moduljának használatával
 
@@ -30,7 +30,9 @@ Az Azure Stack hub házirend modul lehetővé teszi egy Azure-előfizetés konfi
 
 ## <a name="apply-policy-to-azure-subscription"></a>Szabályzat alkalmazása az Azure-előfizetésre
 
-Az alábbi parancsokkal telepítheti az alapértelmezett Azure Stack hub-szabályzatot az Azure-előfizetésre. A parancsok futtatása előtt cserélje le az értékét `Azure subscription name` Az Azure-előfizetés nevére:
+Az alábbi parancsokkal telepítheti az alapértelmezett Azure Stack hub-szabályzatot az Azure-előfizetésre. A parancsok futtatása előtt cserélje le az értékét `Azure subscription name` Az Azure-előfizetés nevére.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 ```powershell
 Add-AzAccount
@@ -39,10 +41,23 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
+
+```powershell
+Add-AzureRMAccount
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+```
+
+---
 
 ## <a name="apply-policy-to-a-resource-group"></a>Házirend alkalmazása erőforráscsoporthoz
 
 Előfordulhat, hogy olyan házirendeket szeretne alkalmazni, amelyek részletesebbek. Előfordulhat például, hogy az adott előfizetésben futó más erőforrásokkal is rendelkezik. A házirend-alkalmazást egy adott erőforráscsoporthoz is felhasználhatja, amely lehetővé teszi, hogy az Azure-erőforrások használatával tesztelje az alkalmazásait Azure Stack hubhoz. A következő parancsok futtatása előtt cserélje le az értékét `Azure subscription name` Az Azure-előfizetés nevére:
+
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
 
 ```powershell
 Add-AzAccount
@@ -52,6 +67,18 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
+ 
+```powershell
+Add-AzureRMAccount
+$rgName = 'myRG01'
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+```
+
+---
 
 ## <a name="policy-in-action"></a>Házirend működés közben
 

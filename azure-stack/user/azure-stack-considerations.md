@@ -3,15 +3,15 @@ title: Azure Stack hub és az Azure közötti különbségek szolgáltatások é
 description: Ismerje meg az Azure és a Azure Stack hub közötti különbséget a szolgáltatások használata és az alkalmazások létrehozása során.
 author: sethmanheim
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 8d8cd26bc53deef5b2e23955b349cb68a0eb51f0
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543561"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516987"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Azure Stack hub és az Azure közötti különbségek szolgáltatások és alkalmazások létrehozásakor
 
@@ -41,7 +41,7 @@ Az alábbi táblázat az Azure Stack hub és az Azure közötti magas szintű k�
 | Elérhető szolgáltatások | Tekintse meg az [Azure-termékek](https://azure.microsoft.com/services/?b=17.04b)listáját. Az elérhető szolgáltatások az Azure-régiótól eltérőek. | Azure Stack hub az Azure-szolgáltatások egy részhalmazát támogatja. A tényleges szolgáltatások attól függően változnak, hogy a szervezet vagy a szolgáltató milyen ajánlatot tesz.
 | Azure Resource Manager végpont * | `https://management.azure.com` | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított végpontot.<br><br>A fejlesztői csomaghoz használja a következőt: `https://management.local.azurestack.external` .
 | Portál URL-címe * | [https://portal.azure.com](https://portal.azure.com) | Azure Stack hub integrált rendszer esetén használja a Azure Stack hub-operátor által biztosított URL-címet.<br><br>A fejlesztői csomaghoz használja a következőt: `https://portal.local.azurestack.external` .
-| Régió | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi** lesz.
+| Region | Kiválaszthatja, hogy melyik régiót szeretné központilag telepíteni. | Azure Stack hub integrált rendszer esetén használja a rendszeren elérhető régiót.<br><br>A Azure Stack Development Kit (ASDK) esetében a régió mindig **helyi** lesz.
 | Erőforráscsoportok | Az erőforráscsoportok A régiókra terjedhetnek. | Mind az integrált rendszerek, mind a fejlesztői csomag esetében csak egy régió van.
 |Támogatott névterek, erőforrástípusok és API-verziók | A legújabb (vagy korábbi verziók, amelyek még nem elavultak). | Azure Stack hub bizonyos verziókat támogat. Tekintse meg a jelen cikk [verzióra vonatkozó követelmények](#version-requirements) című szakaszát.
 | | |
@@ -70,10 +70,23 @@ Annak ellenőrzéséhez, hogy a Azure PowerShell megfelelő verzióját használ
 
 Más API-k esetén futtassa a következő PowerShell-parancsot a Azure Stack hub-előfizetés által támogatott névterek, erőforrástípusok és API-verziók kimenetének kinyomtatásához (a tulajdonságok szintjén továbbra is lehetnek különbségek). Ahhoz, hogy a parancs működjön, rendelkeznie kell egy Azure Stack hub-környezethez már [telepített](../operator/powershell-install-az-module.md) és [konfigurált](azure-stack-powershell-configure-user.md) PowerShell-lel. Azure Stack hub-ajánlathoz is előfizetéssel kell rendelkeznie.
 
+### <a name="az-modules"></a>[Az modulok](#tab/az)
+
 ```powershell
 Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+
+```powershell
+Get-AzureRMResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
+```
+
+---
+
+
+
 
 Példa kimenet (csonkolt): ![ példa Get-AzResourceProvider parancs kimenetére](media/azure-stack-considerations/image1.png)
 
