@@ -9,11 +9,11 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572823"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96035334"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -31,7 +31,7 @@ Mivel az erőforrás-szolgáltató egy *felhasználói* virtuális gépen fut, a
 
 Ön felelős a sysadmin fiókok létrehozásához és karbantartásához az SQL-kiszolgálókon. Az erőforrás-szolgáltatónak olyan fiókkal kell rendelkeznie, amely rendelkezik ezekkel a jogosultságokkal a felhasználók adatbázisainak kezeléséhez, de nincs szükség a felhasználói adatforrásokhoz való hozzáférésre. Ha frissítenie kell a sysadmin (rendszergazda) jelszavait az SQL-kiszolgálókon, az erőforrás-szolgáltató rendszergazdai felületén módosíthatja a tárolt jelszavakat. Ezeket a jelszavakat a Azure Stack hub-példány egy Key Vault tárolja.
 
-A beállítások módosításához válassza a **Tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **SQL-bejelentkezések** lehetőséget, és válasszon egy felhasználónevet. A változást az SQL-példányon kell végrehajtani (és szükség esetén a replikákat is). A **Beállítások**területen válassza a **jelszó**lehetőséget.
+A beállítások módosításához válassza a **Tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **SQL-bejelentkezések** lehetőséget, és válasszon egy felhasználónevet. A változást az SQL-példányon kell végrehajtani (és szükség esetén a replikákat is). A **Beállítások** területen válassza a **jelszó** lehetőséget.
 
 ![SQL-rendszergazdai jelszó frissítése](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
@@ -107,7 +107,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 
 |Paraméter|Leírás|Megjegyzés|
 |-----|-----|-----|
-|AzureEnvironment|Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud**használatával.|Választható|
+|AzureEnvironment|Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud** használatával.|Választható|
 |AzCredential|Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai.|Kötelező|
 |CloudAdminCredential|Azure Stack hub felhőalapú rendszergazdai tartományi fiókjának hitelesítő adatai.|Kötelező|
 |PrivilegedEndpoint|A rendszerjogosultságú végpont a Get-AzureStackStampInformation eléréséhez.|Kötelező|
@@ -124,7 +124,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 Titkok rotációs naplói. A titkok elforgatásának naplói nem lesznek automatikusan begyűjtve, ha a titkos kód egyéni parancsfájl futtatása sikertelen.
 
 **Áthidaló megoldás**:<br>
-A Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, a C:\Logs.-ben mentett adatokat
+Az Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, a C:\Logs. mentett adatokat.
 
 ## <a name="update-the-vm-operating-system"></a>A virtuális gép operációs rendszerének frissítése
 
@@ -247,18 +247,18 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van az SQL 
 3. A virtuális gép **diagnosztikai beállításainál** lépjen a **naplók** lapra, és az **Egyéni** elemre kattintva testreszabhatja az eseménynaplók gyűjtését.
 ![A diagnosztikai beállítások keresése](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!** SQL erőforrás-szolgáltató operatív eseménynaplóinak gyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!* _ az SQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
 ![Eseménynaplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói**című témakört.
+5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az _ *IIS-naplók** és a **Sikertelen kérelmek naplófájljait**.
 ![IIS-naplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Végül válassza a **Mentés** lehetőséget a diagnosztika összes beállításának mentéséhez.
 
-Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az SQL-erőforrás-szolgáltatóhoz, a naplók a **sqladapterdiagaccount**nevű rendszertároló fiókban találhatók.
+Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az SQL-erőforrás-szolgáltatóhoz, a naplók a **sqladapterdiagaccount** nevű rendszertároló fiókban találhatók.
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [SQL Server üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

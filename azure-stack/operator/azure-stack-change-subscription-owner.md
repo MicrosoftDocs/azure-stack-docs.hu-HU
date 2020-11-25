@@ -3,16 +3,16 @@ title: Azure Stack hub felhasználói előfizetés számlázási tulajdonosának
 description: Megtudhatja, hogyan módosíthatja egy Azure Stack hub felhasználói előfizetés számlázási tulajdonosát.
 author: justinha
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/16/2020
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 7b4d47d695287a2e2f544fc9e4c67ceab21527c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543901"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035280"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack hub felhasználói előfizetés számlázási tulajdonosának módosítása
 
@@ -20,7 +20,7 @@ Azure Stack hub-kezelők a PowerShell használatával módosíthatják a felhasz
 
 Az előfizetéshez két típusú *tulajdonos* van rendelve:
 
-- **Számlázási tulajdonos** : alapértelmezés szerint a számlázási tulajdonos az a felhasználói fiók, amely lekéri az előfizetést egy ajánlatból, majd az előfizetéshez tartozó számlázási kapcsolatot birtokolja. Ez a fiók az előfizetés rendszergazdája is. Egy előfizetéshez csak egy felhasználói fiók tartozhat. A számlázási tulajdonos gyakran szervezet vagy csapat érdeklődő.
+- **Számlázási tulajdonos**: alapértelmezés szerint a számlázási tulajdonos az a felhasználói fiók, amely lekéri az előfizetést egy ajánlatból, majd az előfizetéshez tartozó számlázási kapcsolatot birtokolja. Ez a fiók az előfizetés rendszergazdája is. Egy előfizetéshez csak egy felhasználói fiók tartozhat. A számlázási tulajdonos gyakran szervezet vagy csapat érdeklődő.
 
   Használhatja a [set-AzsUserSubscription PowerShell-](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) parancsmagot a számlázási tulajdonos módosításához.  
 
@@ -37,10 +37,12 @@ Futtassa a következő szkriptet a felhasználói előfizetés számlázási tul
 
 A futtatása előtt cserélje le a következő értékeket a parancsfájlba:
 
-- **$ArmEndpoint** : a környezet Resource Manager-végpontja.
-- **$TenantId** : a bérlő azonosítója.
-- **$SubscriptionId** : az előfizetés azonosítója.
-- **$OwnerUpn** : egy olyan fiók, például **felhasználói \@ example.com** , amelyet új számlázási tulajdonosként szeretne hozzáadni.
+- **$ArmEndpoint**: a környezet Resource Manager-végpontja.
+- **$TenantId**: a bérlő azonosítója.
+- **$SubscriptionId**: az előfizetés azonosítója.
+- **$OwnerUpn**: egy olyan fiók, például **felhasználói \@ example.com**, amelyet új számlázási tulajdonosként szeretne hozzáadni.
+
+### <a name="az-modules"></a>[Az modulok](#tab/az)
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -58,7 +60,30 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
+
+### <a name="az-modules"></a>[Az modulok](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
 
 ## <a name="next-steps"></a>Következő lépések
 
