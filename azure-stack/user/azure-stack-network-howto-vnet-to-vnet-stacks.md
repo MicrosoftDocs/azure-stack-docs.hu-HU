@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94547109"
 ---
 # <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Azure Stack hub-példányok közötti kapcsolat VNet a Fortinet FortiGate NVA
@@ -94,13 +94,13 @@ Ismételje meg ezeket a lépéseket Azure Stack hub-környezetek esetében is.
 
     ![Az alapvető beállítások párbeszédpanel szövegmezői (például a példány neve és a BYOL-licenc) a központi telepítési táblából származó értékekkel lettek kitöltve.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image7.png)
 
-1. Kattintson az **OK** gombra.
+1. Válassza az **OK** lehetőséget.
 
 1. Adja meg a virtuális hálózatot, az alhálózatokat és a virtuális gép méretét a [telepítési paraméterektől](#deployment-parameters).
 
     Ha más neveket és tartományokat kíván használni, ügyeljen arra, hogy ne használjon olyan paramétereket, amelyek ütköznek a többi Azure Stack hub-környezet más VNET és FortiGate erőforrásaival. Ez különösen igaz, ha a VNET IP-tartományát és az alhálózati tartományokat a VNET belül állítja be. Győződjön meg arról, hogy nem fedik át a létrehozott többi VNET IP-tartományait.
 
-1. Kattintson az **OK** gombra.
+1. Válassza az **OK** lehetőséget.
 
 1. Konfigurálja a FortiGate-NVA használni kívánt nyilvános IP-címet:
 
@@ -132,7 +132,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
 5. Válassza az **Igen** lehetőséget.
 
-6. Válassza a **Hozzáadás** lehetőséget.
+6. Válassza a **Hozzáadás** elemet.
 
 7. Nevezze el az **útvonalat** `to-forti1` vagy a nevet `to-forti2` . Ha más IP-címtartományt használ, használja az IP-címtartományt.
 
@@ -150,7 +150,7 @@ Hajtsa végre ezeket a lépéseket mindkét központi telepítéshez, a forti1-r
 
     ![A to-forti2 útvonal szerkesztése párbeszédpanel tartalmaz értékeket tartalmazó szövegmezőket. A "172.17.0.0/16" "a következő ugrás típusa" a "virtuális berendezés", a "Next hop-címe" pedig 172.16.1.4.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image12.png)
 
-10. Válassza a **Mentés** lehetőséget.
+10. Kattintson a **Mentés** gombra.
 
 Ismételje meg a lépéseket minden egyes **InsideSubnet** útvonalon.
 
@@ -194,7 +194,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy az első lépésben, a VPN-beállításban kell lennie. A következő értékek vannak kiválasztva: "hely – hely" a sablon típusa, "FortiGate" a távoli eszköz típusa, és "Ez a hely a NAT mögött" a NAT-konfigurációhoz.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image16.png)
 
-1. Válassza a **Tovább** gombot.
+1. Kattintson a **Tovább** gombra.
 
 1. Adja meg annak a helyszíni VPN-eszköznek a távoli IP-címét, amelyhez csatlakozni fog.
 
@@ -207,7 +207,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a második lépésben, a hitelesítésen és a kiválasztott értékek kiemelése megtörténik.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image17.png)
 
-1. Válassza a **Tovább** gombot.
+1. Kattintson a **Tovább** gombra.
 
 1. Válassza a **port2** lehetőséget a **helyi adapterhez**.
 
@@ -235,7 +235,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
 1. Válassza a **helyi hálózat** lehetőséget a **szerepkör** listában és a **DHCP-** ben a címzési mód beállításnál.
 
-1. Kattintson az **OK** gombra.
+1. Válassza az **OK** lehetőséget.
 
 Ismételje meg a többi NVA lépéseit.
 

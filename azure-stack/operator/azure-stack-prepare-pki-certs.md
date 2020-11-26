@@ -8,18 +8,21 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b0d750c81299b59fb8bab64c327a642f0d58503a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545023"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152862"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 
+> [!NOTE]
+> Ez a cikk csak a külső tanúsítványok előkészítésére vonatkozik, amelyek a külső infrastruktúrán és szolgáltatásokon található végpontok védelmére szolgálnak. A belső tanúsítványokat külön kezelik a [tanúsítvány-elforgatási folyamat](azure-stack-rotate-secrets.md)során.
+
 A [hitelesítésszolgáltatótól beszerzett](azure-stack-get-pki-certs.md) tanúsítványfájl-fájlokat importálni és exportálni kell a Azure stack hub tanúsítványára vonatkozó követelményeknek megfelelő tulajdonságokkal.
 
-Ebből a cikkből megtudhatja, hogyan importálhat, csomagolhat és érvényesítheti a tanúsítványokat Azure Stack hub üzembe helyezésének vagy a titkok rotációjának előkészítéséhez. 
+Ebből a cikkből megtudhatja, hogyan importálhat, csomagolhat és érvényesítheti a külső tanúsítványokat, hogy előkészítse Azure Stack hub üzembe helyezését vagy a titkok rotációját. 
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -40,24 +43,24 @@ Ezekkel a lépésekkel a Azure Stack készenléti ellenőrző PowerShell-parancs
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
-2. A tanúsítványfájl **elérési útjának** megadása. Ilyenek többek között:
+2. A tanúsítványfájl **elérési útjának** megadása. Például:
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-3. Deklarálja a **pfxPassword**. Ilyenek többek között:
+3. Deklarálja a **pfxPassword**. Például:
 
     ```powershell  
         $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
     ```
-4. Állapítsa meg azt a **ExportPath** , amelybe az eredményül kapott PFXs exportálni fogja. Ilyenek többek között:
+4. Állapítsa meg azt a **ExportPath** , amelybe az eredményül kapott PFXs exportálni fogja. Például:
 
     ```powershell  
         $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-5. Tanúsítványok konvertálása Azure Stack hub-tanúsítványokra. Ilyenek többek között:
+5. Tanúsítványok konvertálása Azure Stack hub-tanúsítványokra. Például:
 
     ```powershell  
         ConvertTo-AzsPFX -Path $Path -pfxPassword $pfxPassword -ExportPath $ExportPath
@@ -135,7 +138,7 @@ Ezekkel a lépésekkel az új Azure Stack hub PKI-tanúsítványokhoz tartozó t
 
 1. Kattintson a jobb gombbal a tanúsítványra, és válassza a **tanúsítvány telepítése** vagy a **pfx telepítése** lehetőséget attól függően, hogy a tanúsítványt hogyan szállították le a hitelesítésszolgáltatótól.
 
-1. A **tanúsítvány importálása varázslóban** válassza a **helyi gép** importálási helyként lehetőséget. Válassza a **Tovább** gombot. A következő képernyőn kattintson ismét a Tovább gombra.
+1. A **tanúsítvány importálása varázslóban** válassza a **helyi gép** importálási helyként lehetőséget. Kattintson a **Tovább** gombra. A következő képernyőn kattintson ismét a Tovább gombra.
 
     ![Helyi számítógép importálási helye a tanúsítványhoz](./media/prepare-pki-certs/1.png)
 
@@ -143,7 +146,7 @@ Ezekkel a lépésekkel az új Azure Stack hub PKI-tanúsítványokhoz tartozó t
 
    ![A tanúsítványtároló konfigurálása a tanúsítványok importálásához](./media/prepare-pki-certs/3.png)
 
-   a. Ha PFX-t importál, egy további párbeszédablak jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként.** lehetőség, amely lehetővé teszi a kulcsok későbbi biztonsági mentését vagy továbbítását. Válassza a **Tovább** gombot.
+   a. Ha PFX-t importál, egy további párbeszédablak jelenik meg. A **titkos kulcs védelme** lapon adja meg a tanúsítványfájl jelszavát, majd engedélyezze a **kulcs megjelölését exportálhatóként.** lehetőség, amely lehetővé teszi a kulcsok későbbi biztonsági mentését vagy továbbítását. Kattintson a **Tovább** gombra.
 
    ![Kulcs megjelölése exportálhatóként](./media/prepare-pki-certs/2.png)
 
@@ -168,7 +171,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 4. Tallózással keresse meg a **tanúsítványok**  >  **vállalati megbízhatósági**  >  **tanúsítványának helyét**. Győződjön meg arról, hogy a jobb oldalon megjelenik a tanúsítvány.
 
-5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek**  >  **minden feladat**  >  **Exportálás** lehetőséget. Válassza a **Tovább** gombot.
+5. A Tanúsítványkezelő konzol tálcán válassza a **műveletek**  >  **minden feladat**  >  **Exportálás** lehetőséget. Kattintson a **Tovább** gombra.
 
    > [!NOTE]
    > Attól függően, hogy hány Azure Stack hub-tanúsítvány van, előfordulhat, hogy a folyamatot többször kell végrehajtania.
@@ -180,7 +183,7 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
    - **Ha lehetséges, jelölje be a tanúsítványban szereplő összes tanúsítvány belefoglalása** jelölőnégyzetet.  
    - Válassza **az összes kibővített tulajdonság exportálása** lehetőséget.  
    - Válassza a **tanúsítvány adatvédelem engedélyezése** lehetőséget.  
-   - Válassza a **Tovább** gombot.  
+   - Kattintson a **Tovább** gombra.  
     
      ![Tanúsítvány exportálása varázsló kiválasztott beállításokkal](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
@@ -191,11 +194,11 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
     Jegyezze fel ezt a jelszót. Ezt fogja használni központi telepítési paraméterként.
 
-9. Válassza a **Tovább** gombot.
+9. Kattintson a **Tovább** gombra.
 
-10. Válassza ki az exportálandó PFX-fájl nevét és helyét. Válassza a **Tovább** gombot.
+10. Válassza ki az exportálandó PFX-fájl nevét és helyét. Kattintson a **Tovább** gombra.
 
-11. Válassza a **Befejezés** lehetőséget.
+11. Válassza a **Befejezés** gombot.
 
 ## <a name="next-steps"></a>Következő lépések
 

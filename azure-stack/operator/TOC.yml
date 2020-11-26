@@ -88,7 +88,7 @@
               href: azure-stack-validate-adfs.md
             - name: Gráf-integráció ellenőrzése
               href: azure-stack-validate-graph.md
-        - name: PKI-követelmények és-folyamatok
+        - name: Külső PKI-tanúsítványok
           items:
             - name: A nyilvánoskulcs-infrastruktúra (PKI) tanúsítványkövetelményei
               href: azure-stack-pki-certs.md
@@ -191,7 +191,7 @@
               href: azure-stack-manage-storage-shares.md
             - name: Tárolási infrastruktúra kezelése
               href: azure-stack-manage-storage-infrastructure.md
-            - name: Fizikai memória kapacitásának kezelése
+            - name: A fizikaimemória-kapacitás kezelése
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: Skálázási egység csomópontjainak hozzáadása
               href: azure-stack-add-scale-node.md

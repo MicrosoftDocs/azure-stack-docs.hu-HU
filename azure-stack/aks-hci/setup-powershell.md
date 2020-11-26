@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
 ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "92253960"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Gyors útmutató: Azure Kubernetes Service Host beállítása Azure Stack HCI-ben a PowerShell használatával

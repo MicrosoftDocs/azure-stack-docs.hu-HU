@@ -9,10 +9,10 @@ ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2020
 zone_pivot_groups: state-connected-disconnected
 ms.openlocfilehash: 78457d49b35c49cefc458070dc8c1f41391eb9eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94544486"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>App Service üzembe helyezése az Azure Stack Hubban
@@ -71,7 +71,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
         - **Egyszerű szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
-            - Adja meg az **egyszerű szolgáltatásnév azonosítóját** , a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat** lehetőséget.
+            - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat** lehetőséget.
 
     1. **Azure stack hub-előfizetések** területen válassza ki az **alapértelmezett szolgáltatói előfizetést**.  A **Azure stack Hub Azure app Service** az **alapértelmezett szolgáltatói előfizetésben** kell központilag telepíteni.
 
@@ -88,7 +88,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
      - Válassza ki a virtuális hálózatot tartalmazó **erőforráscsoportot** .
      - Válassza ki azt a **Virtual Network** nevet, amelyet központilag telepíteni szeretne.
      - Válassza ki a megfelelő **alhálózati** értékeket minden szükséges szerepkör-alhálózathoz.
-     - Válassza a **Tovább** gombot.
+     - Kattintson a **Tovább** gombra.
 
    ![Képernyőfelvétel: a virtuális hálózatot a App Service-telepítőben konfiguráló képernyő.][4]
 
@@ -109,7 +109,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
 
    d. A **Azure Resource Manager legfelső szintű tanúsítvány fájl** mezőjébe írja be (vagy tallózással keresse meg) a tanúsítványfájl helyét.
 
-   e. Válassza a **Tovább** gombot.
+   e. Kattintson a **Tovább** gombra.
 
    ![Képernyőfelvétel: a HRE/ADFS Identity alkalmazás részleteit és Azure Stack Resource Manager-tanúsítványt megjelenítő képernyő, a App Service telepítőben][6]
 
@@ -134,9 +134,9 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
     >[!NOTE]
     >Éles környezetekben az [Azure stack Hub Azure app Service kiszolgálói szerepköreinek kapacitásának megtervezése](azure-stack-app-service-capacity-planning.md)című témakör útmutatását követve.
 
-    | Szerepkör | Minimális példányszám | Minimális SKU | Jegyzetek |
+    | Szerepkör | Minimális példányszám | Minimális SKU | Megjegyzések |
     | --- | --- | --- | --- |
-    | Tartományvezérlő | 2 | Standard_A4_v2-(4 mag, 8192 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
+    | Vezérlő | 2 | Standard_A4_v2-(4 mag, 8192 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
     | Kezelés | 1 | Standard_D3_v2-(4 mag, 14336 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
     | Publisher | 1 | Standard_A2_v2 – (2 mag, 4096 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
     | Előtér | 1 | Standard_A4_v2-(4 mag, 8192 MB) | Átirányítja a kérelmeket App Service alkalmazásokba. |
@@ -147,7 +147,7 @@ App Service erőforrás-szolgáltató üzembe helyezéséhez kövesse az alábbi
     > [!NOTE]
     > **A Windows Server 2016 Core nem támogatott platform-rendszerkép a Azure App Service Azure Stack hub-ban való használatához.  Éles környezetben ne használjon próbaverziókat.**
 
-13. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a app Service felhő számítási erőforrás-szolgáltatójában elérhető rendszerképekből. Válassza a **Tovább** gombot.
+13. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a app Service felhő számítási erőforrás-szolgáltatójában elérhető rendszerképekből. Kattintson a **Tovább** gombra.
 
 14. A következő App Service telepítő lapon kövesse az alábbi lépéseket:
 
@@ -218,7 +218,7 @@ A teszt webalkalmazás létrehozásához kövesse az alábbi lépéseket:
 
 1. Az Azure stack hub felhasználói portálon válassza az **+ erőforrás létrehozása**  >  **web és mobil**  >  **webalkalmazás** lehetőséget.
 
-2. A **Web App (webalkalmazás** ) területen adjon meg egy nevet a **webalkalmazásban**.
+2. A **Web App (webalkalmazás**) területen adjon meg egy nevet a **webalkalmazásban**.
 
 3. Az **erőforráscsoport** területen válassza az **új** lehetőséget. Adja meg az **erőforráscsoport** nevét.
 
@@ -301,7 +301,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
             - Active Directory összevonási szolgáltatások (AD FS) (AD FS) használata esetén adja meg a rendszergazdai fiókját. Például: cloudadmin@azurestack.local. Adja meg a jelszót, majd válassza a **kapcsolat** lehetőséget.
         - **Egyszerű szolgáltatásnév**
             - A **használt szolgáltatásnév** **tulajdonosi** jogosultságokkal kell rendelkeznie az **alapértelmezett szolgáltatói előfizetéshez** .
-            - Adja meg az **egyszerű szolgáltatásnév azonosítóját** , a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat** lehetőséget.
+            - Adja meg az **egyszerű szolgáltatásnév azonosítóját**, a **tanúsítványfájl** és a **jelszót** , majd válassza a **kapcsolat** lehetőséget.
 
     1. **Azure stack hub-előfizetések** területen válassza ki az **alapértelmezett szolgáltatói előfizetést**.  A **Azure stack Hub Azure app Service** az **alapértelmezett szolgáltatói előfizetésben** kell központilag telepíteni.
 
@@ -313,7 +313,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
        1. Válassza ki a virtuális hálózatot tartalmazó **erőforráscsoport** -beállítást.
        2. Válassza ki azt a **Virtual Network** nevet, amelyet központilag telepíteni szeretne.
        3. Válassza ki a megfelelő **alhálózati** értékeket minden szükséges szerepkör-alhálózathoz.
-       4. Válassza a **Tovább** gombot.
+       4. Kattintson a **Tovább** gombra.
 
       ![Virtuális hálózat és alhálózat adatai Azure App Service telepítőben][4]
 
@@ -329,7 +329,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
     1. Az **Identity Application tanúsítványfájl** mezőben adja meg a tanúsítványfájl helyét (vagy tallózással keresse meg a fájlt).
     1. Adja meg a tanúsítvány jelszavát a **személyazonossági alkalmazás tanúsítványának jelszava** mezőben. Ez a jelszó azt jelzi, hogy mikor használta a parancsfájlt a tanúsítványok létrehozásához.
     1. A **Azure Resource Manager legfelső szintű tanúsítvány fájl** mezőjébe írja be (vagy tallózással keresse meg) a tanúsítványfájl helyét.
-    1. Válassza a **Tovább** gombot.
+    1. Kattintson a **Tovább** gombra.
 
     ![Adja meg az alkalmazás AZONOSÍTÓját és a tanúsítvány adatait Azure App Service telepítőben][6]
 
@@ -372,9 +372,9 @@ A Azure App Service offline környezetben történő telepítéséhez először 
      >
 
     
-    | Szerepkör | Minimális példányszám | Minimális SKU | Jegyzetek |
+    | Szerepkör | Minimális példányszám | Minimális SKU | Megjegyzések |
     | --- | --- | --- | --- |
-    | Tartományvezérlő | 2 | Standard_A4_v2-(4 mag, 8192 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
+    | Vezérlő | 2 | Standard_A4_v2-(4 mag, 8192 MB) | Felügyeli és karbantartja a App Service felhő állapotát. |
     | Kezelés | 1 | Standard_D3_v2-(4 mag, 14336 MB) | A App Service Azure Resource Manager és az API-végpontokat, a portál-bővítményeket (rendszergazda, bérlő, functions portál) és az adatszolgáltatást kezeli. A feladatátvétel támogatásához növelje az ajánlott példányokat 2-ra. |
     | Publisher | 1 | Standard_A2_v2 – (2 mag, 4096 MB) | Tartalmat tesz közzé FTP-n keresztül és webes telepítéssel. |
     | Előtér | 1 | Standard_A4_v2-(4 mag, 8192 MB) | Átirányítja a kérelmeket App Service alkalmazásokba. |
@@ -382,7 +382,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 
     ![Szerepkörök szintjeinek és SKU-beállításainak megadása Azure App Service telepítőben][9]
 
-1. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a Azure app Service felhő számítási erőforrás-szolgáltatóján elérhető rendszerképekből. Válassza a **Tovább** gombot.
+1. A **platform kiválasztása rendszerkép** mezőben válassza ki a Windows Server 2016 virtuális gép (VM) lemezképét a Azure app Service felhő számítási erőforrás-szolgáltatóján elérhető rendszerképekből. Kattintson a **Tovább** gombra.
 
     > [!NOTE]
     > A Windows Server 2016 Core *nem* támogatott platform-rendszerkép a Azure app Service Azure stack hub-ban való használatához.  Éles környezetben ne használjon próbaverziókat. A Azure App Service on Azure Stack hub megköveteli, hogy a Microsoft .NET 3.5.1 SP1 legyen aktiválva az üzembe helyezéshez használt rendszerképben. Piactér – a Windows Server 2016-lemezképek nem rendelkeznek ezzel a szolgáltatással. Ezért egy Windows Server 2016 rendszerképet kell létrehoznia és használnia ezzel a szolgáltatással előre engedélyezve.
@@ -397,7 +397,7 @@ A Azure App Service offline környezetben történő telepítéséhez először 
 1. A következő oldalon:
      1. Adja meg a feldolgozói szerepkör virtuális gép rendszergazdai felhasználónevét és jelszavát.
      2. Adja meg a többi szerepkört a virtuális gép rendszergazdájának felhasználónevét és jelszavát.
-     3. Válassza a **Tovább** gombot.
+     3. Kattintson a **Tovább** gombra.
 
     ![Adja meg a szerepkörök virtuálisgép-rendszergazdáit Azure App Service telepítőben][10]
 
