@@ -126,8 +126,10 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózatkezelés
+    - name: Hálózat
       items:
+        - name: Fizikai hálózati követelmények
+          href: concepts/physical-network-requirements.md
         - name: Gazdagép hálózatkezelésének megtervezése
           href: concepts/plan-host-networking.md
         - name: Szoftveralapú hálózatkezelés (SDN)
@@ -200,7 +202,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Források
+- name: További források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
