@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/17/2020
+ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064769"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354173"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 
@@ -66,7 +66,7 @@ OK, kezdjük:
 
 1. Ha végzett, kattintson a **Létrehozás** gombra. Ekkor megjelenik a fürt létrehozása varázsló, az alábbi ábrán látható módon.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Fürt létrehozása varázsló – első lépések" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>1. lépés: első lépések
 
@@ -90,8 +90,8 @@ A varázsló 1. lépése végigvezeti az összes előfeltétel teljesítésének
     - RSAT-AD-PowerShell modul
     - Storage-replika (csak a kifeszített fürtök esetében van telepítve)
 
-1. Ha szükséges, **telepítse a frissítéseket** , majd kattintson a **frissítések telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
-1. Ha szükség van a **megoldás frissítéseire** , kattintson a **bővítmény telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
+1. Ha szükséges, **telepítse a frissítéseket**, majd kattintson a **frissítések telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
+1. Ha szükség van a **megoldás frissítéseire**, kattintson a **bővítmény telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
 1. Ha szükséges, kattintson a **kiszolgálók újraindítása** elemre. Ellenőrizze, hogy minden kiszolgáló sikeresen elindult-e.
 
 ## <a name="step-2-networking"></a>2. lépés: hálózatkezelés
@@ -108,9 +108,9 @@ A varázsló 2. lépése végigvezeti a virtuális kapcsolók és a fürt egyéb
 
     A felügyeleti adapterek két konfigurációs lehetőséggel rendelkeznek:
 
-    - **Egy fizikai hálózati adapter felügyelethez** . Ehhez a beállításhoz a DHCP vagy a statikus IP-cím hozzárendelés is támogatott.
+    - **Egy fizikai hálózati adapter felügyelethez**. Ehhez a beállításhoz a DHCP vagy a statikus IP-cím hozzárendelés is támogatott.
 
-    - **Két fizikai hálózati adapter a felügyelethez** . Az összevont adapterek összevonásakor a rendszer csak a statikus IP-címek hozzárendelését támogatja. Ha a kiválasztott adapterek DHCP-címzést használnak (akár egyet, akár mindkettőt), a rendszer a DHCP IP-címet statikus IP-címekre konvertálja a virtuális kapcsoló létrehozása előtt.
+    - **Két fizikai hálózati adapter a felügyelethez**. Az összevont adapterek összevonásakor a rendszer csak a statikus IP-címek hozzárendelését támogatja. Ha a kiválasztott adapterek DHCP-címzést használnak (akár egyet, akár mindkettőt), a rendszer a DHCP IP-címet statikus IP-címekre konvertálja a virtuális kapcsoló létrehozása előtt.
 
     Az összevont adapterek használatával egyetlen kapcsolatban áll több kapcsolóval, de csak egyetlen IP-címet használ. A terheléselosztás elérhetővé válik, és a hibatűrés azonnali, a DNS-rekordok frissítésére való várakozás helyett.
 
@@ -189,30 +189,36 @@ Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben 
 
 ## <a name="step-5-sdn-optional"></a>5. lépés: SDN (nem kötelező)
 
-Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer és a RAS-átjárót.
+Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer (SLB) és a RAS-átjárót igény szerint.
+
+> [!NOTE]
+> A varázsló nem támogatja a SLB és a RAS-átjáró konfigurálását még ma. Ezeket az összetevőket az SDN Express-parancsfájlok használatával konfigurálhatja. Ennek módjáról a [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts) -tárházban talál további információt.
 
 > [!NOTE]
 > Az SDN nem támogatott vagy nem érhető el a kifeszített fürtökhöz.
 
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – SDN hálózati vezérlő" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Válassza a **Tovább: Sdn** lehetőséget.
-1. A **gazdagép** területen adja meg a hálózati vezérlő nevét.
+1. A **gazdagép** területen adja meg a hálózati vezérlő nevét. Ez a felügyeleti ügyfelek (például a Windows felügyeleti központ) által használt DNS-név a hálózati vezérlővel való kommunikációhoz.
 1. A Azure Stack HCI VHD-fájl elérési útjának megadása. Gyorsabb keresés a **tallózással** .
-1. A hálózati vezérlő számára dedikált virtuális gépek számának megadása. A magas rendelkezésre állás érdekében három – öt virtuális gép ajánlott.
-1. A **hálózat** alatt adja meg a VLAN-azonosítót.
+1. A hálózati vezérlő számára dedikált virtuális gépek számának megadása. A magas rendelkezésre állás érdekében legalább három virtuális gép használata javasolt.
+1. A **hálózat** alatt adja meg a felügyeleti hálózat VLAN-azonosítóját. A hálózati vezérlőnek csatlakoznia kell ugyanahhoz a felügyeleti hálózathoz, mint a gazdagépek közötti kommunikációhoz és konfiguráláshoz.
 1. A **VM-hálózat címzése** beállításnál válassza a **DHCP** vagy a **statikus** lehetőséget.
-1. Ha a **DHCP** lehetőséget választotta, adja meg a hálózati vezérlő virtuális gépek nevét és IP-címét.
+1. Ha a **DHCP** lehetőséget választotta, adja meg a hálózati vezérlő virtuális gépek nevét.
 1. Ha a **statikus** lehetőséget választotta, tegye a következőket:
+    1. IP-cím meghatározása
     1. Alhálózati előtagot kell megadni.
     1. Határozza meg az alapértelmezett átjárót.
     1. Egy vagy több DNS-kiszolgálót kell megadnia. További DNS-kiszolgálók hozzáadásához kattintson a **Hozzáadás** gombra.
 1. A **hitelesítő adatok** területen adja meg a hálózati vezérlő virtuális gépek fürt tartományhoz való csatlakoztatásához használt felhasználónevet és jelszót.
 1. Adja meg a virtuális gépek helyi rendszergazdai jelszavát.
 1. A **speciális** alatt adja meg a virtuális gépek elérési útját.
-1. Adja meg az értékeket a **Mac-címkészlet kezdő** és a **Mac-címkészlet végéhez** .
+1. Adja meg az értékeket a **Mac-címkészlet kezdő** és a **Mac-címkészlet végéhez**.
 1. Amikor végzett, kattintson a **Tovább** gombra.
 1. Várjon, amíg a varázsló befejezi a feladatot. Maradjon ezen a lapon, amíg az összes végrehajtási feladat be nem fejeződik. Ezután kattintson a **Befejezés** gombra.
+
+1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a DNS-kiszolgálón a hálózati vezérlő fürtjének dinamikus DNS-frissítéseit. Ennek módjáról további információt a [dinamikus DNS-regisztráció konfigurálása hálózati vezérlőhöz](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)című témakörben talál.
 
 Ha a hálózati vezérlő üzembe helyezése sikertelen, a következő próbálkozás előtt tegye a következőket:
 
@@ -240,7 +246,7 @@ OK, most a következő műveleteket kell végrehajtania:
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

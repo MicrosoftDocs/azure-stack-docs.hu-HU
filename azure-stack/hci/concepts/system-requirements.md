@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065977"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354156"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI rendszerkövetelményei
 
@@ -76,7 +76,7 @@ A Közvetlen tárolóhelyek további hálózati forgalmat is figyelembe kell ven
 
 A többhelyes fürtök esetében a helyek között további tárolási replika forgalom is áramlik. A Storage Bus Layer (SBL) és a Fürt megosztott kötete (CSV) forgalom nem megy át a helyek között, csak az egyes helyeken belüli kiszolgálói csomópontok között.
 
-A gazdagép hálózatkezelésének tervezési szempontjait és követelményeit lásd: [gazdagép hálózatkezelésének Megtervezése Azure stack HCI](plan-host-networking.md)számára.
+A gazdagép hálózatkezelési szempontjait és követelményeit lásd: a [gazdagép hálózati követelményei](host-network-requirements.md).
 
 ## <a name="software-defined-networking-sdn-requirements"></a>A szoftver által meghatározott hálózatkezelési (SDN) követelmények
 
@@ -157,7 +157,7 @@ Azure Stack a következő specifikációkat meghaladó HCI-telepítések nem tá
 | Virtuális processzorok egy gazdagépen  | 2048   |
 | Virtuális processzorok száma virtuális GÉPENként    | 240 (2. generációs VM) vagy 64 (1. generáció)|
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
