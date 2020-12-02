@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a8eea75c58f597a1026b5075537d415c0694dc3c
-ms.sourcegitcommit: 422c3f19d817037fa6ce73cca253742bbdec147e
+ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
+ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96321999"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96443294"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>A Azure Stack HCI fizikai hálózati követelményei
 
@@ -48,7 +48,7 @@ Ha a kapcsolót nem tartalmazza, lépjen kapcsolatba a kapcsoló gyártójával,
 Ez a szakasz azokat az iparági szabványokat sorolja fel, amelyek az összes Azure Stack HCI-környezetben használt hálózati kapcsolók esetében kötelezőek. Ezek a szabványok biztosítják a Azure Stack HCI-fürtök csomópontjai közötti megbízható kommunikációt.
 
 > [!NOTE]
-> A számítási, tárolási és felügyeleti forgalomhoz használt hálózati adapterekhez Ethernet szükséges.
+> A számítási, tárolási és felügyeleti forgalomhoz használt hálózati adapterekhez Ethernet szükséges. További információ: [Host Network követelmények](host-network-requirements.md).
 
 Itt láthatók a kötelező IEEE-szabványok és-specifikációk:
 
@@ -118,7 +118,7 @@ North-South forgalomhoz kapcsolók használata szükséges. A Azure Stack HCI sz
 
 Fontos megérteni az Ethernet-kapcsolók által támogatott "nem blokkoló" háló sávszélességet, valamint azt, hogy a hálózat előfizetését a lehető legkisebbre (vagy annak kiiktatására) csökkentse.
 
-Az alhálózatok és a VLAN-ok megfelelő használatával elkerülhetők a gyakori torlódási pontok és a túlfizetések, például az elérési út redundancia érdekében használt [többplatformos hivatkozás-összesítési csoport](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) .
+Az alhálózatok és a VLAN-ok megfelelő használatával elkerülhetők a gyakori torlódási pontok és a túlfizetések, például az elérési út redundancia érdekében használt [többplatformos hivatkozás-összesítési csoport](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) . Lásd még: [gazdagép hálózati követelményei](host-network-requirements.md).
 
 A hálózati szolgáltatóval vagy a hálózati támogatási csapattal együttműködve gondoskodhat arról, hogy a hálózati kapcsolók megfelelően legyenek méretezve a futtatni kívánt számítási feladatok esetében.
 
@@ -143,7 +143,7 @@ A Azure Stack HCI minden fürt mérete esetében támogatja a nem megfelelő (k�
 
 ## <a name="next-steps"></a>További lépések
 
-- A hálózati adapter és a gazdagép követelményeinek megismerése. Lásd a [gazdagép hálózati követelményeit](physical-network-requirements.md).
+- A hálózati adapter és a gazdagép követelményeinek megismerése. Lásd a [gazdagép hálózati követelményeit](host-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
 - Ecset a SET használatával. Tekintse [meg a távoli közvetlen memória-hozzáférés (RDMA) című témakört, és kapcsolja be a beágyazott összevonást (set)](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 - A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központból](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
