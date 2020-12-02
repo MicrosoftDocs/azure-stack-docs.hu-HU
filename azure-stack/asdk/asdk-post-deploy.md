@@ -3,16 +3,16 @@ title: A ASDK üzembe helyezés utáni konfigurációi
 description: A Azure Stack Development Kit (ASDK) telepítése utáni ajánlott konfigurációs módosítások ismertetése.
 author: justinha
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 12/01/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: efb7d803d8f0c29269bae3e147fc48eec3e29eb3
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 9cef49ee81662e7a68396067ee94430c17e20b32
+ms.sourcegitcommit: 1effe07b52b4adc1a5b27dc705b4dde676f10006
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517310"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519280"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -40,6 +40,9 @@ A legújabb Azure Stack PowerShell-modult internetkapcsolattal rendelkező vagy 
 ### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
   ```powershell  
+  # Update the current PowerShellGet module to latest version, required to support PreRelease modules
+  Install-Module -Name PowerShellGet -Force
+
   Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
   Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
 
@@ -201,6 +204,6 @@ Az Azure AD-t használó központi telepítések esetén [engedélyeznie kell a 
 > [!NOTE]
 > Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure Stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be van jelentkezve admin@contoso.com , a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https \: //Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A ASDK regisztrálása az Azure-ban](asdk-register.md)

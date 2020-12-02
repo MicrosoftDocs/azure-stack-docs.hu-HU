@@ -126,7 +126,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
@@ -170,6 +170,8 @@
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Azure Stack HCI JavaScript-csomag
       href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
+    - name: .NET-névterek Azure Stack HCI-hez
+      href: /dotnet/api/overview/azure/stackhci/management
     - name: Hyper-V PowerShell-parancsok
       href: /powershell/module/hyper-v
     - name: Storage PowerShell-parancsok
@@ -202,7 +204,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
