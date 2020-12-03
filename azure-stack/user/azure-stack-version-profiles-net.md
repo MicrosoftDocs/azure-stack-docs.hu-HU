@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 description: Ismerje meg, hogyan használható az API-verziók profiljai a .NET SDK-val Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: cd3251e560cc7caa158cc3ea6f3bbd33b662bc3e
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 629c50225bc7544512b0ccb1333e56ef1e7cf07a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089626"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525812"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a .NET-ben Azure Stack hub-ban
 
@@ -188,7 +188,7 @@ A következő mintákat használhatja a .NET-tel és az Azure Stack hub API-prof
 - [Storage-fiókok kezelése](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [Virtuális gép kezelése](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm): Ez a példa a Azure stack hub által támogatott **2019-03-01-hibrid** profilt használja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az API-profilokról:
 

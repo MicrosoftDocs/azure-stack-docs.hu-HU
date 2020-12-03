@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatá
 description: Fejlesztőként kapcsolódjon Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3a9603dd4521e63d00d281f8fcd1b8f1912d5836
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546701"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525999"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Kapcsolódás Azure Stack hubhoz az Azure-fiók bővítmény használatával a Visual Studio Code-ban
 
@@ -97,7 +97,7 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
       "azure.cloud": "AzurePPE"
       ```
 
-10. Mentse a felhasználói beállításokat, és használja a **CTRL + SHIFT + P billentyűkombinációt** . Válassza ki az **Azure-t: Jelentkezzen be az Azure-felhőbe**. Az új lehetőség, a **AzurePPE** , megjelenik a célok listájában.
+10. Mentse a felhasználói beállításokat, és használja a **CTRL + SHIFT + P billentyűkombinációt** . Válassza ki az **Azure-t: Jelentkezzen be az Azure-felhőbe**. Az új lehetőség, a **AzurePPE**, megjelenik a célok listájában.
 
 11. Válassza a **AzurePPE** lehetőséget. A hitelesítés lap betöltődik a böngészőben. Jelentkezzen be a végpontba.
 
@@ -116,6 +116,6 @@ A VS Code egy könnyű szerkesztő a webes és felhőalapú alkalmazások létre
 | Azure: a PowerShell megnyitása Cloud Shell | Nyisson meg egy új, a PowerShellt futtató terminált Cloud Shellban. |
 | Azure: feltöltés a Cloud Shellba | Töltsön fel egy fájlt a Cloud Shell Storage-fiókjába. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Fejlesztési környezet beállítása Azure Stack központban ](azure-stack-dev-start.md)

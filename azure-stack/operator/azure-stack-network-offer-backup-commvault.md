@@ -3,16 +3,16 @@ title: CommVault hozzáadása Azure Stack hub Marketplace-hez
 description: Ismerje meg, hogyan adhat hozzá CommVault a Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 6f61e1d34cd8c8fcd22d4ebb87ece01376dbb5dd
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: f035ce5d08e88a6fa5844e405a4fa5a335fa3e5c
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375133"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525489"
 ---
 # <a name="add-commvault-to-azure-stack-hub-marketplace"></a>CommVault hozzáadása Azure Stack hub Marketplace-hez
 
@@ -31,14 +31,14 @@ Ez a cikk bemutatja, hogyan CommVault élő szinkronizálást egy különálló 
 ## <a name="get-commvault-for-your-marketplace"></a>CommVault beszerzése a piactéren
 
 1. Nyissa meg az Azure Stack hub felügyeleti portált.
-2. Válassza **Marketplace management**  >  **a piactér-kezelés Hozzáadás az Azure-ból**lehetőséget.
+2. Válassza **Marketplace management**  >  **a piactér-kezelés Hozzáadás az Azure-ból** lehetőséget.
 
     ![Azure Stack hub CommVault](./media/azure-stack-network-offer-backup-commvault/get-commvault-for-marketplace.png)
 
-3. Írja be a `commvault` (igen) kifejezést.
-4. Válassza ki a **CommVault próbaverzióját**. Majd válassza a **Letöltés**lehetőséget.
+3. Írja be a következő szöveget: `commvault`.
+4. Válassza ki a **CommVault próbaverzióját**. Majd válassza a **Letöltés** lehetőséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault](../user/azure-stack-network-howto-backup-commvault.md)
 - [Az Azure Stack hub szolgáltatásainak áttekintése](service-plan-offer-subscription-overview.md)

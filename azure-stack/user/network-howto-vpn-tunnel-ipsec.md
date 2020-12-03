@@ -3,16 +3,16 @@ title: VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 description: Megtudhatja, hogyan hozhat létre VPN-alagutat az Azure Stack hub IPSEC szolgáltatásával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: 3ceab07ebb6743e0ece9e6cb3d33ee08588d8992
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 0e49ccaa66d10fbb20a285574980276ca07b20ca
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674609"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525829"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>VPN-alagút létrehozása az IPSEC használatával Azure Stack hub-ban
 
@@ -52,7 +52,7 @@ Ez a sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit tart
 
 ![A S2SVPNTunnel című diagram két, helyek közötti VPN-alagúthoz csatlakoztatott virtuális hálózatok mutat be.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.svg)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Több helyek közötti VPN-alagút beállítása](network-howto-vpn-tunnel.md)  

@@ -3,16 +3,16 @@ title: API-verziók profiljainak kezelése Azure Stack hub-ban
 description: Az API-verziók profiljainak megismerése Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c4596ac24aa8b1ed4e0e0618263fc1f947fdf671
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 2f84233e47a5d86b9a22b76cb0d5a6dd993f4464
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547024"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96526016"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>API-verziók profiljainak kezelése Azure Stack hub-ban
 
@@ -50,7 +50,7 @@ Ez a profil a globális Azure-ban található legnaprakészebb API-verziókkal r
 Ez a profil évente, márciusban és szeptemberben jelent meg. Az optimális stabilitást és a különböző Felhőkkel való kompatibilitást is lehetővé teszi, és célja a globális Azure és Azure Stack hub megcélzása. Az ebben a profilban felsorolt Azure API-verziók ugyanazok lesznek, mint az Azure Stack hub-ban felsoroltak. Használja ezt a profilt a hibrid felhőalapú megoldások kódjának fejlesztéséhez.
 
 **éééé-hh-nn-profil**  
-Ezt a profilt júniusban és decemberben adták ki a globális Azure-hoz. Nem működik Azure Stack hub-vel, és általában sok törési változás történik. Annak ellenére, hogy az optimális stabilitást és a legújabb funkciókat is kiegyensúlyozza, a **legújabb** és a profil közötti különbség az, hogy a **legújabb** , az API kiadásának helyétől függetlenül mindig a legújabb API-verziókból áll. Ha például egy új API-verzió jön létre a számítási API-hoz holnap, az API-verzió a **legújabb** , de nem az **éééé-hh-nn-profil** profilban szerepel, mert ez a profil már létezik. az **éééé-hh-nn-profil** a június vagy december előtt kiadott legnaprakészebb verziókra terjed ki.
+Ezt a profilt júniusban és decemberben adták ki a globális Azure-hoz. Nem működik Azure Stack hub-vel, és általában sok törési változás történik. Annak ellenére, hogy az optimális stabilitást és a legújabb funkciókat is kiegyensúlyozza, a **legújabb** és a profil közötti különbség az, hogy a **legújabb** , az API kiadásának helyétől függetlenül mindig a legújabb API-verziókból áll. Ha például egy új API-verzió jön létre a számítási API-hoz holnap, az API-verzió a **legújabb**, de nem az **éééé-hh-nn-profil** profilban szerepel, mert ez a profil már létezik. az **éééé-hh-nn-profil** a június vagy december előtt kiadott legnaprakészebb verziókra terjed ki.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager API-profilok
 
@@ -86,7 +86,7 @@ A Python SDK támogatja az API-verziók profiljait különböző felhőalapú pl
 - **Node.js**  
 Az Azure Stack hub Resource Managerhez készült Node.js SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. További információ: az [API-verziók profiljainak használata a Node.jshasználatával ](azure-stack-version-profile-nodejs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

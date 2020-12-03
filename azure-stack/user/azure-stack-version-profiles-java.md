@@ -3,22 +3,22 @@ title: Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Javával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 2e37d8f977a89e9a0207ef094273e9838a54d23a
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5e4ce9b035a21d64d741c017ba54477ea7ceb899
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448656"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525846"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Javával Azure Stack hub-ban
 
 A Azure Stack hub Resource Managerhez készült Java SDK eszközöket biztosít az infrastruktúra kiépítéséhez és kezeléséhez. Az SDK erőforrás-szolgáltatói közé tartozik a számítás, a hálózatkezelés, a tárolás, a App Services és a [Key Vault](/azure/key-vault/key-vault-whatis).
 
-A Java SDK az API-profilokat tartalmazza, a **Pom.xml** fájlban lévő függőségekkel együtt, amelyek betöltik a megfelelő modulokat a **. Java** -fájlban. Ugyanakkor több profilt is hozzáadhat függőségként, például az **2019-03-01-Hybrid**vagy a **Latest**Azure-profilként. Ezeknek a függőségeknek a használatával a megfelelő modult tölti be, így az erőforrástípus létrehozásakor kiválaszthatja, hogy melyik API-verziót szeretné használni. Ez lehetővé teszi, hogy a legújabb verziókat használja az Azure-ban, miközben az Azure Stack hub legújabb API-verzióit fejleszti.
+A Java SDK az API-profilokat tartalmazza, a **Pom.xml** fájlban lévő függőségekkel együtt, amelyek betöltik a megfelelő modulokat a **. Java** -fájlban. Ugyanakkor több profilt is hozzáadhat függőségként, például az **2019-03-01-Hybrid** vagy a **Latest** Azure-profilként. Ezeknek a függőségeknek a használatával a megfelelő modult tölti be, így az erőforrástípus létrehozásakor kiválaszthatja, hogy melyik API-verziót szeretné használni. Ez lehetővé teszi, hogy a legújabb verziókat használja az Azure-ban, miközben az Azure Stack hub legújabb API-verzióit fejleszti.
 
 A Java SDK használata lehetővé teszi a hibrid felhőalapú fejlesztői élményt. A Java SDK-ban található API-profilok lehetővé teszik a hibrid felhőalapú fejlesztést azáltal, hogy a Azure Stack hub globális Azure-erőforrásai és-erőforrásai közötti váltást segítik.
 
@@ -284,7 +284,7 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
    - `export RESOURCE_LOCATION={location of Azure Stack Hub}`
 
-   A Windows rendszerben az **Exportálás**helyett a **készletet** használja.
+   A Windows rendszerben az **Exportálás** helyett a **készletet** használja.
 
 5. Az `getActiveDirectorySettings` Azure Resource Manager metaadat-végpontok beolvasásához használja a függvényt.
 
@@ -309,7 +309,7 @@ Használja a következő GitHub-mintákat referenciáként a .NET-és Azure Stac
    mvn clean compile exec:java
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az API-profilokról további információt a következő témakörben talál:
 

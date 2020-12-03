@@ -3,16 +3,16 @@ title: Két Azure Stack hub-virtuális hálózatok összekötése
 description: Ismerkedjen meg a két Azure Stack hubok összekapcsolásával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3920e0606bc4e101286f22796d7269b0774701d4
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543391"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525659"
 ---
 # <a name="vnet-to-vnet-connectivity-with-rras"></a>VNet-VNet kapcsolat létesítése az RRAS használatával
 
@@ -53,6 +53,6 @@ A sablon a VNet elnevezési és IP-címzési alapértelmezett értékeit biztos�
 
 ![A S2SVPNTunnel című diagram két, helyek közötti VPN-alagúthoz csatlakoztatott virtuális hálózatok mutat be.](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

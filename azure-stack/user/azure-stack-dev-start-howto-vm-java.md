@@ -3,17 +3,17 @@ title: Java WAR üzembe helyezése virtuális gépen Azure Stack hub-ban
 description: Java-háború üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/05/2020
+ms.lastreviewed: 12/2/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 12aa4c0e666085b7692a55ff795c07d9b05aa96c
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107208"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525411"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Java-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -61,7 +61,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
         sudo groupadd tomcat
     ```
      
-    b. Hozzon létre egy új tomcat-felhasználót. Adja hozzá ezt a felhasználót a Tomcat-csoporthoz a */opt/tomcat*otthoni könyvtára alapján. A Tomcat üzembe helyezése erre a könyvtárba:
+    b. Hozzon létre egy új tomcat-felhasználót. Adja hozzá ezt a felhasználót a Tomcat-csoporthoz a */opt/tomcat* otthoni könyvtára alapján. A Tomcat üzembe helyezése erre a könyvtárba:
 
     ```bash  
         sudo useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
@@ -96,7 +96,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 1. Hozzon létre egy rendszerszolgáltatási fájlt, *hogy a Tomcat* szolgáltatásként is futtatható legyen.
 
-   a. A Tomcat-nek tudnia kell, hogy hol telepítette a javát. Ezt az elérési utat általában *JAVA_HOMEnek*nevezzük. Keresse meg a helyet a futtatásával:
+   a. A Tomcat-nek tudnia kell, hogy hol telepítette a javát. Ezt az elérési utat általában *JAVA_HOMEnek* nevezzük. Keresse meg a helyet a futtatásával:
 
     ```bash  
         sudo update-java-alternatives -l
@@ -109,7 +109,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
         java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
     ```
 
-    A *JAVA_HOME* változó értékét a kimenetből származó elérési út és a */JRE*hozzáadásával hozhatja létre. Például használja az előző példát, a */usr/lib/JVM/Java-1.8.0-OpenJDK-amd64/JRE*.
+    A *JAVA_HOME* változó értékét a kimenetből származó elérési út és a */JRE* hozzáadásával hozhatja létre. Például használja az előző példát, a */usr/lib/JVM/Java-1.8.0-OpenJDK-amd64/JRE*.
 
     b. Használja a kiszolgáló értékét a rendszerfájl létrehozásához:
 
@@ -117,7 +117,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
         sudo nano /etc/systemd/system/tomcat.service
     ```
 
-    c. Illessze be a következő tartalmakat a szolgáltatás fájljába. Szükség esetén módosítsa *JAVA_HOME*értékét, hogy az megfeleljen a rendszeren talált értéknek. Előfordulhat, hogy módosítani szeretné a CATALINA_OPTSban megadott memória-elosztási beállításokat is:
+    c. Illessze be a következő tartalmakat a szolgáltatás fájljába. Szükség esetén módosítsa *JAVA_HOME* értékét, hogy az megfeleljen a rendszeren talált értéknek. Előfordulhat, hogy módosítani szeretné a CATALINA_OPTSban megadott memória-elosztási beállításokat is:
 
     ```Text  
         [Unit]
@@ -251,7 +251,7 @@ Létrehozhat egy virtuális gépet (VM) a Java-webalkalmazás üzemeltetéséhez
 
 1. Nyisson meg egy böngészőt ugyanabban a hálózatban, mint az Azure Stack hub, majd nyissa meg a kiszolgálót: *yourmachine. local. cloudapp. azurestack. external: 8080*.
 
-    a. A Tomcat-kiszolgáló állapotának áttekintéséhez és annak ellenőrzéséhez, hogy van-e hozzáférése, válassza a **kiszolgáló állapota**lehetőséget.
+    a. A Tomcat-kiszolgáló állapotának áttekintéséhez és annak ellenőrzéséhez, hogy van-e hozzáférése, válassza a **kiszolgáló állapota** lehetőséget.
 
     b. Jelentkezzen be a Tomcat hitelesítő adataival.
 
@@ -281,7 +281,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
 
 1. A webapps mappa törléséhez és az új vagy frissített háború betöltéséhez kapcsolódjon a virtuális géphez a FileZilla használatával. Útmutatásért lásd: [az SFTP és a FileZilla közötti kapcsolat](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-sftp-with-filezilla).
 
-    a. *TOMCAT_HOME/webapps*törlése.
+    a. *TOMCAT_HOME/webapps* törlése.
 
     b. Vegye fel a HÁBORÚt *TOMCAT_HOME/webapps* (például */opt/tomcat/webapps/*).
 
@@ -291,7 +291,7 @@ A Java-alkalmazások Azure-ban való fejlesztésével kapcsolatos útmutatásér
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

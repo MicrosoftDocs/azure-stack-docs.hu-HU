@@ -3,16 +3,16 @@ title: VPN-átjáró beállítása Azure Stack hubhoz
 description: Megtudhatja, hogyan állíthatja be a VPN-átjárót Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3363870fe1a2a487883a3fdc59fb90f017237b56
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: bcc1b59795c0b2436f8b9556b35bb6f95dc7cf0e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92355188"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525727"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>VPN Gateway beállítása Azure Stack hubhoz a FortiGate NVA használatával
 
@@ -69,28 +69,28 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
     ![A keresési eredmények listája a FortiGate NGFW – egyetlen virtuálisgép-telepítést jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
-1. Válassza ki a **FORTIGATE NGFW** , és válassza a **Létrehozás**lehetőséget.
+1. Válassza ki a **FORTIGATE NGFW** , és válassza a **Létrehozás** lehetőséget.
 
 1. A [központi telepítési paraméterek](#deployment-parameters) táblázat paramétereinek használatával végezheti el az **alapvető tudnivalókat** .
 
     ![Az alapvető beállítások képernyő a listában és a szövegmezőben megadott telepítési paraméterek táblából származó értékeket tartalmaz.](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
-1. Válassza az **OK** lehetőséget.
+1. Kattintson az **OK** gombra.
 
 1. Adja meg a virtuális hálózatot, az alhálózatokat és a virtuális gép méretét a [telepítési paraméterek](#deployment-parameters) táblázat használatával.
 
     > [!Warning] 
     > Ha a helyszíni hálózat átfedésben van az IP-tartománnyal `172.16.0.0/16` , ki kell választania és be kell állítania egy másik hálózati tartományt és alhálózatot. Ha más neveket és tartományokat kíván használni a [telepítési paraméterek](#deployment-parameters) táblázatban, akkor olyan paramétereket használjon, amelyek **nem** ütköznek a helyszíni hálózattal. Ügyeljen arra, hogy a VNET IP-címtartomány és alhálózati tartományok beállítása a VNET belül történjen. Nem szeretné, hogy a tartomány átfedésben legyen a helyszíni hálózatban található IP-tartományokkal.
 
-1. Válassza az **OK** lehetőséget.
+1. Kattintson az **OK** gombra.
 
 1. Konfigurálja a FortiGate NVA tartozó nyilvános IP-címet:
 
     ![Az IP-hozzárendelés párbeszédpanel a "nyilvános IP-cím" forti1 és a "nyilvános IP-cím" típushoz statikus "publicip1" értéket jeleníti meg.](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
-1. Válassza az **OK** lehetőséget. Majd válassza az **OK** elemet.
+1. Kattintson az **OK** gombra. Majd válassza az **OK** elemet.
 
-1. Válassza a **Létrehozás** lehetőséget.
+1. Kattintson a **Létrehozás** gombra.
 
     Az üzembe helyezés körülbelül 10 percet vesz igénybe.
 
@@ -98,13 +98,13 @@ A következő táblázat összefoglalja a központi telepítésekben használt p
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza az erőforráscsoportok lehetőséget. Írja be `forti1-rg1` a szűrőt, majd kattintson duplán a forti1-rg1 erőforráscsoport elemre.
+2. Válassza az Erőforráscsoportok lehetőséget. Írja be `forti1-rg1` a szűrőt, majd kattintson duplán a forti1-rg1 erőforráscsoport elemre.
 
     ![Tíz erőforrás szerepel a forti1-rg1 erőforráscsoport listájában.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 2. Válassza ki az "forti1-forti1-InsideSubnet-Routes-xxxx" erőforrást.
 
-3. Válassza az **útvonalak** elemet a **Beállítások**területen.
+3. Válassza az **útvonalak** elemet a **Beállítások** területen.
 
     ![Az útvonalak gomb a beállítások párbeszédpanelen van kiválasztva.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
@@ -136,7 +136,7 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza az erőforráscsoportok lehetőséget. Írja be `forti1` a szűrőt, és kattintson duplán a forti1-erőforráscsoport elemre.
+2. Válassza az Erőforráscsoportok lehetőséget. Írja be `forti1` a szűrőt, és kattintson duplán a forti1-erőforráscsoport elemre.
 
 3. Kattintson duplán a **forti1** virtuális gépre az erőforráscsoport paneljén található erőforrástípusok listájában.
 
@@ -148,17 +148,17 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
     ![A Bejelentkezés párbeszédpanelen a felhasználó és a jelszó szövegmezők és a bejelentkezési gomb is látható.](./media/azure-stack-network-howto-vnet-to-onprem/image14a.png)
 
-6. Válassza **a**  >  **rendszerbelső vezérlőprogram**lehetőséget.
+6. Válassza **a**  >  **rendszerbelső vezérlőprogram** lehetőséget.
 
 7. Jelölje be a legújabb belső vezérlőprogram, például a következőt: `FortiOS v6.2.0 build0866` .
 
     ![A belső vezérlőprogram párbeszédpanelen a "FortiOS v 6.2.0 build0866" belső vezérlőprogram-azonosító látható. Létezik egy hivatkozás a kibocsátási megjegyzésekre, és két gomb: "a Backup konfiguráció és a frissítés", és a frissítés.](./media/azure-stack-network-howto-vnet-to-onprem/image15a.png)
 
-8. Válassza **a biztonsági mentési konfiguráció és a frissítés**  >  **folytatása**lehetőséget.
+8. Válassza **a biztonsági mentési konfiguráció és a frissítés**  >  **folytatása** lehetőséget.
 
 9. A NVA frissíti a belső vezérlőprogramot a legújabb buildekre és újraindításokra. A folyamat körülbelül öt percet vesz igénybe. Jelentkezzen be újra a FortiGate webkonzolra.
 
-10. Kattintson a **VPN**  >  **IPSec varázsló**elemre.
+10. Kattintson a **VPN**  >  **IPSec varázsló** elemre.
 
 11. Adja meg a VPN nevét, például `conn1` a **VPN-létrehozási varázslóban**.
 
@@ -170,12 +170,12 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
 14. Adja meg annak a helyszíni VPN-eszköznek a távoli IP-címét, amelyhez csatlakozni fog.
 
-15. A **kimenő illesztőfelületként**válassza a **port1** lehetőséget.
+15. A **kimenő illesztőfelületként** válassza a **port1** lehetőséget.
 
 16. Válassza az **előmegosztott kulcs** lehetőséget, és adja meg (és jegyezze fel) az előmegosztott kulcsot. 
 
     > [!NOTE]  
-    > Erre a kulcsra szüksége lesz a kapcsolat beállításához a helyszíni VPN-eszközön, azaz *pontosan*meg kell egyeznie.
+    > Erre a kulcsra szüksége lesz a kapcsolat beállításához a helyszíni VPN-eszközön, azaz *pontosan* meg kell egyeznie.
 
     ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a második lépésben, a hitelesítésen és a kiválasztott értékek kiemelése megtörténik.](./media/azure-stack-network-howto-vnet-to-onprem/image17a.png)
 
@@ -195,15 +195,15 @@ Miután aktiválta a NVA, hozzon létre egy IPSec VPN-alagutat a NVA.
 
 21. Kattintson a **Létrehozás** elemre.
 
-22. Válassza a **hálózati**  >  **adapterek**lehetőséget.
+22. Válassza a **hálózati**  >  **adapterek** lehetőséget.
 
     ![Az illesztőfelületek listáján két interfész látható: port1, amely konfigurálva van, és port2, amely még nem. Az illesztőfelületek létrehozásához, szerkesztéséhez és törléséhez gombokat is létrehozhat.](./media/azure-stack-network-howto-vnet-to-onprem/image19a.png)
 
-23. Kattintson duplán a **port2**elemre.
+23. Kattintson duplán a **port2** elemre.
 
 24. Válassza a **helyi hálózat** lehetőséget a **szerepkör** listában és a **DHCP-** ben a címzési mód beállításnál.
 
-25. Válassza az **OK** lehetőséget.
+25. Kattintson az **OK** gombra.
 
 ## <a name="configure-the-on-premises-vpn"></a>A helyszíni VPN konfigurálása
 
@@ -225,7 +225,7 @@ A helyszíni VPN-eszköz megfelelő konfigurálását követően a VPN-alagút m
 
 A FortiGate NVA:
 
-1. A forti1 FortiGate webkonzolon lépjen az **Monitor**  >  **IPSec-figyelő**figyelése elemre.
+1. A forti1 FortiGate webkonzolon lépjen az **Monitor**  >  **IPSec-figyelő** figyelése elemre.
 
     ![Megjelenik a VPN-kapcsolat conn1 figyelő. Ez a beállítás nem jelenik meg, mint a megfelelő 2. fázis választó.](./media/azure-stack-network-howto-vnet-to-onprem/image20a.png)
 
@@ -251,7 +251,7 @@ A kapcsolódás ellenőrzése:
 
 -  Győződjön meg arról, hogy a helyszíni rendszeroperációs rendszer és a Azure Stack hub VM operációs rendszer nem rendelkezik olyan operációsrendszer-tűzfalszabályok, amelyek tiltják a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le mindkét rendszer operációs rendszerén belül.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  

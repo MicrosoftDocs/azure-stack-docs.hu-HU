@@ -3,16 +3,16 @@ title: Nyilvános SSH-kulcs használata Azure Stack hub használatával
 description: Nyilvános SSH-kulcs használata
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 20e8afdae36f7a182f20aff1f4162d36378ca313
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146920"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525455"
 ---
 # <a name="use-an-ssh-public-key"></a>Nyilvános SSH-kulcs használata
 
@@ -30,11 +30,11 @@ Ebben a szakaszban a PuTTY Key Generator használatával hozzon létre egy nyilv
 
     ![A PuTTY Key Generator üres kulccsal](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
 
-1. A **Paraméterek**területen válassza az **RSA**elemet.
+1. A **Paraméterek** területen válassza az **RSA** elemet.
 
-1. A **generált kulcsban található bitek száma** mezőben adja meg a **2048**értéket.  
+1. A **generált kulcsban található bitek száma** mezőben adja meg a **2048** értéket.  
 
-1. Válassza a **készítés**lehetőséget.
+1. Válassza a **készítés** lehetőséget.
 
 1. A **kulcs** területen állítson elő néhány véletlenszerű karaktert úgy, hogy az egérmutatót az üres területen helyezi át.
 
@@ -42,9 +42,9 @@ Ebben a szakaszban a PuTTY Key Generator használatával hozzon létre egy nyilv
 
 1. Adja meg a **kulcshoz tartozó jelszót** , és erősítse meg a **Jelszó megerősítése** mezőben. Jegyezze fel a jelszavát későbbi használatra.
 
-1. Válassza a **nyilvános kulcs mentése**lehetőséget, és mentse azt egy olyan helyre, ahol hozzá tud férni.
+1. Válassza a **nyilvános kulcs mentése** lehetőséget, és mentse azt egy olyan helyre, ahol hozzá tud férni.
 
-1. Válassza a **titkos kulcs mentése**lehetőséget, és mentse azt egy olyan helyre, ahol hozzá tud férni. Ne feledje, hogy a nyilvános kulcshoz tartozik.
+1. Válassza a **titkos kulcs mentése** lehetőséget, és mentse azt egy olyan helyre, ahol hozzá tud férni. Ne feledje, hogy a nyilvános kulcshoz tartozik.
 
 A nyilvános kulcsot a mentett szövegfájl tárolja. A szöveg a következőhöz hasonlóan néz ki:
 
@@ -79,18 +79,18 @@ A kapcsolat előtt a következőkre lesz szüksége:
 
 2. Az **állomásnév (vagy IP-cím)** mezőbe írja be a gép felhasználónevét és nyilvános IP-címét (például: **username@192.XXX.XXX.XX** ). 
 3. Győződjön meg arról, hogy a **port** **22** , a **kapcsolattípus** pedig **SSH**.
-4. A **Kategória** fában bontsa ki az **SSH** és az **Auth**elemet.
+4. A **Kategória** fában bontsa ki az **SSH** és az **Auth** elemet.
 
     ![A PuTTY konfigurációs paneljének-SSH titkos kulcsa](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. A **titkos kulcs fájlja a hitelesítéshez** mezőben válassza a **Tallózás**lehetőséget, majd keresse meg a nyilvános és titkos kulcspár titkos kulcs fájlját (* \<filename> . PPK*).
-6. A **Kategória** fában válassza a **munkamenet**elemet.
+5. A **titkos kulcs fájlja a hitelesítéshez** mezőben válassza a **Tallózás** lehetőséget, majd keresse meg a nyilvános és titkos kulcspár titkos kulcs fájlját (*\<filename> . PPK*).
+6. A **Kategória** fában válassza a **munkamenet** elemet.
 
     ![A PuTTY konfigurációs ablaktábla "mentett munkamenetek" mezője](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
 
-7. A **mentett munkamenetek**területen adja meg a munkamenet nevét, majd kattintson a **Mentés**gombra.
-8. A **mentett munkamenetek** listában válassza ki a munkamenet nevét, majd válassza a **Betöltés**lehetőséget.
-9. Válassza az **Open** (Megnyitás) elemet. Megnyílik az SSH-munkamenet.
+7. A **mentett munkamenetek** területen adja meg a munkamenet nevét, majd kattintson a **Mentés** gombra.
+8. A **mentett munkamenetek** listában válassza ki a munkamenet nevét, majd válassza a **Betöltés** lehetőséget.
+9. Válassza a **Megnyitás** lehetőséget. Megnyílik az SSH-munkamenet.
 
 ## <a name="connect-with-sftp-with-filezilla"></a>Kapcsolat az SFTP-vel és a FileZilla-vel
 
@@ -100,29 +100,29 @@ A fájlok a Linux rendszerű számítógépekre való áthelyezéséhez a FileZi
 
 1. [Töltse le és telepítse a FileZilla-](https://filezilla-project.org/download.php)t.
 1. Nyissa meg a FileZilla-t.
-1. Válassza a **fájl**  >  **Site Manager**elemet.
+1. Válassza a **fájl**  >  **Site Manager** elemet.
 
     ![A FileZilla Site Manager panel](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
-1. A **protokoll** legördülő listában válassza az **SFTP-SSH File Transfer Protocol**elemet.
+1. A **protokoll** legördülő listában válassza az **SFTP-SSH File Transfer Protocol** elemet.
 1. A **gazdagép** mezőben adja meg a számítógép nyilvános IP-címét.
-1. A **Bejelentkezés típusa** mezőben válassza a **normál**elemet.
+1. A **Bejelentkezés típusa** mezőben válassza a **normál** elemet.
 1. Adja meg a felhasználónevét és a jelszavát.
 1. Kattintson az **OK** gombra.
-1. Válassza **Edit**a  >  **Beállítások**szerkesztése lehetőséget.
+1. Válassza **Edit** a  >  **Beállítások** szerkesztése lehetőséget.
 
     ![A FileZilla beállítások panel](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
-1. A **lap kijelölése** fán bontsa ki a **kapcsolatok**csomópontot, majd válassza az **SFTP**lehetőséget.
-1. Válassza a **Kulcs hozzáadása**lehetőséget, majd adja meg a titkos kulcs fájlját (például * \<filename> . PPK*).
+1. A **lap kijelölése** fán bontsa ki a **kapcsolatok** csomópontot, majd válassza az **SFTP** lehetőséget.
+1. Válassza a **Kulcs hozzáadása** lehetőséget, majd adja meg a titkos kulcs fájlját (például *\<filename> . PPK*).
 1. Kattintson az **OK** gombra.
 
 ### <a name="open-your-connection"></a>A kapcsolatok megnyitása
 
 1. Nyissa meg a FileZilla-t.
-1. Válassza a **fájl**  >  **Site Manager**elemet.
-1. Válassza ki a webhely nevét, majd válassza a **kapcsolat**lehetőséget.
+1. Válassza a **fájl**  >  **Site Manager** elemet.
+1. Válassza ki a webhely nevét, majd válassza a **kapcsolat** lehetőséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

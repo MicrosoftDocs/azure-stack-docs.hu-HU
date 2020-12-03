@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a Ruby használatával Azure Sta
 description: Ismerje meg, hogyan használhatók az API-verziók profiljai a Ruby használatával Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1d4cc0887bac12c535f2ce0fe12a2cb855d5b3a5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546480"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525591"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a Ruby használatával Azure Stack hub-ban
 
@@ -136,9 +136,9 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 A **Azure_sdk** összesített gem a következő 3 profillal rendelkezik:
 
-- **V2019_03_01_Hybrid** : az Azure stack hub-hoz készült profil. Ezt a profilt a Azure Stack hub 1904-es vagy újabb verziójában elérhető szolgáltatások legújabb verzióihoz használhatja.
-- **V2017_03_09** : az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások a leghatékonyabban kompatibilisek legyenek Azure Stack hub 1808-es vagy korábbi verziójával.
-- **Legújabb** : a profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
+- **V2019_03_01_Hybrid**: az Azure stack hub-hoz készült profil. Ezt a profilt a Azure Stack hub 1904-es vagy újabb verziójában elérhető szolgáltatások legújabb verzióihoz használhatja.
+- **V2017_03_09**: az Azure stack hub-hoz készült profil. Használja ezt a profilt, hogy a szolgáltatások a leghatékonyabban kompatibilisek legyenek Azure Stack hub 1808-es vagy korábbi verziójával.
+- **Legújabb**: a profil az összes szolgáltatás legújabb verzióit tartalmazza. Használja az összes szolgáltatás legújabb verzióit.
 
 Azure Stack hub-és API-profilokkal kapcsolatos további információkért tekintse meg az [API-profilok összefoglalását](azure-stack-version-profiles.md#summary-of-api-profiles)ismertető témakört.
 
@@ -304,7 +304,7 @@ A minta futtatásához győződjön meg arról, hogy a Ruby alkalmazást telepí
    bundle exec ruby example.rb
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)  

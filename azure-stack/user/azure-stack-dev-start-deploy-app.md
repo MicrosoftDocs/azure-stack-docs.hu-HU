@@ -3,16 +3,16 @@ title: Alkalmazás üzembe helyezése Azure Stack hubhoz
 description: Alkalmazás üzembe helyezése Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: fa94f2bb29b75a2fcbbdbc7707a69d9ba2f8d0cf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 08728a6e0de2bc1ce0e646de124fb58dac83c8fe
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567603"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525370"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack hub általános telepítései
 
@@ -33,7 +33,7 @@ A következő útmutató cikkeiben virtuális gépet (VM) állít be Azure Stack
 - [Python](azure-stack-dev-start-howto-vm-python.md)
 - [NodeJS](azure-stack-dev-start-howto-vm-nodejs.md)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Fejlesztési környezet beállítása Azure stack központban](azure-stack-dev-start.md).
 - [Folyamatos integrációs/folyamatos szállítási (CI/CD) folyamat beállítása Azure stack hub-ban](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops).

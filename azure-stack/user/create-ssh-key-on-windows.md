@@ -3,16 +3,16 @@ title: SSH-kulcs létrehozása Linux rendszeren Azure Stack hub-on
 description: Megtudhatja, hogyan hozhat létre SSH-kulcsot Linux rendszeren Azure Stack hub-on
 author: mattbriggs
 ms.topic: article
-ms.date: 7/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: 8b6ddaa6dab41cccce5759622ec15f4e5e886956
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 4d85a543484fb7dfd33e6fb6c412198a4e646345
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250741"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525948"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>SSH-kulcs létrehozása Linux rendszeren Azure Stack hub-on
 
@@ -23,7 +23,7 @@ Egy Windows rendszerű gépen létrehozhat egy SSH-kulcsot (Secure Shell) a Linu
 1. Ha a számítógépen nincs telepítve a Linux rendszerhez készült Windows alrendszer, telepítse az "[Ubuntu Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)rendszeren.  
     A Linux rendszerhez készült Windows alrendszer használatával kapcsolatos további információkért tekintse meg a [Linux Windows alrendszere dokumentációját](/windows/wsl/about).
 
-2. Írja be az **Ubuntu** elemet az eszköztárban, és válassza a **Megnyitás**lehetőséget.
+2. Írja be az **Ubuntu** elemet az eszköztárban, és válassza a **Megnyitás** lehetőséget.
 
 ## <a name="create-a-key-with-ssh-keygen"></a>Kulcs létrehozása ssh-keygen-vel
 
@@ -86,13 +86,13 @@ Egy Windows rendszerű gépen létrehozhat egy SSH-kulcsot (Secure Shell) a Linu
 
 4. Másolja a szöveget a következőre: `ssh-rsa [...]` `username@machinename` . Győződjön meg arról, hogy a szöveg nem tartalmaz kocsivissza értéket. Ezt a szöveget használhatja a virtuális gép vagy a Kubernetes-fürt az AK-motor használatával történő létrehozásakor.
 
-5. Ha Windows rendszerű gépen van, akkor a ** \\ \\ wsl $** használatával érheti el a Linux-fájljait.
+5. Ha Windows rendszerű gépen van, akkor a **\\ \\ wsl $** használatával érheti el a Linux-fájljait.
 
     1. Írja be az `\\wsl$` eszköztárát. A terjesztést megnyitó alapértelmezett ablak.
 
     2. Keresse meg a következőt: `\\wsl$\Ubuntu\home\<username>` , és keresse meg a nyilvános és a titkos kulcsot, és mentse egy biztonságos helyre.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
 - [Gyors útmutató: linuxos kiszolgálói virtuális gép létrehozása az Azure Stack hub portál használatával](azure-stack-quick-linux-portal.md)

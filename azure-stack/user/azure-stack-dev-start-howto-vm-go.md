@@ -3,16 +3,16 @@ title: A go Web App üzembe helyezése Azure Stack hub-beli virtuális gépen
 description: Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: bcb38ee1215053d40bf027958ef598f587422053
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: a43dd6ccb766dfb7b67dad09c0fc9bba37d524b4
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574040"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525319"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Go-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -89,7 +89,7 @@ Létrehozhat egy virtuális gépet (VM) egy go-webalkalmazás üzemeltetéséhez
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

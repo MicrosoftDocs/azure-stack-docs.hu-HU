@@ -3,16 +3,16 @@ title: Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 description: Megtudhatja, hogyan csatlakozhat az iSCSI-tárolóhoz Azure Stack hub használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 214b1d2cd06f70e9787c36c974ae4d1d18225924
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: f6e02aa1185070d641d946ef99a44858ce8a1e5b
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965126"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525744"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Kapcsolódás iSCSI-tárolóhoz Azure Stack hub használatával
 
@@ -79,7 +79,7 @@ Az erőforráscsoport-sablon kimenetet hoz létre, amely a következő lépés b
 |VMName                  |FileServer        |a virtuális gép neve
 |adminUsername           |storageadmin      |Az új virtuális gép rendszergazdájának neve
 |adminPassword           |                  |Az új virtuális gépek rendszergazdai fiókjának jelszava. Az alapértelmezett érték az előfizetés azonosítója
-|VNetName                |Storage           |A VNet neve. Ezt fogja használni az erőforrások címkézéséhez
+|VNetName                |Tárolás           |A VNet neve. Ezt fogja használni az erőforrások címkézéséhez
 |VNetAddressSpace        |10.10.0.0/23      |Címterület a VNet
 |VNetInternalSubnetName  |Belső          |VNet belső alhálózat neve
 |VNetInternalSubnetRange |10.10.1.0/24      |Címtartomány a belső alhálózat VNet
@@ -137,6 +137,6 @@ A a `Connect-toiSCSITarget.ps1` végső parancsfájl, amely az iSCSI-ügyfélen 
 |ChapUsername           |username               |A CHAP-hitelesítéshez használt Felhasználónév neve
 |ChapPassword           |userP@ssw0rd!          |A CHAP-hitelesítéshez használt jelszó neve. 12 és 16 karakter közöttinek kell lennie
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

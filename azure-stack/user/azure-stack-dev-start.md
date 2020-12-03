@@ -3,16 +3,16 @@ title: Fejlesztési környezet beállítása Azure Stack központban
 description: Ismerkedjen meg Azure Stack hub-alkalmazások fejlesztésével.
 author: mattbriggs
 ms.topic: overview
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d000d7f892697795377323f4ad181149bda9ca31
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546123"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525914"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Fejlesztési környezet beállítása Azure Stack központban 
 
@@ -160,6 +160,6 @@ A macOS rendszerű gépek lehetővé teszik az Azure CLI és a Visual Studio Cod
      - [Ruby](azure-stack-version-profiles-python.md) 
      - [Python](azure-stack-version-profiles-python.md) 
 
-## <a name="next-steps"></a>Következő lépések 
+## <a name="next-steps"></a>További lépések 
 
 Ha Azure Stack hub erőforrásait szeretné központilag telepíteni, tekintse meg [az Azure stack hub általános telepítéseit](azure-stack-dev-start-deploy-app.md)ismertető témakört.

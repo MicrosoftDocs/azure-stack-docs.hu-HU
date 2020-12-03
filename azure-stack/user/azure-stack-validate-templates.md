@@ -3,16 +3,16 @@ title: Az Azure Stack hub sablon-ellenőrzési eszközének használata
 description: A sablon-ellenőrzési eszközzel megkeresheti Azure Stack hubhoz való központi telepítéshez szükséges sablonokat.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/22/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 0631058a3eade431769a5651bb37441b835eb3e6
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b8e5b14542773372751fe76d7c6299961e0da86d
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518058"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525897"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Az Azure Stack hub sablon-ellenőrzési eszközének használata
 
@@ -147,7 +147,7 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 ```
 ---
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése Azure Stack hubhoz](azure-stack-arm-templates.md)
 - [Sablonok fejlesztése Azure Stack hubhoz](azure-stack-develop-templates.md)

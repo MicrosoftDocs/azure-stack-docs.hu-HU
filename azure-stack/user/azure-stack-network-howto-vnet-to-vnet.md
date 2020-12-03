@@ -3,16 +3,16 @@ title: Két virtuális hálózat összekötése ugyanabban a Azure Stack környe
 description: Ismerje meg, hogyan csatlakoztathat két virtuális hálózatot ugyanabban a Azure Stack hub-környezetben a Fortinet FortiGate használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 32ecdbc52c678f884eac10c83f1749ba4a96a86f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9afd01c79590092269bea8cb4e3ca293fa855fd
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547126"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525642"
 ---
 # <a name="vnet-to-vnet-connectivity-with-fortigate"></a>VNet VNet-kapcsolattal a FortiGate
 
@@ -176,7 +176,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy az első lépésben, a VPN-beállításban kell lennie. A következő értékek vannak kiválasztva: "hely – hely" a sablon típusa, "FortiGate" a távoli eszköz típusa, és "Ez a hely a NAT mögött" a NAT-konfigurációhoz.](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
-1. Válassza a **Tovább** gombot.
+1. Kattintson a **Tovább** gombra.
 
 1. Adja meg annak a helyszíni VPN-eszköznek a távoli IP-címét, amelyhez csatlakozni fog.
 
@@ -189,7 +189,7 @@ A forti1 NVA és a forti2 NVA az alábbi lépéseket követve:
 
     ![A VPN-létrehozási varázsló képernyőképe azt mutatja, hogy a második lépésben, a hitelesítésen és a kiválasztott értékek kiemelése megtörténik.](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
-1. Válassza a **Tovább** gombot.
+1. Kattintson a **Tovább** gombra.
 
 1. Válassza a **port2** lehetőséget a **helyi adapterhez**.
 
@@ -243,7 +243,7 @@ A FortiGate-NVA keresztül most már képesnek kell lennie az egyes VNET közöt
 
 -   Győződjön meg arról, hogy a virtuális gépek tűzfalszabályok lehetővé teszik a kapcsolat teszteléséhez használni kívánt kommunikációt. Tesztelési célból javasoljuk, hogy a tűzfalat teljes mértékben tiltsa le az operációs rendszeren belül, ha lehetséges.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate](../operator/azure-stack-network-solutions-enable.md)  

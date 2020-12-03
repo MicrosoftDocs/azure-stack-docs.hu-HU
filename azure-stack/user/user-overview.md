@@ -3,16 +3,16 @@ title: Mi az Azure Stack hub a felhasználó számára?
 description: Ismerje meg, hogyan használhatja a Azure Stack hub fejlesztőként.
 author: mattbriggs
 ms.topic: article
-ms.date: 7/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 7c930b823fd82854499433bbe5bda8654b481877
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 917beb178c50cb06ae71201299bd967a60d522d1
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250894"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524520"
 ---
 # <a name="what-is-azure-stack-hub"></a>Mi az Azure Stack hub?
 
@@ -24,6 +24,6 @@ Ha Ön Azure Stack hub-kezelő, aki felügyeli az infrastruktúrát, és szolgá
 
 Ha Ön olyan Azure Stack hub-felhasználó, aki a Azure Stack Development Kit (ASDK) számára érdekli, az Azure Stack hub egycsomópontos üzembe helyezése, amelyet ingyenesen tölthet le és használhat, tekintse meg a [ASDK dokumentációját](../asdk/index.yml).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Megoldások fejlesztése Azure Stack hub-val](azure-stack-dev-start.md)

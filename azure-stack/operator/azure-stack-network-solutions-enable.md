@@ -3,16 +3,16 @@ title: Fortinet-FortiGate hozzáadása Azure Stack hub Marketplace-hez
 description: Megtudhatja, hogyan adhat hozzá Fortinet-FortiGate a Azure Stack hub piactérhez, így a felhasználók hálózati megoldásokat hozhatnak létre.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: fec899c2040b71ad10be95d18dfc56a17d1fe617
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107009"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525523"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Hálózati megoldás nyújtása Azure Stack központban a Fortinet FortiGate
 
@@ -24,7 +24,7 @@ Az Azure Marketplace FortiGate kapcsolatos további információkért lásd: [Fo
 
 1. Nyissa meg az Azure Stack hub felügyeleti portált.
 
-2. Válassza a **piactér-kezelés** elemet, és válassza **a Hozzáadás az Azure-ból**lehetőséget.
+2. Válassza a **piactér-kezelés** elemet, és válassza **a Hozzáadás az Azure-ból** lehetőséget.
 
 3. Írja be `Forti` a keresőmezőbe, majd kattintson duplán > válassza a **Letöltés** lehetőséget a következő elemek legújabb elérhető verzióinak beszerzéséhez:
     - Fortinet FortiGate – Azure-beli virtuális BYOL
@@ -32,11 +32,11 @@ Az Azure Marketplace FortiGate kapcsolatos további információkért lásd: [Fo
 
     ![Képernyőkép, amely megjeleníti az elérhető letöltött elemeket.](./media/azure-stack-network-solutions-enable/azure-stack-marketplace-FortiGate-fortinet.png)
 
-4. Várjon, amíg a Marketplace-elemek nem rendelkeznek a **letöltött**állapottal. Az elemek letöltése több percet is igénybe vehet.
+4. Várjon, amíg a Marketplace-elemek nem rendelkeznek a **letöltött** állapottal. Az elemek letöltése több percet is igénybe vehet.
 
     ![Azure Stack hub FortiGate Fortinet](./media/azure-stack-network-solutions-enable/image4.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [VPN beállítása Azure Stack hubhoz a FortiGate NVA használatával](../user/azure-stack-network-howto-vnet-to-onprem.md)  
 - [Két virtuális hálózatok összekapcsolásának módja a peering használatával](../user/azure-stack-network-howto-vnet-to-vnet.md)  

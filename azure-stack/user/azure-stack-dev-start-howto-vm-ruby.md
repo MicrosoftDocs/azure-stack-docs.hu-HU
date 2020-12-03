@@ -3,16 +3,16 @@ title: Ruby-alkalmazás üzembe helyezése a virtuális gépen Azure Stack hub-b
 description: Ruby-alkalmazás üzembe helyezése Azure Stack hub virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 52c800f9ad0a4208fbd2c00a61b26b70ca066c12
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573972"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525965"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Ruby-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -96,7 +96,7 @@ Ez a cikk a Ruby és a Ruby on Rails webes keretrendszer használatát ismerteti
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub fejlesztéséről](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

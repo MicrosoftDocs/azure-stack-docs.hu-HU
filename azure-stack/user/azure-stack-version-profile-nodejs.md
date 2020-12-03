@@ -3,16 +3,16 @@ title: API-verziók profiljainak használata a Azure Stack hub Node.js
 description: Ismerje meg, hogyan használhatja az API-verziók profiljait Node.jsekkel Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 93c37e67af83dd7b6d735916cfacc7dab5c0cdbf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c6b781b61a8738bd86379d9fb035680189693565
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574091"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525931"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Az API-verziók profiljainak használata Node.js szoftverfejlesztői készlettel (SDK) Azure Stack hub-ban
 
@@ -30,7 +30,7 @@ Az API-profilok erőforrás-szolgáltatók és API-verziók kombinációja. Az e
 
   -   Az összes szolgáltatás legújabb verziójának használatához használja a csomagok **legújabb** profilját.
 
-  -   Az Azure Stack hub szolgáltatással kompatibilis szolgáltatások használatához használja az ** \@ Azure/ARM-Resources-Profile-Hybrid-2019-03-01** vagy az ** \@ Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
+  -   Az Azure Stack hub szolgáltatással kompatibilis szolgáltatások használatához használja az **\@ Azure/ARM-Resources-Profile-Hybrid-2019-03-01** vagy az **\@ Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
 ### <a name="packages-in-npm"></a>Csomagok a NPM
 
@@ -235,7 +235,7 @@ A következő mintákat használhatja referenciáként Node.js és Azure Stack h
 4.  Állítsa be az alábbi környezeti változókat a parancssorból létrehozott egyszerű szolgáltatásnév használatával lekért információk alapján:
 
     > [!NOTE]  
-    > Windows rendszeren használja az **Exportálás**helyett a **készletet** .
+    > Windows rendszeren használja az **Exportálás** helyett a **készletet** .
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -399,7 +399,7 @@ console.log('\\nDeleting resource group: ' + resourceGroupName);
 return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az API-profilokról további információt a következő témakörben talál:
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 55a9c4ec924cc12a52199f00e77857b2813207cc
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9d40c83c31903a582d8130dcb249fa2fca0a49e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329068"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525574"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése az Azure Stack Hubon az Azure CLI-vel
 
@@ -96,7 +96,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
  
 1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy egyszerű szolgáltatásnévként. 
 
-   - Bejelentkezés *felhasználóként* : 
+   - Bejelentkezés *felhasználóként*: 
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
@@ -107,7 +107,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
      > [!NOTE]
      > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, a `az login` paraméter megadása nélkül használja a parancsot `-u` . A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
-   - Bejelentkezés *egyszerű szolgáltatásként* : 
+   - Bejelentkezés *egyszerű szolgáltatásként*: 
     
      A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](../operator/azure-stack-create-service-principals.md) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
 
@@ -164,7 +164,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Dire
 
 1. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy egyszerű szolgáltatásnévként. 
 
-   - Bejelentkezés *felhasználóként* :
+   - Bejelentkezés *felhasználóként*:
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
@@ -175,7 +175,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Dire
      > [!NOTE]
      > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, a `az login` paraméter megadása nélkül használja a parancsot `-u` . A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
-   - Bejelentkezés *egyszerű szolgáltatásként* : 
+   - Bejelentkezés *egyszerű szolgáltatásként*: 
     
      Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
 
@@ -214,7 +214,7 @@ Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
  - Azure Stack hub-ban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja a parancsot a parancs `az vm image list --all` helyett `az vm image list` . A beállítás megadásával `--all` biztosíthatja, hogy a válasz csak az Azure stack hub-környezetben elérhető lemezképeket adja vissza.
  - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stack hubhoz. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie a parancsból származtatott rendszerkép-specifikációkkal `az vm images list` .
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](../user/azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)

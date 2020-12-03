@@ -3,16 +3,16 @@ title: Az Azure CLI tanúsítványának beállítása a Azure Stack Development 
 description: További információ az Azure CLI tanúsítványának beállításáról a Azure Stack Development Kit Azure Stack Development Kit.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 8b55fea8ed9692da34234e2633bdb43e92de46eb
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294405"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524681"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Tanúsítványok beállítása az Azure CLI-hez Azure Stack Development Kit
 
@@ -158,6 +158,6 @@ Az Azure CLI telepítésével és csatlakozásával kapcsolatos utasításokért
 
 ---
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az Azure CLI telepítése Azure Stack hubhoz](../user/azure-stack-version-profiles-azurecli2.md)

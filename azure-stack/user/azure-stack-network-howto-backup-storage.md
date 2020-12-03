@@ -3,16 +3,16 @@ title: A Storage-fiókok biztonsági mentése Azure Stack hub-on
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a Storage-fiókokról Azure Stack hub-on.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546191"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525693"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -80,13 +80,13 @@ Miután beállította a Windows Servert, telepítenie kell [Azure stack hub Powe
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. A köztes kiszolgálón hozzon létre parancsfájlt. Frissítse ezt a parancsot a **Storage-fiókjával** , az **sas-kulccsal** és a **helyi könyvtár elérési útjával**. Az adatok növekményes másolásához a **forrás** Storage-fiókból futtassa a parancsfájlt.
+4. A köztes kiszolgálón hozzon létre parancsfájlt. Frissítse ezt a parancsot a **Storage-fiókjával**, az **sas-kulccsal** és a **helyi könyvtár elérési útjával**. Az adatok növekményes másolásához a **forrás** Storage-fiókból futtassa a parancsfájlt.
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Adja meg a **Storage-fiókot** , a * * sas-kulcs * * és a * * helyi könyvtár elérési útját.  Ezzel a megoldással növekményes Adatmásolást fog használni a **cél** Storage-fiókba
+5.  Adja meg a **Storage-fiókot**, a * * sas-kulcs * * és a * * helyi könyvtár elérési útját.  Ezzel a megoldással növekményes Adatmásolást fog használni a **cél** Storage-fiókba
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true
@@ -123,6 +123,6 @@ Az alkalmazás-kapcsolódási karakterláncok akkor módosíthatók, ha az objek
 
 Ha az alkalmazás az HRE vagy a AD FS helyett a SAS-t használja, a fenti metódus nem fog működni, és az alkalmazás-kapcsolódási karakterláncokat frissíteni kell a célként megadott Storage-fiók URL-címével és a cél Storage-fiókhoz generált SAS-kulcsokkal.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)

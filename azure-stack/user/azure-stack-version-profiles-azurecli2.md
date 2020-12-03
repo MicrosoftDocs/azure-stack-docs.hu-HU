@@ -3,16 +3,16 @@ title: Azure Stack hub kezelése az Azure CLI-vel
 description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
 author: mattbriggs
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291246"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525880"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Az Azure CLI telepítése Azure Stack hubhoz
 
@@ -79,7 +79,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
  
 6. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Bejelentkezés *felhasználóként* : 
+   - Bejelentkezés *felhasználóként*: 
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
@@ -90,7 +90,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
      > [!NOTE]
      > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, a `az login` paraméter megadása nélkül használja a parancsot `-u` . A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
-   - Bejelentkezés *egyszerű szolgáltatásként* : 
+   - Bejelentkezés *egyszerű szolgáltatásként*: 
     
      A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](../operator/azure-stack-create-service-principals.md?view=azs-2002) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
 
@@ -152,7 +152,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Dire
 
 6. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Bejelentkezés *felhasználóként* :
+   - Bejelentkezés *felhasználóként*:
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
@@ -163,7 +163,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha Active Dire
      > [!NOTE]
      > Ha a felhasználói fiókja engedélyezte a többtényezős hitelesítést, a `az login` paraméter megadása nélkül használja a parancsot `-u` . A parancs futtatásával egy URL-címet és egy kódot kell használnia a hitelesítéshez.
 
-   - Bejelentkezés *egyszerű szolgáltatásként* : 
+   - Bejelentkezés *egyszerű szolgáltatásként*: 
     
      Készítse elő a. PEM-fájlt, amelyet a szolgáltatás egyszerű bejelentkezéséhez kíván használni.
 
@@ -237,7 +237,7 @@ A következő lépésekkel csatlakozhat Azure Stack hubhoz:
 
 6. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Bejelentkezhet a Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Bejelentkezés *felhasználóként* :
+   * Bejelentkezés *felhasználóként*:
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
@@ -368,7 +368,7 @@ Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
 
 ---
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)

@@ -3,16 +3,16 @@ title: Linux rendszerű virtuális gép üzembe helyezése Azure Stack hubhoz
 description: Linux rendszerű virtuális gép üzembe helyezése Ubuntu-lemezképpel az Azure Stack hub webalkalmazásának üzemeltetéséhez.
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3847d321c924d06aaacfadc39feac572404ff113
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92353840"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525387"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Linux rendszerű virtuális gép üzembe helyezése Azure Stack hub webalkalmazásának üzemeltetéséhez
 
@@ -44,7 +44,7 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
 ### <a name="create-your-vm"></a>A virtuális gép létrehozása
 
 1. Hozzon létre egy Secure Shell (SSH) nyilvános kulcsot a kiszolgáló számára. További információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Az Azure stack hub portálon válassza az **erőforrás létrehozása**  >  **számítási**  >  **Ubuntu Server 16,04 LTS**elemet.
+1. Az Azure stack hub portálon válassza az **erőforrás létrehozása**  >  **számítási**  >  **Ubuntu Server 16,04 LTS** elemet.
 
     ![Webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
@@ -74,39 +74,39 @@ A virtuális gép üzembe helyezéséhez kövesse a következő néhány szakasz
     h. Válassza ki a tartózkodási helyét. A Azure Stack Development Kit (ASDK) általában egy *helyi* régióban található. A hely a Azure Stack hub-példánytól függ.
 1. **2. Méret**, írja be a következőt:
     - Válassza ki az Azure Stack hub-példányban elérhető virtuális gép adatmennyiségét és a RAM-ot.
-    - Böngészheti a listát, vagy szűrheti a virtuális gép méretét a **számítási típus**, a **processzorok**és a **tárolóhely**alapján.
+    - Böngészheti a listát, vagy szűrheti a virtuális gép méretét a **számítási típus**, a **processzorok** és a **tárolóhely** alapján.
     
     > [!NOTE]
     > - A bemutatott díjak a helyi pénznemben számított becslések. Csak az Azure-infrastruktúra költségeit és az előfizetés és a hely kedvezményeit tartalmazzák. Nem tartoznak bele a szoftverre vonatkozó költségek. 
     > - Az ajánlott méreteket a kiválasztott rendszerkép közzétevője határozza meg, és a hardverre és a szoftverre vonatkozó követelmények alapján történik.
     > - A standard lemezek (HDD-k) prémium szintű lemezekkel (SSD) való használata hatással lehet az operációs rendszer teljesítményére.
 
-1. **3. **Adja meg a választható szolgáltatásokat, írja be a következőt:
+1. **3.** Adja meg a választható szolgáltatásokat, írja be a következőt:
 
     a. A **magas rendelkezésre állás** érdekében válassza ki a rendelkezésre állási készletet. Ha redundanciát szeretne biztosítani az alkalmazás számára, a két vagy több virtuális gépet egy rendelkezésre állási csoportban csoportosítva adja meg. Ez a konfiguráció biztosítja, hogy a tervezett vagy nem tervezett karbantartási események esetén legalább egy virtuális gép elérhető legyen, és teljesítse a 99,95%-os Azure-beli szolgáltatói szerződést (SLA). A virtuális gép rendelkezésre állási csoportja nem módosítható a létrehozása után.
 
-    b. A **Storage**esetében válassza a **prémium szintű lemezek (SSD)** vagy a **standard lemez (HDD)** lehetőséget. A prémium szintű lemezeket (SSD-ket) stabil állapotú meghajtók végzik, és konzisztens, kis késleltetésű teljesítményt nyújtanak. A legjobb egyensúlyt biztosítják az árak és a teljesítmény között, és ideálisak a nagy I/O-igényű alkalmazások és a termelési feladatok számára. A standard szintű lemezeket a mágneses meghajtók végzik, és az olyan alkalmazások esetében előnyösek, amelyekben az adatelérés nem gyakori. A Zone-redundáns lemezeket a zóna-redundáns tárolás (ZRS) támogatja, amely több zónában replikálja az adatait, és akkor is elérhető, ha egy zóna nem működik. 
+    b. A **Storage** esetében válassza a **prémium szintű lemezek (SSD)** vagy a **standard lemez (HDD)** lehetőséget. A prémium szintű lemezeket (SSD-ket) stabil állapotú meghajtók végzik, és konzisztens, kis késleltetésű teljesítményt nyújtanak. A legjobb egyensúlyt biztosítják az árak és a teljesítmény között, és ideálisak a nagy I/O-igényű alkalmazások és a termelési feladatok számára. A standard szintű lemezeket a mágneses meghajtók végzik, és az olyan alkalmazások esetében előnyösek, amelyekben az adatelérés nem gyakori. A Zone-redundáns lemezeket a zóna-redundáns tárolás (ZRS) támogatja, amely több zónában replikálja az adatait, és akkor is elérhető, ha egy zóna nem működik. 
 
-    c. Válassza a **felügyelt lemezek használata**lehetőséget. Ha engedélyezi ezt a funkciót, az Azure automatikusan kezeli a lemezek rendelkezésre állását. Az adatredundancia és a hibatűrés előnyeit a Storage-fiókok saját maga általi létrehozása és kezelése nélkül veheti igénybe. Előfordulhat, hogy a felügyelt lemezek nem érhetők el minden régióban. További információ: [Bevezetés az Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview)szolgáltatásba.
+    c. Válassza a **felügyelt lemezek használata** lehetőséget. Ha engedélyezi ezt a funkciót, az Azure automatikusan kezeli a lemezek rendelkezésre állását. Az adatredundancia és a hibatűrés előnyeit a Storage-fiókok saját maga általi létrehozása és kezelése nélkül veheti igénybe. Előfordulhat, hogy a felügyelt lemezek nem érhetők el minden régióban. További információ: [Bevezetés az Azure Managed Disks](/azure/virtual-machines/windows/managed-disks-overview)szolgáltatásba.
 
-    d. A hálózat konfigurálásához válassza a **virtuális hálózat**lehetőséget. A virtuális hálózatok logikailag el vannak különítve egymástól az Azure-ban. Az IP-címtartományok, az alhálózatok, az útválasztási táblák, az átjárók és a biztonsági beállítások ugyanúgy konfigurálhatók, mint az adatközpont hagyományos hálózata. Az azonos virtuális hálózatban lévő virtuális gépek alapértelmezés szerint hozzáférhetnek egymáshoz. 
+    d. A hálózat konfigurálásához válassza a **virtuális hálózat** lehetőséget. A virtuális hálózatok logikailag el vannak különítve egymástól az Azure-ban. Az IP-címtartományok, az alhálózatok, az útválasztási táblák, az átjárók és a biztonsági beállítások ugyanúgy konfigurálhatók, mint az adatközpont hagyományos hálózata. Az azonos virtuális hálózatban lévő virtuális gépek alapértelmezés szerint hozzáférhetnek egymáshoz. 
 
-    e. Az alhálózat konfigurálásához válassza az **alhálózat**lehetőséget. Az alhálózat a virtuális hálózatban található IP-címek tartománya. Az alhálózatok segítségével elkülönítheti a virtuális gépeket egymástól vagy az internettől. 
+    e. Az alhálózat konfigurálásához válassza az **alhálózat** lehetőséget. Az alhálózat a virtuális hálózatban található IP-címek tartománya. Az alhálózatok segítségével elkülönítheti a virtuális gépeket egymástól vagy az internettől. 
 
-    f. A virtuális géphez vagy a virtuális gépen futó szolgáltatásokhoz való hozzáférés konfigurálásához válassza a **nyilvános IP-cím**lehetőséget. Nyilvános IP-cím használatával kommunikálhat a virtuális géppel a virtuális hálózaton kívülről. 
+    f. A virtuális géphez vagy a virtuális gépen futó szolgáltatásokhoz való hozzáférés konfigurálásához válassza a **nyilvános IP-cím** lehetőséget. Nyilvános IP-cím használatával kommunikálhat a virtuális géppel a virtuális hálózaton kívülről. 
 
-    : Válassza a **hálózati biztonsági csoport**, **alapszintű**vagy **speciális**lehetőséget. Olyan szabályok beállítása, amelyek engedélyezik vagy megtagadják a virtuális gép felé irányuló hálózati forgalmat. 
+    : Válassza a **hálózati biztonsági csoport**, **alapszintű** vagy **speciális** lehetőséget. Olyan szabályok beállítása, amelyek engedélyezik vagy megtagadják a virtuális gép felé irányuló hálózati forgalmat. 
 
-    h. Ha az általános vagy egyéni protokollok hozzáférését szeretné beállítani a virtuális géphez, válassza a **nyilvános bejövő portok**lehetőséget. A szolgáltatás megadja a szabály céljának protokollját és a porttartomány tartományát. Kiválaszthat egy előre definiált szolgáltatást, például RDP protokoll (RDP) vagy SSH-t, vagy egyéni porttartomány is megadhat. 
+    h. Ha az általános vagy egyéni protokollok hozzáférését szeretné beállítani a virtuális géphez, válassza a **nyilvános bejövő portok** lehetőséget. A szolgáltatás megadja a szabály céljának protokollját és a porttartomány tartományát. Kiválaszthat egy előre definiált szolgáltatást, például RDP protokoll (RDP) vagy SSH-t, vagy egyéni porttartomány is megadhat. 
         A webkiszolgálón nyissa meg a HTTP (80), a HTTPS (443) és az SSH (22) használatát. Ha a gép RDP-kapcsolaton keresztüli felügyeletét tervezi, nyissa meg a 3389-es portot.
 
-    i. Ha bővítményeket szeretne hozzáadni a virtuális géphez, válassza a **bővítmények**lehetőséget. A bővítmények új szolgáltatásokat, például konfiguráció-felügyeleti vagy vírusvédelmi védelmet biztosítanak a virtuális géphez. 
+    i. Ha bővítményeket szeretne hozzáadni a virtuális géphez, válassza a **bővítmények** lehetőséget. A bővítmények új szolgáltatásokat, például konfiguráció-felügyeleti vagy vírusvédelmi védelmet biztosítanak a virtuális géphez. 
 
-    j. A **figyelés**letiltása vagy engedélyezése. Az indítási problémák diagnosztizálásához a figyelés használatával rögzítheti egy gazdagépen futó virtuális gép soros konzoljának kimenetét és képernyőképeit. 
+    j. A **figyelés** letiltása vagy engedélyezése. Az indítási problémák diagnosztizálásához a figyelés használatával rögzítheti egy gazdagépen futó virtuális gép soros konzoljának kimenetét és képernyőképeit. 
 
-    k. A mérőszámokat tároló Storage-fiók megadásához válassza a **diagnosztika Storage-fiók**lehetőséget. A metrikák egy Storage-fiókba íródnak, így a saját eszközeivel is elemezheti őket. 
+    k. A mérőszámokat tároló Storage-fiók megadásához válassza a **diagnosztika Storage-fiók** lehetőséget. A metrikák egy Storage-fiókba íródnak, így a saját eszközeivel is elemezheti őket. 
 
-    l. Válassza az **OK** lehetőséget.
+    l. Kattintson az **OK** gombra.
 
 1. Tekintse át a **4. Összefoglalás**:
     - A portál ellenőrzi a beállításokat.
@@ -131,15 +131,15 @@ Egy előre definiált szolgáltatás (például RDP vagy SSH) esetében módosí
 
 1. A **Source (forrás**) beállításnál hagyja meg az alapértelmezett **beállítást.**
 
-1. A **forrás porttartomány**mezőben hagyja meg a helyettesítő karaktert (*).
+1. A **forrás porttartomány** mezőben hagyja meg a helyettesítő karaktert (*).
 
-1. A **célport tartománya**mezőben adja meg a megnyitni kívánt portot, például **3000**.
+1. A **célport tartománya** mezőben adja meg a megnyitni kívánt portot, például **3000**.
 
-1. A **protokoll**beállításnál hagyja meg az alapértelmezett **beállítást.**
+1. A **protokoll** beállításnál hagyja meg az alapértelmezett **beállítást.**
 
 1. A **Művelet** beállításnál válassza az **Engedélyezés** lehetőséget.
 
-1. A **prioritás**beállításnál hagyja meg az alapértelmezett beállítást.
+1. A **prioritás** beállításnál hagyja meg az alapértelmezett beállítást.
 
 1. Adjon meg egy **nevet** és egy **leírást** , amely segít megjegyeznünk, hogy a port miért van nyitva.
 
@@ -155,9 +155,9 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
 
 1. Válassza az **Áttekintés** lehetőséget.
 
-1. A **virtuális gép**területen válassza a **Konfigurálás**lehetőséget.
+1. A **virtuális gép** területen válassza a **Konfigurálás** lehetőséget.
 
-1. A **hozzárendelés**beállításnál válassza a **dinamikus**lehetőséget.
+1. A **hozzárendelés** beállításnál válassza a **dinamikus** lehetőséget.
 
 1. Adja meg a DNS-név címkéjét (például **mywebapp**), így a teljes URL-cím *mywebapp. local. cloudapp. azurestack. external* lesz (ASDK-alkalmazás esetén).
 
@@ -172,6 +172,6 @@ Emellett létrehozhat egy DNS-nevet is a kiszolgálóhoz, így a felhasználók 
         sudo apt-get -y upgrade
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).

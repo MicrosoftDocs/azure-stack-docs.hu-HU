@@ -3,16 +3,16 @@ title: Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 description: Ismerje meg, hogyan állíthat be több helyek közötti VPN-alagutat Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c7462bebc919b85db64dae9c4a07fdc1ca276e33
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674636"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525778"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Több helyek közötti VPN-alagút beállítása Azure Stack hub-ban
 
@@ -207,7 +207,7 @@ A folyamat majdnem azonos. Ha azonban az alagút sablonját a meglévő infrastr
 
 ![Az "irányítópult > új > a megoldás sablonjának üzembe helyezése > paraméterek" párbeszédpanelen egy "erőforráscsoport" szövegmező és egy választógomb látható. A "meglévő használata" gomb van kiválasztva, a szöveg pedig "AppTier". Négy másik kiemelt szövegmező a webrétegű kimenetből származó adatokat tartalmaz.](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
 [VPN-alagút létrehozása a GRE használatával](network-howto-vpn-tunnel-gre.md)  

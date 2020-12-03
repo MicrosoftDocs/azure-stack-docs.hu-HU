@@ -3,16 +3,16 @@ title: C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuá
 description: Helyezzen üzembe egy C# ASP.NET-webalkalmazást Azure Stack hub egyik virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574193"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525412"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -63,23 +63,23 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
     Minden porthoz:
 
-    a. A **forrás**mezőben válassza a **bármelyik**lehetőséget.
+    a. A **forrás** mezőben válassza a **bármelyik** lehetőséget.
 
-    b. A **forrásport-tartomány**mezőbe írjon be egy csillag ( **\*** ) karaktert.
+    b. A **forrásport-tartomány** mezőbe írjon be egy csillagot (* *\** _).
 
-    c. A **cél**mezőben válassza a **bármelyik**lehetőséget.
+    c. A _ * Destination * * esetében válassza **a bármelyik** lehetőséget.
 
-    d. A **célport tartománya**mezőben adja meg a megnyitni kívánt portot.
+    d. A **célport tartománya** mezőben adja meg a megnyitni kívánt portot.
 
-    e. A **protokoll**területen válassza **a bármelyik**lehetőséget.
+    e. A **protokoll** területen válassza **a bármelyik** lehetőséget.
 
     f. A **Művelet** beállításnál válassza az **Engedélyezés** lehetőséget.
 
-    : A **prioritás**beállításnál hagyja meg az alapértelmezett beállítást.
+    : A **prioritás** beállításnál hagyja meg az alapértelmezett beállítást.
 
     h. Adjon meg egy **nevet** és egy **leírást** , amely segít megjegyeznünk, hogy a port miért van nyitva.
 
-    i. Válassza a **Hozzáadás** lehetőséget.
+    i. Válassza a **Hozzáadás** elemet.
 
 1.  A Azure Stack hub-beli virtuális gép **hálózati** beállításainál hozzon létre egy DNS-nevet a kiszolgáló számára. A felhasználók az URL-cím használatával csatlakozhatnak a webhelyhez.
 
@@ -89,11 +89,11 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
     c. Válassza az **Áttekintés** lehetőséget.
 
-    d. A **virtuális gép**területen válassza a **Konfigurálás**lehetőséget.
+    d. A **virtuális gép** területen válassza a **Konfigurálás** lehetőséget.
 
-    e. A **hozzárendelés**beállításnál válassza a **dinamikus**lehetőséget.
+    e. A **hozzárendelés** beállításnál válassza a **dinamikus** lehetőséget.
 
-    f. Adja meg a DNS-név címkéjét (például **mywebapp**), így a teljes URL-cím *mywebapp. local. cloudapp. azurestack. external*lesz.
+    f. Adja meg a DNS-név címkéjét (például **mywebapp**), így a teljes URL-cím *mywebapp. local. cloudapp. azurestack. external* lesz.
 
 ## <a name="create-an-app"></a>Alkalmazás létrehozása 
 
@@ -103,35 +103,35 @@ A Visual Studióval használhatja a saját webalkalmazást, vagy [egy ASP.net Co
 
 Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack hub-ban.
 
-1. **Megoldáskezelő**kattintson a jobb gombbal a projektre, majd válassza a **Közzététel**lehetőséget.
+1. **Megoldáskezelő** kattintson a jobb gombbal a projektre, majd válassza a **Közzététel** lehetőséget.
 
     ![ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-közzétételi szolgáltatásban](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
-1. A **közzétételi** ablakban válassza az **új profil**lehetőséget.
+1. A **közzétételi** ablakban válassza az **új profil** lehetőséget.
 1. Válassza **az IIS, FTP stb**. lehetőséget.
-1. Kattintson a **Publish** (Közzététel) elemre.
-1. **Közzétételi módszer**esetén válassza a **web Deploy (webes üzembe helyezés**) lehetőséget.
+1. Válassza a **Közzététel** lehetőséget.
+1. **Közzétételi módszer** esetén válassza a **web Deploy (webes üzembe helyezés**) lehetőséget.
 1. A **kiszolgáló** mezőben adja meg a korábban megadott DNS-nevet, például: *w21902. local. cloudapp. azurestack. external*.
-1. A **hely neve**mezőbe írja be az **alapértelmezett**webhely értéket.
-1. A **Felhasználónév**mezőben adja meg a számítógép felhasználónevét.
+1. A **hely neve** mezőbe írja be az **alapértelmezett** webhely értéket.
+1. A **Felhasználónév** mezőben adja meg a számítógép felhasználónevét.
 1. A **Password (jelszó**) mezőben adja meg a gép jelszavát.
-1. A **cél URL-cím**mezőben adja meg a webhely URL-címét, például: *mywebapp. local. cloudapp. azurestack. external*.
+1. A **cél URL-cím** mezőben adja meg a webhely URL-címét, például: *mywebapp. local. cloudapp. azurestack. external*.
 
     ![ASP.NET-webalkalmazás üzembe helyezése – webes telepítés konfigurálása](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
 
-1. A web-Deploy konfiguráció ellenőrzéséhez válassza a **kapcsolat ellenőrzése**lehetőséget, majd kattintson a **tovább**gombra.
+1. A web-Deploy konfiguráció ellenőrzéséhez válassza a **kapcsolat ellenőrzése** lehetőséget, majd kattintson a **tovább** gombra.
 1. **Konfiguráció** beállítása **kiadásként**.
 1. Állítsa be a **cél keretrendszert** **netcoreapp 2.2**-ként.
 1. **Cél futtatókörnyezet** beállítása **hordozhatóként**.
-1. Kattintson a **Mentés** gombra.
-1. Kattintson a **Publish** (Közzététel) elemre.
+1. Válassza a **Mentés** lehetőséget.
+1. Válassza a **Közzététel** lehetőséget.
 1. Nyissa meg az új kiszolgálót. Látnia kell a futó webalkalmazást.
 
     ```http  
         mywebapp.local.cloudapp.azurestack.external
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Ismerje meg, hogyan [állíthatja be a fejlesztési környezetet az Azure stack hub-ban](azure-stack-dev-start.md).
 - Ismerkedjen meg [az Azure stack hub általános telepítései IaaS](azure-stack-dev-start-deploy-app.md).

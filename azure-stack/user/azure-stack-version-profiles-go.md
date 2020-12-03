@@ -3,16 +3,16 @@ title: Az API-verziók profiljainak használata a GO in Azure Stack hub használ
 description: Ismerje meg, hogyan használható az API-verziók profiljai a GO in Azure Stack hub használatával.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 9a179649753addab0f92f99291a2a54a05e5b8fd
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546497"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525863"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Az API-verziók profiljainak használata a go in Azure Stack hub használatával
 
@@ -297,7 +297,7 @@ A go SDK-val a Azure Stack hub számára elérhető mintakód-minták a követke
 - [Tárolási Adatsík](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
 - [Managed Disks használata](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (a 2019-03-01 profilt használó minta, amely az Azure stack hub által támogatott legújabb API-verziókat célozza)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

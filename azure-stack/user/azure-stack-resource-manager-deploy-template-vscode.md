@@ -3,16 +3,16 @@ title: Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
 description: Hozzon létre egy Azure Resource Manager sablont a Visual Studio Code-ban, és a központi telepítési séma használatával készítse elő az Azure Stack hub saját verziójával kompatibilis sablont.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 72652f1a681ed630bdc67745f24c6e472101915f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 69acc0caa6e666638311629b8a2a8a957a38fade
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546854"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525557"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Üzembe helyezés a Visual Studio Code-ban Azure Stack hub-ban
 
@@ -78,7 +78,7 @@ A cikkben szereplő sablon neve `101-vm-windows-create` . A sablon egy Windows r
 10. Ha elkészült, üzembe helyezheti a sablont a PowerShell használatával. Kövesse az [üzembe helyezés a PowerShell használatával](azure-stack-deploy-template-powershell.md)című témakör utasításait. Adja meg a sablon helyét a parancsfájlban.
 11. A Windows rendszerű virtuális gép üzembe helyezése után navigáljon az Azure Stack hub portálra, és keresse meg az erőforráscsoportot. Ha törölni szeretné a gyakorlat eredményét az Azure Stack hub-ból, törölje az erőforráscsoportot.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub Resource Manager-sablonokról](azure-stack-arm-templates.md).  
 - További információ az [Azure stack hub API-profiljairól](azure-stack-version-profiles.md).

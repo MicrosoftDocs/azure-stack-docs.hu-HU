@@ -3,16 +3,16 @@ title: Azure Stack hub hitelesítési adatainak beolvasása
 description: Tudnivalók a Azure Stack hub hitelesítési adatainak beszerzéséről
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/05/2020
-ms.openlocfilehash: 25245bff433d4cf92225ec20b5423b08a6ddfc12
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 4b39ce2782f8b99740da5a2fea383892c2de5351
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354044"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525982"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack hub hitelesítési adatainak beolvasása
 
@@ -44,7 +44,7 @@ Az előfizetés AZONOSÍTÓjának lekérése:
 
 1.  Jelentkezzen be az Azure Stack hub felhasználói portálra.
 
-2.  Válassza **a minden szolgáltatás**lehetőséget.
+2.  Válassza **a minden szolgáltatás** lehetőséget.
 
     > ![Azure Stack hub Auth info előfizetés-azonosító bérlő azonosítója](./media/authenticate-azure-stack-hub/azure-stack-hub-auth-infoa.png)
 
@@ -72,6 +72,6 @@ Integrált rendszer esetén a Azure Resource Manager végpont URL-címe a követ
 
 Az URL-cím a következő tulajdonságokkal rendelkező metaadatok végpontjának lekérése: gyűjtemény végpont, gráf végpont, portál végpont, bejelentkezési végpont és célközönség. `<ResourceManager>/metadata/endpoints?api-version=1.0`
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [Azure stack hub Resource Manager](./azure-stack-version-profiles.md?view=azs-1910) Azure stack hub használatával történő használatáról.

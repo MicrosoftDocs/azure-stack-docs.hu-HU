@@ -3,16 +3,16 @@ title: A PowerShell telepítése az Azure Stack hub modulhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/17/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/27/2020
-ms.openlocfilehash: 3666965dd3cfe7827fc9ea4c12b06d40ad210ac6
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 8fc2990d49d074f56a53fa02983ffd334804ea1d
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785838"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525676"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>A PowerShell telepítése az Azure Stack hub modulhoz
 
@@ -185,7 +185,7 @@ Az Azure-erőforrás-modulok alapján a parancsmagokat és a kód-mintákat is h
 
 A AzurRM-szkriptek az az-ba való áthelyezésével és a Azure Stack hub az az modulban történő módosításával kapcsolatos részletesebb megbeszélések és útmutatás: [áttelepítés az AzureRM-ből Azure PowerShell az-ba](migrate-azurerm-az.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

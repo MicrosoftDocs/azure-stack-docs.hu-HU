@@ -3,16 +3,16 @@ title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: 'Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz. Lásd: a PowerShell AzureRM modul és a szükséges API-profilok telepítése.'
 author: mattbriggs
 ms.topic: article
-ms.date: 10/22/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/22/2020
-ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544989"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525506"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
@@ -293,7 +293,7 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
   
   [Az Azure stack hub PowerShell-modulok meglévő verzióinak eltávolításához](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)útmutatást talál.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

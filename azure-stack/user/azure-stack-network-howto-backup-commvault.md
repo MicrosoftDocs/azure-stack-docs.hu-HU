@@ -3,16 +3,16 @@ title: Virtuális gép biztonsági mentése a CommVault-mel Azure Stack hub-on
 description: Ismerje meg, hogyan készíthet biztonsági másolatot a virtuális gépről Azure Stack hub-on a CommVault.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547092"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524792"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -133,7 +133,7 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 4. Konfigurálja a biztonsági mentési tárházait úgy, hogy a CommVault Commcell-konzolon a Azure Stack hub-on kívül is használják a tárolót. A CommCell böngészőben válassza a tárolási erőforrások > Storage-készletek elemet. Kattintson a jobb gombbal, majd válassza a **tár hozzáadása elemet.** Válassza a **felhő** lehetőséget.
 
-5. Adja hozzá a Storage-készlet nevét. Válassza a **Tovább** gombot.
+5. Adja hozzá a Storage-készlet nevét. Kattintson a **Tovább** gombra.
 
 6. Válassza **Create** a  >  **Felhőbeli tároló** létrehozása lehetőséget.
 
@@ -145,15 +145,15 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 9. Adja meg a Storage-fiókjához tartozó hozzáférési adatokat. Itt megtalálhatja az Azure Storage-fiók beállításával kapcsolatos utasításokat. Hozzáférési információk:
 
-    -  **Service Host** : szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https: \/ /backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
+    -  **Service Host**: szerezze be az URL-cím nevét az erőforrás blob-tároló tulajdonságaiban. Az URL-cím például https: \/ /backuptest.blob.westus.stackpoc.com/mybackups volt, és a blob.westus.stackpoc.com a Service Host szolgáltatásban használták.
     
-    -   **Fiók neve** : használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
+    -   **Fiók neve**: használja a Storage-fiók nevét. Ez a tárolási erőforrás elérési kulcsok paneljén található.
     
-    -   **Hozzáférési kulcs** : szerezze be a hozzáférési kulcsot a tárolási erőforrás hozzáférési kulcsok paneljéről.
+    -   **Hozzáférési kulcs**: szerezze be a hozzáférési kulcsot a tárolási erőforrás hozzáférési kulcsok paneljéről.
     
-    -   **Tároló** : a tároló neve. Ebben az esetben a mybackups.
+    -   **Tároló**: a tároló neve. Ebben az esetben a mybackups.
     
-    -   **Tárolási osztály** : hagyja meg a felhasználói tároló alapértelmezett tárolási osztályát.
+    -   **Tárolási osztály**: hagyja meg a felhasználói tároló alapértelmezett tárolási osztályát.
 
 10. Hozzon létre egy Microsoft Azure Stack hub-ügyfelet [egy Microsoft Azure stack hub-ügyfél létrehozásához](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) szükséges utasítások követésével
 
@@ -206,6 +206,6 @@ Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási
 
 ![A fázis részletei című lista hat eseményt mutat be négy gépen. Minden esetben a fázis neve, az állapot, a kezdési idő és a befejezési idő szerepel. A fázisok nevei kikapcsolva, bekapcsolva, a szinkronizálás letiltása és a post művelet.](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  
