@@ -3,16 +3,16 @@ title: A ASDK üzembe helyezés utáni konfigurációi
 description: A Azure Stack Development Kit (ASDK) telepítése utáni ajánlott konfigurációs módosítások ismertetése.
 author: justinha
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 9cef49ee81662e7a68396067ee94430c17e20b32
-ms.sourcegitcommit: 1effe07b52b4adc1a5b27dc705b4dde676f10006
+ms.lastreviewed: 12/03/2020
+ms.openlocfilehash: 1d31bc40c77b68f43d48def1d4ce874dd69160b1
+ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519280"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96579719"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -30,28 +30,24 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Az API-verziók profiljaival megadásával Azure Stack kompatibilis az modulok.  Az API-verziók profiljai lehetővé teszik az Azure és a Azure Stack közötti verziók közötti különbségek kezelését. Az API-verzió profil az az PowerShell-modulok meghatározott API-verziókkal. Az az **. BootStrapper** modul, amely a PowerShell-Galéria keresztül érhető el, PowerShell-parancsmagokat biztosít, amelyek szükségesek az API-verzió profiljainak használatához.
 
-A legújabb Azure Stack PowerShell-modult internetkapcsolattal rendelkező vagy anélkül is telepítheti a ASDK gazdagéphez:
+A legújabb Azure Stack PowerShell-modult az internetkapcsolattal rendelkező vagy anélkül is telepítheti a ASDK-gazdagéphez.
 
-> [!IMPORTANT]
-> A szükséges verzió telepítése előtt győződjön meg arról, hogy [eltávolította a meglévő Azure PowerShell modulokat](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
+1.  Ellenőrizze az előfeltételeket a Windows rendszerű gépen. Útmutatásért lásd: [Előfeltételek a Windows rendszerhez](../operator/powershell-install-az-module.md#prerequisites-for-windows).
+2. A PowerShell szükséges verziójának telepítése előtt győződjön meg arról, hogy [eltávolította a meglévő Azure PowerShell modulokat](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules). 
 
 - **Internetkapcsolat** a ASDK gazdagépen: futtassa a következő PowerShell-szkriptet a modulok ASDK-telepítésre történő telepítéséhez:
 
 ### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
   ```powershell  
-  # Update the current PowerShellGet module to latest version, required to support PreRelease modules
-  Install-Module -Name PowerShellGet -Force
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 
-  # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name Az.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 Ha a telepítés sikeres, az az és a AzureStack modulok megjelennek a kimenetben.
@@ -59,15 +55,17 @@ Ha a telepítés sikeres, az az és a AzureStack modulok megjelennek a kimenetbe
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
 
   ```powershell  
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
-
-  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name AzureRM.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 Ha a telepítés sikeres, a AureRM és a AzureStack modulok megjelennek a kimenetben.

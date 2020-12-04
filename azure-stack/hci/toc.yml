@@ -32,8 +32,6 @@
       items:
         - name: Fürt létrehozása a PowerShell-lel
           href: deploy/create-cluster-powershell.md
-        - name: Hálózati vezérlő üzembe helyezése a PowerShell-lel
-          href: deploy/network-controller-powershell.md
 - name: Kezelés
   items:
     - name: Virtuális gépek kezelése
@@ -126,7 +124,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózatkezelés
+    - name: Hálózat
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
@@ -204,7 +202,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Források
+- name: További források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
