@@ -6,14 +6,16 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 6fd907a44cdaad5f5dfe7ccb3a29f5fc6a0152b6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e94b1b3cd5097baba655eedd72669af060f90e2d
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948897"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557038"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Oktatóanyag: linuxos alkalmazások üzembe helyezése az Azure Kubernetes szolgáltatásban Azure Stack HCI-ben
+
+> A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
 
 Ebben az oktatóanyagban egy többtárolós alkalmazást helyez üzembe, amely egy webes kezelőfelületet és egy Redis adatbázis-példányt tartalmaz az Azure Kubernetes szolgáltatásban Azure Stack HCI-fürtön. Ezután megtudhatja, hogyan tesztelheti és méretezheti az alkalmazást. 
 
@@ -145,7 +147,7 @@ A folyamat figyeléséhez használja az `kubectl get service` `--watch` argument
 kubectl get service azure-vote-front --watch
 ```
 
-Kezdetben a *külső IP-cím* az *Azure-vote-elülső* szolgáltatáshoz *függőben*jelenik meg.
+Kezdetben a *külső IP-cím* az *Azure-vote-elülső* szolgáltatáshoz *függőben* jelenik meg.
 
 ```output
 NAME               TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
@@ -165,13 +167,13 @@ Az Azure vote alkalmazás működés közbeni megtekintéséhez nyisson meg egy 
 
 ## <a name="scale-application-pods"></a>Alkalmazás-hüvelyek méretezése
 
-Létrehoztam egy replikát az Azure szavazás előtér-és Redis-példányáról. A fürtben található hüvelyek számának és állapotának megtekintéséhez használja a `kubectl get` parancsot a következő módon:
+Létrehozta az Azure vote előtér-és Redis-példányának egyetlen replikáját. A fürtben található hüvelyek számának és állapotának megtekintéséhez használja a `kubectl get` parancsot a következő módon:
 
 ```console
 kubectl get pods -n default
 ```
 
-A következő példa egy előtérbeli podot és egy háttérbeli podot mutat be:
+A következő példa kimenete egy előtér-Pod és egy háttér-hüvelyt mutat be:
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -179,7 +181,7 @@ azure-vote-back-6bdcb87f89-g2pqg    1/1       Running   0          25m
 azure-vote-front-84c8bf64fc-cdq86   1/1       Running   0          25m
 ```
 
-Ha módosítani szeretné a hüvelyek számát az *Azure-vote-előtérben* üzemelő példányban, használja az `kubectl scale` parancsot. A következő példa *5*-re növeli az előtérbeli podok számát:
+Ha módosítani szeretné a hüvelyek számát az *Azure-vote-előtérben* üzemelő példányban, használja az `kubectl scale` parancsot. Az alábbi példa az előtér-hüvelyek számát *5*-re emeli:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -199,6 +201,6 @@ azure-vote-front-84c8bf64fc-jmmvs   1/1     Running   0          80s
 azure-vote-front-84c8bf64fc-znc6z   1/1     Running   0          80s
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [A fürt és az alkalmazás figyeléséhez használja a Azure monitor](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters).

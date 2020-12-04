@@ -5,22 +5,23 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 6f4712049e2336373d977acc71164bfb932eaf86
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064616"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557378"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
+> A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
 
-Az Azure Kubernetes Service on Azure Stack HCI az Azure Kubernetes szolgáltatás (ak) helyszíni megvalósítása, amely automatizálja a tároló alkalmazások méretezését. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
+Az Azure Kubernetes Service on Azure Stack HCI az Azure Kubernetes szolgáltatás (ak) helyszíni megvalósítása, amely automatizálja a tároló alkalmazások méretezését. Az Azure Kubernetes Service mostantól előzetes verzióban érhető el a Azure Stack HCI és a Windows Server 2019 Datacenter rendszerhez, így a Linux-és Windows-tárolók az adatközpontban való üzemeltetésének megkezdése gyorsabb.
 
-Az Azure Kubernetes Service helyszíni üzembe helyezésének megkezdéséhez [regisztráljon az előzetes](https://aka.ms/AKS-HCI-Evaluate) verzióra (az előzetes verzióban nincs további díj), majd tekintse [meg az Azure Kubernetes szolgáltatás beállítása Azure stack HCI-re](setup.md)című témakört. Az Azure Kubernetes Service használatával a felhőalapú tárolók összehangolása érdekében tekintse meg [Az Azure Kubernetes szolgáltatás az Azure-ban](/azure/aks/intro-kubernetes)című témakört.
+Az Azure Kubernetes Service helyszíni használatba [vételének](https://aka.ms/AKS-HCI-Evaluate) megkezdéséhez regisztráljon az előzetes verzióra (az előzetes verzióban nincs hozzáadott díj), majd [állítsa be az azure KUBERNETES szolgáltatást Azure stack HCI-re](setup.md). Az Azure Kubernetes Service használatával a felhőalapú tárolók összehangolása érdekében tekintse meg [Az Azure Kubernetes szolgáltatás az Azure-ban](/azure/aks/intro-kubernetes)című témakört.
 
-Az alábbi részekben néhány olyan okot ismertetünk, amelyek az Azure Kubernetes Service Azure Stack HCI-re való használatát ismertetik, majd megválaszolják a szolgáltatással kapcsolatos gyakori kérdéseket és az első lépéseket. A tárolók hátteréről lásd: [Windows és tárolók](/virtualization/windowscontainers/about/).
+Az alábbi részekben néhány olyan okot ismertetünk, amelyek az Azure Kubernetes Service Azure Stack HCI-re való használatát ismertetik, majd megválaszolják a szolgáltatással kapcsolatos gyakori kérdéseket és az első lépéseket. A tárolók hátterével kapcsolatban tekintse meg a [Windows és a tárolók](/virtualization/windowscontainers/about/) , valamint a Kubernetes hátterét ismertető témakört: [Kubernetes core Concepts](kubernetes-concepts.md) vagy [Kubernetes.IO](https://kubernetes.io).
 
-## <a name="automate-management-of-containerized-applications"></a>A tároló alkalmazások felügyeletének automatizálása
+## <a name="use-aks-to-automate-management-of-containerized-applications"></a>Az AK használata a tároló alkalmazások felügyeletének automatizálásához
 
 Bár a Docker és a Windows használatával manuálisan is kezelhet néhány tárolót, az alkalmazások gyakran öt, tíz vagy akár több száz tárolót használnak, amelyekben a Kubernetes-Orchestrator bekerül.
 
@@ -28,22 +29,18 @@ A Kubernetes egy nyílt forráskódú Orchestrator, amely a tárolók felügyele
 
 Íme néhány, az Azure Kubernetes szolgáltatás által biztosított funkció a Azure Stack HCI előzetes verziójában:
 
-- Tárolóban lévő alkalmazások üzembe helyezése nagy méretekben a Azure Stack HCI-fürtön futó virtuális gépek (úgynevezett Kubernetes-fürt) fürtje számára
-- Feladatátvétel, ha a Kubernetes-fürt egyik csomópontja meghiúsul
+- Tárolón belüli alkalmazások üzembe helyezése a Azure Stack HCI-fürtön futó Kubernetes-fürtökön
 - Linux-és Windows-alapú tárolós alkalmazások üzembe helyezése és kezelése
-- Számítási feladatok ütemterve
-- Az állapot monitorozása
+- Az AK üzembe helyezése Azure Stack HCI-ben a Windows felügyeleti központ vagy a PowerShell használatával
 - Vertikális fel-vagy leskálázás a csomópontok Kubernetes-fürthöz való hozzáadásával vagy eltávolításával
-- Hálózatkezelés felügyelete
-- Szolgáltatások felderítése
-- Alkalmazás-frissítések koordinálása
-- Hüvelyek társítása fürt csomópontjaihoz a fürtcsomópont-affinitással
-
-További információ a Kubernetes: [Kubernetes.IO](https://kubernetes.io).
+- A Kubernetes-fürt tárterületének és hálózatkezelésének kezelése
+- Automatikus frissítések biztosítása a Kubernetes üzembe helyezéséhez
+- Frissítés a legújabb elérhető Kubernetes-verzióra
+- A népszerű Azure-szolgáltatások használata az Azure arc for Kubernetes használatával
 
 ## <a name="simplify-setting-up-kubernetes"></a>Egyszerűsítse a Kubernetes beállítását
 
-Az Azure Kubernetes szolgáltatás leegyszerűsíti a Kubernetes beállítását Azure Stack HCI-ben, és a következő funkciókat tartalmazza:
+Az Azure Kubernetes szolgáltatás leegyszerűsíti a Kubernetes beállítását Azure Stack HCI és Windows Server 2019 Datacenter rendszeren, és a következő funkciókat tartalmazza:
 
 - Egy Windows felügyeleti központ varázsló a Kubernetes és függőségeinek beállításához (például kubeadm, kubelet, kubectl és Pod Network-bővítmény)
 - Windows felügyeleti központ varázsló Kubernetes-fürtök létrehozásához a tároló alkalmazások futtatásához
@@ -51,10 +48,10 @@ Az Azure Kubernetes szolgáltatás leegyszerűsíti a Kubernetes beállítását
 
 ## <a name="view-and-manage-kubernetes-using-on-premises-tools-or-azure-arc"></a>Kubernetes megtekintése és kezelése helyszíni eszközök vagy Azure arc használatával
 
-Miután beállította az Azure Kubernetes szolgáltatást a Azure Stack HCI-fürtön, és létrehozott egy Kubernetes-fürtöt, a Kubernetes-infrastruktúra felügyeletét és monitorozását néhány módon biztosítjuk:
+Miután beállította a helyszíni Azure Kubernetes szolgáltatást, és létrehozta a Kubernetes-fürtöt, a Kubernetes-infrastruktúra felügyeletét és monitorozását néhány módon biztosítjuk:
 
-- Helyszíni **eszközök, például a Kubectl és a Kubernetes irányítópult használatával** – egy nyílt forráskódú webes felületen keresztül telepíthet alkalmazásokat egy Kubernetes-fürtre, kezelheti a fürt erőforrásait, elháríthatja és megtekintheti a futó alkalmazásokat.
-- **A Azure Portal az Azure arc használatával** – Azure-szolgáltatással felügyelheti az Azure Kubernetes szolgáltatást és a felhőben és a helyszíni környezetekben üzembe helyezett Kubernetes-fürtöket. Az Azure arc használatával Kubernetes-fürtöket, valamint csomópontokat adhat hozzá egy Kubernetes-fürthöz, módosíthatja a hálózati beállításokat, és telepítheti a bővítményeket.
+- Helyszíni **eszközök, például a Kubectl és a Kubernetes irányítópult használatával** – egy nyílt forráskódú, webalapú felületen telepítheti az alkalmazásokat egy Kubernetes-fürtre, kezelheti a fürt erőforrásait, elháríthatja és megtekintheti a futó alkalmazásokat.
+- **Az Azure arc használatával Azure Portal** az Azure arc használatával kezelheti az Kubernetes-fürtökön üzembe helyezett alkalmazásokat a felhőben és a helyszíni környezetekben. 
 <br>Az Azure arc azt is lehetővé teszi, hogy a Kubernetes-fürtöket más Azure-szolgáltatásokkal is kezelhesse, beleértve a következőket:
 
   - Azure Monitor
@@ -63,9 +60,9 @@ Miután beállította az Azure Kubernetes szolgáltatást a Azure Stack HCI-für
 
 ## <a name="run-linux-and-windows-containers"></a>Linux-és Windows-tárolók futtatása
 
-Az Azure Kubernetes szolgáltatás teljes mértékben támogatja a Linux-alapú és a Windows-alapú tárolókat is. Ha Azure Stack HCI-ben hoz létre Kubernetes-fürtöt, kiválaszthatja, hogy a rendszer létrehozza-e a csomópont-készleteket (azonos virtuális gépek csoportjai) Linux-tárolók, Windows-tárolók vagy mindkettő futtatásához. 
+Az Azure Kubernetes szolgáltatás teljes mértékben támogatja a Linux-alapú és a Windows-alapú tárolókat is. Ha Azure Stack HCI-ben hoz létre Kubernetes-fürtöt, kiválaszthatja, hogy a rendszer létrehozza-e a Linux-tárolók, a Windows-tárolók vagy mindkettő futtatásához szükséges csomópont-készleteket (azonos Kubernetes-fürtöket). 
 
-Az Azure Kubernetes szolgáltatás létrehozza a Linux és a Windows rendszerű virtuális gépeket, így nem kell közvetlenül felügyelni a Linux vagy a Windows operációs rendszert.
+Az Azure Kubernetes szolgáltatás létrehozza a Linux és a Windows rendszerű csomópontokat, így nem kell közvetlenül a Linux vagy a Windows operációs rendszert felügyelni.
 
 ## <a name="secure-your-container-infrastructure"></a>A tároló-infrastruktúra biztonságossá tétele
 
@@ -82,6 +79,7 @@ Az Azure Kubernetes szolgáltatás a következő platformokon érhető el:
 
 - Az Azure-felhőben az Azure [Kubernetes Service](/azure/aks/intro-kubernetes) használatával az Azure-ban
 - Helyszíni Azure Kubernetes szolgáltatással Azure Stack HCI-n (mi ez a cikk lényege)
+- Helyszíni Azure Kubernetes Service Runtime használatával a Windows Serveren (ez a cikk a Windows Server AKSr is vonatkozik)
 - A helyszínen egy Azure Stack hub-környezetben, a [Azure stack hub AK-motorjának](../user/azure-stack-kubernetes-aks-engine-overview.md)használatával.
 
 ## <a name="how-does-kubernetes-work-on-azure-stack-hci"></a>Hogyan működik a Kubernetes Azure Stack HCI-ben?
@@ -97,7 +95,7 @@ Ha az Azure Kubernetes szolgáltatás be van állítva a Azure Stack HCI-fürtö
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Az Azure-ban üzemeltetett Azure Kubernetes Service architektúrája, amely bemutatja, hogyan kezeli az Azure a platform szolgáltatásait és a legtöbb vezérlési síkot, míg a Kubernetes-fürtöket az ügyfél kezeli." lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Az Azure-ban üzemeltetett Azure Kubernetes Service architektúrája, amely bemutatja, hogyan kezeli az Azure a platform szolgáltatásait és a legtöbb vezérlési síkot, míg a Kubernetes-fürtöket az ügyfél kezeli." lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Az Azure Kubernetes Service architektúrája Azure Stack HCI-on, amely bemutatja, hogy az Azure Stack HCI-fürtön hogyan fut minden, beleértve az Azure Kubernetes Service platformot, a vezérlési síkot, valamint a tároló alkalmazásait futtató Kubernetes-fürtöket." lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>Mi szükséges a kezdéshez?
 
@@ -105,16 +103,16 @@ Az alábbi fejezetek összefoglalják, hogy mire van szükség az Azure Kubernet
 
 ### <a name="on-your-windows-admin-center-system"></a>Windows felügyeleti központ rendszeren
 
-A Windows felügyeleti központ felügyeleti rendszerének követelményei a következők:
+A Windows felügyeleti központ átjáróját futtató gépen a következő követelmények vonatkoznak:
 
-- Windows 10 (jelenleg nem támogatjuk a Windows felügyeleti központ kiszolgálóit)
+- Windows 10 rendszerű gép (jelenleg nem támogatott a Windows felügyeleti központ futtatása a Azure Stack HCI vagy a Windows Server 2019 Datacenter rendszeren.)
 - 60 GB szabad terület
 - Regisztrálva az Azure-ban
-- Ugyanabban a tartományban, mint a Azure Stack HCI-fürt
+- Ugyanabban a tartományban, mint a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürt
 
-### <a name="on-the-azure-stack-hci-cluster-that-hosts-azure-kubernetes-service"></a>Az Azure Kubernetes szolgáltatást futtató Azure Stack HCI-fürtön
+### <a name="on-the-azure-stack-hci-cluster-or-windows-server-2019-datacenter-failover-cluster-that-hosts-azure-kubernetes-service"></a>Az Azure Kubernetes szolgáltatást futtató Azure Stack HCI-fürtön vagy a Windows Server 2019 Datacenter feladatátvevő fürtön
 
-A Azure Stack HCI vagy újabb verziójú 20H2 futtató fürt a következő követelményekkel rendelkezik:
+Az Azure Stack HCI-fürt vagy a Windows Server 2019 Datacenter feladatátvevő fürt követelményei a következők:
 
 - A fürtben legfeljebb négy kiszolgáló érhető el ehhez az előzetes kiadáshoz
 - 1 TB rendelkezésre álló kapacitás a Storage-készletben az Azure Kubernetes Service-hez
@@ -125,11 +123,9 @@ A HCI rendszerkövetelményeinek általános Azure Stack lásd: [Azure stack HCI
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI hálózati konfigurációja
 
-Az Azure Stack HCI-fürtön található virtuális gépekhez csatlakozó hálózat dedikált hatókört igényel az Azure Kubernetes szolgáltatás számára elérhető DHCP IPv4-címek számára, és az Azure Stack HCI-fürtön elérhető virtuális gépek számára érhető el.
+Az Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön található virtuális gépekhez csatlakozó hálózat dedikált hatókört igényel az Azure Kubernetes szolgáltatás számára elérhető DHCP IPv4-címek számára, és az Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön elérhető virtuális gépek számára.
 
-A VLAN-címkék nem használhatók a hálózaton az Azure Kubernetes Service-hez Azure Stack HCI-ben. Használja a hálózati kapcsolók hozzáférési (címkézetlen) portját Azure Stack HCI és az Azure Kubernetes Service virtuális gépek által használt hálózathoz.
-
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Kubernetes Service Azure Stack HCI-ben való megkezdéséhez tekintse meg a következő cikkeket:
 

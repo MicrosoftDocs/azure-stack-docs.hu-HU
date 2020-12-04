@@ -1,21 +1,24 @@
 ---
-title: Oktatóanyag – Windows-alkalmazás üzembe helyezése az AK-ban Azure Stack HCI-ben
-description: Ebben az oktatóanyagban egy Windows-alkalmazást helyez üzembe a fürtön a Azure Container Registryban tárolt egyéni rendszerkép használatával.
+title: Windows .NET-alkalmazás üzembe helyezése az AK-ban Azure Stack HCI-ben
+description: Megtudhatja, hogyan helyezhet üzembe Windows .NET-alkalmazásokat a fürtön a Azure Container Registryban tárolt egyéni rendszerkép használatával.
 author: abha
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f6bc0132dd7ce3ee9972b0aaff6d0718cab86843
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e77cda56b3a707cbd117976af9e1871712dbc6cc
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948891"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557055"
 ---
-# <a name="tutorial-deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Oktatóanyag: Windows-alkalmazások központi telepítése az Azure Kubernetes szolgáltatásban Azure Stack HCI-ben
+# <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Windows-alkalmazások üzembe helyezése az Azure Kubernetes szolgáltatásban Azure Stack HCI-ben
 
-Ebben az oktatóanyagban egy ASP.NET-minta alkalmazást helyez üzembe egy Windows Server-tárolóban a Kubernetes-fürtön. Ezután megtudhatja, hogyan tesztelheti és méretezheti az alkalmazást. Ez az oktatóanyag feltételezi, hogy alapvető ismereteket mutat a Kubernetes fogalmakról. További információ: az [Azure Kubernetes Service Kubernetes alapfogalmai Azure stack HCI](kubernetes-concepts.md)-ben.
+> A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
+
+Ebben az oktatóanyagban egy ASP.NET-minta alkalmazást telepít egy Windows Server-tárolóban a Kubernetes-fürtbe, és megtudhatja, hogyan tesztelheti és méretezheti az alkalmazást. Azt is megtudhatja, hogyan csatlakozhat Windows-csomópontokhoz egy Active Directory tartományhoz.
+Ez az oktatóanyag feltételezi, hogy alapvető ismereteket mutat a Kubernetes fogalmakról. További információ: az [Azure Kubernetes Service Kubernetes alapfogalmai Azure stack HCI](kubernetes-concepts.md)-ben.
 
 ## <a name="before-you-begin"></a>Előkészületek
 
@@ -31,7 +34,7 @@ Győződjön meg arról, hogy az alábbi követelmények állnak készen:
 
 A Kubernetes jegyzékfájl a fürt kívánt állapotát határozza meg, például a tároló lemezképeit. Ebben a cikkben egy jegyzékfájlt használunk a ASP.NET-minta alkalmazás Windows Server-tárolóban való futtatásához szükséges összes objektum létrehozásához. Ez a jegyzékfájl egy Kubernetes-telepítést tartalmaz a ASP.NET-minta alkalmazáshoz és egy külső Kubernetes szolgáltatáshoz az alkalmazás internetről való eléréséhez.
 
-A ASP.NET minta alkalmazás a .NET-keretrendszer mintáinak részeként van megadva, és Windows Server-tárolóban fut. A Azure Stack HCI-on futó Azure Kubernetes szolgáltatáshoz Windows Server-tárolók szükségesek a *Windows server 2019*rendszerképein alapul. 
+A ASP.NET minta alkalmazás a .NET-keretrendszer mintáinak részeként van megadva, és Windows Server-tárolóban fut. A Azure Stack HCI-on futó Azure Kubernetes szolgáltatáshoz Windows Server-tárolók szükségesek a *Windows server 2019* rendszerképein alapul. 
 
 A Kubernetes jegyzékfájljának meg kell határoznia egy csomópont-választót is, hogy a ASP.NET-minta alkalmazás Pod-t futtasson a Windows Server-tárolókat futtató csomóponton.
 
@@ -106,7 +109,7 @@ A folyamat figyeléséhez használja az `kubectl get service` `--watch` argument
 kubectl get service sample --watch
 ```
 
-Kezdetben a *minta* szolgáltatás *külső IP-címe* *függőben*jelenik meg.
+Kezdetben a *minta* szolgáltatás *külső IP-címe* *függőben* jelenik meg.
 
 ```output
 NAME    TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -146,7 +149,7 @@ Futtassa `kubectl get pods` újra a parancsot a további hüvelyek létrehozás�
 kubectl get pods -n default
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [A fürt és az alkalmazás figyeléséhez használja a Azure monitor](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters).
-* [Használjon állandó tárterületet, és konfigurálja a gMSA-támogatást egy Windows-tárolóban](persistent-storage-windows-nodes.md).
+* [Használjon állandó kötetet egy Kubernetes-fürtön](persistent-volume.md).

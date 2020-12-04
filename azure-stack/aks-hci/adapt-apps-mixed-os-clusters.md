@@ -6,14 +6,16 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253945"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557106"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz csomópont-választókkal vagy a megfertőzés és a tolerancia használatával
+
+> A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
 
 Az Azure Kubernetes Service on Azure Stack HCI lehetővé teszi, hogy Linux-és Windows-csomópontokkal is futtasson Kubernetes-fürtöket, de az alkalmazásokban kis méretű módosításokat kell végeznie a vegyes operációs rendszerű fürtökben való használatra. Ebben a útmutatóban megtudhatja, hogyan gondoskodhat arról, hogy az alkalmazás a megfelelő gazdagép operációs rendszerének megfelelően legyen ütemezve a csomópont-választókkal vagy a megromlások és a tolerancia használatával.
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 Futtassa `kubectl get` és azonosítsa a megfertőzni kívánt Windows-munkavégző csomópontokat.
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 Kimenet:
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 A Windows Server Worker csomópontjainak használata a használatával `kubectl taint node` .
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```
@@ -74,7 +76,7 @@ tolerations:
 ```
 További információ a szennyező adatokról és a megterhelésekről: a [megfertőzés és a tolerancia](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a útmutatóban megtanulta, hogyan adhat hozzá csomópont-választókat, illetve hogyan lehet a Kubernetes-fürtöket a kubectl használatával felvenni. Következő lépésként a következőket teheti:
 - [Linux-alkalmazások üzembe helyezése Kubernetes-fürtön](./deploy-linux-application.md).

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899703"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557004"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Az Azure Kubernetes szolgáltatás ismert problémái a Azure Stack HCI nyilvános előzetes verziójában
 Ez a cikk az Azure Kubernetes szolgáltatás nyilvános előzetes kiadásával kapcsolatos ismert problémákat ismerteti Azure Stack HCI-ben.
@@ -82,3 +82,6 @@ A Windows felügyeleti központ jelenleg nem rendelkezik olyan folyamattal, amel
 ```PowerShell
 az connectedk8s delete
 ```
+
+## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Ha az Azure Kubernetes Service-gazdagépet a Windows felügyeleti központtal állítja be, a telepítés sikertelen lehet, ha a fájlkezelő meg van nyitva
+Ha a fájlkezelő megnyitva van, és a **C:\Program Files\AksHci** könyvtárban, amikor eléri a "felülvizsgálat + létrehozás" lépést, a létrehozása meghiúsulhat a következő hibával: "a folyamat nem fér hozzá a" C:\Program Files\AksHci\wssdcloudagent.exe "fájlhoz. Ennek az az oka, hogy egy másik folyamat használja. A hiba elkerüléséhez zárja be a fájlkezelőt, vagy navigáljon egy másik címtárhoz, mielőtt elérné ezt a lépést. 

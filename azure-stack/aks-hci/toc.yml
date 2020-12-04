@@ -21,8 +21,6 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Oktatóanyagok
   items:
-    - name: Windows Server-tárolók használata
-      href: deploy-windows-application.md
     - name: Linux-tárolók használata
       href: deploy-linux-application.md
 - name: Alapelvek
@@ -37,8 +35,14 @@
       href: connect-to-arc.md
     - name: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
       href: adapt-apps-mixed-os-clusters.md
-    - name: Állandó tárterület használata Windows-tárolókban és felkészülés a gMSA
-      href: persistent-storage-windows-nodes.md
+    - name: Windows Server-tárolók használata
+      items:
+        - name: .NET-alkalmazások üzembe helyezése az AK-ban Azure Stack HCI-ben
+          href: deploy-windows-application.md
+        - name: Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz
+          href: prepare-windows-nodes-gmsa.md
+        - name: Állandó kötet használata Azure Stack HCI-fürtön található AK-ban
+          href: persistent-volume.md
     - name: Hibaelhárítás
       href: troubleshoot.md
 - name: Kapcsolódó témakörök

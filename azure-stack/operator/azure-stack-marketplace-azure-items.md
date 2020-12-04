@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 0d5fe9bfc324cbf3a52cbd3a9a38508344bda5e0
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: afb69e3060137cece30004ccf59c1c3a88833b91
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875093"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557429"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek
 
@@ -20,7 +20,7 @@ ms.locfileid: "94875093"
 
 Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, töltse le őket. A termékben szállított bővítmények nem frissülnek a normál javítási és frissítési folyamat során, ezért gyakran keressen frissítéseket. Más bővítmények csak a piactér-felügyeleten keresztül érhetők el.
 
-| Kép | Elemnév | Leírás | Publisher | Operációs rendszer típusa |
+| Rendszerkép | Elemnév | Description | Publisher | Operációs rendszer típusa |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-bővítmény (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-bővítmény (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le ezt a bővítményt bármely SQL Server Windows Marketplace-elemen való üzembe helyezéséhez – ez a bővítmény szükséges.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](/azure/virtual-machines/windows/extensions-customscript)| **Töltse le ezt a frissítést a Windowshoz készült egyéni parancsfájl-bővítmény beépített verziójára.** | Microsoft | Windows |
@@ -41,7 +41,7 @@ Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, 
 
 Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gépeket és megoldási sablonokat támogatja. A függőségeket külön, a feljegyzett módon töltheti le. Az olyan alkalmazások, mint a SQL Server és a Machine Learning Server megfelelő licencelést igényelnek, kivéve, ha az ingyenes vagy próbaverziós jelölésű.
 
-| Kép | Elemnév | Leírás | Publisher |
+| Rendszerkép | Elemnév | Description | Publisher |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2013 próbaverzió a Windows Server 2012 Datacenter és a Visual Studio 2019 Community Edition rendszerhez. | Microsoft |
 | ![SharePoint Server 2016 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2016 próbaverzió a Windows Server 2016 Datacenter rendszeren. | Microsoft |
@@ -52,14 +52,14 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="linux-distributions"></a>Linux-disztribúciók
 
-| Kép | Elemnév | Leírás | Publisher |
+| Rendszerkép | Elemnév | Description | Publisher |
 | --- | --- | --- | --- |
 | ![Linux operációs rendszer törlése](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux operációs rendszer törlése](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Az Intel architektúrára optimalizált, Linux-disztribúció. | Linux-projekt törlése |
-| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | A CoreOS egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevőre, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
+| ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://coreos.com/os/docs/latest/booting-on-azure.html) | A CoreOS egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevőre, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Az Ubuntu Server a világ legnépszerűbb Linux-környezete. | Canonical |
 | ![Debian 8 "Megbéklyóz"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Megbéklyóz"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | A Debian GNU/Linux az egyik legnépszerűbb Linux-disztribúció. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | A Oracle Linux operációs rendszer a nyílt felhőalapú infrastruktúra kialakítására szolgál. A nagyvállalati SaaS-és a Pásti-munkaterhelések, valamint a hagyományos Nagyvállalati alkalmazások vezető teljesítményének, méretezhetőségének és megbízhatóságának köszönhetően. | Oracle |
-| ![CentOS-alapú 7,6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 7,6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOS76?tab=Overview) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic) |
+| ![CentOS-alapú 7,6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 7,6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic) |
 | ![CentOS-alapú 7,5 – LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú 7,5 – LVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic) |
 | ![CentOS-alapú HPC](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-alapú HPC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc) | A Linux ezen eloszlása CentOS-alapú, és a szélhámos Wave szoftver biztosít. | Rogue Wave Software (korábban OpenLogic)  |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -68,7 +68,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Harmadik féltől származó BYOL, ingyenes, próbaverziós képek és megoldási sablonok
 
-| Kép | Elemnév | Leírás | Publisher |
+| Rendszerkép | Elemnév | Description | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Az A10-es hálózatok vThunder (Application Delivery Controller) Microsoft Azure célra készültek nagy teljesítményű, rugalmas és könnyen üzembe helyezhető alkalmazások kézbesítéséhez és a kiszolgáló terheléselosztásához, és az Azure-felhőben való natív futtatásra optimalizáltak. | A10 Networks |
 | ![Arista vEOS-útválasztó](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS-útválasztó](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | A Arista vEOS útválasztó egy funkciókban gazdag, többfelhős és többszintű virtuális útválasztó, amely lehetővé teszi a vállalatok és a felhőalapú szolgáltatók számára a konzisztens, magas biztonságú és skálázható hibrid hálózatok kiépítését. | Arista hálózatok |

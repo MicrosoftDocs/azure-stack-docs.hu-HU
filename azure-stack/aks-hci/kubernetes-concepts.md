@@ -5,15 +5,18 @@ author: daschott
 ms.author: daschott
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 49ecf74033b2b6c68de1fa5fdfba84136c845397
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e17e75631a6daac8c7523a2340dd69d5914a82de
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948909"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557072"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service-hez készült Kubernetes alapvető fogalmai Azure Stack HCI-ben
-Az Azure Kubernetes Service on Azure Stack HCI egy nagyvállalati szintű Kubernetes-tároló platform, amely Azure Stack HCI-alapú. Ez magában foglalja a Microsoft által támogatott alapvető Kubernetes, bővítményeket, a Windows-tárolókat és a Microsoft által támogatott linuxos tároló-gazdagépet, amelynek célja, hogy **egyszerű üzembe helyezési és életciklus-kezelési élményt**biztosítson.
+
+> A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
+
+Az Azure Kubernetes Service on Azure Stack HCI egy nagyvállalati szintű Kubernetes-tároló platform, amely Azure Stack HCI-alapú. Ez magában foglalja a Microsoft által támogatott alapvető Kubernetes, bővítményeket, a Windows-tárolókat és a Microsoft által támogatott linuxos tároló-gazdagépet, amelynek célja, hogy **egyszerű üzembe helyezési és életciklus-kezelési élményt** biztosítson.
 
 Ez a cikk bemutatja a legfontosabb Kubernetes infrastruktúra-összetevőket, például a vezérlési síkot, a csomópontokat és a csomópont-készleteket. A munkaterhelések erőforrásai, például a hüvelyek, a központi telepítések és a készletek, valamint az erőforrások névterek szerinti csoportosítása is bevezethető.
 
@@ -53,7 +56,7 @@ A Load Balancer egy Linux és HAProxy + életben futó virtuális gép, amely el
 
 Az Azure Kubernetes Service on Azure Stack HCI minden egyes cél fürthöz legalább egy terheléselosztó virtuális gépet (LB VM) fog hozzáadni. Ezen kívül egy másik terheléselosztó is létrehozható az API-kiszolgáló magas rendelkezésre állásához a célként megadott fürtön. Bármely, a Kubernetes létrehozott típusú szolgáltatás egy terheléselosztási `LoadBalancer` szabályt fog létrehozni az LB virtuális gépen.
 
-### <a name="add-on-components"></a>Kiegészítő összetevők
+### <a name="add-on-components"></a>Összetevők Add-On
 Több opcionális bővítmény-összetevő is üzembe helyezhető bármely adott fürtben: az Azure arc, a Prometheus, a Grafana vagy a Kubernetes irányítópult.
 
 ## <a name="kubernetes-components"></a>Kubernetes-összetevők

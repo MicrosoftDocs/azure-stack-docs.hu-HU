@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 26edd1f52b5a3d695fa70493606c1e2438feda78
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415045"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557089"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes szolgáltatás hibaelhárítása Azure Stack HCI-ben
 
@@ -79,20 +79,45 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Windows Worker-csomópontok hibaelhárítása 
-Ha be szeretne jelentkezni egy Windows Worker-csomópontra, először futtassa a csomópont IP-címét `kubectl get` . Jegyezze fel az `EXTERNAL-IP` értéket.
+Ha SSH-val szeretne bejelentkezni egy Windows Worker-csomópontba, először a csomópont IP-címét kell lekérnie az érték futtatásával `kubectl get` és rögzítésével `EXTERNAL-IP` .
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-SSH-t a csomópontra a használatával `ssh Administrator@ip` . Miután az SSH-t a csomópontba helyezi, a futtatásával `net user administrator *` frissítheti a rendszergazdai jelszavát. 
+[!NOTE] 
+Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
+
+A Windows Worker csomópont IP-címének lekérése:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+SSH-val való használata `ssh Administrator@ip` Windows-csomópontra:  
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the Node>
+```
+  
+Miután az SSH-t a csomóponton futtatja, a futtatásával `net user administrator *` frissítheti a rendszergazdai jelszavát. 
+
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Linux Worker-csomópontok hibaelhárítása 
-A Linux Worker csomópontba való bejelentkezéshez először futtassa a csomópont IP-címét `kubectl get` . Jegyezze fel az `EXTERNAL-IP` értéket.
+Ha SSH-val szeretne bejelentkezni egy Linux Worker-csomópontba, először a csomópont IP-címét kell lekérnie az érték futtatásával `kubectl get` és rögzítésével `EXTERNAL-IP` .
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-SSH-t a csomópontra a használatával `ssh clouduser@ip` . 
+[!NOTE]
+Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
+
+A Linux Worker csomópont IP-címének lekérése:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+`ssh clouduser@ip`SSH használata a Linux-csomóponton: 
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa clouduser@<IP Address of the Node>
+```  
+
+Miután az SSH-t a csomóponton futtatja, a futtatásával `net user administrator *` frissítheti a rendszergazdai jelszavát. 
 
 ## <a name="troubleshooting-azure-arc-kubernetes"></a>Az Azure arc Kubernetes hibaelhárítása
 A kapcsolattal, az engedélyekkel és az ív ügynökkel kapcsolatos gyakori forgatókönyvek hibaelhárításával kapcsolatban lásd: [Azure arc-kompatibilis Kubernetes hibaelhárítása](/azure/azure-arc/kubernetes/troubleshooting).
