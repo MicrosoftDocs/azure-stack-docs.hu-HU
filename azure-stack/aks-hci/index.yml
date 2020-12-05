@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Kubernetes Service a Azure Stack HCI dokumentációjában
-summary: Az Azure Kubernetes Service on Azure Stack HCI a népszerű Azure Kubernetes szolgáltatás (ak) Orchestrator helyszíni megvalósítása, amely automatizálja a tároló alkalmazások skálázását. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
+summary: Az Azure Kubernetes Service on Azure Stack HCI a népszerű Azure Kubernetes szolgáltatás (ak) Orchestrator helyszíni megvalósítása, amely automatizálja a tároló alkalmazások skálázását. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben és a Windows Server 2019 Datacenter-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
 metadata:
   title: Azure Kubernetes Service a Azure Stack HCI dokumentációjában
   description: Az Azure Kubernetes Service on Azure Stack HCI a népszerű Azure Kubernetes szolgáltatás (ak) Orchestrator helyszíni megvalósítása, amely automatizálja a tároló alkalmazások skálázását. Az Azure Kubernetes szolgáltatás jelenleg előzetes verzióban érhető el a Azure Stack HCI-ben, így gyorsabban megkezdheti a Linux és Windows rendszerű tárolók üzemeltetését az adatközpontban.
@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 649e77bd470f723dbcf9c373f0bedebcf0a0786b
-  ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
+  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96557021"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96612284"
 landingContent:
 - title: Tudnivalók az Azure Kubernetes szolgáltatásról
   linkLists:
@@ -45,17 +45,17 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Windows .NET-alkalmazások központi telepítése
-      url: deploy-windows-application.md
     - text: Linux-tárolók használata
       url: deploy-linux-application.md
   - linkListType: how-to-guide
     links:
     - text: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
       url: adapt-apps-mixed-os-clusters.md
-    - text: Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz
+    - text: Windows-alkalmazások központi telepítése
+      url: deploy-windows-application.md
+    - text: Windows-csomópontok előkészítése gMSA-támogatáshoz
       url: prepare-windows-nodes-gmsa.md
-    - text: Állandó kötet használata Azure Stack HCI-fürtön található AK-ban
+    - text: Állandó kötetek használata
       url: persistent-volume.md
 - title: Integrálás az Azure-ral
   linkLists:

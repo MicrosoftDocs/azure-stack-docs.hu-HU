@@ -5,12 +5,12 @@ author: v-susbo
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-susbo
-ms.openlocfilehash: 6710bb9c6a9e53dea60d14be686a4ea953e1bf19
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 754ebc1a365efb7efa0e96eef438ae2347a069ab
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563565"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612573"
 ---
 # <a name="prepare-windows-nodes-for-group-managed-service-account-support"></a>Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz
 
@@ -27,23 +27,23 @@ A csoportosan felügyelt szolgáltatásfiók támogatásának engedélyezéséhe
 
 ## <a name="join-the-worker-nodes-to-a-domain"></a>A munkavégző csomópontok csatlakoztatása tartományhoz
 
-Ha a Windows-munkavégző csomópontokat tartományhoz kívánja csatlakoztatni, jelentkezzen be egy Windows Worker-csomópontba a `kubectl` Get és a deting `EXTERNAL-IP` értékének futtatásával.
+Ha a Windows-munkavégző csomópontokat tartományhoz kívánja csatlakoztatni, jelentkezzen be egy Windows Worker-csomópontra a futtatásával, és adja meg `kubectl get` az `EXTERNAL-IP` értéket.
 
 ```
-   kubectl get nodes -o wide
+kubectl get nodes -o wide
 ```  
 
-Ezután SSH-t adhat a csomóponthoz a használatával `ssh Administrator@ip` .
+Ezután SSH-t adhat a csomóponthoz a használatával `ssh Administrator@ip` . Az SSH használatával történő bejelentkezéssel kapcsolatos további információkért lásd: a [Windows Worker-csomópontok hibaelhárítása SSH használatával](troubleshoot.md#troubleshooting-windows-worker-nodes).
 
-Miután sikeresen bejelentkezett a Windows Worker-csomópontba, futtassa a következő PowerShell-parancsot a csomópont tartományhoz való csatlakoztatásához. A rendszer kérni fogja a **tartományi rendszergazdai fiók** hitelesítő adatainak megadását. Olyan emelt szintű felhasználói hitelesítő adatokat is használhat, amelyek jogosultságokkal rendelkeznek a számítógépek az adott tartományhoz való csatlakoztatásához. Ezután újra kell indítania a Windows Worker csomópontot. 
+Miután sikeresen bejelentkezett a Windows Worker-csomópontba az SSH használatával, futtassa a következő parancsot a csomópont tartományhoz való csatlakoztatásához. Ezután újra kell indítania a Windows Worker csomópontot. 
 
-```powershell
-add-computer --domainame "YourDomainName" -restart
 ```
+netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /PasswordD:Password
+```  
 
 Ha az összes Windows-feldolgozó csomópontot egy tartományhoz csatlakoztatta, kövesse az [gMSA konfigurálása](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/)című témakör lépéseit. Ezek a lépések segítséget nyújtanak a Kubernetes gMSA egyéni erőforrás-definíciók és webhookok alkalmazásához a Kubernetes-fürtön.
 
-A Windows-tárolóval és a gMSA kapcsolatos további információkért lásd: [Windows-tárolók és-gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). Hibaelhárítási információkért tekintse meg a [hibaelhárítási](troubleshoot.md) oldalt. 
+A Windows-tárolóval és a gMSA kapcsolatos további információkért lásd: [Windows-tárolók és-gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>További lépések
 

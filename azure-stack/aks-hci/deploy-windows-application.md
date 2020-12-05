@@ -3,15 +3,15 @@ title: Windows .NET-alkalmazás üzembe helyezése az AK-ban Azure Stack HCI-ben
 description: Megtudhatja, hogyan helyezhet üzembe Windows .NET-alkalmazásokat a fürtön a Azure Container Registryban tárolt egyéni rendszerkép használatával.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e77cda56b3a707cbd117976af9e1871712dbc6cc
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 844bafbb497228d2e4527a5e974574dadb95ee7d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557055"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612318"
 ---
 # <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Windows-alkalmazások üzembe helyezése az Azure Kubernetes szolgáltatásban Azure Stack HCI-ben
 

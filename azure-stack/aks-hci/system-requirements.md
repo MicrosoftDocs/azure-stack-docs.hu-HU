@@ -4,13 +4,13 @@ description: Mielőtt elkezdené az Azure Kubernetes szolgáltatást a Azure Sta
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 09/22/2020
-ms.openlocfilehash: 0d89f0a96befbedcb51151f2ccef9a7f88e0368f
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.date: 12/02/2020
+ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557327"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612471"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -71,7 +71,7 @@ Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 20
 Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automatikusan megnyitja a következő tűzfal-portokat a fürt minden kiszolgálóján. 
 
 
-| Tűzfal portja               | Description         | 
+| Tűzfal portja               | Leírás         | 
 | ---------------------------- | ------------ | 
 | 45000           | wssdagent GPRC-kiszolgáló portja           |
 | 45001             | wssdagent GPRC hitelesítési port  | 

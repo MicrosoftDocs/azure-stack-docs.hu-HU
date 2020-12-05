@@ -3,15 +3,15 @@ title: Azure Kubernetes-szolgáltatás összekapcsolása Azure Stack HCI-fürtö
 description: Azure Kubernetes-szolgáltatás összekapcsolása Azure Stack HCI-fürtön az Azure arc for Kubernetes
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 9c398e95228748faae6bd7f191b9c0319b03dfa8
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557123"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612352"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Azure Kubernetes-szolgáltatás összekapcsolása Azure Stack HCI-fürtön az Azure arc for Kubernetes
 
@@ -45,7 +45,7 @@ Az Azure arc-ügynökök a következő protokollok/portok/kimenő URL-címek mű
 * TCP a 443-es porton – > `https://:443`
 * TCP a 9418-es porton – > `git://:9418`
 
-| Végpont (DNS)                                                                                               | Description                                                                                                                 |
+| Végpont (DNS)                                                                                               | Leírás                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Ahhoz szükséges, hogy az ügynök csatlakozhasson az Azure-hoz, és regisztrálja a fürtöt                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Adatsík végpontja az ügynök számára az állapot leküldéséhez és a konfigurációs adatok beolvasásához                                      |

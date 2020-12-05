@@ -3,14 +3,14 @@ title: Gyors útmutató az Azure Kubernetes szolgáltatás beállításához Azu
 description: Ismerje meg, hogyan állíthatja be az Azure Kubernetes szolgáltatást a Azure Stack HCI-ben a Windows felügyeleti központon keresztül
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 155aa9948ceae350bed8ee8c7389b939e9099c18
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 99f3e98ff24044c74c9065bb98965dcf640c4032
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557402"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612539"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával
 
@@ -47,7 +47,7 @@ Most, hogy hozzáadta a hírcsatornát, az Azure Kubernetes Service bővítmény
 
 ## <a name="setting-up-an-azure-kubernetes-service-host"></a>Azure Kubernetes Service Host beállítása
 
-A Kubernetes-fürt létrehozása előtt egy utolsó lépést kell végrehajtania. Be kell állítania egy Azure Kubernetes Service-gazdagépet azon a rendszeren, amelyre telepíteni szeretné a Kubernetes-fürtöt. Ez a rendszer lehet Windows Server 2019 Datacenter-fürt, egyetlen csomópontos Windows Server 2019 Datacenter-fürt vagy egy 2-4-es csomópont Azure Stack HCI-fürthöz. 
+A Kubernetes-fürt létrehozása előtt egy utolsó lépést kell végrehajtania. Be kell állítania egy Azure Kubernetes Service-gazdagépet azon a rendszeren, amelyre telepíteni szeretné a Kubernetes-fürtöt. Ez a rendszer lehet Windows Server 2019 Datacenter-fürt, egyetlen csomópont Windows Server 2019 Datacenter vagy 2-4 csomópont Azure Stack HCI-fürthöz. 
 
 > [!NOTE] 
 > Az Azure Kubernetes Service-gazdagépek két független rendszeren való beállítása azzal a szándékkal, hogy a Kubernetes-fürt létrehozása során való egyesítésük nem támogatott. 
@@ -68,7 +68,7 @@ Most, hogy ellenőrizte a rendszerbeállításokat, kezdjük a kezdéssel:
 
     ![Az Azure Kubernetes Service Host varázsló gazdagép-konfiguráció lépéseit mutatja be.](.\media\setup\host-configuration.png)
 
-5. Tekintse át az összes kijelölést a **felülvizsgálat + létrehozás** lépésben. Ha elégedett a kiválasztott beállításokkal, válassza a **beállítás** lehetőséget a gazdagép telepítésének megkezdéséhez. 
+5. Tekintse át az összes kijelölést a **felülvizsgálat + létrehozás** lépésben. Ha elégedett a kiválasztott beállításokkal, válassza a **tovább** lehetőséget a gazdagép telepítésének megkezdéséhez. 
 6. A **telepítési folyamat** lapon megtekintheti a gazdagép telepítőjének állapotát. Ekkor a Windows felügyeleti központot egy új lapon nyithatja meg, és folytathatja a felügyeleti feladatokat. 
 7. Ha az üzembe helyezés sikeres, megjelenik egy felügyeleti irányítópult, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül. 
  

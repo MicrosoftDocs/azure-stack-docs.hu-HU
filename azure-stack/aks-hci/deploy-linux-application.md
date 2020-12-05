@@ -3,15 +3,15 @@ title: Oktatóanyag – Linux-alkalmazás üzembe helyezése az AK-ban Azure Sta
 description: Ebben az oktatóanyagban egy többtárolós linuxos alkalmazást helyez üzembe a fürtön a Azure Container Registryban tárolt egyéni rendszerkép használatával.
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e94b1b3cd5097baba655eedd72669af060f90e2d
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: e5f7f96956248dc7cc2c92ae678970b40951ece4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557038"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612301"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Oktatóanyag: linuxos alkalmazások üzembe helyezése az Azure Kubernetes szolgáltatásban Azure Stack HCI-ben
 

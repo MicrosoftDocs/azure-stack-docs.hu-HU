@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383632"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612624"
 ---
 # <a name="mdc-requirements-overview"></a>A MDC-követelmények áttekintése
 
@@ -60,30 +60,33 @@ A következő táblázat felsorolja az útmutatóban használt néhány kifejez�
 
 ## <a name="deployment-workflow"></a>Üzembe helyezési munkafolyamat
 
-Magas szinten a MDC üzembe helyezési folyamata a következő lépésekből áll:
+Magas szinten a MDC üzembe helyezési folyamata a következő fázisokból áll:
 
-1. Tervezési fázis:
-   1. Az adatközpont energiagazdálkodásának tervezése.
-   1. Azure Stack hub logikai hálózati konfigurációjának megtervezése.
-   1. Az adatközpont hálózati integrációjának megtervezése.
-   1. Identitás-és biztonsági integráció tervezése.
-   1. PKI-tanúsítványok tervezése.
-1. Előkészítési fázis:
-   1. Leltár gyűjtése.
-   1. A megoldás csatlakoztatása és az áramellátás.
-   1. A HVAC-rendszerek állapotának ellenőrzése.
-   1. A tűzvédelmi és a riasztási rendszer állapotának ellenőrzése.
-   1. A fizikai hardver állapotának ellenőrzése.
-1. Végrehajtási fázis – külön a három hüvely esetében:
-   1. A hardver életciklus-gazdagép konfigurálása.
-   1. Hálózati kapcsolók konfigurálása.
-   1. Datacenter hálózati integráció.
-   1. A fizikai hardver beállításainak konfigurálása.
-   1. Isilon-tároló konfigurálása.
-   1. Azure Stack hub Fabric-infrastruktúra üzembe helyezése.
-   1. Adatközpont identitásának integrációja.
-   1. Bővítmények telepítése kiterjesztett funkciókhoz.
-1. Ellenőrzési fázis – külön a három hüvely esetében:
-   1. Telepítés utáni állapot ellenőrzése.
-   1. Azure Stack hub regisztrálása a Microsofttal.
-   1. Azure Stack hub-ügyfél számára.
+### <a name="planning-phase"></a>Tervezési fázis
+1. Az adatközpont energiagazdálkodásának tervezése.
+1. Azure Stack hub logikai hálózati konfigurációjának megtervezése.
+1. Az [adatközpont hálózati integrációjának](https://docs.microsoft.com/azure-stack/operator/azure-stack-network)megtervezése.
+1. [Identitás-és biztonsági integráció](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)tervezése.
+1. PKI- [tanúsítványok](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)tervezése.
+
+### <a name="preparation-phase"></a>Előkészítési fázis
+1. Leltár gyűjtése.
+1. A megoldás csatlakoztatása és az áramellátás.
+1. A HVAC-rendszerek állapotának ellenőrzése.
+1. A tűzvédelmi és a riasztási rendszer állapotának ellenőrzése.
+1. A fizikai hardver állapotának ellenőrzése.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Végrehajtási fázis – külön a három hüvely esetében
+1. A hardver életciklus-gazdagép konfigurálása.
+1. Hálózati kapcsolók konfigurálása.
+1. Datacenter hálózati integráció.
+1. A fizikai hardver beállításainak konfigurálása.
+1. Isilon-tároló konfigurálása.
+1. Azure Stack hub Fabric-infrastruktúra üzembe helyezése.
+1. Adatközpont identitásának integrációja.
+1. Bővítmények telepítése kiterjesztett funkciókhoz.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Ellenőrzési fázis – külön a három hüvely esetében
+1. Telepítés utáni állapot ellenőrzése.
+1. Azure Stack hub regisztrálása a Microsofttal.
+1. Azure Stack hub-ügyfél számára.

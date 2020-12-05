@@ -16,7 +16,7 @@
           href: ../operator/tutorial-offer-services.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Szolgáltatási ajánlat tesztelése
           href: ../operator/tutorial-test-offer.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Fogalmak
+    - name: Alapelvek
       items:
         - name: Kapacitástervezés
           items:
@@ -31,7 +31,7 @@
             - name: Capacity Planner eszköz
               href: azure-stack-capacity-planner.md
         - name: Az integráció áttekintése
-          href: customer-journey.md
+          href: integration-overview.md
         - name: Kapcsolatok modelljei
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Csatlakoztatott üzemelő példány
@@ -240,7 +240,7 @@
                   href: ../operator/azure-stack-manage-storage-shares.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Tárolási infrastruktúra kezelése
                   href: ../operator/azure-stack-storage-infrastructure-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Fizikai memória kapacitásának kezelése
+                - name: A fizikaimemória-kapacitás kezelése
                   href: ../operator/azure-stack-manage-storage-physical-memory-capacity.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Nyilvános IP-címek hozzáadása
                   href: ../operator/azure-stack-add-ips.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -587,7 +587,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Szolgáltatások használata
               items:
-                - name: Compute
+                - name: Számítás
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -607,7 +607,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: GPU virtuális gépek
                       href: azure-stack-gpu.md
-                - name: Storage
+                - name: Tárolás
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -766,7 +766,7 @@
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Előfizetés-erőforrások másolása
                   href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Fogalmak
+    - name: Alapelvek
       items:
         - name: IaaS architektúrák
           items:

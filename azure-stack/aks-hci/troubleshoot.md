@@ -3,14 +3,14 @@ title: Az AK hibaelhárítása
 description: Ez a cikk az Azure Kubernetes Service (ak) Azure Stack HCI-ben történő hibaelhárításával kapcsolatos információkat tartalmaz.
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 26edd1f52b5a3d695fa70493606c1e2438feda78
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557089"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612454"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes szolgáltatás hibaelhárítása Azure Stack HCI-ben
 
@@ -81,8 +81,8 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ## <a name="troubleshooting-windows-worker-nodes"></a>Windows Worker-csomópontok hibaelhárítása 
 Ha SSH-val szeretne bejelentkezni egy Windows Worker-csomópontba, először a csomópont IP-címét kell lekérnie az érték futtatásával `kubectl get` és rögzítésével `EXTERNAL-IP` .
 
-[!NOTE] 
-Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
+   > [!NOTE]
+   > Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
 
 A Windows Worker csomópont IP-címének lekérése:  
 
@@ -102,8 +102,9 @@ Miután az SSH-t a csomóponton futtatja, a futtatásával `net user administrat
 ## <a name="troubleshooting-linux-worker-nodes"></a>Linux Worker-csomópontok hibaelhárítása 
 Ha SSH-val szeretne bejelentkezni egy Linux Worker-csomópontba, először a csomópont IP-címét kell lekérnie az érték futtatásával `kubectl get` és rögzítésével `EXTERNAL-IP` .
 
-[!NOTE]
-Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
+
+   > [!NOTE]
+   > Meg kell adnia a megfelelő helyet az SSH titkos kulcsának. A következő példa az%systemdrive%\akshci \. SSH \ akshci_rsa alapértelmezett helyét használja, de előfordulhat, hogy módosítania kell ezt a helyet, ha más elérési utat kért a paraméter megadásával `-sshPublicKey` `Set-AksHciConfig` .
 
 A Linux Worker csomópont IP-címének lekérése:  
 

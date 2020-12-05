@@ -3,14 +3,14 @@ title: Gyors útmutató egy Azure Kubernetes-szolgáltatás gazdagépének beál
 description: Ismerje meg, hogyan állíthat be egy Azure Kubernetes Service hostt Azure Stack HCI-ben a Windows PowerShell használatával
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 09/23/2020
+ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4e74ab1dd5f31b9d263ad41b716c974ce2e1b411
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557361"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612556"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Gyors útmutató: Azure Kubernetes Service Host beállítása Azure Stack HCI-ben a PowerShell használatával
 
@@ -26,15 +26,18 @@ Győződjön meg arról, hogy rendelkezik a következők valamelyikével:
  - Egyetlen csomópontos Windows Server 2019 Datacenter 
  
 Mielőtt elkezdené, győződjön meg arról, hogy teljesítette a [rendszerkövetelmények](.\system-requirements.md) lapon szereplő összes előfeltételt. 
-**Javasoljuk, hogy egy 2-4 csomópontot Azure Stack HCI-fürtöt.** Ha nem rendelkezik a fentiekkel, kövesse az [Azure stack HCI regisztrációs oldalon](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)található utasításokat.
+**Javasoljuk, hogy egy 2-4 csomópontot Azure Stack HCI-fürtöt.** Ha nem rendelkezik a fentiekkel, kövesse az [Azure stack HCI regisztrációs oldalon](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)található utasításokat.    
+
+   > [!IMPORTANT]
+   > Az Azure Kubernetes szolgáltatás Azure Stack HCI-ben való eltávolításakor lásd: az [Azure Kubernetes szolgáltatás eltávolítása Azure stack HCI](#remove-azure-kubernetes-service-on-azure-stack-hci) -ben, és körültekintően kövesse az utasításokat. 
 
 ## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>1. lépés: töltse le és telepítse a AksHci PowerShell-modult
 
 Töltse le az alkalmazást `AKS-HCI-Public-Preview-Dec-2020` az [Azure Kubernetes szolgáltatásból Azure stack HCI regisztrációs oldalon](https://aka.ms/AKS-HCI-Evaluate). A zip-fájl `AksHci.Powershell.zip` tartalmazza a PowerShell-modult.
 
 Ha korábban telepítette az Azure Kubernetes szolgáltatást a Azure Stack HCI-be a PowerShell vagy a Windows felügyeleti központ használatával, két telepítési folyamat van az új PowerShell-modulhoz:
- - Végezze el a PowerShell-modul tiszta telepítését, így a tiszta rendszerrel indul, és a korábban üzembe helyezett számítási feladatok törlődnek. Ehhez ugorjon a 1,1. lépésre.
- - Frissítse a PowerShell-modult, ha meg szeretné őrizni a rendszerét és a munkaterheléseit. Ehhez ugorjon a 1,2. lépésre.
+ - Végezze el a PowerShell-modul tiszta telepítését, így a tiszta rendszerrel indul, és a korábban üzembe helyezett számítási feladatok törlődnek. A tiszta telepítés végrehajtásához lépjen a 1,1. lépésre.
+ - Frissítse a PowerShell-modult, ha meg szeretné őrizni a rendszerét és a munkaterheléseit. A PowerShell-modul frissítéséhez lépjen a 1,2. lépésre.
 
 ### <a name="step-11-clean-install-of-the-akshci-powershell-module"></a>1,1. lépés: a AksHci PowerShell-modul tiszta telepítése
 
@@ -43,7 +46,7 @@ A folytatás előtt futtassa a következő parancsot.
    Uninstall-AksHci
    ```
 
-**Az összes PowerShell-ablak lezárása.** Törölje az elérési úton található AksHci, AksHci. UI, MOC és MSK8sDownloadAgent meglévő könyvtárait `%systemdrive%\program files\windowspowershell\modules` . Ha ez megtörtént, kibonthatja az új zip-fájl tartalmát. Győződjön meg arról, hogy a zip-fájlt a megfelelő helyen () szeretné kibontani `%systemdrive%\program files\windowspowershell\modules` . Ezután futtassa a következő parancsokat.
+**Az összes PowerShell-ablak lezárása.** Törölje az elérési úton található AksHci, AksHci. UI, MOC és MSK8sDownloadAgent meglévő könyvtárait `%systemdrive%\program files\windowspowershell\modules` . A meglévő könyvtárak törlése után kibonthatja az új zip-fájl tartalmát. Győződjön meg arról, hogy a zip-fájlt a megfelelő helyen () szeretné kibontani `%systemdrive%\program files\windowspowershell\modules` . Ezután futtassa a következő parancsokat.
 
    ```powershell
    Import-Module AksHci
@@ -215,11 +218,11 @@ Ha VIP-készleteket használ az üzemelő példányhoz, ez a paraméter határoz
 
 `-macPoolStart` 
 
-Ezzel a beállítással megadhatja az Azure Kubernetes Service Host VM-hez használni kívánt MAC-készlet MAC-címe kezdetét. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (például 00, 02, 04, 06...). Egy tipikus MAC-címnek A következőképpen nézhet ki: 02:1E: 2B: 78:00:00. A hosszú élettartamú üzemelő példányokhoz MAC-készleteket kell használni, hogy a hozzárendelt MAC-címek konzisztensek legyenek. Ez akkor hasznos, ha követelmény, hogy a virtuális gépek egyedi MAC-címmel rendelkezzenek. Az alapértelmezett érték a none.
+Ezzel a beállítással megadhatja az Azure Kubernetes Service Host VM-hez használni kívánt MAC-készlet MAC-címe kezdetét. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (azaz 00, 02, 04, 06...). Egy tipikus MAC-címnek A következőképpen nézhet ki: 02:1E: 2B: 78:00:00. A MAC-készletek használata hosszú élettartamú központi telepítésekhez, hogy a hozzárendelt MAC-címek konzisztensek legyenek. Ez akkor hasznos, ha követelmény, hogy a virtuális gépek egyedi MAC-címmel rendelkezzenek. Az alapértelmezett érték a none.
 
 `-macPoolEnd`
 
-Ezzel a beállítással adható meg az Azure Kubernetes Service Host virtuális géphez használni kívánt MAC-készlet MAC-címe. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (például 00, 02, 04, 06...). Az átadott címnek első bájtjának meg kell `-macPoolEnd` egyeznie a-ként átadott címek első bájtjának értékével `-macPoolStart` . A hosszú élettartamú üzemelő példányokhoz MAC-készleteket kell használni, hogy a hozzárendelt MAC-címek konzisztensek legyenek. Ez akkor hasznos, ha követelmény, hogy a virtuális gépek egyedi MAC-címmel rendelkezzenek. Az alapértelmezett érték a none.
+Ezzel a beállítással adható meg az Azure Kubernetes Service Host virtuális géphez használni kívánt MAC-készlet MAC-címe. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (azaz 00, 02, 04, 06...). Az átadott címnek első bájtjának meg kell `-macPoolEnd` egyeznie a-ként átadott címek első bájtjának értékével `-macPoolStart` . A MAC-készletek használata hosszú élettartamú központi telepítésekhez, hogy a hozzárendelt MAC-címek konzisztensek legyenek. Ez akkor hasznos, ha követelmény, hogy a virtuális gépek egyedi MAC-címmel rendelkezzenek. Az alapértelmezett érték a none.
 
 `-vlandID`
 
@@ -237,11 +240,11 @@ Ez határozza meg az Azure Kubernetes Service Host API-kiszolgáló címéhez ha
 
 `-proxyServerHTTP`
 
-Ez egy proxykiszolgáló URI-t biztosít, amelyet az összes olyan összetevőnek használnia kell, amelynek HTTP-végpontokat kell elérnie. Az URI formátuma tartalmazza az URI-sémát, a kiszolgálónevet és a portot (például: https://server.com:8888) . Az alapértelmezett érték a none.
+Ez egy proxykiszolgáló URI-t biztosít, amelyet az összes olyan összetevőnek használnia kell, amelynek HTTP-végpontokat kell elérnie. Az URI formátuma tartalmazza az URI-sémát, a kiszolgálónevet és a portot (azaz: https://server.com:8888) . Az alapértelmezett érték a none.
 
 `-proxyServerHTTPS`
 
-Ez egy proxykiszolgáló URI-t biztosít, amelyet az összes olyan összetevőnek használnia kell, amelyeknek a HTTPS-végpontokat kell elérniük. Az URI formátuma tartalmazza az URI-sémát, a kiszolgálónevet és a portot (például: https://server.com:8888) . Az alapértelmezett érték a none.
+Ez egy proxykiszolgáló URI-t biztosít, amelyet az összes olyan összetevőnek használnia kell, amelyeknek a HTTPS-végpontokat kell elérniük. Az URI formátuma tartalmazza az URI-sémát, a kiszolgálónevet és a portot (azaz: https://server.com:8888) . Az alapértelmezett érték a none.
 
 `-proxyServerNoProxy`
 
@@ -250,7 +253,7 @@ Ez egy vesszővel tagolt címtartomány, amely mentesül a proxy alól. Az alap�
 
 `-proxyServerCredential`
 
-Ez a Felhasználónév és a jelszó megadásával hitelesíti magát a HTTP/HTTPS-proxy kiszolgálókon. A (z `Get-Credential` ) segítségével létrehozhatja a paraméternek átadandó PSCredential objektumot. Az alapértelmezett érték a none.
+Ez a Felhasználónév és a jelszó megadásával hitelesíti magát a HTTP/HTTPS-proxy kiszolgálókon. A (z `Get-Credential` ) segítségével létrehozható egy objektum, amelyet `PSCredential` át lehet adni ehhez a paraméterhez. Az alapértelmezett érték a none.
 
 `-cloudServiceCidr`
 
@@ -415,7 +418,7 @@ Install-AksHci
 
 ## <a name="remove-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes szolgáltatás eltávolítása Azure Stack HCI-re
 
-Az Azure Kubernetes Service Azure Stack HCI-ben való eltávolításához futtassa a következő parancsot.
+Az Azure Kubernetes Service Azure Stack HCI-ben való eltávolításához futtassa a következő parancsot. **Ha a PowerShell használatával távolít el egy Windows felügyeleti központú központi telepítést, a parancsot a jelzővel kell futtatnia `-Force` .**
 
 ```powershell
 Uninstall-AksHci
@@ -429,7 +432,7 @@ Ha nem szeretné megőrizni a régi konfigurációt, futtassa a következő para
 Uninstall-AksHci -Force
 ```
 
-Ha a PowerShell-parancsok olyan fürtön futnak, ahol a Windows felügyeleti központot korábban már telepítették, a PowerShell-modul ellenőrzi a Windows felügyeleti központ konfigurációs fájljának létezését. A Windows felügyeleti központ minden csomóponton elhelyezi a Windows felügyeleti központ konfigurációs fájlját. Ha az Eltávolítás parancsot használja, és térjen vissza a Windows felügyeleti központba, futtassa a fenti eltávolítási parancsot a `-Force` jelzővel. Ha ez nem történik meg, a PowerShell és a Windows felügyeleti központ nem lesz szinkronban.
+Ha a PowerShell-parancsok olyan fürtön futnak, ahol a Windows felügyeleti központot korábban már telepítették, a PowerShell-modul ellenőrzi a Windows felügyeleti központ konfigurációs fájljának létezését. A Windows felügyeleti központ minden csomóponton elhelyezi a Windows felügyeleti központ konfigurációs fájlját. **Ha az Eltávolítás parancsot használja, és térjen vissza a Windows felügyeleti központba, futtassa a fenti eltávolítási parancsot a `-Force` jelzővel. Ha ez nem történik meg, a PowerShell és a Windows felügyeleti központ nem lesz szinkronban.**
 
 ## <a name="next-steps"></a>További lépések
 

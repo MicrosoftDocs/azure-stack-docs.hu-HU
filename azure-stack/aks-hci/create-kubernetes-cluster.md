@@ -3,14 +3,14 @@ title: Gyors útmutató Kubernetes-fürt létrehozásához a Windows felügyelet
 description: Megtudhatja, hogyan hozhat létre Kubernetes-fürtöt a Windows felügyeleti központban
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 73cb3a7d0ba7677948a7e96cf30872c3c6ac7582
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 7a9c1bf5d89348175b7ac25a149fe01f384964a2
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557178"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612403"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: Kubernetes-fürt létrehozása Azure Stack HCI-ben a Windows felügyeleti központtal
 

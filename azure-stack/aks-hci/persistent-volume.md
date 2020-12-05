@@ -3,15 +3,15 @@ title: Állandó kötet használata Azure Stack HCI-fürtön található AK-ban
 description: Állandó tárterület használata Windows-tárolókban és Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiókok számára
 author: v-susbo
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 12/02/2020
 ms.author: v-susbo
 ms.reviewer: ''
-ms.openlocfilehash: af18b885999ce4eaa387f7268a77ab3f1bb51d9f
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 4baaf83c16b3fc290d9dc1339aaf432dc05d89b7
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96563570"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612607"
 ---
 # <a name="use-persistent-volume-in-an-aks-on-azure-stack-hci-cluster"></a>Állandó kötet használata Azure Stack HCI-fürtön található AK-ban
 
