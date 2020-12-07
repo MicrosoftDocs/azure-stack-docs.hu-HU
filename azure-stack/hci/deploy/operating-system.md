@@ -6,13 +6,13 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064735"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761711"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>A Azure Stack HCI operációs rendszer üzembe helyezése
 
@@ -21,7 +21,7 @@ ms.locfileid: "93064735"
 Azure Stack HCI üzembe helyezésének első lépéseként le kell [töltenie Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítenie kell az operációs rendszert minden olyan kiszolgálón, amelyet fürtbe szeretne helyezni. Ez a cikk az operációs rendszer központi telepítésének különböző módszereit ismerteti, és a Windows felügyeleti központ használatával csatlakozik a kiszolgálókhoz.
 
 > [!NOTE]
-> Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet [egy Azure stack HCI-fürt létrehozásához](create-cluster.md).
+> Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://aka.ms/azurestackhcicatalog) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet [egy Azure stack HCI-fürt létrehozásához](create-cluster.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -110,36 +110,36 @@ Az Azure Stack HCI operációs rendszer manuális telepítése:
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
 
 1. A vonatkozó közlemények és licencfeltételek lapon tekintse át a licencfeltételeket, jelölje be az **Elfogadom a licencfeltételeket** jelölőnégyzetet, majd kattintson a **tovább** gombra.
-1. Milyen típusú telepítési típust szeretne? lapon válassza **az egyéni: telepítse a csak Azure stack HCI újabb verzióját (speciális)** .
+1. Milyen típusú telepítési típust szeretne? lapon válassza **az egyéni: telepítse a csak Azure stack HCI újabb verzióját (speciális)**.
 
     > [!NOTE]
     > Az operációs rendszer ezen kiadása nem támogatja a frissítési telepítéseket.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="A Azure Stack HCI telepítése varázsló telepítési típus beállítása lapja.":::
 
 1. A hová szeretné telepíteni a Azure Stack HCI-t? lapon erősítse meg azt a meghajtót, ahová telepíteni szeretné az operációs rendszert, vagy frissítse, majd válassza a **tovább** lehetőséget.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="A Azure Stack HCI telepítése varázsló meghajtó helye lapján.":::
 
 1. Az Azure Stack HCI telepítése lap megjeleníti a folyamat állapotának megjelenítését.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="A Azure Stack HCI telepítése varázsló állapot lapja.":::
 
     > [!NOTE]
     > A telepítési folyamat kétszer újraindítja az operációs rendszert a folyamat befejezéséhez, és a rendszergazdai Parancssor megnyitása előtt értesítéseket jelenít meg a szolgáltatások elindításáról.
 
 1. A rendszergazdai parancssorban kattintson az **OK** gombra a felhasználó jelszavának módosításához, mielőtt bejelentkezne az operációs rendszerbe, majd nyomja le az ENTER billentyűt.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="A jelszó módosítása kérdés.":::
 
 1. Az új hitelesítő adatok megadása a rendszergazda számára párbeszédpanelen adjon meg egy új jelszót, írja be újra a megerősítéshez, majd nyomja le az ENTER billentyűt.
 1. A jelszó megadásának megerősítése megtörtént, nyomja le az ENTER billentyűt.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="A jelszó megadását megerősítő üzenet módosítva":::
 
 Most már készen áll arra, hogy a kiszolgálói konfigurációs eszközt (Sconfig) használja a fontos feladatok elvégzéséhez. A Sconfig használatához jelentkezzen be az Azure Stack HCI operációs rendszert futtató kiszolgálóra. Ez lehet helyileg billentyűzettel és figyelővel, illetve távfelügyeleti (fej-vagy BMC-) vezérlő vagy Távoli asztal használatával. A Sconfig eszköz automatikusan megnyílik, amikor bejelentkezik a kiszolgálóra.
 
-:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="A Azure Stack HCI telepítése varázsló nyelv lapja." lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
+:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="A kiszolgálói konfigurációs eszköz felülete." lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
 
 A Sconfig eszköz főoldalán a következő kezdeti konfigurációs feladatokat végezheti el:
 - Konfigurálja a hálózatkezelést, vagy ellenőrizze, hogy a hálózat automatikusan lett-e konfigurálva Dynamic Host Configuration Protocol (DHCP) használatával.
@@ -150,7 +150,7 @@ A Sconfig eszköz főoldalán a következő kezdeti konfigurációs feladatokat 
 
 Miután az operációs rendszer igény szerint konfigurálta az Sconfig-t az egyes kiszolgálókon, készen áll a Windows felügyeleti központban a fürt létrehozása varázsló használatára a kiszolgálók fürtözéséhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A cikkel kapcsolatos következő felügyeleti feladat végrehajtásához lásd:
 > [!div class="nextstepaction"]

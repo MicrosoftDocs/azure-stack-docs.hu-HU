@@ -3,15 +3,15 @@ title: Alkalmazások átalakítása kevert operációs rendszerű Kubernetes-fü
 description: Az Azure Kubernetes szolgáltatásban a csomópont-választókkal, illetve az adatkezelési és-megtartási lehetőségekkel biztosítható, hogy az alkalmazások a Azure Stack HCI-on futó vegyes operációsrendszer-fürtökön legyenek ütemezve a megfelelő munkavégző csomópont operációs rendszeren.
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557106"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761558"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz csomópont-választókkal vagy a megfertőzés és a tolerancia használatával
 

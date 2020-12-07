@@ -1,5 +1,5 @@
 ---
-title: Azure Stack hub PKI-tanúsítványok ellenőrzése
+title: Az Azure Stack Hub PKI-tanúsítványok ellenőrzése
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan érvényesítheti Azure Stack hub integrált rendszerek PKI-tanúsítványait az Azure Stack hub Readiness-ellenőrző eszköz használatával.
 services: azure-stack
@@ -10,14 +10,14 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545768"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761651"
 ---
-# <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack hub PKI-tanúsítványok ellenőrzése
+# <a name="validate-azure-stack-hub-pki-certificates"></a>Az Azure Stack Hub PKI-tanúsítványok ellenőrzése
 
 A jelen cikkben ismertetett Azure Stack hub Readiness ellenőrző eszköz [a PowerShell-Galéria](https://aka.ms/AzsReadinessChecker)érhető el. Az eszközzel ellenőrizheti, hogy a [generált nyilvános kulcsokra épülő infrastruktúra (PKI) tanúsítványai](azure-stack-get-pki-certs.md) megfelelőek-e az üzembe helyezés előtt. A tanúsítványok érvényesítéséhez elegendő időt kell hagyni a tanúsítványok tesztelésére és kikiadására, ha szükséges.
 
@@ -78,13 +78,13 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     ```
     
     > [!Note]  
-    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Ilyenek többek között:
+    > AD FS és gráfra akkor van szükség, ha az identitásrendszer AD FS használja. Például:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Ilyenek többek között:  
+     - Helyezze a tanúsítvány (oka) t az előző lépésben létrehozott megfelelő címtárakba. Például:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -96,7 +96,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     Invoke-AzsHubDeploymentCertificateValidation -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Ilyenek többek között:
+4. Ellenőrizze a kimenetet, és győződjön meg arról, hogy minden tanúsítvány megfelel az összes tesztnek. Például:
 
     ```powershell
     Invoke-AzsHubDeploymentCertificateValidation v1.2005.1286.272 started.
@@ -148,7 +148,7 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
 
     ```
 
-    Ha más Azure Stack hub-szolgáltatásokhoz szeretne tanúsítványokat érvényesíteni, módosítsa a értékét ```-CertificateType``` . Ilyenek többek között:
+    Ha más Azure Stack hub-szolgáltatásokhoz szeretne tanúsítványokat érvényesíteni, módosítsa a értékét ```-CertificateType``` . Például:
 
     ```powershell  
     # App Services
@@ -211,9 +211,9 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Tünet** : a tesztek kimaradnak
+**Tünet**: a tesztek kimaradnak
 
-**OK** : a AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
+**OK**: a AzsReadinessChecker kihagy bizonyos teszteket, ha függőség nem teljesül:
 
  - A rendszer kihagyja a többi tanúsítványt, ha a tanúsítványlánc meghiúsul.
 
@@ -237,7 +237,13 @@ Ezekkel a lépésekkel ellenőrizheti a Azure Stack hub PKI-tanúsítványait az
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Megoldás** : kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
+**Megoldás**: kövesse az eszköz útmutatását a Részletek szakaszban az egyes tanúsítványokhoz tartozó tesztek alapján.
+
+**Tünet**: a http CRL-ellenőrzés sikertelen, annak ellenére, hogy x509-bővítményekre írt http-CDP van.
+
+**OK**: a AzsReadinessChecker jelenleg nem tud http CDP-t megkeresni bizonyos nyelveken.
+
+**Megoldás**: az érvényesítés futtatásához az operációs rendszer nyelvét állítsa be az en-us értékre.
 
 ## <a name="certificates"></a>Tanúsítványok
 
@@ -263,6 +269,6 @@ Miután a AzsReadinessChecker érvényesíti a tanúsítványokat, készen áll 
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti az Azure Stack hub-környezet nyilvános infrastruktúra-végpontjának régi tanúsítványait az [Azure stack hub Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.
  - A Pásti-szolgáltatások esetében a tanúsítványok segítségével telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack hub-ban az [Azure stack hub dokumentációjában elérhető szolgáltatások áttekintését](service-plan-offer-subscription-overview.md)követve.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Adatközpont identitásának integrációja](azure-stack-integrate-identity.md)

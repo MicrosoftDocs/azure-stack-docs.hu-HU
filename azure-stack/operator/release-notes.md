@@ -7,12 +7,12 @@ ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443333"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761728"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -103,7 +103,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
   Vegye figyelembe, hogy ezek a módosítások egy Azure Stack hub rendszer gazdagép szintjén lesznek hozzáadva. Forduljon a SZÁMÍTÓGÉPGYÁRTÓhoz, és gondoskodjon arról, hogy a szükséges módosítások a ToR-hálózati kapcsolókon legyenek. Ez a ToR-változás a 2008-es kiadásra való frissítés előtt vagy a 2008-es frissítés után végezhető el. További információt a [hálózati integráció dokumentációjában](azure-stack-network.md)talál.
 
-  - A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3**, hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak az Azure erőforrás Manager-sablonok használatával használhatók.
+- A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3**, hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak az Azure erőforrás Manager-sablonok használatával használhatók.
 
 ### <a name="fixes"></a>Javítások
 

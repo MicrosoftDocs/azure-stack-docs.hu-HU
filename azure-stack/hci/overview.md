@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517072"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761694"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
@@ -94,7 +94,7 @@ A Azure Stack HCI egy világszínvonalú, integrált virtualizációs verem, ame
 
 A kezdéshez a következőkre lesz szüksége:
 
-- Két vagy több olyan kiszolgálóból álló fürt, amely az Ön által előnyben részesített Microsoft Hardware partnertől vásárolt [Azure stack HCI katalógusból](https://azure.microsoft.com/products/azure-stack/hci/catalog/)származik.
+- Két vagy több olyan kiszolgálóból álló fürt, amely az Ön által előnyben részesített Microsoft Hardware partnertől vásárolt [Azure stack HCI katalógusból](https://aka.ms/azurestackhcicatalog)származik.
 - [Azure-előfizetés](https://azure.microsoft.com/)
 - A fürt minden olyan kiszolgálójának internetkapcsolata, amely HTTPS-alapú kimenő forgalomon keresztül tud csatlakozni a következő végpontra legalább 30 naponként: *-azurestackhci-usage.azurewebsites.net
 - A helyek között kiterjesztett fürtök esetében legalább 1 1 GB-os kapcsolatra van szükség a helyek között (a 25 GB-os RDMA-kapcsolat előnyben részesített), és 5 ms-os átlagos késéssel kell rendelkeznie, ha szinkron replikálást szeretne végezni, ha mindkét helyen egyszerre történik az írás.
@@ -106,7 +106,7 @@ További információ: [rendszerkövetelmények](concepts/system-requirements.md
 
 Az Ön által előnyben részesített Microsoft-partner által ellenőrzött Azure Stack HCI-megoldásokat vásárolhat, így a hosszadalmas tervezés és a felépítési idő nélkül megkezdheti a működését. A Microsoft partnerei egyetlen kapcsolódási pontot is kínálnak a megvalósítási és támogatási szolgáltatásokhoz. Megvásárolhatja az érvényesített csomópontokat vagy egy integrált rendszert, amely magában foglalja az előre telepített Azure Stack HCI operációs rendszert, valamint az illesztőprogram-és a belső vezérlőprogram frissítéseinek partner-bővítményeit is.
 
-Látogasson el a [Azure stack HCI Solutions](https://azure.microsoft.com/overview/azure-stack/hci) oldalra, vagy tallózzon a [Azure stack HCI-katalógusban](https://azure.microsoft.com/products/azure-stack/hci/catalog/) , és Azure stack tekintse meg a Microsoft-partnereinktől (például az ASUS, a Axellio, a Blue chip, a DATAON, a Dell EMC, a Fujitsu, a HPE, a Hitachi, a Huawei, a Lenovo, az NEC, a PRIMELINE Solutions, a QCT, a SecureGUARD és a nagymikro
+Látogasson el a [Azure stack HCI Solutions](https://azure.microsoft.com/overview/azure-stack/hci) oldalra, vagy tallózzon a [Azure stack HCI-katalógusban](https://aka.ms/azurestackhcicatalog) , és Azure stack tekintse meg a Microsoft-partnereinktől (például az ASUS, a Axellio, a Blue chip, a DATAON, a Dell EMC, a Fujitsu, a HPE, a Hitachi, a Huawei, a Lenovo, az NEC, a PRIMELINE Solutions, a QCT, a SecureGUARD és a nagymikro
 
 ## <a name="software-partners"></a>Szoftveres partnerek
 
@@ -249,7 +249,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Azure Stack HCI használata a Windows felügyeleti központtal](get-started.md)
