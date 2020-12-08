@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá üzemeltetési kiszolgálókat az SQL erőforrás-szolgáltatói adapteren keresztül történő üzembe helyezéshez.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 0345c3290b717385d8080dc6be771660ea22a2e1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: 146ce73bb28b70d44f6eff03a135e6a3a9f22249
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487906"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778206"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Üzemeltető kiszolgálók hozzáadása az SQL típusú erőforrás-szolgáltatóhoz
 
@@ -58,7 +58,7 @@ Létrehozhat olyan rendszergazdai felhasználót, amely alacsonyabb jogosultság
 * Adatbázis: létrehozás, módosítás, tárolás (csak always on), drop, Backup
 * Rendelkezésre állási Csoport: adatbázis módosítása, csatlakoztatása, hozzáadása/eltávolítása
 * Bejelentkezés: létrehozás, kijelölés, módosítás, eldobás, visszavonás
-* Select Operations: \[ Master \] . \[ sys \] . \[ availability_group_listeners \] (AlwaysOn), sys. availability_replicas (AlwaysOn), sys. Databases, \[ Master \] . \[ sys \] . \[ dm_os_sys_memory \] , SERVERPROPERTY, \[ Master \] . \[ sys \] . \[ availability_groups \] (AlwaysOn), sys. master_files
+* Select Operations: \[ Master \] . \[ sys \] . \[ availability_group_listeners \] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys. Databases, \[ Master \] . \[ sys \] . \[ dm_os_sys_memory \] , SERVERPROPERTY, \[ Master \] . \[ sys \] . \[ availability_groups \] (AlwaysOn), sys.master_files
 
 ### <a name="additional-security-information"></a>További biztonsági információk
 
@@ -66,27 +66,30 @@ A következő információk további biztonsági útmutatást nyújtanak:
 
 * Minden Azure Stack hub-tároló titkosítva van a BitLocker használatával, így a Azure Stack hub-on található bármely SQL-példány titkosított BLOB-tárolót fog használni.
 * Az SQL erőforrás-szolgáltató teljes mértékben támogatja a TLS 1,2-et. Győződjön meg arról, hogy az SQL RP-n keresztül felügyelt SQL Server _csak_ a TLS 1,2 használatára van konfigurálva, és az RP alapértelmezett értéke a következő lesz:. A SQL Server összes támogatott verziója támogatja a TLS 1,2-t. További információ: [TLS 1,2-támogatás Microsoft SQL Server számára](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
-* A **ForceEncryption** beállítás megadásával biztosíthatja, hogy az összes SQL Server-alapú kommunikáció mindig titkosítva legyen a SQL Server konfigurációkezelő használatával. További információ: [a kiszolgáló konfigurálása titkosított kapcsolatok kényszerítésére](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections).
+* A **ForceEncryption** beállítás megadásával biztosíthatja, hogy az összes SQL Server-alapú kommunikáció mindig titkosítva legyen a SQL Server konfigurációkezelő használatával. További információ: [a kiszolgáló konfigurálása titkosított kapcsolatok kényszerítésére](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017&preserve-view=true#to-configure-the-server-to-force-encrypted-connections).
 * Gondoskodjon arról, hogy minden ügyfélalkalmazás egy titkosított kapcsolaton keresztül is kommunikáljon.
 * Az RP úgy van konfigurálva, hogy megbízzon a SQL Server példányok által használt tanúsítványokban.
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>Kapacitás biztosítása egy önálló üzemeltetési SQL Server-kiszolgálóhoz való csatlakozással
 
-A SQL Server 2014 vagy SQL Server 2016 bármely kiadásával önálló (nem HA) SQL Servert használhat. Ellenőrizze, hogy rendelkezik-e rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adataival.
+A SQL Server 2014 vagy SQL Server 2016 bármely kiadásával önálló (nem HA) SQL Servert használhat. Ellenőrizze, hogy rendelkezik-e rendszergazdai jogosultságokkal rendelkező fiók hitelesítő adataival. 
 
 Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kövesse az alábbi lépéseket:
 
 1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 
-2. Válassza **a minden szolgáltatás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók**elemet.
+2. Válassza **a minden szolgáltatás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** elemet.
 
    ![SQL-üzemeltetési kiszolgálók a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Az **SQL üzemeltetési kiszolgálók**területen az SQL erőforrás-szolgáltatót az erőforrás-szolgáltatói háttérként szolgáló SQL Server-példányokhoz is összekapcsolhatja.
+   Az **SQL üzemeltetési kiszolgálók** területen az SQL erőforrás-szolgáltatót az erőforrás-szolgáltatói háttérként szolgáló SQL Server-példányokhoz is összekapcsolhatja.
 
    ![SQL-adapter irányítópultja Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. Kattintson a **Hozzáadás** gombra, majd adja meg a SQL Server-példány kapcsolati adatait az **SQL üzemeltetési kiszolgáló hozzáadása** panelen.
+
+   > [!IMPORTANT]
+   > Ne válassza az **erőforráscsoport** elemet `system.<region>.sqladapter` , amelyet az SQL Resource Provider telepítőjének hozott létre az üzembe helyezés során. Meg kell adnia egy másik erőforráscsoportot az önálló üzemeltetési kiszolgáló számára. 
 
    ![SQL-üzemeltetési kiszolgáló hozzáadása a Azure Stack hub felügyeleti portálján](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
@@ -95,19 +98,19 @@ Egy már beállított önálló üzemeltetési kiszolgáló hozzáadásához kö
    > [!NOTE]
    > Ha az SQL-példányt a felhasználó és a rendszergazda Azure Resource Manager is elérheti, akkor az erőforrás-szolgáltató irányítása alá helyezhető. Az SQL- __példányt kizárólag__ az erőforrás-szolgáltató számára kell lefoglalni.
 
-4. A kiszolgálók hozzáadásakor hozzá kell rendelnie őket egy meglévő SKU-hoz, vagy létre kell hoznia egy új SKU-t. Az **üzemeltetési kiszolgáló hozzáadása**területen válassza az **SKU**-ket.
+4. A kiszolgálók hozzáadásakor hozzá kell rendelnie őket egy meglévő SKU-hoz, vagy létre kell hoznia egy új SKU-t. Az **üzemeltetési kiszolgáló hozzáadása** területen válassza az **SKU**-ket.
 
-   * Meglévő SKU használatához válasszon egy elérhető SKU-t, majd válassza a **Létrehozás**lehetőséget.
-   * SKU létrehozásához válassza az **+ új SKU létrehozása**elemet. A **SKU létrehozása**területen adja meg a szükséges információkat, majd kattintson **az OK gombra**.
+   * Meglévő SKU használatához válasszon egy elérhető SKU-t, majd válassza a **Létrehozás** lehetőséget.
+   * SKU létrehozásához válassza az **+ új SKU létrehozása** elemet. A **SKU létrehozása** területen adja meg a szükséges információkat, majd kattintson **az OK gombra**.
 
      ![SKU létrehozása Azure Stack hub felügyeleti portálon](./media/azure-stack-sql-rp-deploy/sqlrp-new-sku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>Magas rendelkezésre állás biztosítása az SQL always on rendelkezésre állási csoportok használatával
 
-Az SQL always on-példányok konfigurálása további lépéseket igényel, és három virtuális gépet (vagy fizikai gépeket) igényel. Ez a cikk azt feltételezi, hogy már rendelkezik az Always On rendelkezésre állási csoportok alapos megismerésével. További információkért tekintse át a következő cikkeket:
+Az SQL always on-példányok konfigurálása további lépéseket igényel, és három virtuális gépet (vagy fizikai gépeket) igényel. Ez a cikk azt feltételezi, hogy már rendelkezik az Always On rendelkezésre állási csoportok alapos megismerésével. További információért tekintse át a következő cikkeket:
 
 * [SQL Server always on rendelkezésre állási csoportok bemutatása Azure-beli virtuális gépeken](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On rendelkezésre állási csoportok (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Always On rendelkezésre állási csoportok (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017&preserve-view=true)
 
 > [!NOTE]
 > Az SQL-adapter erőforrás-szolgáltatója _csak_ az SQL 2016 SP1 Enterprise vagy újabb példányokat támogatja az Always On rendelkezésre állási csoportokhoz. Ehhez az adapter-konfigurációhoz új SQL-funkciók szükségesek, például automatikus előkészítés.
@@ -136,7 +139,7 @@ A másodlagos csomópontokon futtassa a következő SQL-parancsot:
 
 ### <a name="configure-contained-database-authentication"></a>Tárolt adatbázis-hitelesítés konfigurálása
 
-Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítési kiszolgáló konfigurációs beállítása](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Egy tárolt adatbázis rendelkezésre állási csoportba való felvétele előtt győződjön meg arról, hogy a tárolt adatbázis-hitelesítési kiszolgáló beállítás értéke 1 minden olyan kiszolgálópéldány esetében, amely rendelkezésre állási replikát futtat a rendelkezésre állási csoport számára. További információ: [tárolt adatbázis-hitelesítési kiszolgáló konfigurációs beállítása](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017&preserve-view=true).
 
 A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési kiszolgáló beállítást az egyes példányok esetében:
 
@@ -151,11 +154,14 @@ A következő parancsokkal állíthatja be a tárolt adatbázis-hitelesítési k
 
 1. Jelentkezzen be a Azure Stack hub felügyeleti portálra szolgáltatás-rendszergazdaként.
 
-2. Válassza a **Tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **+ Hozzáadás**lehetőséget.
+2. Válassza a **Tallózás** &gt; **felügyeleti erőforrások** &gt; **SQL üzemeltetési kiszolgálók** &gt; **+ Hozzáadás** lehetőséget.
 
-   Az **SQL üzemeltetési kiszolgálók**területen összekapcsolhatja a SQL Server erőforrás-szolgáltatót az erőforrás-szolgáltató háttereként szolgáló SQL Server tényleges példányaival.
+   Az **SQL üzemeltetési kiszolgálók** területen összekapcsolhatja a SQL Server erőforrás-szolgáltatót az erőforrás-szolgáltató háttereként szolgáló SQL Server tényleges példányaival.
 
 3. Töltse ki az űrlapot a SQL Server példányának kapcsolati adataival. Ügyeljen arra, hogy a mindig a figyelő teljes tartománynevét használja (és a portszámot és a példány nevét). Adja meg a rendszergazdai jogosultságokkal konfigurált fiók adatait.
+
+   > [!IMPORTANT]
+   > Ne válassza az **erőforráscsoport** elemet `system.<region>.sqladapter` , amelyet az SQL Resource Provider telepítőjének hozott létre az üzembe helyezés során. Meg kell adnia egy másik erőforráscsoportot az önálló üzemeltetési kiszolgáló számára. 
 
 4. Az Always On rendelkezésre állási csoport jelölőnégyzet bejelölésével engedélyezheti az SQL always on rendelkezésre állási csoport példányainak támogatását.
 
@@ -193,6 +199,6 @@ Terveket és ajánlatokat hozhat létre, amelyekkel elérhetővé teheti az SQL-
 > [!IMPORTANT]
 > Akár két óráig is eltarthat, amíg az új kvóták elérhetővé válnak a felhasználói portálon, vagy a módosított kvóta érvénybe léptetése előtt.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Adatbázisok hozzáadása](azure-stack-sql-resource-provider-databases.md)

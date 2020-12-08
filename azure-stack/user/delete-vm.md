@@ -3,16 +3,16 @@ title: Virtuális gép törlése Azure Stack hub függőségeivel
 description: Virtuális gép (VM) törlése Azure Stack hub függőségeivel
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/22/2020
+ms.date: 12/7/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: f9e32351dbc73b42e51c485c8e2eb39d4226ea27
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 12/7/2020
+ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518211"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778189"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Virtuális gép (VM) törlése Azure Stack hub függőségeivel
 
@@ -201,6 +201,6 @@ A virtuális gép törléséhez ugyanebben a munkamenetben futtassa a következ�
 $machine | Remove-AzureRmVM -Force
 ```
 ---
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub VM-funkciók](azure-stack-vm-considerations.md)

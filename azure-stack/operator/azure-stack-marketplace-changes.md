@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970214"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778002"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -166,6 +166,22 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 12/07/2020: Bitnami Elasticsearch-fürt – 1.0.2 verzió
+- 12/07/2020: Bitnami Cassandra-fürt verziója – 1.0.21
+- 12/07/2020: Bitnami etcd-fürt verziója 1.0.16
+- 12/07/2020: Bitnami Jenkins-fürt – verzió 1.0.70
+- 12/07/2020: Bitnami Kafka-fürt – 1.0.2 verzió
+- 12/07/2020: Bitnami MariaDB Galera – fürt verziója 1.0.13
+- 12/07/2020: Bitnami MariaDB a replikálási verzió 1.0.36
+- 12/07/2020: Bitnami Memcached több példányban – verzió 1.0.34
+- 12/07/2020: a Bitnami Moodle többrétegű verziója 1.0.46
+- 12/07/2020: Bitnami NAT-fürt – verzió 1.0.19
+- 12/07/2020: Bitnami PostgreSQL és replikálás – Version 1.0.37
+- 12/07/2020: Bitnami MySQL a Replication-Version 1.0.37
+- 12/07/2020: Bitnami ZooKeeper-fürt verziója 1.0.18
+- 12/07/2020: Bitnami Redis magas rendelkezésre állása – verzió 1.0.27
+- 12/07/2020: Bitnami WordPress többrétegű verzió 1.0.56
+- 12/07/2020: Bitnami RabbitMQ-fürt verziója 1.0.38
 - 11/18/2020: SQL Server 2019 standard on Windows Server 2019 – saját licenc-verzió 15.0.20201015
 - 11/18/2020: SQL Server 2019 standard a Windows Server 2019-on – a go-verzió 15.0.20201015
 - 11/18/2020: ingyenes SQL Server licenc: SQL 2019 Developer on Windows Server 2019 – saját licenc-verzió 15.0.20201015
@@ -504,7 +520,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 5/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
 - 5/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

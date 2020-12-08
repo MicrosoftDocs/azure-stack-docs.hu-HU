@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan helyezheti üzembe a SQL Server erőforrás-szolgáltatót Azure Stack hub-on.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812665"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778172"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
-Az Azure Stack hub SQL Server erőforrás-szolgáltató segítségével elérhetővé teheti az SQL-adatbázisokat Azure Stack hub-szolgáltatásként. Az SQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (az adapter verziója <= 1.1.47.0>), vagy egy speciális kiegészítő RP Windows Server (az adapter verziójához >= 1.1.93.0).
+Az Azure Stack hub SQL Server erőforrás-szolgáltató segítségével elérhetővé teheti az SQL-adatbázisokat Azure Stack hub-szolgáltatásként. Az SQL-erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (<= 1.1.47.0>), vagy egy speciális, a következőhöz tartozó, RP-es Windows Server-kiszolgáló (adapter verziója >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Csak az erőforrás-szolgáltató támogatott az SQL vagy a MySQL-t futtató kiszolgálókon lévő elemek létrehozásához. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem egyező állapotba kerülhetnek.
+> Csak az erőforrás-szolgáltató hozhat létre elemeket az SQL vagy a MySQL-t futtató kiszolgálókon. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem támogatottak, és nem egyező állapotot eredményezhetnek.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Az Azure Stack hub SQL erőforrás-szolgáltató üzembe helyezése előtt több előfeltételnek kell teljesülnie. A követelmények teljesítéséhez hajtsa végre az alábbi lépéseket egy olyan számítógépen, amely hozzáfér a privilegizált végponti virtuális géphez:
+Az Azure Stack hub SQL erőforrás-szolgáltatójának üzembe helyezése előtt több előfeltételt is meg kell adni:
+
+- Szüksége lesz egy olyan számítógépre és fiókra, amely hozzáférhet a következőkhöz:
+   - az [Azure stack hub felügyeleti portálon](azure-stack-manage-portals.md).
+   - az emelt [szintű végpont](azure-stack-privileged-endpoint.md).
+   - a Azure Resource Manager felügyeleti végpont, `https://management.region.<fqdn>` ahol a a `<fqdn>` teljes tartománynév (vagy `https://management.local.azurestack.external` a ASDK használata esetén)
+   - az Internet, ha a Azure Stack hub üzembe helyezése Azure Active Directory (AD) identitás-szolgáltatóként való használatára.
 
 - Ha még nem tette meg, [regisztráljon Azure stack hubot](azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
 
 - Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
-  * Az SQL RP <= 1.1.47.0 verziójában töltse le a **Windows server 2016 Datacenter-Server Core** rendszerképet.
-  * Az SQL RP >= 1.1.93.0 verziójában töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
-
+  - Az SQL RP <= 1.1.47.0 verziójában töltse le a **Windows server 2016 Datacenter-Server Core** rendszerképet.
+  - Az SQL RP >= 1.1.93.0 verziójában töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
 
 - Töltse le az SQL Resource Provider bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
@@ -102,7 +107,7 @@ _Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter P
 
 ## <a name="deploy-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató üzembe helyezése
 
-Miután telepítette az összes előfeltételt, futtassa a **DeploySqlProvider.ps1** parancsfájlt egy olyan számítógépről, amely hozzáférhet mind a Azure stack hub rendszergazdai Azure Resource Management-végponthoz, mind a privilegizált végponthoz az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider.ps1 szkriptet az SQL-erőforrás-szolgáltató bináris fájljának részeként Kinyeri a rendszer, amelyet az Azure Stack hub adott verziójához töltött le.
+Miután elvégezte az összes előfeltételt, futtassa a **DeploySqlProvider.ps1** parancsfájlt egy olyan számítógépről, amely a Azure Stack hub Azure Resource Manager felügyeleti végpontját és a privilegizált végpontot is elérheti az SQL-erőforrás-szolgáltató üzembe helyezéséhez. A DeploySqlProvider.ps1 szkriptet az SQL-erőforrás-szolgáltató bináris fájljának részeként Kinyeri a rendszer, amelyet az Azure Stack hub adott verziójához töltött le.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
@@ -134,13 +139,13 @@ A következő paramétereket adhatja meg a parancssorból. Ha nem, vagy ha valam
 | **AzCredential** | Az Azure Stack hub szolgáltatás rendszergazdai fiókjának hitelesítő adatai. Használja ugyanazokat a hitelesítő adatokat, amelyeket az Azure Stack hub üzembe helyezéséhez használt. A szkript sikertelen lesz, ha a AzCredential használt fiók többtényezős hitelesítést (MFA) igényel.| _Kötelező_ |
 | **VMLocalCredential** | Az SQL Resource Provider virtuális gép helyi rendszergazdai fiókjának hitelesítő adatai. | _Kötelező_ |
 | **PrivilegedEndpoint** | Az emelt szintű végpont IP-címe vagy DNS-neve. |  _Kötelező_ |
-| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek a következők: **AzureCloud**, **AzureUSGovernment**, vagy kínai Azure Active Directory, **AzureChinaCloud** használatával. | AzureCloud |
+| **AzureEnvironment** | Az Azure Stack hub üzembe helyezéséhez használt szolgáltatás-rendszergazdai fiók Azure-környezete. Csak az Azure AD-telepítésekhez szükséges. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment**, illetve kínai Azure ad-t, **AzureChinaCloud**-t használnak. | AzureCloud |
 | **DependencyFilesLocalPath** | Csak az integrált rendszerek esetében a tanúsítvány. pfx fájlját ebbe a könyvtárba kell helyezni. Itt egy Windows Update MSU-csomagot is másolhat. | Nem _kötelező_ (az integrált rendszerek esetében _kötelező_ ) |
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
+| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Az SQL-erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
 

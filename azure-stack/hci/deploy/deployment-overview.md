@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/7/2020
-ms.openlocfilehash: cc8a994ac56dd773b34c1eb36295e252a9c9ad51
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761677"
+ms.locfileid: "96778019"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Mi a Azure Stack HCI telepítési folyamata?
 
@@ -66,7 +66,9 @@ A fürt létrehozása és regisztrálása után [futtassa a fürt-ellenőrzési 
 
 ### <a name="7-deploy-workloads"></a>7. munkaterhelések üzembe helyezése
 
-Most már készen áll a [virtuális gépek létrehozására](../manage/vm.md) és a számítási feladatok üzembe helyezésére Azure stack HCI-ben a Windows felügyeleti központon keresztül.
+Most már készen áll a munkaterhelések üzembe helyezésére Azure Stack HCI-ben a Windows felügyeleti központon keresztül.
+
+Az Azure Kubernetes szolgáltatás munkaterhelésének Azure Stack HCI-ben való üzembe helyezésével kapcsolatos további információkért tekintse meg a következő áttekintést: [Mi az az Azure Kubernetes Service on Azure stack HCI?](https://docs.microsoft.com/azure-stack/aks-hci/overview)
 
 ## <a name="next-steps"></a>További lépések
 

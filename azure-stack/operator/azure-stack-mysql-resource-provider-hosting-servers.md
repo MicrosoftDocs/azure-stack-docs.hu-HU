@@ -3,16 +3,16 @@ title: MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 description: Ismerje meg, hogyan adhat hozzá MySQL-üzemeltetési kiszolgálókat a MySQL-adapter erőforrás-szolgáltatóján keresztül történő üzembe helyezéshez.
 author: bryanla
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: a5c965591a6eb7d11540bf63c298ffa2321e0014
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414163"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778427"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>MySQL-üzemeltetési kiszolgálók hozzáadása Azure Stack központban
 
@@ -29,7 +29,7 @@ Az üzemeltetési kiszolgálók esetében a 5,6, 5,7 és 8,0 MySQL-verziók is h
 
 Alapértelmezés szerint nincs nyilvános hozzáférés konfigurálva a MySQL-hez a gazdagép virtuális gépe számára. Ahhoz, hogy a Azure Stack hub MySQL erőforrás-szolgáltatója csatlakozhasson a MySQL-kiszolgálóhoz, létre kell hoznia egy bejövő hálózati biztonsági csoport (NSG) szabályt.
 
-1. A felügyeleti portálon nyissa meg a MySQL-kiszolgáló üzembe helyezése során létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoportot ( **alapértelmezett-alhálózat-SG** ):
+1. A felügyeleti portálon nyissa meg a MySQL-kiszolgáló üzembe helyezése során létrehozott erőforráscsoportot, és válassza ki a hálózati biztonsági csoportot (**alapértelmezett-alhálózat-SG**):
 
    ![Hálózati biztonsági csoport kiválasztása a Azure Stack hub felügyeleti portálján](media/azure-stack-tutorial-mysqlrp/img6.png)
 
@@ -112,10 +112,13 @@ Ellenőrizze, hogy rendelkezik-e a rendszergazdai jogosultságokkal rendelkező 
 
    * A **MySQL üzemeltetési kiszolgáló neve mezőben** adja meg a teljes tartománynevet (FQDN) vagy egy érvényes IPv4-címeket. Ne használja a rövid virtuális gép nevét.
    * A Azure Stack hub piactéren elérhető Bitnami MySQL-lemezképek alapértelmezett rendszergazdai **felhasználóneve** a *root*.
-   * Ha nem ismeri a legfelső szintű **jelszót** , tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
+   * Ha nem ismeri a legfelső szintű **jelszót**, tekintse meg a [Bitnami dokumentációját](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , amelyből megtudhatja, hogyan kérheti le.
    * Nincs megadva alapértelmezett MySQL-példány, ezért az **üzemeltetési kiszolgáló méretét GB-ban** kell megadnia. Adjon meg egy olyan méretet, amely az adatbázis-kiszolgáló kapacitásához közeledik.
    * Az **előfizetés** alapértelmezett beállításának megtartása.
    * **Erőforráscsoport** esetén hozzon létre egy újat, vagy használjon egy meglévő csoportot.
+
+   > [!IMPORTANT]
+   > Ne válassza ki az **erőforráscsoportot** `system.<region>.sqladapter` , amelyet a MySQL erőforrás-szolgáltatói telepítő hozott létre az üzembe helyezés során. Meg kell adnia egy másik erőforráscsoportot az üzemeltető kiszolgáló számára.    
 
    > [!NOTE]
    > Ha a MySQL-példányt a bérlő és a felügyeleti Azure Resource Manager is elérheti, azt az erőforrás-szolgáltató felügyelete alá helyezheti. A MySQL **-példányt azonban** kizárólag az erőforrás-szolgáltatóhoz kell lefoglalni.
@@ -157,9 +160,9 @@ Az ajánlott eljárás szerint az SKU-ban lévő összes üzemeltetési kiszolg�
 
 A SKU-t nem lehet hozzárendelni meghatározott felhasználókhoz vagy csoportokhoz.
 
-Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  >  **MySQL-adapter**  >  **SKU** -ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
+Az SKU szerkesztéséhez lépjen a **minden szolgáltatás**  >  **MySQL-adapter**  >  **SKU**-ra. Válassza ki a módosítandó SKU-t, végezze el a szükséges módosításokat, majd kattintson a **Mentés** gombra a módosítások mentéséhez. 
 
-A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás**  >  **MySQL-adapter**  >  **SKU** -t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
+A már nem szükséges SKU törléséhez nyissa meg az **összes szolgáltatás**  >  **MySQL-adapter**  >  **SKU**-t. Kattintson a jobb gombbal az SKU nevére, és válassza a **Törlés** lehetőséget a törléshez.
 
 > [!IMPORTANT]
 > Akár egy óráig is eltarthat, amíg az új SKU elérhetővé válik a felhasználói portálon.

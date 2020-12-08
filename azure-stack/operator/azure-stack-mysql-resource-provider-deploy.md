@@ -3,35 +3,41 @@ title: MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központba
 description: Megtudhatja, hogyan helyezheti üzembe a MySQL erőforrás-szolgáltatói adaptert és a MySQL-adatbázisokat Azure Stack hub szolgáltatásként.
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812732"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778155"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
 A MySQL-kiszolgáló erőforrás-szolgáltató használatával Azure Stack hub-szolgáltatásként elérhetővé teheti a MySQL-adatbázisokat. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2016 Server Core virtuális gépen (az adapter verziója <= 1.1.47.0>), vagy egy speciális kiegészítő RP Windows Server (az adapter verziójához >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Csak az erőforrás-szolgáltató támogatott az SQL vagy a MySQL-t futtató kiszolgálókon lévő elemek létrehozásához. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem egyező állapotba kerülhetnek.
+> Csak az erőforrás-szolgáltató hozhat létre elemeket az SQL vagy a MySQL-t futtató kiszolgálókon. Az erőforrás-szolgáltató által nem létrehozott gazdagép-kiszolgálón létrehozott elemek nem támogatottak, és nem egyező állapotot eredményezhetnek.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt több előfeltételt is meg kell hoznia. A követelmények teljesítése érdekében hajtsa végre a jelen cikkben ismertetett lépéseket egy olyan számítógépen, amely hozzáfér az emelt szintű végpont virtuális géphez.
+Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt több előfeltételt is meg kell adni:
 
-* Ha még nem tette meg, [regisztráljon Azure stack hubot](./azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
+- Szüksége lesz egy olyan számítógépre és fiókra, amely hozzáférhet a következőkhöz:
+   - az [Azure stack hub felügyeleti portálon](azure-stack-manage-portals.md).
+   - az emelt [szintű végpont](azure-stack-privileged-endpoint.md).
+   - a Azure Resource Manager felügyeleti végpont, `https://management.region.<fqdn>` ahol a a `<fqdn>` teljes tartománynév (vagy `https://management.local.azurestack.external` a ASDK használata esetén)
+   - az Internet, ha a Azure Stack hub üzembe helyezése Azure Active Directory (AD) identitás-szolgáltatóként való használatára.
 
-* Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
-  * A MySQL RP <= 1.1.47.0 esetében töltse le a **Windows server 2016 Datacenter – Server Core** rendszerképet.
-  * A MySQL RP >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
+- Ha még nem tette meg, [regisztráljon Azure stack hubot](azure-stack-registration.md) az Azure-ban, hogy letöltse az Azure Marketplace-elemeket.
 
-* Töltse le a MySQL erőforrás-szolgáltató bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
+- Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
+  - A MySQL RP <= 1.1.47.0 esetében töltse le a **Windows server 2016 Datacenter – Server Core** rendszerképet.
+  - A MySQL RP >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
+
+- Töltse le a MySQL erőforrás-szolgáltató bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
   |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
@@ -44,7 +50,7 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
 >Ha a MySQL-szolgáltatót olyan rendszeren szeretné telepíteni, amely nem rendelkezik internet-hozzáféréssel, másolja a [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) fájlt egy helyi elérési útra. Adja meg az elérési út nevét a **DependencyFilesLocalPath** paraméter használatával.
 
 
-* Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
+- Győződjön meg arról, hogy a Datacenter-integráció előfeltételei teljesülnek:
 
     |Előfeltétel|Referencia|
     |-----|-----|
@@ -104,7 +110,7 @@ _Csak az integrált rendszerek telepítéséhez_. Meg kell adnia az SQL Péter P
 
 ## <a name="deploy-the-resource-provider"></a>Az erőforrás-szolgáltató üzembe helyezése
 
-Miután telepítette az összes előfeltételt, futtathatja a **DeployMySqlProvider.ps1** parancsfájlt egy olyan számítógépről, amely a Azure stack hub rendszergazdai Azure Resource Management végpontját és a privilegizált végpontot is elérheti a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A DeployMySqlProvider.ps1 szkript a MySQL erőforrás-szolgáltató telepítési fájljainak részeként lett kibontva, amelyeket a Azure Stack hub-verziójában töltött le.
+Miután elvégezte az összes előfeltételt, futtathatja a **DeployMySqlProvider.ps1** parancsfájlt egy olyan számítógépről, amely hozzáfér a Azure Stack hub Azure Resource Manager rendszergazdai végponthoz és a privilegizált végponthoz a MySQL erőforrás-szolgáltató üzembe helyezéséhez. A DeployMySqlProvider.ps1 szkript a MySQL erőforrás-szolgáltató telepítési fájljainak részeként lett kibontva, amelyeket a Azure Stack hub-verziójában töltött le.
 
  > [!IMPORTANT]
  > Az erőforrás-szolgáltató üzembe helyezése előtt tekintse át a kibocsátási megjegyzéseket, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal.
@@ -141,8 +147,8 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No |
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No |
+| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>A MySQL erőforrás-szolgáltató üzembe helyezése egyéni parancsfájl használatával
