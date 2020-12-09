@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
+ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543306"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96872644"
 ---
 # <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
@@ -28,7 +28,7 @@ Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai na
 * [Naplók küldése most](#send-logs-now)
 * [Naplók helyi mentése](#save-logs-locally)
 
-Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használni a diagnosztikai naplók küldésére az egyes esetekben. Ha Azure Stack hub tud csatlakozni az Azure-hoz, javasoljuk, hogy engedélyezze a **proaktív naplózási gyűjteményt** , amely automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók elküldése** lehetőség használatával is összegyűjtheti. Ha Azure Stack hub le van választva az Azure-ból, akkor **helyileg mentheti a naplókat**. 
+Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használni a diagnosztikai naplók küldésére az egyes esetekben. Ha Azure Stack hub tud csatlakozni az Azure-hoz, javasoljuk, hogy engedélyezze a **proaktív naplózási gyűjteményt**, amely automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók elküldése** lehetőség használatával is összegyűjtheti. Ha Azure Stack hub le van választva az Azure-ból, akkor **helyileg mentheti a naplókat**. 
 
 ![A folyamatábra bemutatja, hogyan küldhet naplókat most a Microsoftnak](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -38,11 +38,17 @@ Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használ
 
 A proaktív naplók gyűjtése a támogatási eset megnyitása előtt automatikusan összegyűjti és elküldi a Azure Stack hub diagnosztikai naplóit a Microsoftnak. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](#proactive-diagnostic-log-collection-alerts) emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
 
+::: moniker range=">= azs-2008"
+
+A Azure Stack hub 2008-es verziójától kezdve a proaktív naplózási gyűjtemény egy továbbfejlesztett algoritmust használ, amely akkor is rögzíti a naplókat, ha olyan hibák merülnek fel, amelyek nem láthatók az operátor számára. Ez biztosítja, hogy a megfelelő diagnosztikai adatok gyűjtése a megfelelő időben történjen, anélkül, hogy az operátorok beavatkozására lenne szükség. A Microsoft támogatási szolgálata bizonyos esetekben hamarabb megkezdheti a hibaelhárítást és a problémák megoldását. A kezdeti algoritmus fejlesztése a javítási és frissítési műveletekre összpontosít. Az előjelzéses naplózási gyűjtemények engedélyezése javasolt, mivel a további műveletek optimalizáltak, és az előnyök növekednek.
+
+::: moniker-end
+
 Az előjelzéses naplók gyűjtése letiltható, és bármikor újra engedélyezhető. Az alábbi lépéseket követve állíthatja be a proaktív naplózási gyűjteményt.
 
 1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 1. Nyissa meg a **Súgó + támogatás áttekintést**.
-1. Ha megjelenik a szalagcím, válassza a **proaktív naplózási gyűjtemény engedélyezése** lehetőséget. Vagy válassza a **Beállítások** lehetőséget, és állítsa be az előjelzéses **naplók gyűjteményét** az **engedélyezéshez** , majd válassza a **Mentés** lehetőséget.
+1. Ha megjelenik a szalagcím, válassza a **proaktív naplózási gyűjtemény engedélyezése** lehetőséget. Vagy válassza a **Beállítások** lehetőséget, és állítsa be az előjelzéses **naplók gyűjteményét** az **engedélyezéshez**, majd válassza a **Mentés** lehetőséget.
 
 > [!NOTE]
 > Ha a naplózási hely beállításai helyi fájlmegosztás használatára vannak konfigurálva, győződjön meg arról, hogy az életciklus-kezelési házirendek megakadályozzák, hogy a megosztási tárolók elérjék a méreteik kvótáját. Azure Stack hub nem figyeli a helyi fájlmegosztást, vagy nem kényszeríti ki az adatmegőrzési házirendeket.   
@@ -56,6 +62,38 @@ A rendszer csak a rendszerállapot-riasztások hibaelhárítását fogja haszná
 Az engedély visszavonása a korábban a beleegyezéssel gyűjtött adatokat nem érinti.
 
 A **proaktív** naplók használatával gyűjtött naplókat a Microsoft által kezelt és felügyelt Azure Storage-fiókba feltölti a rendszer. Ezeket a naplókat a Microsoft egy támogatási eset kontextusában, valamint Azure Stack hub állapotának javításához is elérheti.
+
+### <a name="proactive-diagnostic-log-collection-alerts"></a>Proaktív diagnosztikai naplók gyűjtésével kapcsolatos riasztások
+
+Ha engedélyezve van, az előjelzéses naplózási gyűjtemény feltölti a naplókat, ha a következő események valamelyike következik be.
+
+A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy segítsen Microsoft ügyfélszolgálata a probléma megoldásában. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
+
+| Riasztás címe | FaultIdType |
+|---|---|
+|Nem lehet csatlakozni a távoli szolgáltatáshoz | UsageBridge.NetworkError|
+|Sikertelen frissítés | Urp.UpdateFailure |
+|Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |    StorageResourceProviderDependencyUnavailable |
+|A csomópont nem csatlakozik a vezérlőhöz| ServerHostNotConnectedToController |  
+|Útvonal-közzétételi hiba | SlbMuxRoutePublicationFailure |
+|A tárolási erőforrás-szolgáltató belső adattára nem érhető el |    StorageResourceProvider. DataStoreConnectionFail |
+|Hiba az adattároló eszközön | Microsoft. Health. hibatípushoz. előzőtől. leválasztva |
+|Az állapot-vezérlő nem fér hozzá a Storage-fiókhoz | Microsoft. Health. hibatípushoz. StorageError |
+|A fizikai lemezzel létesített kapcsolat megszakadt | Microsoft. Health. hibatípushoz. lemez. LostCommunication |
+|A blob szolgáltatás nem fut csomóponton. | A StorageService. The. blob. Service. nem fut. on. a. csomópont – kritikus |
+|Infrastruktúra-szerepkör sérült | Microsoft. Health. hibatípushoz. GenericExceptionFault |
+|Hibák a Table Service-ben | StorageService. table. Service. errors – kritikus |
+|A fájlmegosztás több mint 80%-ot használ | Microsoft. Health. hibatípushoz. fájlmegosztás. Capacity. warning. infra |
+|A skálázásiegység-csomópont offline állapotban van | FRP. Szívverés. PhysicalNode |
+|Az infrastruktúra-szerepkör példánya nem érhető el | FRP. Szívverés. InfraVM |
+|Az infrastruktúra-szerepkör példánya nem érhető el  | FRP. Szívverés. NonHaVm |
+|Az infrastruktúra-szerepkör, a címtár-kezelés, az idő szinkronizációs hibáit jelentette | DirectoryServiceTimeSynchronizationError |
+|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. warning |
+|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. Critical |
+|Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki | AzureStack. ComputeController. VmCreationFailure. LowMemory |
+|A csomópont nem érhető el a virtuális gép elhelyezéséhez | AzureStack. ComputeController. HostUnresponsive |
+|Sikertelen biztonsági mentés  | AzureStack. BackupController. BackupFailedGeneralFault |
+|Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
 
 ## <a name="send-logs-now"></a>Naplók küldése most
 
@@ -87,13 +125,13 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
 
 * A **FromDate** és a **ToDate** paraméterek egy adott időszakra vonatkozó naplók összegyűjtésére használhatók. Ha ezek a paraméterek nincsenek megadva, a rendszer alapértelmezés szerint a naplókat az elmúlt négy órára gyűjti.
 
-* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Ilyenek többek között:
+* A naplók számítógép neve alapján történő szűréséhez használja a **FilterByNode** paramétert. Például:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
   ```
 
-* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Ilyenek többek között:
+* A naplók típus szerinti szűréséhez használja a **FilterByLogType** paramétert. Dönthet úgy, hogy fájl, megosztás vagy WindowsEvent alapján végez szűrést. Például:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByLogType File
@@ -158,7 +196,7 @@ A naplókat a helyi kiszolgáló üzenetblokk (SMB) megosztásba mentheti, ha Az
 
 ::: moniker-end
 
-## <a name="bandwidth-considerations"></a>Sávszélességgel kapcsolatos megfontolások
+## <a name="bandwidth-considerations"></a>Sávszélességgel kapcsolatos szempontok
 
 A diagnosztikai napló-gyűjtemény átlagos mérete attól függően változik, hogy proaktív módon vagy manuálisan fut-e. A **proaktív naplók** átlagos mérete körülbelül 2 GB. A **küldési naplók** gyűjteményének mérete mostantól attól függ, hogy hány órát gyűjt a rendszer.
 
@@ -174,45 +212,13 @@ Az alábbi táblázat az Azure-hoz korlátozott vagy mért kapcsolattal rendelke
 
 A Azure Stack hub-ból gyűjtött naplók előzményei a **Súgó + támogatás** **napló gyűjtemény** lapján jelennek meg, a következő dátumokkal és időpontokkal:
 
-- **Gyűjtés időpontja** : a naplózási művelet megkezdése után.
-- **Állapot** : vagy folyamatban vagy kész.
-- **Naplók kezdete** : annak az időtartamnak a kezdete, amelynek a gyűjtését el szeretné indítani.
-- **Naplók vége** : az időtartam vége.
-- **Írja be a következőt** : Ha manuális vagy proaktív napló-gyűjtemény.
+- **Gyűjtés időpontja**: a naplózási művelet megkezdése után.
+- **Állapot**: vagy folyamatban vagy kész.
+- **Naplók kezdete**: annak az időtartamnak a kezdete, amelynek a gyűjtését el szeretné indítani.
+- **Naplók vége**: az időtartam vége.
+- **Írja be a következőt**: Ha manuális vagy proaktív napló-gyűjtemény.
 
 ![A Súgó és támogatás szolgáltatásban található gyűjtemények naplózása](media/azure-stack-help-and-support/azure-stack-log-collection.png)
-
-## <a name="proactive-diagnostic-log-collection-alerts"></a>Proaktív diagnosztikai naplók gyűjtésével kapcsolatos riasztások
-
-Ha engedélyezve van, a proaktív naplók gyűjteménye csak akkor tölti fel a naplókat, ha az alábbi események egyike következik be.
-
-A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy segítsen Microsoft ügyfélszolgálata a probléma megoldásában. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
-
-| Riasztás címe | FaultIdType |
-|---|---|
-|Nem lehet csatlakozni a távoli szolgáltatáshoz | UsageBridge.NetworkError|
-|Sikertelen frissítés | Urp.UpdateFailure |
-|Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |    StorageResourceProviderDependencyUnavailable |
-|A csomópont nem csatlakozik a vezérlőhöz| ServerHostNotConnectedToController |  
-|Útvonal-közzétételi hiba | SlbMuxRoutePublicationFailure |
-|A tárolási erőforrás-szolgáltató belső adattára nem érhető el |    StorageResourceProvider. DataStoreConnectionFail |
-|Hiba az adattároló eszközön | Microsoft. Health. hibatípushoz. előzőtől. leválasztva |
-|Az állapot-vezérlő nem fér hozzá a Storage-fiókhoz | Microsoft. Health. hibatípushoz. StorageError |
-|A fizikai lemezzel létesített kapcsolat megszakadt | Microsoft. Health. hibatípushoz. lemez. LostCommunication |
-|A blob szolgáltatás nem fut csomóponton. | A StorageService. The. blob. Service. nem fut. on. a. csomópont – kritikus |
-|Infrastruktúra-szerepkör sérült | Microsoft. Health. hibatípushoz. GenericExceptionFault |
-|Hibák a Table Service-ben | StorageService. table. Service. errors – kritikus |
-|A fájlmegosztás több mint 80%-ot használ | Microsoft. Health. hibatípushoz. fájlmegosztás. Capacity. warning. infra |
-|A skálázásiegység-csomópont offline állapotban van | FRP. Szívverés. PhysicalNode |
-|Az infrastruktúra-szerepkör példánya nem érhető el | FRP. Szívverés. InfraVM |
-|Az infrastruktúra-szerepkör példánya nem érhető el  | FRP. Szívverés. NonHaVm |
-|Az infrastruktúra-szerepkör, a címtár-kezelés, az idő szinkronizációs hibáit jelentette | DirectoryServiceTimeSynchronizationError |
-|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. warning |
-|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. Critical |
-|Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki | AzureStack. ComputeController. VmCreationFailure. LowMemory |
-|A csomópont nem érhető el a virtuális gép elhelyezéséhez | AzureStack. ComputeController. HostUnresponsive |
-|Sikertelen biztonsági mentés  | AzureStack. BackupController. BackupFailedGeneralFault |
-|Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
 
 ## <a name="see-also"></a>Lásd még
 
