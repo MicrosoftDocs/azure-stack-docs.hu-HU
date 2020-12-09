@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761728"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869037"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -69,8 +69,8 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub mostantól támogatja a VNET-társítást, amely hálózati virtuális berendezés (NVA) nélkül képes csatlakozni a virtuális hálózatok-hez. További információkért tekintse meg az [új VNET](../user/virtual-network-peering.md)-társítási dokumentációt.
 - Azure Stack hub blob Storage mostantól lehetővé teszi a felhasználók számára, hogy egy nem módosítható blobot használjanak. Ha nem módosítható szabályzatokat állít be egy tárolón, az üzleti szempontból kritikus fontosságú adatobjektumokat egy féreg (egyszer írható, olvasás) állapotba is tárolhatja. Ebben a kiadásban a nem módosítható házirendek csak a REST API vagy az ügyféloldali SDK-k használatával állíthatók be. Ebben a kiadásban nem lehet hozzáfűzni a Blobok írásait is. A nem módosítható Blobokkal kapcsolatos további információkért lásd: [az üzleti szempontból kritikus blob-adatok tárolása a](/azure/storage/blobs/storage-blob-immutable-storage)nem módosítható tárolóval.
-- Az Azure Stack hub Storage mostantól támogatja az Azure Storage Services API 2019-07-07-es verzióját. Az új REST API verziójával kompatibilis Azure-ügyfél kódtárait lásd: [Azure stack hub Storage fejlesztői eszközök](../user/azure-stack-storage-dev.md#azure-client-libraries).
-- A Azure Stack hub számítási funkciója mostantól támogatja az Azure számítási API-k 2020-06-01-es verzióját, az összes elérhető funkció egy részhalmazával.
+- Az Azure Stack hub Storage mostantól támogatja az Azure Storage Services API **2019-07-07**-es verzióját. Az új REST API verziójával kompatibilis Azure-ügyfél kódtárait lásd: [Azure stack hub Storage fejlesztői eszközök](../user/azure-stack-storage-dev.md#azure-client-libraries). Az Azure Storage Services Felügyeleti API-jai esetében a **2018-02-01** -es számú támogatással rendelkezik, és az összes elérhető funkció egy részhalmazát tartalmazza.
+- A Azure Stack hub számítási funkciója mostantól támogatja az Azure számítási API-k **2020-06-01**-es verzióját, az összes elérhető funkció egy részhalmazával.
 - Azure Stack hub által felügyelt lemezek mostantól támogatják az Azure Disk APIs **2019-03-01**-es verzióját, az elérhető funkciók egy részhalmazával.
 - A Windows felügyeleti központ előzetes verziója, amely most már csatlakozhat Azure Stack központhoz, és részletes betekintést nyújt az infrastruktúrába a támogatási műveletek során (az adattörés szükséges).
 - Lehetőség a bejelentkezési szalagcím hozzáadására a rendszerjogosultságú végponthoz (PEP) a központi telepítési időpontban.
@@ -139,7 +139,7 @@ Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2008.16.94](https://support.microsoft.com/help/4595071)
+- [Azure Stack hub gyorsjavítási 1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

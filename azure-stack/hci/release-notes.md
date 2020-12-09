@@ -6,19 +6,42 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.date: 12/8/2020
+ms.openlocfilehash: e28ff46596e2669327a3fa1d3b76fca346658b21
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812723"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96868986"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>A Azure Stack HCI nyilvános előzetes kiadásának kibocsátási megjegyzései
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
 Ez a cikk a Azure Stack HCI nyilvános előzetes frissítési csomagjainak tartalmát ismerteti.
+
+## <a name="december-8-2020-security-update-kb4592441"></a>2020. december 8. biztonsági frissítés (KB4592441)
+
+Ez a frissítés a Azure Stack HCI legújabb kiadásának javításait és javításait tartalmazza. 
+
+### <a name="improvements-and-fixes"></a>Javítások és javítások
+Ez a frissítés a belső operációsrendszer-funkciókra vonatkozó különféle biztonsági funkciókat tartalmaz. A biztonsági réseket úgy oldja meg, hogy megakadályozza, hogy a rendszerfiókként futó alkalmazások a "fájl:" portokra nyomtassanak. A probléma jövőbeli megoldásához győződjön meg arról, hogy az alkalmazások vagy szolgáltatások egy adott felhasználói vagy szolgáltatási fiókkal futnak.
+
+Ebben a kiadásban nincsenek dokumentálva további problémák.
+
+A megoldott biztonsági rések részletes ismertetését a [biztonsági frissítési útmutatóban](https://portal.msrc.microsoft.com/security-guidance)találja.
+
+### <a name="known-issues-in-this-update"></a>A frissítés ismert problémái
+A Microsoft jelenleg nem ismeri a frissítéssel kapcsolatos problémákat.
+
+### <a name="how-to-get-this-update"></a>A frissítés beszerzése
+A [Azure stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -hoz készült december 8, 2020 biztonsági frissítés (KB4592441) Windows Update keresztül érhető el. A Azure Stack HCI-fürtön való telepítéséhez lásd: [Azure stack HCI-fürtök frissítése](manage/update-cluster.md).
+
+### <a name="file-information"></a>Fájl adatai
+Az ebben a frissítésben megadott fájlok listáját (operációsrendszer-Build 17784,1408) a 4592441-es [összesítő frissítéshez tartozó Fájlinformációk](https://download.microsoft.com/download/2/7/2/272ea75f-1657-43ce-a7a4-a17d51463a94/4592441.csv)letöltésével töltheti le.
+
+   > [!NOTE]
+   > Egyes fájlok hibásan rendelkeznek "nem alkalmazható" értékkel a CSV-fájl "file version" oszlopában. Ez hamis pozitív vagy hamis negatív értéket eredményezhet, ha valamilyen harmadik féltől származó vizsgálati eszközt használ a Build ellenőrzéséhez.
 
 ## <a name="november-23-2020-preview-update-kb4586852"></a>November 23, 2020 előzetes frissítés (KB4586852)
 
