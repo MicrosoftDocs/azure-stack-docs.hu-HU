@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: bcba678c5f308d5c231bbdb25db6d38337005a7d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011644"
+ms.locfileid: "97051632"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Segédprogram-alkalmazások Azure Stack HCI-hez
 
@@ -24,6 +24,13 @@ Javasoljuk, hogy a Microsoft Defender víruskeresőt az operációs rendszerrel 
 
 ## <a name="partner-spotlight"></a>Partner Spotlight
 Az operációs rendszert támogató segédprogram-alkalmazások az alábbi Microsoft-partnerektől szerezhetők be.
+
+:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Altáró-cég emblémája" border="false":::
+
+A Altáró VM Backup egy díjnyertes VM biztonsági mentési és replikációs megoldás a Hyper-V és a VMware környezetekhez. Az informatikai részlegek, az informatikai viszonteladók és a tanácsadók, valamint a felügyelt szolgáltatók (MSP-EK) számára készült megoldás robusztus, gördülékeny, nagyvállalati szintű funkciókat biztosít.
+
+- Alkalmazás listázása: [virtuális gépek biztonsági mentése és replikációja a Hyper-V és a VMware rendszerhez](https://www.altaro.com/vm-backup/)
+- Alkalmazás-támogatás: [Altáró-támogatás Azure stack HCI-hez](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Veeam-cég emblémája" border="false":::
 
@@ -45,13 +52,6 @@ A Veritas Backup Exec egy könnyen használható biztonsági mentési és helyre
 
 - Alkalmazás listázása: [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Alkalmazás-támogatás: [Azure stack HCI Protect exec biztonsági mentése](https://www.veritas.com/support/en_US/article.100048860)
-
-:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Altáró-cég emblémája" border="false":::
-
-A Altáró VM Backup egy díjnyertes VM biztonsági mentési és replikációs megoldás a Hyper-V és a VMware környezetekhez. Az informatikai részlegek, az informatikai viszonteladók és a tanácsadók, valamint a felügyelt szolgáltatók (MSP-EK) számára készült megoldás robusztus, gördülékeny, nagyvállalati szintű funkciókat biztosít.
-
-- Alkalmazás listázása: [virtuális gépek biztonsági mentése és replikációja a Hyper-V és a VMware rendszerhez](https://www.altaro.com/vm-backup/)
-- Alkalmazás-támogatás: [Altáró-támogatás Azure stack HCI-hez](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Datadag-cég emblémája" border="false":::
 

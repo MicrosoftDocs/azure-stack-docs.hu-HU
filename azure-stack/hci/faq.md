@@ -7,12 +7,12 @@ ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/24/2020
-ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812628"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051598"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI – gyakori kérdések
 A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
@@ -68,7 +68,7 @@ Ez az Ön által használt funkcióktól függ. Azure Stack HCI-nek legalább 12
 
 **Hová kerül ténylegesen a szinkronizált adatok?**
 
-Azure Stack HCI szinkronizál az Azure-val, és biztonságos, Microsoft által működtetett adatközpontban tárolja az adattárolást. További információ: az [adattárolás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI szinkronizál az Azure-val, és biztonságos, Microsoft által működtetett adatközpontban tárolja az adattárolást. További információ: [Azure stack HCI](concepts/data-collection.md) -adatgyűjtés és [-tárolás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Leválasztva vagy "Air-gapped"
 

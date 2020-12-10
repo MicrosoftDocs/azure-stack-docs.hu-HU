@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443294"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051615"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>A Azure Stack HCI fizikai hálózati követelményei
 
@@ -69,9 +69,9 @@ Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 Qaz specifikációna
 
 ### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1 AB
 
-Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 AB specifikációnak, amely meghatározza a link Layer Discovery protokollt (LLDP). LLDP szükséges a Azure Stack HCI-hez, és támogatja az összevonást a kapcsolók konfigurációjának felderítéséhez.
+Az Ethernet-kapcsolóknak meg kell felelniük az IEEE 802.1 AB specifikációnak, amely meghatározza a link Layer Discovery protokollt (LLDP). LLDP szükséges a Azure Stack HCI-hez, és lehetővé teszi a fizikai hálózati konfigurációk hibaelhárítását.
 
-A LLDP-típus (TLVs) konfigurációjának dinamikusan engedélyezettnek kell lennie. Ezek a kapcsolók nem igényelnek további konfigurálást egy adott TLV-es konfiguráción túl. Például, ha a 3. altípust engedélyezi, a 3-as érték automatikusan Hirdessen minden olyan VLAN-t, 802,1 amely elérhető a kapcsoló portjain
+A LLDP-típus (TLVs) konfigurációjának dinamikusan engedélyezettnek kell lennie. A kapcsolók nem igényelhetnek további konfigurálást egy adott TLV-érték engedélyezésén túl. Például, ha a 3. altípust engedélyezi, a 3-as érték automatikusan Hirdessen minden olyan VLAN-t, 802,1 amely elérhető a kapcsoló portjain
 
 ### <a name="custom-tlv-requirements"></a>Egyéni TLV-követelmények
 
@@ -141,7 +141,7 @@ A Azure Stack HCI minden fürt mérete esetében támogatja a nem megfelelő (k�
 - A csak a helyi tárolók elérését biztosítja. A virtuális gép forgalma, a felügyeleti forgalom és a North-South hozzáférést igénylő egyéb forgalom nem használhatja ezeket az adaptereket.
 - Általában a három csomópontos fürtökön kívül nem méretezhető.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A hálózati adapter és a gazdagép követelményeinek megismerése. Lásd a [gazdagép hálózati követelményeit](host-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).

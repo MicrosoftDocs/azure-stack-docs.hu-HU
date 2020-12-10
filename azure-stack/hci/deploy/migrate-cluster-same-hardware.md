@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1439c4f7e5f4a48051f439712f633bb703f5d562
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011628"
+ms.locfileid: "97051564"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 
@@ -136,7 +136,7 @@ A fürt létrehozásával kapcsolatos részletes információkért lásd: [Azure
 Ha a PowerShell használatával hozza létre az Azure Stack HCI-fürtöt, a következő parancsmaggal kell telepíteni a következő szerepköröket és szolgáltatásokat az egyes Azure Stack HCI-fürtcsomópontokon:
 
 ```powershell
-Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging -IncludeAllSubFeature -IncludeManagementTools -Verbose
+Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging, RSAT-AD-PowerShell -IncludeAllSubFeature -IncludeManagementTools -Verbose
 ```
 
 A fürt PowerShell használatával történő létrehozásával kapcsolatos további információkért lásd: [Azure stack HCI-fürt létrehozása a Windows PowerShell használatával](create-cluster-powershell.md).

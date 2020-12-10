@@ -4,20 +4,20 @@
   items:
     - name: Mi az Azure Stack HCI?
       href: overview.md
-    - name: Ismert problémák
-      href: known-issues.md
+    - name: Kiadási információk
+      href: release-information.md
     - name: Kibocsátási megjegyzések
-      href: release-notes.md
+      href: 'https://support.microsoft.com/help/4595086'
     - name: GYIK
       href: faq.md
-- name: Bevezetés
+- name: Rövid útmutatók
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
       href: get-started.md
+    - name: Azure Stack HCI-fürt létrehozása
+      href: deploy/deployment-quickstart.md
 - name: Üzembe helyezés
   items:
-    - name: Üzembe helyezési útmutató
-      href: deploy/deployment-quickstart.md
     - name: Az üzembe helyezés áttekintése
       href: deploy/deployment-overview.md
     - name: A Azure Stack HCI operációs rendszer üzembe helyezése
@@ -162,6 +162,8 @@
           href: concepts/security.md
         - name: Segédprogram-alkalmazások
           href: concepts/utility-applications.md
+        - name: Adatgyűjtés
+          href: concepts/data-collection.md
 - name: Referencia
   items:
     - name: Azure-regisztráció Azure CLI-parancsok
@@ -218,3 +220,5 @@
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack HCI díjszabása
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
+    - name: Azure Stack HCI-támogatás
+      href: manage/get-support.md
