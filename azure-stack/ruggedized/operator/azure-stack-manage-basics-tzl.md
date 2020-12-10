@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerkedjen meg Azure Stack hub felügyeletének alapjaival.
 author: justinha
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934930"
+ms.locfileid: "96939936"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -49,7 +49,7 @@ A következő kiegészítő szolgáltatásként nyújtott platform-szolgáltatá
 - IoT Hub
 - Eseményközpont
 
-Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a   >   [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
+Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a **How-to guides**  >  **Offer services** [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
 
 ### <a name="service-roadmap"></a>Szolgáltatási ütemterv
 
@@ -151,7 +151,7 @@ Az ezekben a cikkekben található információk összefoglalják az Azure-beli 
 
 A felhasználók tudni szeretnék, hogyan [érheti el a felhasználói portált](../../user/azure-stack-use-portal.md) , vagy hogyan csatlakozhat a PowerShell-lel. Az integrált rendszerkörnyezetek esetében a felhasználói portál címe az üzemelő példányok számától függ. A megfelelő URL-címmel kell megadnia a felhasználóknak.
 
-A PowerShell használata esetén előfordulhat, hogy a felhasználóknak regisztrálniuk kell az erőforrás-szolgáltatókat, mielőtt használniuk tudják a szolgáltatásokat. Egy erőforrás-szolgáltató kezeli a szolgáltatást. A hálózati erőforrás-szolgáltató például olyan erőforrásokat kezel, mint a virtuális hálózatok, a hálózati adapterek és a terheléselosztó. [Telepíteniük](../../operator/powershell-install-az-module.md) kell a PowerShellt, [le kell tölteniük](../../operator/azure-stack-powershell-download.md) a további modulokat, és [be kell állítania](../../user/azure-stack-powershell-configure-user.md) a PowerShellt (amely magában foglalja az erőforrás-szolgáltató
+A PowerShell használata esetén előfordulhat, hogy a felhasználóknak regisztrálniuk kell az erőforrás-szolgáltatókat, mielőtt használniuk tudják a szolgáltatásokat. Egy erőforrás-szolgáltató kezeli a szolgáltatást. A hálózati erőforrás-szolgáltató például olyan erőforrásokat kezel, mint a virtuális hálózatok, a hálózati adapterek és a terheléselosztó. [Telepíteniük](../../operator/azure-stack-powershell-install.md) kell a PowerShellt, [le kell tölteniük](../../operator/azure-stack-powershell-download.md) a további modulokat, és [be kell állítania](../../user/azure-stack-powershell-configure-user.md) a PowerShellt (amely magában foglalja az erőforrás-szolgáltató
 
 ### <a name="subscribe-to-an-offer"></a>Előfizetés egy ajánlatra
 

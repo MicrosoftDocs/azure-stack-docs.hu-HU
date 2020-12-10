@@ -1,18 +1,26 @@
 ---
 title: Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
-author: IngridAtMicrosoft
+services: azure-stack
+documentationcenter: ''
+author: sethmanheim
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
-ms.author: justinha
-ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
+ms.date: 12/20/2019
+ms.author: sethm
+ms.reviewer: alfredop
+ms.lastreviewed: 12/20/2020
+ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934896"
+ms.locfileid: "96939872"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 
@@ -34,15 +42,15 @@ Egy adott skálázási egység állapotának megtekintéséhez:
 
    Tekintse meg a következő információkat:
 
-   - Az egyes csomópontok listája
-   - Működési állapot (lásd az alábbi listát)
-   - Energiaellátási állapot (fut vagy leállítva)
-   - Kiszolgálói modell
-   - A alaplapi felügyeleti vezérlő (BMC) IP-címe
+   - Az egyes csomópontok listája.
+   - Működési állapot (lásd az alábbi listát).
+   - Energiaellátás állapota (fut vagy leállítva).
+   - Kiszolgálói modell.//
+   - A alaplapi felügyeleti vezérlő (BMC) IP-címe.
    - Magok száma összesen
-   - Memória teljes mennyisége
+   - A memória teljes mennyisége.
 
-     ![méretezési egység állapota](media/azure-stack-node-actions/multinode-actions.png)
+![méretezési egység állapota](media/azure-stack-node-actions/multinodeactions.png)
 
 ### <a name="node-operational-states"></a>Csomópont működési állapotai
 
@@ -66,13 +74,13 @@ Ha a méretezési egység csomópontjának adatait tekinti meg, olyan csomópont
 
 A csomópont működési állapota határozza meg, hogy mely lehetőségek érhetők el.
 
-Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **AZS. Fabric. admin** modulban találhatók. Az Azure Stack hub PowerShell-telepítésének telepítéséhez vagy ellenőrzéséhez tekintse meg a [PowerShell telepítése Azure stack hub](../../operator/powershell-install-az-module.md)-hoz című témakört.
+Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **AZS. Fabric. admin** modulban találhatók. Az Azure Stack hub PowerShell-telepítésének telepítéséhez vagy ellenőrzéséhez tekintse meg a [PowerShell telepítése Azure stack hub](../../operator/azure-stack-powershell-install.md)-hoz című témakört.
 
 ## <a name="stop"></a>Leállítás
 
 A **Leállítás** művelet kikapcsolja a csomópontot. Ez ugyanaz, mint a főkapcsoló gomb megnyomása. Nem küld leállítási jelet az operációs rendszernek. A tervezett leállítási műveletekhez először mindig próbálja meg a leállítási műveletet.
 
-Ezt a műveletet általában akkor kell használni, ha egy csomópont nem válaszoló állapotban van.
+Ezt a műveletet általában akkor kell használni, ha egy csomópont lefagyott állapotban van, és a továbbiakban nem válaszol a kérelmekre.
 
 A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
@@ -132,7 +140,7 @@ További információ: [enable-AzsScaleUnitNode](https://docs.microsoft.com/powe
 A **javítási** művelet kijavítja a csomópontot. Csak a következő esetekben használható:
 
 - Teljes csomópont cseréje (új adatlemezekkel vagy anélkül).
-- A hardver-összetevő meghibásodása és cseréje után (ha a mező a cserélhető egységre vonatkozó dokumentációban szerepel).
+- A hardver-összetevő meghibásodása és cseréje után (ha a mező a cserélhető egység [a következő) dokumentációjában szerepel.
 
 > [!Important]  
 > A csomópontok vagy az egyes hardver-összetevők cseréjének pontos lépéseiért tekintse meg az OEM hardver gyártójának cserélhető szoftveres dokumentációját. A cserélhető eszköz dokumentációja határozza meg, hogy szükséges-e a javítási művelet futtatása a hardveres összetevők cseréje után.

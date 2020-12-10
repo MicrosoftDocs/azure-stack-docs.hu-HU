@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 465db777fd26d3186eb46623b928b6a63e5dc71e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9709c72233acdff710f4be2764adc7e408b32dde
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572748"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934862"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Azure Stack hub integrálása figyelési megoldásokkal a syslog forwarding használatával
 
@@ -257,13 +257,13 @@ Az emelt szintű végpont eseményeinek táblázata:
 
 A PEP súlyossági táblázata:
 
-| Súlyosság | Szint | Numerikus érték |
+| Súlyosság | Level | Numerikus érték |
 |----------|-------| ----------------|
 |0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>CEF-megfeleltetés a helyreállítási végpont eseményeihez
@@ -290,13 +290,13 @@ A helyreállítási végpont eseményeinek táblázata:
 
 REP súlyossági táblázat:
 
-| Súlyosság | Szint | Numerikus érték |
+| Súlyosság | Level | Numerikus érték |
 |----------|-------| ----------------|
 |0|Nem definiált|Érték: 0. A naplókat minden szinten jelzi|
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows-események CEF-leképezése
@@ -316,7 +316,7 @@ Windows-események súlyossági táblázata:
 |10|Kritikus|Érték: 1. Kritikus riasztások naplóit jelzi|
 |8|Hiba| Érték: 2. Hibát jelez a naplókban.|
 |5|Figyelmeztetés|Érték: 3. Figyelmeztetési naplókat jelez|
-|2|Tájékoztatás|Érték: 4. Tájékoztató üzenet naplóit jelzi|
+|2|Információ|Érték: 4. Tájékoztató üzenet naplóit jelzi|
 |0|Részletes|Érték: 5. A naplókat minden szinten jelzi|
 
 Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
@@ -358,7 +358,7 @@ Egyéni bővítmények táblázata Azure Stack hub Windows-eseményeihez:
 
 Riasztások súlyossági táblázata:
 
-| Súlyosság | Szint |
+| Súlyosság | Level |
 |----------|-------|
 |0|Nem definiált|
 |10|Kritikus|
@@ -382,6 +382,22 @@ Az alábbi példa egy CEF adattartalommal rendelkező syslog-üzenetet mutat be:
 ```
 2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack Hub|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
+
+## <a name="syslog-event-types"></a>Syslog-események típusai  
+
+A táblázat felsorolja a syslog-csatornán keresztül küldött összes eseménytípus, eseményt, üzenet-sémát vagy tulajdonságot. A telepítő részletes kapcsolóját csak akkor kell használni, ha a SIEM-integrációhoz Windows információs események szükségesek. 
+
+| Eseménytípus                                 | Események vagy üzenetek sémája                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Részletes beállítást igényel         | Esemény leírása (nem kötelező)                                                                                                                                   |
+|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Stack Hub-riasztások                     | A riasztási üzenet sémája esetében lásd: [CEF leképezése a riasztások lezárt](#cef-mapping-for-alerts-closed)állapotában. <br> <br>Egy külön dokumentumban megosztott összes riasztás listája.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nem                               | Rendszerállapot-riasztások                                                                                                                                           |
+| Kiemelt jogosultságú végpont eseményei                 | Az emelt szintű végponti üzenet sémája a [Kiemelt végpont eseményeinek CEF-leképezése](#cef-mapping-for-privileged-endpoint-events)című szakaszban található.<br> <br>PrivilegedEndpointAccessed <br>SupportSessionTokenRequested <br>SupportSessionDevelopmentTokenRequested <br>SupportSessionUnlocked <br>SupportSessionFailedToUnlock <br>PrivilegedEndpointClosed <br>NewCloudAdminUser <br>RemoveCloudAdminUser <br>SetCloudAdminUserPassword <br>GetCloudAdminPasswordRecoveryToken <br>ResetCloudAdminPassword <br>PrivilegedEndpointSessionTimedOut                                                                                                                                                                                                                                                                                                      | Nem                               |                                                                                                                                                                |
+| Helyreállítási végpont eseményei                   | A helyreállítási végponti üzenet sémájának esetében lásd: [CEF-leképezés a helyreállítási végpont eseményeihez](#cef-mapping-for-recovery-endpoint-events). <br>RecoveryEndpointAccessed <br>RecoverySessionTokenRequested <br>RecoverySessionDevelopmentTokenRequested <br>RecoverySessionUnlocked <br>RecoverySessionFailedToUnlock <br>Recovand RecoveryEndpointClosed                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nem                               |                                                                                                                                                                |
+| Windows biztonsági események                    |   <br>A Windows-események üzenet sémája esetében lásd: [CEF-leképezés Windows-eseményekhez](#cef-mapping-for-windows-events).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Igen (információs események beszerzése)  | Típus: <br>– Információ <br>- Figyelmeztetés <br>- Hiba <br>– Critical (Kritikus)                                                                                               |
+| ARM-események                                 | Üzenet tulajdonságai: <br> <br>AzsSubscriptionId <br>AzsCorrelationId <br>AzsPrincipalOid <br>AzsPrincipalPuid <br>AzsTenantId <br>AzsOperationName <br>AzsOperationId <br>AzsEventSource <br>AzsDescription <br>AzsResourceProvider <br>AzsResourceUri <br>AzsEventName <br>AzsEventInstanceId <br>AzsChannels <br>AzsEventLevel <br>AzsStatus <br>AzsSubStatus <br>AzsClaims <br>AzsAuthorization <br>AzsHttpRequest <br>AzsProperties <br>AzsEventTimestamp <br>AzsAudience <br>AzsIssuer <br>AzsIssuedAt <br>AzsApplicationId <br>AzsUniqueTokenId <br>AzsArmServiceRequestId <br>AzsEventCategory <br> <br>                                                                                                                                                                                                                                | Nem <br>                          | Minden regisztrált ARM-erőforrás létrehozhat egy eseményt.                                                                                                               |
+| BCDR események                                | Üzenet sémája: <br> <br>AuditingManualBackup { <br>} <br>AuditingConfig <br>{ <br>Időköz <br>Megőrzés <br>IsSchedulerEnabled <br>BackupPath <br>} <br>AuditingPruneBackupStore { <br>IsInternalStore <br>} <br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nem                               | Ezek az események az ügyfél által manuálisan végzett, infra biztonsági mentési rendszergazdai műveleteket követik nyomon, magában foglalja a biztonsági mentést, a biztonsági mentési konfigurációt, valamint a biztonsági mentési adatok aszalt       |
+| Infra-hibák létrehozásának és zárásának eseményei    | Üzenet sémája: <br> <br>InfrastructureFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>InfrastructureFaultClose {  <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsComponentType, <br>AzsComponentName, <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Nem                               | A hibák olyan munkafolyamatokat indítanak el, amelyek megkísérlik a riasztásokhoz vezető hibák elhárítását. Ha egy hiba nem rendelkezik szervizeléssel, az közvetlenül riasztáshoz vezet.            |
+| Szolgáltatási hibák létrehozása és zárási események  | Üzenet sémája: <br> <br>ServiceFaultOpen { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsCreatedTimeUtc, <br>AzsSource <br>} <br>  <br>ServiceFaultClose { <br>AzsFaultId, <br>AzsFaultTypeName, <br>AzsSubscriptionId, <br>AzsResourceGroup, <br>AzsServiceName, <br>AzsResourceId <br>AzsFaultHash, <br>AzsLastUpdatedTimeUtc, <br>AzsSource <br>}                                                                                                                                                                                                                                                                                                                                                                                     | Nem                               | A hibák olyan munkafolyamatokat indítanak el, amelyek megkísérlik a riasztásokhoz vezető hibák elhárítását.  <br>Ha egy hiba nem rendelkezik szervizeléssel, az közvetlenül riasztáshoz vezet. <br>  |
+| PEP WAC események                             | Üzenet sémája: <br> <br>Előtag mezői  <br>* Aláírás azonosítója: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>  <br>Neve <PEP Task Name>  <br>* Súlyosság: a PEP szintjétől leképezve (részletek lásd a PEP súlyossági táblázatot alább)  <br>* Ki: a PEP-hez való kapcsolódáshoz használt fiók  <br>* WhichIP: a PEP-hez való kapcsolódáshoz használt eszköz IP-címe <br><br>WACServiceStartFailedEvent <br>WACConnectedUserNotRetrievedEvent <br>WACEnableExceptionEvent  <br>WACUserAddedEvent <br>WACAddUserToLocalGroupFailedEvent <br>WACIsUserInLocalGroupFailedEvent  <br>WACServiceStartTimeoutEvent  <br>WACServiceStartInvalidOperationEvent <br>WACGetSidFromUserFailedEvent <br>WACDisableFirewallFailedEvent <br>WACCreateLocalGroupIfNotExistFailedEvent <br>WACEnableFlagIsTrueEvent <br>WACEnableFlagIsFalseEvent <br>WACServiceStartedEvent | Nem                               |                                                                                                                                                                |
 
 ## <a name="next-steps"></a>Következő lépések
 

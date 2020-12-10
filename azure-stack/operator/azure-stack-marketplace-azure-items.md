@@ -3,16 +3,16 @@ title: Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek
 description: Megtudhatja, hogy mely Azure Marketplace-elemek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: gara
-ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: afb69e3060137cece30004ccf59c1c3a88833b91
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.lastreviewed: 12/9/2020
+ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557429"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935219"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek
 
@@ -20,7 +20,7 @@ ms.locfileid: "96557429"
 
 Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, töltse le őket. A termékben szállított bővítmények nem frissülnek a normál javítási és frissítési folyamat során, ezért gyakran keressen frissítéseket. Más bővítmények csak a piactér-felügyeleten keresztül érhetők el.
 
-| Rendszerkép | Elemnév | Description | Publisher | Operációs rendszer típusa |
+| Rendszerkép | Elemnév | Leírás | Publisher | Operációs rendszer típusa |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-bővítmény (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-bővítmény (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le ezt a bővítményt bármely SQL Server Windows Marketplace-elemen való üzembe helyezéséhez – ez a bővítmény szükséges.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](/azure/virtual-machines/windows/extensions-customscript)| **Töltse le ezt a frissítést a Windowshoz készült egyéni parancsfájl-bővítmény beépített verziójára.** | Microsoft | Windows |
@@ -41,7 +41,7 @@ Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, 
 
 Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gépeket és megoldási sablonokat támogatja. A függőségeket külön, a feljegyzett módon töltheti le. Az olyan alkalmazások, mint a SQL Server és a Machine Learning Server megfelelő licencelést igényelnek, kivéve, ha az ingyenes vagy próbaverziós jelölésű.
 
-| Rendszerkép | Elemnév | Description | Publisher |
+| Rendszerkép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2013 próbaverzió a Windows Server 2012 Datacenter és a Visual Studio 2019 Community Edition rendszerhez. | Microsoft |
 | ![SharePoint Server 2016 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2016 próbaverzió a Windows Server 2016 Datacenter rendszeren. | Microsoft |
@@ -52,7 +52,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="linux-distributions"></a>Linux-disztribúciók
 
-| Rendszerkép | Elemnév | Description | Publisher |
+| Rendszerkép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![Linux operációs rendszer törlése](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux operációs rendszer törlése](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Az Intel architektúrára optimalizált, Linux-disztribúció. | Linux-projekt törlése |
 | ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://coreos.com/os/docs/latest/booting-on-azure.html) | A CoreOS egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevőre, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
@@ -68,7 +68,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Harmadik féltől származó BYOL, ingyenes, próbaverziós képek és megoldási sablonok
 
-| Rendszerkép | Elemnév | Description | Publisher |
+| Rendszerkép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Az A10-es hálózatok vThunder (Application Delivery Controller) Microsoft Azure célra készültek nagy teljesítményű, rugalmas és könnyen üzembe helyezhető alkalmazások kézbesítéséhez és a kiszolgáló terheléselosztásához, és az Azure-felhőben való natív futtatásra optimalizáltak. | A10 Networks |
 | ![Arista vEOS-útválasztó](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS-útválasztó](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | A Arista vEOS útválasztó egy funkciókban gazdag, többfelhős és többszintű virtuális útválasztó, amely lehetővé teszi a vállalatok és a felhőalapú szolgáltatók számára a konzisztens, magas biztonságú és skálázható hibrid hálózatok kiépítését. | Arista hálózatok |

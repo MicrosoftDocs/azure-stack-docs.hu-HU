@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 07/29/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
+ms.lastreviewed: 07/29/2020
+ms.openlocfilehash: f546c1ad783ded0aa686ebdcb7e08f1427bea91e
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935066"
+ms.locfileid: "96940059"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Azure Stack használat elemzése helyi használati mérőszámokkal
 
@@ -102,28 +102,15 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-A használati adatok létrehozásához a rendszert futtató és aktívan használt erőforrásokkal kell rendelkeznie. például egy aktív virtuális gép (VM) vagy egy bizonyos adathalmazt tartalmazó Storage-fiók. Ha nem biztos abban, hogy rendelkezik-e olyan erőforrásokkal, amelyek a Azure Stack piactéren futnak, helyezzen üzembe egy virtuális gépet, és ellenőrizze, hogy fut-e a virtuális gép figyelése panel. A használati adatok megtekintéséhez használja az alábbi PowerShell-parancsmagokat.
+A használati adatok létrehozásához a rendszert futtató és aktívan használt erőforrásokkal kell rendelkeznie. például egy aktív virtuális gép (VM) vagy egy bizonyos adathalmazt tartalmazó Storage-fiók. Ha nem biztos abban, hogy rendelkezik-e olyan erőforrásokkal, amelyek a Azure Stack piactéren futnak, helyezzen üzembe egy virtuális gépet, és ellenőrizze, hogy fut-e a virtuális gép figyelése panel. Használja a következő PowerShell-parancsmagokat a használati adatok megtekintéséhez:
 
-### <a name="az-modules"></a>[Az modulok](#tab/az1)
-
-1. [Telepítse a powershellt Azure Stackhoz](../../operator/powershell-install-az-module.md).
+1. [Telepítse a powershellt Azure Stackhoz](../../operator/azure-stack-powershell-install.md).
 2. [Konfigurálja a Azure stack felhasználót](../../user/azure-stack-powershell-configure-user.md) vagy a [Azure stack kezelő](../../operator/azure-stack-powershell-configure-admin.md) PowerShell-környezetet.
 3. A használati adatok lekéréséhez hívja meg a [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell-parancsmagot:
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
-### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
-
-1. [Telepítse a powershellt Azure Stackhoz](../../operator/powershell-install-az-module.md).
-2. [Konfigurálja a Azure stack felhasználót](../../user/azure-stack-powershell-configure-user.md) vagy a [Azure stack kezelő](../../operator/azure-stack-powershell-configure-admin.md) PowerShell-környezetet.
-3. A használati adatok lekéréséhez hívja meg a [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell-parancsmagot:
-
-   ```powershell
-   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
-   ```
-
----
 
 ### <a name="rest-api"></a>REST API
 

@@ -3,17 +3,17 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ce6e3b416731f07989e8a7c1d91e363059e11bbc
-ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96579770"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934964"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -88,14 +88,23 @@ A forgatókönyv két részből áll:
   - Az internetkapcsolattal rendelkező számítógépnek **Azure stack hub PowerShell-moduljának 1.2.11 vagy újabb verziójával** kell rendelkeznie. Ha még nem létezik, [telepítse Azure stack Hub-specifikus PowerShell-modulokat](powershell-install-az-module.md).
 
   - A letöltött Piactéri elem importálásának engedélyezéséhez konfigurálnia kell az [Azure stack hub operátor PowerShell-környezetét](azure-stack-powershell-configure-admin.md) .
+  - A .NET-keretrendszer 4,7-es vagy újabb verziója.
 
-- Töltse le a **AZS. Syndication. admin** modult a PowerShell-Galéria a következő parancs használatával:
+Töltse le a **AZS. Syndication. admin** modult a PowerShell-Galéria a következő parancs használatával:
+
+### <a name="az-modules"></a>[Az modulok](#tab/az1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+  ```
+
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
   ```
-  
-- A .NET-keretrendszer 4,7-es vagy újabb verziója.
+
+---
 
 A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-kezelő panelen megjelenő alábbi üzenetet, mivel ez nem vonatkozik a leválasztott használati esetre:
 
@@ -106,7 +115,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 > [!IMPORTANT]
 > Ügyeljen arra, hogy minden alkalommal letöltse a Marketplace Syndication eszközt, amikor a Piactéri elemeket leválasztott forgatókönyvben tölti le. Ezen az eszközön gyakori változások történnek, és a legújabb verziót kell használni az egyes letöltésekhez.
 
-### <a name="az-modules"></a>[Az modulok](#tab/az)
+### <a name="az-modules"></a>[Az modulok](#tab/az2)
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
@@ -130,7 +139,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 4. Ha még nem tette meg az előfeltételek lépésben, töltse le a Marketplace Syndication eszköz legújabb verzióját:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. Az alábbi parancs futtatásával válassza ki a Piactéri elemeket (például a virtuálisgép-lemezképeket, a bővítményeket vagy a megoldási sablonokat) a letöltéshez:
@@ -174,7 +183,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm)
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
@@ -198,7 +207,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 4. Ha még nem tette meg az előfeltételek lépésben, töltse le a Marketplace Syndication eszköz legújabb verzióját:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. Az alábbi parancs futtatásával válassza ki a Piactéri elemeket (például a virtuálisgép-lemezképeket, a bővítményeket vagy a megoldási sablonokat) a letöltéshez:

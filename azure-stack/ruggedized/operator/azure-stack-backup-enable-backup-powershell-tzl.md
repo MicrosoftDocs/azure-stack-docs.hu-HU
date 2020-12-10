@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935049"
+ms.locfileid: "96939851"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>A Azure Stack biztonsági mentésének konfigurálása a PowerShell-lel
 
@@ -30,7 +30,7 @@ A Infrastructure Backup szolgáltatással konfigurálhatja az infrastruktúra bi
 
 ## <a name="prepare-powershell-environment"></a>PowerShell-környezet előkészítése
 
-A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure Stackhoz](../../operator/powershell-install-az-module.md). A Azure Stackba való bejelentkezéshez lásd: [az operátori környezet konfigurálása és a Azure Stackba való bejelentkezés](../../operator/azure-stack-powershell-configure-admin.md).
+A PowerShell-környezet konfigurálásával kapcsolatos útmutatásért lásd: a [PowerShell telepítése Azure Stackhoz](../../operator/azure-stack-powershell-install.md). A Azure Stackba való bejelentkezéshez lásd: [az operátori környezet konfigurálása és a Azure Stackba való bejelentkezés](../../operator/azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>A biztonsági mentés engedélyezéséhez adja meg a biztonsági mentési megosztást, a hitelesítő adatokat és a titkosítási kulcsot
 

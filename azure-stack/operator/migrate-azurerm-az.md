@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/2/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: a4196228856b776bb3712e26f237a1cb32f20e50
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 8a7d1f270cdb611749e07da310fef484ca8bcd82
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525761"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934624"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrálás a AzureRM-ről a Azure PowerShell az Azure Stack hub-ban
 
@@ -41,7 +41,7 @@ Az első lépés az Az modul telepítése a platformra. Az Az telepítésekor aj
 
 Az Azure PowerShell Az modul telepítéséhez hajtsa végre az alábbi lépéseket:
 
-* __Ajánlott__: [távolítsa el a AzureRM modult](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
+* **Ajánlott**: [távolítsa el a AzureRM modult](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Győződjön meg róla, hogy az AzureRM _összes_ telepített verzióját eltávolítja, és nem csak a legutóbbi verziót.
 * [Az az modul telepítése](/powershell/azure/install-az-ps)
 
@@ -391,7 +391,7 @@ $task.Wait()
 
 - A `PSAppServicePlan`, `PSCertificate`, `PSCloningInfo` és `PSSite` objektum elavult tulajdonságai el lettek távolítva.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a Azure Stack hub PowerShell-ről: Ismerkedés [a PowerShell-lel Azure stack hub-ban](../user/azure-stack-powershell-overview.md)
 - Telepítse a PowerShell az modult, lásd: a [PowerShell telepítése az Azure stack hub](powershell-install-az-module.md) -hoz

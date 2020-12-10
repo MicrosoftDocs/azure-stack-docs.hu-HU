@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935032"
+ms.locfileid: "96939819"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
 
@@ -60,11 +60,11 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 4. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több** látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. Ha egy elem verziója **több** néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure3.png)
 
 6. Válassza ki a kívánt elemet, majd válassza a **Letöltés** lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után telepítheti az új Piactéri elemeket Azure Stack operátorként vagy felhasználóként.
 
@@ -90,10 +90,6 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
 
 #### <a name="download-items"></a>Elemek letöltése
 
-
-
-### <a name="az-modules"></a>[Az modulok](#tab/az1)
-
 1. Nyissa meg a PowerShellt, és lépjen a kibontott mappára.
 
 2. Futtassa a **Invoke-AzSMarketplaceDownload.ps1** PowerShell-parancsfájlt:
@@ -104,42 +100,18 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
        -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
     ```
 
-    Ha már bejelentkezett Azure PowerShellon keresztül, az Azure-környezetben is átadható:
-
-    ```powershell
-    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
-    ```
-    Ha nem adja át az Azure-környezetet, a rendszer kérni fogja, hogy jelentkezzen be.
-
-3. Megjelenik egy ablak, ahol kiválaszthatja a letölteni kívánt terméket. A CTRL billentyűt lenyomva tartva több elemet is kijelölhet.
-
-4. Kattintson az **OK** gombra. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
-### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
-
-1. Nyissa meg a PowerShellt, és lépjen a kibontott mappára.
-
-2. Futtassa a **Invoke-AzSMarketplaceDownload.ps1** PowerShell-parancsfájlt:
-
-    ```powershell
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
-       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
-       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
-    ```
-
-    Ha már bejelentkezett Azure PowerShellon keresztül, az Azure-környezetben is átadható:
+    Ha már bejelentkezett az Azure PowerShell-lel, az Azure-környezetben is átadható:
 
     ```powershell
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
+
     Ha nem adja át az Azure-környezetet, a rendszer kérni fogja, hogy jelentkezzen be.
 
 3. Megjelenik egy ablak, ahol kiválaszthatja a letölteni kívánt terméket. A CTRL billentyűt lenyomva tartva több elemet is kijelölhet.
 
 4. Kattintson az **OK** gombra. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
-
----
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek feltöltése Azure Stack hubhoz
 
@@ -151,8 +123,6 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
 
 #### <a name="upload-items"></a>Elemek feltöltése
 
-### <a name="az-modules"></a>[Az modulok](#tab/az2)
-
 1. Nyissa meg a PowerShellt, és lépjen a kibontott mappára.
 
 2. Futtassa a **Invoke-AzSMarketplaceUpload.ps1** PowerShell-parancsfájlt:
@@ -161,29 +131,7 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
     .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
     ```
 
-    Azt is megteheti, hogy saját maga is beállíthatja a Azure Stack környezetet Azure PowerShell, hitelesítenie kell magát a felügyeleti erőforrás-kezelő végponton, és át kell adni a környezetet a parancsfájlnak:
-
-    ```powershell
-    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
-
-    Add-AzAccount -Environment Redmond-Admin
-
-    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
-    ```
-
-    Ez az eljárás feltölti a piactér elemeit a megadott Azure Stack hubhoz.
-
-### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
-
-1. Nyissa meg a PowerShellt, és lépjen a kibontott mappára.
-
-2. Futtassa a **Invoke-AzSMarketplaceUpload.ps1** PowerShell-parancsfájlt:
-
-    ```powershell
-    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
-    ```
-
-    Azt is megteheti, hogy saját maga is beállíthatja a Azure Stack környezetet Azure PowerShell, hitelesítenie kell magát a felügyeleti erőforrás-kezelő végponton, és át kell adni a környezetet a parancsfájlnak:
+    Azt is megteheti, hogy saját maga is beállíthatja az Azure Stack környezetet az Azure PowerShellben, hitelesítheti magát a felügyeleti erőforrás-kezelő végponton, és átadhatja a környezetet a parancsfájlnak:
 
     ```powershell
     Add-AzureRmEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
@@ -194,5 +142,3 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
     ```
 
     Ez az eljárás feltölti a piactér elemeit a megadott Azure Stack hubhoz.
-
----

@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 8fc2990d49d074f56a53fa02983ffd334804ea1d
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525676"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935202"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>A PowerShell telepítése az Azure Stack hub modulhoz
 
@@ -55,9 +55,9 @@ A PowerShell Core 6. x vagy újabb verziója szükséges. Útmutatásért köves
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. távolítsa el az Azure Stack hub PowerShell-modulok meglévő verzióit
 
-A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolítja a korábban telepített Azure Stack hub Azure Resource modules vagy az PowerShell-modulok egyikét. Távolítsa el a modulokat a következő két módszer egyikének használatával:
+A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávolítja a korábban telepített Azure Stack hub Azure Resource Manager vagy az PowerShell modulokat. Távolítsa el a modulokat a következő két módszer egyikének használatával:
 
-1. A meglévő Azure-erőforrás-modulok és az PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
+1. A meglévő Azure Resource Manager és az PowerShell-modulok eltávolításához zárjunk be minden aktív PowerShell-munkamenetet, és futtassa a következő parancsmagokat:
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -86,7 +86,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > Azure Stack hub-modul 2.0.0-verziójának feltörési változása. A részletekért tekintse meg az [áttelepítés a AzureRM-ről Azure PowerShell az az Azure stack hub-ban](migrate-azurerm-az.md) című témakört.
 
 > [!WARNING]
-> Egyszerre nem lehet egyszerre a PowerShell 5,1-hez telepített Azure Resource modules (AzureRM) és az az modul is. Ha meg kell őriznie az Azure Resource modulokat a rendszeren, telepítse az az modult a PowerShell Core 6. x vagy újabb verzióra. Ehhez [telepítse a PowerShell Core 6. x-es vagy újabb verzióját](/powershell/scripting/install/installing-powershell-core-on-windows) , majd kövesse ezeket az utasításokat egy PowerShell Core-terminálon.
+> Egyszerre csak a Azure Resource Manager (AzureRM) és az az modulok vannak telepítve a PowerShell 5,1-hez. Ha meg kell őriznie Azure Resource Manager a rendszeren elérhetőnek kell lennie, telepítse az az modult a PowerShell Core 6. x vagy újabb verzióra. Ehhez [telepítse a PowerShell Core 6. x-es vagy újabb verzióját](/powershell/scripting/install/installing-powershell-core-on-windows) , majd kövesse ezeket az utasításokat egy PowerShell Core-terminálon.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. leválasztva: telepítés internetkapcsolat nélkül
 
@@ -107,7 +107,7 @@ A telepítés öt lépésből áll:
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 vagy újabb.
 
-Használhatja az Azure Resource-modulokat vagy az az modulokat. Azure-erőforrás-modulok esetében tekintse meg a [PowerShell-AzureRM modul telepítése](powershell-install-az-module.md)című témakör útmutatását. A következő kód a megbízható online tárházból menti a modulokat https://www.powershellgallery.com/ .
+Azure Resource Manager vagy az az modulokat is használhatja. Azure Resource Manager esetében tekintse meg a [PowerShell-AzureRM modul telepítése](powershell-install-az-module.md)című témakör útmutatását. A következő kód a megbízható online tárházból menti a modulokat https://www.powershellgallery.com/ .
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -181,11 +181,11 @@ Olyan helyzetekben, amelyekhez proxykiszolgáló szükséges az internethez val�
 
 ## <a name="7-use-the-az-module"></a>7. használja az az modult
 
-Az Azure-erőforrás-modulok alapján a parancsmagokat és a kód-mintákat is használhatja. Azonban módosítania kell a modulok és a parancsmagok nevét. A modul neve megváltozott, így az `AzureRM` Azure és `Az` a parancsmagok is megegyeznek. Például a `AzureRM.Compute` modul át lett nevezve a következőre: `Az.Compute` .` New-AzureRMVM` ` New-AzVM` lett, a `Get-AzureStorageBlob` pedig `Get-AzStorageBlob`.
+A parancsmagokat és a kód mintákat Azure Resource Manager alapján is használhatja. Azonban módosítania kell a modulok és a parancsmagok nevét. A modul neve megváltozott, így az `AzureRM` Azure és `Az` a parancsmagok is megegyeznek. Például a `AzureRM.Compute` modul át lett nevezve a következőre: `Az.Compute` .` New-AzureRMVM` ` New-AzVM` lett, a `Get-AzureStorageBlob` pedig `Get-AzStorageBlob`.
 
 A AzurRM-szkriptek az az-ba való áthelyezésével és a Azure Stack hub az az modulban történő módosításával kapcsolatos részletesebb megbeszélések és útmutatás: [áttelepítés az AzureRM-ből Azure PowerShell az-ba](migrate-azurerm-az.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub-eszközök letöltése a GitHubról](azure-stack-powershell-download.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](../user/azure-stack-powershell-configure-user.md)

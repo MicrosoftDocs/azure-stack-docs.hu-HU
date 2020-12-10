@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785770"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935148"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -54,7 +54,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
@@ -118,7 +118,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
@@ -227,6 +227,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha a bélyegző App Service erőforrás-szolgáltató (RP) 1,7-es és régebbi verzióját tartalmazza, a bélyegző frissítése után a App Servicehoz tartozó pengék nem töltődnek be.
 - Szervizelés: frissítse az RP-t a 2002-es verzióra.
 
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
 <!-- ## App Service -->
@@ -284,7 +290,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózatkezelés
+## <a name="networking"></a>Hálózat
 
 ### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound-szabály nem hozható létre
 
@@ -352,7 +358,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nem hozható létre virtuálisgép-méretezési csoport Standard_DS2_v2 virtuális gép méretével a portálon
 
 - Alkalmazható: Ez a probléma az 2002-es kiadásra vonatkozik.
-- Ok: van egy portál hibája, amely megakadályozza a virtuálisgép-méretezési csoport létrehozását a Standard_DS2_v2 virtuális gép méretével. Ha létrehoz egy hibát, a (z) "{" code ":" DeploymentFailed ", az" üzenet ":" legalább egy erőforrás-telepítési művelet sikertelen volt. A részletekért listázza az üzembehelyezési műveleteket. Tekintse https://aka.ms/arm-debug meg a használati adatokat. "," Részletek ": [{" code ":" BadRequest "," üzenet ":" {\r\n \" hiba \" : {\R\n \" kód \" : \" NetworkProfileValidationError \" , \r\n \" üzenet: a \" \" virtuális gép mérete Standard_DS2_v2 nem szerepel a VM-méretezési csoport/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.Compute/virtualMachineScaleSets/vmss. Megengedett méretek:. \" \r\n} \r\n} "}]}"
+- Ok: van egy portál hibája, amely megakadályozza a virtuálisgép-méretezési csoport létrehozását a Standard_DS2_v2 virtuális gép méretével. Ha létrehoz egy hibát, a (z) "{" code ":" DeploymentFailed ", az" üzenet ":" legalább egy erőforrás-telepítési művelet sikertelen volt. A részletekért listázza az üzembehelyezési műveleteket. Tekintse https://aka.ms/arm-debug meg a használati adatokat. "," Részletek ": [{" code ":" BadRequest "," üzenet ":" {\r\n \" hiba \" : {\R\n \" kód \" : \" NetworkProfileValidationError \" , \r\n \" üzenet: a \" \" virtuális gép mérete Standard_DS2_v2 nincs a virtuális gépek méretezési csoportjának a 0. indexnél engedélyezett virtuálisgép-méretek engedélyezett listájában. Megengedett méretek:. \" \r\n} \r\n} "}]}"
 - Szervizelés: virtuálisgép-méretezési csoport létrehozása PowerShell-lel vagy Resource Manager-sablonnal.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>A virtuális gép áttekintő paneljén nem jelenik meg a számítógép helyes neve
@@ -415,7 +421,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 ### <a name="retention-period-revert-to-0"></a>Megőrzési időszak visszavonása 0-ra
 
 - Alkalmazható: Ez a probléma a 2002-es és a 2005-es kiadásra vonatkozik.
-- Ok: Ha korábban a 0 értéktől eltérő időszakot adott meg a megőrzési időtartam beállításában, a rendszer visszaállítja a 0 értéket (ez a beállítás alapértelmezett értéke) a 2002 és a 2005 frissítés során. És a 0 nap beállítása a frissítés befejeződése után is érvénybe immdiately, így az összes meglévő törölt Storage-fiók és a közelgő újonnan törölt Storage-fiókok azonnal nem maradnak meg a megőrzéstől, és meg vannak jelölve az időszakos szemét-gyűjtésre (amely óránként fut). 
+- Ok: Ha korábban a 0 értéktől eltérő időszakot adott meg a megőrzési időtartam beállításában, a rendszer visszaállítja a 0 értéket (ez a beállítás alapértelmezett értéke) a 2002 és a 2005 frissítés során. És a 0 nap beállítás a frissítés befejeződése után azonnal érvénybe lép, így az összes meglévő törölt Storage-fiók és a közelgő újonnan törölt Storage-fiókok azonnal nem maradnak meg a megőrzéstől, és meg vannak jelölve az időszakos szemét-gyűjtésre (amely óránként fut). 
 - Szervizelés: manuálisan határozza meg a megőrzési időszakot a megfelelő időszakra. Azonban az új megőrzési időszak megadását megelőzően az összes Storage-fiók már be van gyűjtve.  
 
 ## <a name="resource-providers"></a>Erőforrás-szolgáltatók
@@ -431,6 +437,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma a 2002-es kiadásra vonatkozik.
 - Ok: Ha a bélyegző App Service erőforrás-szolgáltató (RP) 1,7-es és régebbi verzióját tartalmazza, a bélyegző frissítése után a App Servicehoz tartozó pengék nem töltődnek be.
 - Szervizelés: frissítse az RP-t a [2020](azure-stack-app-service-update.md)-es verzióra.
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

@@ -193,7 +193,7 @@
             - name: Felügyeleti környezet beállítása
               items:
                 - name: Az Azure Stack PowerShell telepítése
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Kapcsolódás a PowerShell-lel
                   href: ../operator/azure-stack-powershell-configure-admin.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hozzáférés a kiemelt végponthoz
@@ -519,7 +519,7 @@
                     - name: Azure Stack PowerShell – áttekintés
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Az Azure Stack PowerShell telepítése
-                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: /azure-stack/operator/powershell-install-az-module?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                       maintainContext: true
                     - name: Kapcsolódás a PowerShell-lel
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -587,7 +587,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Szolgáltatások használata
               items:
-                - name: Számítás
+                - name: Compute
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -607,7 +607,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: GPU virtuális gépek
                       href: azure-stack-gpu.md
-                - name: Tárolás
+                - name: Storage
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

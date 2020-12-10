@@ -1,28 +1,27 @@
 ### YamlMime:Landing
-title: Az Azure moduláris adatközpont (MDC) operátora és felhasználói dokumentációja
-summary: Ismerje meg az Azure moduláris adatközpont (MDC) üzemeltetését és használatát.
+title: Azure Stack hub robusztus kezelője és felhasználói dokumentációja
+summary: Ismerje meg, hogyan működtetheti és használhatja Azure Stack hub robusztus, hibrid felhőalapú platformját, amely lehetővé teszi, hogy az Azure-szolgáltatásokat sokoldalú, robusztus felhőalapú berendezéssel lássa el.
 metadata:
-  title: Az Azure moduláris adatközpont (MDC) operátora és felhasználói dokumentációja – oktatóanyagok, fogalmak, cikkek
-  description: Az Azure moduláris adatközpont (MDC) egy moduláris adatközpont, amely Azure Stack hub-megoldásokat és-tárolót tartalmaz. Biztosíthatja az Azure-szolgáltatásokat, és nagy léptékű számítási és tárolási kapacitást biztosíthat a helyszínen vagy az Edge-kapcsolaton keresztül, vagy le lehet kapcsolni az Azure-ból vagy csatlakoztatva. A szolgáltatás olyan használati esetekre van optimalizálva, amelyek adatszuverenitást és helyszíni vezérlést igényelnek.
+  title: Azure Stack hub robusztus dokumentációja – oktatóanyagok és API-referenciák
+  description: Microsoft Azure Stack hub robusztus egy hibrid felhőalapú platform, amely lehetővé teszi az Azure-szolgáltatások biztosítását az adatközpontból. Ismerje meg, hogyan kezelheti az Azure Stack hub robusztus integrált rendszer-infrastruktúráját, valamint azt, hogyan kínálhat szolgáltatásokat a gyors útmutatókkal és oktatóanyagokkal.
   ms.service: azure-stack
-  ms.subservice: asdk
   ms.topic: landing-page
   author: justinha
   ms.author: justinha
-  ms.date: 07/23/2020
-  ms.openlocfilehash: 567ea184c0b7ff1afe36022600ff61130455c2e4
+  ms.date: 10/14/2020
+  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
   ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
   ms.translationtype: MT
   ms.contentlocale: hu-HU
   ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96935082"
+  ms.locfileid: "96939920"
 landingContent:
-- title: Tudnivalók az Azure moduláris adatközpontról
+- title: Tudnivalók Azure Stack hub robusztus
   linkLists:
   - linkListType: overview
     links:
-    - text: Mi az a moduláris adatközpont?
-      url: mdc-overview.md
+    - text: Mi az Azure Stack hub robusztus?
+      url: ruggedized-overview.md
     - text: Modell specifikációi
       url: azure-stack-capacity-planning-overview.md
   - linkListType: whats-new
@@ -31,7 +30,7 @@ landingContent:
       url: ../operator/release-notes-security-updates.md
     - text: Kibocsátási megjegyzések
       url: ../operator/release-notes.md
-- title: Ismerkedés az Azure moduláris adatközponttal
+- title: Első lépések az Azure Stack hub robusztus
   linkLists:
   - linkListType: learn
     links:
@@ -49,16 +48,6 @@ landingContent:
       url: ../operator/azure-stack-connected-deployment.md
     - text: Leválasztott központi telepítés
       url: ../operator/azure-stack-disconnected-deployment.md
-- title: Azure moduláris adatközpont kezelése
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Állapot és riasztások monitorozása
-      url: operator/azure-stack-monitor-health-tzl.md
-    - text: Frissítések telepítése és a folyamat megfigyelése
-      url: ../operator/azure-stack-apply-updates.md
-    - text: Ajánlott eljárások a biztonsági mentéshez és a visszaállításhoz
-      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Azure Stack hub-eszközök
   linkLists:
   - linkListType: download
@@ -71,6 +60,26 @@ landingContent:
       url: ../user/azure-stack-powershell-user-docker.md
     - text: Kapcsolat Azure Stack PowerShell-lel
       url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Azure Stack hub-szolgáltatások ajánlata
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Ajánlat létrehozása virtuális géphez
+      url: ../operator/tutorial-offer-services.md
+    - text: Magasan elérhető MySQL-adatbázis létrehozása
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Alkalmazások létrehozása bármilyen platformhoz
+      url: ../operator/azure-stack-app-service-overview.md
+- title: Azure Stack hub kezelése robusztus
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Állapot és riasztások monitorozása
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Frissítések telepítése és a folyamat megfigyelése
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Ajánlott eljárások a biztonsági mentéshez és a visszaállításhoz
+      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Infrastruktúra-szolgáltatás (IaaS) Azure Stack hub-on
   linkLists:
   - linkListType: quickstart
@@ -87,15 +96,3 @@ landingContent:
       url: ../user/deploy-foundational-patterns.md
     - text: A kódban írt alkalmazások
       url: ../user/azure-stack-dev-start-deploy-app.md
-- title: Azure Stack hub-szolgáltatások ajánlata
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Ajánlat létrehozása virtuális géphez
-      url: ../operator/tutorial-offer-services.md
-  - linkListType: how-to-guide
-    links:
-    - text: Magasan elérhető MySQL-adatbázis létrehozása
-      url: ../operator/azure-stack-tutorial-mysql.md
-    - text: Alkalmazások létrehozása bármilyen platformhoz
-      url: ../operator/azure-stack-app-service-overview.md

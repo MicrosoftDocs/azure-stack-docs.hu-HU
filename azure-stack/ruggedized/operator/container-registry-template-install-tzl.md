@@ -16,16 +16,16 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
+ms.openlocfilehash: 5d97f12e6bc933edf7b5b335ebd52a86a1a7f01d
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935003"
+ms.locfileid: "96939768"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Tároló-beállításjegyzék hozzáadása Azure Stack hubhoz
 
-A tároló-beállításjegyzéket hozzáadhatja a Azure Stack hub piactérhez, így a felhasználók üzembe helyezhetik és kezelhetik saját tároló-beállításjegyzéket. Ez a megoldási sablon telepíti és konfigurálja a nyílt forráskódú Docker Container Registryt egy olyan felhasználói előfizetésben, amely az AK Base Ubuntu 16,04-LTS-rendszerképben fut. A sablon támogatja a csatlakoztatott és a leválasztott (gapped) központi telepítéseket is, és támogatja a Azure Active Directory (Azure AD) és a Active Directory összevont szolgáltatások (AD FS) Azure Stack hubokat.
+A tároló-beállításjegyzéket hozzáadhatja a Azure Stack hub piactérhez, így a felhasználók üzembe helyezhetik és kezelhetik saját tároló-beállításjegyzéket. Ez a megoldási sablon telepíti és konfigurálja a nyílt forráskódú Docker Container Registryt egy olyan felhasználói előfizetésben, amely az AK Base Ubuntu 16,04-LTS-rendszerképben fut. A sablon támogatja a csatlakoztatott és a leválasztott (gapped) központi telepítéseket is, és támogatja a Azure Active Directory (HRE) és a Active Directory összevont szolgáltatások (AD FS) Azure Stack hubokat.
 
 ## <a name="get-the-marketplace-item"></a>Piactér-elemek beszerzése
 
@@ -39,12 +39,12 @@ A Container Registry Marketplace-elem Azure Stack hub-beli hozzáadása előtt a
 
 | Elem | Típus | Részletek |
 | --- | --- | --- |
-| Azure Stack hub PowerShell-modulok (AZS. Gallery. admin) | PowerShell-modulok | Csak akkor szükséges, ha a tároló beállításjegyzék-sablonjának katalógusa elemet betölti, a Azure Stack hub PowerShell-modulok a katalógus elemeinek hozzáadására és eltávolítására szolgálnak.<br>[Azure Stack PowerShell-modulok telepítése](../../operator/powershell-install-az-module.md) |
+| Azure Stack hub PowerShell-modulok (AZS. Gallery. admin) | PowerShell-modulok | Csak akkor szükséges, ha a tároló beállításjegyzék-sablonjának katalógusa elemet betölti, a Azure Stack hub PowerShell-modulok a katalógus elemeinek hozzáadására és eltávolítására szolgálnak.<br>[Azure Stack PowerShell-modulok telepítése](../../operator/azure-stack-powershell-install.md) |
 | Container Registry sablon | Marketplace-tétel | Ahhoz, hogy a tároló-beállításjegyzéket Azure Stack hub-felhasználóként lehessen üzembe helyezni, a tároló beállításjegyzék-sablon Marketplace-elemének elérhetőnek kell lennie az előfizetésében, vagy manuálisan kell hozzáadnia (betöltve) az Azure Stack hub piactéren. Ha az oldal betöltését végzi, kövesse az utasításokat, hogy betöltse a csomagot a `readme.md` [GitHub-adattárba](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1). |
-| AK Base Ubuntu 16,04-LTS-rendszerkép, szeptember 2019 minimális kiadási verzió | Marketplace-tétel | Ahhoz, hogy a Azure Stack hub-felhasználók üzembe helyezzük a tároló-beállításjegyzéket, a piactéren elérhetővé kell tennie az AK-alapú alaplemezképet. A Container Registry sablon a rendszerképet használja, amikor Ubuntu rendszerű virtuális gépet telepít a Docker-tároló beállításjegyzékének bináris fájljait futtató előfizetésből. |
+| AK Base Ubuntu 16,04-LTS-rendszerkép, szeptember 2019 minimális kiadási verzió | Marketplace-tétel | Ahhoz, hogy a Azure Stack hub-felhasználók üzembe helyezzük a tároló-beállításjegyzéket, a piactéren elérhetővé kell tennie az AK-alapú alaplemezképet. A Container Registry sablon a rendszerképet használja, ha egy Ubuntu virtuális gép, amely a Docker-tároló beállításjegyzékének bináris fájljait tárolja. |
 | Linux Custom script bővítmény 2,0 | Marketplace-tétel | Ahhoz, hogy a Azure Stack hub-felhasználók üzembe helyezzük a tároló-beállításjegyzéket, a piactéren elérhetővé kell tennie a Linux egyéni parancsfájl-bővítményt. A tároló beállításjegyzék-sablonjának központi telepítése a bővítmény használatával konfigurálja a beállításjegyzéket. |
 | SSL-tanúsítvány | Tanúsítvány | A tároló beállításjegyzék-sablonját telepítő felhasználóknak meg kell adniuk egy PFX-tanúsítványt, amelyet a beállításjegyzék szolgáltatás SSL-titkosításának konfigurálásakor használ. Ha a parancsfájlt használja, a PowerShell-munkamenetet emelt szintű parancssorból kell futtatnia. Ez nem futtatható a DVM vagy a HLH.<br>A nyilvános vagy privát/vállalati tanúsítványokkal rendelkező Azure Stack hub PKI-tanúsítványokra vonatkozó követelményeivel kapcsolatos általános útmutatásért tekintse meg ezt a dokumentációt: [Azure stack hub nyilvánoskulcs-infrastruktúra (PKI) tanúsítványára vonatkozó követelmények](../../operator/azure-stack-pki-certs.md)<br>A tanúsítvány teljes tartománynevének ezt a mintát kell követnie `<vmname>.<location>.cloudapp.<fqdn>` , kivéve, ha egyéni tartományt/DNS-bejegyzést használ a végponthoz. A névnek betűvel kell kezdődnie, és legalább két betűt kell tartalmaznia, és csak kisbetűket és legalább három karaktert kell használnia. |
-| Szolgáltatási elv (SPN) | Alkalmazás regisztrálása | A tároló beállításjegyzékének üzembe helyezéséhez és konfigurálásához létre kell hozni egy alkalmazás-regisztrációt, más néven az egyszerű szolgáltatásnevet (SPN). Ez az egyszerű szolgáltatásnév a virtuális gép és a beállításjegyzék konfigurálása során használatos a Marketplace-elemek üzembe helyezése előtt létrehozott Microsoft Azure Key Vault és a Storage-fiók erőforrásainak eléréséhez.<br>Az egyszerű szolgáltatásnevet az Azure AD-ben kell létrehozni az Azure Stack hub felhasználói portálján bejelentkezett bérlőn belül. AD FS használata esetén a rendszer a helyi könyvtárban hozza létre.<br>Az [alábbi útmutatást követve](../../operator/azure-stack-create-service-principals.md)részletesen tájékozódhat arról, hogyan hozhat létre egyszerű szolgáltatásnevet az Azure ad-hez és a AD FS hitelesítési módszerekhez.<br> **Fontos**: a frissítések telepítéséhez mentenie kell az SPN-alkalmazás azonosítóját és a titkos kulcsot.<br> |
+| Szolgáltatási elv (SPN) | Alkalmazás regisztrálása | A tároló beállításjegyzékének üzembe helyezéséhez és konfigurálásához létre kell hozni egy alkalmazás-regisztrációt, más néven az egyszerű szolgáltatásnevet (SPN). Ez az egyszerű szolgáltatásnév a virtuális gép és a beállításjegyzék konfigurálása során használatos a Marketplace-elemek üzembe helyezése előtt létrehozott Microsoft Azure Key Vault és a Storage-fiók erőforrásainak eléréséhez.<br>Az egyszerű szolgáltatásnevet az Azure Stack hub felhasználói portálján bejelentkezett bérlő HRE belül kell létrehozni. AD FS használata esetén a rendszer a helyi könyvtárban hozza létre.<br>Az [alábbi útmutatást követve](../../operator/azure-stack-create-service-principals.md)részletesen tájékozódhat arról, hogyan hozhat létre egyszerű SZOLGÁLTATÁSNEVET a HRE és a AD FS hitelesítési módszerekhez.<br> **Fontos**: a frissítések telepítéséhez mentenie kell az SPN-alkalmazás azonosítóját és a titkos kulcsot.<br> |
 | Beállításjegyzékbeli Felhasználónév és jelszó | Hitelesítő adatok | A nyílt forráskódú Docker-tároló beállításjegyzékének telepítése és konfigurálása engedélyezve van az alapszintű hitelesítéssel. Ha a beállításjegyzéket Docker-parancsokkal szeretné elérni a képek leküldéséhez és lekéréséhez, a felhasználónevet és a jelszót kötelező megadni. A Felhasználónév és a jelszó biztonságosan tárolódik egy Key Vault tárolóban.<br>**Fontos**: mentse a beállításjegyzék felhasználónevét és jelszavát, és jelentkezzen be a beállításjegyzékbe és a leküldéses/lekérési képekbe. |
 | Nyilvános SSH/titkos kulcs | Hitelesítő adatok | A virtuális géppel való üzembe helyezéssel vagy futásidejű problémákkal kapcsolatos problémák elhárításához meg kell adni egy nyilvános SSH-kulcsot az üzembe helyezéshez és a megfelelő titkos kulcshoz. Azt javasoljuk, hogy az OpenSSH-formátumot, az ssh-keygen-t, a privát/nyilvános kulcspár létrehozásához használja, mivel a naplók gyűjtéséhez szükséges diagnosztikai parancsfájlok ezt a formátumot igénylik.<br>**Fontos**: ahhoz, hogy az üzembe helyezett virtuális gép hibaelhárításhoz hozzáférhessen, hozzáféréssel kell rendelkeznie a nyilvános és a titkos kulcsokhoz. |
 | Hozzáférés rendszergazdai és felhasználói portálokhoz és felügyeleti végpontokhoz | Kapcsolatok | Ez az útmutató feltételezi, hogy a beállításjegyzéket olyan rendszerről telepíti és konfigurálja, amely az Azure Stack hub rendszerhez kapcsolódik. |
@@ -115,17 +115,17 @@ A tároló-beállításjegyzék sablonjának telepítéséhez több erőforrást
 
 1. Nyissa meg az Azure Stack hub felhasználói portált.
 
-2. Válassza **Create** a  >  **számítási**  >  **Container Registry sablon** létrehozása lehetőséget.
+2. Válassza a  >  **számítási**  >  **Container Registry sablon** létrehozása lehetőséget.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/template.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image1.png)
 
 3. Válassza ki az előfizetést, az erőforráscsoportot és a helyet a tároló beállításjegyzék-sablonjának telepítéséhez.
 
-    ![Előfizetés kiválasztása](./media/container-registry-template-install-tzl/subscription.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image2.png)
 
 4. Fejezze be a virtuális gép konfigurációjának részleteit. A rendszerkép SKU alapértelmezett értéke: **AK-Ubuntu-1604-201909**; a függvény kimenete azonban `Set-ContainerRegistryPrerequisites` tartalmazza a telepítéshez használandó elérhető SKU-ket tartalmazó listát. Ha több SKU is létezik, válassza a legújabb SKU-t az üzembe helyezéshez.
 
-    ![A virtuális gép konfigurációjának részletei](./media/container-registry-template-install-tzl/details.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image3.png)
 
     | Paraméter | Részletek |
     | --- | --- |
@@ -141,7 +141,7 @@ A tároló-beállításjegyzék sablonjának telepítéséhez több erőforrást
 
 1. Fejezze be a tárolási és Key Vault konfigurációt.
 
-    ![Tárolási és Key Vault konfiguráció](./media/container-registry-template-install-tzl/storage.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image4.png)
 
     | Paraméter | Részletek |
     | --- | --- |
@@ -153,7 +153,7 @@ A tároló-beállításjegyzék sablonjának telepítéséhez több erőforrást
 
 1. Ha az összes értéket megadja, és a megoldás sablonjának üzembe helyezése megkezdődik, 10-15 percet vesz igénybe, amíg a virtuális gép üzembe helyezi és konfigurálja a beállításjegyzék-szolgáltatást.
 
-    ![Virtuális gép üzembe helyezése](./media/container-registry-template-install-tzl/deploy.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image5.png)
 
 2. A beállításjegyzék teszteléséhez nyisson meg egy Docker CLI-példányt egy gépről/virtuális gépre, amely hozzáfér a beállításjegyzék URL-címéhez.
 

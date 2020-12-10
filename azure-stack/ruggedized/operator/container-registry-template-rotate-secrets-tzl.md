@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.lastreviewed: 12/17/2019
+ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934982"
+ms.locfileid: "96939835"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>A tároló-beállításjegyzék titkainak elforgatása Azure Stack központban
 
@@ -29,7 +29,7 @@ A Azure Stack hub-felhasználók elhelyezhetik a tárolók beállításjegyzék-
 
 ## <a name="prerequisites-for-the-user"></a>A felhasználó előfeltételei
 
- - A felhasználónak telepítenie kell a Azure Stack hub PowerShell-modult. További információ: [a PowerShell telepítése Azure Stackhoz](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
+ - A felhasználónak telepítenie kell a Azure Stack hub PowerShell-modult. További információ: [a PowerShell telepítése Azure Stackhoz](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
 
  - Szerezze be a tároló beállításjegyzék-sablonjának frissítési titkait. A Docker-beállításjegyzék eléréséhez használhat új SSL-tanúsítványt vagy új felhasználónevet és jelszót.
 
@@ -253,19 +253,19 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
 2.  Navigáljon ahhoz az erőforráscsoporthoz, amelyhez a tároló beállításjegyzék-sablonjának virtuális gépe telepítve van.
 
-    ![Erőforráscsoport](./media/container-registry-template-rotating-secrets-tzl/resource-group.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Válassza ki a **központi telepítések alatt** üzemelő példányokat.
 
-    ![Központi telepítés](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Ha az első alkalommal forog a titkos kulcsok, válassza ki az eredeti telepítést. Ha nem ez az első alkalom a titkok megforgatására, válassza ki a legutóbbi telepítést, majd válassza az **újratelepítés** lehetőséget.
 
-    ![Ismételt üzembe helyezés](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  A **megoldás sablonjának üzembe helyezése** területen válassza a **meglévő erőforráscsoport használata** lehetőséget, majd válassza ki azt az erőforráscsoportot, amelyet eredetileg a Container Registry-sablon üzembe helyezéséhez használt. Ahhoz, hogy az újratelepítése sikeres legyen, ugyanazt az erőforráscsoportot kell használnia.
 
-    ![Megoldás sablonjának üzembe helyezése](./media/container-registry-template-rotating-secrets-tzl/deploy-solution-template.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  A **paramétereknél** győződjön meg arról, hogy a paraméterek egyeznek az eredeti telepítéssel. Az egyszerű szolgáltatás ügyfél-AZONOSÍTÓját és az egyszerű szolgáltatás titkos kulcsát hozzá kell adni.
 
@@ -273,7 +273,7 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
     - Ha elforgatja a tanúsítványt, a PFXKeyVaultSecretURL és a PFXThumbprint új értékeit kell megadnia, amelyek az új titkok beállításától származnak.
 
-    ![Paraméterek](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image5.png)
 
 7.  Válassza **az OK** , majd a **Létrehozás** lehetőséget. A rendszer folytatja az újratelepítést. Az újratelepítése során a beállításjegyzék funkciói továbbra is működni fognak.
 
