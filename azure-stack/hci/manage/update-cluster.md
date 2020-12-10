@@ -5,21 +5,18 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
-ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
+ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92688304"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010821"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Azure Stack HCI-fürtök frissítésekor a cél a rendelkezésre állás fenntartása úgy, hogy egyszerre csak egy kiszolgálót frissít a fürtben. Számos operációsrendszer-frissítéshez szükség van a kiszolgáló offline állapotba helyezésére, például újraindításra vagy olyan szoftverek frissítésére, mint például a hálózati verem. Javasoljuk, hogy a Cluster-Aware Update (CAU) szolgáltatást használja, amely megkönnyíti a frissítések telepítését a fürt minden kiszolgálójára, miközben az alkalmazások futnak. Ha szükséges, a frissítések telepítése és a kiszolgáló újraindítása során Cluster-Aware automatizálja a kiszolgáló bevezetését a karbantartási módból. Cluster-Aware frissítés a Windows felügyeleti központ által használt alapértelmezett frissítési módszer, amely a PowerShell használatával is kezdeményezhető.
-
-   > [!IMPORTANT]
-   > Az Azure Stack HCI-hez készült, október 20, 2020-es előzetes frissítés (KB4580388) miatt előfordulhat, hogy a fürtön észlelt frissítési művelet sikertelen lesz, ha a virtuális gépek bármelyike elvártan Élő áttelepítés a CAU során. Megkerülő megoldás [kibocsátási megjegyzései](../release-notes.md#october-20-2020-preview-update-kb4580388) .
 
 Ez a témakör az operációs rendszerre és a szoftverfrissítésekra koncentrál. Ha a hardver karbantartásának elvégzéséhez offline állapotba kell helyeznie egy kiszolgálót, tekintse meg a [kiszolgáló karbantartáshoz való offline](maintain-servers.md)állapotba helyezését ismertető témakört.
 
@@ -31,7 +28,7 @@ A Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e ko
 
 1. Amikor egy fürthöz csatlakozik, a Windows felügyeleti központ irányítópultja riasztást küld, ha egy vagy több kiszolgáló frissítésre készen áll, és megadhat egy hivatkozást a frissítéshez. Azt is megteheti, hogy a bal oldali **eszközök** menüjéből kijelöli a **frissítések** elemet.
 1. Ha a Windows felügyeleti központban szeretné használni a Cluster-Aware frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen** gombra.
-1. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás** ) gombra.
+1. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás**) gombra.
 1. A rendszer minden elérhető frissítést megjelenít; a lista frissítéséhez kattintson az **elérhető frissítések keresése** elemre.
 1. Válassza ki a telepíteni kívánt frissítéseket, és kattintson az **összes frissítés alkalmazása** lehetőségre. Ekkor a rendszer telepíti a frissítéseket a fürt minden kiszolgálójára. Ha újraindításra van szükség, a fürt szerepkörei, például a virtuális gépek átkerülnek egy másik kiszolgálóra, hogy elkerülje a fennakadást.
 1. A biztonság növelése érdekében tiltsa le a CredSSP, amint befejezte a frissítések telepítését:
@@ -40,7 +37,7 @@ A Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e ko
 
 ## <a name="update-a-cluster-using-powershell"></a>Fürt frissítése a PowerShell használatával
 
-Ahhoz, hogy frissíteni lehessen a fürtöt Cluster-Aware frissítéssel, először telepítenie kell a **feladatátvételi fürtszolgáltatás eszközeit** , amelyek a **Távoli kiszolgálófelügyelet eszközei (RSAT)** részét képezik, és tartalmazzák a Cluster-Aware frissítési szoftverét. Ha meglévő fürtöt frissít, lehetséges, hogy ezek az eszközök már telepítve vannak.
+Ahhoz, hogy frissíteni lehessen a fürtöt Cluster-Aware frissítéssel, először telepítenie kell a **feladatátvételi fürtszolgáltatás eszközeit**, amelyek a **Távoli kiszolgálófelügyelet eszközei (RSAT)** részét képezik, és tartalmazzák a Cluster-Aware frissítési szoftverét. Ha meglévő fürtöt frissít, lehetséges, hogy ezek az eszközök már telepítve vannak.
 
 Annak ellenőrzéséhez, hogy a feladatátvevő fürt megfelelően van-e beállítva a szoftverfrissítések alkalmazásához Cluster-Aware frissítéssel, futtassa a **test-CauSetup** PowerShell-parancsmagot, amely a feladatátvevő fürt és a hálózati környezet ajánlott eljárásokat elemző eszközének (BPA) vizsgálatát végzi, és riasztást küld a figyelmeztetésekről és hibákról:
 
@@ -93,7 +90,7 @@ Cluster-Aware a frissítés két módban képes koordinálni a fürt teljes fris
 -   **Távoli frissítési mód** Ebben a módban egy távoli felügyeleti számítógép (általában Windows 10 rendszerű számítógép), amely hálózati kapcsolattal rendelkezik a feladatátvevő fürthöz, de nem tagja a feladatátvevő fürtszolgáltatási eszközöknek. A rendszergazda, a frissítési koordinátor néven elindít egy igény szerinti frissítési kísérletet egy alapértelmezett vagy egyéni frissítési kísérlet futtatási profil használatával. A távoli frissítési mód hasznos a valós idejű előrehaladás figyelésére a frissítési kísérlet során, valamint a Server Core telepítéseken futó fürtök esetében.  
 
    > [!NOTE]
-   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei** , és válassza a **telepítés** lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/download/details.aspx?id=45520).
+   > A Windows 10 2018-es és újabb verziójának frissítése után az RSAT "igény szerinti szolgáltatások"-készletként szerepel a Windows 10 rendszertől kezdve. Egyszerűen lépjen a **beállítások > alkalmazások > alkalmazások & funkciók > választható funkciók > Hozzáadás a szolgáltatás > RSAT: feladatátvételi fürtszolgáltatás eszközei**, és válassza a **telepítés** lehetőséget. A telepítési folyamat megjelenítéséhez kattintson a Vissza gombra az állapot megtekintéséhez a "választható szolgáltatások kezelése" lapon. A telepített szolgáltatás a Windows 10 verziófrissítése alatt is megmarad. Ha az RSAT-t a Windows 10-es verzióra szeretné telepíteni az 2018-es frissítés előtt, [töltsön le egy RSAT-csomagot](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>CAU-fürt szerepkör hozzáadása a fürthöz
 

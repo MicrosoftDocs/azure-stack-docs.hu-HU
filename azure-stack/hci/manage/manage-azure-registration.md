@@ -4,19 +4,19 @@ description: Az Azure-regisztráció kezelése Azure Stack HCI-hez és a regiszt
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/29/2020
-ms.openlocfilehash: 696ef552dcf49f31fb613a22393617e653f7e10d
-ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
+ms.date: 12/10/2020
+ms.openlocfilehash: 9acbb273ea67d989f3ec1e1e88c51a96dd440256
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87436469"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010872"
 ---
 # <a name="manage-azure-registration"></a>Azure-regisztráció kezelése
 
 > Azure Stack HCI-v20H2 vonatkozik
 
-Miután létrehozott egy Azure Stack HCI-fürtöt, [regisztrálnia kell a fürtöt az Azure arc](../deploy/register-with-azure.md)-ban. A fürt regisztrálása után rendszeres időközönként szinkronizálja a helyszíni fürt és a felhő közötti információkat. Ez a témakör ismerteti, hogyan értelmezheti a regisztrációs állapotát, és törölheti a fürt regisztrációját, amikor készen áll a leszerelésre.
+Miután létrehozott egy Azure Stack HCI-fürtöt, [regisztrálnia kell a fürtöt az Azure arc](../deploy/register-with-azure.md)-ban. A fürt regisztrálása után rendszeres időközönként szinkronizálja a helyszíni fürt és a felhő közötti információkat. Ez a témakör a regisztrációs állapot megértését, Azure Active Directory engedélyek megadását és a fürt regisztrációjának törlését ismerteti, amikor készen áll a leszerelésre.
 
 ## <a name="understanding-registration-status"></a>A regisztrációs állapot ismertetése
 
@@ -36,17 +36,29 @@ A fürt regisztrálása után megtekintheti a `ConnectionStatus` és az `LastCon
 
 Ha túllépi a maximális időtartamot, a `ConnectionStatus` fog megjelenni `OutOfPolicy` .
 
-## <a name="azure-active-directory-permissions"></a>Engedélyek Azure Active Directory
+## <a name="azure-active-directory-app-permissions"></a>Azure Active Directory alkalmazás engedélyei
 
-Az előfizetéshez tartozó Azure-erőforrások létrehozása mellett a Azure Stack HCI-regisztrációja egy alkalmazás identitását hozza létre, amely fogalmi módon hasonló egy felhasználóhoz, a Azure Active Directory-bérlőben. Az alkalmazás identitása örökli a fürt nevét. Ez az identitás a Azure Stack HCI Cloud Service-ben, az előfizetésen belül, a megfelelő módon működik.
+Az előfizetéshez tartozó Azure-erőforrások létrehozása mellett a Azure Stack HCI-regisztrációja egy alkalmazás identitását hozza létre, amely fogalmi módon hasonló egy felhasználóhoz, a Azure Active Directory-bérlőben. Az alkalmazásidentitás örökli a fürt nevét. Az identitás szükség szerint az Azure Stack HCI-felhőszolgáltatás nevében jár el az előfizetésen belül.
 
 Ha a futtatott felhasználó `Register-AzureStackHCI` egy Azure Active Directory-rendszergazda, vagy megfelelő engedélyekkel rendelkezik, ez az összes automatikusan megtörténik, és nincs szükség további műveletre. Ha nem, a regisztráció befejezéséhez jóváhagyásra lehet szükség a Azure Active Directory rendszergazdájától. A rendszergazda vagy explicit módon megadhatja az alkalmazás beleegyezését, vagy delegálhatja az engedélyeket, hogy jóváhagyást adjon az alkalmazásnak:
 
 :::image type="content" source="media/manage-azure-registration/aad-permissions.png" alt-text="Azure Active Directory engedélyek és azonosítók diagramja" border="false":::
 
-A jóváhagyás megadásához nyissa meg a portal.azure.com, és jelentkezzen be egy olyan Azure-fiókkal, amely rendelkezik megfelelő engedélyekkel a Azure Active Directory. Navigáljon **Azure Active Directory**, majd **Alkalmazásregisztrációk**. Válassza ki a fürt után nevű alkalmazás-identitást, és navigáljon az **API-engedélyekhez**.
+A jóváhagyás megadásához nyissa meg a [Portal.Azure.com](https://portal.azure.com) , és jelentkezzen be egy olyan Azure-fiókkal, amely rendelkezik megfelelő engedélyekkel a Azure Active Directory. Navigáljon **Azure Active Directory**, majd **Alkalmazásregisztrációk**. Válassza ki a fürt után nevű alkalmazás-identitást, és navigáljon az **API-engedélyekhez**.
 
-Az alkalmazáshoz két engedély szükséges:
+Azure Stack HCI általánosan elérhető (GA) kiadásához az alkalmazásnak a következő engedélyekkel kell rendelkeznie, amelyek eltérnek a nyilvános előzetes verzióban szükséges alkalmazási engedélyekkel:
+
+```http
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Cluster.Read
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Cluster.ReadWrite
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.ClusterNode.Read
+
+https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.ClusterNode.ReadWrite
+```
+
+A nyilvános előzetes verzióban az alkalmazás engedélyei voltak (ezek már elavultak):
 
 ```http
 https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Census.Sync
@@ -55,6 +67,85 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 ```
 
 Ha a Azure Active Directory rendszergazdája jóváhagyást kér, eltarthat egy ideig, így a `Register-AzureStackHCI` parancsmag kilép, és a "függőben lévő rendszergazdai jóváhagyás" állapotba kerül, azaz részben kész. A jóváhagyás engedélyezése után egyszerűen futtassa újra `Register-AzureStackHCI` a regisztrációt.
+
+## <a name="azure-active-directory-user-permissions"></a>Felhasználói engedélyek Azure Active Directory
+
+Az Register-AzStackHCIt futtató felhasználónak Azure AD-engedélyekre van szüksége a következőhöz:
+
+- Azure AD-alkalmazások létrehozása/beolvasása/beállítása/eltávolítása (új/beolvasás/beállítás/eltávolítás – AzureADApplication)
+- Azure AD egyszerű szolgáltatás létrehozása/beolvasása (új/Get-New-Azureadserviceprincipal parancsmagot)
+- AD-alkalmazási titkok kezelése (új/Get/Remove-AzureADApplicationKeyCredential)
+- Jóváhagyás engedélyezése adott alkalmazás-engedélyek használatára (új/AzureADServiceAppRoleAssignments beolvasása/eltávolítása)
+
+Ez háromféle módon valósítható meg.
+
+### <a name="option-1-allow-any-user-to-register-applications"></a>1. lehetőség: az alkalmazások regisztrálásának engedélyezése bármely felhasználó számára
+
+A Azure Active Directoryban navigáljon a **felhasználói beállítások > Alkalmazásregisztrációk**. A **felhasználók regisztrálhatnak alkalmazásokat**, majd válassza az **Igen** lehetőséget.
+
+Ez lehetővé teszi a felhasználók számára az alkalmazások regisztrálását. A felhasználónak azonban továbbra is meg kell adnia az Azure AD-rendszergazdának a jóváhagyást a fürt regisztrálása során. Vegye figyelembe, hogy ez a bérlői szintű beállítás, ezért előfordulhat, hogy a nagyvállalati ügyfelek számára nem megfelelő.
+
+### <a name="option-2-assign-cloud-application-administration-role"></a>2. lehetőség: a felhőalapú alkalmazás-felügyeleti szerepkör kiosztása
+
+Rendelje hozzá a beépített "Cloud Application Administration" Azure AD-szerepkört a felhasználóhoz. Ez lehetővé teszi a felhasználó számára a fürtök regisztrálását anélkül, hogy további AD-rendszergazdai beleegyező jogosultságra van szüksége.
+
+### <a name="option-3-create-a-custom-ad-role-and-consent-policy"></a>3. lehetőség: egyéni AD-szerepkör és beleegyező szabályzat létrehozása
+
+A legszigorúbb lehetőség az egyéni AD-szerepkör létrehozása egyéni engedélyezési házirenddel, amely a bérlői szintű rendszergazdai jóváhagyást delegálja a Azure Stack HCI szolgáltatáshoz szükséges engedélyekhez. Ha ez az egyéni szerepkör hozzá van rendelve, a felhasználók regisztrálhatnak és megadhatnak jóváhagyást anélkül, hogy további AD-rendszergazdai jóváhagyásra van szükségük.
+
+   > [!NOTE]
+   > Ehhez a lehetőséghez prémium szintű Azure AD licencre van szükség, és egyéni AD-szerepköröket és egyéni engedélyezési házirend-funkciókat használ, amelyek jelenleg nyilvános előzetes verzióban érhetők el.
+
+   1. Kapcsolódás az Azure AD-hez:
+   
+      ```powershell
+      Connect-AzureAD
+      ```
+
+   2. Hozzon létre egy egyéni engedélyezési szabályzatot:
+
+      ```powershell
+      New-AzureADMSPermissionGrantPolicy -Id "AzSHCI-registration-consent-policy" -DisplayName "Azure Stack HCI registration admin app consent policy" -Description "Azure Stack HCI registration admin app consent policy"
+      ```
+
+   3. Vegyen fel egy olyan feltételt, amely tartalmazza a Azure Stack HCI szolgáltatáshoz szükséges alkalmazás-engedélyeket, amely az alkalmazás AZONOSÍTÓjának 1322e676-dee7-41ee-a874-ac923822781c. Vegye figyelembe, hogy a következő engedélyek a Azure Stack HCI kiadásához szükségesek, és a nyilvános előzetes verzióban nem működnek, hacsak nem alkalmazta a [november 23., 2020 előzetes frissítést (KB4586852)](../release-notes.md) a fürt összes kiszolgálójára, és az az. StackHCI modul 0.4.1 vagy újabb verzióját töltötte le.
+   
+      ```powershell
+      New-AzureADMSPermissionGrantConditionSet -PolicyId "AzSHCI-registration-consent-policy" -ConditionSetType "includes" -PermissionType "application" -ResourceApplication "1322e676-dee7-41ee-a874-ac923822781c" -Permissions "bbe8afc9-f3ba-4955-bb5f-1cfb6960b242","8fa5445e-80fb-4c71-a3b1-9a16a81a1966","493bd689-9082-40db-a506-11f40b68128f","2344a320-6a09-4530-bed7-c90485b5e5e2"
+      ```
+
+   4. Adja meg az engedélyeket a Azure Stack HCI regisztrálásának engedélyezéséhez, amely a 2. lépésben létrehozott egyéni engedélyezési szabályzatot is megadja
+   
+      ```powershell
+      $displayName = "Azure Stack HCI Registration Administrator "
+      $description = "Custom AD role to allow registering Azure Stack HCI "
+      $templateId = (New-Guid).Guid
+      $allowedResourceAction =
+      @(
+             "microsoft.directory/applications/createAsOwner",
+             "microsoft.directory/applications/delete",
+             "microsoft.directory/applications/standard/read",
+             "microsoft.directory/applications/credentials/update",
+             "microsoft.directory/applications/permissions/update",
+             "microsoft.directory/servicePrincipals/appRoleAssignedTo/update",
+             "microsoft.directory/servicePrincipals/appRoleAssignedTo/read",
+             "microsoft.directory/servicePrincipals/appRoleAssignments/read",
+             "microsoft.directory/servicePrincipals/createAsOwner",
+             "microsoft.directory/servicePrincipals/credentials/update",
+             "microsoft.directory/servicePrincipals/permissions/update",
+             "microsoft.directory/servicePrincipals/standard/read",
+             "microsoft.directory/servicePrincipals/managePermissionGrantsForAll.AzSHCI-registration-consent-policy"
+      )
+      $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+      ```
+
+   5. Hozza létre az új egyéni AD-szerepkört:
+
+      ```powershell
+      $customADRole = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+      ```
+
+   6. Rendelje hozzá az új egyéni AD-szerepkört ahhoz a felhasználóhoz, aki regisztrálni fogja az Azure Stack HCI-fürtöt az Azure-ban az alábbi [utasítások](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=/azure/active-directory/roles/context/ugr-context)követésével.
 
 ## <a name="unregister-azure-stack-hci-with-azure"></a>Azure Stack HCI regisztrációjának törlése az Azure-ban
 

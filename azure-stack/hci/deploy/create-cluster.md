@@ -3,21 +3,21 @@ title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 35c7fc98b88029d6ab130859b2c3d1c550233936
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354173"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011233"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 
 > A következőre vonatkozik Azure Stack HCI, Version v20H2
 
-Ebből a cikkből megtudhatja, hogyan használhatja a Windows felügyeleti központot olyan Azure Stack HCI hiperkonvergens-fürt létrehozásához, amely Közvetlen tárolóhelyekt használ. A Windows felügyeleti központban a fürt létrehozása varázsló a nagy mennyiségű felemelést végzi el Önnek. Ha inkább a PowerShell-lel szeretné elvégezni, tekintse meg [az Azure stack HCI-fürt létrehozása a PowerShell használatával](create-cluster-powershell.md)című témakört. A PowerShell-cikk emellett jó információforrás a varázsló csuklyáján és hibaelhárítási célokra szolgáló információkkal.
+Ebből a cikkből megtudhatja, hogyan használhatja a Windows felügyeleti központot olyan Azure Stack HCI-fürt létrehozásához, amely Közvetlen tárolóhelyekt használ. A Windows felügyeleti központban a fürt létrehozása varázsló a nagy mennyiségű felemelést végzi el Önnek. Ha inkább a PowerShell-lel szeretné elvégezni, tekintse meg [az Azure stack HCI-fürt létrehozása a PowerShell használatával](create-cluster-powershell.md)című témakört. A PowerShell-cikk emellett jó információforrás a varázsló csuklyáján és hibaelhárítási célokra szolgáló információkkal.
 
 Két fürt típusának létrehozása közül választhat:
 
@@ -32,7 +32,8 @@ Ha érdekli a Azure Stack HCI kipróbálása, de korlátozott vagy nem rendelkez
 
 A fürt létrehozása varázsló futtatása előtt győződjön meg róla, hogy:
 
-- Olvassa el a hardver-és egyéb követelményeket a [rendszerkövetelményekben](../concepts/system-requirements.md).
+- Olvassa el a hardverre és a kapcsolódó követelményekre vonatkozó követelményeket a [rendszerkövetelményekben](../concepts/system-requirements.md).
+- Olvassa el a Azure Stack HCI [fizikai hálózati követelményeit](../concepts/physical-network-requirements.md) és a [gazdagép hálózati követelményeit](../concepts/host-network-requirements.md) .
 - Telepítse a Azure Stack HCI operációs rendszert a fürt minden kiszolgálóján. Lásd: [a Azure stack HCI operációs rendszer telepítése](operating-system.md).
 - Olyan fiókkal kell rendelkeznie, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 - Telepítse a Windows felügyeleti központot egy számítógépre vagy kiszolgálóra a felügyelethez. Lásd: a [Windows felügyeleti központ telepítése](/windows-server/manage/windows-admin-center/deploy/install).
@@ -54,8 +55,8 @@ A varázsló befejezése után be kell állítania a tanúsító fürtöt, regis
 OK, kezdjük:
 
 1. A Windows felügyeleti központban a **minden kapcsolat** területen kattintson a **Hozzáadás** elemre.
-1. Az **erőforrások hozzáadása** panelen, a **Windows Server-fürt** területen válassza az **új létrehozása** lehetőséget.
-1. A **fürt típusának kiválasztása** területen válassza a **Azure stack HCI** lehetőséget.
+1. Az **erőforrások hozzáadása vagy létrehozása** panel **kiszolgálófürtök területén válassza az** **új létrehozása** lehetőséget.
+1. **1. Válassza a fürt típusa** lehetőséget, majd **Azure stack HCI** elemet.
 
     :::image type="content" source="media/cluster/create-cluster-type.png" alt-text="Fürt létrehozása varázsló – HCI lehetőség" lightbox="media/cluster/create-cluster-type.png":::
 
@@ -72,12 +73,12 @@ OK, kezdjük:
 
 A varázsló 1. lépése végigvezeti az összes előfeltétel teljesítésének biztosításán, a kiszolgálói csomópontok hozzáadásán, a szükséges funkciók telepítésén, majd az egyes kiszolgálók újraindításának lépésein, ha szükséges.
 
-1. Tekintse át a varázslóban felsorolt előfeltételeket, és győződjön meg arról, hogy az egyes kiszolgálói csomópontok fürtre készek. Amikor végzett, kattintson a **Tovább** gombra.
-1. A **kiszolgálók hozzáadása a fürthöz** lapon adja meg a fiókja felhasználónevét és jelszavát, majd kattintson a **tovább** gombra. Ennek a fióknak a helyi Rendszergazdák csoport tagjának kell lennie az egyes kiszolgálókon.
+1. Tekintse át a **1,1. Ellenőrizze a varázslóban felsorolt előfeltételeket** , és győződjön meg arról, hogy minden kiszolgáló-csomópont fürtre kész. Amikor végzett, kattintson a **Tovább** gombra.
+1. A **1,2-kiszolgálók hozzáadásához** adja meg a fiókja felhasználónevét és jelszavát, majd kattintson a **tovább** gombra. Ennek a fióknak a helyi Rendszergazdák csoport tagjának kell lennie az egyes kiszolgálókon.
 1. Adja meg a hozzáadni kívánt első kiszolgáló nevét, majd kattintson a **Hozzáadás** gombra.
 1. Ismételje meg a 3. lépést minden olyan kiszolgáló esetében, amely a fürt részét képezi majd. Amikor végzett, kattintson a **Tovább** gombra.
-1. Ha szükséges, a **Csatlakozás a kiszolgálókhoz tartományhoz** lapon válassza ki a tartományt és egy fiókot a kiszolgálók tartományhoz való csatlakoztatásához. Ezután tetszés szerint nevezze át a kiszolgálókat a további felhasználóbarát nevekre, és kattintson a **tovább** gombra.
-1. Kattintson a **szolgáltatások telepítése** elemre. Amikor végzett, kattintson a **Tovább** gombra.
+1. Ha szükséges, a **1,3 csatlakozás tartományhoz** területen válassza ki azt a tartományt, amelyhez csatlakoztatni kívánja a kiszolgálókat és a használni kívánt fiókot. Igény szerint átnevezheti a kiszolgálókat, ha szeretné. Ezután kattintson a **Tovább** gombra.
+1. Az **1,4-es szolgáltatások telepítése** után szükség szerint tekintse át és adja hozzá a szolgáltatásokat. Amikor végzett, kattintson a **Tovább** gombra.
 
     A varázsló a következő szükséges szolgáltatásokat telepíti:
 
@@ -88,29 +89,34 @@ A varázsló 1. lépése végigvezeti az összes előfeltétel teljesítésének
     - FS – adatmásolási modul
     - Hyper-V
     - RSAT-AD-PowerShell modul
-    - Storage-replika (csak a kifeszített fürtök esetében van telepítve)
+    - Storage-replika (a kiterjesztett fürtökhöz telepítve)
 
-1. Ha szükséges, **telepítse a frissítéseket**, majd kattintson a **frissítések telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
-1. Ha szükség van a **megoldás frissítéseire**, kattintson a **bővítmény telepítése** elemre. Ha kész van, kattintson a **Next** (Tovább) gombra.
-1. Ha szükséges, kattintson a **kiszolgálók újraindítása** elemre. Ellenőrizze, hogy minden kiszolgáló sikeresen elindult-e.
+1. Az operációs rendszer frissítéseinek telepítéséhez a **1,5**-es frissítések telepítéséhez kattintson a **frissítések telepítése** szükség szerint lehetőségre. Ha kész van, kattintson a **Next** (Tovább) gombra.
+1. A **1,6-es hardveres frissítések telepítéséhez** kattintson a **frissítések beolvasása** igény szerint lehetőségre a forgalmazói hardver frissítéseinek beszerzéséhez.
+1. A frissítések hardverre való telepítéséhez kövesse a gyártó által meghatározott lépéseket. Ezek a lépések magukban foglalják a hardveren a szimmetria és a megfelelőség ellenőrzését a sikeres frissítés biztosítása érdekében. Előfordulhat, hogy néhány lépést újra kell futtatnia.
+1. 1,7-es **Újraindítási kiszolgálók** esetében kattintson a **kiszolgálók újraindítása** lehetőségre, ha szükséges. Ellenőrizze, hogy minden kiszolgáló sikeresen elindult-e.
 
 ## <a name="step-2-networking"></a>2. lépés: hálózatkezelés
 
-A varázsló 2. lépése végigvezeti a virtuális kapcsolók és a fürt egyéb hálózati elemeinek konfigurálásán.
+A varázsló 2. lépése végigvezeti a virtuális kapcsolók, a hálózati adapterek és a fürt egyéb hálózati elemeinek konfigurálásán. A RDMA (iWARP és RoCE) hálózati adapterek is támogatottak.
+
+További információ a RDMA és a Hyper-V gazdagép hálózatkezeléséről Azure Stack HCI esetében: a [gazdagép hálózati követelményei](../concepts/host-network-requirements.md).
 
 > [!NOTE]
-> Ha a hálózat vagy a virtuális kapcsoló lépései során észlelt hibákat látja, próbálja meg újból az **alkalmaz és a teszt** elemre kattintva.
+> Ha a hálózat vagy a virtuális kapcsoló lépései során felsorolt hibákat látja, válassza az **alkalmaz és tesztelés** lehetőséget.
 
 1. Válassza a **Tovább: Hálózatkezelés** lehetőséget.
-1. **A hálózati adapterek ellenőrzése** alatt várjon, amíg a zöld jelölőnégyzetek megjelennek az egyes adapterek mellett, majd válassza a **tovább** lehetőséget.
+1. A **2,1-es hálózati adapterek vizsgálatakor** várjon, amíg a zöld jelölőnégyzetek megjelennek az egyes adapterek mellett, majd válassza a **tovább** lehetőséget.
 
-1. A **felügyeleti adapterek kiválasztása** lapon válasszon ki egy vagy két, az egyes kiszolgálókhoz használandó felügyeleti adaptert. Legalább az egyik adaptert ki kell választani a felügyeleti célokra, mivel a varázsló legalább egy dedikált fizikai hálózati adaptert igényel a fürtözés kezeléséhez.  Miután kijelölt egy adaptert a felügyelethez, a rendszer kizárja a varázsló többi munkafolyamatát.
+1. Az **2,2-es felügyeleti adapterek kiválasztása** lapon válasszon ki egy vagy két, az egyes kiszolgálókhoz használandó felügyeleti adaptert. Legalább az egyik adaptert ki kell választani a felügyeleti célokra, mivel a varázsló legalább egy dedikált fizikai hálózati adaptert igényel a fürtözés kezeléséhez.  Miután kijelölt egy adaptert a felügyelethez, a rendszer kizárja a varázsló többi munkafolyamatát.
+
+    :::image type="content" source="media/cluster/create-cluster-management-adapters.png" alt-text="Fürt létrehozása varázsló – felügyeleti adapterek kiválasztása" lightbox="media/cluster/create-cluster-management-adapters.png":::
 
     A felügyeleti adapterek két konfigurációs lehetőséggel rendelkeznek:
 
     - **Egy fizikai hálózati adapter felügyelethez**. Ehhez a beállításhoz a DHCP vagy a statikus IP-cím hozzárendelés is támogatott.
 
-    - **Két fizikai hálózati adapter a felügyelethez**. Az összevont adapterek összevonásakor a rendszer csak a statikus IP-címek hozzárendelését támogatja. Ha a kiválasztott adapterek DHCP-címzést használnak (akár egyet, akár mindkettőt), a rendszer a DHCP IP-címet statikus IP-címekre konvertálja a virtuális kapcsoló létrehozása előtt.
+    - **Két fizikai hálózati adapter a felügyelethez**. Az összevont adapterek összevonásakor a rendszer csak a statikus IP-címek hozzárendelését támogatja. Ha a kiválasztott adapterek DHCP-címzést használnak (akár egyet, akár mindkettőt), a DHCP IP-címei statikus IP-címekre lesznek konvertálva a virtuális kapcsoló létrehozása előtt.
 
     Az összevont adapterek használatával egyetlen kapcsolatban áll több kapcsolóval, de csak egyetlen IP-címet használ. A terheléselosztás elérhetővé válik, és a hibatűrés azonnali, a DNS-rekordok frissítésére való várakozás helyett.
 
@@ -126,16 +132,18 @@ A varázsló 2. lépése végigvezeti a virtuális kapcsolók és a fürt egyéb
 1. A **hálózatok meghatározása** területen győződjön meg arról, hogy minden egyes kiszolgáló hálózati adaptere egyedi statikus IP-címmel, alhálózati maszkkal és VLAN-azonosítóval rendelkezik. Vigye az egérmutatót az egyes táblázatos elemek fölé, és szükség szerint adja meg vagy módosítsa az értékeket. Ha elkészült, kattintson **az alkalmaz és tesztelés** elemre.
 
     > [!NOTE]
-    > A fürt VLAN-azonosító konfigurációjának támogatásához az összes kiszolgálón lévő összes hálózati kártyának támogatnia kell a VLANID tulajdonságot.
+    > A fürt VLAN-azonosító konfigurációjának támogatásához az összes kiszolgálón lévő összes hálózati adapternek támogatnia kell a VLANID tulajdonságot.
 
 1. Várjon, amíg az **állapot** oszlop **megjelenik az** egyes kiszolgálókon, majd kattintson a **tovább** gombra. Ez a lépés ellenőrzi az összes adapter közötti hálózati kapcsolatot ugyanazzal az alhálózattal és VLAN-AZONOSÍTÓval. A megadott IP-címeket a rendszer a fizikai adapterről a virtuális adapterekre helyezi át, ha a következő lépésben a virtuális kapcsolók jönnek létre. A konfigurált adapterek számától függően több percet is igénybe vehet.
 
-1. A **virtuális kapcsoló** alatt válasszon a következő lehetőségek közül a megfelelő módon. Attól függően, hogy hány adapter van jelen, nem minden beállítás jelenik meg:
+1. A **2,3 virtuális kapcsoló** alatt válasszon a következő lehetőségek közül a megfelelő módon. Attól függően, hogy hány hálózati adapter van, nem minden beállítás érhető el:
 
-    - **Virtuális kapcsoló létrehozásának kihagyása**
-    - **Hozzon létre egy virtuális kapcsolót a számításhoz és a tároláshoz**
-    - **Csak számítási feladatokhoz hozzon létre egy virtuális kapcsolót**
-    - **Két virtuális kapcsoló létrehozása**
+    - **Virtuális kapcsoló létrehozásának kihagyása** – válassza ki, hogy később szeretné-e beállítani a virtuális kapcsolókat.
+    - **Hozzon létre egy virtuális kapcsolót a számításhoz és a tároláshoz együtt** – válassza ki, hogy ugyanazt a virtuális kapcsolót szeretné-e használni a virtuális gépekhez és a közvetlen tárolóhelyek. Ez a "konvergens" lehetőség.
+    - **Csak számításhoz hozzon létre egy virtuális kapcsolót** – válassza ki, hogy csak a virtuális gépek virtuális kapcsolóját kívánja használni.
+    - **Hozzon létre két virtuális kapcsolót** – válassza ki, hogy a virtuális gépekhez és a közvetlen tárolóhelyekhoz szeretne-e dedikált virtuális kapcsolót használni.
+
+        :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="Fürt létrehozása varázsló – virtuális kapcsolók" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
     > [!NOTE]
     > Ha az SDN hálózati vezérlőjét szeretné telepíteni (a varázsló **5. lépés: Sdn** ), szüksége lesz egy virtuális kapcsolóra. Tehát ha nem szeretne létrehozni egy virtuális kapcsolót, és nem hoz létre egyet a varázslón kívül, a varázsló nem helyezi üzembe a hálózati vezérlőt.
@@ -150,77 +158,111 @@ A varázsló 2. lépése végigvezeti a virtuális kapcsolók és a fürt egyéb
 
 1. Szükség szerint módosítsa a kapcsoló nevét és az egyéb konfigurációs beállításokat, majd kattintson az **alkalmaz és a tesztelés** gombra. A virtuális kapcsolók létrehozása után az **állapot** oszlopnak az összes kiszolgáló számára **átadottnak** kell lennie.
 
+1. Az **2,4** -es lépés RDMA megadása nem kötelező. Ha a RDMA-t használja, jelölje be a **RDMA konfigurálása (ajánlott)** jelölőnégyzetet, majd kattintson a **tovább** gombra.
+
+    :::image type="content" source="media/cluster/create-cluster-rdma.png" alt-text="Fürt létrehozása varázsló – RDMA konfigurálása" lightbox="media/cluster/create-cluster-rdma.png":::
+
+    A sávszélesség-foglalások hozzárendelésével kapcsolatos információkért lásd a [forgalmi sávszélesség kiosztása](../concepts/host-network-requirements.md#traffic-bandwidth-allocation) szakaszt a [gazdagép hálózati követelményei](../concepts/host-network-requirements.md)című részben.
+
+1. Válassza a **speciális** lehetőséget, majd válassza az **adatközpont-áthidaló (DCB)** jelölőnégyzetet.
+
+1. A **fürt szívverése** területen rendeljen hozzá egy prioritási szintet és egy sávszélesség-foglalási százalékot.
+
+1. A **tárterület** területen rendeljen prioritási szintet és sávszélesség-foglalási százalékot.
+
+1. Ha elkészült, válassza a **módosítások alkalmazása** elemet, majd kattintson a **tovább** gombra.
+
+1. A **2,5-es hálózatokat definiálva** megtekintheti és szerkesztheti az egyes felsorolt adapterek nevét, IP-címét, alhálózati maszkját, VLAN-azonosítóját és alapértelmezett átjáró-mezőit.
+
+    :::image type="content" source="media/cluster/create-cluster-define-networks.png" alt-text="Fürt létrehozása varázsló – hálózatok meghatározása" lightbox="media/cluster/create-cluster-define-networks.png":::
+
+1. Ha elkészült, kattintson **az alkalmaz és tesztelés** elemre. Előfordulhat, hogy **újra kell próbálkoznia a kapcsolat tesztelésével** , ha az állapot nem ok az adapterhez.
+
 ## <a name="step-3-clustering"></a>3. lépés: fürtözés
 
 A varázsló 3. lépése gondoskodik arról, hogy minden eddig helyesen legyen beállítva, automatikusan két helyet állít be a kihelyezett fürtök üzembe helyezése esetén, majd ténylegesen létrehozza a fürtöt. A helyeket előre is beállíthatja Active Directoryban.
 
 1. Válassza a **Tovább: fürtözés** lehetőséget.
-1. **A fürt ellenőrzése** területen válassza az **Érvényesítés** lehetőséget. Az érvényesítés több percet is igénybe vehet.
+1. Az 3,1-as számítógépen **ellenőrizze a fürtöt**, majd kattintson az **Érvényesítés** elemre. Az érvényesítés több percet is igénybe vehet.
 
     Ha megjelenik a **hitelesítő adatok biztonsági szolgáltatójának (CredSSP)** előugró ablaka, válassza az **Igen** lehetőséget a CredSSP ideiglenes engedélyezéséhez a varázsló folytatásához. Miután létrehozta a fürtöt, és a varázsló befejeződött, a biztonság fokozása érdekében letiltja a CredSSP. Ha a CredSSP kapcsolatos problémákat tapasztal, további információért tekintse meg a [CredSSP hibaelhárításával](../manage/troubleshoot-credssp.md) foglalkozó témakört.
 
-1. Tekintse át az összes érvényesítési állapotot, töltse le a jelentést, hogy részletes információkat kapjon a hibákról, végezze el a módosításokat, majd kattintson **újra az érvényesítés** igény szerint lehetőségre. Szükség esetén ismételje meg a műveletet, amíg az összes érvényesítési ellenőrzés be nem fejeződik.
-1. **A fürt létrehozása** területen adja meg a fürt nevét.
-1. A **hálózatok** területen válassza ki az előnyben részesített konfigurációt.
-1. Az **IP-címek** területen válassza ki a használni kívánt dinamikus vagy statikus IP-címeket.
+1. Tekintse át az összes érvényesítési állapotot, töltse le a jelentést, hogy részletes információkat kapjon a hibákról, végezze el a módosításokat, majd kattintson **újra az érvényesítés** igény szerint lehetőségre. A **jelentést is letöltheti** . Szükség esetén ismételje meg a műveletet, amíg az összes érvényesítési ellenőrzés be nem fejeződik. Ha minden rendben van, kattintson a **tovább** gombra.
+1. A **3,2 fürt létrehozása** területen adja meg a fürt nevét.
+
+    :::image type="content" source="media/cluster/create-cluster.png" alt-text="Fürt létrehozása varázsló – fürt létrehozása" lightbox="media/cluster/create-cluster.png":::
+
+1. Az **IP-cím** területen válassza ki a használni kívánt statikus vagy dinamikus IP-címeket.
+1. Válassza az **Advanced** (Speciális) lehetőséget. Néhány lehetőség közül választhat:
+
+    - **A fürt regisztrálása a DNS-sel és Active Directory**
+    - **Jogosult tár hozzáadása a fürthöz (ajánlott)**
+
+1. A **hálózatok** területen válassza ki, hogy az összes hálózatot szeretné-e **használni (ajánlott)** , vagy **adjon meg egy vagy több használni nem kívánt hálózatot**.
+
 1. Ha elkészült, kattintson a **fürt létrehozása** elemre.
 
-1. A kiosztott fürtök esetében a **kiszolgálók társítása helyekhez** területen nevezze el a két használni kívánt helyet.
+1. A **többhelyes fürtök esetében az 3,3-kiszolgálókat rendelje hozzá a kiszolgálókhoz**, nevezze el a két használni kívánt helyet.
 
-1. Ezután rendeljen hozzá minden kiszolgálót egy helyhez. A helyek közötti replikációt később fogja beállítani. Ha elkészült, kattintson az **alkalmaz** gombra.
+1. Ezután rendeljen hozzá minden kiszolgálót egy helyhez. A helyek közötti replikációt később fogja beállítani. Ha elkészült, kattintson a **módosítások alkalmazása** lehetőségre.
 
 ## <a name="step-4-storage"></a>4. lépés: tároló
 
 A varázsló 4. lépése végigvezeti a fürt Közvetlen tárolóhelyekának beállításán.
 
 1. Válassza a **Next (tovább): Storage** lehetőséget.
-1. A **meghajtók ellenőrzése** területen kattintson az **>** egyes kiszolgálók melletti ikonra annak ellenőrzéséhez, hogy a lemezek működnek és csatlakoztatva vannak-e, majd kattintson a **tovább** gombra.
-1. A meghajtók **tisztítása** területen kattintson a **tiszta meghajtók** elemre az adatmeghajtók ürítéséhez. Ha elkészült, kattintson a **tovább** gombra.
-1. A **tároló ellenőrzése** területen kattintson a **tovább** gombra.
-1. Tekintse át az érvényesítési eredményeket. Ha minden jó, kattintson a **tovább** gombra.
-1. A **közvetlen tárolóhelyek engedélyezése** területen kattintson az **Engedélyezés** elemre.
-1. Töltse le a jelentést, és tekintse át. Ha minden rendben van, kattintson a **Befejezés** gombra.
+1. **4,1 tiszta meghajtókon** kiválaszthatja a **meghajtók törlése** lehetőséget, ha ésszerű az üzembe helyezése.
+1. Az **4,2-es meghajtókon** kattintson az **>** egyes kiszolgálók melletti ikonra annak ellenőrzéséhez, hogy a lemezek működnek és csatlakoztatva vannak-e. Ha minden rendben van, kattintson a **tovább** gombra.
+1. A **tárterület ellenőrzése 4,3** kattintson a **tovább** gombra.
+1. Töltse le és tekintse át az ellenőrzési jelentést. Ha minden jó, kattintson a **tovább** gombra. Ha nem, futtassa **újra az érvényesítést**.
+1. Az **4,4-as közvetlen tárolóhelyek engedélyezéséhez** kattintson az **Engedélyezés** gombra.
+1. Töltse le és tekintse át a jelentést. Ha minden rendben van, kattintson a **Befejezés** gombra. 
+1. Válassza **az Ugrás a kapcsolatok listájára** lehetőséget.
+1. Néhány perc elteltével a fürtnek a listában kell megjelennie. Válassza ki a fürt áttekintő oldalának megtekintéséhez.
 
-Gratulálunk, most már rendelkezik egy fürttel.
+Eltarthat egy ideig, amíg a fürt neve replikálódik a tartományon belül, különösen akkor, ha a munkacsoport-kiszolgálók újonnan lettek hozzáadva a Active Directoryhoz. Bár előfordulhat, hogy a fürt a Windows felügyeleti központban jelenik meg, előfordulhat, hogy még nem érhető el a kapcsolódás.
 
-A fürt létrehozása után időbe telik a fürt nevének replikálása a tartományon belül, különösen akkor, ha a munkacsoport-kiszolgálók újonnan lettek hozzáadva a Active Directoryhoz. Bár előfordulhat, hogy a fürt a Windows felügyeleti központban jelenik meg, előfordulhat, hogy még nem érhető el a kapcsolódás.
-
-Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben a fürt neve helyett a fürt nevét is helyettesítheti a fürtben.
+Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben a fürt neve helyett a kiszolgáló nevét lehet helyettesíteni.
 
 ## <a name="step-5-sdn-optional"></a>5. lépés: SDN (nem kötelező)
 
 Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer (SLB) és a RAS-átjárót igény szerint.
 
 > [!NOTE]
-> A varázsló nem támogatja a SLB és a RAS-átjáró konfigurálását még ma. Ezeket az összetevőket az SDN Express-parancsfájlok használatával konfigurálhatja. Ennek módjáról a [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts) -tárházban talál további információt.
+> A varázsló nem konfigurálja az SDN-hez készült SLB és RAS-átjárót. Ezeket az összetevőket az SDN Express-parancsfájlok használatával konfigurálhatja. Ennek módjáról a [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)-tárházban talál további információt.
 
 > [!NOTE]
-> Az SDN nem támogatott vagy nem érhető el a kifeszített fürtökhöz.
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – SDN hálózati vezérlő" lightbox="media/cluster/create-cluster-network-controller.png":::
+> Az SDN nem támogatott a kifeszített fürtök esetében.
 
 1. Válassza a **Tovább: Sdn** lehetőséget.
-1. A **gazdagép** területen adja meg a hálózati vezérlő nevét. Ez a felügyeleti ügyfelek (például a Windows felügyeleti központ) által használt DNS-név a hálózati vezérlővel való kommunikációhoz.
+
+    :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – SDN hálózati vezérlő" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. **Az 5,1-es hálózati vezérlő fürtön** adja meg a hálózati vezérlő nevét a **gazdagép** alatt. Ez a felügyeleti ügyfelek (például a Windows felügyeleti központ) által használt DNS-név a hálózati vezérlővel való kommunikációhoz.
 1. A Azure Stack HCI VHD-fájl elérési útjának megadása. Gyorsabb keresés a **tallózással** .
 1. A hálózati vezérlő számára dedikált virtuális gépek számának megadása. A magas rendelkezésre állás érdekében legalább három virtuális gép használata javasolt.
 1. A **hálózat** alatt adja meg a felügyeleti hálózat VLAN-azonosítóját. A hálózati vezérlőnek csatlakoznia kell ugyanahhoz a felügyeleti hálózathoz, mint a gazdagépek közötti kommunikációhoz és konfiguráláshoz.
+
+    > [!NOTE]
+    > A hálózati vezérlő virtuális gépek a fürtözéshez használt virtuális kapcsolót használják, ha vannak ilyenek, ellenkező esetben a "számítási" virtuális kapcsolót használják, mint a fürt többi virtuális gépe. További információkért lásd a hálózati [vezérlő üzembe helyezésének megtervezése](../concepts/network-controller.md)című témakör [hálózati vezérlőre vonatkozó követelmények](../concepts/network-controller.md#network-controller-requirements) című szakaszát.
+
 1. A **VM-hálózat címzése** beállításnál válassza a **DHCP** vagy a **statikus** lehetőséget.
 1. Ha a **DHCP** lehetőséget választotta, adja meg a hálózati vezérlő virtuális gépek nevét.
-1. Ha a **statikus** lehetőséget választotta, tegye a következőket:
-    1. IP-cím meghatározása
-    1. Alhálózati előtagot kell megadni.
-    1. Határozza meg az alapértelmezett átjárót.
-    1. Egy vagy több DNS-kiszolgálót kell megadnia. További DNS-kiszolgálók hozzáadásához kattintson a **Hozzáadás** gombra.
+1. Ha a **statikus** lehetőséget választotta, a következőt kell megadnia:
+    1. IP-cím.
+    1. Alhálózat előtagja.
+    1. Alapértelmezett átjáró.
+    1. Egy vagy több DNS-kiszolgáló. További DNS-kiszolgálók hozzáadásához kattintson a **Hozzáadás** gombra.
 1. A **hitelesítő adatok** területen adja meg a hálózati vezérlő virtuális gépek fürt tartományhoz való csatlakoztatásához használt felhasználónevet és jelszót.
 1. Adja meg a virtuális gépek helyi rendszergazdai jelszavát.
 1. A **speciális** alatt adja meg a virtuális gépek elérési útját.
 1. Adja meg az értékeket a **Mac-címkészlet kezdő** és a **Mac-címkészlet végéhez**.
 1. Amikor végzett, kattintson a **Tovább** gombra.
-1. Várjon, amíg a varázsló befejezi a feladatot. Maradjon ezen a lapon, amíg az összes végrehajtási feladat be nem fejeződik. Ezután kattintson a **Befejezés** gombra.
+1. A **hálózati vezérlő üzembe helyezése** területen várjon, amíg a varázsló befejezi a feladatot. Maradjon ezen a lapon, amíg az összes végrehajtási feladat be nem fejeződik. Ezután kattintson a **Befejezés** gombra.
 
-1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a DNS-kiszolgálón a hálózati vezérlő fürtjének dinamikus DNS-frissítéseit. Ennek módjáról további információt a [dinamikus DNS-regisztráció konfigurálása hálózati vezérlőhöz](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)című témakörben talál.
+1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a DNS-kiszolgálón a hálózati vezérlő fürtjének dinamikus DNS-frissítéseit. Ennek módjáról további információt a [dinamikus DNS-regisztráció konfigurálása hálózati vezérlőhöz](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)című témakörben talál.
 
-Ha a hálózati vezérlő üzembe helyezése sikertelen, a következő próbálkozás előtt tegye a következőket:
+1. Ha a hálózati vezérlő üzembe helyezése sikertelen, a következő próbálkozás előtt tegye a következőket:
 
 - Állítsa le és törölje a varázsló által létrehozott hálózati vezérlő virtuális gépeket.  
 
@@ -244,9 +286,9 @@ OK, most a következő műveleteket kell végrehajtania:
 
 - Állítson be egy tanúsító fürtöt. Lásd: [tanúsító fürt beállítása](witness.md).
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
-- A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
+- A kifeszített fürtök esetében hozza létre a köteteket, és állítsa be a replikációt. Lásd: [a kifeszített fürtözött kötetek létrehozása és a replikáció beállítása](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

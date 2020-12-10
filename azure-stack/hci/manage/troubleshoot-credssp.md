@@ -3,15 +3,15 @@ title: A CredSSP hibáinak megoldása
 description: Ismerje meg, hogyan lehet elhárítani a CredSSP
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 24e9483aa9658809adc9be7fbfa4a2cb13daab84
-ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
+ms.openlocfilehash: f90e03c275c4ca7a28a9d8392351bf55d0adb2c0
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87899907"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010838"
 ---
 # <a name="troubleshoot-credssp"></a>A CredSSP hibáinak megoldása
 
@@ -32,11 +32,19 @@ Az CredSSP-t igénylő egyes feladatok a következők:
 
 Ha a CredSSP kapcsolatos problémákat tapasztal, a következő hibaelhárítási tippek segíthetnek:
 
+- Ha a fürt létrehozása varázslót szeretné használni a Windows felügyeleti központ SZÁMÍTÓGÉPeken való futtatásakor, akkor a Windows felügyeleti központ kiszolgálón az átjáró-rendszergazdák csoport tagjának kell lennie. További információ: [felhasználói hozzáférési beállítások a Windows felügyeleti központban](/windows-server/manage/windows-admin-center/plan/user-access-options).
+
 - A fürt létrehozása varázsló futtatásakor a CredSSP jelenthet problémát, ha egy Active Directory megbízhatóság nem jön létre vagy megszakadt. Ez azt eredményezi, hogy a rendszer munkacsoport-alapú kiszolgálókat használ a fürt létrehozásához. Ebben az esetben próbálja meg manuálisan újraindítani az egyes kiszolgálókat a fürtben.
 
 - Ha a Windows felügyeleti központot egy kiszolgálón (szolgáltatási módban) futtatja, győződjön meg arról, hogy a felhasználói fiók az átjáró-rendszergazdák csoport tagja.
 
+- Javasoljuk, hogy a Windows felügyeleti központot olyan számítógépen futtassa, amely tagja a felügyelt kiszolgálókkal megegyező tartománynak.
+
 - A CredSSP engedélyezéséhez vagy letiltásához a kiszolgálón ellenőrizze, hogy az átjáró-rendszergazdák csoport tagja-e a számítógépen. További információkért tekintse meg a [felhasználói Access Control és engedélyek konfigurálásának](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)első két fejezetét.
+
+- Ha újraindítja a Rendszerfelügyeleti webszolgáltatások (WinRM) szolgáltatást a fürtben lévő kiszolgálókon, a rendszer felszólíthatja, hogy hozza létre újra a WinRM-kapcsolatot az egyes kiszolgálófürt és a Windows felügyeleti központ között.
+
+    Ezt úgy teheti meg, hogy az egyes fürtökre kerül, majd a Windows felügyeleti központban az **eszközök** menüben válassza a **szolgáltatások** lehetőséget, válassza a **WinRM** elemet, válassza az **Újraindítás** lehetőséget, majd a **szolgáltatás újraindítása** párbeszédpanelen válassza az **Igen** lehetőséget.
 
 ## <a name="next-steps"></a>Következő lépések
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
-description: Megtudhatja, hogyan hozhat létre hiperkonvergens-fürtöt Azure Stack HCI-hez a Windows PowerShell használatával
+description: Megtudhatja, hogyan hozhat létre fürtöt Azure Stack HCI-hez a Windows PowerShell használatával
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064514"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010889"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 
@@ -110,12 +110,12 @@ A következő lépés a szükséges Windows-szerepkörök és-szolgáltatások t
 - FS – adatmásolási modul
 - Hyper-V
 - RSAT-AD-PowerShell modul
-- Storage-replika (csak a kifeszített fürtök esetében)
+- Storage-replika (kifeszített fürtök esetében)
 
 Használja az alábbi parancsot minden kiszolgálóhoz:
 
 ```powershell
-Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 Ha a parancsot a fürt összes kiszolgálóján egyszerre szeretné futtatni, használja a következő parancsfájlt, és módosítsa a változók listáját az elején, hogy illeszkedjen a környezetéhez.
@@ -123,7 +123,7 @@ Ha a parancsot a fürt összes kiszolgálóján egyszerre szeretné futtatni, ha
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {

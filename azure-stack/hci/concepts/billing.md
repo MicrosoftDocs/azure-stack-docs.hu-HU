@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428481"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010719"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>A HCI-számlázás és-fizetés Azure Stack
 
@@ -22,7 +22,7 @@ A Azure Stack HCI egy Azure-szolgáltatás, amely a többi Azure-szolgáltatásh
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>Mit jelent a Azure Stack HCI díja?
 
-Azure Stack a HCI felhőalapú számlázási modellje konzisztens, ismerős és könnyen használható az Azure-t vagy bármely más felhőalapú szolgáltatást használó ügyfelek számára. A nyilvános előzetes verzióban díjmentesen használható. Az előzetes verzió lejárta után a számlázás egy Azure Stack HCI-fürtön a fizikai processzor alapértékén alapul (a további használati díjak akkor érvényesek, ha más Azure-szolgáltatásokat használ).
+Azure Stack a HCI felhőalapú számlázási modellje konzisztens, ismerős és könnyen használható az Azure-t vagy bármely más felhőalapú szolgáltatást használó ügyfelek számára. A számlázás egy Azure Stack HCI-fürtön a fizikai processzor alapszintű alapdíja alapján történik (ha más Azure-szolgáltatásokat is használ, akkor további használati díjak is érvényesek).
 
 A díjszabási modell különbözik a virtuális gépek számától függően használatos vagy fogyasztáson alapuló számlázástól. Míg a virtuális processzor magok száma (vCPU) a hónap során változhat, nem befolyásolja a Azure Stack HCI esetében fizetendő díjat: a fürtben lévő fizikai magok száma alapján továbbra is fizetnie kell.
 
