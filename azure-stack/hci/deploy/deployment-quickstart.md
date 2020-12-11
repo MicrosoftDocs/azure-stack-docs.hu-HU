@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/10/2020
-ms.openlocfilehash: 1787218c32feaa0e944946b6b36614432ea529f1
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: a6e725eee638b0afd2dddbe2f382cade729f9873
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011662"
+ms.locfileid: "97069784"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Gyors útmutató: Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban
 
@@ -24,7 +24,7 @@ Ebből a rövid útmutatóból megtudhatja, hogyan helyezhet üzembe egy kétkis
 
 Fürt létrehozása előtt tegye a következőket:
 
-* Vásároljon két kiszolgálót a [Azure stack HCI katalógusból](https://azure.microsoft.com/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft-partneri kapcsolaton keresztül a Azure stack HCI operációs rendszerrel előre telepítve. Tekintse át a [rendszerkövetelményeket](../concepts/system-requirements.md) , és győződjön meg arról, hogy a kiválasztott hardver támogatja majd a fürtön futtatni kívánt munkaterheléseket.
+* Vásároljon két kiszolgálót a [Azure stack HCI katalógusból](https://azure.microsoft.com/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft-partneri kapcsolaton keresztül a Azure stack HCI operációs rendszerrel előre telepítve. Tekintse át a [rendszerkövetelményeket](../concepts/system-requirements.md) , és győződjön meg arról, hogy a kiválasztott hardver támogatja majd a fürtön futtatni kívánt munkaterheléseket. Javasoljuk, hogy használjon olyan nagy sebességű hálózati adaptereket használó rendszereket, amelyek egyszerű konfigurációhoz iWARP használnak.
 * Hozzon létre egy olyan felhasználói fiókot, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 * [Szerezze be az Azure-előfizetést](https://azure.microsoft.com/), ha még nem rendelkezik ilyennel.
 * [Telepítse a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és [regisztrálja a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban. Vegye figyelembe, hogy a felügyeleti számítógépnek ugyanahhoz a Active Directory tartományhoz kell tartoznia, amelyben létre kívánja hozni a fürtöt, vagy egy teljesen megbízható tartományt.
@@ -43,7 +43,7 @@ Az alábbi lépéseket követve hozzon létre egy egyszerű, két csomópontos, 
 A fürt létrehozása varázsló öt szakaszt tartalmaz, amelyek mindegyike több lépésből áll.
 
 1. **Első lépések.** Ebben a szakaszban megtekintheti az előfeltételeket, kiszolgálókat adhat hozzá, csatlakozhat egy tartományhoz, telepítheti a szükséges szolgáltatásokat és frissítéseket, majd újraindíthatja a kiszolgálókat. 
-2. **Hálózati.** A varázsló ezen szakasza ellenőrzi, hogy a megfelelő hálózati adapterek engedélyezve vannak-e, és letiltja a nem használt funkciókat. Válassza ki a felügyeleti adaptereket, állítson be egy virtuális kapcsolót, és adja meg a hálózatot az IP-címek megadásával. A dolgok egyszerű megtartásához ne válassza a RDMA lehetőséget ehhez a fürthöz. 
+2. **Hálózati.** A varázsló ezen szakasza ellenőrzi, hogy a megfelelő hálózati adapterek engedélyezve vannak-e, és letiltja a nem használt funkciókat. Válassza ki a felügyeleti adaptereket, állítson be egy virtuális kapcsolót, és adja meg a hálózatot az IP-címek megadásával.
 3. **Fürtszolgáltatás.** Ez a szakasz ellenőrzi, hogy a kiszolgálók konzisztens konfigurációval rendelkeznek-e, és alkalmas-e a fürtözésre, és létrehozza a tényleges fürtöt.
 4. **Storage.** Ezután tisztítsa és ellenőrizze a meghajtókat, érvényesítse a tárhelyét, és engedélyezze Közvetlen tárolóhelyek.
 5. **Sdn.** Kihagyhatja az 5. szakaszt, mert nem használjuk a szoftveresen definiált hálózatkezelést (SDN) ehhez a fürthöz.

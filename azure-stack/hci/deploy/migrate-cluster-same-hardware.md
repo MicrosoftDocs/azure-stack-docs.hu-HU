@@ -6,18 +6,22 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051564"
+ms.locfileid: "97069808"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 
 > A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
 Ez a témakör azt ismerteti, hogyan telepíthet át egy Windows Server 2016-es vagy Windows Server 2019-fürtöt a meglévő kiszolgálói hardver használatával Azure Stack HCI-re. Ez a folyamat telepíti az új Azure Stack HCI operációs rendszert, és megőrzi a fürt meglévő beállításait és tárhelyét, és importálja a virtuális gépeket.
+
+Az alábbi ábra a Windows Server-fürt helyben történő áttelepítését mutatja be ugyanazon kiszolgálói hardver használatával. A fürt leállítása után Azure Stack HCI van telepítve, a tárterület újra van csatolva, és a virtuális gépek importálása és magas rendelkezésre állása (HA) történik.
+
+:::image type="content" source="media/migrate/migrate-cluster-same-hardware.png" alt-text="Fürt átmigrálása Azure Stack HCI-re ugyanazon a hardveren" lightbox="media/migrate/migrate-cluster-same-hardware.png":::
 
 Ha a virtuális gépeket új Azure Stack HCI-hardverre szeretné áttelepíteni, olvassa el az [áttelepítés Azure stack HCI-re új hardveren](migrate-cluster-new-hardware.md)című témakört.
 
