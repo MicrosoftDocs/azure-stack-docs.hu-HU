@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567348"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364115"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -30,7 +30,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | DNS-rekordhalmazok száma zónában | 5000 (alapértelmezett)<br>Igény szerint növelhető. | 5000 |
 |  | Névkiszolgálók a zónák delegálásához | Az Azure négy névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. | Azure Stack hub két névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. |
 | Azure Firewall | Hálózati biztonsági szolgáltatás | Az Azure Firewall egy felügyelt, felhőalapú hálózatbiztonsági szolgáltatás, amely Azure Virtual Network-erőforrásait védi. | Még nem támogatott. |
-| Virtual Network | Virtuális hálózati társviszony | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Még nem támogatott |
+| Virtual Network | Társviszony létesítése virtuális hálózatok között | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Az 2008-es verzió óta támogatott [Virtual Network](virtual-network-peering.md) |
 |  | IPv6-címek | A [hálózati adapter konfigurációjának](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)részeként egy IPv6-cím is hozzárendelhető. | Kizárólag az IPv4 használata támogatott. |
 |  | DDoS Protection terv | Támogatott | Még nem támogatott. |
 |  | Méretezési csoport IP-konfigurációi | Támogatott | Még nem támogatott. |
@@ -45,7 +45,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 | Virtuális hálózati átjárók | Pont – hely VPN Gateway | Támogatott | Még nem támogatott. |
 |  | Vnet – vnet átjáró | Támogatott | Még nem támogatott. |
 |  | Virtual Network átjáró típusa | Az Azure támogatja a VPN-t<br> Express Route <br> Hyper-háló. | Azure Stack hub jelenleg csak a VPN-típust támogatja. |
-|  | VPN Gateway termékváltozatok | Az alapszintű, a GW1, a GW2, a GW3, a standard nagy teljesítményű, rendkívül nagy teljesítményű funkciók támogatása. | Az alapszintű, a standard és a nagy teljesítményű SKU támogatása. |
+|  | VPN Gateway termékváltozatok | Az alapszintű, a GW1, a GW2, a GW3, a standard szintű, nagy teljesítményű, Ultra-High teljesítmény támogatása. | Az alapszintű, a standard és a High-Performance SKU támogatása. |
 |  | VPN-típus | Az Azure a házirend-alapú és a Route-alapú rendszert is támogatja. | Azure Stack hub csak az útválasztást támogatja. |
 |  | BGP-beállítások | Az Azure támogatja a BGP-társas címek és a társak súlyozásának konfigurációját. | A BGP-társak címzési címe és a társ súlya automatikusan konfigurálva van Azure Stack központban. A felhasználó nem állíthatja be ezeket a beállításokat a saját értékeivel. |
 |  | Alapértelmezett átjáró helye | Az Azure támogatja az alapértelmezett hely konfigurációját a kényszerített bújtatáshoz. | Még nem támogatott. |

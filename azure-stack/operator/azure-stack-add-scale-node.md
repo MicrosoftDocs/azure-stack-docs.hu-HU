@@ -7,16 +7,16 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: fac60db9ad1f3ae8be248b4f61a3c16179763a7e
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544037"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364200"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>További skálázási egység csomópontjainak hozzáadása Azure Stack hub-ban
 
-Egy másik fizikai számítógép hozzáadásával növelheti egy meglévő méretezési egység teljes kapacitását. A fizikai számítógépet a méretezési egység csomópontjának is nevezzük. Minden hozzáadott új méretezési egység csomópontnak homogénnek kell lennie a CPU-típus, a memória és a lemez száma és mérete között a méretezési egységben már meglévő csomópontok számára.
+Egy másik fizikai számítógép hozzáadásával növelheti egy meglévő méretezési egység teljes kapacitását. A fizikai számítógépet a méretezési egység csomópontjának is nevezzük. Minden hozzáadott új méretezési egység csomópontnak homogénnek kell lennie a CPU-típus, a memória és a lemez száma és mérete között a méretezési egységben már meglévő csomópontok számára. Azure Stack hub nem támogatja a skálázási egység csomópontjainak eltávolítását az építészeti korlátozások miatti horizontális leskálázás céljából. A kapacitást csak a csomópontok hozzáadásával lehet kibontani.
 
 A méretezési egység csomópont hozzáadásához jelentkezzen be Azure Stack hub-ra, és futtassa a hardveres berendezések gyártója (OEM) eszközét. Az OEM-eszközök a hardveres életciklus-gazdagépen (HLH) futnak, így meggyőződhet róla, hogy az új fizikai számítógép megegyezik a meglévő csomópontokkal megegyező belső vezérlőprogram-szinttel.
 
@@ -54,9 +54,9 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 ### <a name="administrator-portal"></a>[Felügyeleti portál](#tab/portal)
 
 1. Jelentkezzen be az Azure Stack hub felügyeleti portálra Azure Stack hub-operátorként.
-2. Navigáljon a **+ erőforrás** -  >  **kapacitás**  >  **skálázási egység csomópontjának** létrehozására.
+2. Navigáljon a **+ erőforrás**-  >  **kapacitás**  >  **skálázási egység csomópontjának** létrehozására.
    ![Méretezési egység csomópontja](media/azure-stack-add-scale-node/select-node1.png)
-3. A **Csomópont hozzáadása** panelen válassza ki a *régiót* , majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
+3. A **Csomópont hozzáadása** panelen válassza ki a *régiót*, majd válassza ki azt a *méretezési egységet* , amelyhez hozzá szeretné adni a csomópontot. Adja meg a hozzá tartozó méretezési egység csomópontjának *bmc IP-címét* is. Egyszerre csak egy csomópontot lehet hozzáadni.
    ![Csomópont hozzáadása – részletek](media/azure-stack-add-scale-node/select-node2.png)
  
 
@@ -64,7 +64,7 @@ A következő lépések áttekintést nyújtanak a csomópontok hozzáadásáró
 
 Csomópont hozzáadásához használja az **Add-AzsScaleUnitNode** parancsmagot.  
 
-Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node* ,  *name_of_scale_unit_cluster* , *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
+Az alábbi PowerShell-parancsfájlok valamelyikének használata előtt cserélje le az értékeket *name_of_new_node*,  *name_of_scale_unit_cluster*, *BMCIP_address_of_new_node* az Azure stack hub-környezet értékeit.
 
   > [!Note]  
   > Egy csomópont elnevezése esetén a nevet 15 karakternél rövidebb ideig kell megtartani. Olyan nevet sem használhat, amely szóközt tartalmaz, vagy tartalmazza a következő karaktereket:,,,,,,,,,,,,,, `\` `/` `:` `*` `?` `"` `<` `>` `|` `\` `~` `!` `@` `#` `$` , `%` , `^` , `&` `(` `)` `{` `}` `_` ,,,,,.
@@ -115,7 +115,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 |Állapot               |Leírás  |
 |---------------------|---------|
-|Fut              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
+|Futó              |Az összes csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva              |A skálázási egység csomópontja vagy le van zárva, vagy nem érhető el.|
 |Bővülő            |Egy vagy több méretezési egység csomópontja jelenleg számítási kapacitásként van hozzáadva.|
 |Tároló konfigurálása  |A számítási kapacitás ki lett bontva, és a tárolási konfiguráció fut.|
@@ -126,7 +126,7 @@ A skálázási egység és a skálázási egység csomópontjainak állapota a P
 
 |Állapot                |Leírás  |
 |----------------------|---------|
-|Fut               |A csomópont aktívan részt vesz a skálázási egységben.|
+|Futó               |A csomópont aktívan részt vesz a skálázási egységben.|
 |Leállítva               |A csomópont nem érhető el.|
 |Hozzáadása                |A csomópontot aktívan felveszik a méretezési egységbe.|
 |Javítása             |A csomópont aktívan javítás alatt áll.|

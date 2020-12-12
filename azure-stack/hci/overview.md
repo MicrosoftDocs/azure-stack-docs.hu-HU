@@ -7,14 +7,16 @@ ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/11/2020
-ms.openlocfilehash: 9e8c66207ad4601aa7a5ee84b4ee3eb8d7e32654
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: d8f8d1191d2e5531c377173f2a8a8c665c7355dc
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343282"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364166"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
+
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
 Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid, helyszíni környezetben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal, a System centerrel és a PowerShell-lel kezelheti.
 
@@ -116,23 +118,7 @@ Számos Microsoft-partner dolgozik olyan szoftvereken, amelyek kibővítik Azure
 
 Azure Stack a HCI-számlázás a fizikai processzorok havi előfizetési díja, nem pedig örökös licenc alapján történik. Amikor az ügyfelek az Azure-hoz csatlakoznak, a felhasznált magok számát a rendszer automatikusan feltölti és kivizsgálja számlázási célokra. A Cost nem változik a fizikai processzor-magokon túli fogyasztástól, ami azt jelenti, hogy több virtuális gép nem drágább, és a sűrűbb virtuális környezetek futtatására képes ügyfeleknek jutalmat kell fizetniük.
 
-Az ügyfelek vásárolhatnak ellenőrzött kiszolgálókat egy hardveres partnertől a Azure Stack HCI operációs rendszerrel előre telepítve, vagy megvásárolhatják az érvényesített operációs rendszer nélküli kiszolgálókat egy SZÁMÍTÓGÉPGYÁRTÓtól, majd előfizethetnek a Azure Stack HCI szolgáltatásra, és letölthetik az Azure Stack HCI operációs rendszert a [Azure Portal](https://azure.microsoft.com/products/azure-stack/hci/).
-
-## <a name="management-tools"></a>Felügyeleti eszközök
-
-Azure Stack HCI-mel teljes körű rendszergazdai jogosultságokkal rendelkezik a fürtön, és közvetlenül is kezelheti annak technológiáit:
-
-- [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
-- [Tárolóhelyek – Közvetlen](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Szoftver által definiált hálózatkezelés](/windows-server/networking/sdn/)
-- [Feladatátvételi fürtszolgáltatás](/windows-server/failover-clustering/failover-clustering-overview)
-
-Ezeknek a technológiáknak a kezeléséhez a következő felügyeleti eszközöket használhatja:
-
-- [Windows felügyeleti központ](/windows-server/manage/windows-admin-center/overview)
-- [System Center](https://www.microsoft.com/cloud-platform/system-center)
-- [PowerShell](/powershell/)
-- Egyéb felügyeleti eszközök, például a [Kiszolgálókezelő](/windows-server/administration/server-manager/server-manager)és az MMC beépülő modulok
+Az ügyfelek vagy vásárolhatnak ellenőrzött kiszolgálókat egy hardveres partnertől a Azure Stack HCI operációs rendszerrel előre telepítve, vagy megvásárolhatják az érvényesített operációs rendszer nélküli kiszolgálókat egy SZÁMÍTÓGÉPGYÁRTÓtól, majd előfizethetnek a Azure Stack HCI szolgáltatásra, és [le is tölthetik a Azure stack HCI operációs rendszert](https://azure.microsoft.com/products/azure-stack/hci/).
 
 ## <a name="the-azure-stack-family"></a>A Azure Stack család
 
@@ -144,56 +130,6 @@ A Azure Stack HCI az Azure és a Azure Stack család része, és ugyanazt a szof
 - [Azure stack hub](../operator/azure-stack-overview.md) – felhőalapú alkalmazások futtatása a helyszínen, a leválasztáskor vagy a szabályozási követelmények teljesítése érdekében, konzisztens Azure-szolgáltatások használatával.
 
 :::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack családi megoldás diagramja" border="false":::
-
-## <a name="compare-windows-server-and-azure-stack-hci"></a>A Windows Server és a Azure Stack HCI összehasonlítása
-
-Sok ügyfél fogja tudni, hogy a Windows Server vagy Azure Stack HCI jobban illeszkedik-e az igényeihez. A következő táblázat segít eldönteni, hogy melyik a legmegfelelőbb a szervezet számára. A Windows Server és a Azure Stack HCI is ugyanazt a kiváló minőségű felhasználói élményt nyújtja, mint az új kiadásokra vonatkozó útitervet.
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| Legjobb vendég és hagyományos kiszolgáló | A legjobb virtualizációs gazdagép egy szoftveresen definiált adatközponthoz, beleértve a Közvetlen tárolóhelyek |
-| Bárhol, hagyományos szoftverlicenc-modell használatával fut | Az előnyben részesített gyártótól származó hardveren fut, de Azure-szolgáltatásként érhető el, és az Azure-fiókba kerül. |
-| Két telepítési lehetőség: kiszolgáló asztali felülettel vagy Server Core-val | Egy egyszerűen testre szabott Server Core alapján |
-
-### <a name="when-to-use-windows-server"></a>Mikor kell használni a Windows Servert?
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| A Windows Server egy sokoldalú, többcélú operációs rendszer, több tucat szerepkörrel és több száz funkcióval, beleértve a vendég jogosultságokat is. | Azure Stack HCI nem tartalmaz vendég jogosultságokat, és a rendszer egy modern, hiperkonvergens architektúrára kíván használni. |
-| A Windows Server használatával virtuális gépeket futtathat, vagy operációs rendszer nélküli telepítéseket, beleértve az összes hagyományos kiszolgálói szerepkört, többek között a Active Directory, a Fájlszolgáltatások, a DNS, a DHCP, a Internet Information Services (IIS), a Container Host/Guest, a SQL Server, az Exchange Server, a Host Guardian Service (HGS) és sok más. | Hyper-V virtualizációs gazdagépként való használatra Azure Stack a HCI csak kis számú kiszolgálói szerepkör futtatására jogosult. minden más szerepkörnek a virtuális gépeken belül kell futnia. |
-
-### <a name="when-to-use-azure-stack-hci"></a>Mikor kell használni a Azure Stack HCI-t
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| A Windows Server a helyszínen vagy a felhőben is futtatható, de önmagában nem teljes hiperkonvergens ajánlat.| A Azure Stack HCI használatával helyszíni virtuális gépeket futtathat, opcionálisan két hely között, valamint az Azure Hybrid Serviceshez való csatlakozással. Az adatközpontok és fiókirodák korszerűsítésének és biztonságossá tételének egyszerű módja, az iparág legjobb teljesítménye a SQL Server adatbázisok számára, és a virtuális asztalok helyi futtatása az alacsony késés és az adatszuverenitás érdekében|
-| A Windows Server egy nagyszerű, többcélú "svájci bicska" az összes Windows Server-szerepkörhöz, virtualizálva vagy nem. | A Azure Stack HCI használatával virtualizálhatja a klasszikus vállalati alkalmazásokat, például az Exchange-et, a SharePointot és a SQL Servert, és virtualizálhatja a Windows Server-szerepköröket, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD. Korlátlan hozzáférést biztosít minden olyan Hyper-V-szolgáltatáshoz, mint például a védett virtuális gépek.|
-| Számos Windows Server-példány fut az öregedési hardveren. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. Alkalmazások futtatása Windows vagy Linux rendszerű virtuális gépeken belül.|
-
-## <a name="compare-azure-stack-hub-and-azure-stack-hci"></a>A Azure Stack hub és a Azure Stack HCI összehasonlítása
-
-A szervezet digitális átalakításának köszönhetően a nyilvános Cloud Services használatával gyorsabban átalakíthatja a modern architektúrákat, és frissítheti a régi alkalmazásokat. A technológiai és szabályozási akadályokat is magában foglaló okok miatt azonban sok számítási feladatnak a helyszínen kell maradnia. A táblázat segítségével meghatározhatja, hogy melyik Microsoft Hybrid Cloud-stratégia biztosítja, hogy mire van szüksége, hol van szüksége a Felhőbeli innovációra a számítási feladatokhoz, bárhol legyenek is.
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| Új ismeretek, innovatív folyamatok | Ugyanazok a képességek, ismerős folyamatok |
-| Az adatközpontban található Azure-szolgáltatások | Az adatközpont összekötése az Azure-szolgáltatásokkal |
-
-### <a name="when-to-use-azure-stack-hub"></a>Mikor kell használni a Azure Stack hub-t
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| Az önkiszolgáló infrastruktúra-szolgáltatás (IaaS) esetében használja az Azure Stack hub-t, amely erős elkülönítést és pontos használatot biztosít a több közös elhelyezésű bérlő esetében. Ideális a szolgáltatók és a vállalati privát felhők számára. Sablonok az Azure piactéren. | Azure Stack HCI nem kényszerített natív módon, vagy nem biztosít több bérlőt. |
-| Az Azure Stack hub használatával olyan alkalmazásokat fejleszthet és futtathat, amelyek a szolgáltatásként nyújtott platformon alapuló (például a Web Apps, a functions vagy a Event Hubs helyszíni) szolgáltatásokra támaszkodnak. Ezek a szolgáltatások a Azure Stack hub-on futnak, ugyanúgy, mint az Azure-ban, és egységes hibrid fejlesztési és futtatókörnyezeti környezetet biztosítanak. | Azure Stack HCI nem futtatja a Pásti-szolgáltatásokat a helyszínen. |
-| A Azure Stack hub használatával modernizálhatja az alkalmazások üzembe helyezését és működését olyan DevOps eljárásokkal, mint például a kód, a folyamatos integráció és a folyamatos üzembe helyezés (CI/CD), valamint a kényelmes funkciók, például az Azure-konzisztens virtuálisgép-bővítmények. Ideális fejlesztői és DevOps csapatoknak. | Azure Stack HCI nem natív módon tartalmaz bármilyen DevOps-eszközt. |
-
-### <a name="when-to-use-azure-stack-hci"></a>Mikor kell használni a Azure Stack HCI-t
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| Azure Stack hub minimális 4 csomópontot és saját hálózati kapcsolókat igényel. | A távoli irodák és ágak minimális helyigényéhez használjon Azure Stack HCI-t. Az egyszerűség és a megfizethetőség érdekében csak 2 kiszolgáló-csomóponttal és visszaváltható, visszatérhető hálózatkezeléssel kezdheti a munkát. A hardveres ajánlatok 4 meghajtóval, 64 GB memóriával, valamint a $10k/Node értékkel kezdődnek. |
-| Azure Stack hub korlátozza a Hyper-V konfigurálását és az Azure-hoz való konzisztencia-szolgáltatást. | Használjon Azure Stack HCI-t a klasszikus vállalati alkalmazások, például az Exchange, a SharePoint és a SQL Server, valamint a Windows Server-szerepkörök, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD virtualizálása érdekében. Korlátlan hozzáférés az összes Hyper-V-szolgáltatáshoz, például a védett virtuális gépekhez.|
-| Azure Stack hub nem teszi elérhetővé ezeket az infrastrukturális technológiákat. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. |
 
 ## <a name="whats-new-in-azure-stack-hci"></a>Az Azure Stack HCI újdonságai
 
@@ -252,4 +188,5 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 ## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
+- [Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban](deploy/deployment-quickstart.md)
 - [Azure Stack HCI használata a Windows felügyeleti központtal](get-started.md)

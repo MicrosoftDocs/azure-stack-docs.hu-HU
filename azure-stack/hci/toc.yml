@@ -116,6 +116,8 @@
       items:
         - name: Rendszerkövetelmények
           href: concepts/system-requirements.md
+        - name: Összehasonlítás a Windows Serverrel
+          href: concepts/compare-windows-server.md
         - name: Meghajtók kiválasztása
           href: concepts/choose-drives.md
         - name: A meghajtó-szimmetria szempontjai

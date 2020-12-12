@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051649"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364217"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
 
@@ -52,7 +52,14 @@ A fürt létrehozása varázsló főbb lépései:
 
 A varázsló befejezése után be kell állítania a tanúsító fürtöt, regisztrálnia kell az Azure-ban, és létre kell hoznia a köteteket (amely a helyek közötti replikációt is beállítja, ha kifeszített fürtöt hoz létre).
 
-OK, kezdjük:
+A varázsló elindítása előtt ellenőrizze, hogy telepítve van-e a legújabb Windows felügyeleti központ-bővítmények, különösen a fürt létrehozási bővítménye. Ehhez tegye a következőket:
+
+1. Nyissa meg a Windows felügyeleti központot, és kattintson a beállítások (fogaskerék ikon) elemre a jobb felső sarokban.
+1. A **BEÁLLÍTÁSOK** területen válassza a **Bővítmények** elemet.
+1. Válassza a **fürt létrehozása** lehetőséget, majd kattintson a **telepítés** gombra.
+1. Válassza ki a **Fürtfelügyelő** elemet, majd kattintson a **telepítés** gombra.
+
+Most már készen áll, ezért kezdjük:
 
 1. A Windows felügyeleti központban a **minden kapcsolat** területen kattintson a **Hozzáadás** elemre.
 1. Az **erőforrások hozzáadása vagy létrehozása** panel **kiszolgálófürtök területén válassza az** **új létrehozása** lehetőséget.
