@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/7/2020
-ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: 12fda23b2719526c45503a78ff670b595d41f074
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761711"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343372"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>A Azure Stack HCI operációs rendszer üzembe helyezése
 
@@ -21,7 +21,7 @@ ms.locfileid: "96761711"
 Azure Stack HCI üzembe helyezésének első lépéseként le kell [töltenie Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítenie kell az operációs rendszert minden olyan kiszolgálón, amelyet fürtbe szeretne helyezni. Ez a cikk az operációs rendszer központi telepítésének különböző módszereit ismerteti, és a Windows felügyeleti központ használatával csatlakozik a kiszolgálókhoz.
 
 > [!NOTE]
-> Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://aka.ms/azurestackhcicatalog) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet [egy Azure stack HCI-fürt létrehozásához](create-cluster.md).
+> Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://hcicatalog.azurewebsites.net) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet [egy Azure stack HCI-fürt létrehozásához](create-cluster.md).
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -80,7 +80,7 @@ A Azure Stack HCI operációs rendszert ugyanúgy telepítheti, mint a más Micr
 
 A Azure Stack HCI operációs rendszer nagyvállalati szintű üzembe helyezéséhez javasoljuk, hogy Azure Stack HCI integrált rendszermegoldási hardvert a kívánt hardveres partnertől. A megoldás hardvere előre telepített operációs rendszerrel érkezik, és támogatja az illesztőprogramok és a belső vezérlőprogram telepítését és frissítését a Windows felügyeleti központban a hardver gyártójától.
 
-A megoldási hardverek 2 – 16 csomópontra terjednek, és a Microsoft és a partnerek gyártói tesztelik és érvényesítik azokat. Azure Stack HCI-megoldás hardverének az előnyben részesített hardveres partnertől való megtalálásához tekintse meg a [Azure stack HCI katalógust](https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog).
+A megoldási hardverek 2 – 16 csomópontra terjednek, és a Microsoft és a partnerek gyártói tesztelik és érvényesítik azokat. Azure Stack HCI-megoldás hardverének az előnyben részesített hardveres partnertől való megtalálásához tekintse meg a [Azure stack HCI katalógust](https://hcicatalog.azurewebsites.net).
 
 ### <a name="headless-deployment"></a>Fej nélküli üzembe helyezés
 
@@ -150,7 +150,7 @@ A Sconfig eszköz főoldalán a következő kezdeti konfigurációs feladatokat 
 
 Miután az operációs rendszer igény szerint konfigurálta az Sconfig-t az egyes kiszolgálókon, készen áll a Windows felügyeleti központban a fürt létrehozása varázsló használatára a kiszolgálók fürtözéséhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A cikkel kapcsolatos következő felügyeleti feladat végrehajtásához lásd:
 > [!div class="nextstepaction"]

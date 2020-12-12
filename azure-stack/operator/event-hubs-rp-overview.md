@@ -1,5 +1,5 @@
 ---
-title: Az Azure Stack hub Event Hubs áttekintése
+title: Event Hubs Azure Stack hub-operátor áttekintése
 description: Ismerkedjen meg a Azure Stack hub Event Hubs erőforrás-szolgáltatóval.
 author: BryanLa
 ms.author: bryanla
@@ -8,20 +8,18 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2c7574ef54176e4e4b91f5bee8af9e6953d13732
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: a37d4b69b3e5ecd34046e4876f522ccfbce3f919
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742644"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343672"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Az Azure Stack hub Event Hubs áttekintése
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+# <a name="event-hubs-on-azure-stack-hub-operator-overview"></a>Event Hubs Azure Stack hub-operátor áttekintése
 
 A Event Hubs on Azure Stack hub lehetővé teszi a hibrid Felhőbeli forgatókönyvek megvalósítását. A folyamatos átviteli és eseményvezérelt megoldások támogatottak mind a helyszíni, mind az Azure-beli Felhőbeli feldolgozáshoz. Ha a forgatókönyv hibrid (csatlakoztatva) vagy le van választva, a megoldás képes támogatni az események/streamek nagy léptékű feldolgozását. A forgatókönyv csak a fürt méretétől függ, amelyet igény szerint lehet kiépíteni. 
 
-## <a name="features"></a>Szolgáltatások
+## <a name="features"></a>Funkciók
 
 Tekintse meg az [Azure stack hub felhasználói dokumentációját](../user/event-hubs-overview.md) a szolgáltatások összehasonlításához a Azure stack és az Azure Event Hubs Event Hubs között.
 

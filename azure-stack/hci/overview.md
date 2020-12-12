@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 9e8c66207ad4601aa7a5ee84b4ee3eb8d7e32654
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011195"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343282"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
@@ -94,7 +94,7 @@ A Azure Stack HCI egy világszínvonalú, integrált virtualizációs verem, ame
 
 A kezdéshez a következőkre lesz szüksége:
 
-- Két vagy több olyan kiszolgálóból álló fürt, amely az Ön által előnyben részesített Microsoft Hardware partnertől vásárolt [Azure stack HCI katalógusból](https://aka.ms/azurestackhcicatalog)származik.
+- Két vagy több olyan kiszolgálóból álló fürt, amely az Ön által előnyben részesített Microsoft Hardware partnertől vásárolt [Azure stack HCI katalógusból](https://hcicatalog.azurewebsites.net)származik.
 - [Azure-előfizetés](https://azure.microsoft.com/)
 - A fürt minden olyan kiszolgálójának internetkapcsolata, amely HTTPS kimenő forgalomon keresztül tud csatlakozni a jól ismert Azure-végpontokhoz legalább 30 naponként
 - A helyek között kiterjesztett fürtök esetében legalább 1 1 GB-os kapcsolatra van szükség a helyek között (a 25 GB-os RDMA-kapcsolat előnyben részesített), és 5 ms-os átlagos késéssel kell rendelkeznie, ha szinkron replikálást szeretne végezni, ha mindkét helyen egyszerre történik az írás.
@@ -106,7 +106,7 @@ További információ: [rendszerkövetelmények](concepts/system-requirements.md
 
 Az Ön által előnyben részesített Microsoft-partner által ellenőrzött Azure Stack HCI-megoldásokat vásárolhat, így a hosszadalmas tervezés és a felépítési idő nélkül megkezdheti a működését. A Microsoft partnerei egyetlen kapcsolódási pontot is kínálnak a megvalósítási és támogatási szolgáltatásokhoz. Megvásárolhatja az érvényesített csomópontokat vagy egy integrált rendszert, amely magában foglalja az előre telepített Azure Stack HCI operációs rendszert, valamint az illesztőprogram-és a belső vezérlőprogram frissítéseinek partner-bővítményeit is.
 
-Látogasson el a [Azure stack HCI Solutions](https://azure.microsoft.com/overview/azure-stack/hci) oldalra, vagy tallózzon a [Azure stack HCI-katalógusban](https://aka.ms/azurestackhcicatalog) , és Azure stack tekintse meg a Microsoft-partnereinktől (például az ASUS, a Axellio, a Blue chip, a DATAON, a Dell EMC, a Fujitsu, a HPE, a Hitachi, a Huawei, a Lenovo, az NEC, a PRIMELINE Solutions, a QCT, a SecureGUARD és a nagymikro
+Látogasson el a [Azure stack HCI Solutions](https://azure.microsoft.com/overview/azure-stack/hci) oldalra, vagy tallózzon a [Azure stack HCI-katalógusban](https://hcicatalog.azurewebsites.net) , és Azure stack tekintse meg a Microsoft-partnereinktől (például az ASUS, a Axellio, a Blue chip, a DATAON, a Dell EMC, a Fujitsu, a HPE, a Hitachi, a Huawei, a Lenovo, az NEC, a PRIMELINE Solutions, a QCT, a SecureGUARD és a nagymikro
 
 ## <a name="software-partners"></a>Szoftveres partnerek
 
@@ -203,7 +203,7 @@ A Windows felügyeleti központ 2009-es verziója számos funkciót biztosít a 
 - A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
 - **Távoli közvetlen memória-hozzáférés (RDMA) továbbfejlesztése a fürt létrehozása varázslóban**: a fürt létrehozása varázsló mostantól konfigurálhatja a RDMA a iWARP és a RoCE hálózati adapterekhez, beleértve az adatközpont-áthidalás (DCB) szolgáltatást is.
 
-A Windows felügyeleti központ új szolgáltatásaival kapcsolatos részletekért tekintse meg a [Windows felügyeleti központ blogját](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
+További információ az új funkciókról: [a fürt létrehozási bővítményének általánosan elérhetővé való bejelentése a Windows felügyeleti központban](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332).
 
 A Azure Stack HCI-t futtató fürtökön a következő új funkciók jelennek meg a Windows Server 2019-alapú megoldásaihoz képest: 20H2.
 

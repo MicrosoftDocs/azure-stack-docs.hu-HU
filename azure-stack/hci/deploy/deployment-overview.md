@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.date: 12/11/2020
+ms.openlocfilehash: fd7f06e834026b2f35f2bce3830440f54b6dd26f
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778019"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343326"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Mi a Azure Stack HCI telepítési folyamata?
 
@@ -42,7 +42,7 @@ Az operációs rendszer központi telepítése előtt ellenőrizze, hogy a hardv
 
 ### <a name="1-deploy-azure-stack-hci"></a>1. Azure Stack HCI üzembe helyezése
 
-[Töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítse a Azure stack HCI [operációs rendszert](operating-system.md) a fürtbe felvenni kívánt összes kiszolgálóra. Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://aka.ms/azurestackhcicatalog) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet #2ra.
+[Töltse le Azure stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) -t, és telepítse a Azure stack HCI [operációs rendszert](operating-system.md) a fürtbe felvenni kívánt összes kiszolgálóra. Ha Azure Stack HCI integrált rendszermegoldási hardvert vásárolt a [Azure stack HCI katalógusból](https://hcicatalog.azurewebsites.net) az előnyben részesített Microsoft Hardware partnerén keresztül, akkor az Azure stack HCI operációs rendszernek előre telepítve kell lennie. Ebben az esetben kihagyhatja ezt a lépést, és átléphet #2ra.
 
 ### <a name="2-create-the-cluster"></a>2. a fürt létrehozása
 
@@ -70,7 +70,7 @@ Most már készen áll a munkaterhelések üzembe helyezésére Azure Stack HCI-
 
 Az Azure Kubernetes szolgáltatás munkaterhelésének Azure Stack HCI-ben való üzembe helyezésével kapcsolatos további információkért tekintse meg a következő áttekintést: [Mi az az Azure Kubernetes Service on Azure stack HCI?](https://docs.microsoft.com/azure-stack/aks-hci/overview)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ismerje meg, hogyan helyezheti üzembe a Azure Stack HCI operációs rendszert.
 

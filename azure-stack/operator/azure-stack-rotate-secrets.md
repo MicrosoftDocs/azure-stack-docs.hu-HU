@@ -9,14 +9,14 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152845"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343159"
 ---
-# <a name="rotate-secrets-in-azure-stack-hub"></a>Titkok elforgatása Azure Stack központban
+# <a name="rotate-secrets-in-azure-stack-hub"></a>Az Azure Stack Hub titkos kulcsainak rotálása
 
 Ez a cikk útmutatást nyújt a titkos rotációs feladatok végrehajtásához, és segít a Azure Stack hub-infrastruktúra erőforrásaival és szolgáltatásaival való biztonságos kommunikáció fenntartásában.
 
@@ -27,7 +27,7 @@ Azure Stack hub titkokat használ az infrastruktúra-erőforrásokkal és-szolg�
 Ha a titkos kulcsok érvényessége 30 napon belül lejár, a következő riasztások jönnek létre a felügyeleti portálon. A titkos kód elforgatása megoldja ezeket a riasztásokat:
 
 - A szolgáltatásfiók jelszavának lejárta folyamatban
-- Függőben lévő belső tanúsítvány lejárata
+- Belső tanúsítvány lejárata miatt függőben
 - Külső tanúsítvány lejárata miatt függőben
 
 ::: moniker range="<azs-1811"  
@@ -108,7 +108,7 @@ A külső titkok forgása előtt:
 3. Biztonsági másolat készítése a biztonságos biztonsági mentési helyen történő elforgatáshoz használt tanúsítványokról. Ha az elforgatás fut, majd a művelet meghiúsul, cserélje le a fájlmegosztás tanúsítványait a biztonsági másolatokra a elforgatás újrafuttatása előtt. Tárolja a biztonsági másolatokat a biztonságos biztonsági mentési helyen.
 4. Hozzon létre egy fájlmegosztás, amely a ERCS virtuális gépekről érhető el. A fájlmegosztás legyen olvasható és írható a **CloudAdmin** -identitáshoz.
 5. Nyisson meg egy PowerShell ISE-konzolt egy olyan számítógépről, amelyhez hozzáféréssel rendelkezik a fájlmegosztás. Navigáljon a fájlmegosztás, ahol a külső tanúsítványok elhelyezésére szolgáló címtárakat hoz létre.
-6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** egy olyan hálózati fájlmegosztás számára, amely a rotációs folyamat során elérhető, és futtassa a parancsfájlt. A szkript létrehoz egy mappastruktúrát, amely megfelel a **_.\Certificates\AAD_*_ vagy _*_.\Certificates\ADFS_*_ értéknek, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának _* \\ Certificates mappával kell kezdődnie** , amelyet csak egy **\\ HRE** vagy **\\ ADFS** -mappa követ. Az előző struktúrában az összes további alkönyvtár szerepel. Például:
+6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** a hálózati fájlmegosztás, és futtassa a parancsfájlt. A szkript létrehoz egy mappastruktúrát, amely megfelel a **_.\Certificates\AAD_*_ vagy _*_.\Certificates\ADFS_*_ értéknek, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának _* \\ Certificates mappával kell kezdődnie** , amelyet csak egy **\\ HRE** vagy **\\ ADFS** -mappa követ. Az előző struktúrában az összes további alkönyvtár szerepel. Például:
     - Fájlmegosztás = **\\\\\<IPAddress>\\\<ShareName>**
     - Tanúsítvány gyökérkönyvtára az Azure AD-szolgáltatóhoz = **\\ Certificates\AAD**
     - Teljes elérési út = **\\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**
@@ -318,11 +318,11 @@ A [Start-SecretRotation parancsmag](../reference/pep-2002/start-secretrotation.m
 
 | Paraméter | Típus | Kötelező | Pozíció | Alapértelmezett | Leírás |
 |--|--|--|--|--|--|
-| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincs  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates** kell lennie. |
-| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincs  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Sztring | Hamis | Elemzi | Nincs | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
-| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincs  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
-| `ReRun` | Kapcsolóparaméter | Hamis  | Elemzi  | Nincs  | A rendszer a sikertelen kísérlet után újrapróbálkozik a titkos kód megfordításával. |
+| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates** kell lennie. |
+| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | Hamis | Elemzi | Nincsenek | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincsenek  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `ReRun` | Kapcsolóparaméter | Hamis  | Elemzi  | Nincsenek  | A rendszer a sikertelen kísérlet után újrapróbálkozik a titkos kód megfordításával. |
 
 ### <a name="syntax"></a>Syntax
 

@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2a1525f4b91998479d368714aa3a88df6ecfcef9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b69d5b7a7b621d22745c89c18a3e7f000e54bcbd
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423959"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343745"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>Event Hubs eltávolítása Azure Stack hub-on
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 > [!WARNING]
 > Az Event Hubs eltávolítása eltávolítja az erőforrás-szolgáltatót, valamint az összes felhasználó által létrehozott Event Hubs-fürtöt, névteret és Event hub-erőforrást. Emellett eltávolítja a hozzájuk tartozó esemény-adataikat is.  
@@ -29,7 +27,7 @@ A lépések ezen szakasza eltávolítja az összes Event Hubs erőforrást, bele
 
 A Event Hubs és a felhasználók által létrehozott összes kapcsolódó erőforrás eltávolításához hajtsa végre a következő lépéseket:
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 2. Válassza a **piactér-kezelés** lehetőséget a bal oldalon.
 3. Válassza ki az **Erőforrás-szolgáltatók** elemet.
 4. Válassza a **Event Hubs** elemet az erőforrás-szolgáltatók listájából. Érdemes lehet szűrni a listát a megadott keresési szövegmezőben a "Event Hubs" érték beírásával.
@@ -40,7 +38,7 @@ A Event Hubs és a felhasználók által létrehozott összes kapcsolódó erőf
 
    [![Event hubok 2 eltávolítása](media/event-hubs-rp-remove/2-uninstall.png)](media/event-hubs-rp-remove/2-uninstall.png#lightbox)
 
-6. Adja meg az erőforrás-szolgáltató nevét, majd válassza az **Eltávolítás**lehetőséget. Ez a művelet megerősíti az eltávolításának szándékát:
+6. Adja meg az erőforrás-szolgáltató nevét, majd válassza az **Eltávolítás** lehetőséget. Ez a művelet megerősíti az eltávolításának szándékát:
    - A Event Hubs erőforrás-szolgáltató
    - Minden felhasználó által létrehozott fürt, névtér, Event hub és Event-érték.
 
@@ -55,6 +53,6 @@ A Event Hubs és a felhasználók által létrehozott összes kapcsolódó erőf
 
 Akkor használja ezt a beállítást, ha a Event Hubs eltávolítása után el szeretné távolítani a Event Hubs telepítéséhez használt csomagokat is. 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az újratelepítéshez térjen vissza a [Event Hubs erőforrás-szolgáltató telepítése](event-hubs-rp-install.md) című cikkre.

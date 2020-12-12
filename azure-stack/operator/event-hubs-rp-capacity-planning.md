@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 41ce43c3eda27d3ede8e6a90175fb3042fa2bf68
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572153"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343569"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>A Event Hubs kapacitásának megtervezése Azure Stack hub-ban
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Kezelőként kezelheti az Azure Stack hub kapacitását az erőforrásokra vonatkozó [kvóták](azure-stack-quota-types.md) használatával. Event Hubs erőforrás-felhasználást úgy szabályozhatja, hogy kvótákat állít be Event Hubs-fürtök által használt magok maximális száma alapján. Event Hubs-fürtöket a felhasználók hoznak létre Event Hubs-erőforrás telepítésekor. A jelen cikkben leírtak szerint az erőforrás-szolgáltatóhoz is különböző erőforrás-felhasználási követelmények vonatkoznak.
 
@@ -35,8 +33,7 @@ A felhasználóknak létre kell hozniuk Event Hubs fürtöket az üzleti követe
 
 Az összes Event Hubs-fürt [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) virtuálisgép-típust használ a csomópontjaihoz. A D11_V2 VM-típusok 2 maggal rendelkeznek. Így 1 CU Event Hubs-fürt 5 D11_V2 virtuális gépet használ, amely 10 magot használ. A kvótához konfigurálni kívánt magok számának meghatározásakor használja az 1 CU által használt összes mag többszörösét. Ez a számítás a Event Hubs-fürtök létrehozásakor a felhasználók által használható maximális számú CU-darabszámot tükrözi. Ha például olyan kvótát szeretne konfigurálni, amely lehetővé teszi, hogy a felhasználók 2 ke kapacitású fürtöt hozzanak létre, állítsa a kvótát 20 maggal.
 
-> [!NOTE]
-> **Csak nyilvános előzetes** verzió Azure Stack hub Event Hubs elérhető verziója csak 1 CU-fürtök létrehozását támogatja. A Event Hubs általánosan elérhető verziója a CU különböző konfigurációs beállításainak támogatását is tartalmazza.
+[!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
 
 ## <a name="resource-provider-resource-consumption"></a>Erőforrás-szolgáltató erőforrásainak felhasználása  
 

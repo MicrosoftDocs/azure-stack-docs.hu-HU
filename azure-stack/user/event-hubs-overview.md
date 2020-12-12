@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cb09f605f66e4950e0e483fbee920a1a4eba40e5
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546956"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343762"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Az Azure Stack hub Event Hubs áttekintése
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 A Event Hubs on Azure Stack hub lehetővé teszi a hibrid Felhőbeli forgatókönyvek megvalósítását. A folyamatos átviteli és eseményvezérelt megoldások támogatottak mind a helyszíni, mind az Azure-beli Felhőbeli feldolgozáshoz. Ha a forgatókönyv hibrid (csatlakoztatva) vagy le van választva, a megoldás képes támogatni az események/streamek nagy léptékű feldolgozását. A forgatókönyvet csak a Event Hubs-fürt mérete köti, amelyet az igényei szerint hozhat létre. 
 
@@ -38,11 +36,11 @@ Olyan hibrid megoldásokat hozhat létre, amelyek helyileg töltik fel és dolgo
 
 [![Hibrid megoldások diagramja](media/event-hubs-overview/hybrid-architecture-ehoash.png)](media/event-hubs-overview/hybrid-architecture-ehoash.png#lightbox)
 
-## <a name="features"></a>Szolgáltatások 
+## <a name="features"></a>Funkciók 
 
 A Event Hubs kiadásai (Azure Stack hub és az Azure-on) magas fokú szolgáltatási paritást kínálnak. Ez a paritás azt jelenti, hogy az SDK-k, minták, PowerShell, CLI és portálok hasonló élményt nyújtanak, néhány különbséggel. A következő táblázat összefoglalja, hogy a szolgáltatások rendelkezésre állása milyen magas szintű különbségeket tartalmaz a kiadások között.  
 
-| Jellemző | Event Hubs az Azure Stack Hubon | Azure Event Hubs |
+| Funkció | Event Hubs az Azure Stack Hubon | Azure Event Hubs |
 |-|-|-|-|
 | Kezelői rendszergazdai élmény | ✔ | ✘ |
 | Kafka-támogatás | ✔ | ✔ |

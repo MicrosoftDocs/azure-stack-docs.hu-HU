@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: a6e725eee638b0afd2dddbe2f382cade729f9873
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069784"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343176"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Gyors útmutató: Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban
 
@@ -24,7 +24,7 @@ Ebből a rövid útmutatóból megtudhatja, hogyan helyezhet üzembe egy kétkis
 
 Fürt létrehozása előtt tegye a következőket:
 
-* Vásároljon két kiszolgálót a [Azure stack HCI katalógusból](https://azure.microsoft.com/products/azure-stack/hci/catalog/) az előnyben részesített Microsoft-partneri kapcsolaton keresztül a Azure stack HCI operációs rendszerrel előre telepítve. Tekintse át a [rendszerkövetelményeket](../concepts/system-requirements.md) , és győződjön meg arról, hogy a kiválasztott hardver támogatja majd a fürtön futtatni kívánt munkaterheléseket. Javasoljuk, hogy használjon olyan nagy sebességű hálózati adaptereket használó rendszereket, amelyek egyszerű konfigurációhoz iWARP használnak.
+* Vásároljon két kiszolgálót a [Azure stack HCI katalógusból](https://hcicatalog.azurewebsites.net) az előnyben részesített Microsoft-partneri kapcsolaton keresztül a Azure stack HCI operációs rendszerrel előre telepítve. Tekintse át a [rendszerkövetelményeket](../concepts/system-requirements.md) , és győződjön meg arról, hogy a kiválasztott hardver támogatja majd a fürtön futtatni kívánt munkaterheléseket. Javasoljuk, hogy használjon olyan nagy sebességű hálózati adaptereket használó rendszereket, amelyek egyszerű konfigurációhoz iWARP használnak.
 * Hozzon létre egy olyan felhasználói fiókot, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 * [Szerezze be az Azure-előfizetést](https://azure.microsoft.com/), ha még nem rendelkezik ilyennel.
 * [Telepítse a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és [regisztrálja a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban. Vegye figyelembe, hogy a felügyeleti számítógépnek ugyanahhoz a Active Directory tartományhoz kell tartoznia, amelyben létre kívánja hozni a fürtöt, vagy egy teljesen megbízható tartományt.

@@ -2,18 +2,18 @@
 title: Azure Stack hub hibáinak megoldása
 titleSuffix: Azure Stack
 description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: v-myoung
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899771"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343655"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -83,7 +83,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
-2. A `test-azurestack` parancs futtatása.
+2. Futtassa a `test-azurestack` parancsot.
 3. Lépjen ki a PEP-munkamenetből.
 4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott ERCS mappából szerezheti be `test-azurestack` .
@@ -216,6 +216,16 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 **OK**: az Azure stack hub frissítésének telepítésére tett kísérlet során előfordulhat, hogy a frissítés állapota meghiúsul, és az állapot módosul `PreparationFailed` . Internetkapcsolattal rendelkező rendszerek esetében ez általában azt jelzi, hogy a frissítési csomag nem tölthető le megfelelően, mert gyenge az internetkapcsolat. 
 
 **Szervizelés**: a probléma megkerüléséhez kattintson a **Telepítés most** lehetőségre. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
+
+**Előfordulás**: gyakori
+
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>A frissítés során jelentett figyelmeztetések és hibák
+
+**Alkalmazható**: Ez a probléma az összes támogatott kiadásra vonatkozik.
+
+**OK**: Ha Azure stack hub frissítés állapota **folyamatban** van, a rendszer figyelmeztetéseket és hibákat jelez a portálon. Az összetevők időtúllépést okozhatnak a frissítés során más összetevők számára, így hiba történt. Az Azure Stack hub olyan mechanizmussal rendelkezik, amely időnkénti hibák miatt újrapróbálkozik vagy szervizeli a feladatokat.
+
+**Szervizelés**: az Azure stack hub frissítésének állapota **folyamatban** van, a portálon jelentett figyelmeztetések és hibák figyelmen kívül hagyhatók.
 
 **Előfordulás**: gyakori
 

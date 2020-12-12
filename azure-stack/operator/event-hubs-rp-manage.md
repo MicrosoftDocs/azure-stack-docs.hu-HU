@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e9f500da4cab68688a6dd33374cfbc1cc166828d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424036"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343586"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Event Hubs kezelése Azure Stack hub-on
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 A Event Hubs felügyeleti felület lehetővé teszi a szolgáltatás vezérlését, valamint az állapot és a riasztások megjelenítését. 
 
@@ -25,7 +23,7 @@ A Event Hubs felügyeleti felület lehetővé teszi a szolgáltatás vezérlés�
 
 A következő lépésekkel érheti el a Event Hubs felügyeleti lapját:
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálján.
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
 2. Válassza a **minden szolgáltatás** lehetőséget a bal oldali ablaktáblán.
 3. Keressen rá a "Event Hubs" kifejezésre, és válassza ki a szolgáltatást. Ha nem találja a Event Hubs szolgáltatást, először [telepítenie](event-hubs-rp-install.md)kell az erőforrás-szolgáltatót.
 4. Megjelenik a Event Hubs-kezelés áttekintő lapja. A bal oldali panelen négy szakaszt talál:
@@ -48,23 +46,23 @@ További információ a Event Hubshoz megadott kvóták típusairól: [kvóta t�
 
 A Event Hubs erőforrás-szolgáltató a következő riasztásokat támogatja:
    
-| Kategória | Riasztás | Típus | Állapot |
+| Kategória | Riasztás | Típus | Feltétel |
 |----------|-------|------|-----------|
 | Teljesítmény | | | |
-| | EventHub – CpuUsage | Figyelmeztetés | Event Hubs fürt átlagos CPU-használata az elmúlt 6 órában nagyobb, mint 50%. |
-| | EventHub – MemoryUsage | Figyelmeztetés | A (z)% adatlemez átlaga (E:) Event Hubs-fürt használata az elmúlt 6 órában nagyobb, mint 50%. |
-| | EventHub – SKU | Figyelmeztetés | A Event Hubs-fürt utolsó 6 órában mért szabad lemezterületének átlaga 50%-nál kisebb. |
+| | EventHub-CpuUsage | Figyelmeztetés | Event Hubs fürt átlagos CPU-használata az elmúlt 6 órában nagyobb, mint 50%. |
+| | EventHub-MemoryUsage | Figyelmeztetés | A (z)% adatlemez átlaga (E:) Event Hubs-fürt használata az elmúlt 6 órában nagyobb, mint 50%. |
+| | EventHub-DiskUsage | Figyelmeztetés | A Event Hubs-fürt utolsó 6 órában mért szabad lemezterületének átlaga 50%-nál kisebb. |
 | Használat/kvóta | | | |
-| | EventHub – QuotaExceeded | Figyelmeztetés | A kvóta túllépte az elmúlt hat órában történt hibát. |
-| | EventHub – NamespaceCreditUsage | Figyelmeztetés | Az elmúlt hat órában a névtérbeli kreditek használatának összege nagyobb, mint 10000,0. |
+| | EventHub-QuotaExceeded | Figyelmeztetés | A kvóta túllépte az elmúlt hat órában történt hibát. |
+| | EventHub-NamespaceCreditUsage | Figyelmeztetés | Az elmúlt hat órában a névtérbeli kreditek használatának összege nagyobb, mint 10000,0. |
 | Csökkentett teljesítményű szolgáltatás | | | |
-| | EventHub – InternalServerError | Figyelmeztetés | Belső kiszolgálóhiba történt az elmúlt hat órában. |
-| | EventHub – ServerBusy | Figyelmeztetés | A kiszolgáló foglalt hiba történt az elmúlt hat órában. |
+| | EventHub-InternalServerError | Figyelmeztetés | Belső kiszolgálóhiba történt az elmúlt hat órában. |
+| | EventHub-ServerBusy | Figyelmeztetés | A kiszolgáló foglalt hiba történt az elmúlt hat órában. |
 | Ügyfél | | | |
-| | EventHub – vonatkozó ügyfélhibái | Figyelmeztetés | Ügyfél-hiba történt az elmúlt hat órában. |
+| | EventHub-ClientError | Figyelmeztetés | Ügyfél-hiba történt az elmúlt hat órában. |
 | Erőforrás | | | |
-| | EventHub – PendingDeletingResources | Figyelmeztetés | Az elmúlt hat órában az erőforrások függőben lévő törlésének összege nagyobb, mint 100. |
-| | EventHub – ProvisioningQueueLength | Figyelmeztetés | Az utolsó hat órában a kiépítési várólista átlagos hosszának átlaga nagyobb, mint 30. |
+| | EventHub-PendingDeletingResources | Figyelmeztetés | Az elmúlt hat órában az erőforrások függőben lévő törlésének összege nagyobb, mint 100. |
+| | EventHub-ProvisioningQueueLength | Figyelmeztetés | Az utolsó hat órában a kiépítési várólista átlagos hosszának átlaga nagyobb, mint 30. |
 
 A **riasztások** kiválasztása a főoldalon a kiállított riasztások listáját jeleníti meg:
 
@@ -92,12 +90,12 @@ Az **állapot** vagy a **biztonsági mentés** területen található hivatkozá
 
 [![Event hubok kezelése – felhasználói fürtök](media/event-hubs-rp-manage/4-user-clusters.png)](media/event-hubs-rp-manage/4-user-clusters.png#lightbox)
 
-A szolgáltatási korlátok a Event Hubs működési határait meghatározó konfigurációs paraméterek. Az elérhető szolgáltatási korlátozások hasonlóak az Azure dedikált Event Hubs számára kínált szolgáltatásokhoz. A **konfigurációs érték**alatti hivatkozás (ok) kiválasztásával módosíthatja a hozzárendelt értéket.
+A szolgáltatási korlátok a Event Hubs működési határait meghatározó konfigurációs paraméterek. Az elérhető szolgáltatási korlátozások hasonlóak az Azure dedikált Event Hubs számára kínált szolgáltatásokhoz. A **konfigurációs érték** alatti hivatkozás (ok) kiválasztásával módosíthatja a hozzárendelt értéket.
 
 > [!IMPORTANT]
 > A szolgáltatási korlátok módosítása előtt időt kell fordítania a teljes hatás elemzésére. A szolgáltatási korlát módosítása hatással lehet a megoldás viselkedésére, amely az eseményeket használja és állítja elő. A módosítások a Azure Stack kapacitásának erőforrás-felhasználását is befolyásolhatják.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információ a következőről:
 

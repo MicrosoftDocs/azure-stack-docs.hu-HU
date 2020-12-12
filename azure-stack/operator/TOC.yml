@@ -340,7 +340,7 @@
                 - name: Frissítések alkalmazása
                   href: resource-provider-apply-updates.md
                 - name: Biztonsági mentés és visszaállítás
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: Naplók gyűjtése
                   href: diagnostic-log-collection.md
                 - name: Állapot-& riasztások
@@ -348,7 +348,7 @@
                 - name: Kezelés
                   href: event-hubs-rp-manage.md
                 - name: Titkok elforgatása
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: Szolgáltatás-frissítési hirdetmények
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Eltávolítás
