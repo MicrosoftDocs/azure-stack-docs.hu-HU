@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 971bac83972664bbefe900f16aa2ab83c12aa3a1
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544190"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515054"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS identitás integrálása az Azure Stack hub-adatközponttal
 
@@ -74,8 +74,8 @@ Active Directory-helyekkel kapcsolatos további információkért lásd: [a hely
 Igény szerint létrehozhat egy fiókot a Graph szolgáltatáshoz a meglévő Active Directoryban. Akkor hajtsa végre ezt a lépést, ha még nem rendelkezik a használni kívánt fiókkal.
 
 1. A meglévő Active Directory hozza létre a következő felhasználói fiókot (javaslat):
-   - **Felhasználónév** : graphservice
-   - **Jelszó** : Használjon erős jelszót, és konfigurálja a jelszót, hogy soha ne járjon le.
+   - **Felhasználónév**: graphservice
+   - **Jelszó**: Használjon erős jelszót, és konfigurálja a jelszót, hogy soha ne járjon le.
 
    Nincs szükség különleges engedélyekre vagy tagságra.
 
@@ -92,6 +92,8 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
 
 2. Most, hogy már rendelkezik egy, a privilegizált végponttal rendelkező munkamenettel, futtassa a következő parancsot: 
 
+   **Futtassa az alábbi szkriptet Azure Stack hub Build 2008-es és újabb verzióihoz** <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -104,6 +106,14 @@ Ehhez az eljáráshoz használjon olyan számítógépet az adatközpont-hálóz
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   **Futtassa az alábbi szkriptet Azure Stack hub buildhez a 2008 előtt** <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    Ha a rendszer kéri, válassza ki a Graph szolgáltatáshoz használni kívánt felhasználói fiók hitelesítő adatait (például graphservice). Az Register-DirectoryService parancsmag bemenetének az erdőben lévő erdő neve/legfelső tartományának kell lennie, nem pedig az erdő többi tartományának.
@@ -139,7 +149,7 @@ A következő információk szükségesek az Automation-paraméterek bemenetéhe
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS szolgáltató neve|A jogcím-szolgáltató neve.<br>Így jelenik meg a AD FS kezdőlapján.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS metaadat-URI|Összevonási metaadatok hivatkozása.| https: \/ /ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|Nincsenek|
+|SigningCertificateRevocationCheck|NA|Nem kötelező paraméter a CRL-ellenőrzés kihagyása érdekében.|None|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Automatizálás elindítása a jogcím-szolgáltatói megbízhatóság konfigurálásához Azure Stack központban
@@ -366,6 +376,6 @@ Ha a parancsmagok bármelyike meghibásodik, a parancsmag használatával továb
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Külső monitorozási megoldások integrálása](azure-stack-integrate-monitor.md)

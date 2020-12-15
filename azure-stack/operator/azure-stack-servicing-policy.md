@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub karbantartási szabályzatát, valamint azt, hogyan tarthat egy integrált rendszer támogatott állapotú.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545567"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515039"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -68,6 +68,8 @@ A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért
 
 Ahhoz, hogy a Azure Stack hub-példány továbbra is támogatott állapotban maradjon, a példánynak a legutóbb kiadott frissítési verziót kell futtatnia, vagy futtatnia kell a két korábbi frissítési verzió valamelyikét.
 
+Emellett rendelkeznie kell egy aktív támogatási szerződéssel a rendszer gyártójának hardveres partnerével. A Microsoft nem tudja támogatni a hardveres támogatási szerződés hiányában.
+
 A gyorsjavítások nem tekintendők jelentős frissítési verzióknak. Ha a Azure Stack hub-példánya több mint két frissítés mögött van, akkor az nem felel meg a megfelelőségnek. A támogatás fogadásához legalább a támogatott verzióra kell frissítenie.
 
 Ha például a legújabb elérhető verzió a 1904, és az előző két frissítési csomag a 1903-es és a 1902-as verziót is támogatja, a 1902 és az 1903 is továbbra is támogatott. A 1901 azonban nem támogatott. A házirend akkor is igaz, ha egy hónap vagy kettő nem rendelkezik kiadással. Ha például az aktuális kiadás 1807, és nem volt 1806-es kiadás, az előző két, 1805-as és 1804-es frissítési csomag továbbra is támogatott.
@@ -86,7 +88,7 @@ Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nag
 
 A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 - [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-troubleshooting.md)

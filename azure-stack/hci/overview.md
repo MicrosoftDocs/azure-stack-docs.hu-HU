@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: d8f8d1191d2e5531c377173f2a8a8c665c7355dc
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/15/2020
+ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364166"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515018"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
-Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid, helyszíni környezetben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal, a System centerrel és a PowerShell-lel kezelheti.
+Azure Stack HCI egy hiperkonvergens infrastruktúra-(HCI-) fürt megoldás, amely virtualizált Windows-és Linux-munkaterheléseket, valamint a hibrid, helyszíni környezetben tárolt tárolókat üzemeltet. Az Azure Hybrid Services olyan képességekkel bővíti a fürtöt, mint például a felhőalapú figyelés, a Site Recovery és a virtuális gépek biztonsági mentése, valamint a Azure Portal összes Azure Stack HCI-telepítésének központi nézete. A fürtöt a meglévő eszközökkel, például a Windows felügyeleti központtal és a PowerShell-lel is kezelheti.
 
 A Azure Stack HCI, Version 20H2 már [letölthető](https://azure.microsoft.com/products/azure-stack/hci/hci-download/). Olyan helyszíni fürtökre szolgál, amelyek virtualizált számítási feladatokat futtatnak, és beépített hibrid Felhőbeli kapcsolatokkal rendelkeznek. Ennek megfelelően az Azure Stack HCI Azure-szolgáltatásként érhető el, és egy Azure-előfizetésen keresztül történik. Azure Stack HCI mostantól lehetővé teszi az Azure Kubernetes szolgáltatás üzemeltetését is; További információ: [Azure Kubernetes Service on Azure stack HCI](../aks-hci/overview.md).
 
@@ -151,7 +151,7 @@ A Azure Stack HCI-t futtató fürtökön a következő új funkciók jelennek me
 - **BitLocker-titkosítás**: mostantól a BitLocker használatával titkosíthatja az adatkötetek tartalmát Azure stack HCI-ben, így a kormányzat és más ügyfelek is megmaradnak a szabványoknak, például az FIPS 140-2-es és a HIPAA-nek.
 - **Javított közvetlen tárolóhelyek mennyiségi javítási sebesség**: a kötetek gyors és zökkenőmentes javítása.
 
-A Windows felügyeleti központ, a 20H2 verzió új fürtöt is biztosít a Windows Server-alapú fürtökhöz, beleértve az eredeti Azure Stack HCI-megoldásokat is. Ha pedig az új fürt létrehozása varázslót a Windows Serverrel is használhatja, a Windows Server-fürtök nem hozhatók létre a Közvetlen tárolóhelyek; erre a Azure Stack HCI operációs rendszerre van szükség.
+Ha többet szeretne megtudni a Azure Stack HCI 20H2 újdonságokról, [tekintse meg ezt a videót](https://www.youtube.com/watch?v=DPG7wGhh3sAa) a Microsoft INSPIRE-ban.
 
 ## <a name="roles-you-can-run-without-virtualizing"></a>Virtualizálás nélkül futtatható szerepkörök
 
@@ -185,7 +185,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban](deploy/deployment-quickstart.md)
