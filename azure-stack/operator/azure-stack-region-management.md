@@ -4,22 +4,22 @@ titleSuffix: Azure Stack Hub
 description: Az Azure Stack hub régió-felügyeletének áttekintése.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 86e449c9a825c80fa230d94948281c67e4756a25
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041638"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577023"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Területi felügyelet Azure Stack központban
 
-Azure Stack hub a *régiók*fogalmát használja, amelyek logikai entitások, amelyek az Azure stack hub-infrastruktúrát alkotó hardveres erőforrásokból állnak. A régiók kezelése területen megtalálhatja az Azure Stack hub-infrastruktúra sikeres üzemeltetéséhez szükséges összes erőforrást.
+Azure Stack hub a *régiók* fogalmát használja, amelyek logikai entitások, amelyek az Azure stack hub-infrastruktúrát alkotó hardveres erőforrásokból állnak. A régiók kezelése területen megtalálhatja az Azure Stack hub-infrastruktúra sikeres üzemeltetéséhez szükséges összes erőforrást.
 
-Egy integrált rendszertelepítés (más néven *Azure stack hub-felhő*) egyetlen régiót tesz elérhetővé. Minden Azure Stack Development Kit (ASDK) egy **helyi**nevű régióval rendelkezik. Ha egy második Azure Stack hub integrált rendszer üzembe helyezését végzi, vagy ha különálló hardveren állítja be a ASDK egy másik példányát, akkor ez a Azure Stack hub-felhő egy másik régió.
+Egy integrált rendszertelepítés (más néven *Azure stack hub-felhő*) egyetlen régiót tesz elérhetővé. Minden Azure Stack Development Kit (ASDK) egy **helyi** nevű régióval rendelkezik. Ha egy második Azure Stack hub integrált rendszer üzembe helyezését végzi, vagy ha különálló hardveren állítja be a ASDK egy másik példányát, akkor ez a Azure Stack hub-felhő egy másik régió.
 
 ## <a name="information-available-through-the-region-management-tile"></a>A régió-felügyeleti csempén keresztül elérhető információk
 
@@ -41,9 +41,9 @@ Ha kiválaszt egy régiót a **régió kezelése** csempén, akkor a következő
 
 5. **Infrastruktúra-szerepkörök**: Azure stack hub futtatásához szükséges összetevők. Csak a riasztásokat jelentéssel rendelkező infrastruktúra-szerepkörök szerepelnek a felsorolásban. Egy szerepkör kiválasztásával megtekintheti a szerepkörhöz társított riasztásokat, valamint azokat a szerepkör-példányokat, ahol ez a szerepkör fut.
 
-6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható**vagy nem **járt le**. Ha regisztrálva van, akkor az Azure Stack hub regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név mellett.
+6. **Properties (Tulajdonságok**): a környezet regisztrációjának állapota és adatai a régió kezelése panelen. Az állapot **regisztrálható**, **nem regisztrálható** vagy nem **járt le**. Ha regisztrálva van, akkor az Azure Stack hub regisztrálásához használt Azure-előfizetés AZONOSÍTÓját is megjeleníti a regisztrációs erőforráscsoport és a név mellett.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Állapot- és riasztásmonitorozás az Azure Stack Hubban](azure-stack-monitor-health.md)
 - [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)

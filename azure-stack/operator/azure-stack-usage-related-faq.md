@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857491"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576972"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -264,7 +264,7 @@ Mérőszám **azonosítója**: 75D4b707-1027-4403-9986-6ec7c05579c8- **fogyaszt�
   
 ### <a name="custom-worker-tiers"></a>Egyéni feldolgozói szintek
   
-**Fogyasztásmérő azonosítója**: *Egyéni feldolgozói rétegek*mérőszámának 
+**Fogyasztásmérő azonosítója**: *Egyéni feldolgozói rétegek* mérőszámának 
  **neve**: egyéni feldolgozói szintek  
 **Egység**: óra **Megjegyzés**: az DETERMINISZTIKUS mérőszám azonosítója az SKU és az egyéni feldolgozói rétegek neve alapján jön létre. Ez a mérőszám-azonosító minden egyéni feldolgozói szinten egyedi.  
   
@@ -300,7 +300,7 @@ A használati adatok jelentéseinek két fő ideje van:
 
 Előfordulhat, hogy a használati idő és a jelentett idő egy adott használati eseménynél eltérést jelez. A késleltetés akár több órát is igénybe vehet bármilyen környezetben.
 
-Jelenleg csak a **jelentett idő**szerint lehet lekérdezni.
+Jelenleg csak a **jelentett idő** szerint lehet lekérdezni.
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>Mit jelentenek ezek a használati API-hibakódok?
 
@@ -326,9 +326,9 @@ Azt is megteheti, hogy a REST API-kat használja a [szolgáltatói erőforrás-h
 
 ## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>Hogyan rendelhetek hozzá az Azure használati API-kból kinyert használati adatokat egy adott Azure Stack hub felhasználói előfizetéshez?
 
-A használati rekordok közé tartozik a **AdditionalInfo**nevű tulajdonság, amely tartalmazza az Azure stack hub előfizetés-azonosítóját. Ez az azonosító a megfelelő használati rekordot kibocsátó felhasználói előfizetés.
+A használati rekordok közé tartozik a **AdditionalInfo** nevű tulajdonság, amely tartalmazza az Azure stack hub előfizetés-azonosítóját. Ez az azonosító a megfelelő használati rekordot kibocsátó felhasználói előfizetés.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Ügyfél számlázása és jóváírása Azure Stack központban](azure-stack-billing-and-chargeback.md)
 * [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)
