@@ -1,6 +1,6 @@
 ---
 title: Az Azure Stack hub kapacitásának megtervezése – áttekintés | Microsoft Docs
-description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről.
+description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről. Tekintse meg a Azure Stack hub magas és alacsony modelljeinek specifikációit.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 7ccaee0f134f2aa2a56f0fe14bab8fba72a84726
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b300a787105b39f2d4fa87f61f67e4aee4530440
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940078"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598198"
 ---
 # <a name="overview-of-azure-stack-hub-capacity-planning"></a>Az Azure Stack hub kapacitás-tervezésének áttekintése
 
@@ -49,13 +49,13 @@ Az alábbi táblázat a Azure Stack hub magas és alacsony modelljeinek specifik
 | Összetevő               | Specifikáció |
 |-------------------------|---------------|
 | CPU                     |Magas: 284 vCPU magok<br>Alacsony: 184 vCPU magok  |
-| Memory (Memória)                  |Magas: 1 037 GB<br>Alacsony: 547 GB                |
+| Memória                  |Magas: 1 037 GB<br>Alacsony: 547 GB                |
 | Storage                 |Magas: 34,2 TB<br>Alacsony: 15,4 TB                |
 | Acceleration            |N.A.                                          |
 | Méret/súly             |Számítás: 31,5 "L x 23,8" W x 15,33 "H<br>Súly 120 lbs. (2. mennyiség)<br>Hálózatkezelés: 31,5 "L x 23,8" W x 17,12 "H<br>Súly 145 lbs. (1. mennyiség)              |
 | Választható konfigurációk |Előmelegítő<br>Magas vagy alacsony konfigurációk     |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure stack hub-számítás](../operator/azure-stack-capacity-planning-compute.md?toc=/azure-stack/tdc/toc.json&bc=/azure-stack/breadcrumb/toc.json) 
  [Azure stack hub Storage](../operator/azure-stack-capacity-planning-storage.md?toc=/azure-stack/tdc/toc.json&bc=/azure-stack/breadcrumb/toc.json) 

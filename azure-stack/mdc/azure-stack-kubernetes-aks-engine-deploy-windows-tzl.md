@@ -1,20 +1,20 @@
 ---
-title: Az AK-motor üzembe helyezése Windows rendszeren Azure Stack hub-ban
-description: Megtudhatja, hogyan helyezhet üzembe és kezelhet egy Kubernetes-fürtöt egy Windows rendszerű gépen az Azure Stack hub-ban az AK-motor üzemeltetéséhez.
+title: Az AK-motor üzembe helyezése Azure Stack hub-ban (Windows)
+description: Megtudhatja, hogyan helyezhet üzembe és kezelhet egy Kubernetes-fürtöt egy MDC egy Windows rendszerű gépen a Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f8e4f4b10f51d5a6f8cc915c50d5899dd2bf4825
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4479903f2d24cdd53ab6f27bbb20e5c1fa985225
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329081"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598622"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub---modular-data-center-mdc"></a>Az AK-motor telepítése Windows rendszeren Azure Stack hub-moduláris adatközpontban (MDC)
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez használhatja a Azure Stack hub egyik Windows rendszerű számítógépét. Ebben a cikkben előkészíti az ügyfél virtuális gépet a fürt felügyeletére a csatlakoztatott és leválasztott Azure Stack hub-példányok esetében, és ellenőrizze a telepítést.
 <!-- TZLASDKFIX2 Line above was previously:
@@ -83,7 +83,7 @@ Ha az ügyfél virtuális gépe be van állítva, győződjön meg arról, hogy 
 
 Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következőt: az [AK-motor telepítésének hibája](../user/azure-stack-kubernetes-aks-engine-troubleshoot.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md)

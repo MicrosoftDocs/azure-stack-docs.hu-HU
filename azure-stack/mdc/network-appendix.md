@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.lastreviewed: 12/30/2019
-ms.openlocfilehash: 10de658f7e5f8621d44baaa16f2181f58f47811e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: b18f962ce2348a6a0f90a2ad48c1ea84e01fe921
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182965"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598640"
 ---
 # <a name="mdc-network-appendix"></a>MDC hálózati függelék
 
@@ -22,7 +22,7 @@ A függelék a MDC hardverhez biztosít Device paramétert és identitási adato
 
 ### <a name="cisco-93360yc-fx2--cisco-9348gc-fxp"></a>Cisco 93360YC-FX2 & Cisco 9348GC – FXP
 
-| **Szolgáltatás** | **Cisco Nexus 93360YC – FX2** | **Cisco Nexus 9348GC – FXP** |
+| **Funkció** | **Cisco Nexus 93360YC – FX2** | **Cisco Nexus 9348GC – FXP** |
 |---|---|---|
 | Portok | 96 x 1/10/25 GB és 12 x 40/100 – Gbps QSFP28 port | 48 x 1 – GBASE-T-portok, 4 x 1/10/25 – Gbps SFP28-portok és 2 x 40/100 QSFP28-portok |
 | Támogatott sebességek | 1/10/25 – GB/s a downlink, 40/100 – Gbps a Kikapcsolások esetében, feltörés támogatott portok, 97-108:4x10/25G | 100 – Mbps és 1 GB/s sebesség |
@@ -53,25 +53,115 @@ A függelék a MDC hardverhez biztosít Device paramétert és identitási adato
 
 ### <a name="juniper-mx204"></a>Juniper MX204
 
-|  |  |  |
-|--|--|--|
-| Layout | Rendszerkapacitás | 3 Tbps |
-|        | Tárolóhely tájolása | NA |
-|        | Szerelési | Elöl vagy középen |
-| Fizikai specifikáció | Méretek (W x H x D) | 17,45 "x 8,71" x 24,5 "(44,3 x 22,1 x 62,2 cm) |
-|                        | A súlyozás teljesen betöltve | 130 LB/59 kg |
-|                        | Eltávolított súlyozás | 52 lbs/23.6 kg |
-| Útválasztási motor | Alapértelmezett memória | 2x16 MB vagy flash Storage; 64 GB DDR4 RAM; 2x50 GB SSD |
-|                | Magok száma | 6 mag |
-| Redundancia | Összetevők | Tápegységek, REs, ventilátorok |
-| Környezeti | Légáram | Egymás mellett |
-|               | Működési hőmérséklet | 32 ° – 115 ° F (0 ° – 46 ° C) tengeri szinten |
-|               | Működési páratartalom | 5% – 90% |
-|               | Működési magasság | 10 000 Ft (3048 m) |
-| Tanúsítványok | NEBS | • GR-1089-Core EMC és elektromos biztonság |
-|                | | • Közös kötési hálózat (CBN) |
-|                | | • Nemzeti elektromos kód (NEC) |
-|                | | • GR-63 – alapvető fizikai védelem |
+:::row:::
+    :::column:::
+        **Elrendezés**
+    :::column-end:::
+    :::column:::
+        Rendszerkapacitás
+
+        Tárolóhely tájolása
+
+        Szerelési
+    :::column-end:::
+    :::column span="2":::
+        3 Tbps
+
+        NA
+
+        Elöl vagy középen
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Fizikai specifikáció**
+    :::column-end:::
+    :::column:::
+        Méretek (W x H x D)
+
+        A súlyozás teljesen betöltve
+
+        Eltávolított súlyozás
+    :::column-end:::
+    :::column span="2":::
+        17,45 "x 8,71" x 24,5 "(44,3 x 22,1 x 62,2 cm)
+
+        130 LB/59 kg
+
+        52 lbs/23.6 kg
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Útválasztási motor**
+    :::column-end:::
+    :::column:::
+        Alapértelmezett memória
+
+        Magok száma
+    :::column-end:::
+    :::column span="2":::
+        2x16 MB vagy flash Storage; 64 GB DDR4 RAM; 2x50 GB SSD
+
+        6 mag
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Redundancia**
+    :::column-end:::
+    :::column:::
+        Összetevők
+    :::column-end:::
+    :::column span="2":::
+        Tápegységek, REs, ventilátorok
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Környezeti**
+    :::column-end:::
+    :::column:::
+        Légáram
+
+        Működési hőmérséklet
+
+        Működési páratartalom
+
+        Működési magasság
+    :::column-end:::
+    :::column span="2":::
+        Egymás mellett
+
+        32 ° – 115 ° F (0 ° – 46 ° C) tengeri szinten
+
+        5% – 90%
+
+        10 000 Ft (3048 m)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Tanúsítványok**
+    :::column-end:::
+    :::column:::
+        NEBS
+    :::column-end:::
+    :::column span="2":::
+        • GR-1089-Core EMC és elektromos biztonság
+
+        • Közös kötési hálózat (CBN)
+
+        • Nemzeti elektromos kód (NEC)
+
+        • GR-63 – alapvető fizikai védelem
+    :::column-end:::
+:::row-end:::
 
 ### <a name="dell-emc-s4148f-on"></a>Dell EMC S4148F – bekapcsolva
 

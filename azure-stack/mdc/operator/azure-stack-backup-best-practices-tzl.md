@@ -1,6 +1,6 @@
 ---
-title: Infrastructure Backup szolgáltatás ajánlott eljárásai a Azure Stackhoz | Microsoft Docs
-description: A következő ajánlott eljárásokat követve telepítheti és felügyelheti Azure Stack az adatvesztés enyhítése érdekében, ha végzetes hiba történt.
+title: Infrastructure Backup szolgáltatás ajánlott eljárásai Azure Stack-MDC | Microsoft Docs
+description: Kövesse ezeket az ajánlott eljárásokat a MDC Azure Stack központi telepítésekor és kezelésekor, hogy segítsen enyhíteni az adatvesztést, ha végzetes hiba történt.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329569"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598555"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup Service – ajánlott eljárások
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>Infrastructure Backup szolgáltatás – ajánlott eljárások – moduláris adatközpont (MDC)
 
 *A következőkre vonatkozik: moduláris adatközpont, Azure Stack hub robusztus*
 
@@ -95,9 +95,9 @@ A rendszer a következő riasztásokat támogatja:
 
 A Infrastructure Backup szolgáltatás a következő összetevőket tartalmazza:
 
-- **Infrastructure Backup vezérlő** : a rendszer a Infrastructure Backup vezérlőt minden Azure stack felhőben hozza létre és tárolja.
+- **Infrastructure Backup vezérlő**: a rendszer a Infrastructure Backup vezérlőt minden Azure stack felhőben hozza létre és tárolja.
 
-- **Biztonsági mentési erőforrás-szolgáltató** : a biztonsági mentési erőforrás-szolgáltató (Backup RP) a felhasználói felületből és az API-k alapszintű biztonsági mentési funkcióit kikerülő, a Azure stack-infrastruktúrára vonatkozó
+- **Biztonsági mentési erőforrás-szolgáltató**: a biztonsági mentési erőforrás-szolgáltató (Backup RP) a felhasználói felületből és az API-k alapszintű biztonsági mentési funkcióit kikerülő, a Azure stack-infrastruktúrára vonatkozó
 
 ### <a name="infrastructure-backup-controller"></a>Infrastructure Backup vezérlő
 
@@ -119,8 +119,8 @@ Ez a szakasz a Infrastructure Backup szolgáltatással kapcsolatos fontos követ
 
 A követelmények a következők:
 
-- A **szoftverre vonatkozó követelmények** : a támogatott tárolási helyszínek és a méretezési útmutatók ismertetése.
-- **Hálózati követelmények** : a különböző tárolási helyszínekre vonatkozó hálózati követelményeket ismerteti.
+- A **szoftverre vonatkozó követelmények**: a támogatott tárolási helyszínek és a méretezési útmutatók ismertetése.
+- **Hálózati követelmények**: a különböző tárolási helyszínekre vonatkozó hálózati követelményeket ismerteti.
 
 ### <a name="software-requirements"></a>Szoftverkövetelmények
 
@@ -192,6 +192,6 @@ Vegye figyelembe ezeket a korlátokat a Microsoft Azure Stack példányok tervez
 |Fájlmegosztás maximális száma     | 1        | A biztonsági másolatok tárolására csak egy fájlmegosztást lehet használni.        |
 |Biztonsági mentési érték – erőforrás-szolgáltatók hozzáadása     | Hatókör        | Az infrastruktúra biztonsági mentése magában foglalja Event Hubs RP, IoT Hub RP, Data Box Edge RP biztonsági mentését.        |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ a [Infrastructure Backup szolgáltatásról](../../operator/azure-stack-backup-reference.md).

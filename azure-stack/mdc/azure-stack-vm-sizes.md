@@ -1,5 +1,5 @@
 ---
-title: A Azure Stack által támogatott virtuálisgép-méretek | Microsoft Docs
+title: A MDC Azure Stack támogatott virtuálisgép-méretek | Microsoft Docs
 description: A támogatott virtuálisgép-méretek referenciája egy MDC.
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183054"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598606"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Az Azure Stackben támogatott virtuálisgép-méretek
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Azure Stack moduláris adatközpontban (MDC) támogatott virtuálisgép-méretek
 
 Ez a cikk a Azure Stackben elérhető virtuális gépek (VM) méretét sorolja fel. Ebből a cikkből megtudhatja, hogyan választhatja ki a virtuális gépet a Azure Stack-megoldás támogatásához.
 
@@ -189,6 +189,6 @@ A NVv4 sorozatú virtuális gépeket az [AMD Radeon ösztön MI25](https://www.a
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)

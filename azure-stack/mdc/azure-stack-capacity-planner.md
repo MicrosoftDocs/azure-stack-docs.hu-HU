@@ -1,6 +1,6 @@
 ---
 title: Azure Stack hub Capacity Planner | Microsoft Docs
-description: További információ a Azure Stack hub üzemelő példányok kapacitásának megtervezéséről.
+description: Megtudhatja, hogyan használhatja az Azure Stack hub Capacity Plannert a számítástechnikai erőforrások Azure Stack hub-alapú üzemelő példányok kiosztásának megtekintéséhez.
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,14 +16,14 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 85416a044da5f3f834011da52ba6023ee2456995
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 6928c301ae2c5985a9db52bff109c874024327cb
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183055"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598283"
 ---
-# <a name="azure-stack-hub-capacity-planner"></a>Azure Stack hub Capacity Planner
+# <a name="azure-stack-hub-capacity-planner---modular-data-center-mdc"></a>Azure Stack hub Capacity Planner – moduláris adatközpont (MDC)
 
 Az Azure Stack hub Capacity Planner egy táblázat, amely azt mutatja be, hogy a számítástechnikai erőforrások különböző kiosztásai hogyan illeszkednek egymáshoz a hardveres ajánlatok között. 
 
@@ -66,7 +66,7 @@ Ha a modellt különböző méretű virtuális gépek és mennyiségek egyetlen 
    > A teljes virtuálisgép-tárterület a virtuális gép adatlemezének teljes kapacitására utal (a támogatott lemezek száma megszorozva az egyetlen lemez maximális kapacitásával [1 TB]). A konfigurációs mutatók alapján kitöltöttük a rendelkezésre álló tárolási konfigurációk táblázatát, így kiválaszthatja az egyes Azure Stack hub-alapú virtuális gépek kívánt tárolási erőforrását. Fontos azonban megjegyezni, hogy szükség szerint hozzáadhatja vagy módosíthatja a rendelkezésre álló tárolási konfigurációk táblázatát.<br><br>Minden virtuális gép egy eredetileg hozzárendelt helyi ideiglenes tárolóval kezdődik. A temp Storage dinamikus kiosztásának megjelenítéséhez a legördülő menüben tetszőleges értékre módosíthatja a helyi-Temp számot, beleértve a maximálisan engedélyezett Temp Storage-mennyiséget.
 
 4. A virtuális gépek hozzáadásakor megjelennek az elérhető SKU-erőforrások megjelenítését bemutató diagramok. Ez lehetővé teszi, hogy megtekintse a különböző méretek és mennyiségű virtuális gép hozzáadásának hatását a modellezési folyamat során. A változtatások hatásának megtekintéséhez a másik lehetőség, hogy megtekintse a **felhasznált** és **még elérhető** számokat, amelyek közvetlenül a rendelkezésre álló virtuális gépek listáján szerepelnek. Ezek a számok a jelenleg kiválasztott hardveres SKU alapján becsült értékeket tükrözik.
-5. Ha létrehozta a virtuális gépek készletét, a javasolt hardver SKU a **javasolt SKU**lehetőség kiválasztásával az oldal jobb felső sarkában található, közvetlenül az **aktuális SKU** -címke alatt. Ezen gomb használatával módosíthatja a virtuálisgép-konfigurációkat, és megtekintheti, hogy melyik hardver támogatja az egyes konfigurációkat.
+5. Ha létrehozta a virtuális gépek készletét, a javasolt hardver SKU a **javasolt SKU** lehetőség kiválasztásával az oldal jobb felső sarkában található, közvetlenül az **aktuális SKU** -címke alatt. Ezen gomb használatával módosíthatja a virtuálisgép-konfigurációkat, és megtekintheti, hogy melyik hardver támogatja az egyes konfigurációkat.
 
 
 ## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint utasítások
@@ -84,5 +84,5 @@ Ha Azure Stack hub-munkaterhelések gyűjteményével szeretne modellt létrehoz
 7. A további modellezést a hardver SKU-ra kiválasztott kiszolgálók számának módosításával, illetve a virtuális gépek kiosztásának vagy a munkaterhelés-konfigurációkon belüli mennyiségének a módosításával végezheti el. A társított gráfok azonnali visszajelzést jelenítenek meg, amely bemutatja, hogyan befolyásolja a módosítások a teljes erőforrás-felhasználást.
 8. Ha elégedett a módosításaival, válassza a **javasolt SKU** újra lehetőséget az új konfigurációhoz javasolt SKU megjelenítéséhez. Kiválaszthatja a legördülő menüt is a kívánt SKU kiválasztásához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A Azure stack hub Datacenter integrációs szempontjainak](../operator/azure-stack-datacenter-integration.md)megismerése.

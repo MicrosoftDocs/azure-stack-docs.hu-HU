@@ -1,20 +1,20 @@
 ---
-title: Azure Stack hub regisztrálása az Azure-ban
-description: Ismerje meg, hogyan regisztrálhat Azure Stack hub-t az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést.
+title: Azure Stack hub regisztrálása az Azure-ban (MDC)
+description: Ismerje meg, hogyan regisztrálhat Azure Stack hub-t az Azure-ban, hogy letöltse az Azure Marketplace-elemeket, és hogyan állíthatja be az adatjelentéskészítést egy MDC.
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934879"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598470"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Azure Stack hub regisztrálása az Azure-ban – moduláris adatközpont (MDC)
 
 A Piactéri hírszolgáltatás beállításához és a Pásti-szolgáltatások használatához regisztrálnia és aktiválnia kell a moduláris adatközpontot (MDC) vagy Azure Stack hub-t Azure Stack hub alapján, az üzembe helyezés befejeződése után. A Marketplace Syndication szolgáltatásban a rendszergazda feltölti a helyi Azure Stack központ Piactért az Azure Marketplace-ről letöltött rendszerképekkel.
 
@@ -424,6 +424,6 @@ Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a p
 > [!NOTE]
 > A regisztráció befejezése után a nem regisztrált aktív figyelmeztetés többé nem jelenik meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub adminisztrációs alapjai](azure-stack-manage-basics-tzl.md)  

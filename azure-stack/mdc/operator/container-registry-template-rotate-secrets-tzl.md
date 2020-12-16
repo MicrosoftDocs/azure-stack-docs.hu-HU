@@ -1,7 +1,7 @@
 ---
-title: A tároló-beállításjegyzék titkainak elforgatása Azure Stack hub-ban | Microsoft Docs
+title: A Container Registry titkainak elforgatása Azure Stack hub-MDC
 titleSuffix: Azure Stack Hub
-description: Megtudhatja, hogyan forgathatja el a Container Registry-titkokat Azure Stack központban.
+description: Megtudhatja, hogyan forgathatja el a Container Registry-titkokat Azure Stack hub-ban egy moduláris adatközponthoz.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934982"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598215"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>A tároló-beállításjegyzék titkainak elforgatása Azure Stack központban
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>A Container Registry Secrets szolgáltatás elforgatása Azure Stack hub-ban – moduláris adatközpont (MDC)
 
 A Azure Stack hub-felhasználók elhelyezhetik a tárolók beállításjegyzék-sablonjának titkait (tanúsítványokat, felhasználóneveket és jelszavakat). Parancsfájl futtatásával feltöltheti Microsoft Azure Key Vault új titkos értékeit, és újból **üzembe helyezheti** a meglévő tároló beállításjegyzék-sablonját. A titkos kódok saját maguk általi elforgatása nem igényel új telepítést.
 
@@ -257,11 +257,11 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
 3. Válassza ki a **központi telepítések alatt** üzemelő példányokat.
 
-    ![Központi telepítés](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Képernyőkép, amely a "központi telepítések" lapot mutatja.](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  Ha az első alkalommal forog a titkos kulcsok, válassza ki az eredeti telepítést. Ha nem ez az első alkalom a titkok megforgatására, válassza ki a legutóbbi telepítést, majd válassza az **újratelepítés** lehetőséget.
 
-    ![Ismételt üzembe helyezés](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Képernyőkép, amely az "áttekintés" lapot jeleníti meg az "újbóli üzembe helyezés" művelet kiválasztásával.](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  A **megoldás sablonjának üzembe helyezése** területen válassza a **meglévő erőforráscsoport használata** lehetőséget, majd válassza ki azt az erőforráscsoportot, amelyet eredetileg a Container Registry-sablon üzembe helyezéséhez használt. Ahhoz, hogy az újratelepítése sikeres legyen, ugyanazt az erőforráscsoportot kell használnia.
 
@@ -273,7 +273,7 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
     - Ha elforgatja a tanúsítványt, a PFXKeyVaultSecretURL és a PFXThumbprint új értékeit kell megadnia, amelyek az új titkok beállításától származnak.
 
-    ![Paraméterek](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![A "parameters" ablakot megjelenítő képernyőkép.](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  Válassza **az OK** , majd a **Létrehozás** lehetőséget. A rendszer folytatja az újratelepítést. Az újratelepítése során a beállításjegyzék funkciói továbbra is működni fognak.
 
@@ -281,6 +281,6 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
     - Ha elforgatja a tanúsítványt, a beállításjegyzékhez való hozzáférés elvesztését nem tapasztalhatja. Ez azt feltételezi, hogy megbízható tanúsítvány-szolgáltatótól származó tanúsítványt használ. Privát tanúsítvány használata esetén a tanúsítványt telepíteni kell az ügyfeleken a hozzáférés elvesztésének megakadályozása érdekében.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

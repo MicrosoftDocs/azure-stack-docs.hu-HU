@@ -1,20 +1,20 @@
 ---
-title: Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
-description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
+title: Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban egy MDC
+description: Megtudhatja, hogyan méretezheti az egység csomópontok műveleteit, beleértve a bekapcsolt, a kikapcsolást, a letiltást, a folytatást és a csomópontok állapotát Azure Stack hub integrált rendszerekben
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934896"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598521"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
+# <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Skálázási egység csomópontjainak műveletei Azure Stack hub-moduláris adatközpontban (MDC)
 
 Ez a cikk azt ismerteti, hogyan lehet megtekinteni egy méretezési egység állapotát. Megtekintheti az egység csomópontjait. Futtathat olyan csomópont-műveleteket, mint a bekapcsolás, a kikapcsolás, a Leállítás, a kiürítés, a folytatás és a javítás. Ezeket a csomópontokat jellemzően a részek cseréjekor, vagy a csomópontok helyreállításához használhatja.
 
@@ -159,6 +159,6 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

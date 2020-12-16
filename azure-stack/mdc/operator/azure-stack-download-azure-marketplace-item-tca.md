@@ -1,6 +1,6 @@
 ---
-title: Marketplace-elemek letöltése az Azure-ból és közzététel a Azure Stackba | Microsoft Docs
-description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack.
+title: Marketplace-elemek letöltése az Azure-ból és közzététel a Azure Stack
+description: Ismerje meg, hogyan töltheti le a Piactéri elemeket az Azure-ból, és hogyan tehet közzé Azure Stack a moduláris adatközpontok (MDC) számára.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935032"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598232"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
+# <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Marketplace-elemek letöltése Azure Stack hub-moduláris adatközpontba (MDC) 
 
 Felhőbeli operátorként letöltheti az elemeket Azure Stack hubhoz a piactéren, és elérhetővé teheti azokat minden felhasználó számára az Azure Stack hub-környezettel. A kiválasztható elemek az Azure Marketplace azon elemeinek válogatott listája, amelyek előzetesen tesztelve vannak, és amelyek a Azure Stack használatával használhatók. A lista további elemeket is felvesz a listára, ezért folytassa az új tartalmak újbóli beadásával.
 
@@ -60,11 +60,11 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 4. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több** látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![Képernyőkép, amely a "Hozzáadás az Azure-ból" lapot mutatja.](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
 5. Ha egy elem verziója **több** néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![Screnshot, amely az "adminisztráció" lapot jeleníti meg a verzió választó legördülő listával.](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
 6. Válassza ki a kívánt elemet, majd válassza a **Letöltés** lehetőséget. A letöltési idő változó, és a hálózati kapcsolattól függ. A letöltés befejezése után telepítheti az új Piactéri elemeket Azure Stack operátorként vagy felhasználóként.
 
@@ -114,7 +114,7 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
 
 3. Megjelenik egy ablak, ahol kiválaszthatja a letölteni kívánt terméket. A CTRL billentyűt lenyomva tartva több elemet is kijelölhet.
 
-4. Kattintson az **OK** gombra. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
+4. Válassza az **OK** lehetőséget. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
 
 1. Nyissa meg a PowerShellt, és lépjen a kibontott mappára.
@@ -137,7 +137,7 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
 
 3. Megjelenik egy ablak, ahol kiválaszthatja a letölteni kívánt terméket. A CTRL billentyűt lenyomva tartva több elemet is kijelölhet.
 
-4. Kattintson az **OK** gombra. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
+4. Válassza az **OK** lehetőséget. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
 
 ---
 

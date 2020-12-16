@@ -1,21 +1,21 @@
 ---
-title: Azure Stack hub adminisztrációs alapjai
+title: Azure Stack hub adminisztrációs alapjai – MDC
 titleSuffix: Azure Stack Hub
-description: Ismerkedjen meg Azure Stack hub felügyeletének alapjaival.
+description: Ismerkedjen meg Azure Stack hub adminisztrációjának alapjaival. Tekintse meg a további támogatási információkat, és tekintse meg a következő lépéseket.
 author: justinha
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934930"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598538"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
+# <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Azure Stack hub adminisztrációs alapjai – moduláris adatközpont (MDC)
 
 Ha most ismerkedik a Azure Stack hub felügyeletével, több dolgot kell tudnia. Ez a cikk áttekintést nyújt a szerepköréről Azure Stack hub-operátorként, illetve arról, hogy mit kell tudnia a felhasználóknak a hatékony munkához.
 
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Területi felügyelet Azure Stack központban](../../operator/azure-stack-region-management.md)

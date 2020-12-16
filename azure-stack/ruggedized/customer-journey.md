@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: fb9c323c57d608127c8f86e014f008c1d5a09a9e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939808"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598317"
 ---
 # <a name="customer-journey"></a>Ügyfél utazása
 
@@ -33,8 +33,8 @@ Az alábbi táblázat az üzembe helyezés különböző szakaszaiban várhatóa
 
 |   |Megrendelés folyamata  |Üzembe helyezés előtti |Integráció, ellenőrzés, szállítás |Helyszíni üzembe helyezés  |Telepítés utáni |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Microsoft  |-Az USA-beli kézbesítési jel<br>-Azure Stack hub strapabíró: 10 nap |Az adatközpont-követelmények összegyűjtéséhez szükséges eszközök és dokumentáció megadása  |– Konfigurációs összetevők ellenőrzése és az érvényesítési eredmények ellenőrzése<br>– Hardverek kézbesítésének biztosítása  |-Rack és stack<br>– Hálózati integráció<br>– Azure Stack hub üzembe helyezése<br>-Kikapcsolás az ügyfélnek    |Regisztráció és Marketplace Syndication|
-|Ügyfél   |Jelek vásárlása   |-Kitölti a hálózat részleteit a telepítési munkalapon<br>– Tanúsítványok gyűjtése<br>– Azure AD-fiókok beszerzése<br>-A megadott érvényesítési eszközök futtatása    |Győződjön meg arról, hogy a hely készen áll a hálózatra, a tápellátásra, a hűtés előfeltételeire    |-Készüljön fel az üzembe helyezési konfigurációs összetevőkre<br>-Az ügyfél hálózati mérnöke elérhető   |     |
+| **Microsoft** |-Az USA-beli kézbesítési jel<br>-Azure Stack hub strapabíró: 10 nap |Az adatközpont-követelmények összegyűjtéséhez szükséges eszközök és dokumentáció megadása  |– Konfigurációs összetevők ellenőrzése és az érvényesítési eredmények ellenőrzése<br>– Hardverek kézbesítésének biztosítása  |-Rack és stack<br>– Hálózati integráció<br>– Azure Stack hub üzembe helyezése<br>-Kikapcsolás az ügyfélnek    |Regisztráció és Marketplace Syndication|
+| **Ügyfél** |Jelek vásárlása    |-Kitölti a hálózat részleteit a telepítési munkalapon<br>– Tanúsítványok gyűjtése<br>– Azure AD-fiókok beszerzése<br>-A megadott érvényesítési eszközök futtatása    |Győződjön meg arról, hogy a hely készen áll a hálózatra, a tápellátásra, a hűtés előfeltételeire    |-Készüljön fel az üzembe helyezési konfigurációs összetevőkre<br>-Az ügyfél hálózati mérnöke elérhető   |     |
 
 
 ## <a name="order-process"></a>Megrendelés folyamata
@@ -63,7 +63,7 @@ Azure Stack hub-erőforrás létrehozásához hajtsa végre a következő lépé
 
     |Beállítás  |Érték  |
     |---------|---------|
-    |Name (Név)   | Az erőforrást azonosító valódi név.<br>A névnek 2–50 karakter hosszúságúnak kell lennie, és csak betűket, számokat, illetve kötőjelet tartalmazhat.<br> A névnek betűvel vagy számmal kell kezdődnie és végződnie.        |
+    |Név   | Az erőforrást azonosító valódi név.<br>A névnek 2–50 karakter hosszúságúnak kell lennie, és csak betűket, számokat, illetve kötőjelet tartalmazhat.<br> A névnek betűvel vagy számmal kell kezdődnie és végződnie.        |
     |Régió     |Az Azure Stack hub-erőforrást tartalmazó régiók listájának megtekintéséhez tekintse meg a régiók [által elérhető Azure-termékeket](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Government használata esetén az összes kormányzati régió elérhető az [Azure-régiókban](https://azure.microsoft.com/global-infrastructure/regions/)látható módon.<br> Az eszköz üzembe helyezésének földrajzi régiójához legközelebb eső helyet válasszon.|
 
 
@@ -141,7 +141,7 @@ A Microsoft Deployment Engineer által végrehajtandó műveletek:
 - Készítse elő az ügyfél összegzését az üzembe helyezéshez.
 - A [frissítések ellenőrzésével](../operator/azure-stack-updates.md) győződjön meg arról, hogy a megoldás szoftvere frissítve lett a legújabb verzióra.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a [Microsoft Azure stack hub robusztus telepítésének és konfigurálásának lépéseiről](deployment-overview.md).
 

@@ -1,7 +1,7 @@
 ---
-title: A tároló-beállításjegyzék frissítése Azure Stack hub-ban | Microsoft Docs
+title: A Container Registry frissítése Azure Stack hub-MDC
 titleSuffix: Azure Stack
-description: Ismerje meg, hogyan frissítheti Azure Stack hub tároló-beállításjegyzékét.
+description: Ismerje meg, hogyan frissítheti a tároló-beállításjegyzéket Azure Stack hub-ban a moduláris adatközpontok (MDC) számára.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1d014cfe855bc7e9bb3bdaae6ba7525d3df1e8c7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329689"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598572"
 ---
-# <a name="update-the-container-registry-in-azure-stack-hub"></a>A tároló beállításjegyzékének frissítése Azure Stack központban
+# <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>A Container Registry frissítése Azure Stack hub-moduláris adatközpontban (MDC)
 
 Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékének üzembe helyezését egy újabb AK-alapú alaprendszerkép SKU-ra az alábbi utasítások használatával. A tároló beállításjegyzék-sablonjának virtuális gépe és szolgáltatása állapot nélküli, mivel az összes állapot és tároló lemezképét a blob Storage tárolja. A frissítés olyan egyszerű, mint a tároló beállításjegyzék-sablonjának üzembe helyezése az AK-alapú alaprendszerkép VHD-fájljának újabb verziójával, és a DNS átirányítása az új virtuális gépre. A régi és az új tároló beállításjegyzék-sablon virtuális gépei DNS-értékének frissítésére irányuló művelet az értékek propagálásakor az időszakos beállításjegyzék-kapcsolat kis ablakát fogja eredményezni.
 
@@ -39,7 +39,7 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
 
 1.  Győződjön meg arról, hogy a tároló beállításjegyzék-sablon üzembe helyezéséhez használt AK alaprendszerkép SKU-jának tallózással keresse meg az erőforráscsoport központi telepítési rekordját, és válassza a **bemenetek** lehetőséget.
 
-    ![Bevitelek](./media/container-registry-template-updating-tzl/inputs.png)
+    ![A "bemenetek" oldalt megjelenítő képernyőkép.](./media/container-registry-template-updating-tzl/inputs.png)
 
 2.  Állapítsa meg, hogy a **Get-VMImageSku** függvénnyel elérhető-e az AK alaprendszerképének újabb SKU-azonosítói a `Import-Module .\pre-reqs.ps1` tároló beállításjegyzék-sablon parancsfájljainak használatával.
 
@@ -95,7 +95,7 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
     
     ![Módosítás mentése](./media/container-registry-template-updating-tzl/save.png)
 
-2.  Navigáljon a Container Registry sablon új példányának üzembe helyezéséhez használt új erőforráscsoporthoz, válassza ki a nyilvános IP-erőforrást, a konfigurációt, és frissítse a DNS-név címkéjét az eredeti telepítésben használt helyes névre, ebben a példában `myreg` válassza a **Save (Mentés** ) lehetőséget.
+2.  Navigáljon a Container Registry sablon új példányának üzembe helyezéséhez használt új erőforráscsoporthoz, válassza ki a nyilvános IP-erőforrást, a konfigurációt, és frissítse a DNS-név címkéjét az eredeti telepítésben használt helyes névre, ebben a példában `myreg` válassza a **Save (Mentés**) lehetőséget.
 
     ![Konfiguráció kiválasztása](./media/container-registry-template-updating-tzl/select-configuration.png)
     
@@ -103,6 +103,6 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
 
 3.  A következő 30 perc időszakos hozzáférést biztosít a tároló-beállításjegyzékhez, mivel a DNS-rekord propagálva lesz. Ellenőrizze a kapcsolatokat a Docker-beállításjegyzékbe való bejelentkezéssel, és egy rendszerkép kihúzásával/kitolásával.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: d57e4a276ea93a8be70eb2bba05bdb8b2a318924
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182989"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598657"
 ---
 # <a name="network-deployment"></a>Hálózati telepítés
 
@@ -31,8 +31,8 @@ A Azure Stack-megoldás érdekében a TOR-kapcsolókon Implementáljuk a hozzáf
 
 Az alábbi táblázat összekapcsolja az ACL-referenciákat a Azure Stack hálózatokkal.
 
-| BMC mgmt belső                            | A forgalom csak belső használatra korlátozódik.                                                                                                                                      |   |   |   |   |   |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|---|
+| BMC mgmt belső                            | A forgalom csak belső használatra korlátozódik.                                                                                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | BMC mgmt – külső                            | Az ACL engedélyezheti a hozzáférését a szegélyen kívüli eszközön.                                                                                                                            |   |   |   |   |   |
 | Bővített Storage mgmt                        | Dedikált felügyeleti felületek a kiterjesztett tárolási rendszerhez                                                                                                           |   |   |   |   |   |
 | Mgmt kapcsoló                                  | Dedikált kapcsoló felügyeleti felületek.                                                                                                                                   |   |   |   |   |   |
@@ -100,7 +100,7 @@ A BMC-hálózat címtartományhatárrá legalább egy/26 hálózat szükséges. 
 
 | **A jog birtokosa**      | **IPv4-címek** |
 |----------------------|------------------|
-| Hálózat              | 10.193.132.0     |
+| Network (Hálózat)              | 10.193.132.0     |
 | Átjáró              | 10.193.132.1     |
 | HLH – BMC              | 10.193.132.2     |
 | AzS-Node01           | 10.193.132.3     |
@@ -130,7 +130,7 @@ A Storage-hálózat egy magánhálózat, és nem az állványon túli útvonalra
 
 | **A jog birtokosa**              | **IPv4-címek** |
 |------------------------------|------------------|
-| Hálózat                      | 11.11.128.0      |
+| Network (Hálózat)                      | 11.11.128.0      |
 | Átjáró                      | 11.11.128.1      |
 | TOR1                         | 11.11.128.2      |
 | TOR2                         | 11.11.128.3      |
@@ -145,7 +145,7 @@ Az infrastruktúra-hálózat címtartományhatárrá egy/24 hálózatra van szü
 
 | **A jog birtokosa**            | **IPv4-címek** |
 |----------------------------|------------------|
-| Hálózat                    | 12.193.130.0     |
+| Network (Hálózat)                    | 12.193.130.0     |
 | Átjáró                    | 12.193.130.1     |
 | TOR1                       | 12.193.130.2     |
 | TOR2                       | 12.193.130.3     |
@@ -182,7 +182,7 @@ Az infrastruktúra-hálózat több hálózatra van bontva, amelyet a fizikai kap
 
 | **A jog birtokosa**  | **IPv4-címek** |
 |------------------|------------------|
-| Hálózat          | 10.193.132.168   |
+| Network (Hálózat)          | 10.193.132.168   |
 | Átjáró          | 10.193.132.169   |
 | TOR1             | 10.193.132.170   |
 | TOR2             | 10.193.132.171   |
@@ -289,7 +289,7 @@ Módosíthatja a Azure Stack kapcsoló konfigurációjának néhány környezeti
 Az Azure Stack-megoldás üzembe helyezése során az eredeti berendezésgyártó (OEM) létrehozza és alkalmazza a kapcsoló konfigurációját mind a beléptetési, mind a BMC-hez. Az OEM a Azure Stack Automation eszköz használatával ellenőrzi, hogy a szükséges konfigurációk megfelelően vannak-e beállítva az eszközökön. A konfiguráció a Azure Stack telepítési munkalapon található információk alapján történik. 
 
 >[!NOTE]
->**Ne**   módosítsa a konfigurációt a SZÁMÍTÓGÉPGYÁRTÓ vagy a Microsoft Azure Stack mérnöki csapat beleegyezike nélkül. A hálózati eszköz konfigurációjának módosítása jelentős hatással lehet a Azure Stack-példány hálózati problémáinak működésére vagy hibaelhárítására. Ha többet szeretne megtudni ezekről a függvényekről a hálózati eszközön, hogyan hajthatja végre ezeket a módosításokat, forduljon az OEM-szolgáltatóhoz vagy a Microsoft ügyfélszolgálatához. A SZÁMÍTÓGÉPGYÁRTÓ rendelkezik az Automation eszköz által létrehozott konfigurációs fájllal a Azure Stack üzembe helyezési munkalap alapján. 
+>**Ne módosítsa a** konfigurációt a számítógépgyártó vagy a Microsoft Azure stack mérnöki csapat beleegyezike nélkül. A hálózati eszköz konfigurációjának módosítása jelentős hatással lehet a Azure Stack-példány hálózati problémáinak működésére vagy hibaelhárítására. Ha többet szeretne megtudni ezekről a függvényekről a hálózati eszközön, hogyan hajthatja végre ezeket a módosításokat, forduljon az OEM-szolgáltatóhoz vagy a Microsoft ügyfélszolgálatához. A SZÁMÍTÓGÉPGYÁRTÓ rendelkezik az Automation eszköz által létrehozott konfigurációs fájllal a Azure Stack üzembe helyezési munkalap alapján. 
 
 Vannak azonban olyan értékek, amelyek hozzáadhatók, eltávolíthatók vagy módosíthatók a hálózati kapcsolók konfigurációjában.
 
@@ -322,6 +322,6 @@ További részletek: a [fizikai kapcsoló hozzáférés-vezérlési listája](#p
 A Azure Stack megoldás nem lesz elküldve TACACS vagy RADIUS-megoldással az olyan eszközök hozzáférés-vezérléséhez, mint a kapcsolók és az útválasztók, illetve a rendszernapló-naplók rögzítésére szolgáló syslog megoldás, de ezek az eszközök támogatják ezeket a szolgáltatásokat.
 Ha egy meglévő TACACS, RADIUS-és/vagy syslog-kiszolgálóval szeretne integrálni a környezetében, egy extra fájlt adunk meg a hálózati kapcsoló konfigurációjában, amely lehetővé teszi a mérnök számára, hogy testreszabja a váltást az ügyfél igényeinek megfelelően.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Hálózatintegráció](network-integration.md)
