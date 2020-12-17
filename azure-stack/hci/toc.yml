@@ -26,6 +26,8 @@
       href: deploy/create-cluster.md
     - name: Tanúsító fürt beállítása
       href: deploy/witness.md
+    - name: SDN-infrastruktúra üzembe helyezése
+      href: deploy/sdn-express.md
     - name: Áttelepítés új hardverre
       href: deploy/migrate-cluster-new-hardware.md
     - name: Áttelepítés ugyanazon a hardveren
@@ -132,7 +134,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
@@ -168,7 +170,7 @@
           href: concepts/utility-applications.md
         - name: Adatgyűjtés
           href: concepts/data-collection.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure-regisztráció Azure CLI-parancsok
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
