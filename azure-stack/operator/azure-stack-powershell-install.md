@@ -3,16 +3,16 @@ title: PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 description: 'Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz. Lásd: a PowerShell AzureRM modul és a szükséges API-profilok telepítése.'
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: d11a439054fc013ae0b595a684f0d6760fa932a5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525506"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620619"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>PowerShell AzureRM-modul telepítése Azure Stack hubhoz
 
@@ -20,7 +20,7 @@ A Azure PowerShell Azure Resource Manager (AzureRM) olyan parancsmagokat biztos�
 
 ::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
-> Ön az Azure PowerShell elavult verziójának weboldalát nyitotta meg. A Azure Resource Manager (AzureRM) PowerShell-modul összes verziója elavult, de nem támogatott. Mostantól az Az PowerShell-modul használatát javasoljuk az Azure-ral folytatott interakciókhoz. Az az PowerShell-modul megkezdéséhez lásd: a [PowerShell telepítése az előzetes verziójú Azure stack hub](powershell-install-az-module.md)-hoz. Az az PowerShell-modulba való Migrálás megismeréséhez. Lásd: [áttelepítés az AzureRM-ból Azure PowerShell az Azure stack hub-ban](migrate-azurerm-az.md).
+> Ön az Azure PowerShell elavult verziójának weboldalát nyitotta meg. A Azure Resource Manager (AzureRM) PowerShell-modul összes verziója elavult, de nem támogatott. Az az PowerShell-modul mostantól a javasolt PowerShell-modul az Azure-hoz és Azure Stack hub-hoz való interakcióhoz. Az az PowerShell-modul megkezdéséhez lásd: a [PowerShell telepítése az előzetes verziójú Azure stack hub](powershell-install-az-module.md)-hoz. Az az PowerShell-modulba való Migrálás megismeréséhez. Lásd: [áttelepítés az AzureRM-ból Azure PowerShell az Azure stack hub-ban](migrate-azurerm-az.md).
 ::: moniker-end
 
 Az Azure Stack hub erőforrás-szolgáltatói számára a kompatibilis végpontok megadásához is *API-profilokat* kell használnia.

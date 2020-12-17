@@ -1,20 +1,20 @@
 ---
-title: Azure Stack HCI összekötése az Azure-ba
-description: Azure Stack HCI regisztrálása az Azure-ban.
+title: Az Azure Stack HCI csatlakoztatása az Azure-hoz
+description: Azure Stack HCI-fürtök regisztrálása az Azure-ban.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010855"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620636"
 ---
-# <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI összekötése az Azure-ba
+# <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
 > A következőkre vonatkozik: Azure Stack HCI v20H2
 
@@ -29,7 +29,7 @@ Nem fog tudni regisztrálni az Azure-ban, amíg létre nem Azure Stack HCI-fürt
 
 ### <a name="internet-access"></a>Internet-hozzáférés
 
-Azure Stack HCI-nek rendszeresen csatlakoznia kell az Azure nyilvános felhőhöz. Ha a kimenő kapcsolatot a külső vállalati tűzfal vagy a proxykiszolgáló korlátozza, azt úgy kell konfigurálni, hogy csak korlátozott számú, jól ismert Azure-beli IP-címen engedélyezze a kimenő hozzáférést a 443-es porthoz (HTTPS). 
+Azure Stack HCI-nek rendszeresen csatlakoznia kell az Azure nyilvános felhőhöz. Ha a kimenő kapcsolatot a külső vállalati tűzfal vagy a proxykiszolgáló korlátozza, azt úgy kell konfigurálni, hogy csak korlátozott számú, jól ismert Azure-beli IP-címen engedélyezze a kimenő hozzáférést a 443-es porthoz (HTTPS). A tűzfalak előkészítésével kapcsolatos további információkért lásd: [tűzfalak konfigurálása Azure stack HCI-hez](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > A regisztrációs folyamat megpróbálja felvenni a kapcsolatot a PowerShell-galéria annak ellenőrzéséhez, hogy rendelkezik-e a szükséges PowerShell-modulok legújabb verziójával, például az az és a AzureAD. Bár a PowerShell-galéria az Azure-ban üzemelteti, jelenleg nem rendelkezik szolgáltatási címkével. Ha nem tudja futtatni a fenti parancsmagot olyan felügyeleti gépről, amely rendelkezik kimenő internet-hozzáféréssel, javasoljuk, hogy töltse le a modulokat, és manuálisan vigye át azokat egy fürtcsomóponton, ahol a parancsot futtatni fogja `Register-AzStackHCI` . Azt is megteheti, hogy [a modulokat leválasztott forgatókönyvben is telepíti](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -97,7 +97,7 @@ A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Acti
 
 A következő eljárással regisztrálhat egy Azure Stack HCI-fürtöt az Azure-ban egy felügyeleti számítógép használatával.
 
-1. Telepítse a szükséges parancsmagokat a felügyeleti SZÁMÍTÓGÉPére. Ha olyan fürtöt regisztrál, amely a Azure Stack HCI általánosan elérhető (GA) rendszerképében van telepítve, egyszerűen futtassa az alábbi parancsot. Ha a fürt üzembe helyezése a nyilvános előzetes lemezképből történt, győződjön meg arról, hogy a regisztráció megkísérlése előtt a fürt minden kiszolgálójára vonatkozóan a 2020. november 23. (KB4586852) frissítést telepítette.
+1. Telepítse a szükséges parancsmagokat a felügyeleti SZÁMÍTÓGÉPére. Ha egy Azure Stack HCI aktuális általánosan elérhető (GA) rendszerképében üzembe helyezett fürtöt regisztrál, egyszerűen futtassa az alábbi parancsot. Ha a fürt üzembe helyezése a nyilvános előzetes lemezképből történt, győződjön meg arról, hogy az Azure-ban való regisztrálás megkísérlése előtt a fürt minden kiszolgálójára vonatkozóan a 2020. november 23. (KB4586852) frissítést telepítette.
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ A következő eljárással regisztrálhat egy Azure Stack HCI-fürtöt az Azure-
 2. A regisztrációt a fürt bármely kiszolgálójának nevével hajtsa végre. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez látogasson el a [Portal.Azure.com](https://portal.azure.com)webhelyre, keresse fel az előfizetéseket, és másolja/illessze be az azonosítót a listából.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    Ez a szintaxis regisztrálja a fürtöt (amely a Kiszolgáló1 tagja), mivel az aktuális felhasználó az alapértelmezett Azure-régióval és felhőalapú környezettel rendelkezik, és intelligens alapértelmezett neveket használ az Azure-erőforráshoz és az erőforráscsoporthoz, de paramétereket adhat hozzá ehhez a parancshoz, ha szeretné, adja meg ezeket az értékeket.
@@ -123,7 +123,7 @@ A következő eljárással regisztrálhat egy Azure Stack HCI-fürtöt az Azure-
 
 A regisztrációs munkafolyamat felismeri, amikor bejelentkezett, és folytatja a befejezést. Ezután látnia kell a fürtöt a Azure Portalban.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Most már készen áll a következőkre:
 

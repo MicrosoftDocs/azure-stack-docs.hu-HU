@@ -3,16 +3,16 @@ title: Virtuális gép törlése Azure Stack hub függőségeivel
 description: Virtuális gép (VM) törlése Azure Stack hub függőségeivel
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778189"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620704"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Virtuális gép (VM) törlése Azure Stack hub függőségeivel
 
@@ -52,7 +52,7 @@ Abban az esetben, ha nem tudja törölni az erőforráscsoportot, vagy a függő
     2. Várjon, amíg az erőforrás teljesen törölve lesz.
     3. Ezután törölheti a következő függőséget.
 
-### <a name="with-powershell"></a>[A PowerShell-lel](#tab/ps-az)
+### <a name="az-modules"></a>[Az modulok](#tab/ps-az)
 
 Abban az esetben, ha nem tudja törölni az erőforráscsoportot, vagy a függőségek nem ugyanabban az erőforráscsoporthoz vannak, vagy más erőforrások is vannak, kövesse az alábbi lépéseket.
 
@@ -126,7 +126,7 @@ A virtuális gép törléséhez ugyanebben a munkamenetben futtassa a következ�
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>[A PowerShell-lel](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/ps-azureRM)
 
 Abban az esetben, ha nem tudja törölni az erőforráscsoportot, vagy a függőségek nem ugyanabban az erőforráscsoporthoz vannak, vagy más erőforrások is vannak, kövesse az alábbi lépéseket.
 

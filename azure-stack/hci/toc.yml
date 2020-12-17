@@ -158,6 +158,8 @@
       items:
         - name: Számlázás
           href: concepts/billing.md
+        - name: Tűzfalak konfigurálása
+          href: concepts/configure-firewalls.md
         - name: Frissítések és frissítések
           href: concepts/updates.md
         - name: Biztonsági szempontok
@@ -166,7 +168,7 @@
           href: concepts/utility-applications.md
         - name: Adatgyűjtés
           href: concepts/data-collection.md
-- name: Referencia
+- name: Hivatkozás
   items:
     - name: Azure-regisztráció Azure CLI-parancsok
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'

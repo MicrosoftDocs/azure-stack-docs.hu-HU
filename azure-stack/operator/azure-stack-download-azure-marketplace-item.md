@@ -3,17 +3,17 @@ title: Marketplace-elemek letöltése az Azure-ból és közzététel Azure Stac
 description: Ismerje meg, hogyan töltheti le a Marketplace-elemeket az Azure-ból, és hogyan tehet közzé Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/9/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/9/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934964"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620653"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -119,7 +119,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
-2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt `Add-AzureRmAccount` :
+2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt `Login-AzAccount` :
 
    ```powershell  
    Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'

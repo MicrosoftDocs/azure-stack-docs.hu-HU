@@ -3,16 +3,16 @@ title: Azure Stack hub frissítéseinek telepítése
 description: Ismerje meg, hogyan telepítheti Azure Stack hub-frissítéseket.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a54e47ff5788ca100e45be103e4d3d5192766f3b
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106570"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620787"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack hub frissítéseinek telepítése
 
@@ -31,9 +31,9 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
 1. Nyissa meg az Azure Stack hub felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. A **frissítések** panelen az aktuális verzió szerepel a felsorolásban. Ebben a képen például a verzió a következő: 1.1903.0.35:
+2. Válassza az **irányítópult** lehetőséget. A **frissítések** ablaktáblán az aktuális verzió szerepel a felsorolásban:
 
-    ![Az alapértelmezett irányítópulton lévő frissítések csempe](./media/azure-stack-update-apply/image1.png)
+    ![Az alapértelmezett irányítópulton lévő frissítések csempe](./media/azure-stack-apply-updates/dashboard.png)
 
 ## <a name="install-updates-and-monitor-progress"></a>Frissítések telepítése és a folyamat megfigyelése
 
@@ -42,13 +42,13 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
 1. Nyissa meg az Azure Stack hub felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **Frissítés** lehetőséget.
+2. Válassza az **irányítópult** lehetőséget. Válassza a **Frissítés** lehetőséget.
 
-3. Válassza ki az elérhető frissítést, amelyet telepíteni kíván. Ha nincs **elérhetőként**megjelölt frissítés, [készítse elő a frissítési csomagot](azure-stack-update-prepare-package.md).
+3. Válassza ki az elérhető frissítést, amelyet telepíteni szeretne. Ha nincs **elérhetőként** megjelölt frissítés, [készítse elő a frissítési csomagot](azure-stack-update-prepare-package.md).
 
-4. Válassza a **Frissítés most**lehetőséget.
+4. Válassza a **Frissítés most** lehetőséget.
 
-    ![Képernyőkép, amely bemutatja, hogyan indíthatja el a frissítést Azure Stack hub-ban.](./media/azure-stack-update-apply/image2.png)
+    ![Képernyőkép, amely bemutatja, hogyan indíthatja el a frissítést Azure Stack hub-ban.](./media/azure-stack-apply-updates/image2.png)
 
 5. Megtekintheti a magas szintű állapotot, mivel a frissítési folyamat megismétli a Azure Stack hub különböző alrendszerein keresztül. Az alrendszerek például olyan fizikai gazdagépek, Service Fabric, infrastruktúra-virtuális gépek és szolgáltatások, amelyek mind a rendszergazda, mind a felhasználói portált biztosítják. A frissítés erőforrás-szolgáltatója a frissítési folyamat során további részleteket jelent a frissítésről, például a sikeres lépések számáról és a folyamatban lévő számról.
 
@@ -56,11 +56,11 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
     Ha probléma merül fel a frissítés figyelése közben, a [Kiemelt végpont](./azure-stack-privileged-endpoint.md) segítségével figyelheti az Azure stack hub frissítési futtatásának állapotát. A rendszerjogosultságú végpontot használhatja arra is, hogy az utolsó sikeres lépés után folytassa a sikertelen frissítés futtatását, ha az Azure Stack hub-portál elérhetetlenné válik. Útmutatásért lásd: [frissítések figyelése Azure stack központban a PowerShell használatával](azure-stack-update-monitor.md).
 
-    ![Azure Stack hub frissítési futtatásának részletei](./media/azure-stack-update-apply/image3.png)
+    ![Azure Stack hub frissítési futtatásának részletei](./media/azure-stack-apply-updates/image3.png)
 
 7. Ha elkészült, a frissítési erőforrás-szolgáltató **sikeres** megerősítő üzenetet jelenít meg, amely azt mutatja, hogy a frissítési folyamat befejeződött, és mennyi ideig tartott. Innen megtekintheti az összes frissítés, elérhető frissítés vagy telepített frissítés adatait a szűrő használatával.
 
-    ![Azure-stack-Update-Apply](./media/azure-stack-update-apply/image4.png)
+    ![Azure-stack-Update-Apply](./media/azure-stack-apply-updates/image4.png)
 
     Ha a frissítés sikertelen, a **frissítési** panel jelentései **figyelmet igényelnek**. A **teljes naplók letöltése** lehetőséggel olyan magas szintű állapotot érhet el, ahol a frissítés nem sikerült. Azure Stack hub-naplók gyűjtése a diagnosztika és a hibaelhárítás terén nyújt segítséget.
 
@@ -68,13 +68,13 @@ Az Azure Stack hub aktuális verzióját a **frissítések** panelen tekintheti 
 
 1. Nyissa meg a felügyeleti portált.
 
-2. Válassza az **irányítópult**lehetőséget. Válassza a **Frissítés** lehetőséget.
+2. Válassza az **irányítópult** lehetőséget. Válassza a **Frissítés** lehetőséget.
 
-3. Válassza a **frissítési előzmények**lehetőséget.
+3. Válassza a **frissítési előzmények** lehetőséget.
 
-    ![Azure Stack hub frissítési előzményei](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack hub frissítési előzményei](./media/azure-stack-apply-updates/image5.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Frissítések kezelése az Azure Stack Hubban – áttekintés](./azure-stack-updates.md)  
 - [Azure Stack hub karbantartási szabályzata](./azure-stack-servicing-policy.md)  

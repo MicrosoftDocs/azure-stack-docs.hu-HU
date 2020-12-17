@@ -3,16 +3,16 @@ title: Azure Stack hub kezelése az Azure CLI-vel
 description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525880"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620721"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Az Azure CLI telepítése Azure Stack hubhoz
 
@@ -36,7 +36,7 @@ Az Azure CLI-t telepítheti Azure Stack hub Windows vagy Linux rendszerű gépek
 
 2. Jegyezze fel a parancssori felület Python-helyét. Ha a ASDK futtatja, ezt a helyet kell használnia a tanúsítvány hozzáadásához. A parancssori felület ASDK való telepítéséhez szükséges tanúsítványok beállításával kapcsolatos utasításokért lásd: [tanúsítványok beállítása az Azure CLI-hez a Azure stack Development Kit](../asdk/asdk-cli.md).
 
-## <a name="set-up-azure-cli"></a>Az Azure CLI beállítása
+## <a name="connect-with-azure-cli"></a>Az Azure CLI-vel való kapcsolat
 
 ### <a name="azure-ad-on-windows"></a>[Azure AD Windows rendszeren](#tab/ad-win)
 
@@ -50,17 +50,25 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
 
 3. Regisztrálja a környezetét. A következő paraméterek használata a futtatásakor `az cloud register` :
 
-    | Érték | Példa | Leírás |
-    | --- | --- | --- |
-    | Környezet neve | AzureStackUser | `AzureStackUser`A felhasználói környezethez használható. Ha az operátor van megadva, akkor a ( `AzureStackAdmin` ) lehetőséget. |
-    | Resource Manager-végpont | `https://management.local.azurestack.external` | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
-    | Tárolási végpont | helyi. azurestack. external | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | Kulcstartó utótagja | . Vault. local. azurestack. external | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
-    | VM-rendszerkép aliasa doc-végpont – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | A virtuális gép rendszerképének aliasait tartalmazó dokumentum URI azonosítója. További információ: [a virtuálisgép-alias végpontjának beállítása](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
+      | Érték | Példa | Leírás |
+      | --- | --- | --- |
+      | Környezet neve | AzureStackUser | `AzureStackUser`A felhasználói környezethez használható. Ha az operátor van megadva, akkor a ( `AzureStackAdmin` ) lehetőséget. |
+      | Resource Manager-végpont | `https://management.contoso.onmicrosoft.com` | A ASDK található **ResourceManagerUrl** : `https://management.contoso.onmicrosoft.com/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+      | Tárolási végpont | local.contoso.onmicrosoft.com | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+      | Kulcstartó utótagja | . vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
+      | Végpont Active Directory Graph erőforrás-azonosítója | https://graph.windows.net/ | Az Active Directory erőforrás-azonosító. |
+    
+      ```azurecli  
+      az cloud register `
+          -n <environmentname> `
+          --endpoint-resource-manager "https://management.<region>.<fqdn>" `
+          --suffix-storage-endpoint "<fqdn>" `
+          --suffix-keyvault-dns ".vault.<fqdn>" `
+          --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
+      ```
 
-    ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
-    ```
+    Az Azure CLI dokumentációjában talál egy hivatkozást a [Register parancshoz](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) .
+
 
 4. Állítsa be az aktív környezetet az alábbi parancsok használatával.
 
@@ -73,18 +81,17 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
-
-    >[!NOTE]  
-    >Ha a 1808-es verzió előtt futtatja Azure Stack hub verzióját, akkor az API-verzió Profile **2019-03-01-Hybrid** helyett a **2017-03-09-profil API-** profilt kell használnia. Az Azure CLI legújabb verzióját is használni kell.
  
-6. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal. Jelentkezzen be az Azure Stack hub-környezetbe felhasználóként vagy [egyszerű szolgáltatásnévként](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Jelentkezzen be az Azure Stack hub-környezetbe a `az login` paranccsal.
+
+    A felhasználó hitelesítő adataival vagy a felhőalapú szolgáltató által megadott [egyszerű](/azure/active-directory/develop/app-objects-and-service-principals) szolgáltatásnév (SPN) használatával bejelentkezhet az Azure stack hub környezetbe. 
 
    - Bejelentkezés *felhasználóként*: 
 
      Megadhatja a felhasználónevet és a jelszót közvetlenül a `az login` parancson belül, vagy egy böngészőben végezheti el a hitelesítést. Ha a fiókjában engedélyezve van a többtényezős hitelesítés, az utóbbit el kell végeznie:
 
      ```azurecli
-     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     az login -u "user@contoso.onmicrosoft.com" -p 'Password123!' --tenant contoso.onmicrosoft.com
      ```
 
      > [!NOTE]
@@ -92,11 +99,34 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
 
    - Bejelentkezés *egyszerű szolgáltatásként*: 
     
-     A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](../operator/azure-stack-create-service-principals.md?view=azs-2002) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
+        A bejelentkezés előtt [hozzon létre egy egyszerű szolgáltatásnevet a Azure Portal vagy a](../operator/azure-stack-create-service-principals.md?view=azs-2002) parancssori felület használatával, és rendeljen hozzá egy szerepkört. Most jelentkezzen be a következő parancs használatával:
+    
+        ```azurecli  
+        az login `
+          --tenant <Azure Active Directory Tenant name. `
+                    For example: myazurestack.onmicrosoft.com> `
+        --service-principal `
+          -u <Application Id of the Service Principal> `
+          -p <Key generated for the Service Principal>
+        ```
+    
+7. Ellenőrizze, hogy a környezet helyesen van-e beállítva, és hogy a környezet az aktív felhő.
 
-     ```azurecli  
-     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-     ```
+      ```azurecli
+          az cloud list --output table
+      ```
+
+Látnia kell, hogy a környezete fel van sorolva, és a **IsActive** `true` . Például:
+
+```azurecli  
+IsActive    Name               Profile
+----------  -----------------  -----------------
+False       AzureCloud         2019-03-01-hybrid
+False       AzureChinaCloud    latest
+False       AzureUSGovernment  latest
+False       AzureGermanCloud   latest
+True        AzureStackUser     2019-03-01-hybrid
+```
 
 #### <a name="test-the-connectivity"></a>Kapcsolat tesztelése
 

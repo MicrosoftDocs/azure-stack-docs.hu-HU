@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Ismerje meg, hogy mely vendég operációs rendszerek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250299"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620585"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Az Azure Stack Hub által támogatott vendég operációs rendszerek
 
@@ -33,7 +33,7 @@ Azure Stack hub az alábbi táblázatban felsorolt Windows vendég operációs r
 | Windows 10 *(lásd az 1. megjegyzést)* | 64 bites, Pro és Enterprise | Saját rendszerkép használata |
 
 > [!NOTE]
-> Ahhoz, hogy a Windows 10-es ügyfél operációs rendszereit Azure Stack hubhoz telepítse, [Windows felhasználónkénti licenceléssel](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) kell rendelkeznie, vagy egy minősített több-bérlős szolgáltatón ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) keresztül kell megvásárolnia.
+> Ahhoz, hogy a Windows 10-es ügyfél operációs rendszereit Azure Stack hubhoz telepítse, [Windows felhasználónkénti licenceléssel](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) kell rendelkeznie, vagy egy [minősített több-bérlős szolgáltatón (QMTH)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)keresztül kell megvásárolnia.
 
 A piactéren elérhető rendszerképek a használaton kívüli vagy BYOL (EA/SPLA) licenceléshez érhetők el. A mindkettő egyetlen Azure Stack hub-példányon való használata nem támogatott. Az üzembe helyezés során Azure Stack hub a vendég ügynök megfelelő verzióját adja a rendszerképbe.
 
@@ -50,24 +50,24 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 
 | Disztribúció | Leírás | Publisher | Azure Stack hub piactér |
 | --- | --- | --- | --- |
-| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Yes |
-| CentOS-alapú 7,5 | 64 bites | Gazember hullám | Yes |
-| CentOS-alapú 7.3 | 64 bites | Gazember hullám | Yes |
-| ClearLinux | 64 bites | ClearLinux.org | Yes |
-| CoreOS Linux (stabil) |  64 bites | CoreOS | Yes |
-| Debian 8 "Megbéklyóz" | 64 bites | credativ |  Yes |
-| Debian 9 "stretch" | 64 bites | credativ | Yes |
+| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7.3 | 64 bites | Gazember hullám | Igen |
+| ClearLinux | 64 bites | ClearLinux.org | Igen |
+| CoreOS Linux (stabil) |  64 bites | CoreOS | Igen |
+| Debian 8 "Megbéklyóz" | 64 bites | credativ |  Igen |
+| Debian 9 "stretch" | 64 bites | credativ | Igen |
 | Oracle Linux | 64 bites | Oracle | Igen |
 | Red Hat Enterprise Linux 7,1 (és újabb verziók) | 64 bites | Red Hat | Saját rendszerkép használata |
-| SLES 11SP4 | 64 bites | SUSE | Yes |
-| SLES 12SP3 | 64 bites | SUSE | Yes |
-| Ubuntu 14,04 – LTS | 64 bites | Canonical | Yes |
-| Ubuntu 16,04 – LTS | 64 bites | Canonical | Yes |
-| Ubuntu 18,04 – LTS | 64 bites | Canonical | Yes |
+| SLES 11SP4 | 64 bites | SUSE | Igen |
+| SLES 12SP3 | 64 bites | SUSE | Igen |
+| Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

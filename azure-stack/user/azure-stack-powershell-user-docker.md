@@ -3,16 +3,16 @@ title: A Docker használata a PowerShell futtatásához Azure Stack központban
 description: A Docker használata a PowerShell futtatásához Azure Stack központban
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525608"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620687"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>A Azure Stack hub PowerShellének futtatása a Docker használatával
 
@@ -99,7 +99,7 @@ Ebben az útmutatóban egy Linux-alapú tároló-rendszerképet fog futtatni, am
 
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/rm)
 
-Ebben az útmutatóban egy Windows-alapú tároló rendszerképét kell futtatnia, és telepítenie kell a PowerShellt és a szükséges modulokat a Azure Stack hub számára.
+Ebben az útmutatóban egy Windows-alapú tároló rendszerképét kell futtatnia, és telepítenie kell a PowerShellt és a szükséges modulokat a Azure Stack hub számára. Ha azt tervezi, hogy a Windows rendszerű Docker-t futtatja, akkor futtatnia kell a Docker-t egy fizikai gépen. A beágyazott virtualizálás nem támogatott a Hyper-V-ben.
 
 1. A Docker futtatásához Windows 10 rendszerű Windows-tárolókat kell használnia. A Docker futtatásakor váltson a Windows-tárolók elemre. Az az modult támogató lemezképek a Docker 17,05-es vagy újabb verziójára lesz szükség.
 
