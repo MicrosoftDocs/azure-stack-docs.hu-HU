@@ -8,18 +8,18 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623217"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794158"
 ---
-# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Azure Stack hub diagnosztikai naplóinak elküldése a privilegizált végpont (PEP) használatával
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Az Azure Stack Hub diagnosztikai naplóinak küldése a kiemelt végpont (PEP) használatával
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-Ahhoz, hogy a Get-AzureStackLog egy integrált rendszeren fusson, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat. Ha egy futó napló-gyűjteményt töröl egy új indításhoz, várjon 5 percet, mielőtt elindítja az új napló-gyűjteményt, és adja meg a következőt: `Remove-PSSession -Session $session` .
+Ha Get-AzureStackLogt szeretne futtatni egy integrált rendszeren, hozzáféréssel kell rendelkeznie a privilegizált végponthoz (PEP). Az alábbi példa egy parancsfájlt futtat, amely a PEP használatával gyűjti a naplókat. Ha egy futó napló-gyűjteményt töröl egy új indításhoz, várjon 5 percet, mielőtt elindítja az új napló-gyűjteményt, és adja meg a következőt: `Remove-PSSession -Session $session` .
 
 
 ```powershell
@@ -86,6 +86,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  Naplók gyűjtése az SQL RP-hez: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  Naplók gyűjtése a MySQL RP-hez: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   IoT Hub naplók összegyűjtése: 
 
   ```powershell
@@ -130,10 +142,10 @@ if ($session) {
   2. Nyissa meg a Azure Storage Explorer egy példányát.
   3. Kapcsolódjon az 1. lépésben létrehozott Storage-fiókhoz.
   4. Navigáljon a **Storage Services** **blob-tárolói** között.
-  5. Válassza **az új tároló létrehozása**lehetőséget.
-  6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának beolvasása**elemre.
+  5. Válassza **az új tároló létrehozása** lehetőséget.
+  6. Kattintson a jobb gombbal az új tárolóra, majd kattintson a **megosztott hozzáférés aláírásának beolvasása** elemre.
   7. A követelményektől függően adjon meg egy érvényes **kezdési** és **befejezési időpontot**.
-  8. A szükséges engedélyek esetében válassza az **olvasás**, **írás**és **lista**lehetőséget.
+  8. A szükséges engedélyek esetében válassza az **olvasás**, **írás** és **lista** lehetőséget.
   9. Kattintson a **Létrehozás** gombra.
   10. Közös hozzáférési aláírást fog kapni. Másolja az URL-címet, és adja meg a `-OutputSasUri` paraméternek.
 
@@ -302,7 +314,7 @@ if ($session) {
 
       SRP
 
-      Tárolás
+      Storage
 
       StorageController
 
@@ -331,7 +343,7 @@ if ($session) {
 
 * A parancs eltarthat egy ideig, hogy a naplók milyen szerepkör (ek) gyűjtését végzik. A közreműködő tényezők közé tartozik a naplók számára megadott időtartam és a Azure Stack hub-környezet csomópontjainak száma is.
 * A napló-gyűjtemény futtatásakor ellenőrizze a parancsban megadott **OutputSharePath** paraméterben létrehozott új mappát.
-* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, és válassza a **Kibontás**lehetőséget. Az adott szerepkörhöz tartozó összes naplófájl egyetlen egyesített mappába lesz kibontva.
+* Minden szerepkör saját naplókat tartalmaz az egyes zip-fájlokon belül. Az összegyűjtött naplók méretétől függően előfordulhat, hogy a naplók több zip-fájlba vannak felosztva. Ha egy ilyen szerepkörhöz egyetlen mappába szeretné kibontani az összes naplófájlt, használjon olyan eszközt, amely kibontható tömegesen. Válassza ki a szerepkörhöz tartozó összes tömörített fájlt, és válassza a **Kibontás** lehetőséget. Az adott szerepkörhöz tartozó összes naplófájl egyetlen egyesített mappába lesz kibontva.
 * A **Get-AzureStackLog_Output. log** nevű fájl a tömörített naplófájlokat tartalmazó mappában is létrejön. Ez a fájl a parancs kimenetének naplója, amely a naplózási problémák elhárításához használható. Előfordulhat, hogy a naplófájl olyan `PS>TerminatingError` bejegyzéseket tartalmaz, amelyek nyugodtan figyelmen kívül hagyhatók, kivéve, ha a napló-gyűjtemény futtatása után hiányoznak a várt naplófájlok.
 * Egy adott hiba kivizsgálásához több összetevőre is szükség lehet a naplókra.
 
@@ -343,7 +355,7 @@ if ($session) {
 > [!NOTE]
 > A rendszer kikényszeríti a méretre és a korra vonatkozó korlátokat a gyűjtött naplókon, mivel ez elengedhetetlen a tárterület hatékony kihasználtságának biztosításához, valamint a naplók beszerzésének elkerüléséhez. A probléma diagnosztizálásakor azonban néha olyan naplókra van szükség, amelyek ezen korlátok miatt már nem léteznek. Ezért **erősen ajánlott** , hogy a naplókat egy külső tárolóhelyre (az Azure-beli Storage-fiókba, egy további helyszíni tárolóeszközre stb.), 8 – 12 óránként, a követelményektől függően pedig 1-3 hónapig őrizze meg. Győződjön meg arról is, hogy a tárolási hely titkosítva van.
 
-### <a name="invoke-azurestackondemandlog"></a>Meghívás – AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
 A **meghívó-AzureStackOnDemandLog** parancsmag használatával létrehozhat igény szerinti naplókat bizonyos szerepkörökhöz (lásd a szakasz végén található listát). A parancsmag által létrehozott naplók alapértelmezés szerint nem jelennek meg a **Get-AzureStackLog** parancsmag végrehajtásakor kapott naplófájlban. Azt is javasoljuk, hogy csak akkor Gyűjtse össze ezeket a naplókat, ha a Microsoft támogatási csapata kéri.
 
@@ -392,7 +404,7 @@ A Trace Collector alapértelmezés szerint engedélyezve van, és folyamatosan f
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-A Get-AzureStackLog PowerShell-parancsmag használatával gyűjthet naplókat az összes összetevőről egy Azure Stack hub-környezetben. Egy felhasználó által megadott helyen tárolja őket zip-fájlokban. Ha a Azure Stack hub technikai támogatási csapatának szüksége van a naplókra, hogy segítsen a problémák megoldásában, kérheti a Get-AzureStackLog futtatását.
+A PowerShell-parancsmag Get-AzureStackLog használható a Azure Stack hub-környezet összes összetevőjéből származó naplók összegyűjtésére. Egy felhasználó által megadott helyen tárolja őket zip-fájlokban. Ha a Azure Stack hub technikai támogatási csapatának szüksége van a naplókra, hogy segítsen a problémák megoldásában, kérheti a Get-AzureStackLog futtatását.
 
 > [!CAUTION]
 > Ezek a naplófájlok személyes azonosításra alkalmas adatokat is tartalmazhatnak. Ezt vegye figyelembe, mielőtt nyilvánosan közzéteszi a naplófájlokat.
@@ -406,5 +418,5 @@ Az alábbiakban néhány példa a begyűjtött naplózási típusokra:
 * **Tárolási diagnosztikai naplók**
 * **ETW-naplók**
 
-Ezeket a fájlokat a rendszer összegyűjti és menti egy megosztásban Trace Collector. A Get-AzureStackLog segítségével szükség esetén gyűjtheti őket.
+Ezeket a fájlokat a rendszer összegyűjti és menti egy megosztásban Trace Collector. Ezt követően a Get-AzureStackLog a szükséges adatok gyűjtésére is felhasználhatók.
 

@@ -4,6 +4,8 @@
   items:
     - name: Mi az Azure Stack HCI?
       href: overview.md
+    - name: Összehasonlítás a Windows Serverrel
+      href: concepts/compare-windows-server.md
     - name: Kiadási információk
       href: release-information.md
     - name: Kibocsátási megjegyzések
@@ -116,10 +118,8 @@
   items:
     - name: Tárolás és fürtök
       items:
-        - name: Rendszerkövetelmények
+        - name: System requirements (Rendszerkövetelmények)
           href: concepts/system-requirements.md
-        - name: Összehasonlítás a Windows Serverrel
-          href: concepts/compare-windows-server.md
         - name: Meghajtók kiválasztása
           href: concepts/choose-drives.md
         - name: A meghajtó-szimmetria szempontjai
@@ -134,7 +134,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózatkezelés
+    - name: Hálózat
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: Azure Stack HCI-támogatás
       href: manage/get-support.md
+    - name: Azure Stack HCI archivált kibocsátási megjegyzései
+      href: preview-release-notes.md

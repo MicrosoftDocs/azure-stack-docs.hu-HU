@@ -7,12 +7,12 @@ ms.date: 11/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 19438a56b487e4c5c167977fbc831bf64dc3695a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 791923d3b2deacdc886dfcc0167736bd7214f9b8
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96035317"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697626"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -121,8 +121,9 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ---
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
+- [Az előfizetések, csomagok és ajánlatok kezelése a PowerShell használatával Azure Stack hub-ban](azure-stack-powershell-plan-offer.md)
 - [Sablonok fejlesztése Azure stack hub számára](../user/azure-stack-develop-templates.md).
 - [Sablonok üzembe helyezése a PowerShell](../user/azure-stack-deploy-template-powershell.md)-lel.
-  - [Azure stack hub-modul referenciája](/powershell/azure/azure-stack/overview).
+- [Azure stack hub-modul referenciája](/powershell/azure/azure-stack/overview).

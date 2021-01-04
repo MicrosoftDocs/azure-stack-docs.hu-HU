@@ -4,13 +4,13 @@ description: Ez a témakör a Microsoft partnereitől származó, a Azure Stack 
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/10/2020
-ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051632"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697714"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Segédprogram-alkalmazások Azure Stack HCI-hez
 
@@ -58,9 +58,9 @@ A Veritas Backup Exec egy könnyen használható biztonsági mentési és helyre
 A datadoggal egy teljes körűen egységesített platform, amely magában foglalja az infrastruktúra figyelését, az alkalmazások teljesítményének monitorozását, a naplózás kezelését, a felhasználói élmény figyelését és egyebeket.
 
 - Alkalmazás listázása: [modern monitorozási & biztonság](https://www.datadoghq.com/)
-- Alkalmazás-támogatás: [támogatott operációsrendszer-verziók](https://docs.datadoghq.com/agent/basic_agent_usage/?tab=agentv6v7#supported-os-versions)
+- Alkalmazás-támogatás: [Microsoft Azure stack HCI monitorozása a datadoggal](https://www.datadoghq.com/blog/monitor-azure-stack-hci-datadog)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További információért lásd még:
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
 - [Microsoft Defender víruskereső](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)

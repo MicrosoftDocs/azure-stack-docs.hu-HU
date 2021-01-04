@@ -2,7 +2,7 @@
   href: index.yml
 - name: Áttekintés
   items:
-    - name: Mi az Azure Stack hub?
+    - name: Mi az Azure Stack Hub?
       href: azure-stack-overview.md
     - name: Az Azure-ökoszisztéma összehasonlítása
       href: compare-azure-azure-stack.md
@@ -211,7 +211,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: Biztonság konfigurálása
+        - name: A biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -285,6 +285,8 @@
           href: azure-stack-delegated-provider.md
         - name: Kvótatípusok
           href: azure-stack-quota-types.md
+        - name: Csomagok és ajánlatok kezelése a PowerShell használatával
+          href: azure-stack-powershell-plan-offer.md
     - name: Hálózati megoldások ajánlása
       href: azure-stack-network-solutions-enable.md
     - name: Érték kezelése – erőforrás-szolgáltatók hozzáadása

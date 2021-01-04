@@ -8,14 +8,14 @@ ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 88928837377f478249e252021c1d610d99606679
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 28c809f70c479c4037061bd7c1504c0954a3584c
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517735"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697645"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
 
@@ -698,6 +698,6 @@ Az Azure Stack hub regisztrálására tett kísérlet során előfordulhat, hogy
    Ok: ez egy ismert probléma a leválasztott környezetek számára, és a [regisztráció állapotának ellenőrzéséhez](#verify-azure-stack-hub-registration)szükséges. A piactér-kezelés használatához használja [az offline eszközt](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 ::: zone-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Marketplace-elemek letöltése az Azure-ból](azure-stack-download-azure-marketplace-item.md)

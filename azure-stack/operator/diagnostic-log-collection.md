@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
-ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
+ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96872644"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794192"
 ---
 # <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
@@ -142,7 +142,17 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  Diagnosztikai naplók küldése az SQL RP számára: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider SQLAdapter
+  ```
+  Diagnosztikai naplók küldése a MySQL RP számára: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   Diagnosztikai naplók küldése IoT Hub számára: 
 
   ```powershell
@@ -220,6 +230,6 @@ A Azure Stack hub-ból gyűjtött naplók előzményei a **Súgó + támogatás*
 
 ![A Súgó és támogatás szolgáltatásban található gyűjtemények naplózása](media/azure-stack-help-and-support/azure-stack-log-collection.png)
 
-## <a name="see-also"></a>Lásd még
+## <a name="see-also"></a>További információ
 
 [Azure Stack hub-napló és az ügyfelek adatkezelése](./azure-stack-data-collection.md)

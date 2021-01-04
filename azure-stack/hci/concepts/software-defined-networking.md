@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/16/2020
-ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 12/21/2020
+ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157665"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737878"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
 
@@ -42,7 +42,7 @@ Javasoljuk, hogy [a hálózati vezérlőt a fürt létrehozása során telepíts
 
 ## <a name="software-load-balancing"></a>Szoftveres terheléselosztás
 
-A [szoftveres](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) terheléselosztás (SLB) használatával egyenletesen terjesztheti az ügyfelek hálózati forgalmát több virtuális gép között. Lehetővé teszi, hogy több kiszolgáló ugyanazt a számítási feladatot működtesse, magas rendelkezésre állást és méretezhetőséget biztosítva. A SLB a [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) használatával hirdeti meg a virtuális IP-címeket a fizikai hálózaton.
+A [szoftver Load Balancer](software-load-balancer.md) (SLB) használatával egyenletesen terjesztheti az ügyfelek hálózati forgalmát több virtuális gép között. Lehetővé teszi, hogy több kiszolgáló ugyanazt a számítási feladatot működtesse, magas rendelkezésre állást és méretezhetőséget biztosítva. A SLB a [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) használatával hirdeti meg a virtuális IP-címeket a fizikai hálózaton.
 
 ## <a name="gateway"></a>Átjáró
 
@@ -54,7 +54,7 @@ Az átjárók a virtuális hálózat és egy másik hálózat (helyi vagy távol
 
 Az átjárók [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a GRE-végpontok reklámozására és pont-pont típusú kapcsolatok létrehozására szolgálnak. Az SDN üzembe helyezése egy alapértelmezett átjárót hoz létre, amely támogatja az összes kapcsolattípust. Ebben a készletben megadhatja, hogy hány átjáró legyen lefoglalva készenléti állapotban, ha egy aktív átjáró meghibásodik.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 

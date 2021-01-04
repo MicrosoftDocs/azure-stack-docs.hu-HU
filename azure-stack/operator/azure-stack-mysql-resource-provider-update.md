@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 61149b7eb89908b641fd995b10b22e3d05a5fb8d
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 33c7d66b7a8b0d352bbf9227cec11adf7cd001fe
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812700"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737742"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató frissítése Azure Stack központban
 
@@ -23,7 +23,7 @@ Előfordulhat, hogy a Azure Stack hub-buildek frissítésekor új MySQL erőforr
 
   |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
-  |2008, 2005|[MySQL RP-verzió 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2008, 2005|[MySQL RP-verzió 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack-bővítmény RP Windows Server
   |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -61,8 +61,8 @@ A **UpdateMySQLProvider.ps1** PowerShell-parancsfájl futtatásakor adja meg a k
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ | 
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 | 
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 | 
-| **Eltávolítás** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | No | 
-| **DebugMode** | Megakadályozza a hibák automatikus törlését. | No | 
+| **Eltávolítása** | Távolítsa el az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem | 
+| **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem | 
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Parancsfájl frissítése – példa

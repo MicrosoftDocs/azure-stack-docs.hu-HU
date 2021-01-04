@@ -1,29 +1,29 @@
 ---
-title: Azure Stack hub SQL Resource Provider 1.1.93.0 kibocsátási megjegyzései
-description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub SQL Resource Provider 1.1.93.0 frissítésének újdonságait.
+title: Azure Stack hub SQL erőforrás-szolgáltató 1.1.93. x kibocsátási megjegyzései
+description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub SQL Resource Provider 1.1.93. x frissítésének újdonságait.
 author: caoyang
 ms.topic: article
 ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 5becaf3bca62d4e37bac266649bf3821dc5a652e
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 80caef7369a3cf5ebe79338bc907fa9b31d1a759
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812680"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737912"
 ---
-# <a name="sql-resource-provider-11930-release-notes"></a>SQL Resource Provider 1.1.93.0 kibocsátási megjegyzései
+# <a name="sql-resource-provider-1193x-release-notes"></a>SQL Resource Provider 1.1.93. x kibocsátási megjegyzések
 
-Ezek a kibocsátási megjegyzések ismertetik az SQL Resource Provider 1.1.93.0 verziójának frissítéseit és ismert problémáit.
+Ezek a kibocsátási megjegyzések az SQL Resource Provider 1.1.93. x verziójának újdonságait és ismert problémáit ismertetik.
 
 ## <a name="build-reference"></a>Build referenciája
 Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához. Az erőforrás-szolgáltató minimálisan megfelelő Azure Stack hub-buildtel rendelkezik. Az SQL-erőforrás-szolgáltató ezen verziójának telepítéséhez szükséges minimális Azure Stack hub-verzió az alábbi listában látható:
 
 > |Támogatott Azure Stack hub-verzió|SQL erőforrás-szolgáltató verziója|
 > |-----|-----|
-> |2008-es verzió, 2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
+> |2008-es verzió, 2005|[Az SQL RP verziója 1.1.93.1](https://aka.ms/azshsqlrp11931)|  
 > |     |     |
 
 > [!IMPORTANT]
@@ -33,15 +33,15 @@ Töltse le az SQL erőforrás-szolgáltató bináris fájlját, majd futtassa az
 
 Az Azure Stack hub SQL erőforrás-szolgáltató ezen verziója a következő javításokat és javításokat tartalmazza:
 
-- **Frissítse az alapszintű virtuális gépet egy speciális Windows-kiszolgálóra.** Ez a Windows Server-verzió a Azure Stack hub Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren. Győződjön meg arról, hogy a **Microsoft AzureStack Add-On RP Windows Server csak belső** lemezképet tölti le, mielőtt telepítené vagy FRISSÍTENÉ az SQL erőforrás-szolgáltató ezen verzióját.
+- **Frissítse az alapszintű virtuális gépet egy speciális Windows-kiszolgálóra.** Ez a Windows Server-verzió a Azure Stack hub Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren. Győződjön meg arról, hogy a **Microsoft AzureStack Add-On RP Windows Server** -lemezképet az SQL Resource Provider ezen verziójának telepítése vagy frissítése előtt tölti le.
 - **Az árva adatbázis metaadatainak és az üzemeltetési kiszolgáló metaadatainak eltávolításának támogatása.** Ha egy üzemeltetési kiszolgáló már nem csatlakoztatható, a bérlő el fogja távolítani az árva adatbázis-metaadatokat a portálról. Ha az üzemeltetési kiszolgálóhoz nem kapcsolódik árva adatbázis-metaadatok, az operátor el tudja távolítani az árva üzemeltetési kiszolgáló metaadatait a felügyeleti portálról.
 - **A titkok rotációjának végrehajtásakor nem kötelező argumentumot KeyVaultPfxPassword.** További részletekért olvassa el [ezt a dokumentumot](azure-stack-sql-resource-provider-maintain.md#secrets-rotation) .
 - **További hibajavítások.**
 
-Azt javasoljuk, hogy az SQL Resource Provider 1.1.93.0 az Azure Stack hub 2005-es kiadásra való frissítése után alkalmazza.
+Azt javasoljuk, hogy az SQL Resource Provider 1.1.93.1 Az Azure Stack hub 2005-es kiadásra való frissítése után alkalmazza.
 
-## <a name="known-issues"></a>Ismert problémák
-Nincsenek.
+## <a name="known-issue"></a>Ismert probléma
+A 1.1.93.0 verziójának telepítése sikertelen lehet, ha nem megfelelő AzureRmContext van használatban. Javasoljuk, hogy közvetlenül a 1.1.93.1 verzióra frissítsen. Ha már sikeresen frissített a 1.1.93.0-ra, nyugodtan kihagyhatja a 1.1.93.1 verzióját.
 
 ## <a name="next-steps"></a>További lépések
 

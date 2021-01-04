@@ -6,14 +6,14 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.lastreviewed: 11/16/2020
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 54e3064a472803a9957f082c5729e84861e33b12
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bd66c181aaafafeb34a2da1e56c4ab01ce27b9f1
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517956"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697707"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -471,7 +471,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 
 Most, hogy megadta az alkalmazás identitását, és engedélyezte azt az erőforrás-hozzáféréshez, engedélyezheti a parancsfájlt vagy a kódot a bejelentkezéshez és a Azure Stack hub-erőforrások biztonságos eléréséhez.  
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)  
 [Azure Active Directory dokumentáció](/azure/active-directory)  

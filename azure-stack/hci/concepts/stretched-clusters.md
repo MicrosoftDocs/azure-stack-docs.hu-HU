@@ -3,15 +3,15 @@ title: A kiterjesztett fürtök áttekintése
 description: További információ a kifeszített fürtökről
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 12/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 13ec96862c6aaf494c96f9e3cb3ff6312bc9ab97
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 2a09d459a44171a864729fd4163197de35995f2e
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96611623"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737929"
 ---
 # <a name="stretched-clusters-overview"></a>A kiterjesztett fürtök áttekintése
 
@@ -25,7 +25,7 @@ A Storage-replika a szinkron és aszinkron replikációt is támogatja:
 - Az aszinkrón replikáció nagyvárosi tartományokon kívüli telephelyek között végez adattürközést magasabb késleltetésű hálózati kapcsolatokon, de nem garantálja, hogy meghibásodás esetén minkét telephely az adatok azonos példányával rendelkezik.
 
 >[!NOTE]
-> Az aszinkron replikáció manuális feladatátvételt tesz lehetővé, és megköveteli, hogy online állapotba kerüljön. További információ: [aszinkron replikáció](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
+> Az aszinkron replikációhoz a feladatátvétel után manuálisan kell a másik helyhez adni a célként megadott köteteket. További információ: [aszinkron replikáció](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
 
 Kétféle kiterjesztett fürt, aktív-passzív és aktív – aktív. Beállíthatja az aktív-passzív helyek replikálását, ahol a replikáció elsődleges helye és iránya. Aktív-aktív replikáció: a replikáció kétirányú lehet mindkét helyről. Ez a cikk csak az aktív/passzív konfigurációt ismerteti.
 
@@ -51,6 +51,7 @@ A következő ábrán az 1. és a 2. hely aktív helyként jelenik meg, kétirá
 ## <a name="next-steps"></a>További lépések
 
 - További információ a Storage-replikáról. Lásd: a [Storage-replika áttekintése](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview).
+- További információ a Storage-replika használatáról. Lásd: [Hyper-V feladatátvevő fürt vagy fájlkiszolgáló konfigurálása általános célú fürthöz](https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
 - További információ a kifeszített fürtökhöz kapcsolódó hardverekről és egyéb követelményekről. Lásd: [rendszerkövetelmények](system-requirements.md).
 - Megtudhatja, hogyan helyezhet üzembe egy kiterjesztett fürtöt a Windows felügyeleti központban. Lásd: [fürtök létrehozása a Windows felügyeleti központtal](../deploy/create-cluster.md).
 - Megtudhatja, hogyan helyezhet üzembe egy kiterjesztett fürtöt a PowerShell használatával. Lásd: [fürt létrehozása a PowerShell használatával](../deploy/create-cluster-powershell.md).

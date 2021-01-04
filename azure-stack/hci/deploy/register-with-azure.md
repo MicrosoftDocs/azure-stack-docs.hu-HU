@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/16/2020
-ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 12/28/2020
+ms.openlocfilehash: de2ad8fecc2d79e8c8ff56e3a53a0769698a6fc1
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620636"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801963"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
@@ -21,7 +21,11 @@ ms.locfileid: "97620636"
 Azure Stack HCI-t Azure-szolgáltatásként szállítjuk, és az Azure Online Services használati feltételeinek megfelelően regisztrálni kell a telepítést követő 30 napon belül. Ez a témakör azt ismerteti, hogyan regisztrálhat a Azure Stack HCI-fürtöt az [Azure arc](https://azure.microsoft.com/services/azure-arc/) használatával figyelésre, támogatásra, számlázásra és hibrid szolgáltatásokra. A regisztráció során egy Azure Resource Manager erőforrás jön létre, amely az egyes helyszíni Azure Stack HCI-fürtöket jelöli, és hatékonyan kiterjeszti az Azure felügyeleti síkot Azure Stack HCI-re. A rendszer rendszeres időközönként szinkronizálja az adatokat az Azure-erőforrás és a helyszíni fürt (ek) között.
 
    > [!IMPORTANT]
-   > Az Azure-ban való regisztrálásra van szükség. Amíg a fürt regisztrálva van az Azure-ban, a Azure Stack HCI operációs rendszer érvénytelen licenccel rendelkezik, nem támogatott, és kevesebb funkciója van (például nem tud virtuális gépeket létrehozni).
+   > Az Azure-ban való regisztrálás kötelező, és a fürt nem teljes mértékben támogatott, amíg a regisztráció nem aktív. Ha az üzembe helyezést követő 30 napon belül nem regisztrálja a fürtöt az Azure-ban, vagy ha a fürt regisztrálva van, de 30 napnál nem kapcsolódik az Azure-hoz, a rendszer nem engedélyezi az új virtuális gépek (VM-EK) létrehozását vagy hozzáadását. Ebben az esetben a következő hibaüzenet jelenik meg, amikor virtuális gépeket próbál létrehozni:
+   >
+   > *Nem sikerült konfigurálni a virtuális gépi szerepkört a következőhöz: "vmname". A feladatot nem sikerült végrehajtani. Hiba történt a (z) vmname fürtözött szerepkörök megnyitásakor. Az elérni kívánt szolgáltatás adott számú kapcsolatra van licenccel. Jelenleg nem hozhatók létre több kapcsolat a szolgáltatással, mert már annyi kapcsolat van, amennyit a szolgáltatás elfogad.*
+   >
+   > A megoldás az, hogy engedélyezze a kimenő kapcsolatot az Azure-ban, és ellenőrizze, hogy a fürt regisztrálva van-e a témakörben leírtak szerint.
 
 ## <a name="prerequisites-for-registration"></a>Regisztráció előfeltételei
 

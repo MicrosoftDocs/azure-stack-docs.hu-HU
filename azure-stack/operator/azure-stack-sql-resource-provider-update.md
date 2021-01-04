@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 37f80bbbc753a988b91987c96bd4c0d765529804
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 970268d952f1dd391343cfb970b3d04d3c23de59
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011161"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737963"
 ---
 # <a name="update-the-sql-resource-provider"></a>Az SQL típusú erőforrás-szolgáltató frissítése
 
@@ -24,7 +24,7 @@ Az új SQL-erőforrás-szolgáltató akkor szabadítható fel, ha Azure Stack hu
 
 |Támogatott Azure Stack hub-verzió|Az SQL RP verziója|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
-  |2008, 2005|[Az SQL RP verziója 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2008, 2005|[Az SQL RP verziója 1.1.93.1](https://aka.ms/azshsqlrp11931)|Microsoft AzureStack-bővítmény RP Windows Server
   |2005, 2002, 1910|[Az SQL RP verziója 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[Az SQL RP verziója 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -63,7 +63,7 @@ A következő paramétereket adhatja meg a parancssorból a **UpdateSQLProvider.
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** |Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | Nem |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást. | Nem |
 | **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 
 ## <a name="update-script-powershell-example"></a>Parancsfájl PowerShell-példa frissítése
@@ -136,6 +136,6 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 Az erőforrás-szolgáltató frissítési parancsfájljának befejeződése után zárd be a jelenlegi PowerShell-munkamenetet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az SQL-erőforrás szolgáltatójának karbantartása](azure-stack-sql-resource-provider-maintain.md)

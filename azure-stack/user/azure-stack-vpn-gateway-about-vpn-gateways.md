@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813727"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802014"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>VPN-átjárók létrehozása Azure Stack hubhoz
 
@@ -74,7 +74,7 @@ A *többhelyes* kapcsolat a helyek közötti kapcsolat egy változata. A virtuá
 
 ![Azure VPN Gateway többhelyes kapcsolat – példa](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
-## <a name="gateway-skus"></a>Gateway termékváltozatok
+## <a name="gateway-skus"></a>Átjáró-termékváltozatok
 
 Azure Stack hub virtuális hálózati átjárójának létrehozásakor meg kell adnia a használni kívánt átjáró-SKU-t. A következő VPN Gateway SKU-ket támogatja:
 
@@ -100,19 +100,19 @@ A magas rendelkezésre állási forgatókönyvek csak a **nagy teljesítményű 
 
 Az Azure Stack központban három több-bérlős átjáró-infrastruktúra található. Két virtuális gép aktív üzemmódban van, a harmadik pedig redundáns módban van. Az aktív virtuális gépek lehetővé teszik a VPN-kapcsolatok létrehozását, és a redundáns virtuális gép csak akkor fogadja a VPN-kapcsolatokat, ha feladatátvétel történik. Ha egy aktív átjárót használó virtuális gép elérhetetlenné válik, a VPN-kapcsolat a kapcsolat elvesztése után rövid idő (néhány másodperc) elteltével átadja a virtuális gép feladatátvételét.
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>A termékváltozat becsült összesített átviteli sebessége
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>Becsült aggregált bújtatási teljesítmény SKU szerint
 
-A következő táblázat az átjárók típusát és az átjáró SKU által becsült összesített átviteli sebességet mutatja:
+A következő táblázat az átjárók típusait és az egyes alagutak/kapcsolatok becsült összesített átviteli sebességét mutatja az átjáró SKU szerint:
 
-|| VPN Gateway teljesítménye (1) | VPN Gateway IPsec-alagútjainak maximális száma (2) |
+|| Alagút átviteli sebessége (1) | VPN Gateway IPsec-alagútjainak maximális száma (2) |
 |-------|-------|-------|
 |**Alapszintű SKU** **(3)** | 100 Mbps | 20 |
 |**Standard termékváltozat** | 100 Mbps | 20 |
-|**Nagy teljesítményű termékváltozat** | 200 Mbps | 10 |
+|**Nagy teljesítményű termékváltozat** | 200 Mbit/s | 10 |
 
 ### <a name="table-notes"></a>Tábla megjegyzései
 
-**(1)** – a VPN-átviteli sebesség nem garantált átviteli sebesség az interneten keresztül létesített létesítmények közötti kapcsolatokhoz. Ez a maximális mérhető teljesítmény.  
+**(1)** – az alagút átviteli sebessége nem garantált átviteli sebesség az interneten keresztül létesített létesítmények közötti kapcsolatokhoz. Ez a maximális mérhető teljesítmény.  
 **(2)** – a maximális alagutak az összes előfizetésre vonatkozóan Azure stack központilag üzemelő példányok száma.  
 **(3)** – a BGP-útválasztás nem támogatott az alapszintű SKU esetében.
 

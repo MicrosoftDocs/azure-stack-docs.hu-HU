@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: bd1798ddfcf0897eeaedaeaae0cfb02eac1aaa1e
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/22/2020
+ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365139"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737810"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>Azure Stack HCI összehasonlítása Azure Stack hub és a Windows Server között
 
@@ -41,7 +41,7 @@ A Windows Server és a Azure Stack HCI is ugyanazt a kiváló minőségű felhas
 
 | Windows Server | Azure Stack HCI |
 | --------------- | --------------- |
-| A Windows Server a helyszínen vagy a felhőben is futtatható, de önmagában nem teljes hiperkonvergens ajánlat.| A Azure Stack HCI használatával helyszíni virtuális gépeket futtathat, opcionálisan két hely között, valamint az Azure Hybrid Serviceshez való csatlakozással. Az adatközpontok és fiókirodák korszerűsítésének és biztonságossá tételének egyszerű módja, az iparág legjobb teljesítménye a SQL Server adatbázisok számára, és a virtuális asztalok helyi futtatása az alacsony késés és az adatszuverenitás érdekében|
+| A Windows Server a helyszínen vagy a felhőben is futtatható, de a legújabb hiperkonvergens funkciók nem lesznek elérhetők.| Azure Stack HCI a Microsoft Premier hiperkonvergens infrastruktúra-platformja a helyszíni virtuális gépek futtatásához, opcionálisan két hely között, valamint az Azure Hybrid Serviceshez való csatlakozással. Az adatközpontok és fiókirodák korszerűsítésének és biztonságossá tételének egyszerű módja, az iparág legjobb teljesítményének elérése SQL Server adatbázisokhoz, valamint virtuális gépek vagy virtuális asztalok futtatása a helyszínen az alacsony késés és az adatszuverenitás érdekében.|
 | A Windows Server egy nagyszerű, többcélú "svájci bicska" az összes Windows Server-szerepkörhöz, virtualizálva vagy nem. | A Azure Stack HCI használatával virtualizálhatja a klasszikus vállalati alkalmazásokat, például az Exchange-et, a SharePointot és a SQL Servert, és virtualizálhatja a Windows Server-szerepköröket, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD. Korlátlan hozzáférést biztosít minden olyan Hyper-V-szolgáltatáshoz, mint például a védett virtuális gépek.|
 | Számos Windows Server-példány fut az öregedési hardveren. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. Alkalmazások futtatása Windows vagy Linux rendszerű virtuális gépeken belül.|
 
@@ -70,6 +70,6 @@ A szervezet digitális átalakításának köszönhetően a nyilvános Cloud Ser
 | Azure Stack hub korlátozza a Hyper-V konfigurálását és az Azure-hoz való konzisztencia-szolgáltatást. | Használjon Azure Stack HCI-t a klasszikus vállalati alkalmazások, például az Exchange, a SharePoint és a SQL Server, valamint a Windows Server-szerepkörök, például a fájlkiszolgáló, a DNS, a DHCP, az IIS és az AD virtualizálása érdekében. Korlátlan hozzáférés az összes Hyper-V-szolgáltatáshoz, például a védett virtuális gépekhez.|
 | Azure Stack hub nem teszi elérhetővé ezeket az infrastrukturális technológiákat. | A Azure Stack HCI használatával szoftveresen definiált infrastruktúrát használhat az öregedő tárolási tömbök vagy hálózati berendezések helyett, jelentős Újraépítés nélkül. A beépített Hyper-V, Közvetlen tárolóhelyek és Software-Defined hálózatkezelés (SDN) közvetlenül elérhető és kezelhető. |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Mi az Azure Stack HCI?](../overview.md)

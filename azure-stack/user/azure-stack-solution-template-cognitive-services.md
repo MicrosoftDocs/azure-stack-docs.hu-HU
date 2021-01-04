@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
-ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
+ms.openlocfilehash: 4dc6ad30d54b61e05f54be4a4f1301472794db60
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952406"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697688"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Az Azure Cognitive Services üzembe helyezése Azure Stack hubhoz
 
@@ -23,10 +23,11 @@ A tárolókra bontás olyan szoftverterjesztési módszer, amelyben egy alkalmaz
 A tárolók támogatása jelenleg az Azure Cognitive Services egy részhalmaza számára érhető el:
 
 - **Speech**
+    - Beszéd – szöveg (standard)
+    - Beszéd – szöveg (egyéni)
     - Szöveg – beszéd (standard)
-    - Szöveg – beszéd (egyéni)
-    - Szöveg – beszéd (standard)
-- **Language**
+    - Szöveg – beszéd (neurális)
+- **Nyelv**
     - Hangfelismerés
     - Text Analytics (hangulat elemzése)
 - **Döntés**
@@ -35,19 +36,19 @@ A tárolók támogatása jelenleg az Azure Cognitive Services egy részhalmaza s
 
 > [!IMPORTANT]
 > A Azure Stack hub-hoz készült Azure Cognitive Services egy részhalmaza jelenleg nyilvános előzetes verzióban érhető el.
-> A felülvizsgálati verziót szolgáltatói szerződés nélkül biztosítjuk, és éles számítási feladatokhoz nem ajánlott. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: a [Microsoft Azure előzetes verziójának kiegészítő használati feltételei](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A felülvizsgálati verziót szolgáltatói szerződés nélkül biztosítjuk, és éles számítási feladatokhoz nem ajánlott. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A tárolók támogatása jelenleg nyilvános előzetes verzióban érhető el az Azure Cognitive Services egy részhalmaza számára:
 
 - **Számítógép jövőképe**
     - Olvasási 3,0, olvasás 3,1
     - Térbeli elemzés (új)
-- **Language**
+- **Nyelv**
     - Kulcskifejezések kinyerése
     - Nyelvfelismerés
     - Szöveges elemzés az állapothoz
 - **Speech**
-    - Beszédfelismerés nyelvének észlelése
+    - Beszéd nyelvének felismerése
     - Neurális TTS
     - Szöveg – beszéd (egyéni)
 

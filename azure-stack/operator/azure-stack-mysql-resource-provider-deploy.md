@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778155"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737834"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -35,13 +35,13 @@ Az Azure Stack hub MySQL erőforrás-szolgáltató üzembe helyezése előtt tö
 
 - Adja hozzá a szükséges Windows Server-alapú virtuális gépet Azure Stack hub Marketplace-hez.
   - A MySQL RP <= 1.1.47.0 esetében töltse le a **Windows server 2016 Datacenter – Server Core** rendszerképet.
-  - A MySQL RP >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack Add-On RP Windows Server csak belső** rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
+  - A MySQL RP >= 1.1.93.0 esetében töltse le a **Microsoft AzureStack Add-On RP Windows Server** -rendszerképet. Ez a Windows Server-verzió a Azure Stack Add-On RP-infrastruktúrára specializálódott, és nem látható a bérlői piactéren.
 
 - Töltse le a MySQL erőforrás-szolgáltató bináris verziója támogatott verzióját az alábbi verzió-hozzárendelési táblázat szerint. Futtassa az önálló kivonót a letöltött tartalmak ideiglenes könyvtárba való kinyeréséhez. 
 
   |Támogatott Azure Stack hub-verzió|MySQL RP-verzió|Az a Windows Server, amelyre az RP szolgáltatás fut
   |-----|-----|-----|
-  |2008, 2005|[MySQL RP-verzió 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack-bővítmény csak belső Windows Server-kiszolgálón
+  |2008, 2005|[MySQL RP-verzió 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack-bővítmény RP Windows Server
   |2005, 2002, 1910|[MySQL RP-verzió 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – Server Core|
   |1908|[MySQL RP-verzió 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – Server Core|
   |     |     |     |
@@ -147,7 +147,7 @@ Ezeket a paramétereket megadhatja a parancssorból. Ha nem, vagy ha valamelyik 
 | **DefaultSSLCertificatePassword** | A. pfx-tanúsítvány jelszava. | _Kötelező_ |
 | **MaxRetryCount** | Az egyes műveletek újrapróbálkozási időpontjának száma, ha hiba történt.| 2 |
 | **RetryDuration** | Az újrapróbálkozások közötti időtúllépési időköz (másodpercben). | 120 |
-| **Eltávolítás** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
+| **Eltávolítása** | Eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást (lásd a következő megjegyzéseket). | Nem |
 | **DebugMode** | Megakadályozza a hibák automatikus törlését. | Nem |
 | **AcceptLicense** | Kihagyja a kérést, hogy elfogadja a GPL-licencet.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 

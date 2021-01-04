@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546803"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801946"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
@@ -39,17 +39,17 @@ Virtuális hálózati átjáró létrehozásakor meg kell adnia a használni kí
 
 Azure Stack hub a következő táblázatban látható VPN Gateway SKU-ket kínálja:
 
-| | VPN Gateway átviteli sebesség |VPN-átjáró maximális IPsec-alagutak |
+| | Alagút átviteli sebessége |VPN-átjáró maximális IPsec-alagutak |
 |-------|-------|-------|
-|**Alapszintű termékváltozat**  | 100 Mbit/s    | 20    |
-|**Standard termékváltozat**   | 100 Mbit/s  | 20 |
+|**Alapszintű termékváltozat**  | 100 Mbps    | 20    |
+|**Standard termékváltozat**   | 100 Mbps  | 20 |
 |**Nagy teljesítményű termékváltozat** | 200 Mbit/s | 10 |
 
 ### <a name="resizing-gateway-skus"></a>Az átjárók termékváltozatainak átméretezése
 
 Az Azure Stack hub nem támogatja az SKU-nak a támogatott örökölt SKU-ból való átméretezését.
 
-Hasonlóképpen, Azure Stack hub nem támogatja az átméretezést egy támogatott örökölt SKU-ból ( **Alapszintű** , **standard** és **HighPerformance** ) az Azure által támogatott újabb SKU-ra ( **VpnGw1** , **VpnGw2** és **VpnGw3** ).
+Hasonlóképpen, Azure Stack hub nem támogatja az átméretezést egy támogatott örökölt SKU-ból (**Alapszintű**, **standard** és **HighPerformance**) az Azure által támogatott újabb SKU-ra (**VpnGw1**, **VpnGw2** és **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Az átjáró SKU konfigurálása
 
@@ -88,12 +88,12 @@ Amikor létrehoz egy VPN Gateway-konfigurációhoz tartozó virtuális hálózat
 >
 > Emellett az Azure Stack hub jelenleg nem támogatja a házirend-alapú forgalmi választókat az útvonal-alapú átjárók esetében, mert az egyéni IPSec/IKE-házirend konfigurációja nem támogatott.
 
-* **Házirendalapú** : a házirend-alapú VPN-ek az IPSec-alagutakon keresztül titkosítják és irányítják a csomagokat a helyszíni hálózat és az Azure stack hub VNet közötti címtartomány-kombinációkkal konfigurált IPSec-házirendek alapján. A házirend vagy a forgalmi választó általában egy hozzáférési lista a VPN-eszköz konfigurációjában.
+* **Házirendalapú**: a házirend-alapú VPN-ek az IPSec-alagutakon keresztül titkosítják és irányítják a csomagokat a helyszíni hálózat és az Azure stack hub VNet közötti címtartomány-kombinációkkal konfigurált IPSec-házirendek alapján. A házirend vagy a forgalmi választó általában egy hozzáférési lista a VPN-eszköz konfigurációjában.
 
   >[!NOTE]
   >A **házirendalapú** az Azure-ban, de nem Azure stack központban támogatott.
 
-* **Útvonalalapú** : az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják a csomagok megfelelő bújtatási interfészekhez való közvetlen küldéséhez. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
+* **Útvonalalapú**: az Útválasztás-alapú VPN-ek az IP-továbbítás vagy az útválasztási táblázatban konfigurált útvonalakat használják a csomagok megfelelő bújtatási interfészekhez való közvetlen küldéséhez. Az alagútkapcsolatok ezután titkosítják vagy visszafejtik az alagutakba bemenő vagy onnan kijövő csomagokat. A **útvonalalapú** VPN-EK házirendje vagy forgalmi választója bármilyen módon van konfigurálva (vagy használjon helyettesítő kártyát). Alapértelmezés szerint nem módosíthatók. A **útvonalalapú** VPN-típus értéke **útvonalalapú**.
 
 A következő PowerShell-példa az `-VpnType` as **útvonalalapú** adja meg. Amikor létrehoz egy átjárót, meg kell győződnie arról, hogy a `-VpnType` megfelelő a konfigurációhoz.
 
@@ -156,7 +156,7 @@ Ha Azure Stack hub VPN-kapcsolatát állítja be, mindkét végponton konfigurá
 Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként és válaszadóként, Azure Stack hub alapértelmezés szerint csak egy ajánlatot támogat. Ha más IPSec/IKE-beállításokat kell használnia a VPN-eszköz használatához, több beállítás is elérhető a kapcsolat manuális konfigurálásához. További információ: [IPSec/IKE-szabályzat konfigurálása helyek közötti VPN-kapcsolatokhoz](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> A S2S-alagút használatakor a csomagok tovább vannak ágyazva további fejlécekkel, ami növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350** -es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen lévő **MTU** -t **1400** bájtra is állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> A S2S-alagút használatakor a csomagok tovább vannak ágyazva további fejlécekkel, ami növeli a csomag teljes méretét. Ezekben a forgatókönyvekben a TCP **MSS** -t a **1350**-es verzióban kell megfogni. Ha a VPN-eszközök nem támogatják a MSS-befogást, akkor a bújtatási felületen lévő **MTU** -t **1400** bájtra is állíthatja. További információ: a virtuális [hálózat tcpip-es teljesítményének finomhangolása](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Az IKE 1. fázis (Elsődleges mód) paraméterei
@@ -188,10 +188,10 @@ Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként
 >|-|-|
 >|Diffie-Hellman Group   | DHGroup2 |
 >|Kivonatoló algoritmusok | SHA256 |
->|Sérülés utáni titkosságvédelem (PFS) | Nincsenek |
+>|Sérülés utáni titkosságvédelem (PFS) | None |
 
 \* Új vagy módosított paraméter.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Csatlakozás ExpressRoute használatával](../operator/azure-stack-connect-expressroute.md)

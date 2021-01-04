@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: 1d31bc40c77b68f43d48def1d4ce874dd69160b1
-ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
+ms.openlocfilehash: 3a9852cfa650df8d533b40508ceaf74b747e5c69
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96579719"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794175"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -105,10 +105,10 @@ Ha a telepítés sikeres, a AureRM és a AzureStack modulok megjelennek a kimene
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
   
   Save-Package `
-    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
   ```
 
   Ezután másolja a letöltött csomagokat a ASDK számítógépre, és regisztrálja a helyet az alapértelmezett tárházként, és telepítse a AzureRM és a AzureStack modult ebből a tárházból:

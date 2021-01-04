@@ -2,17 +2,17 @@
 title: IPsec/IKE-helyek közötti VPN-kapcsolatok konfigurálása Azure Stack hub-ban
 description: 'További információk: az IPsec/IKE-szabályzat konfigurálása a helyek közötti VPN-vagy VNet-VNet kapcsolatokhoz Azure Stack központban.'
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518245"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697638"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -69,7 +69,7 @@ Az ebben a cikkben szereplő utasítások segítséget nyújtanak az IPsec/IKE-s
 
 A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub által konfigurálható fő erősségeket:
 
-| IPsec/IKEv2                                          | Beállítások                                                                  |
+| IPsec/IKEv2                                          | Lehetőségek                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
@@ -472,6 +472,6 @@ Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távolítva a kapcsolatban.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Az Azure Stack Hub VPN Gateway-konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

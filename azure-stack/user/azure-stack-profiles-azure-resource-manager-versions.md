@@ -2,18 +2,18 @@
 title: Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 description: Ismerkedjen meg az Azure Stack hub-profilok által támogatott Azure Resource Manager API-verziókkal.
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5b558eb0abb0494cb75f2509e51f291b08bd29ef
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 31916f9f68f69785eb1e6e16cd9abd3ca8bf84f8
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525540"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697675"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Az Azure Stack hub profiljai által támogatott erőforrás-szolgáltatói API-verziók
 
@@ -159,14 +159,14 @@ Azure Resource Manager lehetővé teszi az Azure-megoldások infrastruktúrájá
 
 | Erőforrástípusok | API-verziók |
 |-----------------------------------------|-------------------|
-| Üzemelő példányok | 2018-05-01 |
+| Központi telepítés | 2018-05-01 |
 | Üzembe helyezések/műveletek | 2018-05-01 |
 | Hivatkozások | 2018-05-01 |
 | Helyek | 2018-05-01 |
 | Üzemeltetés | 2018-05-01 |
 | Szolgáltatók | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
-| Források | 2018-05-01 |
+| További források | 2018-05-01 |
 | Előfizetések | 2018-05-01 |
 | Előfizetések/helyszínek | 2016-06-01 |
 | Előfizetések/operationresults | 2018-05-01 |
