@@ -3,7 +3,7 @@ title: Azure Stack hub robusztus helyének felkészültsége Azure Stack hub ese
 description: Megtudhatja, hogy a hely készültségi előírásai egy Azure Stack hub számára robusztusak.
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -15,12 +15,12 @@ ms.date: 10/14/2020
 ms.author: wamota
 ms.reviewer: wamota
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 02e549d4cae9dc0c543d4a21c48e972231257ced
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 5a9eb7c73a30268eb4e53855e9ce277517019e4a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939968"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874302"
 ---
 # <a name="azure-stack-hub-ruggedized-site-readiness"></a>Azure Stack hub strapabíró helyének készültsége
 

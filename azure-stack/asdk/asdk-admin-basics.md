@@ -1,18 +1,18 @@
 ---
 title: ASDK-adminisztrátor alapjai
 description: Ismerje meg, hogyan végezheti el az alapszintű rendszergazdai feladatokat a Azure Stack Development Kithoz (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: c320b0fa20746da3e14a3cb4af2c8fcd1a9775ea
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489827"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873639"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
@@ -53,10 +53,10 @@ A szolgáltatások biztosítása mellett gondoskodnia kell arról, hogy az Azure
 ## <a name="where-to-get-support"></a>Honnan kaphat támogatást?
 A ASDK a támogatással kapcsolatos kérdéseket a [Azure stack MSDN fórumon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)teheti meg.
 
-A fórumokat a felügyeleti portál jobb felső sarkában található **Súgó** (kérdőjel) lehetőségre kattintva is elérheti. Ezután kattintson a **Súgó + támogatás** lehetőségre a Súgó és támogatás **áttekintésének**megnyitásához, amely a fórumra mutató hivatkozással rendelkezik. Az MSDN-fórumok rendszeres figyelése.  
+A fórumokat a felügyeleti portál jobb felső sarkában található **Súgó** (kérdőjel) lehetőségre kattintva is elérheti. Ezután kattintson a **Súgó + támogatás** lehetőségre a Súgó és támogatás **áttekintésének** megnyitásához, amely a fórumra mutató hivatkozással rendelkezik. Az MSDN-fórumok rendszeres figyelése.  
 
 > [!IMPORTANT]
 > Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [A ASDK üzembe helyezése](asdk-install.md)

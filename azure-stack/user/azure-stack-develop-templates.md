@@ -3,16 +3,16 @@ title: Sablonok fejlesztése Azure Stack hubhoz
 description: Ismerje meg, hogyan fejleszthet Azure Resource Manager-sablonokat az Azure és az Azure Stack hub közötti alkalmazás-hordozhatósághoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 2d449adc59be9051188c1d942ae54d6a0761d28e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146750"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874217"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
 
@@ -76,7 +76,7 @@ Azure Resource Manager-sablonok egy `location` attribútum használatával helye
 ]
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
 * [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)

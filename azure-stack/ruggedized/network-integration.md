@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub robusztus hálózati integrációja
 description: Ismerkedjen meg Azure Stack hálózati integrációval a Azure Stack hub robusztus eszközhöz.
-author: justinha
-ms.author: justinha
+author: PatAltimore
+ms.author: patricka
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 91f21fd139e2816e764f5d4a1dc3fc7602b8fecb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: fb2fce649ecdda418c899b94a34d435a2050a73f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940102"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874438"
 ---
 # <a name="azure-stack-hub-ruggedized-network-integration"></a>Azure Stack hub robusztus hálózati integrációja 
 

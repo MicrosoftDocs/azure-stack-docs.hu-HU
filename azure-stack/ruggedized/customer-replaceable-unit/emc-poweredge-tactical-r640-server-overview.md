@@ -1,18 +1,18 @@
 ---
 title: EMC PowerEdge Tactical R640 Server – áttekintés
 description: Tudnivalók az EMC PowerEdge Tactical R640 Serverről
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d1f0e141c4ca4966aab9735064287121718dee87
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d035d82d8b41f9997a3632ee93d801469251d807
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391196"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874727"
 ---
 # <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>A Dell EMC PowerEdge Tactical R640 Server áttekintése
 

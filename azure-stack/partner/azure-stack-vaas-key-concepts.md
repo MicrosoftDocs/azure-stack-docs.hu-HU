@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg Azure Stack hub ellenőrzésének főbb fogalmait szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9525f1f6286f5621832db5b20b3593fde6bf3546
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 7419cbe82e6bcd2eb79af486daf30975f6c8cdd0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112101"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874659"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Érvényesítés szolgáltatási kulcs fogalmai szerint
 
@@ -27,7 +27,7 @@ Az alapszolgáltatási megoldás egy adott hardveres anyagjegyzék (AJ) Azure St
 ### <a name="create-a-solution-in-the-azure-stack-hub-validation-portal"></a>Megoldás létrehozása az Azure Stack hub ellenőrzési portálján
 
 1. Jelentkezzen be az [Azure stack hub ellenőrzési portálján](https://azurestackvalidation.com).
-2. A megoldások irányítópulton válassza az **új megoldás**lehetőséget.
+2. A megoldások irányítópulton válassza az **új megoldás** lehetőséget.
 3. Adja meg a megoldás nevét. A névadási javaslatokért lásd: az alaprendszerek [elnevezési konvenciója](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. A megoldás létrehozásához válassza a **Mentés** lehetőséget.
 
@@ -76,6 +76,6 @@ A helyi ügynökök nem kötődnek egy adott Azure Stack hub-vagy az alaprendsze
 
 Helyi ügynök hozzáadásával kapcsolatos utasításokért lásd: [a helyi ügynök üzembe helyezése](azure-stack-vaas-local-agent.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Ajánlott eljárások szolgáltatásként történő érvényesítéshez](azure-stack-vaas-best-practice.md)

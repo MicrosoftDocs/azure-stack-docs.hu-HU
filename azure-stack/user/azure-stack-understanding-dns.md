@@ -1,18 +1,18 @@
 ---
 title: IDNS használata Azure Stack központban
 description: Megtudhatja, hogyan használhatja a iDNS szolgáltatásait és képességeit Azure Stack hub-ban.
-author: Justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: Justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8860553f9b35b5a17d07edeb867ea5bad4c3fefa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566532"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873792"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>IDNS használata Azure Stack központban 
 
@@ -36,7 +36,7 @@ Az Azure-ban lehetősége van egy nyilvános IP-címhez társított DNS-név cí
 
 ![DNS-név címkéje – példa](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
-Ahogy az előző képen is látható, az Azure létrehoz egy "A" rekordot a DNS-ben a zóna **westus.cloudapp.Azure.com**megadott DNS-név címkéjén. Az előtag és az utótag össze van egyesítve egy [teljes tartománynevet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN), amely a nyilvános internetről bárhonnan oldható fel.
+Ahogy az előző képen is látható, az Azure létrehoz egy "A" rekordot a DNS-ben a zóna **westus.cloudapp.Azure.com** megadott DNS-név címkéjén. Az előtag és az utótag össze van egyesítve egy [teljes tartománynevet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN), amely a nyilvános internetről bárhonnan oldható fel.
 
 Azure Stack hub csak a belső nevek regisztrálására szolgáló iDNS-t támogatja, így a következő dolgok nem hajthatók végre:
 
@@ -180,6 +180,6 @@ Röviden, a fentiek közül a következőt láthatja:
  
 Ahogy a labor eredményei közül láthatja, megadhatja, hogy milyen IP-címet használ. Ha a virtuális gép nevét használja, akkor megkapja a magánhálózati IP-címet, és ha a DNS-címkét használja, akkor a nyilvános IP-címet kapja meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [DNS használata Azure Stack központban](azure-stack-dns.md)

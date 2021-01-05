@@ -3,16 +3,16 @@ title: N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas
 description: Ismerje meg, hogyan futtathat egy N szintű alkalmazást több Azure Stack hub-régióban a magas rendelkezésre állás érdekében.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572375"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873741"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 
@@ -169,6 +169,6 @@ Tesztelje a rendszer meghibásodásokkal szembeni rugalmasságát. Alább talál
 
 Mérje meg a helyreállítási időtartamokat, és győződjön meg róla, hogy azok megfelelnek az üzleti követelményeinek. Több hibaállapot kombinációját is tesztelje.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

@@ -2,18 +2,18 @@
 title: Azure Stack hub adminisztrációs alapjai
 titleSuffix: Azure Stack Hub
 description: Ismerkedjen meg Azure Stack hub felügyeletének alapjaival.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: afbfbf5c1fe7149b4d12f1cd96af79b1116e4a3a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6d278ba17965e78c2be875d048ed5cc12ba31f25
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939936"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874336"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -49,7 +49,7 @@ A következő kiegészítő szolgáltatásként nyújtott platform-szolgáltatá
 - IoT Hub
 - Eseményközpont
 
-Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a **How-to guides**  >  **Offer services** [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
+Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a   >   [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
 
 ### <a name="service-roadmap"></a>Szolgáltatási ütemterv
 
@@ -111,7 +111,7 @@ Az alábbi lista az operátorok napi, heti és havi feladatait sorolja fel:
 1. Kapacitásának ellenőrzését.
 2. Futtassa `isi status –verbose` a parancsot a Avocent-kapcsolatban.
 
-# <a name="monthly"></a>[Havonta](#tab/monthly)
+# <a name="monthly"></a>[havonta](#tab/monthly)
 
 1. Havi frissítési csomagok (Microsoft & OEM) alkalmazása.
 2. A biztonsági mentés ellenőrzése a ASDK használatával.
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Területi felügyelet Azure Stack központban](../../operator/azure-stack-region-management.md)

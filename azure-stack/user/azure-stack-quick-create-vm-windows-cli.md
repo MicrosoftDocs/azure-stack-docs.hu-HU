@@ -3,15 +3,15 @@ title: Windows rendszerű virtuális gép létrehozása Azure Stack hubhoz az Az
 description: Windows rendszerű virtuális gép létrehozása Azure Stack hub-ban az Azure CLI használatával
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 81406ed38a31f07f201523b06e761165654d3333
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 157fc4e201325a6b482672373b183ceb26f14ad4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573887"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873928"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása az Azure CLI használatával Azure Stack hub-ban
 
@@ -96,6 +96,6 @@ Törölje azokat az erőforrásokat, amelyekre már nincs szüksége. Az az [Gro
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban egy alapszintű Windows Server rendszerű virtuális gépet telepített. Ha többet szeretne megtudni a Azure Stack hub virtuális gépekről, folytassa az [Azure stack hub Virtual Machinesével kapcsolatos szempontokat](azure-stack-vm-considerations.md).

@@ -1,18 +1,18 @@
 ---
 title: A ASDK telepítése a parancssorból a PowerShell használatával
 description: Megtudhatja, hogyan helyezheti üzembe a ASDK a parancssorból a PowerShell használatával.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 1d6df818c76e564423511a927ee1279cbf3f5279
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: a42149fd878a56b306104e5f200b6b3a8eaf07a3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517378"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873248"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>A ASDK telepítése a parancssorból a PowerShell használatával
 
@@ -42,7 +42,7 @@ A PowerShell használatával konfigurálja a ASDK gazdagépet a CloudBuilder. vh
 A ASDK gazdagép számítógépének beállítása a CloudBuilder. vhdx rendszerindításra:
 
   1. Nyisson meg egy parancssort rendszergazdaként.
-  2. Futtassa az `bcdedit /copy {current} /d "Azure Stack"` parancsot.
+  2. Futtassa a `bcdedit /copy {current} /d "Azure Stack"` parancsot.
   3. Másolás (CTRL + C) a visszaadott CLSID-érték, beleértve a szükséges kapcsos zárójeleket ( `{}` ). Ezt az értéket nevezik, és be kell `{CLSID}` illeszteni a (CTRL + V vagy a jobb gombbal kattintva) a hátralévő lépésekben.
   4. Futtatja a `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` parancsot.
   5. Futtatja a `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` parancsot.
@@ -156,7 +156,7 @@ Regisztrálnia kell Azure Stack az Azure-ban, hogy [le tudja tölteni az Azure M
 
 **[Az Azure Stack regisztrálása az Azure-ban](asdk-register.md)**
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 Gratulálunk! A lépések elvégzése után egy ASDK-környezettel fog rendelkezni, amely rendszergazdai `https://adminportal.local.azurestack.external` és felhasználói `https://portal.local.azurestack.external` portálokkal is rendelkezik. 
 
 [ASDK-telepítési konfigurációs feladatok közzététele](asdk-post-deploy.md)

@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 91fc5620a1dc8a592c176d3c97530d0fe00038b7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598317"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874574"
 ---
 # <a name="customer-journey"></a>Ügyfél utazása
 
@@ -48,7 +48,7 @@ A szervezet a Microsofttal együttműködve rendelést rendel a lefoglalt szám�
 Azure Stack hub-erőforrás létrehozásához hajtsa végre a következő lépéseket a Azure Portal.
 
 1. A Microsoft Azure hitelesítő adataival jelentkezzen be a Azure Portalba ezen az URL-címen: [https://portal.azure.com](https://portal.azure.com) .
-1. A bal oldali panelen válassza az **+ erőforrás létrehozása** lehetőséget. Keresse meg és válassza ki **Azure stack hub robusztus**. Válassza a **Létrehozás** lehetőséget.
+1. A bal oldali panelen válassza az **+ erőforrás létrehozása** lehetőséget. Keresse meg és válassza ki **Azure stack hub robusztus**. Kattintson a **Létrehozás** gombra.
 1. Válassza ki az Azure Stack hub-eszközhöz használni kívánt előfizetést. Válassza ki azt az országot, ahová a fizikai eszközt el szeretné szállítani. Válassza az **eszközök megjelenítése** lehetőséget.
 1. Megjelenik egy rövid űrlap. Töltse ki az űrlapot, és válassza a **Küldés** lehetőséget. A Microsoft engedélyezi az előfizetést.
 1. Az előfizetés engedélyezése után képesnek kell lennie az erőforrás-létrehozás folytatására. Az **eszköz típusának kiválasztása** panelen válassza a **kiválasztás** lehetőséget. 
@@ -75,7 +75,7 @@ Azure Stack hub-erőforrás létrehozásához hajtsa végre a következő lépé
 
 1. Válassza a **Tovább: Ellenőrzés és létrehozás** lehetőségre.
 1. A **felülvizsgálat + létrehozás** lapon tekintse át a **díjszabás részleteit**, **használati feltételek** és az erőforrás részleteit. Válassza ki az **adatvédelmi feltételeket áttekintő** kombinált listát.
-1. Válassza a **Létrehozás** lehetőséget.
+1. Kattintson a **Létrehozás** gombra.
 
 Az erőforrás létrehozása néhány percet vesz igénybe. Az erőforrás sikeres létrehozása és üzembe helyezése után értesítést kap. Válassza az **Erőforrás megnyitása** lehetőséget.
 

@@ -1,18 +1,18 @@
 ---
 title: ASDK architektúra
 description: Ismerkedjen meg a Azure Stack Development Kit (ASDK) architektúrával.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 207b99b9a3cbb6c030a6e79137d036820b3b3f60
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bd41198f2650518584b36c8346f398706e2cd78d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79294208"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873469"
 ---
 # <a name="asdk-architecture"></a>ASDK architektúra
 A Azure Stack Development Kit (ASDK) egy egycsomópontos üzemelő példány, Azure Stack egyetlen gazdagépen fut. A peremhálózati útválasztási összetevőket a rendszer a gazdagépen telepíti a NAT-és VPN-képességek biztosításához a Azure Stack számára. Azure Stack infrastruktúra-szerepkörök a fizikai gazdagép Hyper-V rétegében futnak.
@@ -21,7 +21,7 @@ A Azure Stack Development Kit (ASDK) egy egycsomópontos üzemelő példány, Az
 ## <a name="virtual-machine-roles"></a>Virtuális gépi szerepkörök
 A ASDK a következő virtuális gépeket használó szolgáltatásokat kínálja a fejlesztői csomag gazdagépén:
 
-| Name (Név) | Leírás |
+| Név | Leírás |
 | ----- | ----- |
 | **AzS – ACS01** | Azure Stack tárolási szolgáltatások.|
 | **AzS – ADFS01** | Active Directory összevonási szolgáltatások (AD FS) (ADFS).  |

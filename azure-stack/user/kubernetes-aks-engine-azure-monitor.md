@@ -3,16 +3,16 @@ title: Azure Monitor használata a tárolók számára Azure Stack központban
 description: Megtudhatja, hogyan használhatja a Azure Monitor for containers szolgáltatást Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 3535a60a7689250e88b9839a071265d8f28eb92a
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 5b175c4d2c5f8512841dca5e984c05c13ad2951d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472782"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873656"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Monitor használata a tárolók számára Azure Stack központban
 
@@ -20,7 +20,7 @@ Az [Azure monitor](/azure/azure-monitor/) for containers használatával figyelh
 
 > [!IMPORTANT]
 > A Azure Stack hub tárolók Azure Monitor jelenleg nyilvános előzetes verzióban érhető el.
-> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: a [Microsoft Azure előzetes verziójának kiegészítő használati feltételei](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik. További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A tárolók teljesítményének áttekinthető Azure Monitor azáltal, hogy a metrikák API használatával gyűjti a Kubernetes elérhető vezérlőket, csomópontokat és tárolókat a memória és a processzor metrikáinak összegyűjtésével. Emellett a szolgáltatás a tároló naplóit is gyűjti. Ezeket a naplókat a helyszíni fürt Azure-ból származó problémáinak diagnosztizálására használhatja. Miután beállította a Kubernetes-fürtök figyelését, a rendszer automatikusan összegyűjti ezeket a metrikákat és naplókat. A Azure Monitor Log Analytics Agent Linux-ügynökének egy tárolós verziója gyűjti a naplókat. Azure Monitor tárolja a log Analytics-munkaterületen elérhető metrikákat és naplókat az Azure-előfizetésében.
 
@@ -56,7 +56,7 @@ Az Azure Stack hub-fürt támogatott API-definíciói a következő példában t
        }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)  
 - További információ a [tárolók Azure monitoráról – áttekintés](/azure/azure-monitor/insights/container-insights-overview)

@@ -15,12 +15,12 @@ ms.date: 10/14/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 23e14de3afc3c29d843d7b6442c9b12890a60760
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: cec3095120a596429936bc3f85735d336d6cc134
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939928"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874591"
 ---
 # <a name="azure-stack-vm-features"></a>Virtuálisgép-funkciók Azure Stack
 
@@ -31,7 +31,7 @@ Azure Stack virtuális gépek (VM-EK) igény szerinti, méretezhető számítás
 | Szolgáltatás | Azure (globális) | Azure Stack |
 | --- | --- | --- |
 | Virtuálisgép-rendszerképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincs elérhető lemezkép a Azure Stack piactéren. A Azure Stack a felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack piactéren, mielőtt a felhasználók használni tudják őket. |
-| Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/virtual-machines-windows-sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | A Azure Stack az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |
+| Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | A Azure Stack az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |
 | Virtuális gépek kvótái | A [kvóták korlátait](/azure/azure-subscription-service-limits#service-specific-limits) a Microsoft állítja be. | A Azure Stack-felhő rendszergazdájának kvótákat kell hozzárendelnie, mielőtt a virtuális gépet felkínálják a felhasználóknak. |
 | Virtuálisgép-bővítmények |Az Azure a virtuálisgép-bővítmények széles választékát támogatja. Az elérhető bővítmények megismeréséhez tekintse meg a virtuálisgép [-bővítmények és-szolgáltatások](/azure/virtual-machines/windows/extensions-features) című cikket.| Azure Stack támogatja az Azure-ban elérhető bővítmények egy részhalmazát, és mindegyik bővítmény rendelkezik adott verzióval. A Azure Stack Cloud admin kiválaszthatja, hogy mely bővítményeket szeretné elérhetővé tenni a felhasználók számára. A támogatott bővítmények listájának megtekintéséhez tekintse meg a jelen cikk virtuálisgép- [bővítmények](#vm-extensions) című szakaszát. |
 | Virtuálisgép-hálózat | A bérlői virtuális géphez hozzárendelt nyilvános IP-címek elérhetők az interneten keresztül.<br><br><br>Az Azure-beli virtuális gépek rögzített DNS-névvel rendelkeznek. | <!-- TZLASDKFIX Public IP addresses assigned to a tenant VM are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) or [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) to connect to a VM that is created in Azure Stack.--><br><br>Az adott Azure Stack-példányon belül létrehozott virtuális gépek DNS-neve a felhőalapú rendszergazda által konfigurált érték alapján történik. |
@@ -144,6 +144,6 @@ A Windows-termékeket a termék használati jogainak és a Microsoft licencfelt�
 
 Microsoft Azure KMS-aktiválást használ a Windows rendszerű virtuális gépek aktiválásához. Ha Azure Stackról az Azure-ba helyez át egy virtuális gépet, és az aktiválási problémákba ütközik, tekintse meg az [Azure Windows virtuális gépek aktiválásával kapcsolatos problémák](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems) További információ: [Windows-aktiválási hibák elhárítása Azure-beli virtuális gépeken](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) az Azure támogatási csapatának blogbejegyzésében.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Windows rendszerű virtuális gép létrehozása a PowerShell-lel Azure Stack](../user/azure-stack-quick-create-vm-windows-powershell.md)

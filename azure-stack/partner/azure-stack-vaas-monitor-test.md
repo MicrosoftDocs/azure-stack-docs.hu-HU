@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan kezelheti a teszteket az Azure Stack hub ellenőrzési portálján.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28791e9687dead6a571097e23258fb5b6aff1200
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0d2b0625467fdc4998bee5626952c53feb4cff09
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764766"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874786"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Tesztek monitorozása és kezelése az alapkonfiguráció-portálon
 
@@ -36,7 +36,7 @@ Az Azure Stack hub-megoldásra vonatkozó tesztek ütemezése után a szolgálta
 
 A munkafolyamat létrehozása során megadott [tesztelési paramétereket](azure-stack-vaas-parameters.md#test-parameters) bármilyen típusú munkafolyamathoz módosíthatja.
 
-1. A tesztek összegzése lapon válassza a **Szerkesztés**lehetőséget.
+1. A tesztek összegzése lapon válassza a **Szerkesztés** lehetőséget.
 
 1. Adja meg az új értékeket a [Azure stack hub érvényesítéséhez szolgáltatásként használt általános munkafolyamat-paramétereknek](azure-stack-vaas-parameters.md)megfelelően.
 
@@ -73,7 +73,7 @@ Minden ütemezett tesztelési példány a következő információkat jeleníti 
 | Átadott műveletek | A teszt során sikeres műveletek száma. |
 |  Sikertelen műveletek | A teszt során meghiúsult műveletek száma. |
 
-### <a name="actions"></a>Műveletek
+### <a name="actions"></a>Actions
 
 Minden egyes tesztelési példány felsorolja az elérhető műveleteket, amelyeket a tesztelési példányok tábla helyi menüjének **[...]** kiválasztásakor végezhet el.
 
@@ -140,6 +140,6 @@ Az ütemezett teszt megszakítható, ha állapota `Pending` vagy `Running` .
 
 1. A tesztelési példány megszakításához válassza a **Küldés** lehetőséget.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)

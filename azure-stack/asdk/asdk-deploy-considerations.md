@@ -1,18 +1,18 @@
 ---
 title: A ASDK követelményei és szempontjai
 description: További információ a Azure Stack Development Kit hardver-, szoftver-és környezeti követelményeiről (ASDK).
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 09/23/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
-ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
+ms.openlocfilehash: 64b0209ad669c42b7a792498369ca0f48bfcca52
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082088"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873282"
 ---
 # <a name="asdk-requirements-and-considerations"></a>A ASDK követelményei és szempontjai
 
@@ -66,7 +66,7 @@ Kétirányú tükrözési konfiguráció használata a tárolási rugalmasság �
 
 - A HDD kapacitása nagyobb, mint két terabájt.
 - Ha nem rendelkezik SSD-vel a ASDK, legalább nyolc HDD-t kell használnia a kétirányú tükrözési konfigurációhoz.
-- Ha a ASDK SSD-k vannak, a HDD-k mellett legalább öt HDD-t kell használnia. Hat HHDs azonban ajánlott. Hat HDD esetén ajánlott legalább három megfelelő SSD-t használni a rendszeren, hogy legyen egy gyorsítótár-lemez (SSD) a két kapacitású meghajtó (HDD) kiszolgálásához.
+- Ha a ASDK SSD-k vannak, a HDD-k mellett legalább öt HDD-t kell használnia. Hat HDD használata azonban ajánlott. Hat HDD esetén ajánlott legalább három megfelelő SSD-t használni a rendszeren, hogy legyen egy gyorsítótár-lemez (SSD) a két kapacitású meghajtó (HDD) kiszolgálásához.
 
 Példa kétirányú tükrözési konfigurációra:
 
@@ -97,12 +97,12 @@ Azure Stack Azure AD-fiók használatával történő telepítéséhez elő kell
    
    | **Azure Active Directory-fiók** | **Támogatott?** |
    | --- | --- |
-   | Munkahelyi vagy iskolai fiók érvényes globális Azure-előfizetéssel |Yes |
-   | Microsoft-fiók érvényes globális Azure-előfizetéssel |Yes |
-   | Munkahelyi vagy iskolai fiók érvényes China Azure-előfizetéssel |Yes |
-   | Munkahelyi vagy iskolai fiók érvényes USA-beli kormányzati Azure-előfizetéssel |Yes |
+   | Munkahelyi vagy iskolai fiók érvényes globális Azure-előfizetéssel |Igen |
+   | Microsoft-fiók érvényes globális Azure-előfizetéssel |Igen |
+   | Munkahelyi vagy iskolai fiók érvényes China Azure-előfizetéssel |Igen |
+   | Munkahelyi vagy iskolai fiók érvényes USA-beli kormányzati Azure-előfizetéssel |Igen |
 
-Az üzembe helyezést követően az Azure AD globális rendszergazdai engedélye nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés*tulajdonosa.
+Az üzembe helyezést követően az Azure AD globális rendszergazdai engedélye nem szükséges. Egyes műveletek esetében azonban szükség lehet a globális rendszergazdai hitelesítő adatokra. Ilyen művelet például egy erőforrás-szolgáltatót telepítő parancsfájl vagy egy olyan új szolgáltatás, amely engedély megadását igényli. Ideiglenesen visszaállíthatja a fiók globális rendszergazdai engedélyeit, vagy használhat egy különálló globális rendszergazdai fiókot, amely az *alapértelmezett szolgáltatói előfizetés* tulajdonosa.
 
 ## <a name="network"></a>Network (Hálózat)
 ### <a name="switch"></a>Kapcsoló (switch)
@@ -132,7 +132,7 @@ Ellenőrizze, hogy van-e olyan DHCP-kiszolgáló a hálózaton, amelyhez a hál�
 Azure Stack az internet elérését igényli közvetlenül vagy transzparens proxyn keresztül. A Azure Stack nem támogatja a webproxyk konfigurálását az Internet-hozzáférés engedélyezéséhez. A 80-es és a 443-es portok a graph.windows.net és a login.microsoftonline.com tartományok alatt használatosak.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Töltse le a ASDK központi telepítési csomagot](asdk-download.md).
 - További információ a Közvetlen tárolóhelyekről: [közvetlen tárolóhelyek Overview (áttekintés](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)).

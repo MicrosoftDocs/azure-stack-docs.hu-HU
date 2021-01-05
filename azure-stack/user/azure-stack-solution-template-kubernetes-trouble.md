@@ -4,15 +4,15 @@ description: Megtudhatja, hogyan lehet elhárítani a Kubernetes központi telep
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: d15b6d3cbd4cac10c3df0d8c215a869c1fa398b7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920763"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873877"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Az Azure Stack hub Kubernetes-telepítésének hibáinak megoldása
 
@@ -23,7 +23,7 @@ Ez a cikk azt ismerteti, hogyan lehet elhárítani a Kubernetes-fürtöt. A hiba
 
 ## <a name="overview-of-kubernetes-deployment"></a>Az Kubernetes üzembe helyezésének áttekintése
 
-A fürt hibakeresése előtt tekintse át az Azure Stack hub Kubernetes-fürt telepítési folyamatát. Az üzemelő példány egy Azure Resource Manager megoldás sablonnal hozza létre a virtuális gépeket, és telepíti a fürthöz tartozó AK-motort.
+A fürt hibakeresése előtt tekintse át az Azure Stack hub Kubernetes-fürt telepítési folyamatát. Az üzemelő példány egy Azure Resource Manager megoldás sablonnal hozza létre a virtuális gépeket, és telepíti a fürthöz tartozó AKS-Engine.
 
 ### <a name="kubernetes-deployment-workflow"></a>Kubernetes üzembe helyezési munkafolyamat
 
@@ -42,7 +42,7 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
     -  **Ügyfél titka**: az egyszerű szolgáltatásnév létrehozásakor létrehozott kulcs.
 
 2. Hozza létre az üzembe helyezési virtuális gépet és az egyéni szkriptek bővítményét.
-    -  Hozza létre az üzembe helyezési linuxos virtuális gépet a Marketplace Linux rendszerkép **Ubuntu Server 16,04-LTS**használatával.
+    -  Hozza létre az üzembe helyezési linuxos virtuális gépet a Marketplace Linux rendszerkép **Ubuntu Server 16,04-LTS** használatával.
     -  Töltse le és futtassa az egyéni szkriptek bővítményét a piactéren. A szkript a **Linux 2,0-es egyéni szkriptje**.
     -  Futtassa az egyéni DVM parancsfájlt. A szkript a következő feladatokat hajtja végre:
         1. Lekéri a katalógus végpontját a Azure Resource Manager metaadat-végpontból.
@@ -68,7 +68,7 @@ A következő ábra a fürt üzembe helyezésének általános folyamatát mutat
 7. Töltse le és futtassa az egyéni szkriptek bővítményét.
 
 7. Futtassa az ügynök parancsfájlját. Az ügynök egyéni parancsfájlja a következő feladatokat hajtja végre:
-    - A **etcd**telepítése.
+    - A **etcd** telepítése.
     - Beállítja a **kubelet** szolgáltatást.
     - Csatlakozik a Kubernetes-fürthöz.
 
@@ -83,7 +83,7 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
     - Lehetséges, hogy a virtuális gép létrehozása belső hibát váltott ki, vagy létrehozási hibát váltott ki. Számos tényező okozhat hibákat, beleértve a Azure Stack hub-előfizetés kapacitásának korlátozásait is.
     - Győződjön meg arról, hogy a virtuális gép teljes tartományneve (FQDN) ismétlődő előtaggal kezdődik.
-5.  Ha a virtuális gép **rendben**van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
+5.  Ha a virtuális gép **rendben** van, akkor értékelje ki a DVM. Ha a DVM hibaüzenetet kap:
     - Lehet, hogy a nyilvános kulcs érvénytelen. Tekintse át a létrehozott kulcsot.  
     - A Kiemelt végpontok használatával lépjen kapcsolatba az Azure Stack hub rendszergazdájával, és kérje le a Azure Stack hub naplóit. További információ: [Azure stack hub Diagnostics Tools](../operator/azure-stack-get-azurestacklog.md).
 5. Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti azt, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub-fórumon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
@@ -94,8 +94,8 @@ A Kubernetes-fürtöt támogató virtuális gépeken összegyűjtheti és áttek
 A Kubernetes-fürt üzembe helyezésekor áttekintheti a központi telepítés állapotát, és ellenőrizheti, hogy vannak-e problémák.
 
 1. Nyissa meg az Azure Stack hub portált `https://portal.local.azurestack.external` .
-2. Válassza az **erőforráscsoportok**lehetőséget, majd válassza ki a Kubernetes-fürt telepítésekor használt erőforráscsoport nevét.
-3. Válassza a **központi telepítések**lehetőséget, majd válassza ki a **központi telepítés nevét**.
+2. Válassza az **erőforráscsoportok** lehetőséget, majd válassza ki a Kubernetes-fürt telepítésekor használt erőforráscsoport nevét.
+3. Válassza a **központi telepítések** lehetőséget, majd válassza ki a **központi telepítés nevét**.
 
     ![A Kubernetes hibáinak megoldása: válassza az üzembe helyezés lehetőséget](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
@@ -158,7 +158,7 @@ A következő lépésekkel gyűjtheti össze és töltheti le a fürtök naplói
 > [!NOTE]  
 > Tekintse meg ezt a GitHub- [tárházat](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) a log Collector parancsfájl további részleteinek megismeréséhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz](azure-stack-solution-template-kubernetes-deploy.md)
 

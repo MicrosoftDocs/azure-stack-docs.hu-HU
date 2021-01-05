@@ -3,16 +3,16 @@ title: Kubernetes-fürt frissítése Azure Stack hub-on
 description: Ismerje meg, hogyan frissíthet egy Kubernetes-fürtöt Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: fd90bf877c66c05cc3939952ff0d50b8617f2d53
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473044"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874081"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt frissítése Azure Stack hub-on
 
@@ -97,7 +97,7 @@ Az AK-motor teljes leképezéséhez az AK alaprendszerkép-és Kubernetes-verzi�
 
 ## <a name="forcing-an-upgrade"></a>Frissítés kényszerítése
 
-Előfordulhat, hogy a fürt frissítését kényszeríteni szeretné. Például az első napon egy fürtöt helyez üzembe egy leválasztott környezetben a legújabb Kubernetes-verzió használatával. A következő Day Ubuntu egy javítást bocsát ki egy olyan biztonsági réssel, amelyhez a Microsoft új **AK-alapú Alaprendszerképet**hoz létre. Az új lemezképet alkalmazhatja, ha a frissítést a már telepített Kubernetes-verzió használatával kényszeríti.
+Előfordulhat, hogy a fürt frissítését kényszeríteni szeretné. Például az első napon egy fürtöt helyez üzembe egy leválasztott környezetben a legújabb Kubernetes-verzió használatával. A következő Day Ubuntu egy javítást bocsát ki egy olyan biztonsági réssel, amelyhez a Microsoft új **AK-alapú Alaprendszerképet** hoz létre. Az új lemezképet alkalmazhatja, ha a frissítést a már telepített Kubernetes-verzió használatával kényszeríti.
 
 ```bash  
 aks-engine upgrade \
@@ -114,7 +114,7 @@ aks-engine upgrade \
 
 Útmutatásért lásd: [kényszerített frissítés](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)
 - [Kubernetes-fürt méretezése Azure Stack hub-on](azure-stack-kubernetes-aks-engine-scale.md)

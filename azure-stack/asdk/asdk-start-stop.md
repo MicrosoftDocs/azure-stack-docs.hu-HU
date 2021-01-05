@@ -1,18 +1,18 @@
 ---
 title: A ASDK elindítása és leállítása
 description: Útmutató a Azure Stack Development Kit elindításához és leállításához (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 07/18/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e30652bbb497a19c21b751e4cebd713a37e2083b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511980"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872993"
 ---
 # <a name="start-and-stop-the-asdk"></a>A ASDK elindítása és leállítása
 Nem ajánlott egyszerűen újraindítani a ASDK-gazdagépet. Ehelyett kövesse a cikkben ismertetett eljárásokat a ASDK-szolgáltatások megfelelő leállításához és újraindításához.
@@ -56,7 +56,7 @@ Függetlenül attól, hogy a ASDK hogyan állt le, a következő lépésekkel el
 
 Ha többet szeretne megtudni a Azure Stack szolgáltatások megfelelő leállításához és újraindításához szükséges ajánlott eljárásokról, olvassa el a [Azure stack elindítása és leállítása](../operator/azure-stack-start-and-stop.md)című témakört.
 
-## <a name="troubleshoot-startup-and-shutdown"></a>Indítási és leállítási hibák 
+## <a name="troubleshoot-startup-and-shutdown"></a>Hibaelhárítás – indítás és leállítás 
 Kövesse az alábbi lépéseket, ha Azure Stack szolgáltatások a ASDK gazdagép bekapcsolása után két órán belül nem indulnak el sikeresen:
 
 1. Jelentkezzen be AzureStack\AzureStackAdmin-ként a ASDK-gazdaszámítógépen.

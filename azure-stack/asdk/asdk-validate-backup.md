@@ -1,18 +1,18 @@
 ---
 title: A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 description: Megtudhatja, hogyan használhatja a ASDK az Azure Stack integrált rendszerek biztonsági mentésének ellenőrzésére.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
-ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0829174ab080ebc482e99490b7a5af5c2e0f2806
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512014"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873044"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 Azure Stack üzembe helyezése és a felhasználói erőforrások kiépítése (például ajánlatok, csomagok, kvóták és előfizetések) után [engedélyeznie kell Azure stack-infrastruktúra biztonsági mentését](../operator/azure-stack-backup-enable-backup-console.md). Az infrastruktúra rendszeres biztonsági mentésének ütemezése és futtatása biztosítja, hogy az infrastruktúra-kezelési adatokat ne veszítse el a rendszer, ha katasztrofális hardveres vagy szolgáltatási hiba történik.
@@ -24,7 +24,7 @@ Azure Stack az infrastruktúra biztonsági mentései olyan fontos adatokat tarta
 
 A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogatott:
 
-|Forgatókönyv|Cél|
+|Eset|Cél|
 |-----|-----|
 |Az infrastruktúra biztonsági mentésének ellenőrzése egy integrált megoldásból.|Rövid élettartamú ellenőrzés, hogy a biztonsági mentésben szereplő értékek érvényesek-e.|
 |Ismerje meg a teljes körű helyreállítási munkafolyamatot.|A ASDK használatával ellenőrizze a teljes biztonsági mentési és visszaállítási élményt.|
@@ -32,7 +32,7 @@ A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogato
 
 A következő forgatókönyv **nem** támogatott a biztonsági másolatok ASDK való ellenőrzésekor:
 
-|Forgatókönyv|Cél|
+|Eset|Cél|
 |-----|-----|
 |ASDK Build a biztonsági mentés és a visszaállítás létrehozásához.|A ASDK korábbi verziójából származó biztonsági mentési adatok visszaállítása újabb verzióra.|
 |     |     |
@@ -79,19 +79,19 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. Ügyeljen arra, hogy a `<BackupID>` mappa szülőmappa mappájába másolja, amely a biztonsági mentés időbélyege. A megosztáson belüli mappa struktúrájának a következőket `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`kell tennie:. 
+Ezután másolja a legújabb Azure Stack biztonságimásolat-fájljait az újonnan létrehozott megosztásra. Ügyeljen arra, hogy a mappa szülőmappa mappájába másolja `<BackupID>` , amely a biztonsági mentés időbélyege. A megosztáson belüli mappa struktúrájának a következőket kell tennie: `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\` . 
 
-Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába, és nevezze `C:\CloudDeployment\Setup\BackupDecryptionCert\` át a fájlt a következőre: `BackupDecryptionCert.pfx`.
+Végül másolja a visszafejtési tanúsítványt (. pfx) a tanúsítvány könyvtárába, `C:\CloudDeployment\Setup\BackupDecryptionCert\` és nevezze át a fájlt a következőre: `BackupDecryptionCert.pfx` .
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>A ASDK üzembe helyezése Felhőbeli helyreállítási módban
 
 > [!IMPORTANT]
-> 1. Az aktuális telepítő felhasználói felülete csak a titkosítási kulcsot támogatja. Csak olyan rendszerekből származó biztonsági mentéseket lehet érvényesíteni, amelyek továbbra is használják a titkosítási kulcsot. Ha a biztonsági mentést egy integrált rendszeren vagy tanúsítványon alapuló ASDK titkosították, akkor a PowerShell-telepítőt (**InstallAzureStackPOC. ps1**) kell használnia. 
-> 2. A PowerShell-telepítő (**InstallAzureStackPOC. ps1**) támogatja a titkosítási kulcs vagy a tanúsítvány használatát.
+> 1. Az aktuális telepítő felhasználói felülete csak a titkosítási kulcsot támogatja. Csak olyan rendszerekből származó biztonsági mentéseket lehet érvényesíteni, amelyek továbbra is használják a titkosítási kulcsot. Ha a biztonsági mentést egy integrált rendszeren vagy a tanúsítvány használatával ASDK, akkor a PowerShell-telepítőt (**InstallAzureStackPOC.ps1**) kell használnia. 
+> 2. A PowerShell-telepítő (**InstallAzureStackPOC.ps1**) támogatja a titkosítási kulcs vagy a tanúsítvány használatát.
 > 3. A ASDK telepítése pontosan egy hálózati adaptert (NIC) támogat a hálózatkezeléshez. Ha több hálózati adapterrel rendelkezik, győződjön meg arról, hogy csak egy van engedélyezve (és minden más le van tiltva) a telepítési parancsfájl futtatása előtt.
 
 ### <a name="use-the-installer-ui-to-deploy-the-asdk-in-recovery-mode"></a>A ASDK helyreállítási módban való üzembe helyezéséhez használja a telepítő felhasználói felületét.
-Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK a **asdk-Installer. ps1** PowerShell-parancsfájl letöltésével és futtatásával elérhető grafikus felhasználói felület használatával.
+Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzembe a ASDK az **asdk-installer.ps1** PowerShell-parancsfájl letöltésével és futtatásával elérhető grafikus felhasználói felületen.
 
 > [!NOTE]
 > A ASDK telepítő felhasználói felülete egy, a WCF és a PowerShell-alapú, nyílt forráskódú parancsfájl.
@@ -100,7 +100,7 @@ Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzem
 > Az aktuális telepítő felhasználói felülete csak a titkosítási kulcsot támogatja.
 
 1. Miután a gazdaszámítógép sikeresen beindult a CloudBuilder. vhdx lemezképbe, jelentkezzen be a ASDK-gazdaszámítógép ASDK-telepítésre [való előkészítésekor](asdk-prepare-host.md) megadott rendszergazdai hitelesítő adatokkal. Ezeknek a hitelesítő adatoknak meg kell egyezniük a ASDK gazdagép helyi rendszergazdai hitelesítő adataival.
-2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a ** &lt;meghajtóbetűjelet> \ AzureStack_Installer \asdk-Installer.ps1** PowerShell-parancsfájllal. Előfordulhat, hogy a parancsfájl egy másik meghajtón van, mint a C:\ az CloudBuilder. vhdx képen. Kattintson a **helyreállítás**gombra.
+2. Nyisson meg egy rendszergazda jogú PowerShell-konzolt, és futtassa a meghajtóbetűjel **&lt; # C0\AzureStack_Installer\asdk-installer.ps1** PowerShell-parancsfájlt. Előfordulhat, hogy a parancsfájl egy másik meghajtón van, mint a C:\ az CloudBuilder. vhdx képen. Kattintson a **helyreállítás** gombra.
 
     ![ASDK-telepítő parancsfájl](media/asdk-validate-backup/1.PNG) 
 
@@ -108,7 +108,7 @@ Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzem
 
     ![ASDK-identitás és hitelesítő adatok lap](media/asdk-validate-backup/2.PNG) 
 
-4. Válassza ki a ASDK futtató számítógép által használandó hálózati adaptert, és kattintson a **tovább**gombra. A ASDK telepítése során az összes többi hálózati adapter le lesz tiltva. 
+4. Válassza ki a ASDK futtató számítógép által használandó hálózati adaptert, és kattintson a **tovább** gombra. A ASDK telepítése során az összes többi hálózati adapter le lesz tiltva. 
 
     ![ASDK hálózati adapter felülete](media/asdk-validate-backup/3.PNG) 
 
@@ -116,11 +116,11 @@ Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzem
 
     ![ASDK hálózati konfiguráció lapja](media/asdk-validate-backup/4.PNG) 
 
-6. A hálózati kártya tulajdonságainak ellenőrzése után kattintson a **tovább**gombra. 
+6. A hálózati kártya tulajdonságainak ellenőrzése után kattintson a **tovább** gombra. 
 
     ![ASDK hálózati kártya beállításainak ellenőrzése](media/asdk-validate-backup/5.PNG) 
 
-7. Adja meg a biztonsági mentési beállítások lapon, valamint a megosztás eléréséhez használni kívánt felhasználónevet és jelszót a korábban ismertetett [Előfeltételek szakaszban](#prereqs) . Kattintson a **tovább**gombra: 
+7. Adja meg a biztonsági mentési beállítások lapon, valamint a megosztás eléréséhez használni kívánt felhasználónevet és jelszót a korábban ismertetett [Előfeltételek szakaszban](#prereqs) . Kattintson a **tovább** gombra: 
 
    ![ASDK biztonsági mentési beállítások lapja](media/asdk-validate-backup/6.PNG) 
 
@@ -133,7 +133,7 @@ Az ebben a szakaszban ismertetett lépések bemutatják, hogyan helyezheti üzem
 
 Módosítsa az alábbi PowerShell-parancsokat a környezetéhez, és futtassa őket a ASDK Felhőbeli helyreállítási módban való üzembe helyezéséhez:
 
-**A InstallAzureStackPOC. ps1 parancsfájl használatával indítsa el a visszafejtési tanúsítvánnyal rendelkező Cloud Recoveryt.**
+**A InstallAzureStackPOC.ps1 parancsfájl használatával indítsa el a Cloud Recoveryt a visszafejtési tanúsítvánnyal.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     

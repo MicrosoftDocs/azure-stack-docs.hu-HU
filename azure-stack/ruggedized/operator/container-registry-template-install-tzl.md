@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 5d97f12e6bc933edf7b5b335ebd52a86a1a7f01d
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 875eaf68324993be7029cfedd3d376ea38184a06
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939768"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874370"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Tároló-beállításjegyzék hozzáadása Azure Stack hubhoz
 
@@ -224,6 +224,6 @@ d377c212e567: Pushed
 
 A sablon által üzembe helyezett Docker Container Registry-szolgáltatás verziója 2,7. Ez a verzió olyan ismert problémát tartalmaz, amely megakadályozza a Windows-tárolók rendszerképeinek leküldését és húzását. A probléma követése a következő GitHub-elemmel történik [https://github.com/docker/distribution-library-image/issues/89](https://github.com/docker/distribution-library-image/issues/89) .
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

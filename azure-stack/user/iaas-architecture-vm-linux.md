@@ -3,16 +3,16 @@ title: Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 description: Megtudhatja, hogyan futtathat Linux rendszerű virtuális gépet Azure Stack hub-on.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0803dc8332e296c0b92912967d34a6dfd885d4df
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920287"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873724"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Linux rendszerű virtuális gép futtatása Azure Stack hub-on
 
@@ -107,7 +107,7 @@ Helyezze üzembe a virtuális gépeket [Azure Security Center](/azure/security-c
 
 **Adattitkosítás**. Azure Stack hub a tárolás alrendszer szintjén védi a felhasználói és az infrastrukturális adatok védelmét a REST titkosítás használatával. Azure Stack hub tárolási alrendszer titkosítása a BitLocker és a 128 bites AES titkosítás használatával történik. További részletekért tekintse meg [ezt](../operator/azure-stack-security-bitlocker.md) a cikket.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért lásd: [Azure stack hub](azure-stack-vm-considerations.md)virtuálisgép-funkciók.  
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

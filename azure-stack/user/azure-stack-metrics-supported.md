@@ -3,15 +3,15 @@ title: Azure Monitor támogatott metrikák Azure Stack hub-on
 description: Az Azure Stack hub Azure Monitor támogatott metrikáinak megismerése.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4a7847c7ff1b9fb56eab132412ab229b90b78b15
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 50064d480c1900fdd03fd08c182427b1a77399d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571643"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874030"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack hub Azure Monitor támogatott mérőszámai
 
@@ -21,13 +21,13 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
+| Metric | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Százalékos processzorhasználat | Százalékos processzorhasználat | Százalék | Átlag | A virtuális gép (ek) által jelenleg használt lefoglalt számítási egységek százalékos aránya. | Nincsenek méretek |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft. Storage/storageAccounts
 
-| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
+| Metric | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Felhasznált kapacitás | Bájt | Átlag | A fiók felhasznált kapacitása. | Nincsenek méretek |
 | Tranzakciók | Tranzakciók | Darabszám | Összesen | Tárolási szolgáltatás vagy a megadott API-művelet számára elküldött kérések száma. Ez a szám sikeres és sikertelen kérelmeket tartalmaz, valamint a létrehozott hibákat is. Használjon ResponseType dimenziót a különböző típusú válaszok számához. | ResponseType, GeoType, ApiName |
@@ -39,7 +39,7 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
 
-| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
+| Metric | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | BLOB kapacitása | Bájt | Összesen | A Storage-fiók Blob service által felhasznált tárterület mérete bájtban kifejezve. | BlobType |
 | BlobCount | Blobok száma | Darabszám | Összesen | A Storage-fiók Blob serviceban található Blobok száma. | BlobType |
@@ -53,7 +53,7 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
 
-| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
+| Metric | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Tábla kapacitása | Bájt | Átlag | A Storage-fiók Table service által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
 | TableCount | Táblák száma | Darabszám | Átlag | A Storage-fiók Table serviceban található táblák száma. | Nincsenek méretek |
@@ -67,7 +67,7 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
 
-| Metrika | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
+| Metric | Metrika megjelenítendő neve | Egység | Aggregáció típusa | Leírás | Dimenziók |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Várólista kapacitása | Bájt | Átlag | A Storage-fiók Queue szolgáltatás által felhasznált tárterület mérete bájtban kifejezve. | Nincsenek méretek |
 | QueueCount | Várólista száma | Darabszám | Átlag | A Storage-fiók Queue szolgáltatás várólistáinak száma. | Nincsenek méretek |
@@ -79,6 +79,6 @@ Az alábbi táblázatok felsorolják az Azure Stack hub Azure Monitor metrikai f
 | SuccessE2ELatency | Sikeres kérések végpontok közötti késése | Ezredmásodpercben | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet sikeres kéréseinek átlagos végpontok közötti késése ezredmásodpercben. Ez az érték magában foglalja a kérelem elolvasásához, a válasz elküldéséhez és a válasz visszaigazolásának fogadásához az Azure Storage számára szükséges feldolgozási időt. | GeoType, ApiName |
 | Rendelkezésre állás | Rendelkezésre állás | Százalék | Átlag | A tárolási szolgáltatás vagy a megadott API-művelet rendelkezésre állási hányada. Kiszámíthatja a rendelkezésre állást a TotalBillableRequests érték kiszámításával és a vonatkozó kérések számával, beleértve a váratlan hibákat okozó kérelmeket. A nem várt hibák a tárolószolgáltatás vagy a megadott API-művelet rendelkezésre állásának csökkenését eredményezik. | GeoType, ApiName |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [Azure monitor Azure stack hub](azure-stack-metrics-azure-data.md)-ról.

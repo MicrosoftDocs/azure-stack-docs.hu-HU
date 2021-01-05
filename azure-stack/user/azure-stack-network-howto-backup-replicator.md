@@ -3,16 +3,16 @@ title: Erőforrások replikálása több Azure Stack hub-előfizetés között
 description: Ismerje meg, hogyan replikálhatja az erőforrásokat az Azure Stack hub-előfizetés replikátor-készletének használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 80200b283ba6ef0266513eefaa1fdcb8faf9faa8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f638f4a46a805d03d30512f5f32285702c67c20c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546735"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874013"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Erőforrások replikálása az Azure Stack hub előfizetés-replikátor használatával
 
@@ -68,7 +68,7 @@ Azonban előfordulhat, hogy a cél-előfizetés erőforrás-szolgáltatójának 
 
 ### <a name="parallel-deployments"></a>Párhuzamos üzembe helyezések
 
-Az eszközhöz a **Parallel** nevű paraméter szükséges. Ez a paraméter egy logikai értéket vesz fel, amely meghatározza, hogy a beolvasott erőforrásokat párhuzamosan kell-e telepíteni. Ha az érték **true (igaz),** akkor a **New-AzResourceGroupDeployment** minden hívása a **-asJob** jelzővel és a kód azon blokkokkal fog bővülni, amelyek a párhuzamos feladatok befejezésére várnak, az erőforrástípusok alapján. Gondoskodik arról, hogy az egyik típus összes erőforrása telepítve legyen a következő típusú erőforrás üzembe helyezése előtt. Ha a **Parallel** paraméter értéke **false (hamis** ), akkor a rendszer az erőforrásokat a soros módon telepíti.
+Az eszközhöz a **Parallel** nevű paraméter szükséges. Ez a paraméter egy logikai értéket vesz fel, amely meghatározza, hogy a beolvasott erőforrásokat párhuzamosan kell-e telepíteni. Ha az érték **true (igaz),** akkor a **New-AzResourceGroupDeployment** minden hívása a **-asJob** jelzővel és a kód azon blokkokkal fog bővülni, amelyek a párhuzamos feladatok befejezésére várnak, az erőforrástípusok alapján. Gondoskodik arról, hogy az egyik típus összes erőforrása telepítve legyen a következő típusú erőforrás üzembe helyezése előtt. Ha a **Parallel** paraméter értéke **false (hamis**), akkor a rendszer az erőforrásokat a soros módon telepíti.
 
 ## <a name="add-additional-resource-types"></a>További erőforrástípusok hozzáadása
 
@@ -78,7 +78,7 @@ Az új erőforrástípusok hozzáadása egyszerű. A fejlesztőnek létre kell h
 
 Az Azure-előfizetési replikátor (v3) eszköz futtatásához el kell indítania resource_retriever.ps1t, és meg kell adnia az összes paramétert. A **resourceType** paraméterrel lehetőség van az **összes** adattípus kiválasztására. Ha az **összes** ki van választva, resource_retriever.ps1 az összes erőforrást feldolgozza egy sorrendben, hogy a központi telepítés Mikor fusson, a rendszer először a függő erőforrásokat telepíti. Ha például a virtuális gépek előtt üzembe helyezi a virtuális hálózatok-ket, a virtuális gépekhez VNet van szükség ahhoz, hogy megfelelően üzembe lehessen helyezni őket.
 
-Ha a parancsfájl végrehajtása befejeződött, három új mappa, **Deployment_Files** , **Parameter_Files** és **Custom_ARM_Templates** jelenik meg.
+Ha a parancsfájl végrehajtása befejeződött, három új mappa, **Deployment_Files**, **Parameter_Files** és **Custom_ARM_Templates** jelenik meg.
 
  > [!NOTE]  
  > A generált parancsfájlok bármelyikének futtatása előtt be kell állítania a megfelelő környezetet, és be kell jelentkeznie a cél előfizetésbe (az új Azure Stack hub for ex esetében), és a munkakönyvtárat a **Deployment_Files** mappába kell beállítania.
@@ -98,7 +98,7 @@ Deployment_Files két fájlt fog tárolni **DeployResourceGroups.ps1** és **Dep
 
     ![A mappák áttekintése](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre** , telepítse az erőforráscsoportot (futtassa a DeployResourceGroups.ps1 parancsfájlt), majd indítsa el az erőforrás-telepítést (futtassa a DeployResources.ps1 szkriptet).
+3.  Állítsa a kontextust a cél előfizetésre, módosítsa a mappát **Deployment_Filesre**, telepítse az erőforráscsoportot (futtassa a DeployResourceGroups.ps1 parancsfájlt), majd indítsa el az erőforrás-telepítést (futtassa a DeployResources.ps1 szkriptet).
 
     ![A központi telepítés konfigurálása és elindítása](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
@@ -106,7 +106,7 @@ Deployment_Files két fájlt fog tárolni **DeployResourceGroups.ps1** és **Dep
 
 ## <a name="clean-up"></a>A fölöslegessé vált elemek eltávolítása
 
-A replicatorV3 mappában található egy **cleanup_generated_items.ps1** nevű fájl, amely eltávolítja a **Deployment_Files** , a **Parameter_Files** és a **Custom_ARM_Templates** mappát és annak teljes tartalmát.
+A replicatorV3 mappában található egy **cleanup_generated_items.ps1** nevű fájl, amely eltávolítja a **Deployment_Files**, a **Parameter_Files** és a **Custom_ARM_Templates** mappát és annak teljes tartalmát.
 
 ## <a name="subscription-replicator-operations"></a>Előfizetés-replikációs műveletek
 
@@ -183,6 +183,6 @@ Ha Azure Stack a kereskedelmi Azure-ból a kereskedelmi Azure-ba vagy egy előfi
 
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

@@ -1,18 +1,18 @@
 ---
 title: A ASDK hibáinak megoldása
 description: Ismerje meg, hogyan lehet elhárítani a Azure Stack Development Kitt (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bc828444a67e1489f2d5b4b51fc0cbd18e6f0641
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b5b0310aa778cf470c436f0770c9b5ca0d46fd8f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489929"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872942"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
@@ -56,7 +56,7 @@ Az egyéb központi telepítési hibák általában az interneten található er
 Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez hajtsa végre a következő lépéseket:
 
 1. Nyissa meg a PowerShellt.
-2. Adja meg a-PSSession a WAS01 vagy a ERCs virtuális gépekhez.
+2. Enter-PSSession a WAS01 vagy a ERCs virtuális gépek bármelyikére.
 3. Futtassa a következő parancsmagot: 
    ```powershell
    Test-NetConnection login.windows.net -port 443
@@ -65,7 +65,7 @@ Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez
 Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](../operator/azure-stack-network.md).
 
 
-## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+## <a name="virtual-machines"></a>Virtuális gépek
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
@@ -75,8 +75,8 @@ A gazdagép újraindítása után észreveheti, Azure Stack szolgáltatások nem
 Azt is megfigyelheti, hogy a bérlői virtuális gépek nem indulnak el automatikusan a ASDK-gazdagép újraindítása után. Néhány manuális lépéssel online állapotba hozhatja őket:
 
 1.  A ASDK-gazdagépen indítsa el **Feladatátvevőfürt-kezelő** a Start menüből.
-2.  Válassza ki az **S-cluster. azurestack. local**fürtöt.
-3.  Válassza a **szerepkörök**lehetőséget.
+2.  Válassza ki az **S-cluster. azurestack. local** fürtöt.
+3.  Válassza a **szerepkörök** lehetőséget.
 4.  A bérlői virtuális gépek *mentett* állapotban jelennek meg. Ha az összes infrastruktúra-virtuális gép fut, kattintson a jobb gombbal a bérlői virtuális gépekre, és válassza a **Start** lehetőséget a virtuális gép folytatásához.
 
 ### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>Töröltem néhány virtuális gépet, de továbbra is láthatók a lemezen lévő VHD-fájlok 
@@ -93,5 +93,5 @@ További információk az adatmegőrzési küszöbérték és az igény szerinti
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet, ha visszaigényelt kapacitást szeretne megjeleníteni a portálon. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Látogasson el a Azure Stack támogatási fórumára](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

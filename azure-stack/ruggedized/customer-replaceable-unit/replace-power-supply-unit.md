@@ -1,18 +1,18 @@
 ---
 title: Energiaellátási egység cseréje
 description: Bemutatjuk, hogyan lehet lecserélni az energiaellátási egységeket
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 392ad424bfe6eba87d611ca669ab1c1469fdece7
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 03f2f79a1d849edb65da0097eb4135146ae7a16e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391325"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874472"
 ---
 # <a name="replacing-a-power-supply-unit"></a>Tápegység egységének cseréje
 
@@ -44,7 +44,7 @@ Az alábbi eljárással lecserélheti az áramellátási egységet (PSU).
 
 Hajtsa végre a PSU-helyettesítési folyamatot a [Dell EMC PowerEdge R640 telepítése és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a méretezési egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

@@ -3,16 +3,16 @@ title: Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 description: Megtudhatja, hogyan futtathat egy Windows N szintű alkalmazást Azure Stack hubhoz a SQL Server használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965296"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873673"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 
@@ -64,7 +64,7 @@ A következőhöz hasonló lehet:
 
 Az Ön követelményei eltérhetnek az itt leírt architektúrától. Ezeket a javaslatokat tekintse kiindulópontnak.
 
-### <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+### <a name="virtual-machines"></a>Virtuális gépek
 
 A virtuális gépek konfigurálásával kapcsolatos javaslatokért lásd: [Windows rendszerű virtuális gép futtatása Azure stack hub-on](iaas-architecture-vm-windows.md).
 
@@ -82,7 +82,7 @@ Ne tegye elérhetővé a virtuális gépeket közvetlenül az internethez, hanem
 
 Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérelmet küld a 80-as port felé, a terheléselosztó kiválaszt egy háttérbeli IP-címet egy [kivonatoló algoritmus](/azure/load-balancer/concepts#limitations) használatával, amely tartalmazza a forrás IP-címét. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
 
-### <a name="network-security-groups"></a>Network security groups (Hálózati biztonsági csoportok)
+### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
 
 A szintek közötti forgalmat NSG-szabályokkal korlátozhatja. A fentiekben bemutatott háromrétegű architektúrában a webes réteg nem kommunikál közvetlenül az adatbázis szintjével. A szabály betartatásához az adatbázis-szinten le kell tiltani a webes szintű alhálózatról érkező bejövő forgalmat.
 
@@ -171,6 +171,6 @@ A virtuális hálózatok forgalomelkülönítési határok az Azure-ban. Alapér
 
 **Titkosítás**. Titkosítsa a bizalmas adatokat, és a [Azure stack Hub Key Vault](./azure-stack-key-vault-manage-portal.md) használatával kezelheti az adatbázis-titkosítási kulcsokat. További információkért lásd: [Configure Azure Key Vault Integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure) Az Azure Key Vault-integráció konfigurálása az SQL Serverhez Azure virtuális gépeken. Javasoljuk továbbá, hogy az alkalmazás-titkokat, például az adatbázis-kapcsolódási karakterláncokat a Key Vault tárolja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

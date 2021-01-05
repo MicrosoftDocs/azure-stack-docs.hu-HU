@@ -1,18 +1,18 @@
 ---
 title: Azure Stack telemetria
 description: Megtudhatja, hogyan konfigurálhatja Azure Stack telemetria beállításait a PowerShell használatával.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: a3bedcc62645dd518e694cca1052d6002bed5306
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415147"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872959"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack telemetria
 
@@ -72,22 +72,22 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 A telemetria szintek kumulatívak, és négy szintre vannak kategorizálva (0-3):
 
-**0 (biztonság)** : csak biztonsági adatként. Az operációs rendszer biztonságának megőrzéséhez szükséges információk, beleértve a csatlakoztatott felhasználói felülettel és a telemetria és a Windows Defender szolgáltatással kapcsolatos adatokat is. Ezen a szinten nincs kibocsátva Azure Stack adott telemetria.
+**0 (biztonság)**: csak biztonsági adatként. Az operációs rendszer biztonságának megőrzéséhez szükséges információk, beleértve a csatlakoztatott felhasználói felülettel és a telemetria és a Windows Defender szolgáltatással kapcsolatos adatokat is. Ezen a szinten nincs kibocsátva Azure Stack adott telemetria.
 
-**1 (alapszintű)** : biztonsági adatok és alapvető állapot-és minőségi adatok. Alapszintű eszköz adatai, beleértve a minőséggel kapcsolatos adatokat, az alkalmazások kompatibilitását, az alkalmazások használati adatait és a biztonsági szintről származó adatokat. A telemetria szintjének alapszintű értékre állításával Azure Stack telemetria. Az ezen a szinten összegyűjtött adatok a következők:
+**1 (alapszintű)**: biztonsági adatok és alapvető állapot-és minőségi adatok. Alapszintű eszköz adatai, beleértve a minőséggel kapcsolatos adatokat, az alkalmazások kompatibilitását, az alkalmazások használati adatait és a biztonsági szintről származó adatokat. A telemetria szintjének alapszintű értékre állításával Azure Stack telemetria. Az ezen a szinten összegyűjtött adatok a következők:
 
 - **Alapszintű eszköz adatai** , amelyek segítségével megismerheti a natív és virtualizált Windows Server 2016-példányok típusait és konfigurációit az ökoszisztémában, beleértve a következőket:
   - Számítógép-attribútumok, például OEM és modell.
   - Hálózati attribútumok, például a hálózati adapterek száma és sebessége.
   - Processzor-és memória-attribútumok, például a magok és a memória méretének száma.
   - Tárolási attribútumok, például a meghajtók, a típus és a méret száma.
-- A **telemetria funkciói** , beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és a legutóbbi feltöltési időt.
+- A **telemetria funkciói**, beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és a legutóbbi feltöltési időt.
 - A **minőséggel kapcsolatos információk** , amelyek segítenek a Microsoft számára a Azure stack végrehajtásának alapvető megismerésében. Ilyen például a kritikus riasztások száma egy adott hardverkonfiguráció esetében.
-- **Kompatibilitási információk** , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális gépre, és azonosítja a lehetséges kompatibilitási problémákat.
+- **Kompatibilitási információk**, amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális gépre, és azonosítja a lehetséges kompatibilitási problémákat.
 
-**2 (bővített)** : további elemzések, többek között az operációs rendszer és az egyéb Azure stack szolgáltatások használatának módja, a teljesítményük és a speciális megbízhatósági adatok, valamint az alapszintű és a biztonsági szintekből származó adatok.
+**2 (bővített)**: további elemzések, többek között az operációs rendszer és az egyéb Azure stack szolgáltatások használatának módja, a teljesítményük és a speciális megbízhatósági adatok, valamint az alapszintű és a biztonsági szintekből származó adatok.
 
-**3 (teljes)** : minden olyan adat, amely a problémák azonosításához és javításához, valamint a biztonsági, alapszintű és magasabb szintű adatokhoz szükséges.
+**3 (teljes)**: minden olyan adat, amely a problémák azonosításához és javításához, valamint a biztonsági, alapszintű és magasabb szintű adatokhoz szükséges.
 
 > [!NOTE]
 > Az alapértelmezett telemetria érték 2 (bővített).

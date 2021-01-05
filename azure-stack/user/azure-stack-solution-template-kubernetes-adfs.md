@@ -3,16 +3,16 @@ title: Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összev
 description: Megtudhatja, hogyan helyezhet üzembe Kubernetes az Azure Stack hubhoz Active Directory összevont szolgáltatások (AD FS) használatával.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 268157d491b1605ecce442cc4cb348e76657fec2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106727"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873945"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Kubernetes üzembe helyezése Azure Stack hubhoz Active Directory összevont szolgáltatások használatával
 
@@ -57,7 +57,7 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 
 1. Nyissa meg az Azure Stack hub portált `https://portal.local.azurestack.external` .
 
-1. Válassza **az + erőforrás létrehozása**  >  **számítási**  >  **Kubernetes-fürt**lehetőséget. Kattintson a **Létrehozás** gombra.
+1. Válassza **az + erőforrás létrehozása**  >  **számítási**  >  **Kubernetes-fürt** lehetőséget. Kattintson a **Létrehozás** gombra.
 
     ![Képernyőkép, amely megjeleníti a Kubernetes-fürt létrehozási oldalát.](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -117,7 +117,7 @@ Az Azure Stack hub rendszergazdájával kell dolgoznia, hogy beállítsa a szolg
 > [!TIP]  
 >  Ha kérdése van az üzemelő példányával kapcsolatban, közzéteheti a kérdést, vagy megtekintheti, hogy valaki már megválaszolta-e a kérdést az [Azure stack hub fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Kapcsolódás a fürthöz](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
 

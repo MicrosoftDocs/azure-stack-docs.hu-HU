@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 65c0588cb0820c541578418d8de42be85bb34242
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: fa85377ecfae869ed75f3c00e7d8f7245ea8cba1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939960"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874268"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
 
@@ -91,7 +91,7 @@ Ha az ügyfél virtuális gépe be van állítva, győződjön meg arról, hogy 
 
 Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következőt: az [AK-motor telepítésének hibája](../../user/azure-stack-kubernetes-aks-engine-troubleshoot.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 > [!div class="nextstepaction"]
 > [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](../../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md)

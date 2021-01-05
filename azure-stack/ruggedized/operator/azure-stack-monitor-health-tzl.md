@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 03042379375b26f76d1fe0ac223ff4fc409e7eb2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: ddd3eacede0078c2f9735863b5b7a4bae68b4c15
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940171"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874404"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Állapot- és riasztásmonitorozás az Azure Stackben
 
@@ -91,7 +91,7 @@ A **javítási** művelet bejelenti a sikeres befejezést, vagy nem sikerül bef
 
 Miután az infrastruktúra-szerepkör-példány ismét online állapotba került, a riasztás automatikusan bezáródik. Sok, de nem minden riasztás, automatikusan be lesz zárva, amikor az alapul szolgáló probléma megoldódik. Ha Azure Stack megoldja a problémát, a javítási művelet gomb megadására szolgáló riasztások automatikusan be lesznek zárva. Az összes többi riasztás esetében válassza a **riasztás lezárása** lehetőséget a szervizelés lépéseinek elvégzése után. Ha a probléma továbbra is fennáll, Azure Stack új riasztást hoz létre. Ha megoldja a problémát, a riasztás bezárul, és nem igényel további lépéseket.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Frissítések kezelése az Azure Stackben](../../operator/azure-stack-updates.md)
 

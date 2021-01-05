@@ -3,16 +3,16 @@ title: Kubernetes-fürt méretezése Azure Stack hub-on
 description: Megtudhatja, hogyan méretezheti a Kubernetes-fürtöt Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: 459ab20333f34f8aa8f067bc8b8c1f8dfd27920a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523541"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874132"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Kubernetes-fürt méretezése Azure Stack hub-on
 
@@ -39,7 +39,7 @@ A Scale parancs a következő paramétereket használja a fürt definíciós fá
 | apiserver |  | Fő FQDN. Leskálázáskor szükséges. |
 | identitás-rendszerek | ADFS | Választható. Ha Active Directory összevont szolgáltatásokat (AD FS) használ, adja meg a személyazonosság-kezelési megoldást. |
 
-A **--Azure-env** paramétert kell megadnia a fürt Azure stack hub-ban való skálázásakor. A paraméterekkel és azok értékeivel kapcsolatos további információkért lásd **scale** : [Scale-parameters (méretezési paraméterek](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)).
+A **--Azure-env** paramétert kell megadnia a fürt Azure stack hub-ban való skálázásakor. A paraméterekkel és azok értékeivel kapcsolatos további információkért lásd  : [Scale-parameters (méretezési paraméterek](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)).
 
 ### <a name="command-to-scale-your-cluster"></a>A fürt skálázására szolgáló parancs
 
@@ -59,7 +59,7 @@ aks-engine scale \
     --identity-system adfs # required if using AD FS
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - További információ az [Azure stack hub-beli AK-motorról](azure-stack-kubernetes-aks-engine-overview.md)
 - [Kubernetes-fürt frissítése Azure Stack hub-on](azure-stack-kubernetes-aks-engine-upgrade.md)

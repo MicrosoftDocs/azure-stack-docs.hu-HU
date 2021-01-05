@@ -1,18 +1,18 @@
 ---
 title: Belső vezérlőprogram telepítése a iDRAC használatával
 description: Ismerje meg, hogyan telepítheti a belső vezérlőprogramot a iDRAC használatával
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5b42b0a1f6be6e9fdf8110854e37f602d25b18ad
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 5c534fb3e308d4566e07d2851204e1f621fbf5c1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391164"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874540"
 ---
 # <a name="installing-firmware-using-the-idrac-interface"></a>A belső vezérlőprogram telepítése a iDRAC felület használatával
 

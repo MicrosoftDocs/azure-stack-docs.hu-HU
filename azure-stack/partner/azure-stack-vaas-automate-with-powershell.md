@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan automatizálhatja Azure Stack érvényesítését a PowerShell használatával.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d6cb5cdfe6cd294e54ae9f2fa5fc78e6d71548a
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 82edb40be312093b101040d8ec386569a00cd748
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764732"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874761"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>Azure Stack hub ellenőrzésének automatizálása a PowerShell-lel
 
@@ -275,7 +275,7 @@ A rendszer a naplókat és a jelentéseket a jelenlegi munkamappa szerint menti.
 
 További lehetőségekért lásd: [tesztek figyelése és kezelése az alapvizsgálati portálon](azure-stack-vaas-monitor-test.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha többet szeretne megtudni a Azure Stack hub PowerShell-ről, tekintse át a legújabb modulokat.
 

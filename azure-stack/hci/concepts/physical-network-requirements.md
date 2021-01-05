@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051615"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872721"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>A Azure Stack HCI fizikai hálózati követelményei
 
@@ -141,10 +141,10 @@ A Azure Stack HCI minden fürt mérete esetében támogatja a nem megfelelő (k�
 - A csak a helyi tárolók elérését biztosítja. A virtuális gép forgalma, a felügyeleti forgalom és a North-South hozzáférést igénylő egyéb forgalom nem használhatja ezeket az adaptereket.
 - Általában a három csomópontos fürtökön kívül nem méretezhető.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A hálózati adapter és a gazdagép követelményeinek megismerése. Lásd a [gazdagép hálózati követelményeit](host-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
-- Ecset a SET használatával. Tekintse [meg a távoli közvetlen memória-hozzáférés (RDMA) című témakört, és kapcsolja be a beágyazott összevonást (set)](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Ecset a SET használatával. Tekintse [meg a távoli közvetlen memória-hozzáférés (RDMA) című témakört, és kapcsolja be a beágyazott összevonást (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 - A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központból](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
 - A telepítéshez lásd: [fürt létrehozása a Windows PowerShell használatával](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).

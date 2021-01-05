@@ -3,15 +3,15 @@ title: Az Azure Stack hub Storage bemutatása
 description: Ismerkedjen meg Azure Stack hub tárolási szolgáltatásaival.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d45b8069915ea920d6366daeefdfb53953301102
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: c9b8d2bbe30cedcd84759fbb5cd9a51b0a03c51a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146988"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873826"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
 
@@ -31,7 +31,7 @@ Azure Stack hub Storage a következő három szolgáltatást nyújtja:
 
     A Table Storage a strukturált adatkészleteket tárolja. A Table Storage egy NoSQL-attribútum, amely lehetővé teszi a gyors fejlesztést és a nagy mennyiségű adattal való gyors hozzáférést.
 
-- **Üzenetsor-tárolás**
+- **Queue Storage**
 
     A üzenetsor-tárolás megbízható üzenetküldést biztosít a munkafolyamat-feldolgozáshoz és a Cloud Services összetevői közötti kommunikációhoz.
 
@@ -54,15 +54,15 @@ Minden blob egy tárolóba van rendezve. A tárolók nagy előnye, hogy az objek
 
 A blob Storage háromféle blobot kínál:
 
-- **Blobok letiltása**
+- **Blokkblobok**
 
     A blokkos Blobok a Felhőbeli objektumok folyamatos átvitelére és tárolására vannak optimalizálva. A dokumentumok, médiafájlok, biztonsági másolatok és más hasonló fájlok tárolására jó választás.
 
-- **Blobok hozzáfűzése**
+- **Hozzáfűző blobok**
 
     A hozzáfűző blobok a blokkblobokhoz hasonló, de a műveletek hozzáfűzésére optimalizált blobok. A naplóíró blobok csak a végükhöz hozzáadott új blokkal frissíthetők. A naplóíró blobok olyan forgatókönyvekhez felelnek meg leginkább, mint például a naplózás, ahol az új adatokat csak a blob végéhez kell hozzáírni.
 
-- **Oldal Blobok**
+- **Lapblobok**
 
     Az oldal Blobok a IaaS-lemezek ábrázolására vannak optimalizálva, és a véletlenszerű írásokat legfeljebb 1 TB méretűre támogatják. Az Azure Stack hub virtuális géphez csatolt IaaS lemez egy blobként tárolt VHD.
 
@@ -82,7 +82,7 @@ A méretezhető alkalmazások tervezésekor az alkalmazás-összetevők gyakran 
 
 A Storage-fiókok tetszőleges számú várólistát tartalmazhatnak, és a várólista tetszőleges számú üzenetet tartalmazhat (a Storage-fiók kapacitási korlátja alapján). Az egyes üzenetek akár a 64 KB-os méretet is elérhetik.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure-konzisztens tárolás: különbségek és megfontolások](azure-stack-acs-differences.md)
 

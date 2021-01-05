@@ -3,16 +3,16 @@ title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415266"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874200"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -48,7 +48,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
 4.  Keresse meg `customCloudProfile` és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
 
-5. Adja hozzá `"identitySystem":"adfs"` a AD FS-t. Például:
+5. Adja hozzá `"identitySystem":"adfs"` a AD FS-t. Példa:
 
     ```JSON  
         "customCloudProfile": {

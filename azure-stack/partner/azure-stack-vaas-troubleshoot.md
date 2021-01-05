@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack hub-szolgáltatás érvényesítésének hibája.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: f9a3b4b3ac61447a3dca567ad9ebcb636c8f9bc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764800"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874625"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>A szolgáltatás érvényesítésének megoldása
 
@@ -33,7 +33,7 @@ Ez a probléma valószínűleg azért valószínű, mert az ügynök nem tud sz�
 
 ### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>A teszt végrehajtása közben leállt az ügynök folyamata a gépen. Mi várható?
 
-Ha az ügynök folyamata nem megfelelően van leállítva, akkor a rajta futó teszt továbbra is **futként**fog megjelenni. Példa egy nem megfelelő leállításra: a számítógép újraindult, és a folyamat megszakadt (a CTRL + C az ügynök ablakában kecses leállításnak számít). Ha az ügynök újraindul, az ügynök a teszt állapotát **megszakítva**fogja frissíteni. Ha nem indítja újra az ügynököt, a teszt **fut** állapottal jelenik meg, és manuálisan kell megszüntetnie a tesztet.
+Ha az ügynök folyamata nem megfelelően van leállítva, akkor a rajta futó teszt továbbra is **futként** fog megjelenni. Példa egy nem megfelelő leállításra: a számítógép újraindult, és a folyamat megszakadt (a CTRL + C az ügynök ablakában kecses leállításnak számít). Ha az ügynök újraindul, az ügynök a teszt állapotát **megszakítva** fogja frissíteni. Ha nem indítja újra az ügynököt, a teszt **fut** állapottal jelenik meg, és manuálisan kell megszüntetnie a tesztet.
 
 > [!Note]
 > A munkafolyamaton belüli tesztek futtatása ütemezett sorrendben történik. A **függőben lévő** tesztek nem lesznek végrehajtva, amíg a tesztek nem **futnak** ugyanabban a munkafolyamatban.
@@ -104,7 +104,7 @@ A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilváno
 
 1. Jelentkezzen be a felügyeleti portálon a szolgáltatás-rendszergazdaként. A felügyeleti portál URL-címét az ECE áruházból vagy a Stamp-információs fájlból találja. Útmutatásért lásd: [környezeti paraméterek](azure-stack-vaas-parameters.md#environment-parameters).
 
-2. Válassza a **További szolgáltatások**  >  **erőforrás-szolgáltatók**  >  **számítási**virtuálisgép-  >  **lemezképek**lehetőséget.
+2. Válassza a **További szolgáltatások**  >  **erőforrás-szolgáltatók**  >  **számítási** virtuálisgép-  >  **lemezképek** lehetőséget.
 
 3. A virtuálisgép- **lemezképek** panel felső részén kattintson a **+ Hozzáadás** gombra.
 
@@ -120,7 +120,7 @@ A **Get-HashFile** parancsmag használatával lekérheti a letöltött nyilváno
     | Operációs rendszer típusa | Windows |
     | Termékváltozat | 2012-R2-Datacenter |
     | Verzió | 1.0.0 |
-    | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://<*a Storage-fiók* >/< *tárolójának neve*>/windowsserver2012r2datacenterbyol.vhd |
+    | OPERÁCIÓSRENDSZER-lemez blob URI-ja | https://<*a Storage-fiók* >/< *tárolójának neve*>/WindowsServer2012R2DatacenterBYOL.vhd |
 
 
 5. Válassza a **Létrehozás** gombot.
@@ -139,6 +139,6 @@ Az összes szükséges virtuálisgép-rendszerkép tulajdonságai a következők
 | OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/OpenLogic-CentOS-69-20180105.vhd |
 | Credativ | Debian | Linux | 8 | 1.0.0 | https://[*a Storage-fiók*]/[*tároló neve*]/Debian8_latest. vhd |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Tekintse át a [kibocsátási megjegyzéseket a szolgáltatásként való érvényesítéshez](azure-stack-vaas-release-notes.md) a legújabb kiadásokban való változásokhoz.

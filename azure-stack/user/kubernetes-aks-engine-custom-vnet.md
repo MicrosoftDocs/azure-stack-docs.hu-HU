@@ -3,16 +3,16 @@ title: Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális h�
 description: Megtudhatja, hogyan helyezhet üzembe egy Kubernetes-fürtöt egy egyéni virtuális hálózaton Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 417d2cee37bc97f64de9b3d21f81ff60c075e74b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853210"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873690"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális hálózatán 
 
@@ -35,7 +35,7 @@ Hozzon létre egy új alhálózatot a virtuális hálózaton. Az alhálózati er
 1. Nyissa meg az Azure Stack hub felhasználói portált a Azure Stack hub-példányban.
 2. Válassza a **Minden erőforrás** elemet.
 3. Adja meg a virtuális hálózat nevét a keresőmezőbe.
-4. Alhálózat hozzáadásához válassza az **alhálózatok**  >  és**alhálózatok** lehetőséget.
+4. Alhálózat hozzáadásához válassza az **alhálózatok**  >  és **alhálózatok** lehetőséget.
 5. Adjon hozzá egy **nevet** és egy **címtartományt** a CIDR-jelölés használatával. Válassza az **OK** lehetőséget.
 4. Válassza a **Tulajdonságok** lehetőséget a **virtuális hálózatok** panelen. Másolja ki az **erőforrás-azonosítót**, majd adja hozzá a t `/subnets/<nameofyoursubnect>` . Ezt az értéket fogja használni a `vnetSubnetId` fürthöz tartozó API-modell kulcsának értékeként. Az alhálózat erőforrás-azonosítója a következő formátumot használja:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
 

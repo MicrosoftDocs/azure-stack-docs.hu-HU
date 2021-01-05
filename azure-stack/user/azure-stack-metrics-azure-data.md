@@ -1,19 +1,19 @@
 ---
-title: Azure Monitor használata Azure Stack hub-on
+title: Az Azure Monitor használata az Azure Stack Hubon
 description: Ismerje meg, hogyan használhatja a Azure Monitort Azure Stack hub-on.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 7688ebd4aed8ee797cd940da5631e19e4c1ef8ff
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920779"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874115"
 ---
-# <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Monitor használata Azure Stack hub-on
+# <a name="use-azure-monitor-on-azure-stack-hub"></a>Az Azure Monitor használata az Azure Stack Hubon
 
 Ez a cikk az Azure Stack hub Azure Monitor szolgáltatásának áttekintését tartalmazza. Ismerteti Azure Monitor működését, valamint a Azure Monitor Azure Stack hub-beli használatáról szóló további információkat.
 
@@ -34,7 +34,7 @@ Regisztrálja a **Microsoft. reinsights** erőforrás-szolgáltatót az előfize
 2. Válassza az **Előfizetések** lehetőséget.
 3. Válassza ki a regisztrálni kívánt előfizetést.
 4. Válassza az **erőforrás-szolgáltatók** lehetőséget a beállítások területen **.** 
-5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy az állapot **regisztrálva**van-e.
+5. Keresse meg a **Microsoft. bepillantást** a listából, és ellenőrizze, hogy az állapot **regisztrálva** van-e.
 
 ## <a name="overview-of-azure-monitor-on-azure-stack-hub"></a>Az Azure Stack hub Azure Monitor áttekintése
 
@@ -98,7 +98,7 @@ Egyes monitorozási adatok már eleve tárolva vannak és elérhetők az Azure M
 
 **Lekérdezés**  
 
-Használhatja a Azure Monitor REST API, platformfüggetlen parancssori felületi (CLI) parancsokat, a PowerShell-parancsmagokat vagy a .NET SDK-t a rendszer vagy az Azure Storage szolgáltatásban tárolt adateléréshez. 
+A rendszer vagy az Azure Storage szolgáltatásban lévő adatAzure Monitor REST API, platformfüggetlen Command-Line felületi (CLI) parancsok, PowerShell-parancsmagok vagy a .NET SDK használatával férhet hozzá. 
 
 **Vizualizáció**
 
@@ -122,6 +122,6 @@ Az alábbi módszerek egyikével dolgozhat az adatkövetéssel, az útválasztá
 > [!Important]  
 > Ha egy virtuális gép teljesítményének megtekintésekor **nem talál** hibát, akkor ellenőrizze, hogy regisztrálta-e a Microsoft. bepillantást a virtuális géphez társított előfizetésre.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a Azure Stack hub adatfelhasználásának figyeléséről a [Azure stack hub megfigyelési adatainak felhasználása](azure-stack-metrics-monitor.md)című cikkben olvasható.

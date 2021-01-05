@@ -3,16 +3,16 @@ title: Azure Stack hub által támogatott virtuálisgép-méretek
 description: A Azure Stack hub által támogatott virtuálisgép-méretek referenciája.
 author: mattbriggs
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 03/23/2020
-ms.openlocfilehash: 3eb2a58c3ab915be9cf8cf1139880409830429f7
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 01299f2ddd04e66145d781785097c74e5d129e48
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250758"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873758"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack hub által támogatott virtuálisgép-méretek
 
@@ -176,6 +176,6 @@ A memóriára optimalizált virtuálisgép-méretek magas memória-CPU arányt b
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |32/32x2300  |8 |
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub VM-funkciók](azure-stack-vm-considerations.md)

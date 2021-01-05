@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub hardver diagramja
 description: Ismerje meg az Azure Stack hub TCA hardverét.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d8055e9c4a4676d5449372ba9544dd4f03dc294e
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: ddcfd86dff4164b876232986d60c4b2c4eba0d3a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391211"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874676"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack hub hardver diagramja
 

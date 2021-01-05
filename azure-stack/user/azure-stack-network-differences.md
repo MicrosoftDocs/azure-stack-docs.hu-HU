@@ -2,17 +2,17 @@
 title: Azure Stack hub hálózati különbségek
 description: Ismerje meg a Azure Stack hub hálózatkezelésével kapcsolatos különbségeket és szempontokat.
 author: mattbriggs
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364115"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873996"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -22,7 +22,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 
 ## <a name="cheat-sheet-networking-differences"></a>Cheat Sheet: hálózati különbségek
 
-| Szolgáltatás | Funkció | Azure (globális) | Azure Stack Hub |
+| Szolgáltatás | Szolgáltatás | Azure (globális) | Azure Stack Hub |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | Több-bérlős DNS | Támogatott | Még nem támogatott |
 |  | DNS AAAA-rekordok | Támogatott | Nem támogatott |
@@ -30,7 +30,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | DNS-rekordhalmazok száma zónában | 5000 (alapértelmezett)<br>Igény szerint növelhető. | 5000 |
 |  | Névkiszolgálók a zónák delegálásához | Az Azure négy névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. | Azure Stack hub két névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. |
 | Azure Firewall | Hálózati biztonsági szolgáltatás | Az Azure Firewall egy felügyelt, felhőalapú hálózatbiztonsági szolgáltatás, amely Azure Virtual Network-erőforrásait védi. | Még nem támogatott. |
-| Virtual Network | Társviszony létesítése virtuális hálózatok között | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Az 2008-es verzió óta támogatott [Virtual Network](virtual-network-peering.md) |
+| Virtual Network | Virtuális hálózati társviszony | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Az 2008-es verzió óta támogatott [Virtual Network](virtual-network-peering.md) |
 |  | IPv6-címek | A [hálózati adapter konfigurációjának](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)részeként egy IPv6-cím is hozzárendelhető. | Kizárólag az IPv4 használata támogatott. |
 |  | DDoS Protection terv | Támogatott | Még nem támogatott. |
 |  | Méretezési csoport IP-konfigurációi | Támogatott | Még nem támogatott. |
@@ -90,6 +90,6 @@ Azure Stack hub hálózatkezelés a következő API-verziókat támogatja:
 - 2017-11-01
 - 2017-10-01
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [DNS Azure Stack központban](azure-stack-dns.md)
