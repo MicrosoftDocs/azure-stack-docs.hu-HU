@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7726e16e497693db04ef859fbda316568d069c2b
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598470"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726169"
 ---
 # <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Azure Stack hub regisztrálása az Azure-ban – moduláris adatközpont (MDC)
 
@@ -88,9 +88,9 @@ A legújabb Azure Stack hubok eszköz telepítése:
 1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 2. Futtassa a következő parancsmagot:
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>A regisztrációs forgatókönyv meghatározása
 
@@ -120,41 +120,37 @@ Az alábbi lépéseket követve regisztrálhat egy Azure Stack hub-rendszerkapcs
 
 A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz. Ezekben a környezetekben regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-ban, majd konfigurálja a számlázási modellt.
 
-
 ### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 1. Az Azure Stack hub erőforrás-szolgáltató az Azure-ban való regisztrálásához indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd a paramétereket az alábbiak szerint).
 
-2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációja alapján kétfaktoros hitelesítést kell használnia.
-
-   ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
-   ```
-
-   | Paraméter | Leírás |  
-   |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** vagy **AzureUSGovernment**.  |
-
-   >[!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy a fiókokat át szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a **Add-AzAccount**: **Remove-AzAccount-scope folyamat** használatával.
-
-3. Ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a környezet az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt:
+2. Ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a környezet az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt:
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"
    ```
 
+   A **AzureUSSec** először inicializálnia kell a környezetet, `CustomCloud` majd hívja meg a **AzureRmAccount**:
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** vagy **AzureUSGovernment**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment** vagy **AzureUSSec**.   |
 
-4. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:
+   >[!NOTE]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy a fiókokat át szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a **Add-AzureRmAccount**: **Remove-AzureRmAccount-scope folyamat** használatával.
 
-   ```powershell  
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:
+
+   ```powershell
    Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
-5. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
+4. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
 
    ```powershell  
    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -164,8 +160,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    ![Azure Stack hub erőforrás-szolgáltató regisztrálása](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot:
+5. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -180,8 +175,9 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
+
    Az MS Asset címkéje ( `msAssetTag` ) kötelező az egyéni számlázási modell regisztrálásához, és a termékre van kinyomtatva.
-    
+
    A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik az üzenet. **A környezet most már regisztrálva van és aktiválva van a megadott paraméterek használatával.**
 
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
@@ -189,18 +185,18 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 1. Az Azure Stack hub erőforrás-szolgáltató az Azure-ban való regisztrálásához indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd a paramétereket az alábbiak szerint).
   
 2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRmAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációja alapján kétfaktoros hitelesítést kell használnia.
-   
+
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
-   
+
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** vagy **AzureUSGovernment**.  |
-   
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment** vagy **AzureUSSec**. 
+
    >[!NOTE]
    > Ha a munkamenet lejár, a jelszó módosult, vagy a fiókokat át szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a **Add-AzureRmAccount**: **Remove-AzureRmAccount-scope folyamat** használatával.
-   
+
 3. Ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a környezet az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt:
 
    ```powershell

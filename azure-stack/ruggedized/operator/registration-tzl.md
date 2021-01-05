@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 94de29942f49aa7151de201bfa00d99625a1fee8
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8dd475ffb12d8aafb37f0c6fe3ec588e6cdf1456
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939976"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726186"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Azure Stack hub regisztrálása az Azure-ban
+# <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Azure Stack hub regisztrálása az Azure-Azure Stack hub robusztus
 
-A Marketplace Syndication beállításához regisztrálnia és aktiválni kell a moduláris adatközpontot (MDC) vagy Azure Stack hub-t Azure Stack hub alapján, az üzembe helyezés befejeződése után. A Marketplace Syndication szolgáltatásban a rendszergazda feltölti a helyi Azure Stack központ Piactért az Azure Marketplace-ről letöltött rendszerképekkel.
+A Piactéri hírszolgáltatás beállításához és a Pásti-szolgáltatások használatához regisztrálnia és aktiválnia kell a moduláris adatközpontot (MDC) vagy Azure Stack hub-t Azure Stack hub alapján, az üzembe helyezés befejeződése után. A Marketplace Syndication szolgáltatásban a rendszergazda feltölti a helyi Azure Stack központ Piactért az Azure Marketplace-ről letöltött rendszerképekkel.
 
 Az Azure-felhőhöz és a leválasztani kívánt rendszerekhez való kapcsolódáshoz regisztrálni kell a regisztrációt.
 
@@ -58,10 +58,8 @@ Az Azure Stack hub Azure-ban való regisztrálása előtt a következőket kell 
 
 - Az Azure-előfizetéshez tartozó előfizetés-azonosító.  
 
-    > [!Note]  
+    > [!NOTE]  
     > Az Azure-előfizetések Azure-beli felhőalapú környezetekhez (Azure kereskedelmi, Azure Government stb.) vannak társítva. Ez határozza meg, hogy melyik felhőhöz fog csatlakozni a piactér-tartalmak eléréséhez.
-    > 
-    > A regisztrációhoz használt előfizetést jóvá kell hagyni a JEDI szolgáltatásokhoz. Ez biztosítja, hogy az Ön által regisztrált eszköz korlátlan erőforrás-használatot biztosítson, és ne legyen jelentéskészítés az Azure-ban. Ha jóvá szeretné hagyni az előfizetését, küldjön egy e-mailt az azshregistration@microsoft.com előfizetés-azonosítóra, amelyet jóvá kell hagynia a regisztrálni kívánt Azure stack hub-vagy moduláris adatközponttal (MDC) együtt.
 
 - Az előfizetés tulajdonosát képező fiók felhasználóneve és jelszava. 
 - A felhasználói fióknak hozzáféréssel kell rendelkeznie az Azure-előfizetéshez, és engedélyekkel kell rendelkeznie az identitáshoz tartozó alkalmazások és egyszerű szolgáltatások létrehozásához az előfizetéshez társított könyvtárban. Javasoljuk, hogy a minimális jogosultságú felügyelettel regisztrálja Azure Stack hub-t az Azure-ban. További információ az előfizetés regisztrációját korlátozó egyéni szerepkör-definíció létrehozásáról: [Azure stack hub regisztrációs szerepkörének létrehozása](../../operator/azure-stack-registration-role.md).
@@ -98,9 +96,9 @@ A legújabb Azure Stack hubok eszköz telepítése:
 1. Nyisson meg egy rendszergazda jogú PowerShell-parancssort.
 2. Futtassa a következő parancsmagot:
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>A regisztrációs forgatókönyv meghatározása
 
@@ -108,7 +106,7 @@ Előfordulhat, hogy az Azure Stack hub üzemelő példánya *csatlakoztatva* van
 
 - **Csatlakoztatva**: a csatlakoztatott eszköz Azure stack hub üzembe helyezését jelenti, hogy az internethez és az Azure-hoz is kapcsolódjon. Azure AD-t vagy Active Directory összevonási szolgáltatások (AD FS) (AD FS) is használhat az identitás-tárolóhoz.
 
-- **Leválasztva**: az Azure-beli üzembe helyezési lehetőség leválasztásával az internethez való kapcsolódás nélkül telepítheti és használhatja Azure stack hubot.
+- **Leválasztva**: az Azure-beli üzembe helyezési lehetőség leválasztásával az internethez való kapcsolódás nélkül telepítheti és használhatja Azure stack hubot. Mivel a leválasztott rendszerek nem tudják visszaküldeni a Pásti-használatot az Azure-ba, regisztrálniuk kell a **kapacitás** számlázási modelljét a Pásti szolgáltatások használatához.
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>A használni kívánt egyedi regisztrációs név meghatározása
 
@@ -132,36 +130,33 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
 1. Az Azure Stack hub erőforrás-szolgáltató az Azure-ban való regisztrálásához indítsa el a PowerShell ISE-t rendszergazdaként, és használja a következő PowerShell-parancsmagokat a megfelelő Azure-előfizetési típushoz beállított **EnvironmentName** paraméterrel (lásd a paramétereket az alábbiak szerint).
 
-2. Adja hozzá a Azure Stack hub regisztrálásához használt Azure-fiókot. A fiók hozzáadásához futtassa az **Add-AzureRmAccount** parancsmagot. A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációja alapján kétfaktoros hitelesítést kell használnia.
+2. Ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a környezet az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt:
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
-   ```
-
-   | Paraméter | Leírás |  
-   |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** vagy **AzureUSGovernment**.  |
-
-   >[!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy a fiókokat át szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a **Add-AzureRmAccount**: **Remove-AzureRmAccount-scope folyamat** használatával.
-
-3. Ugyanebben a PowerShell-munkamenetben ellenőrizze, hogy be van-e jelentkezve a megfelelő Azure PowerShell környezetbe. Ez a környezet az Azure-fiók, amelyet korábban a Azure Stack hub erőforrás-szolgáltató regisztrálásához használt:
-
-   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
+   A **AzureUSSec** először inicializálnia kell a környezetet, `CustomCloud` majd hívja meg a **AzureRmAccount**:
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | Paraméter | Leírás |  
    |-----|-----|
-   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek a következők: **AzureCloud** vagy **AzureUSGovernment**.  |
+   | EnvironmentName | Az Azure felhőalapú előfizetési környezet neve. A támogatott környezeti nevek: **AzureCloud**, **AzureUSGovernment** vagy **AzureUSSec**.   |
 
-4. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:
+   > [!NOTE]
+   > Ha a munkamenet lejár, a jelszó módosult, vagy a fiókokat át szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a **Add-AzureRmAccount**: **Remove-AzureRmAccount-scope folyamat** használatával.
 
-   ```powershell  
+3. Ha több előfizetéssel rendelkezik, futtassa a következő parancsot a használni kívánt elem kiválasztásához:
+
+   ```powershell
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-5. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
+4. A következő parancs futtatásával regisztrálja az Azure Stack hub erőforrás-szolgáltatót az Azure-előfizetésében:
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -171,8 +166,7 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
 
    ![Azure Stack hub erőforrás-szolgáltató regisztrálása](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot:
+5. Ugyanebben a PowerShell-munkamenetben futtassa a **set-AzsRegistration** parancsmagot:
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -182,13 +176,14 @@ A csatlakoztatott környezetek hozzáférhetnek az internethez és az Azure-hoz.
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel Custom `
+      -BillingModel Ruggedized `
       -RegistrationName $RegistrationName `
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
-   Az MS Asset címkéje ( `msAssetTag` ) kötelező az egyéni számlázási modell regisztrálásához, és a termékre van kinyomtatva.
-    
+
+   Az MS Asset címke ( `msAssetTag` ) kötelező a robusztus számlázási modell regisztrálásához, és a termékre van kinyomtatva.
+
    A folyamat 10 – 15 percet vesz igénybe. Ha a parancs befejeződik, megjelenik az üzenet. **A környezet most már regisztrálva van és aktiválva van a megadott paraméterek használatával.**
 
 ## <a name="registration-and-activation-for-systems-not-connected-to-the-azure-cloud"></a>Az Azure-felhőhöz nem csatlakoztatott rendszerek regisztrálása és aktiválása 
@@ -216,7 +211,7 @@ Szerezze be a regisztrációs jogkivonatot az Azure Stack hub-környezetből. Ez
       -PrivilegedEndpointCredential $YourCloudAdminCredential `
       -UsageReportingEnabled:$False `
       -PrivilegedEndpoint $YourPrivilegedEndpoint `
-      -BillingModel Custom -msAssetTag '<MS Asset tag>' `
+      -BillingModel Capacity -AgreementNumber '<EA agreement number>' -msAssetTag '<MS Asset tag>' `
       -TokenOutputFilePath $FilePathForRegistrationToken 
    ```
 
@@ -300,7 +295,7 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 A **régió kezelése** csempével ellenőrizheti, hogy az Azure stack hub regisztrációja sikeres volt-e. Ez a csempe a felügyeleti portál alapértelmezett irányítópultján érhető el. Az állapot regisztrálható vagy nem regisztrálható. Ha regisztrálva van, akkor az Azure-előfizetés AZONOSÍTÓját is megjeleníti, amelyet az Azure Stack hub regisztrálásához használt a regisztrációs erőforráscsoport és a név használatával.
 
-1. Jelentkezzen be az Azure Stack hub felügyeleti portálra ( `https://adminportal.local.azurestack.external` ).
+1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra. Az URL-cím az operátor régiója és a külső tartománynév alapján változik, és formátuma a következő lesz: `https://adminportal.<region>.<FQDN>` .
 
 2. Az irányítópulton válassza a **régió kezelése** lehetőséget.
 
@@ -322,9 +317,6 @@ Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a p
 > [!NOTE]
 > A regisztráció befejezése után a nem regisztrált aktív figyelmeztetés többé nem jelenik meg.
 
-> [!NOTE]
-> Az **előfizetés nem támogatja a (z) [InvalidRegistrationToken]: BillingModel "Custom"** hibaüzenetet, amely azt jelzi, hogy a regisztrációhoz használt előfizetés nem lett jóváhagyva Azure stack hub ROBUSZTUS vagy MDC használata esetén. Kérjük, vegye fel a kapcsolatot azshregistration@microsoft.com , hogy jóváhagyja az előfizetést, valamint a termék típusát (Azure stack hub robusztus vagy MDC).
-
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub adminisztrációs alapjai](../../operator/azure-stack-manage-basics.md)  

@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/22/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
+ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778002"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743573"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -166,6 +166,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 12/22/2020: szélhámos Wave szoftver CentOS 7,8 – verzió 7.8.2020062400
 - 12/07/2020: Bitnami Elasticsearch-fürt – 1.0.2 verzió
 - 12/07/2020: Bitnami Cassandra-fürt verziója – 1.0.21
 - 12/07/2020: Bitnami etcd-fürt verziója 1.0.16
