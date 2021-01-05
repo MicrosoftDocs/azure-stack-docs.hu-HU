@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub üzembe helyezési munkalapja
 description: Megtudhatja, hogyan telepítheti és használhatja az üzembe helyezési munkalap eszközt Azure Stack hub üzembe helyezéséhez.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/19/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: afdad104cad67e928e1d6d988138ab1c8555631c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836126"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870885"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Üzembe helyezési munkalap Azure Stack hub integrált rendszerekhez
 
@@ -62,9 +62,9 @@ A következő lépések végrehajtásával indíthatja el és használhatja a k�
    Start-DeploymentWorksheet
    ```
 
-Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállítások, például az **Ügyfél beállításai**, a **hálózati beállítások**és a **skálázási egység (#**) összegyűjtéséhez. A konfigurációs adatfájlok előállítása előtt minden lapon meg kell adnia az összes olyan értéket (kivéve a jelölést, amely nem **kötelező**). Miután az összes szükséges értéket beírta az eszközre, a **művelet** menüben **importálhatja**, **exportálhatja**és **létrehozhatja**a következőt:. A telepítéshez szükséges JSON-fájlok a következők:
+Az üzembe helyezési munkalap külön lapokat tartalmaz a környezeti beállítások, például az **Ügyfél beállításai**, a **hálózati beállítások** és a **skálázási egység (#**) összegyűjtéséhez. A konfigurációs adatfájlok előállítása előtt minden lapon meg kell adnia az összes olyan értéket (kivéve a jelölést, amely nem **kötelező**). Miután az összes szükséges értéket beírta az eszközre, a **művelet** menüben **importálhatja**, **exportálhatja** és **létrehozhatja** a következőt:. A telepítéshez szükséges JSON-fájlok a következők:
 
-**Importálás**: lehetővé teszi egy olyan Azure stack hub konfigurációs adatfájl (ConfigurationData. JSON) importálását, amelyet az eszköz vagy az üzembe helyezési munkalap korábbi kiadása által létrehozott fájlok hoztak létre. Az importálás során a rendszer visszaállítja az űrlapokat, és törli a korábban megadott beállításokat vagy a generált összes adatát.
+**Importálás**: lehetővé teszi az eszköz által létrehozott Azure stack hub konfigurációs adatfájl (ConfigurationData.js) importálását, vagy a telepítési munkalap korábbi kiadásával létrehozott fájlokat. Az importálás során a rendszer visszaállítja az űrlapokat, és törli a korábban megadott beállításokat vagy a generált összes adatát.
 
 **Exportálás**: érvényesíti az űrlapokra aktuálisan beírt adatokat, létrehozza az IP-alhálózatokat és a hozzárendeléseket, majd a tartalmat JSON formátumú konfigurációs fájlokként menti. Ezután ezeket a fájlokat használhatja a hálózati konfiguráció létrehozásához és Azure Stack hub telepítéséhez.
 
@@ -82,7 +82,7 @@ Az eszköz elindítása részletes naplózással:
    Start-DeploymentWorksheet -EnableLogging
    ```
 
-A mentett napló az aktuális felhasználó **temp** könyvtárában található; például: **c:\users\me\appdata\local\temp\ Microsoft_AzureStack \ DeploymentWorksheet_Log. txt**.
+A mentett napló az aktuális felhasználó **temp** könyvtárában található; például: **C:\Users\me\AppData\Local\Temp\Microsoft_AzureStack\DeploymentWorksheet_Log.txt**.
 
 ## <a name="next-steps"></a>További lépések
 

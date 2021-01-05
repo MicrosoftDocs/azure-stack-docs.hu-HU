@@ -1,18 +1,18 @@
 ---
 title: A bővítmény-gazdagép előkészítése Azure Stack központban
 description: Megtudhatja, hogyan készítheti elő a bővítmények gazdagépét Azure Stack hub-ban, amely a 1808-es verzió után automatikusan engedélyezve van egy Azure Stack hub-frissítési csomagon keresztül.
-author: IngridAtMicrosoft
-ms.author: inhenkel
+author: PatAltimore
+ms.author: patricka
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 43cb091b3076f26880599e35a770383182e944d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699898"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870613"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>A bővítmény-gazdagép előkészítése Azure Stack központban
 
@@ -26,8 +26,8 @@ A tábla az új névtereket és a hozzájuk tartozó tanúsítványokat jelenít
 
 | Telepítési mappa | Kötelező tanúsítvány tárgya és a tulajdonos alternatív nevei (SAN) | Hatókör (régiónként) | Altartomány névtere |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Felügyeleti bővítmény gazdagépe | *.adminhosting. \<régió>. \<FQDN> (helyettesítő karakteres SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting. \<régió>. \<teljes tartománynév> |
-| Nyilvános kiterjesztésű gazdagép | *. hosting. \<régió>. \<FQDN> (helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | üzemeltetési. \<régió>. \<teljes tartománynév> |
+| Felügyeleti bővítmény gazdagépe | *. adminhosting. \<region> .\<fqdn> (Helyettesítő karakteres SSL-tanúsítványok) | Felügyeleti bővítmény gazdagépe | adminhosting. \<region> .\<fqdn> |
+| Nyilvános kiterjesztésű gazdagép | *. hosting. \<region> .\<fqdn> (Helyettesítő karakteres SSL-tanúsítványok) | Nyilvános kiterjesztésű gazdagép | üzemeltetés. \<region> ..\<fqdn> |
 
 A tanúsítványokra vonatkozó részletes követelményekért lásd: [Azure stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények](azure-stack-pki-certs.md).
 
@@ -60,9 +60,9 @@ Az Azure Stack hub Readiness-ellenőrző eszköz lehetővé teszi tanúsítvány
     ```
 
     > [!Note]  
-    > Ha Azure Active Directory összevont szolgáltatásokkal (AD FS) végzi a telepítést, a következő könyvtárakat hozzá kell adni a **$directorieshoz** a parancsfájlban: `ADFS`, `Graph`.
+    > Ha Azure Active Directory összevont szolgáltatásokkal (AD FS) végzi a telepítést, a következő könyvtárakat hozzá kell adni a **$directorieshoz** a parancsfájlban: `ADFS` , `Graph` .
 
-4. Helyezze el a meglévő tanúsítványokat, amelyeket jelenleg a Azure Stack hub-ban használ a megfelelő címtárakban. Tegyük fel például, hogy a **rendszergazda ARM** - `Arm Admin` tanúsítvány a mappában található. Ezután helyezze az újonnan létrehozott üzemeltetési tanúsítványokat a és `Admin extension host` `Public extension host` a címtárakba.
+4. Helyezze el a meglévő tanúsítványokat, amelyeket jelenleg a Azure Stack hub-ban használ a megfelelő címtárakban. Tegyük fel például, hogy a **rendszergazda ARM** -tanúsítvány a `Arm Admin` mappában található. Ezután helyezze az újonnan létrehozott üzemeltetési tanúsítványokat a `Admin extension host` és a `Public extension host` címtárakba.
 5. A tanúsítvány-ellenőrzési elindításához futtassa a következő parancsmagot:
 
     ```powershell  
@@ -123,12 +123,12 @@ A következő lépésekhez használjon olyan számítógépet, amely csatlakozha
 > Erre a lépésre nincs szükség, ha DNS-zónák delegálását használta a DNS-integrációhoz.
 Ha az egyes gazdagépeken rekordok vannak konfigurálva Azure Stack hub-végpontok közzétételére, két további gazdagépet kell létrehoznia:
 
-| IP | Gazdanév | Típus |
+| IP | Hostname (Gazdanév) | Típus |
 |----|------------------------------|------|
-| \<IP-> | *. Adminhosting. \<Régió>. \<Teljes tartománynév> | A |
-| \<IP-> | *. Üzemeltetési. \<Régió>. \<Teljes tartománynév> | A |
+| \<IP> | *. Adminhosting. \<Region> .\<FQDN> | A |
+| \<IP> | *. Üzemeltetés. \<Region> ..\<FQDN> | A |
 
-A lefoglalt IP-címeket a **Get-AzureStackStampInformation**parancsmag futtatásával kérheti le a privilegizált végpont használatával.
+A lefoglalt IP-címeket a **Get-AzureStackStampInformation** parancsmag futtatásával kérheti le a privilegizált végpont használatával.
 
 ### <a name="ports-and-protocols"></a>Portok és protokollok
 
@@ -180,10 +180,10 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 > [!Note]  
 > Ezt a módosítást a bővítmény gazdagépének engedélyezése előtt végezze el. Ez lehetővé teszi, hogy az Azure Stack hub-portálok folyamatosan elérhetők legyenek.
 
-| Végpont (VIP) | Protocol (Protokoll) | Portok |
+| Végpont (VIP) | Protokoll | Portok |
 |----------------|----------|-------|
 | Rendszergazdai üzemeltetés | HTTPS | 443 |
-| Üzemeltetés | HTTPS | 443 |
+| Hosting | HTTPS | 443 |
 
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>Meglévő közzétételi szabályok frissítése (a bővítmény gazdagépének engedélyezése után)
 
@@ -195,7 +195,7 @@ A meglévő tűzfalszabályok következő meglévő végpont-portjait be kell z�
 > [!Note]  
 > A sikeres ellenőrzés után a portok bezárását javasoljuk.
 
-| Végpont (VIP) | Protocol (Protokoll) | Portok |
+| Végpont (VIP) | Protokoll | Portok |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Portál (rendszergazda) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
 | Portál (felhasználó) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |

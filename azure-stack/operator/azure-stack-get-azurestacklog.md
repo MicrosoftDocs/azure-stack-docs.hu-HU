@@ -1,19 +1,19 @@
 ---
 title: Diagnosztikai naplók összegyűjtése a Kiemelt végponton keresztül (PEP)
 description: Megtudhatja, hogyan gyűjthet diagnosztikai naplókat igény szerint Azure Stack hub-ban a felügyeleti portál vagy egy PowerShell-parancsfájl használatával.
-author: justinha
+author: PatAltimore
 ms.custom: conteperfq4
 ms.topic: article
 ms.date: 09/02/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: 1a7efd4a7be3af242f817d93f6ba80591d860fa0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794158"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870766"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Az Azure Stack Hub diagnosztikai naplóinak küldése a kiemelt végpont (PEP) használatával
 

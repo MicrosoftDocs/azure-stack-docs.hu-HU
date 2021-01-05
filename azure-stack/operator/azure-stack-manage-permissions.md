@@ -1,18 +1,18 @@
 ---
 title: Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 description: Megtudhatja, hogyan állíthat be hozzáférési engedélyeket szerepköralapú hozzáférés-vezérléssel (RBAC) az Azure Stack hub-ban.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 12/23/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 0960e2519fbeb476aa55fbb8a27a58a59ccb99c9
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 852aa0283e3bd88a196c4bcf9e56951142bc4d60
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965075"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870120"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 
@@ -29,7 +29,7 @@ Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműk�
 
 1. Jelentkezzen be egy olyan fiókkal, amely tulajdonosi engedélyekkel rendelkezik a kezelni kívánt erőforráshoz.
 2. Az erőforrás paneljén kattintson a **hozzáférés** ikonra ![ a hozzáférés ikon a fej és a vállak két személyből álló vázlata. ](media/azure-stack-manage-permissions/image1.png)
-3. A **felhasználók** panelen kattintson a **szerepkörök**elemre.
+3. A **felhasználók** panelen kattintson a **szerepkörök** elemre.
 4. A **szerepkörök** panelen kattintson a **Hozzáadás** gombra a felhasználó engedélyeinek hozzáadásához.
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>Egy univerzális csoport hozzáférési engedélyeinek beállítása 
@@ -39,9 +39,9 @@ Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműk�
 
 1. Jelentkezzen be egy olyan fiókkal, amely tulajdonosi engedélyekkel rendelkezik a kezelni kívánt erőforráshoz.
 2. Az erőforrás paneljén kattintson a **hozzáférés** ikonra ![ a hozzáférés ikon a fej és a vállak két személyből álló vázlata. ](media/azure-stack-manage-permissions/image1.png)
-3. A **felhasználók** panelen kattintson a **szerepkörök**elemre.
+3. A **felhasználók** panelen kattintson a **szerepkörök** elemre.
 4. A **szerepkörök** panelen kattintson a **Hozzáadás** gombra az univerzális csoport Active Directory csoport engedélyeinek hozzáadásához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub-bérlő hozzáadása](azure-stack-add-new-user-aad.md)

@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 605ce80e2f88f5c798c955d5ba45a49856086f2e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612624"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872483"
 ---
 # <a name="mdc-requirements-overview"></a>A MDC-követelmények áttekintése
 
@@ -47,7 +47,7 @@ Mindegyik Pod két 42U állványból áll. A pod a Top-of-rack (ToR) kapcsolók,
 
 A következő táblázat felsorolja az útmutatóban használt néhány kifejezést.
 
-|Kifejezés    |Definíció |
+|Időszak    |Meghatározás |
 |-------|-----------|
 |Hardver életciklus-állomása (HLH)|    A HLH a kezdeti üzembe helyezési rendszerindításhoz használt fizikai kiszolgáló, valamint az Azure Stack hub-infrastruktúra folyamatos hardveres felügyelete, támogatása és biztonsági mentése. A HLH asztali felhasználói felülettel és Hyper-V szerepkörrel futtatja a Windows Server 2019-es verzióját. A kiszolgáló a hardver-felügyeleti eszközök, a felügyeleti eszközök, az Azure Stack hub-partneri eszközkészlet és a telepítési virtuális gép üzemeltetésére szolgál. |
 |Üzembe helyezési virtuális gép (DVM)|    A DVM egy virtuális gép, amely az Azure Stack hub szoftver központi telepítésének időtartama alatt jön létre a HLH. A DVM Azure Stack hub szoftvertelepítő motort futtat, amely az Enterprise Cloud Engine (EGB) használatával telepíti és konfigurálja a Azure Stack hub Fabric-infrastruktúra szoftverét az összes Azure Stack hub-méretezési egység kiszolgálóin a hálózaton keresztül.|

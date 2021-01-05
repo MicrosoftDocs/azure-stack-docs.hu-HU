@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-adatok helyreállítása a Infrastructure Backup szolgáltatással
 description: Megtudhatja, hogyan készíthet biztonsági mentést és visszaállítást Azure Stack hub konfigurációs és szolgáltatási adatairól a Infrastructure Backup szolgáltatás használatával.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 9d2105138501bfabe1c1244576208d485ff2d875
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367240"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871667"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Azure Stack hub adatainak helyreállítása a Infrastructure Backup szolgáltatással
 
@@ -29,7 +29,7 @@ A biztonsági mentési szolgáltatás engedélyezése előtt ellenőrizze, hogy 
 
 A szolgáltatás a következő funkciókat tartalmazza:
 
-| Funkció                                            | Leírás                                                                                                                                                |
+| Szolgáltatás                                            | Leírás                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Biztonsági mentési infrastruktúra-szolgáltatások                     | A biztonsági mentés koordinálása a Azure Stack hub infrastruktúra-szolgáltatásainak egy részhalmazán keresztül. Vészhelyzet esetén az újratelepítés részeként visszaállíthatók az adatmennyiség. |
 | Az exportált biztonsági mentési adatmennyiség tömörítése és titkosítása | A biztonsági mentési információk tömörítése és titkosítása a rendszer által a rendszergazda által biztosított külső tárolóhelyre való exportálás előtt történik.                |
@@ -47,7 +47,7 @@ A szolgáltatás a következő funkciókat tartalmazza:
   A biztonságimásolat-fájlok titkosítása a tanúsítvány nyilvános kulcsával történik. Ügyeljen arra, hogy a tanúsítványt biztonságos helyen tárolja. 
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Megtudhatja, hogyan [engedélyezheti az Azure stack hub biztonsági mentését a felügyeleti portálról](azure-stack-backup-enable-backup-console.md).
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub Storage-fiókok kezelése
 description: Ismerje meg, hogyan lehet megkeresni, felügyelni, helyreállítani és visszaigényelni Azure Stack hub Storage-fiókokat.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 4a939cafccd91b29a324dd15e01b04be47074df8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415317"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870103"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack hub Storage-fiókok kezelése
 
@@ -37,7 +37,7 @@ Ha érdekli egy adott Storage-fiók, akkor csak **a megfelelő fiókokat szűrhe
 **A fiókok szűrése:**
 
 1. Válassza a **szűrő** elemet a panel tetején.
-2. A szűrő panelen megadhatja a **fiók nevét** , az **előfizetés azonosítóját** vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
+2. A szűrő panelen megadhatja a **fiók nevét**, az **előfizetés azonosítóját** vagy az **állapotot** a megjelenítendő Storage-fiókok listájának finomhangolásához. Szükség szerint használja őket.
 3. A gépelés során a lista automatikusan alkalmazza a szűrőt.
 
     ![Azure Stack hub Storage-fiókok szűrése](media/azure-stack-manage-storage-accounts/image5.png)

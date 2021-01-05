@@ -1,18 +1,18 @@
 ---
 title: A felhő AZONOSÍTÓjának megkeresése
 description: A Felhőbeli azonosító megkeresése Azure Stack hub Súgó és támogatás szolgáltatásában.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 10/08/2019
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: e14a2a000b52f09f664112467ce8694134243681
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 5483aa6859e839b978da7449d124811d3e2fb0bb
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778228"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870579"
 ---
 # <a name="find-your-cloud-id"></a>A felhő AZONOSÍTÓjának megkeresése
 
@@ -21,7 +21,7 @@ Ez a témakör azt ismerteti, hogyan kérheti le a Felhőbeli AZONOSÍTÓját a 
 ## <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 
 1. Nyissa meg a felügyeleti portált. 
-1. Válassza a **régió kezelése**lehetőséget.
+1. Válassza a **régió kezelése** lehetőséget.
 
    ![Képernyőkép az irányítópultról](./media/azure-stack-automatic-log-collection/dashboard.png)
 
@@ -49,7 +49,7 @@ Ez a témakör azt ismerteti, hogyan kérheti le a Felhőbeli AZONOSÍTÓját a 
    $stampInfo.CloudID
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 * [Naplók interaktív küldése](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)
 * [Naplók küldése most](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)

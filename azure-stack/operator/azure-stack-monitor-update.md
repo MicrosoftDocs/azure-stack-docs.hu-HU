@@ -1,33 +1,33 @@
 ---
-title: Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
+title: Frissítések monitorozása az Azure Stack Hubban a kiemelt végpont használatával
 description: Megtudhatja, hogyan használhatja a Kiemelt végpontot a Azure Stack hub integrált rendszerek frissítési állapotának figyelésére.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848183"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870256"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések figyelése Azure Stack központban a privilegizált végpont használatával
+# <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések monitorozása az Azure Stack Hubban a kiemelt végpont használatával
 
 Az emelt [szintű végpont](azure-stack-privileged-endpoint.md) használatával figyelheti az Azure stack hub frissítési futtatásának állapotát. A rendszerjogosultságú végpontot is használhatja a sikertelen frissítés futtatásának folytatásához az utolsó sikeres lépés után, ha az Azure Stack hub-portál elérhetetlenné válik. Az Azure Stack hub portál használata ajánlott módszer a frissítések Azure Stack hub-ban való kezeléséhez.
 
 A következő új PowerShell-parancsmagok szerepelnek az Update Managementhez Azure Stack hub integrált rendszerek 1710-es frissítésében.
 
-| Parancsmag  | Description  |
+| Parancsmag  | Leírás  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | A jelenleg futó, befejezett vagy sikertelen frissítés állapotát adja vissza. A frissítési művelet magas szintű állapotát és egy olyan XML-dokumentumot biztosít, amely az aktuális lépést és a megfelelő állapotot is leírja. |
 | `Resume-AzureStackUpdate` | Egy sikertelen frissítés folytatása azon a ponton, ahol a művelet sikertelen volt. Bizonyos esetekben előfordulhat, hogy a frissítés folytatása előtt el kell végeznie a kockázatcsökkentő lépéseket.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Ellenőrizze, hogy elérhetők-e a parancsmagok
-Mivel a parancsmagok a Azure Stack hub 1710-es frissítési csomagjához tartoznak, a 1710 frissítési folyamatnak egy bizonyos pontra kell jutnia ahhoz, hogy elérhető legyen a figyelési funkció. A parancsmagok jellemzően akkor érhetők el, ha a felügyeleti portálon lévő állapot azt jelzi, hogy az 1710-es frissítés a **Storage-gazdagépek újraindítása** lépéssel történik. A parancsmag frissítése a lépés végrehajtása során következik be **: a 2,6-es lépés – a PrivilegedEndpoint engedélyezési**listájának frissítése.
+Mivel a parancsmagok a Azure Stack hub 1710-es frissítési csomagjához tartoznak, a 1710 frissítési folyamatnak egy bizonyos pontra kell jutnia ahhoz, hogy elérhető legyen a figyelési funkció. A parancsmagok jellemzően akkor érhetők el, ha a felügyeleti portálon lévő állapot azt jelzi, hogy az 1710-es frissítés a **Storage-gazdagépek újraindítása** lépéssel történik. A parancsmag frissítése a lépés végrehajtása során következik be **: a 2,6-es lépés – a PrivilegedEndpoint engedélyezési** listájának frissítése.
 
 Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a parancsok a Kiemelt végpontról történő lekérdezésével. A lekérdezés végrehajtásához futtassa a következő parancsokat a hardver életciklus-gazdagépén vagy egy emelt szintű hozzáférési munkaállomáson. Győződjön meg arról is, hogy a Kiemelt végpont megbízható gazdagép. További információ: [a privilegizált végpont elérésének](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)1. lépése.
 
@@ -38,7 +38,7 @@ Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a
 
    $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
    ```
-   Amikor a rendszer kéri a hitelesítő adatokat &lt;, használja az *Azure stack hub tartományi*&gt;\cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+   Amikor a rendszer kéri a hitelesítő adatokat, használja az &lt; *Azure stack hub tartományi* &gt; \cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 2. A privilegizált végponton elérhető parancsok teljes listájának beolvasása.
 
@@ -85,7 +85,7 @@ $cred = Get-Credential
 
 $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -ConfigurationName PrivilegedEndpoint 
 ```
- Amikor a rendszer kéri a hitelesítő adatokat &lt;, használja az *Azure stack hub tartományi*&gt;\cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
+ Amikor a rendszer kéri a hitelesítő adatokat, használja az &lt; *Azure stack hub tartományi* &gt; \cloudadmin-fiókot vagy egy olyan fiókot, amely tagja a CloudAdmins csoportnak. A CloudAdmin fiók esetében adja meg ugyanazt a jelszót, amelyet a Azurestack tartományi rendszergazdai fiók telepítésekor adott meg.
 
 ### <a name="get-high-level-status-of-the-current-update-run"></a>Az aktuális frissítési Futtatás magas szintű állapotának beolvasása
 
@@ -99,7 +99,7 @@ $statusString.Value
 
 A lehetséges értékek a következők:
 
-- Fut
+- Futó
 - Befejezve
 - Sikertelen 
 - Megszakítva

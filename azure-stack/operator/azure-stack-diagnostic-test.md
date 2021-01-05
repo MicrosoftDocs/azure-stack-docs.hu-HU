@@ -1,22 +1,22 @@
 ---
 title: Rendszerállapot ellenőrzése az Azure Stack hub ellenőrző eszközével
 description: Megtudhatja, hogyan ellenőrizheti a rendszerállapotot az Azure Stack hub érvényesítési eszközével.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415164"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870834"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack hub rendszerállapotának ellenőrzése
 
-Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool ( **test-AzureStack** ) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, ha probléma merül fel a Microsoft Customer Services támogatási szolgálatával (Microsoft ügyfélszolgálata). A rendszerszintű állapot-és állapotadatok esetében Microsoft ügyfélszolgálata a részletes naplók összegyűjtését és elemzését, a hiba előfordulási területére koncentrálhat, és segít a probléma megoldásában.
+Azure Stack hub-kezelőként elengedhetetlen az igény szerinti rendszer állapotának és állapotának megállapítása. Az Azure Stack hub Validation Tool (**test-AzureStack**) egy PowerShell-parancsmag, amely lehetővé teszi, hogy teszteket futtasson a rendszeren a hibák azonosítására, ha van ilyen. A rendszer általában arra kéri, hogy ezt az eszközt a [privilegizált végponton (PEP)](azure-stack-privileged-endpoint.md) keresztül futtassa, ha probléma merül fel a Microsoft Customer Services támogatási szolgálatával (Microsoft ügyfélszolgálata). A rendszerszintű állapot-és állapotadatok esetében Microsoft ügyfélszolgálata a részletes naplók összegyűjtését és elemzését, a hiba előfordulási területére koncentrálhat, és segít a probléma megoldásában.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Az érvényesítési eszköz futtatása és az eredmények elérése
 
@@ -47,7 +47,7 @@ A fentiekben leírtak szerint az ellenőrző eszköz a PEP-n keresztül fut. Min
 
    További információ: [paraméterekkel kapcsolatos szempontok](azure-stack-diagnostic-test.md#parameter-considerations) és [példák használata](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Ha bármilyen teszt jelentés **sikertelen** , futtassa a parancsot `Get-AzureStackLog` . Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-get-azurestacklog.md).
+1. Ha bármilyen teszt jelentés **sikertelen**, futtassa a parancsot `Get-AzureStackLog` . Az integrált rendszerekre vonatkozó utasításokért lásd: [Get-AzureStackLog futtatása Azure stack hub integrált rendszereken](azure-stack-get-azurestacklog.md).
 
    A parancsmag a test-AzureStack által generált naplókat gyűjti. Javasoljuk, hogy ne Gyűjtse össze a naplókat és a kapcsolatfelvételi Microsoft ügyfélszolgálata helyet, ha a tesztek **figyelmeztetést** küldenek.
 
@@ -163,16 +163,16 @@ A Felhőbeli rendszergazda felhasználónevet az UPN formátumban kell megadni: 
 
 ### <a name="groups"></a>Csoportok
 
-A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **default** , **UpdateReadiness** és **SecretRotationReadiness**.
+A kezelői élmény javítása érdekében a **Group** paraméter engedélyezve lett több tesztelési kategória egyidejű futtatásához. Jelenleg három csoport van definiálva: **default**, **UpdateReadiness** és **SecretRotationReadiness**.
 
-- **Alapértelmezett** : a **test-AzureStack** standard futtatásának tekintendő. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
-- **UpdateReadiness** : megtekintheti, hogy az Azure stack hub-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A Azure Stack hub 1910-es verziójától kezdve a következő kategóriák a **UpdateReadiness** -csoport részét képezik:
+- **Alapértelmezett**: a **test-AzureStack** standard futtatásának tekintendő. Alapértelmezés szerint ez a csoport akkor fut, ha nincs más csoport kiválasztva.
+- **UpdateReadiness**: megtekintheti, hogy az Azure stack hub-példány frissíthető-e. A **UpdateReadiness** csoport futtatásakor a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a frissítéshez blokkoló kell tekinteni őket. A Azure Stack hub 1910-es verziójától kezdve a következő kategóriák a **UpdateReadiness** -csoport részét képezik:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness** : Ellenőrizze, hogy az Azure stack hub-példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
+- **SecretRotationReadiness**: Ellenőrizze, hogy az Azure stack hub-példány olyan állapotban van-e, amelyben a titkos elforgatás futtatható. Ha a **SecretRotationReadiness** csoport fut, a figyelmeztetések hibákként jelennek meg a konzol kimenetében, és a titkos elforgatáshoz blokkoló kell tekinteni őket. A következő kategóriák a SecretRotationReadiness csoport részét képezik:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**

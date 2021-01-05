@@ -1,18 +1,18 @@
 ---
 title: Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban egy MDC
 description: Megtudhatja, hogyan méretezheti az egység csomópontok műveleteit, beleértve a bekapcsolt, a kikapcsolást, a letiltást, a folytatást és a csomópontok állapotát Azure Stack hub integrált rendszerekben
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598521"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872058"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Skálázási egység csomópontjainak műveletei Azure Stack hub-moduláris adatközpontban (MDC)
 

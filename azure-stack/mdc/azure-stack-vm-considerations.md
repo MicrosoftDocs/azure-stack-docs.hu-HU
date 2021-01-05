@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 054a3267d48f823ad6d0767f1946e94667c6e12d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598334"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872517"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM-funkciók – moduláris adatközpont (MDC)
 
@@ -28,7 +28,7 @@ Azure Stack virtuális gépek (VM-EK) igény szerinti, méretezhető számítás
 
 ## <a name="vm-differences"></a>VIRTUÁLIS gépek közötti különbségek
 
-| Funkció | Azure (globális) | Azure Stack |
+| Szolgáltatás | Azure (globális) | Azure Stack |
 | --- | --- | --- |
 | Virtuálisgép-rendszerképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincs elérhető lemezkép a Azure Stack piactéren. A Azure Stack a felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack piactéren, mielőtt a felhasználók használni tudják őket. |
 | Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | A Azure Stack az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |

@@ -1,18 +1,18 @@
 ---
 title: A Azure Stack hub felügyeleti portáljának használata
 description: Ismerje meg, hogyan használhatja a Azure Stack hub felügyeleti portálját.
-author: justinha
+author: PatAltimore
 ms.topic: quickstart
 ms.date: 06/07/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 704830b481e7b40261b2b5079370b0a641690520
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363979"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870086"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>A Azure Stack hub felügyeleti portáljának használata
 
@@ -84,8 +84,8 @@ Ha a felügyeleti portál jobb felső sarkában található Súgó ikonra (kérd
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Gyors hozzáférés az Azure-ütemtervhez
 
-Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet** , megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja **Azure stack hub** kifejezést a **Products (termékek** ) keresőmezőbe, az összes Azure stack hub-útiterv frissítését láthatja.
+Ha a felügyeleti portál jobb felső sarkában a **Súgó és támogatás** (kérdőjel) lehetőséget választja, majd kiválasztja az **Azure-útitervet**, megnyílik egy új böngésző lap, amely az Azure-útitervre mutat. Ha beírja **Azure stack hub** kifejezést a **Products (termékek** ) keresőmezőbe, az összes Azure stack hub-útiterv frissítését láthatja.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Regisztrálja Azure stack](azure-stack-registration.md) központját az Azure-ban, és töltse fel [Azure stack hub Marketplace](azure-stack-marketplace.md) -et a felhasználók számára elérhető elemek használatával.

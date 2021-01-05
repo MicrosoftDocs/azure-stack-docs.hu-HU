@@ -1,18 +1,18 @@
 ---
 title: Az időkiszolgáló konfigurálása Azure Stack központban
 description: Megtudhatja, hogyan konfigurálhatja az időkiszolgálót Azure Stack központban.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 2/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: f1627be5d6986cd82fe21a58163f22eb0873eda6
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: e50bb123e7f52c17e5d180d0dd33cc84669882ab
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836104"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871412"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Az Azure Stack hub időkiszolgálójának konfigurálása
 
@@ -40,7 +40,7 @@ A Azure Stack hub számára egy időkiszolgáló (NTP) megadása szükséges az 
 3. A következő parancs futtatásával frissítse Azure Stack hub-t az új NTP-kiszolgáló használatára, és azonnal szinkronizálja az időt.
 
     > [!Note]  
-    > Ez az eljárás nem frissíti az időkiszolgálót a fizikai kapcsolókon. Ha a Time Server nem Windows-alapú NTP-kiszolgáló, akkor hozzá kell adnia a jelzőt `0x8`.
+    > Ez az eljárás nem frissíti az időkiszolgálót a fizikai kapcsolókon. Ha a Time Server nem Windows-alapú NTP-kiszolgáló, akkor hozzá kell adnia a jelzőt `0x8` .
 
     ```PowerShell
     Set-AzsTimeSource -TimeServer NEWTIMESERVERIP -resync

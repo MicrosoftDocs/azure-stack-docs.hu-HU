@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub Capacity Planner
 description: Megtudhatja, hogyan használhatja az Azure Stack hub Capacity Planner-táblázatot a központi telepítésekhez.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d78d52bf28671527bd5f9dbfd80efef401888264
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701640"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871531"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Azure Stack hub Capacity Planner
 
@@ -20,11 +20,11 @@ Az Azure Stack hub Capacity Planner egy táblázat, amely azt mutatja be, hogy a
 
 ## <a name="worksheet-descriptions"></a>A munkalap leírása
 
-A következő táblázat az Azure Stack hub Capacity Planner összes munkalapját ismerteti, amely letölthető innen [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):.
+A következő táblázat az Azure Stack hub Capacity Planner összes munkalapját ismerteti, amely letölthető innen: [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) .
 
 |Munkalap neve|Leírás|
 |-----|-----|
-|Verzió – jogi nyilatkozat|A számológép, a verziószám és a kiadási dátum célja.|
+|Version-Disclaimer|A számológép, a verziószám és a kiadási dátum célja.|
 |Utasítások|Részletes útmutató a kapacitás megtervezéséhez a virtuális gépek (VM-EK) gyűjteményének modellezéséhez.|
 |DefinedSolutionSKUs|Legfeljebb öt hardveres definícióval rendelkező tábla. A bejegyzések példák. Módosítsa a részleteket úgy, hogy azok megfeleljenek az érintett rendszerkonfigurációknak.|
 |DefineByVMFootprint|Keresse meg a megfelelő hardveres SKU-t úgy, hogy összehasonlítja a különböző méretű és mennyiségű virtuális gépet.|
@@ -61,7 +61,7 @@ Ha a modellt a különböző méretű és mennyiségű virtuális gépek egyetle
    > A teljes virtuálisgép-tárterület a virtuális gép adatlemezének teljes kapacitására utal (a támogatott lemezek száma megszorozva az egyetlen lemez maximális kapacitásával [1 TB]). A konfigurációs mutatók alapján kitöltöttük a rendelkezésre álló tárolási konfigurációk táblázatát, így kiválaszthatja az egyes Azure Stack hub-alapú virtuális gépek kívánt tárolási erőforrását. Fontos azonban megjegyezni, hogy szükség szerint hozzáadhatja vagy módosíthatja a rendelkezésre álló tárolási konfigurációk táblázatát. <br><br>Minden virtuális gép egy eredetileg hozzárendelt helyi ideiglenes tárolóval kezdődik. A temp Storage dinamikus kiosztásának megjelenítéséhez a legördülő menüben tetszőleges értékre módosíthatja a helyi-Temp számot, beleértve a maximálisan engedélyezett Temp Storage-mennyiséget.
 
 4. A virtuális gépek hozzáadásakor megjelennek az elérhető SKU-erőforrások megjelenítését bemutató diagramok. Ezekkel a diagramokkal megtekintheti, hogy milyen hatással van a különböző méretek és a virtuális gépek mennyiségének a modellezési folyamat során történő hozzáadására. A változtatások hatásának megtekintéséhez a másik lehetőség, hogy megtekintse a **felhasznált** és **még elérhető** számokat, amelyek közvetlenül a rendelkezésre álló virtuális gépek listáján szerepelnek. Ezek a számok a jelenleg kiválasztott hardveres SKU alapján becsült értékeket tükrözik.
-5. Ha létrehozta a virtuális gépek készletét, a javasolt hardver SKU a **javasolt SKU**lehetőség kiválasztásával található. Ez a gomb az oldal jobb felső sarkában található, közvetlenül a **jelenlegi SKU** -címke alatt. Ezen gomb használatával módosíthatja a virtuálisgép-konfigurációkat, és megtekintheti, hogy melyik hardver támogatja az egyes konfigurációkat.
+5. Ha létrehozta a virtuális gépek készletét, a javasolt hardver SKU a **javasolt SKU** lehetőség kiválasztásával található. Ez a gomb az oldal jobb felső sarkában található, közvetlenül a **jelenlegi SKU** -címke alatt. Ezen gomb használatával módosíthatja a virtuálisgép-konfigurációkat, és megtekintheti, hogy melyik hardver támogatja az egyes konfigurációkat.
 
 ## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint utasítások
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 description: A Azure Stack hub integrált rendszereihez tartozó kapcsolódási modellek és egyéb üzembe helyezési tervezési döntések meghatározása.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4d3cf019366b1e3b9b42f83948a170427ffbb1bd
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364044"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871103"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack hub integrált rendszerek kapcsolatainak modelljei
 Ha érdekli egy Azure Stack hub integrált rendszer megvásárlása, meg kell ismernie a Azure Stack hub üzembe helyezésének [számos adatközpont-integrációs megfontolását](azure-stack-datacenter-integration.md) annak meghatározására, hogy a rendszer hogyan illeszkedik az adatközpontba. Emellett el kell döntenie, hogyan integrálja Azure Stack hub-t a hibrid felhőalapú környezetbe. Ez a cikk áttekintést nyújt ezekről a főbb döntésekről, például az Azure-beli kapcsolatok modelljeiről, az Identity Store lehetőségeiről és a számlázási modell lehetőségeiről.
@@ -28,13 +28,13 @@ Dönthet úgy, hogy Azure Stack hubot az internethez (és az Azure-hoz) csatlako
 > Ez egy kulcsfontosságú döntési pont! Active Directory összevonási szolgáltatások (AD FS) (AD FS) vagy Azure Active Directory (Azure AD) kiválasztása egy egyszeri döntés, amelyet a telepítéskor kell elvégeznie. Ez később nem módosítható a teljes rendszer újbóli telepítése nélkül.  
 
 
-|Beállítások|Csatlakoztatva az Azure-hoz|Leválasztva az Azure-ból|
+|Lehetőségek|Csatlakoztatva az Azure-hoz|Leválasztva az Azure-ból|
 |-----|:-----:|:-----:|
 |Azure AD|![Támogatott](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
 |Fogyasztáson alapuló számlázás|![Támogatott](media/azure-stack-connection-models/check.png)| |
 |Kapacitás alapú számlázás|![Támogatott](media/azure-stack-connection-models/check.png)|![Támogatott](media/azure-stack-connection-models/check.png)|
-|Licencek| Nagyvállalati Szerződés vagy felhőalapú megoldás szolgáltatója | Nagyvállalati Szerződés |
+|Licencelés| Nagyvállalati Szerződés vagy felhőalapú megoldás szolgáltatója | Nagyvállalati Szerződés |
 |Javítás és frissítés|A frissítési csomag közvetlenül az internetről Azure Stack hubhoz tölthető le |  Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
 | Regisztráció | Automatizált | Kötelező<br><br>Cserélhető adathordozót is igényel<br> és egy külön csatlakoztatott eszköz |
 

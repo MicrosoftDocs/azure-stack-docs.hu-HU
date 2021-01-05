@@ -2,18 +2,18 @@
 title: Azure Stack hub-telemetria konfigurálása
 titleSuffix: Azure Stack
 description: Ismerkedjen meg Azure Stack hub telemetria, és hogyan konfigurálhatja a telemetria-beállításokat a PowerShell használatával.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 1/16/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 467573e6e964e7c89bdffaf322ac473524d87892
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415130"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872636"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack hub-telemetria konfigurálása
 
@@ -78,7 +78,7 @@ Biztonsági adatok és alapvető állapot-és minőségi adatok. Alapvető eszk�
   - Processzor-és memória-attribútumok, például a magok száma és a telepített memória mennyisége.
   - Tárolási attribútumok, például a meghajtók száma, a meghajtó típusa és a meghajtó mérete.
 
-- *Telemetria funkció* , beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és az utolsó adatfeltöltési időt.
+- *Telemetria funkció*, beleértve a feltöltött események százalékos arányát, az eldobott eseményeket és az utolsó adatfeltöltési időt.
 - A *minőséggel kapcsolatos információk* , amelyek segítenek a Microsoft számára az Azure stack hub működésének alapvető megismerésében. Például egy adott hardverkonfiguráció kritikus értesítéseinek száma.
 - *Kompatibilitási információk* , amelyek segítségével megismerheti, hogy mely erőforrás-szolgáltatók vannak telepítve a rendszerre és a virtuális GÉPRE (VM). Ez azonosítja a lehetséges kompatibilitási problémákat.
 

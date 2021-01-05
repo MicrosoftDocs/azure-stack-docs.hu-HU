@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
 description: Megtudhatja, hogyan engedélyezheti a Infrastructure Backup szolgáltatást a PowerShell-lel, hogy az Azure Stack hub visszaállítható, ha hiba történt.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0e1bdbf55556d8168e517a5d9cfb30d6747c02f3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543918"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871752"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Azure Stack hub biztonsági mentésének engedélyezése a PowerShell-lel
 
@@ -137,7 +137,7 @@ Ha az infrastruktúra biztonsági mentése a 1901-es frissítés előtt lett kon
 A modul helyes verziójának telepítésével kapcsolatos további információkért tekintse meg az [Azure stack hub PowerShell telepítése](powershell-install-az-module.md) című témakört.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a biztonsági másolatok futtatásáról: [Azure stack hub biztonsági mentése](azure-stack-backup-back-up-azure-stack.md).
 

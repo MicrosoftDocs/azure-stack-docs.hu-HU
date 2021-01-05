@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub katasztrofális adatvesztésének helyreállítása
 description: Megtudhatja, hogyan állíthatja helyre és állíthatja vissza az infrastruktúra-adatokat Azure Stack központban a katasztrofális adatvesztést követően.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/23/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
-ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
+ms.openlocfilehash: ba7710196b57050c636ac43301ed4434f13af063
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496415"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871701"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Helyreállítás végzetes adatvesztés esetén
 
@@ -22,7 +22,7 @@ Az adatvesztés gyökerétől függően előfordulhat, hogy egyetlen infrastrukt
 
 Ez a forgatókönyv a teljes telepítés helyreállítására vonatkozik, ha hiba történt a privát felhő újratelepítése közben.
 
-| Használati eset                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
+| Eset                                                           | Adatvesztés                            | Megfontolandó szempontok                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
 | Katasztrófa vagy termék meghibásodása miatti katasztrofális adatvesztéssel. | Minden infrastruktúra-és felhasználói és alkalmazásadatok. | A más OEM-re is visszaállítható.<br/> A a hardver különböző generációja számára állítható vissza.<br/> A visszaállítható a méretezési egység csomópontjainak különböző darabszámára.<br/> A felhasználói alkalmazások és adatok védelme külön történik az infrastruktúra-adatoktól. |
 
@@ -65,6 +65,6 @@ Az üzembe helyezés során a rendszer a felhasználói infrastruktúra (IaaS) v
 
 A ASDK használatával tesztelheti a biztonsági mentést, és ellenőrizheti, hogy az adott érték érvényes és használható-e. További információ: [a ASDK használata Azure stack biztonsági mentés ellenőrzéséhez](../asdk/asdk-validate-backup.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ismerje meg az [Infrastructure Backup szolgáltatás használatának](azure-stack-backup-best-practices.md)ajánlott eljárásait.

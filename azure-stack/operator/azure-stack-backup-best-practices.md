@@ -1,18 +1,18 @@
 ---
 title: Infrastructure Backup szolgáltatás – ajánlott eljárások – Azure Stack hub
 description: Az adatvesztés enyhítése érdekében az Azure Stack hub üzembe helyezése és kezelése során kövesse ezeket az ajánlott eljárásokat, ha végzetes hiba történt.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: f1208b2a683923e4cf09951d9812e8cbcfcd475f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573122"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871820"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Infrastructure Backup Service – ajánlott eljárások
 
@@ -34,7 +34,7 @@ Az elérési úthoz az univerzális elnevezési konvenció (UNC) karakterláncá
 
 #### <a name="version-1901-and-newer"></a>1901-es és újabb verzió
 
-A titkosítási tanúsítvány a külső tárolóba exportált biztonsági másolatok titkosítására szolgál. A tanúsítvány lehet önaláírt tanúsítvány, mivel a tanúsítvány csak a kulcsok továbbítására szolgál. A tanúsítványok létrehozásával kapcsolatos további információkért tekintse meg a New-SelfSignedCertificate című témakört.
+A titkosítási tanúsítvány a külső tárolóba exportált biztonsági másolatok titkosítására szolgál. A tanúsítvány lehet önaláírt tanúsítvány, mivel a tanúsítvány csak a kulcsok továbbítására szolgál. A tanúsítványok létrehozásával kapcsolatos további információkért tekintse meg a New-SelfSignedCertificate.
   
 A kulcsot biztonságos helyen kell tárolni (például globális Azure Key Vault tanúsítvány). A tanúsítvány CER-formátuma az adattitkosításra szolgál. A PFX-formátumot a Azure Stack hub Cloud Recovery telepítése során kell használni a biztonsági mentési adatmennyiség visszafejtéséhez.
 
@@ -96,7 +96,7 @@ A rendszer a következő riasztásokat támogatja:
 | A biztonsági mentés hitelesítési probléma miatt nem sikerült.               | Előfordulhat, hogy probléma van a hitelesítő adatokkal vagy a hitelesítést befolyásoló hálózati problémával.    | Képezze le a megosztást egy másik számítógépről, hogy a megosztás elérhető legyen. Előfordulhat, hogy frissítenie kell a hitelesítő adatokat, ha már nem érvényesek. |
 | A biztonsági mentés általános hiba miatt nem sikerült.                    | A sikertelen kérést egy átmeneti probléma okozhatja. Próbálkozzon újra a biztonsági mentéssel.                    | Hívja a támogatási szolgálatot.                                                                                                                               |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Tekintse át a [Infrastructure Backup szolgáltatás](azure-stack-backup-reference.md)hivatkozási anyagát.
 

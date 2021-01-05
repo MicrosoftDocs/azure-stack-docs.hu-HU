@@ -1,18 +1,18 @@
 ---
 title: Új Azure Stack hub felhasználói fiók hozzáadása a Azure Active Directory
 description: Megtudhatja, hogyan hozhat létre felhasználói fiókot Azure Active Directoryban, így a felhasználói portálon is megismerheti.
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700561"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871973"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Új Azure Stack hub felhasználói fiók hozzáadása Azure Active Directory (Azure AD)
 
@@ -24,7 +24,7 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
 1. Jelentkezzen be az [Azure](https://portal.azure.com)-ba.
 2. A bal oldali navigációs sávon válassza a **Active Directory** lehetőséget, majd váltson arra a könyvtárra, amelyet az Azure stack hub számára kíván használni (vagy hozzon létre újat).
-3. Válassza **Azure Active Directory** > **felhasználók** > **új felhasználó**elemet.
+3. Válassza **Azure Active Directory**  >  **felhasználók**  >  **új felhasználó** elemet.
 
     ![Felhasználók – minden felhasználó lap új felhasználóval kiemelve](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
@@ -36,16 +36,16 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
    - **Felhasználónév (kötelező)**: az új felhasználó felhasználóneve. Például: mary@contoso.com.
        A Felhasználónév tartomány részének a kezdeti alapértelmezett tartománynevet kell használnia, <_yourdomainname_>. onmicrosoft.com vagy egy egyéni tartománynevet, például contoso.com. Az Egyéni tartománynév létrehozásával kapcsolatos további információkért lásd: [Egyéni tartománynév hozzáadása az Azure ad](/azure/active-directory/fundamentals/add-custom-domain)-hez.
    - **Profil**: igény szerint további információkat is hozzáadhat a felhasználóról. Emellett később is hozzáadhat felhasználói adatokat. A felhasználói adatok hozzáadásával kapcsolatos további információkért lásd: [felhasználói profil adatainak hozzáadása vagy módosítása](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
-   - **Címtárbeli szerepkör**: válassza a **felhasználó**lehetőséget.
+   - **Címtárbeli szerepkör**: válassza a **felhasználó** lehetőséget.
 
 5. Jelölje be a **jelszó megjelenítése** jelölőnégyzetet, és másolja ki a **jelszó** mezőben megadott automatikusan generált jelszót. Erre a jelszóra lesz szüksége a kezdeti bejelentkezési folyamathoz.
 
 6. Kattintson a **Létrehozás** gombra.
 
-    A rendszer létrehozza és hozzáadja a felhasználót az Azure AD-bérlőhöz.
+    A rendszer létrehozza a felhasználót, és hozzáadja az Azure AD-bérlőhöz
 
 7. Jelentkezzen be a Azure Portalba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-8. `https://portal.local.azurestack.external` A felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
+8. A `https://portal.local.azurestack.external` felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
 
 ## <a name="create-a-user-account-using-powershell"></a>Felhasználói fiók létrehozása a PowerShell használatával
 
@@ -60,7 +60,7 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
 
     - Nyisson meg egy rendszergazda jogú Windows PowerShell-parancssort (futtassa a Windows PowerShellt rendszergazdaként).
     - Futtassa az **install-Module MSOnline** parancsot.
-    - Ha a rendszer felszólítja a NuGet-szolgáltató telepítésére, válassza az **Y** lehetőséget, és **adja meg**a következőt:.
+    - Ha a rendszer felszólítja a NuGet-szolgáltató telepítésére, válassza az **Y** lehetőséget, és **adja meg** a következőt:.
     - Ha a rendszer kéri, hogy telepítse a modult a PSGallery-ből, válassza az **Y** lehetőséget, majd **adja meg a értéket**.
 
 3. Futtassa a következő parancsmagokat:
@@ -79,7 +79,7 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
     ```
 
 1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
-2. `https://portal.local.azurestack.external` A felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
+2. A `https://portal.local.azurestack.external` felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
 
 ## <a name="next-steps"></a>További lépések
 

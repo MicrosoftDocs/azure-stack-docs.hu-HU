@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub biztonsági mentése
 description: Ismerje meg, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack hub-on.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 5df894d32d335b488ad51b09bb38c3011f754e15
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544275"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871837"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack hub biztonsági mentése
 
@@ -106,8 +106,8 @@ A következő lépésekkel ellenőrizheti, hogy a biztonsági mentés sikeresen 
 1. Nyissa meg az [Azure stack hub felügyeleti portált](azure-stack-manage-portals.md).
 2. Válassza a **minden szolgáltatás** lehetőséget, majd az **adminisztráció** kategóriában válassza > **infrastruktúra biztonsági mentése** lehetőséget. Válassza a **konfiguráció** lehetőséget az **infrastruktúra biztonsági mentése** panelen.
 3. Keresse meg a biztonsági mentés **nevét** és **dátumát** a **rendelkezésre álló biztonsági másolatok** listájában.
-4. Ellenőrizze, hogy az **állapot** **sikeres** -e.
+4. Ellenőrizze, hogy az **állapot** **sikeres**-e.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [adatvesztési eseményről történő helyreállítás](azure-stack-backup-recover-data.md)munkafolyamatáról.

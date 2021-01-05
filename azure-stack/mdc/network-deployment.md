@@ -1,19 +1,19 @@
 ---
 title: A MDC Azure Stack hálózati telepítése
 description: A MDC-eszköz Azure Stack hálózati telepítésének megismerése.
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: a0de01ce240248767ebfd8e558a83408c84282be
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598657"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872211"
 ---
 # <a name="network-deployment"></a>Hálózati telepítés
 

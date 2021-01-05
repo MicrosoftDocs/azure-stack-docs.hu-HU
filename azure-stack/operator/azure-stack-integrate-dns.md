@@ -1,22 +1,22 @@
 ---
 title: Azure Stack hub Datacenter DNS-integráció
 description: Ismerje meg, hogyan integrálhatja Azure Stack hub DNS-t az adatközpont DNS szolgáltatásával.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2edd6fb4c427f9b20edebbd09f3d28a4ac413ef8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488722"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870375"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack hub Datacenter DNS-integráció
 
-Ahhoz, hogy hozzáférhessen Azure Stack hub-végpontokhoz, például a **portálhoz**, a **adminportal**, a **felügyelethez**és a **adminmanagement** kívülről Azure stack Hub-on, integrálnia kell a Azure stack hub DNS-szolgáltatásait azokkal a DNS-kiszolgálókkal, amelyek az Azure stack hub-ban használni kívánt DNS-zónákat futtatják.
+Ahhoz, hogy hozzáférhessen Azure Stack hub-végpontokhoz, például a **portálhoz**, a **adminportal**, a **felügyelethez** és a **adminmanagement** kívülről Azure stack Hub-on, integrálnia kell a Azure stack hub DNS-szolgáltatásait azokkal a DNS-kiszolgálókkal, amelyek az Azure stack hub-ban használni kívánt DNS-zónákat futtatják.
 
 ## <a name="azure-stack-hub-dns-namespace"></a>Azure Stack hub DNS-névtere
 
@@ -25,7 +25,7 @@ A Azure Stack hub telepítésekor a DNS szolgáltatással kapcsolatos fontos inf
 
 |Mező  |Leírás  |Példa|
 |---------|---------|---------|
-|Region|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
+|Régió|Az Azure Stack hub üzembe helyezésének földrajzi helye.|`east`|
 |Külső tartomány neve|Az Azure Stack hub üzembe helyezéséhez használni kívánt zóna neve.|`cloud.fabrikam.com`|
 |Belső tartomány neve|Az Azure Stack hub infrastruktúra-szolgáltatásaihoz használt belső zóna neve. A címtár-szolgáltatás integrált és magánjellegű (nem érhető el az Azure Stack hub üzembe helyezésén kívül).|`azurestack.local`|
 |DNS-továbbítók|Azok a DNS-kiszolgálók, amelyek a DNS-lekérdezések, a DNS-zónák és a Azure Stack hub rendszeren kívül futtatott rekordok továbbítására szolgálnak a vállalati intraneten vagy a nyilvános interneten. A DNS-továbbító értékét a telepítés után a [ **set-AzSDnsForwarder** parancsmaggal](#editing-dns-forwarder-ips) módosíthatja. 
@@ -154,6 +154,6 @@ Minden tartományregisztráló a saját DNS-kezelési eszközeit használja a ta
 
 A legtöbb DNS-regisztráló megköveteli, hogy legalább két DNS-kiszolgálót adjon meg a delegálás befejezéséhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Tűzfal-integráció](azure-stack-firewall.md)

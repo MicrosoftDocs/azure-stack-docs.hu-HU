@@ -1,18 +1,18 @@
 ---
 title: Külső figyelési megoldás integrálása Azure Stack hubhoz
 description: Ismerje meg, hogyan integrálhatja Azure Stack hubot egy külső figyelési megoldással az adatközpontjában.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 11/18/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/18/2020
-ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 79fd494996c87aa513fc7aa4ab0554449c5770d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517701"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870902"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Külső figyelési megoldás integrálása Azure Stack hubhoz
 
@@ -281,6 +281,6 @@ Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
 
 További információ a beépített állapot-figyelésről: [az állapot és a riasztások figyelése Azure stack központban](azure-stack-monitor-health.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Biztonsági integráció](azure-stack-integrate-security.md)

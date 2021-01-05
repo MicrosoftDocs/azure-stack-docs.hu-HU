@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub tárolási kapacitásának megtervezése
 description: Tudnivalók a Azure Stack hub üzemelő példányok tárolási kapacitásának megtervezéséről.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69248d5a81cf3d1017f221a57549d75b205f0fc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935036"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871259"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Azure Stack hub tárolási kapacitásának megtervezése
 
@@ -47,7 +47,7 @@ A Közvetlen tárolóhelyek és Azure Stack hub tárolási konfigurációjának 
 
 A virtuális lemezek automatikusan lettek létrehozva, és a kapacitásaik a következők:
 
-|Name (Név)|Kapacitás kiszámítása|Leírás|
+|Név|Kapacitás kiszámítása|Leírás|
 |-----|-----|-----|
 |Helyi/rendszerindító eszköz|Legalább 340 GB<sup>1</sup>|Az operációs rendszer lemezképei és a "helyi" infrastruktúra virtuális gépei egyedi kiszolgálói tárterülete.|
 |Infrastruktúra|3,5 TB|Minden Azure Stack hub-infrastruktúra használata.|

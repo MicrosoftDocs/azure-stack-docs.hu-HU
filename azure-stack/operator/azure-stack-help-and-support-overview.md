@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub Súgó és támogatás
 description: Microsoft Azure Stack hub támogatásának beszerzése.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415300"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870715"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -50,7 +50,7 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 A Azure Stack Development Kit (ASDK) esetében a támogatással kapcsolatos kérdéseket a [Azure stack hub MSDN fórumában](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)teheti meg.
 
-Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést** , amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
+Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső sarkában, majd a Súgó + **támogatás** elemre kattintva nyissa meg a Súgó **+ támogatás áttekintést**, amely a fórumra mutató hivatkozást tartalmaz. Az MSDN-fórumok rendszeres figyelése. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
 A probléma megoldásához, illetve az online képzések fejlesztéséhez és a saját képességeinek javításához az MSDN-fórumokat is elérheti.
 
@@ -76,10 +76,10 @@ A következő két módon küldhet diagnosztikai naplókat a Microsoftnak:
 
 ## <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
-A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban és támogatásban** :
+A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban és támogatásban**:
 
-- **Automatikus gyűjtés** : Ha engedélyezve van, a rendszer a naplók gyűjtését meghatározott állapot-riasztások alapján indítja el.
-- **Naplók gyűjtése most** : kiválaszthatja az elmúlt hét nap 1-4 óra csúszó ablakát.
+- **Automatikus gyűjtés**: Ha engedélyezve van, a rendszer a naplók gyűjtését meghatározott állapot-riasztások alapján indítja el.
+- **Naplók gyűjtése most**: kiválaszthatja az elmúlt hét nap 1-4 óra csúszó ablakát.
 
 ![Diagnosztikai naplók gyűjtésének beállításai](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 

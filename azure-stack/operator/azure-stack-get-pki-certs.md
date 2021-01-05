@@ -1,20 +1,20 @@
 ---
-title: Tanúsítvány-aláírási kérelmek előállítása Azure Stack hubhoz
+title: Tanúsítvány-aláírási kérelem létrehozása az Azure Stack Hubhoz
 description: Megtudhatja, hogyan hozhatja Azure Stack hub PKI-tanúsítványokhoz tartozó tanúsítvány-aláírási kérelmeket Azure Stack hub integrált rendszerekben.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543715"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870443"
 ---
-# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Tanúsítvány-aláírási kérelmek előállítása Azure Stack hubhoz
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Tanúsítvány-aláírási kérelem létrehozása az Azure Stack Hubhoz
 
 Az Azure Stack hub Readiness-ellenőrző eszköz használatával tanúsítvány-aláírási kérelmeket (munkatársakat) hozhat létre Azure Stack központi telepítéshez. A tanúsítványokat az üzembe helyezés előtt elég időt kell kérni, generálni és érvényesíteni. Az eszközt [a PowerShell-galériaból](https://aka.ms/AzsReadinessChecker)kérheti le.
 
@@ -22,7 +22,7 @@ Az Azure Stack hub Readiness-ellenőrző eszköz (AzsReadinessChecker) használa
 
 - **Szabványos tanúsítványkérelmek** [az új központi telepítések tanúsítvány-aláírási kérelmének előállítása](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)alapján.
 - Tanúsítványkérelmek **megújítása** tanúsítvány- [aláírási kérelem létrehozásához a tanúsítvány megújításához](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
-- **Szolgáltatásként szolgáló platform** : az [Azure stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények – opcionális Péter-tanúsítványok –](azure-stack-pki-certs.md#optional-paas-certificates)esetében a tanúsítványokra vonatkozó platform-szolgáltatásként (kitöltendő) neveket kérhet.
+- **Szolgáltatásként szolgáló platform**: az [Azure stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények – opcionális Péter-tanúsítványok –](azure-stack-pki-certs.md#optional-paas-certificates)esetében a tanúsítványokra vonatkozó platform-szolgáltatásként (kitöltendő) neveket kérhet.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -48,7 +48,7 @@ A következő lépésekkel készítheti elő a tanúsítvány-aláírási kérel
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarálja a **tárgyat**. Ilyenek többek között:
+2. Deklarálja a **tárgyat**. Például:
 
     ```powershell  
     $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
@@ -57,7 +57,7 @@ A következő lépésekkel készítheti elő a tanúsítvány-aláírási kérel
     > [!NOTE]  
     > Ha köznapi nevet (CN) ad meg, a rendszer minden tanúsítványkérelem esetében konfigurálva lesz. Ha a rendszer kihagyja a CN-t, az Azure Stack hub szolgáltatás első DNS-neve lesz konfigurálva a tanúsítványkérelem során.
 
-3. Deklaráljon egy már létező kimeneti könyvtárat. Ilyenek többek között:
+3. Deklaráljon egy már létező kimeneti könyvtárat. Például:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -95,7 +95,7 @@ A következő lépésekkel készítheti elő a tanúsítvány-aláírási kérel
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a értékét `-CertificateType` . Ilyenek többek között:
+    Más Azure Stack hub-szolgáltatásokhoz tartozó tanúsítványkérelmek létrehozásához módosítsa a értékét `-CertificateType` . Például:
 
     ```powershell  
     # App Services
@@ -148,7 +148,7 @@ Ezekkel a lépésekkel előkészítheti a tanúsítvány-aláírási kérelmeket
     > A fenti Azure Stack hub rendszerhez HTTPS-kapcsolat szükséges.
     > A Readiness-ellenőrző a stampendpoint (régió és tartomány) használatával hoz létre egy mutatót a tanúsítvány típusa által igényelt meglévő tanúsítványokhoz, például a "portál" központi telepítési tanúsítványok előtagértéke, az eszköz által, így a portal.east.azurestack.contoso.com a tanúsítványok klónozásához, AppServices sso.appservices.east.azurestack.contoso.com stb. A számított végponthoz kötött tanúsítvány az attribútumok, például a tulajdonos, a kulcs hossza és az aláírási algoritmus klónozására szolgál.  Ha módosítani szeretné ezen attribútumok bármelyikét, kövesse az [új központi telepítések tanúsítvány-aláírási kérelmének létrehozása](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments) című témakör lépéseit.
 
-3. Deklaráljon egy már létező kimeneti könyvtárat. Ilyenek többek között:
+3. Deklaráljon egy már létező kimeneti könyvtárat. Például:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -194,6 +194,6 @@ Ezekkel a lépésekkel előkészítheti a tanúsítvány-aláírási kérelmeket
 
 7.  Küldje el a t **.** A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános). A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t. A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre a létrehozott kérelem alapján, amelyek megfelelnek az [Azure stack hub PKI követelményeinek](azure-stack-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub PKI-tanúsítványok előkészítése](azure-stack-prepare-pki-certs.md)

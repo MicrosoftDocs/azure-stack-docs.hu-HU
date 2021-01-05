@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub felhasználói előfizetés számlázási tulajdonosának módosítása
 description: Megtudhatja, hogyan módosíthatja egy Azure Stack hub felhasználói előfizetés számlázási tulajdonosát.
-author: justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: c5438aaf928efeee0b71470e0965c6b18b5a7c0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96035280"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871292"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack hub felhasználói előfizetés számlázási tulajdonosának módosítása
 
@@ -85,6 +85,6 @@ Set-AzureRMsUserSubscription -InputObject $subscription
 
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Role-Based kezelése Access Control](azure-stack-manage-permissions.md)

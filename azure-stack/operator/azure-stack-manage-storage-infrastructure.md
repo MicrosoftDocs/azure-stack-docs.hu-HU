@@ -2,18 +2,18 @@
 title: Azure Stack hub tárolási infrastruktúrájának kezelése
 titleSuffix: Azure Stack
 description: 'Ismerje meg, hogyan kezelheti Azure Stack hub tárolási infrastruktúráját. Lásd: kötetek és meghajtók figyelése. Megtekintheti a meghajtók készletekbe való felvételével kapcsolatos hibaelhárítási tippeket.'
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 122d1b6e2d2103387605c337bd68c31ec03f5d10
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179455"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870341"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack hub tárolási infrastruktúrájának kezelése
 Ez a cikk az Azure Stack hub tárolási infrastruktúra erőforrásainak állapotát és működési állapotát ismerteti. Ezek az erőforrások a tárolóeszközöket és a köteteket tartalmazzák. Az ebben a témakörben található információk segítenek a különböző problémák megoldásában, például ha nem lehet meghajtót felvenni a készletbe.

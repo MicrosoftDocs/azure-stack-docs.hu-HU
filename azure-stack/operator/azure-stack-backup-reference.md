@@ -1,18 +1,18 @@
 ---
 title: Infrastructure Backup szolgáltatás leírása
 description: Az Azure Stack hub Infrastructure Backup szolgáltatásához tartozó anyagminta.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 8fc10bd53bfcf9822f46eb977c02055db1a65cb7
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7fc20dfa20c0088f81d386d2b371b6a17bf45d5f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939293"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871616"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Infrastructure Backup szolgáltatás leírása
 
@@ -148,6 +148,6 @@ Ezeket a korlátokat a Microsoft Azure Stack hub-példányok tervezése, üzembe
 | Backup App Services, függvény, SQL, MySQL erőforrás-szolgáltatói adat | Nincs a hatókörben | Tekintse meg a Microsoft által létrehozott RPs érték bevezetéséhez és kezeléséhez közzétett útmutatót.                                                  |
 | Külső gyártótól származó erőforrás-szolgáltatók biztonsági mentése                              | Nincs a hatókörben | Tekintse meg a harmadik féltől származó gyártók által létrehozott, az érték hozzáadása és kezelése című témakörben közzétett útmutatót.                                          |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
  - Ha többet szeretne megtudni a Infrastructure Backup szolgáltatásról, tekintse meg [a Azure stack hub biztonsági mentése és adathelyreállítása című témakört a Infrastructure Backup szolgáltatással](azure-stack-backup-infrastructure-backup.md).

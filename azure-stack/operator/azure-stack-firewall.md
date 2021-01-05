@@ -1,18 +1,18 @@
 ---
 title: Tűzfal integrálása az Azure Stack hub rendszerével
 description: Ismerkedjen meg az Azure Stack hub integrált rendszereinek Azure Stack hub tűzfal-integrációval.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 666d205fb99ac309196bd4b84032ef8c7877ab8a
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: eef96a9dba14853357cf6b29ff0ad93849f25d17
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572867"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870596"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack hub tűzfal-integráció
 Javasoljuk, hogy a Azure Stack hub biztonságossá tételéhez használjon tűzfal eszközt. A tűzfalak segítenek megvédeni az olyan műveleteket, mint az elosztott szolgáltatásmegtagadási (DDOS) támadások, a behatolások észlelése és a tartalmi ellenőrzés. Ugyanakkor az Azure Storage-szolgáltatások, például a Blobok, a táblák és a várólisták adatátviteli szűk keresztmetszete is lehetnek.
@@ -52,9 +52,9 @@ A vállalati intranet vagy peremhálózati környezetekben a Azure Stack hub tö
 
 ![Azure Stack hub peremhálózati hálózati példa](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
-## <a name="learn-more"></a>Tudjon meg többet
+## <a name="learn-more"></a>További információ
 További információ az [Azure stack hub-végpontok által használt portokról és protokollokról](azure-stack-integrate-endpoints.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Azure Stack hub PKI-követelményei](azure-stack-pki-certs.md)
 

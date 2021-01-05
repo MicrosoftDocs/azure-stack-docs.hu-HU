@@ -1,17 +1,17 @@
 ---
 title: Azure Stack hub adminisztrációs alapjai
 description: Megismerheti Azure Stack hub felügyeletének alapjait.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 06/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 063809d47aff3d4e0840f4127f3749faccac7c9b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "94543510"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870273"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -39,7 +39,7 @@ Alapértelmezés szerint a Azure Stack hub a következő "alapszolgáltatásokat
 
 - Compute
 - Storage
-- Hálózatkezelés
+- Hálózat
 - Key Vault
 
 Ezekkel az alapszolgáltatásokkal minimális konfigurációval biztosíthat infrastruktúra-szolgáltatást (IaaS) a felhasználók számára.
@@ -139,6 +139,6 @@ Minden más esetben lépjen kapcsolatba Microsoft ügyfélszolgálata.
 
 A ASDK a támogatással kapcsolatos kérdéseket is megteheti a [Microsoft fórumokon](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). A fórumok beszerzéséhez válassza a Súgó és támogatás ikont (kérdőjel) a felügyeleti portál jobb felső sarkában, majd válassza a **Súgó + támogatás** lehetőséget, majd válassza az MSDN- **fórumok** lehetőséget a **támogatás** szakaszban. Ezeket a fórumokat rendszeresen figyelik. Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Területi felügyelet Azure Stack központban](azure-stack-region-management.md)

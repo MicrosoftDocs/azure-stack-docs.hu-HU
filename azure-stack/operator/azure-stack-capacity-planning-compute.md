@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub számítási kapacitása
 description: További információ a Azure Stack hub üzembe helyezésének számítási kapacitásának megtervezéséről.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899754"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871501"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
 
@@ -71,7 +71,7 @@ Rendelkezésre álló memória a virtuális gép elhelyezéséhez = teljes gazda
 
 Rugalmassági tartalék = H + R * ((N-1) * H) + V * (N-2)
 
-> Ebben a példában:
+> Kimenet:
 > -    H = az egyetlen kiszolgáló memóriájának mérete
 > - N = a méretezési egység mérete (kiszolgálók száma)
 > -    R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15
@@ -91,7 +91,7 @@ Ha a visszafoglalt virtuális gép újraindul, a memóriahasználat vagy a fogla
 
 Az aktuálisan telepített nagyméretű virtuális gépek azt mutatják, hogy a lefoglalt memória 112 GB, de ezeknek a virtuális gépeknek a memória iránti igénye körülbelül 2-3 GB.
     
-| Name (Név) | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
+| Név | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
 | ---- | -------------------- | ------------------ | ------------ |                                        
 | ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
 | 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
@@ -179,5 +179,5 @@ Rugalmassági foglalás = 512 + 230,4 + 224 = 966,4 GB
 > [!NOTE]
 > A hálózatkezelésre vonatkozó kapacitás-tervezési követelmények minimálisak, mert csak a nyilvános VIP mérete konfigurálható. További információ a nyilvános IP-címek Azure Stack hubhoz való hozzáadásáról: [nyilvános IP-címek hozzáadása](azure-stack-add-ips.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További tudnivalók az [Azure stack hub Storage](azure-stack-capacity-planning-storage.md) szolgáltatásról

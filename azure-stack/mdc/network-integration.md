@@ -1,18 +1,18 @@
 ---
 title: Moduláris adatközpontok hálózati integrációja
 description: Ismerje meg az Azure Modular Datacenter Azure Stack hálózati integrációját.
-author: justinha
-ms.author: justinha
+author: PatAltimore
+ms.author: patricka
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: e2bd1f42cd60aabc3baa153525b2a7aeb03ac30b
-ms.sourcegitcommit: 25b234330df4e753ed2dd480c208ec88cd90234c
+ms.openlocfilehash: 3798345a7e7c5180f13c1ae94bc7407de3252e24
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94924333"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872177"
 ---
 # <a name="network-integration"></a>Hálózatintegráció
 
@@ -138,7 +138,7 @@ Minden tartományregisztráló a saját DNS-kezelési eszközeit használja a ta
 
 A legtöbb DNS-regisztráló megköveteli, hogy legalább két DNS-kiszolgálót adjon meg a delegálás befejezéséhez.
 
-### <a name="firewall"></a>Tűzfal
+### <a name="firewall"></a>Firewall
 
 Azure Stack beállítja az infrastruktúra szerepköreihez tartozó virtuális IP-címeket (VIP). Ezek a VIP-címek a nyilvános IP-címkészlet alapján vannak lefoglalva. A virtuális IP-címek egy hozzáférés-vezérlési listával (ACL) vannak védve a szoftveresen definiált hálózati rétegben. A rendszer az ACL-eket is használja a fizikai kapcsolókon (a-ben és a BMC-ban) a megoldás további megerősítése érdekében. A rendszer létrehoz egy DNS-bejegyzést a külső DNS-zóna minden olyan végpontja számára, amely a központi telepítés idején van megadva. A felhasználói portál például a portál DNS-gazdagépének bejegyzéséhez van rendelve. *\<region\>.\<fqdn\>*.
 

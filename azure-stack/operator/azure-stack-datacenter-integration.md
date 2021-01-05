@@ -1,18 +1,18 @@
 ---
 title: Datacenter-integráció tervezése Azure Stack hub integrált rendszerekhez
 description: Ismerje meg, hogyan tervezhet és készíthet elő adatközpont-integrációt Azure Stack hub integrált rendszerekkel.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573033"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871021"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -55,7 +55,7 @@ További információt az [Azure stack hub integrált rendszerek kapcsolatok mod
 
 Ha úgy dönt, hogy az Azure Stack hub-t a AD FS identitás-szolgáltatóként helyezi üzembe, akkor a Azure Stack hub AD FS példányát egy meglévő AD FS példánnyal kell integrálnia egy összevonási megbízhatósági kapcsolaton keresztül. Ez az integráció lehetővé teszi egy meglévő Active Directory erdőben lévő identitások hitelesítését Azure Stack hub erőforrásaival.
 
-A Graph szolgáltatást Azure Stack központban is integrálhatja a meglévő Active Directory. Ez az integráció lehetővé teszi a szerepköralapú Access Control (RBAC) kezelését Azure Stack hub-ban. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
+A Graph szolgáltatást Azure Stack központban is integrálhatja a meglévő Active Directory. Ez az integráció lehetővé teszi a Role-Based Access Control (RBAC) kezelését Azure Stack hub-ban. Az erőforrásokhoz való hozzáférés delegálásakor a Graph-összetevő az LDAP protokoll használatával megkeresi a felhasználói fiókot a meglévő Active Directory erdőben.
 
 Az alábbi ábra az integrált AD FS és a gráf forgalmának folyamatát mutatja be.<br/><br/>
 ![A AD FS és a gráf forgalmát bemutató diagram](media/azure-stack-datacenter-integration/ADFSIntegration.svg)
@@ -111,7 +111,7 @@ Meg kell adnia egy IP-címet az időszinkronizálási kiszolgálóhoz. Bár az i
 
 Hibrid felhőalapú forgatókönyvek esetén meg kell terveznie, hogyan szeretné csatlakoztatni Azure Stack hubot az Azure-hoz. Az Azure-beli virtuális hálózatok két támogatott módszerrel csatlakoztathatók Azure Stack hubhoz:
 
-- **Helyek közötti**kapcsolat: virtuális MAGÁNHÁLÓZATI (VPN) kapcsolat IPSec (IKE v1 és IKE v2) használatával. Az ilyen típusú kapcsolathoz VPN-eszköz vagy Útválasztás és távelérés szolgáltatás (RRAS) szükséges. További információ az Azure-beli VPN-átjárókkal kapcsolatban: [about VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). Az alagúton keresztüli kommunikáció titkosított és biztonságos. A sávszélességet azonban az alagút maximális átviteli sebessége korlátozza (100-200 Mbps).
+- **Helyek közötti** kapcsolat: virtuális MAGÁNHÁLÓZATI (VPN) kapcsolat IPSec (IKE v1 és IKE v2) használatával. Az ilyen típusú kapcsolathoz VPN-eszköz vagy Útválasztás és távelérés szolgáltatás (RRAS) szükséges. További információ az Azure-beli VPN-átjárókkal kapcsolatban: [about VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). Az alagúton keresztüli kommunikáció titkosított és biztonságos. A sávszélességet azonban az alagút maximális átviteli sebessége korlátozza (100-200 Mbps).
 
 - **Kimenő NAT**: alapértelmezés szerint a Azure stack hub összes virtuális gépe kimenő NAT-kapcsolaton keresztül fog csatlakozni a külső hálózatokhoz. Az Azure Stack hub-ban létrehozott minden egyes virtuális hálózathoz hozzá lesz rendelve egy nyilvános IP-cím. Azt határozza meg, hogy a virtuális gép közvetlenül van-e hozzárendelve nyilvános IP-cím, vagy egy nyilvános IP-címmel rendelkező terheléselosztó mögött van-e kimenő hozzáférése kimenő NAT-kapcsolaton keresztül, a virtuális hálózat VIP-je használatával. Ez a módszer csak a virtuális gép által kezdeményezett és külső hálózatokra (Internet vagy intranet) szánt kommunikációra használható. Nem használható a virtuális géppel kívülről való kommunikációra.
 
@@ -129,7 +129,7 @@ A hibrid kapcsolatok esetében fontos figyelembe venni, hogy milyen típusú kö
 
 A következő táblázat összefoglalja a hibrid csatlakozási forgatókönyveket a profik, a hátrányok és a használati esetek között.
 
-| Használati eset | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
+| Eset | Csatlakozási módszer | Előnyök | Hátrányok | Jó a következőhöz: |
 | -- | -- | --| -- | --|
 | Önálló bérlői Azure Stack hub, intranetes telepítés | Kimenő NAT | Jobb sávszélesség a gyorsabb átvitel érdekében. Egyszerűen megvalósítható; nincs szükség átjáróra. | A forgalom nincs titkosítva; nincs elkülönítés vagy titkosítás a veremön kívül. | Vállalati üzemelő példányok, ahol az összes bérlő egyformán megbízható.<br><br>Olyan vállalatok, amelyek rendelkeznek Azure ExpressRoute-áramkörrel az Azure-ban. |
 | Több-bérlős Azure Stack hub, intranetes telepítés | Helyek közötti VPN | A bérlő VNet a célhelyre irányuló forgalom biztonságos. | A sávszélességet a helyek közötti VPN-alagút korlátozza.<br><br>Szükség van egy átjáróra a virtuális hálózaton és a célként megadott hálózaton lévő VPN-eszközön. | Vállalati üzemelő példányok, ahol bizonyos bérlői forgalmat más bérlők is biztonságossá kell tenniük. |
@@ -185,7 +185,7 @@ Ha katasztrofális adatvesztés következik be, az infrastruktúra biztonsági m
 - Központi telepítési bemenetek és azonosítók
 - Szolgáltatásfiókok
 - HITELESÍTÉSSZOLGÁLTATÓI főtanúsítvány
-- fFederated-erőforrások (leválasztott központi telepítések esetén)
+- Összevont erőforrások (leválasztott központi telepítések esetén)
 - Csomagok, ajánlatok, előfizetések és kvóták
 - RBAC szabályzat és szerepkör-hozzárendelések
 - Key Vault titkok
@@ -198,10 +198,10 @@ A Linux vagy a Windows IaaS virtuális gépek biztonsági mentéséhez olyan biz
 
 Ha egy másodlagos helyre szeretné replikálni az alkalmazásokat, és vészhelyzet esetén az alkalmazás feladatátvételét koordinálja, használhat Azure Site Recovery vagy támogatott harmadik féltől származó termékeket. Emellett a natív replikálást támogató alkalmazások, például a Microsoft SQL Server is képesek replikálni az adatfájlokat egy másik helyre, ahol az alkalmazás fut.
 
-## <a name="learn-more"></a>Tudjon meg többet
+## <a name="learn-more"></a>További információ
 
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
 - Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

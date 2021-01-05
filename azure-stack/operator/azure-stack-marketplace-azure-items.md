@@ -3,16 +3,16 @@ title: Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek
 description: Megtudhatja, hogy mely Azure Marketplace-elemek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/9/2020
+ms.date: 01/04/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 12/9/2020
-ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 475aa05c8274f36ea63763d648c69f2b3778da71
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935219"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871778"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Az Azure Stack Hubhoz elérhető Azure Marketplace-elemek
 
@@ -20,7 +20,7 @@ ms.locfileid: "96935219"
 
 Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, töltse le őket. A termékben szállított bővítmények nem frissülnek a normál javítási és frissítési folyamat során, ezért gyakran keressen frissítéseket. Más bővítmények csak a piactér-felügyeleten keresztül érhetők el.
 
-| Rendszerkép | Elemnév | Leírás | Publisher | Operációs rendszer típusa |
+| Kép | Elemnév | Leírás | Publisher | Operációs rendszer típusa |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS-bővítmény (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS-bővítmény (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Töltse le ezt a bővítményt bármely SQL Server Windows Marketplace-elemen való üzembe helyezéséhez – ez a bővítmény szükséges.** | Microsoft | Windows |
 |![Egyéni szkriptbővítmény](media/azure-stack-marketplace-azure-items/cse.png) | [Egyéni szkriptbővítmény](/azure/virtual-machines/windows/extensions-customscript)| **Töltse le ezt a frissítést a Windowshoz készült egyéni parancsfájl-bővítmény beépített verziójára.** | Microsoft | Windows |
@@ -41,7 +41,7 @@ Ha a virtuális gép (VM) bővítményeinek frissítései vannak használatban, 
 
 Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gépeket és megoldási sablonokat támogatja. A függőségeket külön, a feljegyzett módon töltheti le. Az olyan alkalmazások, mint a SQL Server és a Machine Learning Server megfelelő licencelést igényelnek, kivéve, ha az ingyenes vagy próbaverziós jelölésű.
 
-| Rendszerkép | Elemnév | Leírás | Publisher |
+| Kép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2013 próbaverzió a Windows Server 2012 Datacenter és a Visual Studio 2019 Community Edition rendszerhez. | Microsoft |
 | ![SharePoint Server 2016 próbaverzió](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 próbaverzió](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Microsoft SharePoint Server 2016 próbaverzió a Windows Server 2016 Datacenter rendszeren. | Microsoft |
@@ -52,7 +52,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="linux-distributions"></a>Linux-disztribúciók
 
-| Rendszerkép | Elemnév | Leírás | Publisher |
+| Kép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![Linux operációs rendszer törlése](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux operációs rendszer törlése](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Az Intel architektúrára optimalizált, Linux-disztribúció. | Linux-projekt törlése |
 | ![CoreOS Linux (stabil)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabil)](https://coreos.com/os/docs/latest/booting-on-azure.html) | A CoreOS egy modern és minimális Linux-disztribúció, amely egyszerű módszert kínál a tárolók futtatására, a fürtök kezelésére és a kiszolgálók zökkenőmentes frissítésére – az összes olyan összetevőre, amely lehetővé teszi a tárház-méretezési számítást. | CoreOS |
@@ -68,7 +68,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Harmadik féltől származó BYOL, ingyenes, próbaverziós képek és megoldási sablonok
 
-| Rendszerkép | Elemnév | Leírás | Publisher |
+| Kép | Elemnév | Leírás | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | Az A10-es hálózatok vThunder (Application Delivery Controller) Microsoft Azure célra készültek nagy teljesítményű, rugalmas és könnyen üzembe helyezhető alkalmazások kézbesítéséhez és a kiszolgáló terheléselosztásához, és az Azure-felhőben való natív futtatásra optimalizáltak. | A10 Networks |
 | ![Arista vEOS-útválasztó](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS-útválasztó](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | A Arista vEOS útválasztó egy funkciókban gazdag, többfelhős és többszintű virtuális útválasztó, amely lehetővé teszi a vállalatok és a felhőalapú szolgáltatók számára a konzisztens, magas biztonságú és skálázható hibrid hálózatok kiépítését. | Arista hálózatok |
@@ -219,7 +219,7 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 | ![WordPress többrétegű](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress többrétegű](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multi-tier-wordpress) | A WordPress a világ legnépszerűbb blog-és tartalomkezelési platformja. Hatékony, mégis egyszerű, a diákok és a globális vállalatok számára egyaránt felhasználható, hogy szép, funkcionális webhelyeket építsen ki. Ez a megoldás két virtuális gépet használ, egyet az alkalmazás előtér-és a másikkal az adatbázissal. Ehhez a megoldási sablonhoz a **Debian 9-es** és **az egyéni szkript is szükséges a Linux 2,0 bővítményhez**. | Bitnami |
 | ![WordPress az NGINX és az SSL használatával](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress az NGINX és az SSL használatával](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpresspro) | A WordPress NGINX és SSL ötvözi a legnépszerűbb blogging-alkalmazást az NGINX webkiszolgáló erejével. Emellett leegyszerűsíti a konfigurációt, hogy Titkosítsa a tanúsítványokat a biztonság érdekében. | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/xoops.png" border="false"::: | [XOOPS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | A CMS és a webes portál program dinamikus webhelyeket hoz létre. | Bitnami |
-| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Nyílt forráskódú CRM-rendszer: mobil-, közösségi és Gamified. | Bitnami |
+| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://sourceforge.net/projects/zurmo/) | Nyílt forráskódú CRM-rendszer: mobil-, közösségi és Gamified. | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/zookeeper.png" border="false"::: | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | A ZooKeeper megbízható, központosított regisztert biztosít az elosztott alkalmazások konfigurációs és szolgáltatási szolgáltatásairól. | Bitnami |
 | ![ZooKeeper-fürt](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper-fürt](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeepermultitier) | A ZooKeeper megbízható, központosított regisztert biztosít az elosztott alkalmazások konfigurációs és szolgáltatási szolgáltatásairól. Ez a megoldás méretezhető, megbízható és központosított adattárolási és koordinációs szolgáltatásokat biztosít az elosztott alkalmazásokhoz. Emellett olyan konfigurálható csomópontok számát is kiépítheti, amelyek egy hibatűrő ZooKeeper-fürtöt alkotnak. Más alkalmazásokkal, például a Kafka-vel is integrálható. Ehhez a megoldási sablonhoz a **Debian 9-es** és **az egyéni szkript is szükséges a Linux 2,0 bővítményhez**. | Bitnami |
 | ![Ellenőrzési pont CloudGuard IaaS magas rendelkezésre állása](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS magas rendelkezésre állása](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Ez a megoldás egy 2 tagú ellenőrzési pont CloudGuard IaaS-fürtöt telepít. Minden tagnak 2 hálózati adaptere van. | Ellenőrzőpont |
@@ -250,4 +250,5 @@ Microsoft Azure Stack hub a következő Azure Marketplace-alapú virtuális gép
 | ![Teradici felhőalapú hozzáférési szoftver](media/azure-stack-marketplace-azure-items/teradici.png) | [Teradici felhőalapú hozzáférési szoftver](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | A PCoIP Technology által működtetett &reg; felhőalapú hozzáférési szoftverek távoli asztalokat és munkaállomásokat biztosítanak a Azure Stackről bármely eszközre, bárhol. Összevonhatja az adattárolást, fejlesztheti az együttműködést, biztonságossá teheti az adatvédelmet, egyszerűsítheti az asztali felügyeletet, és így tovább. | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | A Microsoft Azure és más felhőalapú Bring Your Own Key (BYOK) API-k kihasználása révén a CipherTrust Cloud Key Manager csökkenti a kulcsfontosságú felügyelet összetettségét és működési költségeit azáltal, hogy a titkosítási kulcsok többfelhős életciklus-vezérlését központosított felügyelettel és láthatósággal látja el. | Thales eSecurity |
 | ![Veeam biztonsági mentési & replikációja](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam biztonsági mentési & replikációja](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | &reg;A Veeam Backup & replikációja &trade; révén a vállalatok átfogó adatvédelmet érhetnek el minden munkaterheléshez – virtuális, fizikai és felhőalapú. Egyetlen konzollal gyors, rugalmas és megbízható biztonsági mentést, helyreállítást és replikálást érhet el az összes alkalmazás és szolgáltatás számára. | Veeam szoftver |
+| ![Fordítva operációs rendszer (VOS)](media/azure-stack-marketplace-azure-items/versa.png) | [Fordítva operációs rendszer (VOS)](https://azuremarketplace.microsoft.com/marketplace/apps/versanetworks.versa-operating-system?tab=Overview) | A sokoldalú operációs rendszer (VOS) egy átfogó és fejlett, új generációs virtuális berendezés, amely az SD-WAN, a SD-Routing és a SD-Security a Microsoft Azure felhőbe helyezi a teljesítményt. | Fordítva hálózatok |
 | ![ZeroDown szoftver BCaa-i](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown a szoftveres üzletmenet folytonossága szolgáltatásként](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | A ZeroDown a vállalati &reg; adatok folyamatos hozzáférését biztosítja a vállalatoknak az üzletmenet-folytonossági szolgáltatás (BCAA) &trade; architektúrája, az alkalmazások védelme és a tranzakciók terén, ha olyan hálózati megszakítások történnek, amelyek általában a vállalat megszakadását fogják megszakítani. | ZeroDown szoftver |

@@ -1,18 +1,18 @@
 ---
 title: A DNS-továbbító frissítése Azure Stack központban
 description: Ismerje meg, hogyan frissítheti a DNS-továbbítót Azure Stack hub-ban.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: ede13e98893fcf30c0e1640d65271554410f659a
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 09c827d3b00470dd8e241181fc243bace62fc38b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836087"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871174"
 ---
 # <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>A DNS-továbbító frissítése Azure Stack központban
 
