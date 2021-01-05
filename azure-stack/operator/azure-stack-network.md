@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub hálózati integrációjának tervezése
 description: Ismerje meg, hogyan tervezheti meg az adatközpontok hálózati integrációját Azure Stack hub integrált rendszerekkel.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: dc9273ba215c819595099aa35e6b3487623f6cd2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: a03052ddae302444fa843a6195ef738c61769fa2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545244"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869831"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Hálózatintegráció tervezése Azure Stackhez
 
@@ -68,9 +68,9 @@ A HLH az üzembe helyezési virtuális gépet (DVM) is üzemelteti. A DVM Azure 
 
 Ez a/20 (4096 IP-cím) hálózat magán a Azure Stack régióban (nem a Azure Stack rendszer szegélyének kapcsoló eszközein halad át), és több alhálózatra van osztva, néhány példa:
 
-- **Storage Network** : egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
-- **Belső virtuális IP-hálózat** : a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
-- **Container Network** : a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
+- **Storage Network**: egy/25 (128 IP-cím) hálózat, amely a közvetlen tárolóhelyek és az SMB-tárolási forgalom, valamint a virtuális gépek élő áttelepítésének támogatásához használatos.
+- **Belső virtuális IP-hálózat**: a szoftveres terheléselosztó számára csak belső VIP-címekre dedikált/25 hálózat.
+- **Container Network**: a/23 (512 IP) hálózat, amely az infrastruktúra-szolgáltatásokat futtató tárolók közötti belső forgalomra van kijelölve.
 
 Az 1910-es kiadástól kezdve a Azure Stack hub rendszernek további/20 magánhálózati belső IP-tárterületre **van szüksége** . Ez a hálózat a Azure Stack rendszer számára lesz privát (nem az Azure Stack rendszer szegély-kapcsoló eszközein kívülre), és az adatközponton belül több Azure Stack rendszeren is felhasználható. Amíg a hálózat privát Azure Stack, nem lehet átfedésben az adatközpontban lévő többi hálózattal. A/20 magánhálózati IP-terület több olyan hálózatra oszlik, amelyek lehetővé teszik a Azure Stack hub-infrastruktúra futtatását a tárolókban. Emellett ez az új magánhálózati IP-terület lehetővé teszi, hogy a telepítés előtt csökkentse a szükséges irányítható IP-területet. Az Azure Stack hub-infrastruktúra tárolókban való futtatásának célja a kihasználtság optimalizálása és a teljesítmény javítása. Emellett a/20 magánhálózati IP-terület is lehetővé teszi, hogy a folyamatban lévő erőfeszítéseket a telepítés előtt csökkentse a szükséges irányítható IP-területet. A magánhálózati IP-címekre vonatkozó útmutatásért javasoljuk, hogy kövesse az  [RFC 1918-es dokumentumot](https://tools.ietf.org/html/rfc1918).
 
@@ -79,7 +79,7 @@ A 1910 előtt üzembe helyezett rendszerek esetében ez a/20 alhálózat egy tov
 > [!NOTE]
 > A/20 bemenet a 1910 után a következő Azure Stack hub-frissítés előfeltétele. Ha a következő Azure Stack hub frissítése a 1910-es kiadás után, és megpróbálja telepíteni, a frissítés sikertelen lesz, ha nem végezte el a/20 bemenetet a szervizelés lépéseiben leírtak szerint, a következőképpen: A felügyeleti portálon riasztás jelenik meg, amíg a fenti szervizelési lépések be nem fejeződik. Az új privát terület felhasználásának megismeréséhez tekintse meg az [Datacenter hálózati integrációs](azure-stack-network.md#private-network) című cikket.
 
-Javítási **lépések** : a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS** üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
+Javítási **lépések**: a szervizeléshez kövesse az utasításokat a PEP- [munkamenet megnyitásához](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Készítse elő a (z)/20. [magánhálózati belső IP-címtartományt](azure-stack-network.md#logical-networks) , és futtassa a következő parancsmagot (csak 1910-től kezdődően) a PEP-munkamenetben a következő példa használatával: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Ha a művelet sikeresen elvégezve, megkapja a **konfigurációhoz hozzáadott belső hálózati AZS** üzenetet. Ha a művelet sikeresen befejeződött, a riasztás be lesz zárva a felügyeleti portálon. A Azure Stack hub rendszer most már frissíthető a következő verzióra.
 
 ### <a name="azure-stack-infrastructure-network"></a>Infrastruktúra-hálózat Azure Stack
 
@@ -101,6 +101,6 @@ Ez a/29 (hat gazda IP-cím) hálózat a kapcsolók felügyeleti portjainak csatl
 
 A 1910-es verziótól kezdődően az üzembe helyezési munkalap ezt az új mezőt fogja tartalmazni, amely lehetővé teszi, hogy az operátor módosítson egy hozzáférés-vezérlési listát (ACL), amely lehetővé teszi a hálózati eszközök felügyeleti felületeinek elérését, valamint a hardveres életciklus-gazdagép (HLH) megbízható adatközpont A hozzáférés-vezérlési lista módosításakor az operátor engedélyezheti, hogy a felügyeleti Jumpbox egy adott hálózati tartományon belül, a HLH operációs rendszer és a HLH BMC használatával hozzáférhessenek. Az operátor egy vagy több alhálózatot is megadhat a listához, ha üresen hagyja, a rendszer alapértelmezés szerint megtagadja a hozzáférést. Ez az új funkció lecseréli az üzembe helyezés utáni manuális beavatkozás szükségességét, ahogy azt a [Azure stack kapcsoló konfigurációjának konkrét beállításainak módosítása](./azure-stack-customer-defined.md#access-control-list-updates)című témakörben ismertette.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További tudnivalók a hálózati tervezésről: a [határok közötti kapcsolat](azure-stack-border-connectivity.md).

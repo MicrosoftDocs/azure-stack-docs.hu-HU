@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
-ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
+ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97743573"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869916"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -22,6 +22,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="new-marketplace-items"></a>Új piactér-elemek
 
+- 01/04/2021: fordítva operációs rendszer 21.1.1 – verzió 21.1.1
 - 09/08/2020: Qualys virtuális képolvasó készülék
 - 01/21/2020: Teradici felhőalapú hozzáférési szoftver
 - 12/26/2019: a CloudGuard IaaS magas rendelkezésre állása

@@ -1,20 +1,20 @@
 ---
 title: Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának tanúsítványára vonatkozó követelmények
 description: Ismerkedjen meg az Azure Stack hub PKI-tanúsítványának követelményeivel Azure Stack hub integrált rendszerekhez.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: aba799122e4ccbd61258628b079061aa7a02e0ae
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93049602"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869695"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack hub nyilvános kulcsokra épülő infrastruktúrájának (PKI) tanúsítványára vonatkozó követelmények
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Az Azure Stack Hub nyilvános kulcsú infrastruktúrájának (PKI) tanúsítványkövetelményei
 
 Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely az Azure Stack hub-szolgáltatások és valószínűleg a bérlői virtuális gépek kis készletéhez rendelt, külsőleg elérhető nyilvános IP-címeket használ. A Azure Stack hub nyilvános infrastruktúra-végpontok megfelelő DNS-neveivel rendelkező PKI-tanúsítványokra van szükség Azure Stack központi telepítés során. Ez a cikk a következő információkat tartalmazza:
 
@@ -117,8 +117,8 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 
 <sup>2</sup> &#42;. appservice. *&lt; régió>. &lt; a teljes tartománynév>* helyettesítő tanúsítvány nem használható fel a három tanúsítvány helyett (API. appservice.*&lt; régió>. &lt; FQDN>*, FTP. appservice. *&lt; régió>. &lt; FQDN>* és SSO. appservice. *&lt; régió>. &lt; FQDN>*. A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
 
-## <a name="learn-more"></a>Tudjon meg többet
+## <a name="learn-more"></a>További információ
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

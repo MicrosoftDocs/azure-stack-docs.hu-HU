@@ -1,18 +1,18 @@
 ---
 title: OEM-frissítés alkalmazása Azure Stack hubhoz
 description: Útmutató az eredeti berendezésgyártó (OEM) frissítésének Azure Stack hub-ra való alkalmazásához.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/15/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: f97b42898c106a58ac217738d5936c1686f74042
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374974"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868863"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -20,7 +20,7 @@ Az eredeti berendezésgyártó (OEM) frissítéseit alkalmazhatja az Azure Stack
 
 ## <a name="overview-of-oem-updates"></a>Az OEM-frissítések áttekintése
 
-Microsoft Azure Stack hub frissítései mellett számos számítógépgyártó is kiadja az Azure Stack hub-hardver, például az illesztőprogram-és a belső vezérlőprogram frissítéseinek rendszeres frissítéseit. Ezeket a frissítéseket **OEM-csomagok frissítéseinek**nevezzük. Ha szeretné megismerni, hogy a SZÁMÍTÓGÉPGYÁRTÓ az OEM-csomagok frissítéseit, tekintse [meg az oem Azure stack hub dokumentációját](#oem-contact-information).
+Microsoft Azure Stack hub frissítései mellett számos számítógépgyártó is kiadja az Azure Stack hub-hardver, például az illesztőprogram-és a belső vezérlőprogram frissítéseinek rendszeres frissítéseit. Ezeket a frissítéseket **OEM-csomagok frissítéseinek** nevezzük. Ha szeretné megismerni, hogy a SZÁMÍTÓGÉPGYÁRTÓ az OEM-csomagok frissítéseit, tekintse [meg az oem Azure stack hub dokumentációját](#oem-contact-information).
 
 A rendszer feltölti ezeket az OEM-csomagok frissítéseit a **updateadminaccount** Storage-fiókjába, és az Azure stack hub felügyeleti portálján keresztül alkalmazza őket. További információ: OEM- [frissítések alkalmazása](#apply-oem-updates).
 
@@ -34,12 +34,12 @@ Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segéd
 
 | Hardveres partner | Régió | URL-cím |
 |-----|----|-----|
-| Cisco | Összes | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozatú rack-Mount FKR – felügyelt kiszolgáló szoftver](https://aka.ms/aa700rq) |
-| Dell EMC | Összes | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozat Rack-Mount UCS-Managed Server szoftver](https://aka.ms/aa700rq) |
+| Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japán | [A Fujitsu felügyelt szolgáltatás támogatási szolgálata (fiók és bejelentkezés szükséges)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | EMEA & EGYESÜLT ÁLLAMOK | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
-| HPE | Összes | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
-| Lenovo | Összes | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
+| HPE | Mind | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
+| Lenovo | Mind | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
 | Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://aka.ms/AA6z600)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>OEM-frissítések alkalmazása
@@ -58,7 +58,7 @@ Alkalmazza az OEM-csomagokat a következő lépésekkel:
 
 ## <a name="configure-hardware-vendor-vm"></a>Hardveres gyártó virtuális gép konfigurálása
 
-Egyes hardvergyártók esetében szükség lehet egy virtuális gépre (VM) az OEM-frissítési folyamat segítésére. A hardvergyártó felelős a virtuális gépek létrehozásában és a dokumentálás `ProxyVM` `HardwareManager` során, ha a **set-OEMExternalVM** parancsmag futtatásához vagy a **-VMType** szükséges, valamint **a hitelesítő**adatokhoz használandó hitelesítő adatokat. A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
+Egyes hardvergyártók esetében szükség lehet egy virtuális gépre (VM) az OEM-frissítési folyamat segítésére. A hardvergyártó felelős a virtuális gépek létrehozásában és a dokumentálás `ProxyVM` `HardwareManager` során, ha a **set-OEMExternalVM** parancsmag futtatásához vagy a **-VMType** szükséges, valamint **a hitelesítő** adatokhoz használandó hitelesítő adatokat. A virtuális gépek létrehozása után konfigurálja azokat a **set-OEMExternalVM** a privilegizált végponton.
 
 További információ a Azure Stack hub Kiemelt jogosultságokkal rendelkező végpontján: [a privilegizált végpont használata Azure stack központban](azure-stack-privileged-endpoint.md).
 
@@ -81,6 +81,6 @@ További információ a Azure Stack hub Kiemelt jogosultságokkal rendelkező v�
         }
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Azure Stack hub frissítései](azure-stack-updates.md)

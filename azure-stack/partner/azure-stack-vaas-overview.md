@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack hub ellenőrzésének áttekintése szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 777a87094f9e950da5a301ec328d253cb5f7a7c1
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 89e05e776538ab2032995634e69d704b1ae4981b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764715"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868182"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Mi az a Azure Stack hub szolgáltatásként való érvényesítése?
 
@@ -61,7 +61,7 @@ További információ: gyors útmutató [: az első teszt elvégzéséhez haszn�
 | [OEM-csomag ellenőrzése](azure-stack-vaas-validate-oem-package.md) | OEM kiterjesztési csomag ellenőrzése<br>Felhőalapú szimulációs motor |
 | [Havi frissítés ellenőrzése](azure-stack-vaas-validate-microsoft-updates.md) | Havi Azure Stack hub frissítésének ellenőrzése<br>Felhőalapú szimulációs motor<br> |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Az érvényesítés beállítása szolgáltatási erőforrásként](azure-stack-vaas-set-up-resources.md)
 - Tudnivalók az [érvényesítésről a szolgáltatás kulcsfontosságú fogalmai szerint](azure-stack-vaas-key-concepts.md)

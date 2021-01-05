@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan állíthatja be az Azure AD-és tárolási erőforrásokat Azure Stack hub-ellenőrzéshez szolgáltatásként.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 19f1b9e33f0304d155dad070ef8cb10fc6a930fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490167"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869049"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Oktatóanyag: erőforrások beállítása szolgáltatásként történő érvényesítéshez
 
@@ -22,7 +22,7 @@ ms.locfileid: "86490167"
 
 Az érvényesítési szolgáltatásként (adatbázis-ellenőrzés) olyan Azure-szolgáltatás, amely a piacon Azure Stack hub-megoldások ellenőrzéséhez és támogatásához használatos. Kövesse ezt a cikket, mielőtt a szolgáltatást használja a megoldás ellenőrzéséhez.
 
-Eben az oktatóanyagban az alábbiakkal fog megismerkedni:
+Az oktatóanyag a következőket ismerteti:
 
 > [!div class="checklist"]
 > * Készüljön fel az Azure Active Directory (AD) beállításával való használatra.
@@ -78,7 +78,7 @@ Az Azure AD-rendszergazdaként adja meg az Azure AD-alkalmazás számára a bér
 
 1. A bérlőhöz tartozó globális rendszergazdai hitelesítő adatokkal jelentkezzen be az [Azure stack hub ellenőrzési portálján](https://azurestackvalidation.com/).
 
-2. Válassza **a saját fiók**lehetőséget.
+2. Válassza **a saját fiók** lehetőséget.
 
 3 a feltételek elfogadása a folytatáshoz, amikor a rendszer kéri, hogy adja meg az Azure AD-engedélyek listáját.
 
@@ -88,11 +88,11 @@ A tesztelés végrehajtása során az Azure a diagnosztikai naplókat egy Azure 
 
 Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack hub-környezetben.
 
-1. A Azure Portal válassza a **minden szolgáltatás**  >  **tároló**  >  **Storage-fiókok**lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás**lehetőséget.
+1. A Azure Portal válassza a **minden szolgáltatás**  >  **tároló**  >  **Storage-fiókok** lehetőséget. A **Storage-fiókok** panelen válassza a **Hozzáadás** lehetőséget.
 
 2. Válassza ki azt az előfizetést, amelyben létre kívánja hozni a tárfiókot.
 
-3. Az **erőforráscsoport**területen válassza az **új létrehozása**lehetőséget. Adja meg az új erőforráscsoport nevét.
+3. Az **erőforráscsoport** területen válassza az **új létrehozása** lehetőséget. Adja meg az új erőforráscsoport nevét.
 
 4. Tekintse át az Azure Storage-fiókok [elnevezési konvencióit](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) . Adja meg a tárfiók nevét.
 
@@ -100,7 +100,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack
 
     Annak érdekében, hogy a hálózati költségek ne legyenek felszámítva a naplók tárolásához, az Azure Storage-fiók úgy is konfigurálható, hogy csak az **USA nyugati** régióját használja. Ezekhez az adatokhoz nem szükséges az adatreplikálás és a gyakori tárolási réteg funkció. Az egyik funkció engedélyezése jelentősen növeli a költségeket.
 
-6. A beállításokat a **Fiók típusa**kivételével az alapértelmezett értékekre hagyja:
+6. A beállításokat a **Fiók típusa** kivételével az alapértelmezett értékekre hagyja:
 
     - A **telepítési modell** mező alapértelmezett értéke a **Resource Manager** .
     - A **Teljesítmény** mező alapértelmezett értéke **Standard**.
@@ -110,7 +110,7 @@ Az Azure Storage-fiók az Azure nyilvános felhőben üzemel, nem az Azure Stack
 
 7. A tárfiók beállításainak áttekintéséhez és a fiók létrehozásához válassza a **Felülvizsgálat + létrehozás** elemet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha a környezet nem engedélyezi a bejövő kapcsolatokat, kövesse a helyi ügynök üzembe helyezéséről szóló oktatóanyagot a hardveren futó teszt futtatásához.
 

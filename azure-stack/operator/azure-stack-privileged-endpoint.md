@@ -3,17 +3,17 @@ title: A rendszerjogosultságú végpont használata Azure Stack központban
 description: Megtudhatja, hogyan használhatja a Kiemelt végpontot (PEP) Azure Stack hub-ban operátorként.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: a20e7bf62cf65d1fd7c5ffb0f4f4ddc7313c55b2
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 81a27e841565e00c60183de0228896d56b9eede9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598249"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869508"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 

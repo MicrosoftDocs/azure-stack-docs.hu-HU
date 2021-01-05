@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan helyezheti üzembe a helyi ügynököt Azure Stack hub érvényesítéséhez szolgáltatásként.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ef131c1b7b54c05b6feee9336a0875f3507f5174
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764783"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868369"
 ---
 # <a name="deploy-the-local-agent"></a>A helyi ügynök üzembe helyezése
 
@@ -146,7 +146,7 @@ Ha nem jelenik meg a jelentett hibák, akkor a helyi ügynök sikeres volt. A ko
 
 Az ügynököket a neve egyedileg azonosítja. Alapértelmezés szerint a a gép FQDN-nevét használja az indítás helyétől kezdve. Kis méretűre kell állítani az ablakot, hogy elkerülje a véletlen kijelölést az ablakon, mivel a fókusz megváltoztatásával szünetelteti az összes többi műveletet.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)
 - [Érvényesítés szolgáltatási kulcs fogalmai szerint](azure-stack-vaas-key-concepts.md)

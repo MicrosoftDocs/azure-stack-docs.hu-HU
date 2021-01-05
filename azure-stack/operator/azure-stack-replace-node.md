@@ -2,18 +2,18 @@
 title: Méretezési egység csomópontjának cseréje Azure Stack hub integrált rendszeren
 titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan helyettesíthet egy fizikai méretezési egység csomópontot egy Azure Stack hub integrált rendszeren.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a96ee2a4ffb2abb3c3e11db23d4fb676ace8c1c0
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 5fd19b0531ea025a781c95f100060038cfe6c4b0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572630"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869440"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Méretezési egység csomópontjának cseréje egy Azure Stack hub integrált rendszeren
 
@@ -66,7 +66,7 @@ Az alábbi lépések a méretezési egység csomópont-helyettesítési folyamat
 6. A rendszerjogosultságú végponton [ellenőrizhető a virtuális lemez javításának állapota](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint). Az új adatmeghajtók esetében a teljes tárterület-javítási feladat több órát is igénybe vehet a rendszerterheléstől és a felhasznált területtől függően.
 7. A javítási művelet befejeződése után ellenőrizze, hogy az összes aktív riasztás automatikusan le van-e zárva.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A fizikai lemezek a rendszer bekapcsolásakor történő cseréjével kapcsolatos információkért lásd: [lemez cseréje](azure-stack-replace-disk.md). 
 - További információ a rendszer kikapcsolását igénylő hardver-összetevők lecseréléséről: [hardver-összetevő cseréje](azure-stack-replace-component.md).

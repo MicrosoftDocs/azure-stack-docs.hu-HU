@@ -1,18 +1,18 @@
 ---
 title: Teljesítmény a méretezési egység csomópontján
 description: Útmutató a méretezési egység csomópontjának bekapcsolásához
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 65ce2d6eb9244700ac00e2e477dcaaa999a07347
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 5c79938a7c6682f653c36892686fec4d82833f3a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391432"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867961"
 ---
 # <a name="powering-on-a-scale-unit-node"></a>Skálázási egység csomópontjának bekapcsolása
 

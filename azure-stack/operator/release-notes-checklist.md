@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub frissítési tevékenységének ellenőrzőlista
 description: Ellenőrzőlista a rendszer előkészítéséhez a legújabb Azure Stack hub-frissítéshez.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 08/10/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 53e34636ab29194f1c99fdb86aaf0f17315163c9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064786"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868386"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack hub frissítési tevékenységének ellenőrzőlista
 
@@ -59,7 +59,7 @@ A Azure Stack hub frissítésének előkészítéséhez tekintse át ezt a felad
 |  |  |
 | Több-bérlő ismételt engedélyezése | Több-bérlős Azure Stack hub esetén [Győződjön meg arról, hogy sikeres frissítés után konfigurálja az összes vendég címtár-bérlőt](azure-stack-enable-multitenancy.md#configure-guest-directory) . |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Ismert problémák listájának áttekintése](known-issues.md)
 - [Biztonsági frissítések listájának áttekintése](release-notes-security-updates.md)

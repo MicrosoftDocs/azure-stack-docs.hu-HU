@@ -3,16 +3,16 @@ title: Virtuális gép áthelyezése Azure Stack hubhoz
 description: Ismerje meg a virtuális gépek Azure Stack hubhoz való áthelyezésének különböző módszereit.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 932fed2c6097fbbf41606f365b0c5a424bf1381b
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 2ee1ae6405bd7216c65d328e2edc7d1606b2bddc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609766"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867145"
 ---
 # <a name="move-a-vm-to-azure-stack-hub-overview"></a>Virtuális gép áthelyezése Azure Stack hub-ra – áttekintés
 
@@ -54,7 +54,7 @@ A virtuális merevlemez kijavításához szükséges lépések a [VHD ellenőrz�
 
 A virtuális gépet manuálisan is áthelyezheti Azure Stack hubhoz a következő esetekben:
 
-| Használati eset | Utasítások |
+| Eset | Utasítások |
 | --- | --- |
 | Globális Azure – Azure Stack hub | Készítse elő a VHD-t a globális Azure-ban, majd töltse fel Azure Stack hubhoz. További információ: [virtuális gép áthelyezése az Azure-ból Azure stack hub](vm-move-from-azure.md)-ra. |
 | Helyi általános – Azure Stack hub | Készítse elő a VHD-t, és általánosítsa a VHD-t helyileg a Hyper-V-ben, majd töltse fel Azure Stack hubhoz. További információ: [általánosított virtuális gép áthelyezése a helyszínről Azure stack hubhoz](vm-move-generalized.md). |
@@ -68,7 +68,7 @@ Az Azure Global AzureCAT szakértői által írt útmutatóban részletes inform
 
 A felhőre vonatkozó bevezetési keretrendszerben is találhat útmutatást a Migrálás szolgáltatásról. További információ: [a Azure stack hub áttelepítésének megtervezése](/azure/cloud-adoption-framework/scenarios/azure-stack/plan). 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub virtuális gépek bemutatása](azure-stack-compute-overview.md)
 

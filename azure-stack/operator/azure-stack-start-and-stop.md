@@ -2,18 +2,18 @@
 title: Indítás és leállítás
 titleSuffix: Azure Stack Hub
 description: Útmutató Azure Stack hub elindításához és leállításához.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 730e4dd823509f7a8c738f3d02bd10c82529834c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 529cbfe4aff3c84cf732e58ff92b1bd920cd64b3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487787"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869134"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Azure Stack hub elindítása és leállítása
 
@@ -82,6 +82,6 @@ Ha az infrastruktúra és a bérlői szolgáltatások nem indulnak el sikeresen 
 
 5. Ha a **Start-AzureStack** futtatása hibát eredményez, forduljon a Microsoft ügyfélszolgálatahoz.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ az [Azure stack hub diagnosztikai eszközeiről](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)

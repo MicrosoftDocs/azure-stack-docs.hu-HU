@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: a9e8ffbca0f10e91b6f6a1e11e1b24eb34328761
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 780a8d7bfde9afca01a0e2c60dd6e8f772e06735
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940064"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867349"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Riasztások a Azure Stack hub aka.ms hivatkozásához
 
@@ -51,6 +51,6 @@ Ez a cikk a hiúság aka.ms hivatkozásaira és a hozzájuk tartozó átirányí
 | `https://docs.microsoft.com/azure/azure-stack/azure-stack-register` | [Az Azure Stack regisztrálása az Azure-ban](../../operator/azure-stack-registration.md) |
 | `https://docs.microsoft.com/azure/azure-stack/azure-stack-registration` | [Az Azure Stack regisztrálása az Azure-ban](../../operator/azure-stack-registration.md) |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A **Súgó** és támogatás szolgáltatással kapcsolatban a [Microsoft Azure stack Súgó és támogatás](../../operator/azure-stack-help-and-support-overview.md) című cikkben talál további információt.

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan hozhat létre interaktív funkció-ellenőrzési teszteket Azure Stack hubhoz szolgáltatásként történő érvényesítéssel.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 8dc3759c050c208017f7963a4cb7844d6acb8cdc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107261"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868471"
 ---
 # <a name="interactive-feature-verification-testing"></a>Interaktív funkció-ellenőrzési teszt  
 
@@ -43,7 +43,7 @@ Ha nem érhető el meglévő teszt, kövesse a [tesztek ütemezésének](azure-s
 
 ## <a name="schedule-the-test"></a>A teszt beosztása
 
-1. Válassza a **lemez azonosítása teszt**lehetőséget.
+1. Válassza a **lemez azonosítása teszt** lehetőséget.
 
     > [!Note]  
     > A teszt verziója növeli a tesztelési biztosítékok fejlesztését. A legmagasabb verziót mindig csak akkor kell használni, ha a Microsoft másként nem jelez.
@@ -106,6 +106,6 @@ Ha nem érhető el meglévő teszt, kövesse a [tesztek ütemezésének](azure-s
 
 15. Válassza a **Submit (Küldés** ) lehetőséget az eredmények Microsoftnak való elküldéséhez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az Azure Stack hub ellenőrzési portálján](azure-stack-vaas-monitor-test.md)

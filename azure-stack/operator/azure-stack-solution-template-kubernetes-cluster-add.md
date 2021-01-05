@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan adhat hozzá Kubernetes a Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: e2edda983e6fd554b2ff76a526b476318b31a6f5
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: b96b8a2bed340201b9450b37b1aad166ebbdf26d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250180"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869236"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes hozzáadása Azure Stack hub Marketplace-hez
 
@@ -34,11 +34,11 @@ Hozzon létre egy csomagot, egy ajánlatot és egy előfizetést a Kubernetes Ma
 
 1. Hozzon létre egy ajánlatot. Útmutatásért tekintse meg az [ajánlat létrehozása Azure stack hub-ban](azure-stack-create-offer.md)című témakört.
 
-1. Válassza az **ajánlatok**lehetőséget, és keresse meg a létrehozott ajánlatot.
+1. Válassza az **ajánlatok** lehetőséget, és keresse meg a létrehozott ajánlatot.
 
 1. Válassza az **Áttekintés** lehetőséget az ajánlat panelen.
 
-1. Válassza az **Állapot módosítása**lehetőséget. Válassza a **Nyilvános** lehetőséget.
+1. Válassza az **Állapot módosítása** lehetőséget. Válassza a **Nyilvános** lehetőséget.
 
 1. Előfizetés létrehozásához válassza az **+ erőforrás létrehozása**  >  **ajánlatok és csomagok**  >  **előfizetését** .
 
@@ -50,7 +50,7 @@ Hozzon létre egy csomagot, egy ajánlatot és egy előfizetést a Kubernetes Ma
 
     d. Állítsa be a **címtár-bérlőt** az Azure stack hub Azure ad-bérlője számára. 
 
-    e. Válassza az **ajánlat**lehetőséget. Válassza ki a létrehozott ajánlat nevét. Jegyezze fel az előfizetés AZONOSÍTÓját.
+    e. Válassza az **ajánlat** lehetőséget. Válassza ki a létrehozott ajánlat nevét. Jegyezze fel az előfizetés AZONOSÍTÓját.
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Egyszerű szolgáltatásnév és hitelesítő adatok létrehozása AD FS
 
@@ -62,9 +62,9 @@ Adja hozzá a következő Ubuntu Server-rendszerképet a Azure Stack hub Marketp
 
 1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
-1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés** lehetőséget.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Válassza **a + Hozzáadás az Azure-ból** lehetőséget.
 
 1. Írja be a következő szöveget: `Ubuntu Server`.
 
@@ -82,9 +82,9 @@ Adja hozzá a Kubernetes a Azure Stack hub piactérről:
 
 1. Nyissa meg a felügyeleti portált `https://adminportal.local.azurestack.external` .
 
-1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés** lehetőséget.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Válassza **a + Hozzáadás az Azure-ból** lehetőséget.
 
 1. Írja be a következő szöveget: `Custom Script for Linux`.
 
@@ -102,9 +102,9 @@ Adja hozzá a Kubernetes a Azure Stack hub piactérről:
 
 1. Nyissa meg a felügyeleti portált `https://adminportal.local.azurestack.external` .
 
-1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés** lehetőséget.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Válassza **a + Hozzáadás az Azure-ból** lehetőséget.
 
 1. Írja be a következő szöveget: `Kubernetes`.
 
@@ -141,7 +141,7 @@ A Kubernetes elemek eltávolítása:
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Kubernetes üzembe helyezése Azure Stack hubhoz](../user/azure-stack-solution-template-kubernetes-deploy.md)
 

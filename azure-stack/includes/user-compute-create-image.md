@@ -3,21 +3,21 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 08/04/2020
+ms.date: 12/16/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: f0aee3ea85db7cf95555ad5f54e8ffb4e3352f5d
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 3f8381940d7482b82ce36fd995cfac0929545f6c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936252"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867324"
 ---
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 
     Ha Ön egy platformot létrehozó Felhőbeli operátor, kövesse az [Add a platform-rendszerkép hozzáadása](../operator/azure-stack-add-vm-image.md#add-a-platform-image) a virtuális merevlemez hozzáadása a felügyeleti portálon vagy a rendszergazdai végpontok segítségével című témakör utasításait.
 
-2. A felhasználói portálon válassza a **minden szolgáltatás**  >  **lemezkép**  >  **Hozzáadás**lehetőséget.
+2. A felhasználói portálon válassza a **minden szolgáltatás**  >  **lemezkép**  >  **Hozzáadás** lehetőséget.
 
 3. A **rendszerkép létrehozása**:
 

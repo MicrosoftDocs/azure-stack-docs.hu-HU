@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
 description: Ismerje meg a legújabb Azure Stack hub SQL erőforrás-szolgáltató frissítésének újdonságait, beleértve az új funkciókat, javításokat és ismert problémákat.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 9f86466ebacaebc74b7799ec1145cc405faf1b7d
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d95be92f4cab37c41e1802fdcb18969e3276f459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364694"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869219"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL Resource Provider 1.1.47.0 kibocsátási megjegyzései
 
@@ -42,7 +42,7 @@ Kövesse az erőforrás-szolgáltató frissítési folyamatát az SQL Resource P
 
 Azure Stack hub integrált rendszerek [tanúsítványának elforgatásakor](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) a KeyVaultPfxPassword argumentum akkor is mendatory, ha nincs szándéka a Key Vault tanúsítvány jelszavának frissítésére.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ az SQL erőforrás-szolgáltatóról](azure-stack-sql-resource-provider.md).
 - [Felkészülés az SQL-erőforrás-szolgáltató üzembe helyezésére](azure-stack-sql-resource-provider-deploy.md#prerequisites).

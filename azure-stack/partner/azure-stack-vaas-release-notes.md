@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: A Azure Stack hub érvényesítésének kibocsátási megjegyzései szolgáltatásként.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
-ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
+ms.openlocfilehash: 82e7820b49578139bbfb140e98fd740e6c1be8fb
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94580810"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868199"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Kibocsátási megjegyzések szolgáltatásként történő érvényesítéshez
 
@@ -225,6 +225,6 @@ Ha az Azure Stack hub havi frissítés-ellenőrzési munkafolyamatát futtatja, 
 
     Az egyes funkciókra vonatkozó célzott visszajelzések megadásának lehetősége már elérhető a test pass munkafolyamatban. A `OEM Update on Azure Stack Hub 1806 RC Validation 5.1.4.0` teszt ellenőrzi, hogy vannak-e konkrét frissítések alkalmazva, majd visszajelzéseket gyűjt.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [A szolgáltatás érvényesítésének megoldása](azure-stack-vaas-troubleshoot.md)

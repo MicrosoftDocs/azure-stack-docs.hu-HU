@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d654f0489c0ec1987eb42197e4bfdeb0f01291ef
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 3a6312a81632bffbb128049088119b30de79a732
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940132"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867802"
 ---
 # <a name="azure-stack-hub-ruggedized-network-introduction"></a>Azure Stack hub robusztus hálózati bemutatása
 
@@ -107,8 +107,8 @@ A Azure Stack hub teljes tartományneve (FQDN) robusztus központi telepítés �
 
 Ilyenek például a központi telepítés egyes végpontjai a következő URL-címekhez hasonlóak:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Ha ezt a példát DNS-névteret szeretné használni egy Azure Stack hub robusztus üzembe helyezéséhez, a következő feltételek szükségesek:
 
@@ -278,8 +278,8 @@ A következő táblázat az átjárók típusát és az átjáró SKU által bec
 
 |                          | **VPN Gateway teljesítménye (1)** | **VPN Gateway IPsec-alagútjainak maximális száma (2)** |
 |--------------------------|--------------------------------|---------------------------------------|
-| **Alapszintű SKU** **(3)**    | 100 Mbit/s                       | 20                                    |
-| **Standard termékváltozat**         | 100 Mbit/s                       | 20                                    |
+| **Alapszintű SKU** **(3)**    | 100 Mbps                       | 20                                    |
+| **Standard termékváltozat**         | 100 Mbps                       | 20                                    |
 | **Nagy teljesítményű SKU** | 200 Mbit/s                       | 10                                    |
 
 Tábla megjegyzései
@@ -351,7 +351,7 @@ Ez a szakasz a két hálózat közötti pont-pont típusú VPN-kapcsolat IPsec/I
 
 A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub által robusztus ügyfelek által konfigurálható fő erősségeket:
 
-| **IPsec/IKEv2**  | **Beállítások** |
+| **IPsec/IKEv2**  | **Lehetőségek** |
 |------------------|-------------|
 | IKEv2-titkosítás | AES256, AES192, AES128, DES3, DES                                                                                                                         |
 | IKEv2-integritás  | SHA384, MD5, SHA1, SHA256                                                                                                                                 |

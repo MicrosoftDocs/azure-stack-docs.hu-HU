@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 08/04/2020
+ms.date: 12/16/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 4c0e9fd823b7b932ec11c61e24ce650df1cf9cc9
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: aaa08aa85701cda0dd6f85bb77726e227e849f71
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936052"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867299"
 ---
 A virtuális merevlemez feltöltése előtt ellenőriznie kell, hogy a VHD megfelel-e a követelményeknek. Azok a VHD-k, amelyek nem felelnek meg a követelményeknek, nem töltődnek be Azure Stack központban.
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Stack hub áttekintése
+title: Az Azure Stack Hub áttekintése
 description: Áttekintés arról, hogy mi Azure Stack hub, és hogyan teszi lehetővé az Azure-szolgáltatások futtatását az adatközpontban.
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 04/20/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488416"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869814"
 ---
-# <a name="azure-stack-hub-overview"></a>Azure Stack hub áttekintése
+# <a name="azure-stack-hub-overview"></a>Az Azure Stack Hub áttekintése
 
 Az Azure Stack Hub az Azure egyik bővítménye, amellyel helyszíni környezetben futtathatja az alkalmazásokat, és biztosíthatja az Azure-szolgáltatásokat az adatközpontban. Az egységes felhőalapú platformmal a szervezetek az üzleti követelmények alapján, a technológiai korlátozások alapján nem üzleti döntéseket hozhatnak.
 
@@ -39,11 +39,11 @@ Az Azure Stack hub az iparági szabványoknak megfelelő hardverre épül, és u
 
 Az Azure Stack hub architektúrája lehetővé teszi, hogy az Azure-szolgáltatásokat a távoli helyekhez vagy időszakos kapcsolatokhoz, az internetről leválasztva biztosítson. Olyan hibrid megoldásokat hozhat létre, amelyek helyileg dolgozzák fel az adatokat Azure Stack hub-ban, majd az Azure-ban összesítve további feldolgozást és elemzést végeznek. Végezetül, mivel Azure Stack hub a helyszínen van telepítve, az egyes szabályozási vagy házirend-követelmények kielégítésével a felhőalapú alkalmazások helyszíni üzembe helyezése a kód módosítása nélkül is megváltoztatható.
 
-## <a name="deployment-options"></a>Üzembe helyezési lehetőségek
+## <a name="deployment-options"></a>Üzembe helyezési beállítások
 
 A Azure Stack hub integrált rendszerek a Microsoft és a hardveres partnerek közötti partneri kapcsolaton keresztül érhetők el, így olyan megoldások hozhatók létre, amelyek a Felhőbeli innováció és a számítástechnika egyszerűségét biztosítják. Mivel az Azure Stack hub integrált hardver-és szoftveres rendszerként van felkínálva, rugalmasan és szabályozva van, valamint a felhőből való innováció lehetőségével.
 
-Az Azure Stack hub integrált rendszerének mérete 4-16-kiszolgálókról, *méretezési egységnek*nevezzük. Az integrált rendszereket a hardveres partner és a Microsoft közösen támogatja. Az alábbi ábrán egy méretezési egység látható. 
+Az Azure Stack hub integrált rendszerének mérete 4-16-kiszolgálókról, *méretezési egységnek* nevezzük. Az integrált rendszereket a hardveres partner és a Microsoft közösen támogatja. Az alábbi ábrán egy méretezési egység látható. 
 
 ![Azure Stack hub integrált rendszerét bemutató ábra](./media/azure-stack-overview/azure-stack-integrated-system.svg). 
 
@@ -100,7 +100,7 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 - **SQL Server**: a [SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider.md) használatával Azure stack hub szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server példánnyal, Ön és a felhasználók létrehozhatnak adatbázisokat a Felhőbeli natív alkalmazásokhoz, az SQL-t használó webhelyekhez és az SQL-t használó egyéb munkaterhelésekhez.
 - **MySQL-kiszolgáló**: a MySQL- [kiszolgáló erőforrás-szolgáltatójának](azure-stack-mysql-resource-provider-deploy.md) használatával tegye elérhetővé a mysql-adatbázisokat Azure stack hub-szolgáltatásként. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2019 Server Core virtuális gépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 

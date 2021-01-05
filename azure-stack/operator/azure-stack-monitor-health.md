@@ -1,19 +1,19 @@
 ---
-title: Állapot és riasztások figyelése Azure Stack központban
+title: Állapot- és riasztásmonitorozás az Azure Stack Hubban
 description: Megtudhatja, hogyan figyelheti Azure Stack hub állapotát és riasztásait.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368090"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869933"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot és riasztások figyelése Azure Stack központban
+# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot- és riasztásmonitorozás az Azure Stack Hubban
 
 Az Azure Stack hub infrastruktúra-figyelési funkciókat tartalmaz, amelyek segítségével megtekintheti az Azure Stack hub-régió állapotát és riasztásait. A **régió-felügyeleti** csempe felsorolja Azure stack hub összes telepített régióját. Alapértelmezés szerint az alapértelmezett szolgáltatói előfizetéshez a felügyeleti portálon van rögzítve. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe az Azure Stack hub állapot-és riasztási funkciójának belépési pontja.
 
@@ -45,7 +45,7 @@ Ha meg szeretné tekinteni az állapotot a portálon, kattintson arra a régiór
 Az erőforrás-szolgáltatóra vagy az infrastruktúra-szerepkörre kattintva részletesebb információkat jeleníthet meg.
 
 > [!WARNING]  
-> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás**vagy a **Leállítás**lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat **ne használja Azure stack Development Kit** -(ASDK-) környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. Egy szerepkör-példány (különösen a AzS-Xrp01) újraindítása a ASDK a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye közzé a problémát az [Azure stack hub fórumán](https://aka.ms/azurestackforum).
+> Ha az infrastruktúra-szerepkörre kattint, majd a szerepkör-példányra kattint, az **Indítás**, az **Újraindítás** vagy a **Leállítás** lehetőségek közül választhat. Ne használja ezeket a műveleteket, amikor egy integrált rendszerre alkalmazza a frissítéseket. Ezeket a beállításokat **ne használja Azure stack Development Kit** -(ASDK-) környezetben. Ezek a beállítások csak egy integrált rendszer-környezethez készültek, ahol infrastruktúra-szerepkör esetén több szerepkör-példány is található. Egy szerepkör-példány (különösen a AzS-Xrp01) újraindítása a ASDK a rendszer instabilitását okozza. A hibaelhárítással kapcsolatos segítségért tegye közzé a problémát az [Azure stack hub fórumán](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Riasztások megtekintése
@@ -85,6 +85,6 @@ Miután az infrastruktúra-szerepkör-példány ismét online állapotba került
 
 ## <a name="next-steps"></a>További lépések
 
-[Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
+[Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 
 [Területi felügyelet Azure Stack központban](azure-stack-region-management.md)

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub MySQL erőforrás-szolgáltató 1.1.47.0 kibocsátási megjegyzései
 description: Tekintse meg a kibocsátási megjegyzéseket, és tekintse meg az Azure Stack hub MySQL erőforrás-szolgáltató 1.1.47.0 frissítésének újdonságait.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 5bc03134a859182909e62c60159049d639eb8ffe
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d98a4d4c7de76d5a73cab3005893dd279a6e1025
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364677"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869848"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>MySQL erőforrás-szolgáltató 1.1.47.0 kibocsátási megjegyzései
 
@@ -41,7 +41,7 @@ Javasoljuk, hogy alkalmazza a MySQL erőforrás-szolgáltató gyorsjavítási 1.
 
 Azure Stack hub integrált rendszerek [tanúsítványának elforgatásakor](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation) a KeyVaultPfxPassword argumentum akkor is mendatory, ha nincs szándéka a Key Vault tanúsítvány jelszavának frissítésére.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ a MySQL erőforrás-szolgáltatóról](azure-stack-mysql-resource-provider.md).
 - [Felkészülés a MySQL erőforrás-szolgáltató üzembe helyezésére](azure-stack-mysql-resource-provider-deploy.md#prerequisites).

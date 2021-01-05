@@ -1,18 +1,18 @@
 ---
 title: Frissítések figyelése a PowerShell-lel Azure Stack hub-ban
 description: Megtudhatja, hogyan figyelheti a frissítéseket a PowerShell-lel Azure Stack hub-ban.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bee3cbf3ab3faedbe54212c67dada1faa746071a
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 4e80c4677bf2c21689586de574f56ecb413b7f18
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545261"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868947"
 ---
 # <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Frissítések figyelése a PowerShell-lel Azure Stack hub-ban
 
@@ -48,6 +48,6 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 További információ a frissítések hibaelhárításáról: [Azure stack hibaelhárítás](azure-stack-troubleshooting.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Frissítések kezelése Azure Stack központban](./azure-stack-updates.md)

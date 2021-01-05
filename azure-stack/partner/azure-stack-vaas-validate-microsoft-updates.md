@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan érvényesítheti a Microsoft szoftverfrissítéseket a Azure Stack hub érvényesítésével szolgáltatásként.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e0c9d3153da8030f828dc540f69a1d57b5e9d90a
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: b7be3818df330105e17898d5734c9091c5e89c2a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764851"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868121"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Szoftverfrissítések érvényesítése a Microsofttól
 
@@ -43,6 +43,6 @@ A következő teszteket kell végrehajtani a havi szoftveres ellenőrzéshez a k
 
 Ha kérdése vagy problémája van, lépjen kapcsolatba az "az [Varga súgóval](mailto:vaashelp@microsoft.com)".
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

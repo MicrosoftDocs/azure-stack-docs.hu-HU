@@ -1,18 +1,18 @@
 ---
 title: A hardver életciklus-gazdagép állapotának ellenőrzése
 description: Útmutató a hardveres életciklus-gazdagép állapotának ellenőrzéséhez
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d9db8f38ebfaef17f65b3be652cb6aa8deeb4fc9
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d777c9623931585bcdfffd56cceeabfbc253b97f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391009"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867570"
 ---
 # <a name="verifying-hardware-lifecycle-host-health"></a>A hardver életciklus-gazdagép állapotának ellenőrzése
 

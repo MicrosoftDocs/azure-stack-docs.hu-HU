@@ -1,19 +1,19 @@
 ---
 title: Azure Stack hub Azure Stack hálózati telepítése robusztus
 description: Ismerkedjen meg a Azure Stack hub robusztus eszközének Azure Stack hálózati telepítésével.
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d41e7668533d4d67da329d0058f20a50a796555e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: df20e3f9ad04959bf2c85d8912644819cae09ba1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96940114"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867689"
 ---
 # <a name="azure-stack-hub-ruggedized-network-deployment"></a>Azure Stack hub robusztus hálózati telepítése
 
@@ -53,7 +53,7 @@ Az alábbi táblázat összekapcsolja az ACL-referenciákat a Azure Stack háló
 | **Engedélyezése**                                 | Engedélyezve van a forgalom engedélyezése, de az SSH-hozzáférés alapértelmezés szerint le van tiltva. Az ügyfél dönthet úgy is, hogy engedélyezi az SSH-szolgáltatást.         |
 | **Nincs útvonal**                                   | Az útvonalak nincsenek propagálva a Azure Stack környezeten kívül.                                                          |
 | **MUX ACL**                                    | Azure Stack MUX ACL-eket használunk.                                                                                        |
-| **N/A**                                        | Nem része a VLAN ACL-nek.                                                                                                  |
+| **N.A.**                                        | Nem része a VLAN ACL-nek.                                                                                                  |
 
 ### <a name="ip-address-assignments"></a>IP-címek hozzárendelései
 
@@ -326,6 +326,6 @@ További részletek: a [fizikai kapcsoló hozzáférés-vezérlési listája](#p
 A Azure Stack megoldás nem lesz elküldve TACACS vagy RADIUS-megoldással az olyan eszközök hozzáférés-vezérléséhez, mint a kapcsolók és az útválasztók, illetve a rendszernapló-naplók rögzítésére szolgáló syslog megoldás, de ezek az eszközök támogatják ezeket a szolgáltatásokat.
 Ha egy meglévő TACACS, RADIUS-és/vagy syslog-kiszolgálóval szeretne integrálni a környezetében, egy extra fájlt adunk meg a hálózati kapcsoló konfigurációjában, amely lehetővé teszi a mérnök számára, hogy testreszabja a váltást az ügyfél igényeinek megfelelően.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Hálózatintegráció](network-integration.md)

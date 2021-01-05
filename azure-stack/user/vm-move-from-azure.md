@@ -3,16 +3,16 @@ title: Virtuális gép áthelyezése az Azure-ból Azure Stack hubhoz
 description: Megtudhatja, hogyan helyezhet át egy virtuális gépet az Azure-ból Azure Stack hub-ra Azure Stack hub-ra.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0ca338c3a5698d55a54485c8eebe321992ad9842
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95516936"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867319"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Virtuális gép áthelyezése az Azure-ból Azure Stack hubhoz
 
@@ -117,6 +117,6 @@ Az egyéni lemezképek két formában jelennek meg: **specializált** és **ált
 
 [!INCLUDE [Create the image in Azure Stack Hub](../includes/user-compute-create-image.md)]
 ---
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Virtuális gép áthelyezése Azure Stack hub-ra – áttekintés](vm-move-overview.md)

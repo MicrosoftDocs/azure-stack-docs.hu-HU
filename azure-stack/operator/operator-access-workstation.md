@@ -4,15 +4,15 @@ description: Megtudhatja, hogyan tölthet le és konfigurálhat egy Azure Stack 
 author: ashika789
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
-ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
+ms.openlocfilehash: bd94503efe97eb30955b0fd9deb7a5c41e263e7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95006820"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868590"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása 
 
@@ -203,7 +203,7 @@ New-OAW
 
 A következő táblázat felsorolja az egyes paraméterek definícióját.
 
-| Paraméter   | Kötelező vagy nem kötelező  | Description       |
+| Paraméter   | Kötelező vagy nem kötelező  | Leírás       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Kötelező | A virtuális gép helyi rendszergazdai fiókjának AdminUser tartozó jelszó. |
 | IPAddress                  | Kötelező | A virtuális gépen a TCP/IP konfigurálására szolgáló statikus IPv4-cím.                                                |
@@ -265,6 +265,6 @@ A következő szkript eltávolítja a OAW virtuális gépet, amely az Azure Stac
    Remove-OAW.ps1 -VirtualMachineName AzSOAW
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack felügyeleti feladatok](azure-stack-manage-basics.md)

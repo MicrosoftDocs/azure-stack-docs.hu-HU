@@ -3,16 +3,16 @@ title: Sablon központi telepítése Azure Stack hub parancssorával
 description: Megtudhatja, hogyan helyezhet üzembe sablonokat Azure Stack hubhoz az Azure platformfüggetlen parancssori felületének (CLI) használatával.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 362047bbfa88538140630311f5bdee07508db8a4
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 81fea12ad205f0e20473c8b46144165c3e62f698
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112118"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867247"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>Sablon központi telepítése Azure Stack hub parancssorával
 
@@ -20,7 +20,7 @@ Az Azure parancssori felületének (CLI) használatával Azure Resource Manager 
 
 ## <a name="deploy-template"></a>Sablon üzembe helyezése
 
-1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Create-Storage-Account** sablont. Mentse a sablont ( `azuredeploy.json` ) és a paramétereket a `(azuredeploy.parameters.json` helyi meghajtón található helyre, például`C:\templates\`
+1. Keresse meg a [AzureStack-Gyorsindítás-sablonok](https://aka.ms/AzureStackGitHub) tárházat, és keresse meg a **101-Create-Storage-Account** sablont. Mentse a sablont ( `azuredeploy.json` ) és a paramétereket a `(azuredeploy.parameters.json` helyi meghajtón található helyre, például `C:\templates\`
 2. Navigáljon ahhoz a mappához, amelybe letöltötte a fájlokat. 
 3. [Telepítse és kapcsolódjon](azure-stack-version-profiles-azurecli2.md) Azure stack hubhoz az Azure CLI-vel.
 4. Frissítse a régiót és a helyet a következő parancsban. `local`Ha a ASDK használja, használja a Location paramétert. A sablon üzembe helyezése:
@@ -40,6 +40,6 @@ az group list
 az storage account list
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Megtudhatja, hogyan [helyezhet üzembe sablonokat a PowerShell használatával](azure-stack-deploy-template-powershell.md).

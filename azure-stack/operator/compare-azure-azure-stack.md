@@ -2,20 +2,20 @@
 title: A globális Azure, Azure Stack hub, Azure Stack HCI közötti különbségek
 titleSuffix: Azure Stack Hub
 description: Megismerheti a globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségeket.
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 4fc890225801fe35ec4ab72e84777aa56d597035
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674496"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868709"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, a Azure Stack hub és a Azure Stack HCI közötti különbségek
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>A globális Azure, az Azure Stack hub és az Azure Stack HCI közötti különbségek
 
 A Microsoft egy Azure-ökoszisztémában biztosítja az Azure-t és a Azure Stack hub szolgáltatásokat. Ugyanazzal az alkalmazási modellel, önkiszolgáló portálokkal és API-kkal használhatja a felhőalapú funkciókat, hogy az Ön vállalata globális Azure-vagy helyszíni erőforrásokat használ-e Azure Resource Manager.
 
@@ -40,7 +40,7 @@ Azure Stack hub az Azure kiterjesztése, amely a felhő-számítástechnika ruga
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Piactér
-- Containers
+- Tárolók
 - Felügyeleti eszközök (csomagok, ajánlatok, RBAC stb.)
 
 Az Azure Stack hub Péter képességei nem kötelezőek, mert Azure Stack hub nem a Microsoft által üzemeltetett, hanem ügyfeleink által működtetett. Ez azt jelenti, hogy bármely olyan Pásti-szolgáltatást kínálhat, amelyet a végfelhasználók számára kíván elkészíteni, ha készen áll arra, hogy elvonta az alapul szolgáló infrastruktúrát és folyamatokat. Az Azure Stack hub azonban több opcionális, például App Service, SQL-adatbázist és MySQL-adatbázist is tartalmaz. Ezek erőforrás-szolgáltatóként érkeznek, így több-bérlős használatra készek, a standard szintű Azure Stack hub-frissítésekkel együtt, amelyek láthatók a Azure Stack hub portálon, és jól integrálva van az Azure Stack hub-val.
@@ -84,7 +84,7 @@ Azure Stack HCI az optimális teljesítmény és megbízhatóság érdekében a 
 
 Látogasson el a [Azure stack HCI webhelyére](https://azure.microsoft.com/overview/azure-stack/hci/) , ahol megtekintheti a Microsoft partnerei által jelenleg elérhető 70 és Azure stack HCI-megoldásokat.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Azure Stack hub adminisztrációs alapjai](azure-stack-manage-basics.md)
 

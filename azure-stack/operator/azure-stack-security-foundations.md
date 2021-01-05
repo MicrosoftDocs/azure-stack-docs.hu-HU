@@ -2,18 +2,18 @@
 title: Azure Stack hub biztonsági vezérlők
 titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub-ra alkalmazott biztonsági helyzeteket és vezérlőket.
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: e3bda80857a4c7026bac58f9e1d866b1d21168d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592882"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869202"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 

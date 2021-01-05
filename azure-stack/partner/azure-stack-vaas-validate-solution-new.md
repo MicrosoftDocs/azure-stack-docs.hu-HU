@@ -3,17 +3,17 @@ title: Megoldás ellenőrzése Azure Stack központban
 description: Ismerje meg, hogyan érvényesítheti az új Azure Stack hub-megoldást a megoldás-ellenőrzési munkafolyamattal.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0218e1adc239e0f609e79a75e2fd62e364739fe9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764885"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868256"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>Megoldás ellenőrzése Azure Stack központban
 
@@ -75,6 +75,6 @@ Ha egy teszt sikeresen befejeződött, az **ütemezett** művelet le lesz tiltva
 
 ![Megoldás-ellenőrzési teszt ütemezett ellenőrzése](media/workflow_validation-solution_schedule-test.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Tesztek monitorozása és kezelése az alapkonfiguráció-portálon](azure-stack-vaas-monitor-test.md)

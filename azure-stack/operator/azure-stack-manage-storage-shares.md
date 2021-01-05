@@ -1,18 +1,18 @@
 ---
 title: Tárolási kapacitás kezelése Azure Stack központban
 description: Megtudhatja, hogyan figyelheti és kezelheti a tárolási kapacitást és a rendelkezésre állást Azure Stack hub-ban.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545499"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870035"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -92,8 +92,8 @@ Felhőbeli kezelőként a megosztás tárolási kapacitását a PowerShell-paran
 
 ![Példa: a megosztások szabad területének visszaküldése](media/azure-stack-manage-storage-shares/free-space.png)
 
-- **Teljes kapacitás** : a megosztáson elérhető teljes tárterület (bájt). Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
-- **Felhasznált kapacitás** : az adatmennyiség (bájtban), amelyet a bérlői adatokat tároló és a hozzájuk társított metaadatokat tartalmazó fájlok összes egysége használ.
+- **Teljes kapacitás**: a megosztáson elérhető teljes tárterület (bájt). Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
+- **Felhasznált kapacitás**: az adatmennyiség (bájtban), amelyet a bérlői adatokat tároló és a hozzájuk társított metaadatokat tartalmazó fájlok összes egysége használ.
 
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 
@@ -104,8 +104,8 @@ Felhőbeli operátorként a felügyeleti portálon megtekintheti az összes mego
 
     ![Példa: Storage file shares in Azure Stack hub felügyeleti portál](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-   - **Összesen** : a megosztáson elérhető teljes tárterület (bájtban). Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
-   - **Használatban** : az adatmennyiség bájtban kifejezve, amelyet a bérlői adatokat és a hozzájuk társított metaadatokat tároló fájlokból származó összes egység használ.
+   - **Összesen**: a megosztáson elérhető teljes tárterület (bájtban). Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
+   - **Használatban**: az adatmennyiség bájtban kifejezve, amelyet a bérlői adatokat és a hozzájuk társított metaadatokat tároló fájlokból származó összes egység használ.
 
 ::: moniker-end
 ::: moniker range=">=azs-2002"
@@ -120,8 +120,8 @@ Felhőbeli kezelőként a PowerShell-parancsmag használatával figyelheti a kö
 
 ![Példa: szabad terület visszaadása a kötetek számára](media/azure-stack-manage-storage-shares/listvolumespowershell.png)
 
-- **Teljes kapacitás** : a megosztáson elérhető, GB-ban lévő teljes terület. Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
-- **Fennmaradó kapacitás** : a bérlői adatok és a hozzájuk tartozó metaadatok tárolására szolgáló szabad lemezterület (GB).
+- **Teljes kapacitás**: a megosztáson elérhető, GB-ban lévő teljes terület. Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
+- **Fennmaradó kapacitás**: a bérlői adatok és a hozzájuk tartozó metaadatok tárolására szolgáló szabad lemezterület (GB).
 
 ### <a name="use-the-administrator-portal"></a>A felügyeleti portál használata
 
@@ -132,7 +132,7 @@ Felhőbeli operátorként használhatja a felügyeleti portált az összes köte
 
     ![Példa: tárolási kötetek a Azure Stack hub felügyeleti portálján](media/azure-stack-manage-storage-shares/listvolumes.png)
 
-   - **Összesen** : a köteten elérhető teljes terület. Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
+   - **Összesen**: a köteten elérhető teljes terület. Ez a terület a tárolási szolgáltatások által karbantartott adatok és metaadatok esetében használatos.
    - **Használatban** lévő: az a mennyiség, amelyet a bérlői adatokat tároló és a hozzá tartozó metaadatokat tároló összes egysége használ.
 
 ::: moniker-end
@@ -144,15 +144,15 @@ A felügyeleti portál használata esetén riasztást kap a kevés lemezterület
 > [!IMPORTANT]
 > Felhőbeli operátorként meg kell akadályozni, hogy a megosztások teljes körű használatot érjenek el. A megosztás 100%-os kihasználtsága esetén a Storage szolgáltatás már nem működik az adott megosztásban. A szabad terület és a visszaállítási műveletek a 100%-os kihasználtságú megosztáson való helyreállításához kapcsolatba kell lépnie a Microsoft ügyfélszolgálatával.
 
-* **Figyelmeztetés** : Ha egy fájlmegosztás több mint 80%-ot használ, a felügyeleti portálon *figyelmeztető* riasztás jelenik meg:
+* **Figyelmeztetés**: Ha egy fájlmegosztás több mint 80%-ot használ, a felügyeleti portálon *figyelmeztető* riasztás jelenik meg:
 
   ![Példa: figyelmeztető riasztás a Azure Stack hub felügyeleti portálján](media/azure-stack-manage-storage-shares/alert-warning.png)
 
-* **Kritikus** : Ha egy fájlmegosztás több mint 90%-ot használ, *kritikus* riasztást kap a felügyeleti portálon:
+* **Kritikus**: Ha egy fájlmegosztás több mint 90%-ot használ, *kritikus* riasztást kap a felügyeleti portálon:
 
   ![Példa: kritikus riasztás az Azure Stack hub felügyeleti portálján](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-* **Részletek megtekintése** : a felügyeleti portálon megnyithatja a riasztások részleteit a kockázatcsökkentő beállítások megtekintéséhez:
+* **Részletek megtekintése**: a felügyeleti portálon megnyithatja a riasztások részleteit a kockázatcsökkentő beállítások megtekintéséhez:
 
   ![Példa: riasztás részleteinek megtekintése az Azure Stack hub felügyeleti portálján](media/azure-stack-manage-storage-shares/alert-details.png)
 
@@ -343,6 +343,6 @@ A terület kezelésének legszélsőségesebb módszere a nem felügyelt lemezek
 
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](./tutorial-offer-services.md?view=azs-2002)című témakört.
