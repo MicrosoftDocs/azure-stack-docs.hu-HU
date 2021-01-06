@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e5ba7b7ea35484293cc0f93958e7ed9d66f62d51
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867876"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909922"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Méretezési egység csomópontjának bekapcsolása és javítása
 
@@ -25,15 +25,15 @@ Ha vissza szeretné állítani a méretezési egység csomópontját az éles k�
 
 1.  Az **adminisztrációs portálon** válassza ki a csomópontot, és válassza a **javítás** lehetőséget.
 
-    ![](media/image-52.png)
+    ![Képernyőkép, amely megjeleníti a "felügyeleti csomópontok" lapot a csomóponttal és a kiválasztva a "javítás" műveletet.](media/image-52.png)
 
 1.  Adja meg a kijavítani kívánt csomópontnak megfelelő **bmc IP-címet** , és válassza a **javítás** lehetőséget.
 
-    ![](media/image-53.png)
+    ![Képernyőkép, amely megjeleníti a "felügyeleti csomópontok" lapot, amelyen egy csomópont van kiválasztva, az I P-címe kiemelve és a "csomópont javítása" párbeszédablak jelenik meg.](media/image-53.png)
 
 1.  Figyelje meg a folyamat állapotát az értesítési panelen:
 
-    ![](media/image-54.png)
+    ![Képernyőkép, amely megjeleníti az "értesítések" panelt és a "csomópont futtatásának javítása" feliratot.](media/image-54.png)
     
     
     > [!NOTE]

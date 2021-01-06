@@ -1,6 +1,6 @@
 ---
-title: Azure Stack hub kezelése az Azure CLI-vel | Microsoft Docs
-description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon a platformfüggetlen parancssori felületen (CLI).
+title: Azure Stack hub kezelése az Azure CLI-vel – MDC | Microsoft Docs
+description: Ismerje meg, hogyan kezelheti és helyezheti üzembe az erőforrásokat az Azure Stack hub platformon egy moduláris adatközpont (MDC) számára a platformfüggetlen parancssori felület (CLI) használatával.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: b9d40c83c31903a582d8130dcb249fa2fca0a49e
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 2296d1228819d32f77ccc0dd35e4f2228908e969
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525574"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910261"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése az Azure Stack Hubon az Azure CLI-vel
+# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli---modular-data-center-mdc"></a>Erőforrások kezelése és üzembe helyezése Azure Stack hubhoz az Azure CLI-moduláris adatközpont (MDC) használatával
 
 *A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
@@ -214,7 +214,7 @@ Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
  - Azure Stack hub-ban elérhető virtuálisgép-rendszerképek listájának lekéréséhez használja a parancsot a parancs `az vm image list --all` helyett `az vm image list` . A beállítás megadásával `--all` biztosíthatja, hogy a válasz csak az Azure stack hub-környezetben elérhető lemezképeket adja vissza.
  - Előfordulhat, hogy az Azure-ban elérhető virtuálisgép-rendszerkép-aliasok nem alkalmazhatók Azure Stack hubhoz. Virtuálisgép-lemezképek használata esetén a rendszerkép aliasa helyett a teljes URN paramétert (Canonical: UbuntuServer: 14.04.3-LTS: 1.0.0) kell használnia. Ennek az URN-nek meg kell egyeznie a parancsból származtatott rendszerkép-specifikációkkal `az vm images list` .
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](../user/azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)

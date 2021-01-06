@@ -1,5 +1,5 @@
 ---
-title: Azure Stack hub adminisztrációs alapjai
+title: Azure Stack hub adminisztrációs alapjai – robusztus
 titleSuffix: Azure Stack Hub
 description: Ismerkedjen meg Azure Stack hub felügyeletének alapjaival.
 author: PatAltimore
@@ -8,14 +8,14 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6d278ba17965e78c2be875d048ed5cc12ba31f25
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874336"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909684"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
+# <a name="azure-stack-hub-administration-basics---ruggedized"></a>Azure Stack hub adminisztrációs alapjai – robusztus
 
 Ha most ismerkedik a Azure Stack hub felügyeletével, több dolgot kell tudnia. Ez a cikk áttekintést nyújt a szerepköréről Azure Stack hub-operátorként, illetve arról, hogy mit kell tudnia a felhasználóknak a hatékony munkához.
 
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Területi felügyelet Azure Stack központban](../../operator/azure-stack-region-management.md)

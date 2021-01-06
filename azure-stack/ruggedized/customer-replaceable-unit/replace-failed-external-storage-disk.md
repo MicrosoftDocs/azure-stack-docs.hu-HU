@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 476801acccecb463e97d42f38067b2463cfbd86c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874642"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910652"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>A meghibásodott külső tároló lemezének cseréje
 
@@ -69,13 +69,13 @@ A meghibásodott külső lemez cseréjéhez kövesse az alábbi eljárást.
 
     1.  A felső menüben válassza a **tárterület** elemet:
 
-        ![](media/image-30.png)
+        ![Képernyőkép, amely megjeleníti a iDRAC lapot a kiválasztott "Storage" művelettel.](media/image-30.png)
     
     1.  Keresse meg a lecserélt lemezt, és bontsa ki az elemet. Hasonlítsa össze a lemez **változatát** a támogatási mátrixban található változattal. Ha a lemez nem a támogatási mátrixban található, akkor a probléma megoldásához támogassa a támogatását.
 
-        ![](media/image-31.png)
+        ![Képernyőkép, amely a iDRAC "Speciális tulajdonságok" oldalát jeleníti meg a "gyártó", a "termék azonosítója" és a "változat" kiemelésével.](media/image-31.png)
         
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

@@ -1,5 +1,5 @@
 ---
-title: Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
+title: Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban – robusztus
 description: Ismerje meg a skálázási egység csomópontjainak műveleteit, beleértve a bekapcsolás, a kikapcsolás, a letiltás, a folytatás és a csomópontok állapotának megtekintését Azure Stack hub integrált rendszerekben.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 126f96069b2440b6a38887306a92409b75f5b682
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939872"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910601"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
+# <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban – robusztus
 
 Ez a cikk azt ismerteti, hogyan lehet megtekinteni egy méretezési egység állapotát. Megtekintheti az egység csomópontjait. Futtathat olyan csomópont-műveleteket, mint a bekapcsolás, a kikapcsolás, a Leállítás, a kiürítés, a folytatás és a javítás. Ezeket a csomópontokat jellemzően a részek cseréjekor, vagy a csomópontok helyreállításához használhatja.
 

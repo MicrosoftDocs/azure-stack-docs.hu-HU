@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 5c534fb3e308d4566e07d2851204e1f621fbf5c1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3b6a257d5f5f42c951313c2220559306577de15d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874540"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910244"
 ---
 # <a name="installing-firmware-using-the-idrac-interface"></a>A belső vezérlőprogram telepítése a iDRAC felület használatával
 
@@ -26,7 +26,7 @@ Az alábbi eljárással frissítheti az egyetlen eszköz belső vezérlőprogram
 
 1.  Nyissa meg a **karbantartási** \* * rendszerfrissítés * * programot. Megjelenik a **belső vezérlőprogram frissítése** oldal.
 
-    ![](media/image-85.png)
+    ![Képernyőkép a "karbantartás" oldaláról egy "integrált Dell távelérési vezérlő 9 | Enterprise ".](media/image-85.png)
 
 2.  A **frissítés** lapon válassza a **helyi** lehetőséget a fájl helyeként.
 

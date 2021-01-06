@@ -15,14 +15,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939819"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910618"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz 
+# <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Marketplace-elemek letöltése Azure Stack hubhoz (robusztus)
 
 Felhőbeli operátorként letöltheti az elemeket Azure Stack hubhoz a piactéren, és elérhetővé teheti azokat minden felhasználó számára az Azure Stack hub-környezettel. A kiválasztható elemek az Azure Marketplace azon elemeinek válogatott listája, amelyek előzetesen tesztelve vannak, és amelyek a Azure Stack használatával használhatók. A lista további elemeket is felvesz a listára, ezért folytassa az új tartalmak újbóli beadásával.
 
@@ -60,7 +60,7 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 4. Az egyes sorok a jelenleg elérhető verziót is megjelenítik. Ha egy piactér-elem több verziója is elérhető, a Version ( **verzió** ) oszlopban **több** látható. Az egyes elemekre kattintva megtekintheti a leírását és a további információkat, beleértve a letöltési méretet is:
 
-   ![Hozzáadás az Azure-ból](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
+   ![Képernyőfelvétel: a "Hozzáadás az Azure-ból" oldal, a "több" verziószámmal kiemelve.](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. Ha egy elem verziója **több** néven jelenik meg, kiválaszthatja az elemet, majd kiválaszthat egy adott verziót az eredményül kapott verzió legördülő listából:
 
@@ -111,7 +111,7 @@ A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-b
 
 3. Megjelenik egy ablak, ahol kiválaszthatja a letölteni kívánt terméket. A CTRL billentyűt lenyomva tartva több elemet is kijelölhet.
 
-4. Kattintson az **OK** gombra. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
+4. Válassza az **OK** lehetőséget. Ez letölti a piactér elemét és annak függőségeit, ha vannak ilyenek.
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek feltöltése Azure Stack hubhoz
 

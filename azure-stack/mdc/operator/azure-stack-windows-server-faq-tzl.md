@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Windows Serverrel kapcsolatos gyakori kérdések | Microsoft Docs
-description: A Windows Serverhez készült Azure Stack Marketplace – gyakori kérdések listája
+title: Azure Stack Windows Server kapcsolódó gyakori kérdések – MDC | Microsoft Docs
+description: Egy moduláris adatközpont (MDC) által működtetett, a Windows Serverhez készült Azure Stack Marketplace – gyakori kérdések listájának olvasása.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3570eeb9edadd359081c429f821a09e3d9954439
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 64ccefb0a6644d2cd613a39d8beaaf1f82ee9fc0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329116"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910788"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server Azure Stack piactéren – gyakori kérdések
+# <a name="windows-server-in-azure-stack-marketplace-faq---modular-data-center-mdc"></a>Windows Server Azure Stack piactéren – gyakori kérdések – moduláris adatközpont (MDC)
 
 Ez a cikk az [Azure stack hub piactéren](../../operator/azure-stack-marketplace.md)elérhető Windows Server-rendszerképekkel kapcsolatos gyakori kérdésekre ad választ.
 
@@ -36,7 +36,7 @@ A Microsoft a Windows Server rendszerképeinek két verzióját kínálja a Azur
 
 - **Fizetés a használat** során: ezeket a rendszerképeket nem szabad használni a Azure stack hub ROBUSZTUS vagy MDC.
 
-- **Saját licenc használata (BYOL)** : ezek a rendszerképek használhatók Azure stack hub ROBUSZTUS és MDC.
+- **Saját licenc használata (BYOL)**: ezek a rendszerképek használhatók Azure stack hub ROBUSZTUS és MDC.
 
 **Mi a helyzet a Windows Servert használó más virtuális gépekkel, például a SQL Server?**
 
@@ -98,7 +98,7 @@ Az [automatikus virtuálisgép-aktiválás](/previous-versions/windows/it-pro/wi
 
 ## <a name="next-steps"></a>Következő lépések
 
-További információkat az következő cikkekben talál:
+További információért tekintse át a következő cikkeket:
 
 - [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)
 - [Azure Marketplace-elemek letöltése az Azure-ból az Azure Stackbe](azure-stack-download-azure-marketplace-item-tca.md)

@@ -1,6 +1,6 @@
 ---
-title: Állapot és riasztások figyelése Azure Stackban | Microsoft Docs
-description: Megtudhatja, hogyan figyelheti Azure Stack állapotát és riasztásait.
+title: Állapot és riasztások figyelése a Azure Stack-MDC | Microsoft Docs
+description: Megtudhatja, hogyan figyelheti Azure Stack az állapotot és a riasztásokat egy moduláris adatközpont (MDC) számára.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: bdc027e8c61053fddddd5ad365eff8069acb840d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885784"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910822"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Állapot- és riasztásmonitorozás az Azure Stackben
+# <a name="monitor-health-and-alerts-in-azure-stack---modular-data-center-mdc"></a>Állapot és riasztások figyelése Azure Stack-moduláris adatközpontban (MDC)
 
 A Azure Stack infrastruktúra-figyelési funkciókat is tartalmaz, amelyek segítségével megtekintheti egy Azure Stack régió állapotát és riasztásait. A **régió-felügyeleti** csempe a Azure stack összes telepített régióját listázza. Alapértelmezés szerint az alapértelmezett szolgáltatói előfizetéshez a felügyeleti portálon van rögzítve. A csempe az egyes régiókban az aktív kritikus és figyelmeztető riasztások számát jeleníti meg. A csempe a Azure Stack állapotának és riasztási funkciójának belépési pontja.
 

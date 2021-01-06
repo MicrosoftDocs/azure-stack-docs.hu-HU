@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 66bebd5d8b4f88a8abc90face23d3722d45159d6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868420"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910533"
 ---
 # <a name="replacing-the-heater"></a>A melegítő cseréje
 
@@ -61,74 +61,74 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
 1. Az első Pod-fedéltől kezdve a nyolc fedél zárolása balra, hogy kiszabadítsa a fedelet a hüvelyből. Tartsa a fedelet, vagy gondoskodjon arról, hogy az összes nyolc retesz kiadja. 
 
-    ![](media/image-86.png)
+    ![Az első Pod-fedelet ábrázoló diagram, amely kiemelte a fedelet.](media/image-86.png)
 
 1. Távolítsa el a pod Covert. 
 
-    ![](media/image-87.png)
+    ![Az elülső Pod-fedél eltávolítása.](media/image-87.png)
 
 1. Ismételje meg az 1. és a 2. lépést a hátsó Pod-fedél eltávolításához. Most már elérheti az összetevőket a hüvelyeken belül. 
 
 1. Teljes mértékben lazítsa a csavart, majd húzza le a szűrőt a kiszolgálóról, ahogy az a következő ábrán látható. 
 
-    ![](media/image-88.png)
+    ![Diagram, amely a szűrő szerelvényen lévő csavarok helyét jeleníti meg.](media/image-88.png)
 
-    ![](media/image-89.png)
+    ![Húzza el a szűrő szerelvényt.](media/image-89.png)
 
 1. A kilépési lapokat a Tactical 1U melegítő-v2-ből kell lekérnie, amíg a fedél fel nem szabadul, majd a fedél kifelé helyezi a hüvelyben lévő állványból. 
 
-    ![](media/image-90.png)
+    ![A kiadási lapokat megjelenítő diagram.](media/image-90.png)
 
 1. Ha a csatlakozó alsó szakasza törli a kiindulási alapot, húzza ki a kifelé körülbelül 40 fokos értékre. A szög lehetővé teszi, hogy a csatlakozót a kiszolgáló vagy a kapcsolók irányába helyezze át, majd felfelé és lefelé, mielőtt kihúzza a csatlakozót a hüvelyből. 
 
-    ![](media/image-91.png)
+    ![Az eltávolítandó csatlakozót ábrázoló diagram.](media/image-91.png)
 
 1. Az eset elején távolítsa el a zip-nyakkendőt a taktikai 1U heater-v2 alatt. Szükség esetén használja az átlós vágókat. 
 
-    ![](media/image-92.png)
+    ![Diagram, amely megjeleníti a zip-nyakkendő szögletes zárójelét és a Micro-összekötőt a hőmérséklet-bemeneti érzékelő kiemeléséhez.](media/image-92.png)
 
 1. Nyomja le a Micro-Connector elülső lapját a hüvelykujj és az index ujjal, és húzza lefelé, amíg a csatlakozás nem áll le a melegítő alján. A kábel mozgatása a fűtési módszertől. 
 
-    ![](media/image-93.png)
+    ![Azt a diagramot, amely a kiszolgáló bemeneti hőmérséklet-érzékelőjét mutatja a csatlakoztatott kábellel.](media/image-93.png)
 
 1. Az eset elején távolítsa el a négy 10-32 csavart, a zárolási alátéteket és a lapos alátéteket a felügyeleti kiszolgálóról vagy az alsó skálázási egység csomópont-kiszolgálóról. 
 
-    ![](media/image-94.png)
+    ![Az eset elején lévő csavarok helyét bemutató diagram.](media/image-94.png)
 
-    ![](media/image-95.png)
+    ![Két diagram, amely az eset mindkét oldaláról eltávolítja a csavart.](media/image-95.png)
 
 1. Az eset elején távolítsa el az első négy 10-32 csavart, a zárolási alátéteket és a fűtőtest lapos alátéteit.
 
-    ![](media/image-96.png)
+    ![A melegítő elején található négy csavart helyét bemutató diagram.](media/image-96.png)
 
-    ![](media/image-97.png)
+    ![Két diagram, amely a melegítő egyes oldalairól eltávolított csavart mutatja.](media/image-97.png)
 
 1. Szüntesse meg a hátsó csatlakozótól származó Ethernet-kábelek kikapcsolását, majd távolítsa el a felügyeleti kiszolgálóhoz vagy az alsó léptékű csomópont-kiszolgálóhoz csatlakozó kábeleket. 
 
 1. Az eset hátoldalán lazítsa meg a hat tépőzáras pántot, és húzza ki a kábeleket a tépőzárral. 
 
-    ![](media/image-98.png)
+    ![Az eset hátoldalán található hat tépőzáras pánt helyét megjelenítő diagram.](media/image-98.png)
 
 
 1. Az eset hátulján a tépőzáras elem kilazítása után távolítsa el a kábeleket a kábelek tárolási zárójelei köréből. 
 
 1. Az összes kábel kilépésének engedélyezése a csatlakozóról. A függő kábelek nem jelennek meg a következő ábrán. 
 
-    ![](media/image-99.png)
+    ![A Power és az Ethernet kábelek kábeles módját bemutató diagram.](media/image-99.png)
 
 
 1. Az eset hátoldalán gyorsan lehívhatja a csatlakozó ajtaját a csatlakozó ajtajának felső ajakának használatával. A csatlakozó ajtaját le kell kapcsolni a kapcsolatból, így az ajtó szabadon lefagyhat. 
 
 1. Ha a kapcsolat továbbra is csatlakoztatva van, húzza lefelé a csatlakozót. 
 
-    ![](media/image-100.png)
+    ![Azt a diagramot, amely az ügy hátoldalán lévő, lefelé lehúzott csatlakozót mutatja.](media/image-100.png)
 
-    ![](media/image-101.png)
+    ![Az a diagram, amely a bal oldali hátoldalról lehúzott csatlakozót mutatja.](media/image-101.png)
 
 
 1. Az eset hátoldalán bontsa ki a kiszolgáló tápkábeleit a Tactical 1U melegítő-v2-ből, és engedje, hogy szabadon fel lehessen akasztani őket. 
 
-    ![](media/image-102.png)
+    ![Az eset hátoldalán található kiszolgálói energiaellátási kábelek helyét bemutató diagram.](media/image-102.png)
 
 
 1. Húzza ki a tápkábeleket a kiszolgálóról, és engedje, hogy szabadon fel lehessen akasztani őket. 
@@ -147,26 +147,26 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
     
     1. két alátét 
 
-    ![](media/image-103.png)
+    ![A csatlakoztatási terminál ringének helyét bemutató diagram.](media/image-103.png)
 
-    ![](media/image-104.png)
+    ![A csatlakoztatási terminálhoz tartozó gyűrű egyedi hardverét bemutató diagram.](media/image-104.png)
 
 
 1. Helyezze vissza a hexadecimális anyát és a mosókat az újratelepítéshez az üzembe helyezés utáni vagy biztonságos helyre. 
 
 1. A kis-és nagybetűket a megfelelő kitöltő zárójelet betöltő két rögzített csavart teljesen fel kell lazítani.
 
-    ![](media/image-105.png)
+    ![Az eset hátoldalát ábrázoló diagram, a jobb oldalon lévő rögzített csavarokkal.](media/image-105.png)
 
-    ![](media/image-106.png)
+    ![A bekapcsolt rögzített csavarokat bemutató diagram.](media/image-106.png)
 
 1. Húzza ki a megfelelő kitöltő zárójelet az eset középpontja felé az eltávolításhoz. 
 
 1. A kis-és nagybetűket kibontva teljes mértékben kilazítja a bal oldali kötélpálya-zárójelet tároló két rögzített csavart. 
 
-    ![](media/image-107.png)
+    ![Az eset hátoldalát ábrázoló diagram, a bal oldalon lévő rögzített csavarokkal.](media/image-107.png)
 
-    ![](media/image-108.png)
+    ![A rögzített csavarok bekapcsolását és a kötélpálya-zárójel eltávolítását bemutató diagram.](media/image-108.png)
 
 
 1. Húzza ki a bal oldali kötélpálya-zárójelet az eset középpontba való eltávolításához. 
@@ -175,52 +175,52 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
 1. Az eset hátoldalán távolítsa el az egy Cat 6 kék és 2 25 GB/s fekete Ethernet kábelt a felügyeleti vagy az alsó léptékű csomópont-kiszolgálóról. 
 
-    ![](media/image-109.png)
+    ![Diagram, amely megjeleníti a Cat 6 kék és 25 GB/s fekete Ethernet-kábel helyét az eset hátoldalán.](media/image-109.png)
 
 
 1. Helyezze a kábeleket biztonságos helyre az újratelepítéshez. 
 
 1. Az eset hátoldalán teljesen fel kell lazítani a két rögzített csavart, amely a bal oldali belső kötélpálya-zárójelet tartja. 
 
-    ![](media/image-110.png)
+    ![A kis-és nagybetűket kiemelő, a bal oldalon található rögzített csavart ábrázoló diagram.](media/image-110.png)
 
-    ![](media/image-111.png)
+    ![A bekapcsolt rögzített csavart és a kötélpálya-zárójel eltávolítását bemutató diagram.](media/image-111.png)
 
 
 1. Húzza ki a bal oldali belső kötélpálya-zárójelet az eset középpontja felé az eltávolításhoz. 
 
 1. Az eset hátsó részén távolítsa el a hat csuklópántos csavart a melegítő tetejéről, és az ajtót és a csuklópánt PIN-kódját egyetlen egységként hagyja el. 
 
-    ![](media/image-112.png)
+    ![Az eltávolítandó hat csuklópánt-csavart ábrázoló diagram.](media/image-112.png)
 
 1. Helyezze a szögletes zárójelet és a csavarokat egy biztonságos helyre az újratelepítéshez. 
 
 1. A pod hátoldalán távolítsa el a két 10-32 vasúti csavart, a zárolási alátéteket és a kiszolgáló sín védelmét biztosító lapos alátéteket a pod rackbe.
 
-    ![](media/image-113.png)
+    ![A kiszolgáló sín védelmét biztosító csavarok helyét bemutató diagram.](media/image-113.png)
 
-    ![](media/image-114.png)
+    ![Diagram, amely az eset bal és jobb oldalán lévő csavart mutatja, amely a kiszolgáló-sín eltávolítását biztosítja.](media/image-114.png)
 
 
 1. A pod hátoldalán távolítsa el a négy 10-32 csavart, a zárolási alátéteket és az olyan lapos alátéteket, amelyek védik a melegítőt a pod rackbe. 
 
-    ![](media/image-115.png)
+    ![A melegítőt rögzítõ négy csavart helyét bemutató diagram.](media/image-115.png)
 
-    ![](media/image-116.png)
+    ![A melegítőt biztosító négy csavart lezáró diagram.](media/image-116.png)
 
 
 1. Győződjön meg arról, hogy az összes kábel le van húzva, és a hálózatról szabadon lógott. 
 
 1. A hüvely elején óvatosan csúsztassa ki a kiszolgálót. Tartsa a kiszolgáló középpontját még a súlyozási eloszláshoz, mert a rendszer kifelé helyezi át. 
 
-    ![](media/image-117.png)
+    ![Azt a diagramot, amely a pod-ból eltávolított kiszolgálót mutatja.](media/image-117.png)
 
 
 1. Helyezze a kiszolgálót egy elektrosztatikus kisülés – biztonságos helyre. 
 
 1. A hüvely elülső részén húzza a melegítőt a rack aljáról. Tartsa a melegítő középpontját a súlyozási eloszláshoz, mert a rendszer kifelé helyezi át. 
 
-    ![](media/image-118.png)
+    ![A hüvelyből eltávolított melegítőt ábrázoló diagram.](media/image-118.png)
 
 
 ## <a name="installing-the-heater"></a>A melegítő telepítése
@@ -237,41 +237,41 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
 1. A hüvely elején csúsztassa el egy új zip-nyakkendőt, bár a taktikai 1U melegítő-v2 alsó részén lévő hurok, de ne zip a döntetlen a helyükre. 
 
-    ![](media/image-119.png)
+    ![A melegítő alsó részén látható hurkot ábrázoló diagram.](media/image-119.png)
 
 
 1. A hüvely elülső részén illessze be a Tactical 1U melegítő-v2-t úgy, hogy az elölről hátrafelé mutat. Ügyeljen arra, hogy a zip-nyakkendő ne érje el. 
 
 1. A hüvely elején telepítse a Two. 064 hüvelykes alátéteket a rack és a Tactical 1U melegítő-v2 között. 
 
-    ![](media/image-120.png)
+    ![A hüvely elején lévő alátétek helyét bemutató diagram.](media/image-120.png)
 
 
 1. A pod hátoldalán telepítse a Two. 064 hüvelykes alátéteket a rack és a Tactical 1U melegítő-v2 között. 
 
-    ![](media/image-121.png)
+    ![A pod hátoldalán található alátétek helyét bemutató diagram.](media/image-121.png)
 
 
 1. A hüvely elején csatlakoztassa újra a négy 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 27 hüvelyk-font értékre. 
 
-    ![](media/image-122.png)
+    ![Az újracsatolt csavarokat bemutató diagram.](media/image-122.png)
 
 
 1. A hüvely elülső részén telepítse a felügyeleti kiszolgálót vagy az alacsonyabb skálázási egység-kiszolgálót, majd a elölről hátrafelé. Győződjön meg arról, hogy a kiszolgáló nem rendelkezik laza kábelekkel. 
 
 1. A hüvely elején csatlakoztassa újra a négy 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 27 hüvelyk-font értékre. 
 
-    ![](media/image-123.png)
+    ![Az újra csatolt kiszolgálói csavarokat bemutató diagram.](media/image-123.png)
 
 
 1. A pod hátoldalán csatlakoztassa újra a két kiszolgáló hátsó csatlakoztatási 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra és a nyomatékot 27 hüvelykre. 
 
-    ![](media/image-124.png)
+    ![Azt a diagramot, amely a két kiszolgáló hátsó csatlakoztatási csavart mutatja.](media/image-124.png)
 
 
 1. A pod hátoldalán telepítse a Tactical 1U melegítő-v2 négy hátsó szerelvény 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 27 hüvelyk-font értékre. 
 
-    ![](media/image-125.png)
+    ![Diagram, amely a melegítő számára újracsatolt négy csavart mutatja.](media/image-125.png)
 
 
 1. A pod hátoldalán távolítsa el a két alátétet a Tactical 1U melegítő-v2 alá, és helyezze őket a melegítő készletbe későbbi használatra. 
@@ -311,14 +311,14 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
     Tartsa stabilan a csatlakozó ajtaját, és állítsa be a kart a labda mögött. 
     
-    ![](media/image-126.png)
+    ![A kiigazított golyós leképezéseket bemutató diagram.](media/image-126.png)
     
-    ![](media/image-127.png)
+    ![A golyós leképezések lezárása.](media/image-127.png)
     
 
 1. A pod hátoldalán nyomja le az A vagy A B helyet mindkét hüvelykujjon (egyszerre nyomja meg a bal és a jobb oldali, illetve az alsó és felső), amíg a rendszer hallható kattintást nem Hall a csatlakozót magával ragadó kapcsolaton. 
 
-    ![](media/image-128.png)
+    ![Azt a diagramot, amely megjeleníti a csatlakozó helyét és bekapcsolását.](media/image-128.png)
 
 
 1. A pod hátoldalán a hat Ethernet kábelt (két kék Cat 6 és négy fekete 25 GB/s kábelek) a kábelek tárolási sorba állítása és a kábeleken lévő hat tépőzáras szalag meghúzásával. 
@@ -327,12 +327,12 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
 1. A hüvely elején irányítsa a kábelt a hurok alá, csomagolja ki a zip-kötést a kábel körül, és zip-fájlt a helyére. A felesleges zip-nyakkendő levágása. 
 
-    ![](media/image-129.png)
+    ![A zip-nyakkendő és a kiszolgáló bemeneti hőmérséklet-érzékelőjét bemutató diagram.](media/image-129.png)
 
 
 1. A hüvely elülső részén telepítse az első csatlakozót úgy, hogy a csatlakozót körülbelül 40 fokos szögben (minimumon) tartja, miközben az index ujjait az első szögben elhelyezett lapos szakaszba helyezi. Útmutató a csatlakozó összehajtogatott fémből való kidobásához. 
 
-    ![](media/image-130.png)
+    ![Az a telepítési előfizetést bemutató diagram.](media/image-130.png)
 
 
 1. Ha megfelelően van igazítva, a kiadás lapokon helyezheti el a csatlakozót pozícióba. 

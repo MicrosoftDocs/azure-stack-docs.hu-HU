@@ -1,6 +1,6 @@
 ---
-title: Azure Stack adatok helyreállítása a Infrastructure Backup szolgáltatással | Microsoft Docs
-description: Megtudhatja, hogyan készíthet biztonsági mentést és visszaállítást Azure Stack konfigurációs és szolgáltatási adatairól a Infrastructure Backup szolgáltatás használatával.
+title: Azure Stack adatok helyreállítása Infrastructure Backup Service-MDC
+description: Megtudhatja, hogyan készíthet biztonsági mentést és visszaállítást Azure Stack konfigurációs és szolgáltatási adatairól a Infrastructure Backup szolgáltatás használatával. Moduláris adatközpontokhoz (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,14 +14,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: c32065beeeb446d7d8e494634bc68318e280a693
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 5a9e8615168714b3346f735d9182c38b2c604cca
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329534"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910805"
 ---
-# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service"></a>Azure Stack adatok helyreállítása a Infrastructure Backup szolgáltatással
+# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service---modular-data-center-mdc"></a>Azure Stack adatok helyreállítása a Infrastructure Backup szolgáltatással – moduláris adatközpont (MDC)
 
 *A következőkre vonatkozik: moduláris adatközpont és Azure Stack hub robusztus*
 
@@ -42,7 +42,7 @@ A biztonsági mentési szolgáltatás engedélyezése előtt ellenőrizze, hogy 
 
 A szolgáltatás a következő funkciókat tartalmazza:
 
-| Funkció                                            | Leírás                                                                                                                                                |
+| Szolgáltatás                                            | Leírás                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Biztonsági mentési infrastruktúra-szolgáltatások                     | A biztonsági mentés koordinálása a Azure Stack infrastruktúra-szolgáltatások egy részhalmazán keresztül. |
 | A biztonsági másolatok tömörítése és titkosítása | A rendszer tömöríti és titkosítja a biztonsági mentési adatforrásokat, mielőtt a \' belső tárolóban tárolja vagy exportálja azokat az operátor által biztosított külső tárolóhelyre.                |

@@ -1,6 +1,6 @@
 ---
-title: Integrált Dell távelérési vezérlő hitelesítő adatai
-description: Ismerteti, hogyan lehet frissíteni az integrált Dell távelérési vezérlő hitelesítő adatait
+title: Integrált Dell-távelérési vezérlő hitelesítő adatai – MDC
+description: Megtudhatja, hogyan frissítheti az integrált Dell távelérési vezérlő (iDRAC) hitelesítő adatait egy moduláris adatközpontban (MDC).
 author: troettinger
 ms.author: thoroet
 ms.service: azure-stack
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/27/2020
 ms.reviewer: justinha
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 1525872e3c59ab7e5b0cd436ba5ab8e2e3836594
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: d0d2f522038d0788d4942db68b36e5bb21884619
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329093"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910737"
 ---
-# <a name="update-credentials-for-the-integrated-dell-remote-access-controller"></a>A beépített Dell távelérési vezérlő hitelesítő adatainak frissítése
+# <a name="update-credentials-for-the-integrated-dell-remote-access-controller---modular-data-center-mdc"></a>Hitelesítő adatok frissítése az integrált Dell távelérési vezérlőhöz – moduláris adatközpont (MDC)
 
 Ez a szakasz azt ismerteti, hogyan lehet módosítani az integrált Dell-távelérési vezérlő (iDRAC) hitelesítő adatait. 
 
@@ -33,12 +33,12 @@ A iDRAC hitelesítő adatainak frissítése az összes PowerEdge-kiszolgálón (
 1. A webböngészőben jelentkezzen be a https://<iDRAC_IP>. 
 1. Lépjen a **iDRAC beállítások**  >  **felhasználók** menüpontra. 
 1. Válassza ki a módosítani kívánt felhasználót, majd kattintson a **Szerkesztés** gombra. 
-1. A **felhasználó szerkesztése** ablakban adja meg az új jelszót a **jelszóban** , és **erősítse meg a jelszót** , ahogy az a következő ábrán látható: 
+1. A **felhasználó szerkesztése** ablakban adja meg az új jelszót a **jelszóban** , és **erősítse meg a jelszót**, ahogy az a következő ábrán látható: 
 
    ![Felhasználói adatokat megjelenítő képernyőfelvétel](../operator/media/idrac-credentials/enter-user.png)
 
-1. Kattintson a **Mentés** , majd **az OK** gombra. 
+1. Kattintson a **Mentés**, majd **az OK** gombra. 
 
 ## <a name="next-steps"></a>Következő lépések
 
-[Titkok elforgatása Azure Stack központban](../../operator/azure-stack-rotate-secrets.md)
+[Az Azure Stack Hub titkos kulcsainak rotálása](../../operator/azure-stack-rotate-secrets.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack használati és erőforrás-használati API elemzése | Microsoft Docs
-description: Az erőforrás-használati API Azure Stack használatának és hivatkozásának elemzése, amely Azure Stack használati adatokat kér le.
+title: Azure Stack használati és erőforrás-használati API elemzése – MDC
+description: Az erőforrás-használati API Azure Stack használatának és hivatkozásának elemzése, amely Azure Stack használati adatokat kér le. Moduláris adatközpontokhoz (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: efbbfbb76215cdd3322c57ca0c5def8575f5f023
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935066"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910908"
 ---
-# <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Azure Stack használat elemzése helyi használati mérőszámokkal
+# <a name="analyze-azure-stack-usage-with-local-usage-meters---modular-data-center-mdc"></a>Azure Stack használat elemzése helyi használati mérőszámokkal – moduláris adatközpont (MDC)
 
 Információ arról, hogy mely előfizetések használják az erőforrásokat egy helyi használati adatbázisban. A rendszergazdák lekérhetik ezeket az adatforrásokat, hogy elemezzék, mely felhasználók használják az erőforrásokat.
 

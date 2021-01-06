@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 972c9e8f0b66470a6e1b7cbc81d40062ff34a950
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2eb2c85bcdb350173923b3d8b5a3b463ce6a16ff
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874710"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910720"
 ---
 # <a name="powering-off-scale-unit-nodes"></a>A skálázási egység csomópontjainak kikapcsolása
 
@@ -26,15 +26,15 @@ Ha a csomópont \' s **energiaellátási állapota** nem áll le, a csomópont b
 
     1.  A felügyeleti portálon válassza ki a kijavításra szoruló csomópontot, majd válassza a **drain (kiürítés**) lehetőséget.
 
-        ![](media/image-23.png)
+        ![Képernyőkép, amely megjeleníti az adminisztrációs oldalt a "drain" művelet kiválasztásával és egy kiemelt csomóponttal.](media/image-23.png)
         
     1.  Ha a rendszer kéri, adja meg a kiüríteni kívánt csomópont nevét, majd válassza az **Igen** lehetőséget.
 
-        ![](media/image-24.png)
+        ![A "felügyeleti csomópontok" oldalt megjelenítő képernyőkép.](media/image-24.png)
     
     1.  Ekkor megjelenik egy értesítés, amely azt jelzi, hogy a kiürítés folyamatban van.
     
-        ![](media/image-25.png)
+        ![Képernyőkép, amely megjeleníti a "felügyeleti csomópontok" lapot, amelyen megjelenik a kiürítési értesítés.](media/image-25.png)
         
     1.  Jelentkezzen be a iDRAC felületére, és ellenőrizze a csomópont \' s szolgáltatás címkéjét a **Rendszerinformációban**.
     
@@ -43,17 +43,17 @@ Ha a csomópont \' s **energiaellátási állapota** nem áll le, a csomópont b
 
     1.  A kiürítés befejezése után válassza újra a csomópontot, ellenőrizze, hogy a **működési állapot** **karbantartásra** van-e állítva, majd válassza a **Leállítás** lehetőséget.
 
-        ![](media/image-26.png)
+        ![Képernyőkép, amely megjeleníti a "felügyeleti csomópontok" lapot a csomóponttal, a "Leállítás" műveletet pedig kiválasztva.](media/image-26.png)
         
     1.  Ha a rendszer kéri, válassza az **Igen** lehetőséget a Leállítás megerősítéséhez.
     
-        ![](media/image-27.png)
+        ![A "felügyeleti csomópontok" oldalt megjelenítő képernyőkép a "leállítási csomópont" párbeszédablakban.](media/image-27.png)
         
     1.  Ekkor megjelenik egy értesítés, amely azt jelzi, hogy a Leállítás folyamatban van.
 
-        ![](media/image-28.png)
+        ![Képernyőkép, amely megjeleníti a "felügyeleti csomópontok" lapot, amelyen megjelenik a Leállítás folyamatban párbeszédablak.](media/image-28.png)
     
     1.  A Leállítás befejezése után a **tápellátás állapota** **leáll**.
     
-        ![](media/image-29.png)
+        ![Képernyőfelvétel: az "adminisztráció – csomópontok" oldal, amelyen a csomópont ki van választva, és a "leállítva" érték jelenik meg a "Power status" elemnél.](media/image-29.png)
         

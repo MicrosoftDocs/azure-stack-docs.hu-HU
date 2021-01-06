@@ -16,12 +16,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 900be8cd88fdfbbb488bf07c4b37521551581590
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 60caf869fef5537aa6adc35bd2233a81a4fe749d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874319"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909820"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>A tároló-beállításjegyzék titkainak elforgatása Azure Stack központban
 
@@ -253,19 +253,19 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
 2.  Navigáljon ahhoz az erőforráscsoporthoz, amelyhez a tároló beállításjegyzék-sablonjának virtuális gépe telepítve van.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image1.png)
+    ![Képernyőkép, amely azt az erőforráscsoportot mutatja, ahol a tároló beállításjegyzék-sablonjának virtuális gépe telepítve van.](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Válassza ki a **központi telepítések alatt** üzemelő példányokat.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image2.png)
+    ![A központi telepítések lapon kiválasztott telepítést bemutató képernyőkép.](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Ha az első alkalommal forog a titkos kulcsok, válassza ki az eredeti telepítést. Ha nem ez az első alkalom a titkok megforgatására, válassza ki a legutóbbi telepítést, majd válassza az **újratelepítés** lehetőséget.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image3.png)
+    ![Képernyőkép, amely az "áttekintés" lapot mutatja az "újbóli üzembe helyezés" művelet kiemelésével.](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  A **megoldás sablonjának üzembe helyezése** területen válassza a **meglévő erőforráscsoport használata** lehetőséget, majd válassza ki azt az erőforráscsoportot, amelyet eredetileg a Container Registry-sablon üzembe helyezéséhez használt. Ahhoz, hogy az újratelepítése sikeres legyen, ugyanazt az erőforráscsoportot kell használnia.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-rotating-secrets-tzl/image4.png)
+    ![Képernyőkép, amely a "megoldás központi telepítése" és a "parameters" oldalakat mutatja.](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  A **paramétereknél** győződjön meg arról, hogy a paraméterek egyeznek az eredeti telepítéssel. Az egyszerű szolgáltatás ügyfél-AZONOSÍTÓját és az egyszerű szolgáltatás titkos kulcsát hozzá kell adni.
 
@@ -281,6 +281,6 @@ Az alábbi útmutatást követve új titkokat állíthat be Key Vaultban.
 
     - Ha elforgatja a tanúsítványt, a beállításjegyzékhez való hozzáférés elvesztését nem tapasztalhatja. Ez azt feltételezi, hogy megbízható tanúsítvány-szolgáltatótól származó tanúsítványt használ. Privát tanúsítvány használata esetén a tanúsítványt telepíteni kell az ügyfeleken a hozzáférés elvesztésének megakadályozása érdekében.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

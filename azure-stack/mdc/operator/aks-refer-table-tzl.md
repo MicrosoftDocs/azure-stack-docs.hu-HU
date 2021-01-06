@@ -1,6 +1,6 @@
 ---
-title: Azure Stack hub Súgó hivatkozások kereszthivatkozások
-description: Keresse meg az Azure Stack hub portálra mutató hivatkozásait.
+title: Azure Stack hub Súgó hivatkozások kereszthivatkozások – MDC
+description: Ha moduláris adatközpontból (MDC) működik, keresse fel az Azure Stack hub portálra mutató hivatkozásait.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329074"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910925"
 ---
-# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Riasztások a Azure Stack hub aka.ms hivatkozásához
+# <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Riasztások aka.ms Azure Stack hub-moduláris adatközponthoz (MDC)
 
 Ez a témakör felsorolja azokat a hivatkozásokat, amelyek megjelennek a riasztások között a felügyeleti portálon. 
 

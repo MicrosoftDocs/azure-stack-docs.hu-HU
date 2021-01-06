@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3d2dd563ca5336063613b08f827d8f102918c1da
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 28ac5a9de578d6ff7580ddad86a887f71889f5eb
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867893"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910686"
 ---
 # <a name="powering-off-the-hardware-lifecycle-host"></a>A hardver életciklus-gazdagép kikapcsolása
 
@@ -24,7 +24,7 @@ Az állapotának ellenőrzése után kikapcsolhatja a hardver életciklus-gazdag
 
 2.  Kattintson a **Start gombra** , és válassza a **Leállítás** lehetőséget a HLH leállításához.
 
-    ![](media/image-22.png)
+    ![Képernyőkép, amely a Windows gombot és a "Leállítás" beállítást jeleníti meg.](media/image-22.png)
 
     Várjon néhány percet, amíg a Leállítás be nem fejeződik.
     

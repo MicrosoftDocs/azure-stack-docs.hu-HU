@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: fac088f56dc7de04d8f78bfef1ab63c87b83f336
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: be7db92413bdc1223c8600a9e9fc0ff8c3fb4ba0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939739"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909701"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Azure Stack hub robusztus 2008 OEM kibocsátási megjegyzések
 
@@ -35,7 +35,7 @@ Ez a dokumentum ismerteti Azure Stack hub robusztus, belső vezérlőprogram és
 
 ### <a name="bios"></a>BIOS
 
-| Kiadás verziója | Belső vezérlőprogram verziója | Módosítások                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Kiadás verziója | Belső vezérlőprogram verziója | Módosítások |
 |-----------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 2.8.2            | Javítva lett egy iparági probléma, amely a BIOS-verziókon 2.6.4 a 2.8.1-on keresztül, ahol a rendszer alaphelyzetbe állíthatja a rendszerindítási képernyőn, amikor a "memória konfigurálása" üzenet jelenik meg. A probléma a DDR4 és az NVDIMM-N memória konfigurációjában alkalmazható.<br><br>A biztonsági rések (gyakori biztonsági rések és kitettségek – CVE) megoldásának továbbfejlesztése, például: CVE-2020-0545, CVE-2020-0548 és CVE-2020-0549. |   |   |
 | 2005            | 2.7.7            |                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
@@ -43,7 +43,7 @@ Ez a dokumentum ismerteti Azure Stack hub robusztus, belső vezérlőprogram és
 
 ### <a name="idrac"></a>IDRAC
 
-| Kiadás verziója | Belső vezérlőprogram verziója | Módosítások                                                                                                                                                                                                                                                                          |   |   |
+| Kiadás verziója | Belső vezérlőprogram verziója | Módosítások |
 |-----------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 4.22.0.0         | 167411: kijavított egy problémát, amely a kényszerített rendszer újraindítását okozta a belső vezérlőprogram Redfish API-n keresztüli frissítésekor.<br><br>155376: kijavított egy problémát, amely a iDRAC újraindítását okozta a SupportAssist-naplók gyűjtése során.<br><br>162778: a virtuális konzol szolgáltatás miatt a iDRAC alacsony memóriabeli feltételt rögzített. |   |   |
 | 2005            | 4.10.10.10       |                                                                                                                                                                                                                                                                                  |   |   |

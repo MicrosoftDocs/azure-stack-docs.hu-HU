@@ -1,7 +1,7 @@
 ---
-title: Tároló-beállításjegyzék hozzáadása Azure Stack hubhoz | Microsoft Docs
+title: Tároló-beállításjegyzék hozzáadása – Azure Stack hub | Microsoft Docs
 titleSuffix: Azure Stack
-description: Megtudhatja, hogyan adhat hozzá egy tároló-beállításjegyzéket Azure Stack hub Marketplace-hez.
+description: Megtudhatja, hogyan adhat hozzá egy tároló-beállításjegyzéket Azure Stack hub Marketplace-hez (robusztus).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 875eaf68324993be7029cfedd3d376ea38184a06
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874370"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910567"
 ---
-# <a name="add-a-container-registry-to-azure-stack-hub"></a>Tároló-beállításjegyzék hozzáadása Azure Stack hubhoz
+# <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>Tároló-beállításjegyzék hozzáadása Azure Stack hubhoz (robusztus)
 
 A tároló-beállításjegyzéket hozzáadhatja a Azure Stack hub piactérhez, így a felhasználók üzembe helyezhetik és kezelhetik saját tároló-beállításjegyzéket. Ez a megoldási sablon telepíti és konfigurálja a nyílt forráskódú Docker Container Registryt egy olyan felhasználói előfizetésben, amely az AK Base Ubuntu 16,04-LTS-rendszerképben fut. A sablon támogatja a csatlakoztatott és a leválasztott (gapped) központi telepítéseket is, és támogatja a Azure Active Directory (HRE) és a Active Directory összevont szolgáltatások (AD FS) Azure Stack hubokat.
 
@@ -117,15 +117,15 @@ A tároló-beállításjegyzék sablonjának telepítéséhez több erőforrást
 
 2. Válassza a  >  **számítási**  >  **Container Registry sablon** létrehozása lehetőséget.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image1.png)
+    ![Képernyőkép, amely megjeleníti az "irányítópult > új" oldalt a "számítás" lehetőséggel, és megjelenik a "Container Registry sablon" beállítás.](./media/container-registry-template-install-tzl/image1.png)
 
 3. Válassza ki az előfizetést, az erőforráscsoportot és a helyet a tároló beállításjegyzék-sablonjának telepítéséhez.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image2.png)
+    ![Képernyőkép, amely a "Create Container Registry template-Basics" lapot mutatja.](./media/container-registry-template-install-tzl/image2.png)
 
 4. Fejezze be a virtuális gép konfigurációjának részleteit. A rendszerkép SKU alapértelmezett értéke: **AK-Ubuntu-1604-201909**; a függvény kimenete azonban `Set-ContainerRegistryPrerequisites` tartalmazza a telepítéshez használandó elérhető SKU-ket tartalmazó listát. Ha több SKU is létezik, válassza a legújabb SKU-t az üzembe helyezéshez.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image3.png)
+    ![Képernyőkép, amely a "Container Registry sablon létrehozása – virtuális gép konfigurációja" lapot mutatja.](./media/container-registry-template-install-tzl/image3.png)
 
     | Paraméter | Részletek |
     | --- | --- |
@@ -141,7 +141,7 @@ A tároló-beállításjegyzék sablonjának telepítéséhez több erőforrást
 
 1. Fejezze be a tárolási és Key Vault konfigurációt.
 
-    ![Tároló beállításjegyzék-sablonja](./media/container-registry-template-install-tzl/image4.png)
+    ![Képernyőfelvétel: "Container Registry sablon létrehozása – tárolás és Key Vault konfiguráció" oldal.](./media/container-registry-template-install-tzl/image4.png)
 
     | Paraméter | Részletek |
     | --- | --- |
@@ -224,6 +224,6 @@ d377c212e567: Pushed
 
 A sablon által üzembe helyezett Docker Container Registry-szolgáltatás verziója 2,7. Ez a verzió olyan ismert problémát tartalmaz, amely megakadályozza a Windows-tárolók rendszerképeinek leküldését és húzását. A probléma követése a következő GitHub-elemmel történik [https://github.com/docker/distribution-library-image/issues/89](https://github.com/docker/distribution-library-image/issues/89) .
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612471"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910550"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -76,7 +76,7 @@ Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automati
 | 45000           | wssdagent GPRC-kiszolgáló portja           |
 | 45001             | wssdagent GPRC hitelesítési port  | 
 | 55000           | wssdcloudagent GPRC-kiszolgáló portja           |
-| 55001             | wssdcloudagent GPRC hitelesítési port  | 
+| 65000             | wssdcloudagent GPRC hitelesítési port  | 
 
 
 A tűzfal URL-címére vonatkozó kivételek a Windows felügyeleti központ számítógépén és az Azure Stack HCI-fürt összes csomópontján szükségesek. 
@@ -124,7 +124,7 @@ Az alábbi követelmények vonatkoznak a Windows felügyeleti központ átjáró
  - Regisztrálva az Azure-ban
  - Ugyanabban a tartományban, mint a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürt
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 
 Miután teljesítette a fenti előfeltételeket, beállíthat egy Azure Kubernetes Service hostt Azure Stack HCI-re a következő használatával:
  - [Windows felügyeleti központ](setup.md)

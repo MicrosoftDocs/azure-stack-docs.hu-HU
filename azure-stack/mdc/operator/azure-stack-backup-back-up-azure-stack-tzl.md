@@ -1,6 +1,6 @@
 ---
-title: Azure Stack biztonsági mentése | Microsoft Docs
-description: Megtudhatja, hogyan végezheti el az igény szerinti biztonsági mentést Azure Stack.
+title: Azure Stack biztonsági mentése – MDC | Microsoft Docs
+description: Megtudhatja, hogyan teheti igény szerinti biztonsági mentést Azure Stack egy moduláris adatközponthoz (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 0455c96449d0547d94d8d904fe59f268145da3a8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: f64b656b6a0a0d5310b6d6e2fbb8ff26d5206ad1
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329593"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910891"
 ---
-# <a name="back-up-azure-stack"></a>Az Azure Stack biztonsági mentése
+# <a name="back-up-azure-stack---modular-data-center-mdc"></a>Biztonsági mentés Azure Stack – moduláris adatközpont (MDC)
 
 *A következőkre vonatkozik: moduláris adatközpont, Azure Stack hub robusztus*
 
@@ -130,7 +130,7 @@ A Azure Stack felügyeleti portál segítségével ellenőrizze, hogy a biztons�
 
 3. Keresse meg a biztonsági mentés **nevét** és **dátumát** a **rendelkezésre álló biztonsági másolatok** listájában.
 
-4. Ellenőrizze, hogy az **állapot** **sikeres** -e.
+4. Ellenőrizze, hogy az **állapot** **sikeres**-e.
 
 ## <a name="next-steps"></a>Következő lépések
 

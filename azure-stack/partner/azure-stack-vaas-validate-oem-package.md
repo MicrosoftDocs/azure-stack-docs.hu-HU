@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan érvényesítheti az OEM-csomagokat Azure Stack hub-érvényesítés szolgáltatásként.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 6194211b839cdeb2f12e1f88f1d1fe4617881680
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764868"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910208"
 ---
 # <a name="validate-oem-packages"></a>OEM-csomagok ellenőrzése
 
@@ -29,7 +29,7 @@ Tesztelheti az új OEM-csomagokat, ha módosult a belső vezérlőprogram vagy a
 
 ## <a name="managing-packages-for-validation"></a>Csomagok kezelése érvényesítéshez
 
-Ha a csomag- **ellenőrzési** munkafolyamattal ellenőrzi a csomagokat, meg kell adnia egy **Azure Storage-blob**URL-címét. Ez a blob a frissítési folyamat részeként telepített test aláírt OEM-csomag. Hozza létre a blobot a telepítés során létrehozott Azure Storage-fiók használatával (lásd: [az érvényesítés beállítása szolgáltatásként [Varga] erőforrások](azure-stack-vaas-set-up-resources.md)).
+Ha a csomag- **ellenőrzési** munkafolyamattal ellenőrzi a csomagokat, meg kell adnia egy **Azure Storage-blob** URL-címét. Ez a blob a frissítési folyamat részeként telepített test aláírt OEM-csomag. Hozza létre a blobot a telepítés során létrehozott Azure Storage-fiók használatával (lásd: [az érvényesítés beállítása szolgáltatásként [Varga] erőforrások](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>Előfeltétel: Storage-tároló kiépítése
 
@@ -37,7 +37,7 @@ Hozzon létre egy tárolót a Storage-fiókban a csomagok Blobok számára. Ez a
 
 1. A [Azure Portal](https://portal.azure.com)nyissa meg a következőt: az [Varga erőforrások beállítása](azure-stack-vaas-set-up-resources.md)című részt.
 
-2. A bal oldali panelen a **blob szolgáltatás**területen válassza a **tárolók**lehetőséget.
+2. A bal oldali panelen a **blob szolgáltatás** területen válassza a **tárolók** lehetőséget.
 
 3. Válassza a menüsorban a **+ tároló** elemet.
     1. Adja meg a tároló nevét. Például: `vaaspackages`.
@@ -56,7 +56,7 @@ Hozzon létre egy tárolót a Storage-fiókban a csomagok Blobok számára. Ez a
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Csomag blob URL-címének előállítása az Varga számára
 
-Ha a **csomag-ellenőrzési** munkafolyamatot az Azure-portálon hozza létre, meg kell adnia egy URL-címet a csomagot tartalmazó Azure Storage-blobhoz. Egyes *interaktív* tesztek, például a **havi Azure stack hub Update ellenőrzése** és az **OEM-bővítmények ellenőrzése**is szükségesek a Blobok csomagjának URL-címéhez.
+Ha a **csomag-ellenőrzési** munkafolyamatot az Azure-portálon hozza létre, meg kell adnia egy URL-címet a csomagot tartalmazó Azure Storage-blobhoz. Egyes *interaktív* tesztek, például a **havi Azure stack hub Update ellenőrzése** és az **OEM-bővítmények ellenőrzése** is szükségesek a Blobok csomagjának URL-címéhez.
 
 #### <a name="handling-container-access-level"></a>Tárolók hozzáférési szintjének feldolgozása
 
@@ -74,7 +74,7 @@ A csomagok hozzáférésének megadására vonatkozó beállítások a lehető l
 
 #### <a name="option-1-generate-a-blob-sas-url"></a>1. lehetőség: blob SAS URL-cím létrehozása
 
-Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szintje **magán**értékre van állítva, ahol a tároló nem engedélyezi a nyilvános olvasási hozzáférést a tárolóhoz vagy a blobokhoz.
+Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szintje **magán** értékre van állítva, ahol a tároló nem engedélyezi a nyilvános olvasási hozzáférést a tárolóhoz vagy a blobokhoz.
 
 > [!NOTE]
 > Ez a metódus nem működik az *interaktív* tesztek során. Lásd [a 2. lehetőséget: tároló sas URL-címének létrehozása](#option-2-construct-a-container-sas-url).
@@ -83,11 +83,11 @@ Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szint
 
 2. Válassza a helyi menü **sas előállítása** elemét.
 
-3. Válassza az **olvasás** az **engedélyekből**lehetőséget.
+3. Válassza az **olvasás** az **engedélyekből** lehetőséget.
 
-4. Állítsa be a **kezdési időt** az aktuális időpontra, a **befejezési időt** pedig legalább 48 óráig a **kezdési**időpontból. Ha más munkafolyamatokat is szeretne létrehozni ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését.
+4. Állítsa be a **kezdési időt** az aktuális időpontra, a **befejezési időt** pedig legalább 48 óráig a **kezdési** időpontból. Ha más munkafolyamatokat is szeretne létrehozni ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését.
 
-5. Válassza **a blob sas-token és URL-cím előállítása**lehetőséget.
+5. Válassza **a blob sas-token és URL-cím előállítása** lehetőséget.
 
 A **blob sas URL-címének** használata a csomag blob URL-címeinek a portálra való megadásakor.
 
@@ -97,11 +97,11 @@ Akkor használja ezt a beállítást, ha a Storage-tároló hozzáférési szint
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai**közül. Törölje a többi beállítást.
+1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai** közül. Törölje a többi beállítást.
 
-1. Válassza ki a **tárolót** és az **objektumot** az **engedélyezett erőforrástípusok**közül.
+1. Válassza ki a **tárolót** és az **objektumot** az **engedélyezett erőforrástípusok** közül.
 
-1. Válassza az **olvasás** és **Listázás** lehetőséget az **engedélyezett engedélyek**közül. Törölje a többi beállítást.
+1. Válassza az **olvasás** és **Listázás** lehetőséget az **engedélyezett engedélyek** közül. Törölje a többi beállítást.
 
 1. Válassza ki a **kezdési időt** az aktuális idő és a **Befejezés időpontja** szerint legalább 14 napig a **kezdési időpontból**. Ha más teszteket is futtat ugyanazzal a csomaggal, érdemes megfontolnia a tesztelési **idő** hosszának növelését. Az összes, a **befejezési időpont** utáni ütemezett teszt sikertelen lesz, és új sas-t kell létrehozni.
 
@@ -119,7 +119,7 @@ Akkor használja ezt a beállítást, ha a nem hitelesített ügyfelek számára
 > [!CAUTION]
 > Ez a beállítás megnyitja a blob (oka) t a névtelen írásvédett hozzáféréshez.
 
-1. Állítsa a csomag tárolójának hozzáférési szintjét **blob** vagy **tároló**értékre. További információ: [névtelen felhasználók engedélyeinek engedélyezése tárolók és Blobok](/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)számára.
+1. Állítsa a csomag tárolójának hozzáférési szintjét **blob** vagy **tároló** értékre. További információ: [névtelen felhasználók engedélyeinek engedélyezése tárolók és Blobok](/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)számára.
 
     > [!NOTE]
     > Ha a csomag URL-címét egy *interaktív* teszthez adja meg, a tesztelés folytatásához **teljes nyilvános olvasási hozzáférést** kell biztosítania a tárolóhoz.

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Ismerkedjen meg a Azure Stack hub ellenőrzésének általános munkafolyamat-paramétereinek szolgáltatásként való megadásával.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7932714642568c1d41a94d55a212af1bcc385ad
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 51821c70153f2b4f091b0e8ccb659dddf863bb5e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112065"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910857"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Általános munkafolyamat-paraméterek Azure Stack hub érvényesítéséhez szolgáltatásként
 
@@ -69,11 +69,11 @@ Diagnosztikai naplók tárolásához a diagnosztika-kapcsolatok karakterlánca s
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai**közül. Törölje a többi beállítást.
+1. Válassza a **blob** lehetőséget az **engedélyezett szolgáltatások beállításai** közül. Törölje a többi beállítást.
 
-1. Válassza ki a **szolgáltatást**, a **tárolót**és az **objektumot** az **engedélyezett erőforrástípusok**közül.
+1. Válassza ki a **szolgáltatást**, a **tárolót** és az **objektumot** az **engedélyezett erőforrástípusok** közül.
 
-1. Válassza az **olvasás**, **írás**, **lista**, **Hozzáadás**, **Létrehozás** az **engedélyezett engedélyekkel**lehetőséget. Törölje a többi beállítást.
+1. Válassza az **olvasás**, **írás**, **lista**, **Hozzáadás**, **Létrehozás** az **engedélyezett engedélyekkel** lehetőséget. Törölje a többi beállítást.
 
 1. Állítsa be a **kezdési időt** az aktuális időpontra, és **fejezze** be az aktuális időpontot három hónapig.
 

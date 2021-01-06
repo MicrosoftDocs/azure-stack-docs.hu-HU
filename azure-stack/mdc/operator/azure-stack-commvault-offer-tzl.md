@@ -1,6 +1,6 @@
 ---
-title: Ajánlat CommVault Marketplace-eleme a Azure Stackban | Microsoft Docs
-description: CommVault üzembe helyezése Azure Stack piactérről
+title: Ajánlat CommVault Marketplace-eleme a Azure Stack-MDC
+description: CommVault üzembe helyezése Azure Stack piactérről a moduláris adatközpontok számára (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6ece6792602d90fd43bc682d7547061180ea9289
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: c2f98725a93dbd471f257d8a038a989d9f892c68
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329545"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910839"
 ---
-# <a name="offer-commvault-marketplace-item-in-azure-stack"></a>Ajánlat CommVault Marketplace-eleme Azure Stack
+# <a name="offer-commvault-marketplace-item-in-azure-stack---modular-data-center-mdc"></a>Ajánlat CommVault Marketplace-elem Azure Stack-moduláris adatközpontban (MDC)
 
 *A következőkre vonatkozik: moduláris adatközpont, Azure Stack hub robusztus*
 
@@ -51,7 +51,7 @@ A CommVault BYOL-rendszerképet tesz közzé az Azure piactéren, és lehetővé
 
 | Felhőbeli        | Verzió | Elérhető a hírszolgáltatáshoz | Következő frissítés |
 |--------------|---------|---------------------------|-------------|
-| Azure – nyilvános | SP13    | Igen                       | TBD         |
+| Azure – nyilvános | SP13    | Yes                       | TBD         |
 | Azure gov    | SP13    | TBD                       | TBD         |
 
 ## <a name="download-from-azure-marketplace"></a>Letöltés az Azure Marketplace-ről

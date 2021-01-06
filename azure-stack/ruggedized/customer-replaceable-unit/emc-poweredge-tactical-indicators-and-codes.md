@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b439bfdfcae82c6e80b29d678c18f434945684cc
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867944"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910278"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge – taktikai mutatók és kódok
 
@@ -25,7 +25,7 @@ Az alábbi ábra a rendszerinformációk címkéjét mutatja be, amely az előla
 
 10. ábra. LED-viselkedés
 
-![](media/image-75.png)
+![A Rendszerinformáció címkéje a LED viselkedéséhez.](media/image-75.png)
 
 ## <a name="idrac-direct-led-indicator-codes"></a>iDRAC Direct LED-kijelzők kódjai
 
@@ -49,7 +49,7 @@ Az alábbi ábrán a bal oldali Vezérlőpult állapota és állapotjelzői lát
 
 11. ábra. Bal oldali Vezérlőpult
 
-![](media/image-76.png)
+![Diagram, amely megjeleníti a bal oldali Vezérlőpult állapotát és az állapot mutatóit.](media/image-76.png)
 
 A következő táblázat a bal oldali panel funkcióit ismerteti.
 
@@ -58,7 +58,7 @@ A következő táblázat a bal oldali panel funkcióit ismerteti.
 |    <br>Elem       |    <br>Kijelző vagy gomb                       |    <br>Ikon                                |    <br>Leírás                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |    <br>1          |    <br>Állapotjelző LED-mutatók                     |    <br>N.A.                                 |    <br>A szolgáltatás állapotát jelzi. További információ: PowerEdge status LED-mutatók a 61-es oldalon.    |
-|    <br>2 és 3    |    <br>Rendszerállapot-és rendszerazonosítók mutatói    | ![](media/image-77.png) |    <br>A rendszerállapotot jelzi.                                                                                 |
+|    <br>2 és 3    |    <br>Rendszerállapot-és rendszerazonosítók mutatói    | ![Rendszerállapot ikon](media/image-77.png) |    <br>A rendszerállapotot jelzi.                                                                                 |
 
 A következő táblázat a PowerEdge állapotának LED-mutatóit sorolja fel.
 
@@ -83,7 +83,7 @@ Az alábbi ábrán az AC PSU látható.
 
 12. ábra. AC PSU
 
-![](media/image-83.png)
+![Egy diagram, amely az AC PSU-t jeleníti meg a jelzett LED-vel.](media/image-83.png)
 
 A következő táblázat a jelölő kódokat határozza meg.
 

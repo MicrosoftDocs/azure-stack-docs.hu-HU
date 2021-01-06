@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b0befa0b2dd2d2acd3ad9f0470722a7135e6e974
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 35deff6c48c02c1deda13bb3cd8dec87e54f52ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867553"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909871"
 ---
 # <a name="verifying-scale-unit-node-disk-health"></a>A skálázási egység lemezének állapotának ellenőrzése
 
@@ -28,7 +28,7 @@ ms.locfileid: "97867553"
 
         Ha a rendszer nem ad vissza **OperationalStatus** és **órákban kifejezve** **, akkor** várjon néhány **percet, majd** futtassa újra a parancsot.
         
-        ![](media/image-57.png)
+        ![Képernyőfelvétel: a Windows PowerShell és a "OperationsStatus" és a "órákban kifejezve" oszlop kiemelése.](media/image-57.png)
         
     1.  A futtatásával `Get-VirtualDisk -cimsession "S-Cluster" | Get-StorageJob` ellenőrizze, hogy az összes futó tárolási feladat befejeződött-e.
     

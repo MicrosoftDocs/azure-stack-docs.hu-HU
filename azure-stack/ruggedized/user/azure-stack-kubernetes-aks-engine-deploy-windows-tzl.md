@@ -1,5 +1,5 @@
 ---
-title: Az AK-motor üzembe helyezése Windows rendszeren Azure Stack hub-ban
+title: Az AK-motor üzembe helyezése Windows rendszeren Azure Stack hub-robusztus
 description: Megtudhatja, hogyan helyezhet üzembe és kezelhet egy Kubernetes-fürtöt egy Windows rendszerű gépen az Azure Stack hub-ban az AK-motor üzemeltetéséhez.
 services: azure-stack
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: fa85377ecfae869ed75f3c00e7d8f7245ea8cba1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8d74f6c8ec16f5efb6ccbdf8fa860830c20a6587
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874268"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910976"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Az AK-motor telepítése a Windows rendszerű Azure Stack központban
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub---ruggedized"></a>Az AK-motor telepítése Windows rendszeren Azure Stack hub-robusztus
 
 A Kubernetes-fürtök üzembe helyezéséhez és kezeléséhez használhatja a Azure Stack hub egyik Windows rendszerű számítógépét. Ebben a cikkben előkészíti az ügyfél virtuális gépet a fürt felügyeletére a csatlakoztatott és leválasztott Azure Stack hub-példányok esetében, és ellenőrizze a telepítést.
 <!-- TZLASDKFIX2 Line above was previously:
@@ -91,7 +91,7 @@ Ha az ügyfél virtuális gépe be van állítva, győződjön meg arról, hogy 
 
 Ha nem tudja ellenőrizni, hogy telepítette-e az AK-motort az ügyfél virtuális gépén, tekintse meg a következőt: az [AK-motor telepítésének hibája](../../user/azure-stack-kubernetes-aks-engine-troubleshoot.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on](../../user/azure-stack-kubernetes-aks-engine-deploy-cluster.md)

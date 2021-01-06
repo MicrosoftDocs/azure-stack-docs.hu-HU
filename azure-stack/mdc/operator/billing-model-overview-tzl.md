@@ -1,6 +1,6 @@
 ---
-title: Az ügyfél számlázási modelljének áttekintése Azure Stack | Microsoft Docs
-description: Megtudhatja, hogyan számolják fel a Azure Stack felhasználóit az erőforrás-használatért.
+title: Az ügyfél számlázási modelljének áttekintése a Azure Stack-MDC | Microsoft Docs
+description: Megtudhatja, hogyan számolnak fel Azure Stack felhasználókat egy moduláris adatközpontban (MDC) az erőforrás-használatért.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/04/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: bd20dee177ac1f061b954eb0285b3103747675d1
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 15f894a668374be5380f322d368b76d88bb93cba
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934845"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910754"
 ---
-# <a name="billing-model-overview"></a>Számlázási modell áttekintése
+# <a name="billing-model-overview---modular-data-center-mdc"></a>Számlázási modell áttekintése – moduláris adatközpont (MDC)
 
 A MDC vagy Azure Stack hub felhasználójának robusztus módon kell fizetnie a Microsofttól az egyes berendezésekhez tartozó időtartam alapján. A díj időszakonként, és magában foglalja az alapszintű számítási, tárolási és hálózati szolgáltatások használatának jogát. A díjszabás a App Service, a Event Hubs és bármely más, a többi Péter-szolgáltatásra, valamint a Windows Server TB-ra épülő, Azure Stack hub-on futó virtuális gépekre és a MDC. Ha teljesen le van választva, és nem tud jelentést készíteni a használati adatokról, be kell szereznie a frissítéshez szükséges kapacitási licenceket a Windows rendszerű virtuális gépekhez.
 

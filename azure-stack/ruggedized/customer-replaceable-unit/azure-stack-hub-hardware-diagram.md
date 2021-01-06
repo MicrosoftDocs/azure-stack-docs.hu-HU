@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: ddcfd86dff4164b876232986d60c4b2c4eba0d3a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b91e5825200f7a05a403bb90db3825377e042cf9
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874676"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910414"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack hub hardver diagramja
 
@@ -20,9 +20,9 @@ Az alábbi ábrán a teljes verem látható a hardveres életciklus-állomás, a
 
 1. ábra Front
 
-![](media/image-58.png)
+![Egy teljes verem elülső részét bemutató diagram.](media/image-58.png)
 
 2. ábra – Hátsó
 
-![](media/image-59.png)
+![A teljes verem hátsó részét bemutató diagram.](media/image-59.png)
 

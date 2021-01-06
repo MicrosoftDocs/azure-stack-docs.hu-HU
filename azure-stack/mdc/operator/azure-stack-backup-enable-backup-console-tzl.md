@@ -1,6 +1,6 @@
 ---
-title: Biztonsági mentés engedélyezése a Azure Stack a felügyeleti portálról | Microsoft Docs
-description: Megtudhatja, hogyan engedélyezheti a Infrastructure Backup szolgáltatást a felügyeleti portálról, hogy a rendszer meghibásodás esetén is visszaállítsa Azure Stack.
+title: Biztonsági mentés engedélyezése Azure Stackhoz a felügyeleti portálról – MDC
+description: Ismerje meg, hogyan engedélyezheti a Infrastructure Backup szolgáltatást a felügyeleti portálról, hogy a Azure Stack meghibásodás esetén is visszaállítható legyen. Moduláris adatközponthoz.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3864183ecda856500db1fcbfe38df84d70f3bae9
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: db0980511b2272a6c92c1644401ce1d577ddcf8d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329582"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910942"
 ---
-# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal"></a>A Azure Stack hub biztonsági mentésének konfigurálása a felügyeleti portálról
+# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal---modular-data-center-mdc"></a>A Azure Stack hub biztonsági mentésének konfigurálása a felügyeleti portálról – moduláris adatközpont (MDC)
 
 *A következőkre vonatkozik: moduláris adatközpont, Azure Stack hub robusztus*
 
@@ -68,7 +68,7 @@ Ha le kell tiltania a jövőbeli ütemezett biztonsági mentéseket, válassza a
 
 ![Azure Stack – ütemezett biztonsági mentések letiltása](media/azure-stack-backup-enable-backup-console-tzl/disable-auto-backup.png)
 
-Győződjön meg arról, hogy a jövőbeli ütemezett biztonsági mentések le vannak tiltva az **essentialsben** :
+Győződjön meg arról, hogy a jövőbeli ütemezett biztonsági mentések le vannak tiltva az **essentialsben**:
 
 ![Azure Stack – a biztonsági másolatok megerősítése le lettek tiltva](media/azure-stack-backup-enable-backup-console-tzl/confirm-disable.png)
 
