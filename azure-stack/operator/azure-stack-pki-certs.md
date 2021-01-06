@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: aba799122e4ccbd61258628b079061aa7a02e0ae
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869695"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918668"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Az Azure Stack Hub nyilvános kulcsú infrastruktúrájának (PKI) tanúsítványkövetelményei
 
@@ -38,7 +38,6 @@ A következő lista az általános tanúsítvány-kiállítási, biztonsági és
 ::: moniker-end
 - Az önaláírt tanúsítványok használata nem támogatott.
 - Üzembe helyezéshez és elforgatáshoz használhatja a tanúsítvány tulajdonosának neve és a tulajdonos alternatív neve (SAN) mezőiben szereplő összes névtérre kiterjedő egyetlen tanúsítványt, vagy használhat egyéni tanúsítványokat a használni kívánt Azure Stack hub-szolgáltatások által igényelt egyes névterekhez. Mindkét módszerhez szükség van olyan végpontokhoz, ahol szükség van rájuk, **például a kulcstartó és** a **KeyVaultInternal**.
-- A tanúsítvány PFX-titkosításának 3DES-nek kell lennie.
 - A tanúsítvány-aláírási algoritmus nem lehet SHA1.
 - A tanúsítvány formátumának PFX-nek kell lennie, mivel az Azure Stack hub telepítéséhez mind a nyilvános, mind a titkos kulcs szükséges. A titkos kulcsnak rendelkeznie kell a helyi számítógép kulcs attribútumával.
 - A PFX-titkosításnak 3DES-nek kell lennie (ez a titkosítás alapértelmezés szerint a Windows 10-es ügyfélről vagy a Windows Server 2016 tanúsítványtárolóból való exportáláskor).
@@ -117,8 +116,8 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 
 <sup>2</sup> &#42;. appservice. *&lt; régió>. &lt; a teljes tartománynév>* helyettesítő tanúsítvány nem használható fel a három tanúsítvány helyett (API. appservice.*&lt; régió>. &lt; FQDN>*, FTP. appservice. *&lt; régió>. &lt; FQDN>* és SSO. appservice. *&lt; régió>. &lt; FQDN>*. A Appservice explicit módon külön tanúsítványokat kell használni ezekhez a végpontokhoz.
 
-## <a name="learn-more"></a>További információ
+## <a name="learn-more"></a>Tudjon meg többet
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

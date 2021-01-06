@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873996"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918692"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -53,7 +53,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | Rendelkezésre állási konfiguráció | Aktív/aktív | Aktív/passzív |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a házirend-alapú forgalom-választókat az Útválasztás-alapú átjáró kapcsolataival. | Még nem támogatott. |
 |  | Figyelés és riasztások | Az Azure Azure Monitort használ a VPN-erőforrásokra vonatkozó riasztások beállításához. | Még nem támogatott.|
-| Terheléselosztó | Termékváltozat | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer/Path/legfeljebb 5 előtér-IP-konfigurációval rendelkezhet.  |
+| Terheléselosztó | Termékváltozat | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer 10 előtér-IP-konfigurációt támogat a 1807-1906-es és a 200-es előtér-IP-konfigurációkhoz a Load balancernél a 1907-as és újabb verziókban.  |
 |  | Zóna | A Availability Zones támogatottak. | Még nem támogatott |
 |  | Bejövő NAT-szabályok támogatása szolgáltatási végpontok számára | Az Azure támogatja a szolgáltatási végpontok megadását a bejövő NAT-szabályokhoz. | Azure Stack hub még nem támogatja a szolgáltatási végpontokat, ezért ezeket nem lehet megadni. |
 |  | Protokoll | Az Azure támogatja a GRE vagy az ESP megadását. | A Protocol osztály nem támogatott Azure Stack hub-ban. |
@@ -90,6 +90,6 @@ Azure Stack hub hálózatkezelés a következő API-verziókat támogatja:
 - 2017-11-01
 - 2017-10-01
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [DNS Azure Stack központban](azure-stack-dns.md)

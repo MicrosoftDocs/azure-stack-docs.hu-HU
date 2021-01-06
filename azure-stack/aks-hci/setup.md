@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 99f3e98ff24044c74c9065bb98965dcf640c4032
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 3d8be2b6b1e3251875ca014e221c9bf4de35671e
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612539"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918731"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával
 
@@ -29,7 +29,7 @@ Mielőtt elkezdené, győződjön meg arról, hogy teljesítette a [rendszerköv
 
 ## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service letöltése Azure Stack HCI-re
 
-Ha még nem töltötte le az előzetes verziójú szoftvert, tekintse [meg az AK kiértékelése Azure stack HCI](https://aka.ms/AKS-HCI-Evaluate)-ben című témakört. A rendszer kérni fogja az AK letöltését Azure Stack HCI-re és a Windows felügyeleti központra.
+Ha még nem töltötte le az előzetes verziójú szoftvert, tekintse [meg az AK kiértékelése Azure stack HCI](https://aka.ms/AKS-HCI-Evaluate)-ben című témakört. A rendszer a Azure Stack HCI és a Windows felügyeleti központ alkalmazásban is letölti az AK-t.
 
 ## <a name="setting-up-windows-admin-center"></a>A Windows felügyeleti központ beállítása
 
@@ -39,7 +39,7 @@ Ha még nem telepítette a Windows felügyeleti központot, tekintse meg a [Wind
 
 Miután megszerezte az Azure Kubernetes szolgáltatást Azure Stack HCI nyilvános előzetes verziójú fájlokon, a `.nupkg` fájlt helyileg vagy egy SMB-megosztáson kell mentenie, és fel kell vennie a fájl elérési útját a Windows felügyeleti központ bővítmény-kezelőjének "hírcsatornák" listájára. A `.nupkg` fájl egy NuGet-csomag, amely tartalmazza a Windows felügyeleti központ bővítményét.
 
-A meglévő bővítmény-hírcsatorna eléréséhez nyissa meg a Windows felügyeleti központot, és válassza a képernyő jobb felső sarkában található fogaskerék lehetőséget. Ekkor megnyílik a beállítások menü. A bővítmények hírcsatornái a **bővítmények** menüjének **átjáró** szakasza alatt találhatók. Navigáljon a **hírcsatornák** lapra, és válassza a **Hozzáadás** lehetőséget. Ebben az ablaktáblában illessze be a fájl elérési útját az Azure Kubernetes szolgáltatás-bővítmény másolatához, és válassza a **Hozzáadás** lehetőséget. Ha a fájl elérési útja sikeresen hozzá lett adva, akkor sikeres értesítést kap. 
+A meglévő bővítmény-hírcsatorna eléréséhez nyissa meg a Windows felügyeleti központot, és válassza a képernyő jobb felső sarkában található fogaskerék lehetőséget. Ekkor megnyílik a beállítások menü. A bővítmények hírcsatornái a **bővítmények** menüjének **átjáró** szakasza alatt találhatók. Navigáljon a **hírcsatornák** lapra, és válassza a **Hozzáadás** lehetőséget. Ebben az ablaktáblában illessze be a fájl elérési útját az Azure Kubernetes szolgáltatás-bővítmény másolatához, és válassza a **Hozzáadás** lehetőséget. Ha a fájl elérési útja sikeresen hozzá lett adva, sikeres értesítést kap. 
 
 Most, hogy hozzáadta a hírcsatornát, az Azure Kubernetes Service bővítmény elérhető lesz az elérhető bővítmények listájában. Miután kiválasztotta a bővítményt, válassza a **telepítés** lehetőséget a tábla tetején a bővítmény telepítéséhez. A telepítés befejezése után a Windows felügyeleti központ újratöltődik. 
 
@@ -70,11 +70,14 @@ Most, hogy ellenőrizte a rendszerbeállításokat, kezdjük a kezdéssel:
 
 5. Tekintse át az összes kijelölést a **felülvizsgálat + létrehozás** lépésben. Ha elégedett a kiválasztott beállításokkal, válassza a **tovább** lehetőséget a gazdagép telepítésének megkezdéséhez. 
 6. A **telepítési folyamat** lapon megtekintheti a gazdagép telepítőjének állapotát. Ekkor a Windows felügyeleti központot egy új lapon nyithatja meg, és folytathatja a felügyeleti feladatokat. 
-7. Ha az üzembe helyezés sikeres, megjelenik egy felügyeleti irányítópult, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül. 
+7. Ha az üzembe helyezés sikeres, válassza a *Befejezés* lehetőséget, és egy felügyeleti irányítópulttal fog megjelenni, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül.
+
+
+1. Ha az üzembe helyezés sikeres, megjelenik egy felügyeleti irányítópult, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül. 
  
   ![Bemutatja az Azure Kubernetes-szolgáltatásokat Azure Stack HCI felügyeleti irányítópulton.](.\media\setup\dashboard.png)
  
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ebben a rövid útmutatóban telepítette a Windows felügyeleti központot és az Azure Kubernetes Service bővítményt. Az Azure Kubernetes Service hostt is konfigurálta azon a rendszeren, amelyen a Kubernetes-fürtöt telepíteni fogja.
 

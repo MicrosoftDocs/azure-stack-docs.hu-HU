@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910550"
+ms.locfileid: "97918661"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -30,7 +30,7 @@ Az Azure Kubernetes Service on Azure Stack HCI vagy a Windows Server 2019 Datace
 
  - Győződjön meg arról, hogy a felhasználói fiók (ok) frissíti a frissítéseket, és felügyeli az Azure Kubernetes szolgáltatást Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtökön a megfelelő engedélyekkel Active Directory. Ha szervezeti egységeket (OU-ket) használ a kiszolgálókhoz és szolgáltatásokhoz tartozó csoportházirendek kezelésére, a felhasználói fiók (ok) listának, olvasási, módosítási és törlési engedélyekkel kell rendelkeznie a szervezeti egység összes objektumához. 
 
- - Azt javasoljuk, hogy az Azure Kubernetes szolgáltatást a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtökön külön szervezeti egységgel adja hozzá a kiszolgálókhoz és szolgáltatásokhoz. Ez lehetővé teszi a hozzáférés és az engedélyek további részletességgel történő szabályozását.
+ - Javasoljuk, hogy a kiszolgálók és szolgáltatások különálló szervezeti egységét használja, amelyhez hozzáadja az Azure Kubernetes szolgáltatást Azure Stack HCI vagy Windows Server 2019 Datacenter-fürtökhöz. Egy külön szervezeti egység használatával több részletességgel vezérelheti a hozzáférést és az engedélyeket.
 
  - Ha a Active Directory lévő tárolók GPO-sablonjait használ, győződjön meg arról, hogy az AK-HCI üzembe helyezése mentesül a szabályzat alól. A kiszolgáló megerősítése egy későbbi előzetes kiadásban lesz elérhető.
 
@@ -52,20 +52,14 @@ Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 20
 
  - Ellenőrizze, hogy az összes hálózati adapteren letiltotta-e az IPv6 protokollt. 
 
- - A hálózatnak rendelkeznie kell egy elérhető DHCP-kiszolgálóval, amely TCP/IP-címeket biztosít a virtuális gépek és a virtuálisgép-gazdagépek számára. A DHCP-kiszolgálónak az NTP és a DNS-gazdagép adatait is tartalmaznia kell. 
-
- - Azt javasoljuk továbbá, hogy a Azure Stack HCI-fürt által elérhető IPv4-címek dedikált hatókörű DHCP-kiszolgáló legyen. Lefoglalhatja például az alapértelmezett átjáró 10.0.1.1, lefoglalhatja a 10.0.1.2 a Kubernetes-szolgáltatások 10.0.1.102 (a set-VipPoolStartIp-ben a-vipPoolEndIp és a-AksHciConfig használatával), és a 10.0.1.103-10.0.1.254 Kubernetes-fürtökön is használható. 
-
- - Sikeres telepítés esetén a Azure Stack HCI-fürtcsomópontok és a Kubernetes-fürt virtuális gépei külső internetkapcsolattal kell rendelkezniük.
-
- - A DHCP-kiszolgáló által megadott IPv4-címeknek irányíthatónak kell lenniük, és 30 napos bérlettel kell rendelkezniük, hogy elkerüljék az IP-kapcsolat elvesztését a virtuális gépek frissítése vagy újraépítése esetén.  
+ - Sikeres telepítés esetén a Azure Stack HCI-fürtcsomópontok és a Kubernetes-fürt virtuális gépei külső internetkapcsolattal kell rendelkezniük. 
 
  - A DNS-névfeloldás szükséges ahhoz, hogy az összes csomópont kommunikálni tudjon egymással. A Kubernetes külső névfeloldáshoz használja a DHCP-kiszolgáló által biztosított DNS-kiszolgálókat, amikor az IP-cím beszerzése megtörténik. A belső névfeloldás Kubernetes használja az alapértelmezett Kubernetes Core DNS-alapú megoldást. 
- 
- - Ebben az előzetes kiadásban csak egyetlen VLAN-támogatást biztosítunk a teljes telepítéshez.
 
- - Ebben az előzetes kiadásban korlátozott a PowerShell használatával létrehozott Kubernetes-fürtök proxy-támogatása.
+ - Ebben az előzetes kiadásban csak egyetlen VLAN-támogatást biztosítunk a teljes telepítéshez. 
 
+ - Ebben az előzetes kiadásban korlátozott a PowerShell használatával létrehozott Kubernetes-fürtök proxy-támogatása. 
+  
 ### <a name="network-port-and-url-requirements"></a>A hálózati port és az URL-cím követelményei 
 
 Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automatikusan megnyitja a következő tűzfal-portokat a fürt minden kiszolgálóján. 
@@ -77,6 +71,7 @@ Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automati
 | 45001             | wssdagent GPRC hitelesítési port  | 
 | 55000           | wssdcloudagent GPRC-kiszolgáló portja           |
 | 65000             | wssdcloudagent GPRC hitelesítési port  | 
+
 
 
 A tűzfal URL-címére vonatkozó kivételek a Windows felügyeleti központ számítógépén és az Azure Stack HCI-fürt összes csomópontján szükségesek. 
@@ -97,7 +92,7 @@ git://:9418 | 9418 | TCP | Az Azure arc-ügynökök támogatásához használato
 
 Az Azure Kubernetes Service a következő tárolási implementációkat támogatja az Azure Stack HCI-ben: 
 
-|  Név                         | Tárhelytípusa | Szükséges kapacitás |
+|  Név                         | Tárolási típus | Szükséges kapacitás |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack HCI-fürt          | CSV          | 1 TB              |
 | Windows Server 2019 Datacenter feladatátvevő fürt          | CSV          | 1 TB              |

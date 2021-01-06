@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612556"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918701"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Gyors útmutató: Azure Kubernetes Service Host beállítása Azure Stack HCI-ben a PowerShell használatával
 
@@ -64,7 +64,7 @@ Zárjunk be minden PowerShell-ablakot újra, majd nyissa meg újra a felügyelet
   
 A fenti parancsok futtatása után zárjunk be minden PowerShell-ablakot, majd nyissa meg újra a felügyeleti munkamenetet a PowerShell-modul frissítésének ellenőrzéséhez az alábbiakban részletezett módon, majd futtassa a `Update-AksHci` parancsot a dokumentum későbbi részében leírtak szerint.
 
-## <a name="step-13-validate-upgraded-powershell-module"></a>1,3. lépés: a frissített PowerShell-modul ellenőrzése
+### <a name="step-13-validate-upgraded-powershell-module"></a>1,3. lépés: a frissített PowerShell-modul ellenőrzése
 
 **Zárjunk be minden PowerShell-ablakot** , és nyissa meg újra az új felügyeleti munkamenetet, és ellenőrizze, hogy rendelkezik-e a PowerShell-modul legújabb verziójával.  
 
@@ -130,11 +130,11 @@ Konfigurálja az üzemelő példányt a következő paranccsal.
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlanID <int>]
+                    [-vlandID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
-                    [-proxyServerHTTP <String>]
+                    [-proxyServerHTTPS <String>]
                     [-proxyServerNoProxy <String>]
                     [-proxyServerCredential <PSCredential>]
                     [-cloudServiceCidr <String>]
@@ -434,6 +434,6 @@ Uninstall-AksHci -Force
 
 Ha a PowerShell-parancsok olyan fürtön futnak, ahol a Windows felügyeleti központot korábban már telepítették, a PowerShell-modul ellenőrzi a Windows felügyeleti központ konfigurációs fájljának létezését. A Windows felügyeleti központ minden csomóponton elhelyezi a Windows felügyeleti központ konfigurációs fájlját. **Ha az Eltávolítás parancsot használja, és térjen vissza a Windows felügyeleti központba, futtassa a fenti eltávolítási parancsot a `-Force` jelzővel. Ha ez nem történik meg, a PowerShell és a Windows felügyeleti központ nem lesz szinkronban.**
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Kubernetes-fürt létrehozása az alkalmazásaihoz](create-kubernetes-cluster-powershell.md)

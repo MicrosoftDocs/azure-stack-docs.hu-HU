@@ -3,21 +3,23 @@ title: A fürt ellenőrzési jelentéskészítésének hibáinak megoldása
 description: A fürt-ellenőrzési jelentéskészítés és a QoS-beállítások konfigurációjának ellenőrzése Azure Stack HCI-fürtökhöz
 author: khdownie
 ms.topic: troubleshooting
-ms.date: 07/21/2020
+ms.date: 01/05/2021
 ms.author: v-kedow
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c4da92a6d88a3d2046ee6136f2481ac23e5bd476
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: a5b6ef03701daf1c1f4115f88a2a4e44bac1bd61
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867329"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918637"
 ---
 # <a name="troubleshoot-cluster-validation-reporting"></a>A fürt ellenőrzési jelentéskészítésének hibáinak megoldása
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
 Ez a témakör segítséget nyújt a hálózati és tárolási QoS (szolgáltatásminőség) beállításainak a Azure Stack HCI-fürtben lévő kiszolgálókon történő ellenőrzésével kapcsolatos hibák megoldásához, és ellenőrzi, hogy a fontos szabályok definiálva vannak-e. Az optimális kapcsolat és teljesítmény érdekében a fürt ellenőrzési folyamata ellenőrzi, hogy az adatközpont-áthidaló (DCB) QoS-konfiguráció konzisztens-e, és ha meg van adva, a feladatátvételi fürtszolgáltatással és az SMB/SMB Direct forgalmi osztályokkal kapcsolatos megfelelő szabályokat tartalmazza.
+
+DCB szükséges a RDMA konvergált Ethernet (RoCE) hálózatokon, és nem kötelező (de ajánlott) az Internet Wide RDMA Protocol (iWARP) hálózatokhoz.
 
 ## <a name="install-data-center-bridging"></a>Az adatközpont-áthidalás telepítése
 
@@ -35,7 +37,7 @@ Install-WindowsFeature –Name Data-Center-Bridging -ComputerName Server1
 
 ## <a name="run-a-cluster-validation-test"></a>Fürt-ellenőrzési teszt futtatása
 
-Az érvényesítés funkciót a Windows felügyeleti központban válassza az **eszközök > kiszolgálók > leltár > a fürt ellenőrzése**lehetőséget, vagy futtassa a következő PowerShell-parancsot:
+Az érvényesítés funkciót a Windows felügyeleti központban válassza az **eszközök > kiszolgálók > leltár > a fürt ellenőrzése** lehetőséget, vagy futtassa a következő PowerShell-parancsot:
 
 ```PowerShell
 Test-Cluster –Node Server1, Server2

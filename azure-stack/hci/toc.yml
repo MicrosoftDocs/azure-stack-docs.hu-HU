@@ -222,11 +222,13 @@
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
-    - name: Útmutató a HCI Azure Stackhoz
+    - name: Kiértékelési útmutató
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
-    - name: Azure Stack HCI díjszabása
+    - name: Díjszabás
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
-    - name: Azure Stack HCI-támogatás
+    - name: Támogatás
       href: manage/get-support.md
-    - name: Azure Stack HCI archivált kibocsátási megjegyzései
+    - name: Képzés
+      href: /learn/paths/azure-stack-hci-foundations/
+    - name: Archivált kibocsátási megjegyzések
       href: preview-release-notes.md
