@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011178"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950688"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
@@ -168,13 +168,21 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Kérdés**<br>
+**Probléma:**<br>
 A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
 **Workaround**<br>
 Az Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-szolgáltatói naplót, beleértve a AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, a C:\Logs. mentett adatokat.
 
 ## <a name="collect-diagnostic-logs"></a>Diagnosztikai naplók gyűjtése
+
+::: moniker range=">= azs-2008"
+
+Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai naplókat Microsoft ügyfélszolgálataba. A 1.1.93 verziótól kezdődően a MySQL erőforrás-szolgáltató támogatja a naplók Azure Stack hub-környezetből való gyűjtésének szabványos módját. További információ: [diagnosztikai naplók gyűjteménye](diagnostic-log-collection.md).
+
+::: moniker-end
+
+A 1.1.93 verziótól kezdődően a MySQL erőforrás-szolgáltató támogatja a naplók Azure Stack hub-környezetből való gyűjtésének szabványos módját. Ha régebbi verziót használ, javasoljuk, hogy frissítse a MySQL erőforrás-szolgáltatót a legújabb verzióra.
 
 A zárolt virtuális gépről származó naplók gyűjtéséhez használja a PowerShell elég adminisztrációs (JEA) végpont DBAdapterDiagnostics. Ez a végpont a következő parancsokat tartalmazza:
 
@@ -254,6 +262,6 @@ Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [A MySQL erőforrás-szolgáltató eltávolítása](azure-stack-mysql-resource-provider-remove.md)

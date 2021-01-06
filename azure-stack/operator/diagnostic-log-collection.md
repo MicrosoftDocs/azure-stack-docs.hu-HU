@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 1bf32b01035cff3557c2e801fe1fea87cc5ee472
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868658"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950739"
 ---
 # <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
@@ -142,6 +142,9 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
+
+  ::: moniker range=">= azs-2008"
+
   Diagnosztikai naplók küldése az SQL RP számára: 
 
   ```powershell
@@ -152,6 +155,8 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   Diagnosztikai naplók küldése IoT Hub számára: 
 
@@ -230,6 +235,6 @@ A Azure Stack hub-ból gyűjtött naplók előzményei a **Súgó + támogatás*
 
 ![A Súgó és támogatás szolgáltatásban található gyűjtemények naplózása](media/azure-stack-help-and-support/azure-stack-log-collection.png)
 
-## <a name="see-also"></a>További információ
+## <a name="see-also"></a>Lásd még
 
 [Azure Stack hub-napló és az ügyfelek adatkezelése](./azure-stack-data-collection.md)
