@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918668"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965528"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Az Azure Stack Hub nyilvános kulcsú infrastruktúrájának (PKI) tanúsítványkövetelményei
 
@@ -108,8 +108,8 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 |App Service|API|API. appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>SCM. appservice. *&lt; régió>. &lt; teljes tartománynév>*|
 |App Service|FTP|FTP. appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>SCM. appservice. *&lt; régió>. &lt; teljes tartománynév>*|
 |App Service|SSO|SSO. appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>(SSL-tanúsítvány<sup>2</sup>)|appservice. *&lt; régió>. &lt; teljes tartománynév>*<br>SCM. appservice. *&lt; régió>. &lt; teljes tartománynév>*|
-|Event Hubs|SSL|&#42;. eventhub. *&lt; régió>. &lt; teljes tartománynév>* | eventhub. *&lt; régió>. &lt; teljes tartománynév>* |
-|IoT Hub|SSL|&#42;. mgmtiothub. *&lt; régió>. &lt; teljes tartománynév>* | mgmtiothub. *&lt; régió>. &lt; teljes tartománynév>* |
+|Event Hubs|SSL|&#42;. eventhub. *&lt; régió>. &lt; teljes tartománynév>*<br>(Helyettesítő karakteres SSL-tanúsítvány)|eventhub. *&lt; régió>. &lt; teljes tartománynév>* |
+|IoT Hub|SSL|&#42;. mgmtiothub. *&lt; régió>. &lt; teljes tartománynév>*<br>(Helyettesítő karakteres SSL-tanúsítvány)|mgmtiothub. *&lt; régió>. &lt; teljes tartománynév>* |
 |SQL, MySQL|SQL és MySQL|&#42;. dbadapter. *&lt; régió>. &lt; teljes tartománynév>*<br>(Helyettesítő karakteres SSL-tanúsítvány)|dbadapter. *&lt; régió>. &lt; teljes tartománynév>*|
 
 <sup>1</sup> egy olyan tanúsítványt igényel, amelyben több helyettesítő karakteres alternatív név is szerepel. Előfordulhat, hogy az összes nyilvános hitelesítésszolgáltató nem támogatja több helyettesítő karaktert egyetlen tanúsítványon.
@@ -119,5 +119,5 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 ## <a name="learn-more"></a>Tudjon meg többet
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 126f96069b2440b6a38887306a92409b75f5b682
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910601"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965477"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban – robusztus
 
@@ -80,7 +80,7 @@ Telepítenie kell Azure Stack hub PowerShell-modulokat. Ezek a parancsmagok a **
 
 A **Leállítás** művelet kikapcsolja a csomópontot. Ez ugyanaz, mint a főkapcsoló gomb megnyomása. Nem küld leállítási jelet az operációs rendszernek. A tervezett leállítási műveletekhez először mindig próbálja meg a leállítási műveletet.
 
-Ezt a műveletet általában akkor kell használni, ha egy csomópont lefagyott állapotban van, és a továbbiakban nem válaszol a kérelmekre.
+Ezt a műveletet általában akkor kell használni, ha egy csomópont már nem válaszol a kérelmekre.
 
 A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú PowerShell-parancssort, és futtassa a következő parancsmagot:
 
@@ -167,6 +167,6 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/).

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: patricka
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 063809d47aff3d4e0840f4127f3749faccac7c9b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: da6e4d78d2464468b75ab2bd22d9bb81dd01e33b
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870273"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965511"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack hub adminisztrációs alapjai
 
@@ -51,13 +51,15 @@ Jelenleg a következő, platform-szolgáltatásként nyújtott szolgáltatásokk
 - App Service
 - Azure Functions
 - SQL-és MySQL-adatbázisok
+- Event Hubs
+- IoT Hub (előzetes verzió)
 - Kubernetes (előzetes verzió)
 
 Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információkért tekintse meg az Azure Stack hub-kezelő dokumentációjának "oktatóanyagok" és "útmutató guides\Offer szolgáltatások" részeit.
 
 **Szolgáltatási ütemterv**
 
-Azure Stack hub továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg az [Azure stack hub: az Azure-tanulmány bővítményét](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack hub-blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is figyelheti.
+Azure Stack hub továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg az [Azure stack hub: az Azure-tanulmány bővítményét](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack hub-blogbejegyzéseit](https://techcommunity.microsoft.com/t5/azure-stack-blog/bg-p/AzureStackBlog) is figyelheti.
 
 ## <a name="what-account-should-i-use"></a>Milyen fiókot használok?
 

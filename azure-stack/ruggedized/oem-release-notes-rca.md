@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: be7db92413bdc1223c8600a9e9fc0ff8c3fb4ba0
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a7765eb44017b8d6521930de24794b630ae22344
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909701"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965460"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Azure Stack hub robusztus 2008 OEM kibocsátási megjegyzések
 
@@ -53,7 +53,7 @@ Ez a dokumentum ismerteti Azure Stack hub robusztus, belső vezérlőprogram és
 
 | Kiadás verziója    | Belső vezérlőprogram verziója    | Módosítások                                                                                                          |
 |--------------------|---------------------|------------------------------------------------------------------------------------------------------------------|
-|     2008           |     14.27.60.08     | Rögzített egy belső vezérlőprogram végzetes állítása, amely egy IRISC leállást mutatott, mert init_hca várakozik az időzítők flow zárolási kiadására. |
+|     2008           |     14.27.60.08     | Kijavított egy végzetes belső vezérlőprogram-állítást, amelynek hatására a IRISC nem válaszol, mert init_hca várakozik az időzítők flow zárolási kiadására. |
 |     2005           |     14.26.60.00     |                                                                                                                  |
 
 ### <a name="nic-hlh"></a>HÁLÓZATI ADAPTER – HLH
@@ -74,7 +74,7 @@ Ez a dokumentum ismerteti Azure Stack hub robusztus, belső vezérlőprogram és
 
 |     Kiadás verziója |     Belső vezérlőprogram verziója |     Módosítások                                                                                           |
 |---------------------|----------------------|-------------------------------------------------------------------------------------------------------|
-| 2005, 2008          | 25.5.7.0005          | Kijavítva a hiba, amikor egy vezérlő lefagyhat a rendszerindítás során, mert hiányos a nem felejtő memória-konfiguráció. |
+| 2005, 2008          | 25.5.7.0005          | Kijavítva egy probléma, amely miatt a vezérlő lefagyhat a nem teljes, nem felejtő memória konfigurációjának hiányában. |
 
 ### <a name="hba---boot-drives"></a>HBA-rendszerindító meghajtók
 
@@ -86,7 +86,7 @@ Ez a dokumentum ismerteti Azure Stack hub robusztus, belső vezérlőprogram és
 
 | Kiadás verziója | Belső vezérlőprogram verziója | Módosítások                                                                                                                                                                                                |
 |-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     2008        |     9.0.6        | Címek lehetséges IDRAC a belső vezérlőprogram frissítése közben.<br> A jelzett hibák szűrésével megakadályozhatja a hamis hibák jelentését.<br> A gazdagép-memória leképezése úgy módosult, hogy megakadályozza a lehetséges elülső USB-portok kitartását. |
+|     2008        |     9.0.6        | A probléma lehetséges oka, hogy a IDRAC nem válaszol a belső vezérlőprogram frissítése során.<br> A jelzett hibák szűrésével megakadályozhatja a hamis hibák jelentését.<br> A gazdagép-memória leképezése úgy módosult, hogy megakadályozza a lehetséges elülső USB-portok kitartását. |
 |     2005        |     1.0.6        |                                                                                                                                                                                                        |
 
 ### <a name="drive-fw"></a>Meghajtó FW
