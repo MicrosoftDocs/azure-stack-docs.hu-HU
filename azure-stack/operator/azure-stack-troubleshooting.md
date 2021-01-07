@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ef2bbc0fe85b0d6a1db605af440eab2d0e80a805
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868981"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974251"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -83,7 +83,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
-2. Futtassa a `test-azurestack` parancsot.
+2. Futtassa az `test-azurestack` parancsot.
 3. Lépjen ki a PEP-munkamenetből.
 4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott ERCS mappából szerezheti be `test-azurestack` .
@@ -203,7 +203,7 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
 
-2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md?view=azs-2002). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) az időtartományhoz.
+2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) az időtartományhoz.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
 
@@ -236,5 +236,5 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 **OK**: a 2002-es frissítés megkísérlése során előfordulhat, hogy a frissítés sikertelen lesz, és a következő üzenet jelenik meg: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
 
-**Szervizelés**: [hozzon létre egy privát belső hálózatot](./azure-stack-network.md?view=azs-2002#private-network).
+**Szervizelés**: [hozzon létre egy privát belső hálózatot](./azure-stack-network.md?view=azs-2002&preserve-view=true#private-network).
 ::: moniker-end

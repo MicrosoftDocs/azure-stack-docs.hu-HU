@@ -7,16 +7,16 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 4b39ce2782f8b99740da5a2fea383892c2de5351
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1e762ab25250a6414087c1b22e911bb7a8d151ed
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525982"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974110"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack hub hitelesítési adatainak beolvasása
 
-Azure Stack hub hitelesítéséhez előfizetés-azonosítót, bérlői azonosítót és helyet kell megadnia, valamint Azure Stack hub Resource Manager-végpontot. Ezek az értékek a Azure Stack hub [Azure stack hub Resource Manager-végpontján](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) szerezhetők be. Vagy a cikkben ismertetett lépésekkel kérheti le őket.
+Azure Stack hub hitelesítéséhez előfizetés-azonosítót, bérlői azonosítót és helyet kell megadnia, valamint Azure Stack hub Resource Manager-végpontot. Ezek az értékek a Azure Stack hub [Azure stack hub Resource Manager-végpontján](./azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) szerezhetők be. Vagy a cikkben ismertetett lépésekkel kérheti le őket.
 
 ## <a name="values-needed-to-authenticate"></a>A hitelesítéshez szükséges értékek
 
@@ -72,6 +72,6 @@ Integrált rendszer esetén a Azure Resource Manager végpont URL-címe a követ
 
 Az URL-cím a következő tulajdonságokkal rendelkező metaadatok végpontjának lekérése: gyűjtemény végpont, gráf végpont, portál végpont, bejelentkezési végpont és célközönség. `<ResourceManager>/metadata/endpoints?api-version=1.0`
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-További információ az [Azure stack hub Resource Manager](./azure-stack-version-profiles.md?view=azs-1910) Azure stack hub használatával történő használatáról.
+További információ az [Azure stack hub Resource Manager](./azure-stack-version-profiles.md) Azure stack hub használatával történő használatáról.

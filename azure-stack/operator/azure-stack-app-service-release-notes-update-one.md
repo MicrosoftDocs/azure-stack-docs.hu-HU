@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 433bfa9f6aee13131b80f3200c092bc0d72bd65e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489623"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974387"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service Azure Stack hub Update 1 kibocsátási megjegyzései
 
@@ -29,7 +29,7 @@ Az Azure Stack hub Update 1 Build számának App Service **69.0.13698.9**.
 ## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: **\* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
@@ -41,9 +41,9 @@ Az Azure Stack hub 1. frissítésének Azure App Service a következő javítás
 
 - **Üzembe helyezés meglévő virtuális hálózatban** – az ügyfelek mostantól a meglévő virtuális hálózaton belül üzembe helyezhetik app Service Azure stack hubhoz. Egy meglévő virtuális hálózatban való üzembe helyezés lehetővé teszi, hogy az ügyfelek a Azure App Service számára szükséges, privát portokon keresztül csatlakozzanak a SQL Serverhoz és a fájlkiszolgálón. Az üzembe helyezés során az ügyfelek kiválaszthatják, hogy egy meglévő virtuális hálózaton helyezik üzembe a telepítést, azonban az üzembe helyezés előtt [létre kell hozni az alhálózatokat app Service használatára](azure-stack-app-service-before-you-get-started.md#virtual-network) .
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök** frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.11388**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.11388** frissítése.
 
 - **A következő alkalmazás-keretrendszerek és eszközök frissítései**:
     - A **.net Core 2,0** -támogatás hozzáadva.
@@ -203,7 +203,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1802 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
+Tekintse meg az [Azure stack Hub 1802 kibocsátási megjegyzései](./release-notes.md?view=azs-1802&preserve-view=true) dokumentációját
 
 ## <a name="next-steps"></a>Következő lépések
 

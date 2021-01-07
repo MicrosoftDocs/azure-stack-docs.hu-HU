@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 04/13/2020
-  ms.openlocfilehash: e0a1695cbc5df9454671cd87f187ee71aee83c19
-  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+  ms.openlocfilehash: b815aa8a669c59acdd40e7847f26dd66335fdea3
+  ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 01/05/2021
-  ms.locfileid: "97868624"
+  ms.lasthandoff: 01/07/2021
+  ms.locfileid: "97974183"
 landingContent:
 - title: Az Azure Stack hub ismertetése
   linkLists:
@@ -28,9 +28,9 @@ landingContent:
   - linkListType: whats-new
     links:
     - text: Biztonsági frissítések
-      url: ./release-notes-security-updates.md?view=azs-2002
+      url: ./release-notes-security-updates.md
     - text: Kibocsátási megjegyzések
-      url: ./release-notes.md?view=azs-2002
+      url: ./release-notes.md
     - text: Azure Stack hub Capacity Planner
       url: azure-stack-capacity-planning-overview.md
 - title: Bevezetés
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Ajánlat létrehozása virtuális géphez
-      url: ./tutorial-offer-services.md?view=azs-2002
+      url: ./tutorial-offer-services.md
     - text: Magasan elérhető MySQL-adatbázis létrehozása
       url: azure-stack-tutorial-mysql.md
     - text: Alkalmazások létrehozása bármilyen platformhoz

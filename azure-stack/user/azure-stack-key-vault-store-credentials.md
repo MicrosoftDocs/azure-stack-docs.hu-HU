@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: e1409105c0682552875a524aab9a222f6ab0c459
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567518"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974081"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Az egyszerű szolgáltatásnév hitelesítő adatainak tárolása Azure Stack központban Key Vault
 
@@ -48,33 +48,33 @@ Key Vault létrehozásához kövesse az alábbi lépéseket:
 
 8. Igény szerint a szolgáltatásokhoz való hozzáférés engedélyezéséhez válasszon egy speciális hozzáférési szabályzatot.
 
-9. A beállítások konfigurálása után válassza **az OK**, majd a **Létrehozás**lehetőséget. A Key Vault üzembe helyezése megkezdődik.
+9. A beállítások konfigurálása után válassza **az OK**, majd a **Létrehozás** lehetőséget. A Key Vault üzembe helyezése megkezdődik.
 
 ## <a name="create-a-service-principal"></a>Egyszerű szolgáltatás létrehozása
 
 1. Jelentkezzen be az Azure-fiókjába a Azure Portalon keresztül.
 
-2. Válassza a **Azure Active Directory**, majd a **Alkalmazásregisztrációk**, majd a **Hozzáadás**lehetőséget.
+2. Válassza a **Azure Active Directory**, majd a **Alkalmazásregisztrációk**, majd a **Hozzáadás** lehetőséget.
 
-3. Adja meg az alkalmazás nevét és URL-címét. Válassza ki a létrehozni kívánt alkalmazás típusához a **Web App/API** vagy a **natív** lehetőséget. Az értékek beállítása után válassza a **Létrehozás**lehetőséget.
+3. Adja meg az alkalmazás nevét és URL-címét. Válassza ki a létrehozni kívánt alkalmazás típusához a **Web App/API** vagy a **natív** lehetőséget. Az értékek beállítása után válassza a **Létrehozás** lehetőséget.
 
-4. Válassza a **Active Directory**, majd az alkalmazások **regisztrációja**lehetőséget, majd válassza ki az alkalmazást.
+4. Válassza a **Active Directory**, majd az alkalmazások **regisztrációja** lehetőséget, majd válassza ki az alkalmazást.
 
-5. Másolja az **alkalmazás azonosítóját** , és tárolja azt az alkalmazás kódjában. A minta alkalmazások az **ügyfél-azonosítót** használják az **alkalmazás-azonosítóra**való hivatkozáskor.
+5. Másolja az **alkalmazás azonosítóját** , és tárolja azt az alkalmazás kódjában. A minta alkalmazások az **ügyfél-azonosítót** használják az **alkalmazás-azonosítóra** való hivatkozáskor.
 
 6. A hitelesítési kulcs létrehozásához válassza a **Kulcsok** elemet.
 
 7. Adja meg a kulcs leírását és időtartamát.
 
-8. Kattintson a **Mentés** gombra.
+8. Válassza a **Mentés** lehetőséget.
 
-9. Másolja az elérhetővé váló **kulcsot** a **Mentés**gombra való kattintás után.
+9. Másolja az elérhetővé váló **kulcsot** a **Mentés** gombra való kattintás után.
 
 ## <a name="store-the-service-principal-inside-key-vault"></a>Az egyszerű szolgáltatásnév tárolása Key Vaulton belül
 
 1. Jelentkezzen be Azure Stack hub felhasználói portálra, majd válassza ki a korábban létrehozott kulcstartót, majd válassza a **Secret (titkos** ) csempét.
 
-2. A **titok** ablaktáblán válassza a **készítés/importálás**lehetőséget.
+2. A **titok** ablaktáblán válassza a **készítés/importálás** lehetőséget.
 
 3. A **titkos kulcs létrehozása** panelen válassza a **manuális** lehetőséget a lehetőségek listájából. Ha a szolgáltatásnevet tanúsítványok használatával hozta létre, válassza ki a tanúsítványokat a legördülő listából, majd töltse fel a fájlt.
 
@@ -88,10 +88,10 @@ Key Vault létrehozásához kövesse az alábbi lépéseket:
 
 8. A telepítés elindításához válassza a **Létrehozás** lehetőséget.
 
-A titkos kód sikeres létrehozása után az egyszerű szolgáltatásnév adatait itt tárolja. A **titkok**szakaszban bármikor kiválaszthatja, és megtekintheti vagy módosíthatja a tulajdonságait. A **Properties (Tulajdonságok** ) szakasz tartalmazza a titkos azonosítót, amely egy Uniform Resource Identifier (URI), amelyet a külső alkalmazások a titkos kulcs eléréséhez használnak.
+A titkos kód sikeres létrehozása után az egyszerű szolgáltatásnév adatait itt tárolja. A **titkok** szakaszban bármikor kiválaszthatja, és megtekintheti vagy módosíthatja a tulajdonságait. A **Properties (Tulajdonságok** ) szakasz tartalmazza a titkos azonosítót, amely egy Uniform Resource Identifier (URI), amelyet a külső alkalmazások a titkos kulcs eléréséhez használnak.
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Egyszerű szolgáltatások használata](../operator/azure-stack-create-service-principals.md?view=azs-2002)
+- [Egyszerű szolgáltatások használata](../operator/azure-stack-create-service-principals.md)
 - [Az Azure Stack hub Key Vault kezelése a portálon](azure-stack-key-vault-manage-portal.md)  
 - [Azure Stack hub Key Vault kezelése a PowerShell használatával](azure-stack-key-vault-manage-powershell.md)

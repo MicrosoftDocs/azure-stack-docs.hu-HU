@@ -8,12 +8,12 @@ ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
-ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
+ms.openlocfilehash: a0f8d5e66f0413446a9efe8c266dfc366446b08a
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515039"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974268"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -47,9 +47,9 @@ A frissítések tervezésével és kezelésével, valamint az aktuális verzió 
 
 Egy adott frissítéssel kapcsolatos információkért, beleértve a letöltés módját is, tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 2008 frissítése](/azure-stack/operator/release-notes?view=azs-2008)
-- [Azure Stack hub 2005 frissítése](/azure-stack/operator/release-notes?view=azs-2005)
-- [Azure Stack hub 2002 frissítése](/azure-stack/operator/release-notes?view=azs-2002)
+- [Azure Stack hub 2008 frissítése](/azure-stack/operator/release-notes?view=azs-2008&preserve-view=true)
+- [Azure Stack hub 2005 frissítése](/azure-stack/operator/release-notes?view=azs-2005&preserve-view=true)
+- [Azure Stack hub 2002 frissítése](/azure-stack/operator/release-notes?view=azs-2002&preserve-view=true)
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
@@ -61,8 +61,8 @@ A gyorsjavítások letöltése és telepítése ugyanúgy történik, mint a Azu
 
 A jelenleg elérhető gyorsjavításokkal kapcsolatos további információkért tekintse meg a frissítéshez tartozó kibocsátási megjegyzéseket:
 
-- [Azure Stack hub 2005 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
+- [Azure Stack hub 2005 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2005&preserve-view=true#hotfixes)
+- [Azure Stack hub 2002 gyorsjavítás](/azure-stack/operator/release-notes?view=azs-2002&preserve-view=true#hotfixes-1)
 
 ## <a name="keep-your-system-under-support"></a>Tartsa a rendszerét támogatás alatt
 
@@ -88,7 +88,7 @@ Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nag
 
 A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 - [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-troubleshooting.md)

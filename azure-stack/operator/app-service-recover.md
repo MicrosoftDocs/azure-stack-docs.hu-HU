@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a445fde3d11d42699caf96ff45167871513a2f5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489759"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973369"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Az App Service helyreállítása az Azure Stack Hubon
 
@@ -39,7 +39,7 @@ Miután felkészítette [a SQL Server példányt](azure-stack-app-service-before
 3. Győződjön meg arról, hogy mindkét App Service adatbázis visszaállítása sikeres volt, és lépjen ki SQL Server Management Studio.
 
 > [!NOTE]
-> A feladatátvételi fürtszolgáltatás meghibásodása miatti helyreállításról a [feladatátvételi fürt példányának meghibásodása esetén](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)című témakörben talál további információt. 
+> A feladatátvételi fürtszolgáltatás meghibásodása miatti helyreállításról a [feladatátvételi fürt példányának meghibásodása esetén](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017&preserve-view=true)című témakörben talál további információt. 
 
 ## <a name="restore-the-app-service-file-share-content"></a>A App Service fájlmegosztás tartalmának visszaállítása
 A [fájlkiszolgáló](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) a app Service fájlmegosztás üzemeltetése után történő előkészítése után vissza kell állítania a bérlői fájlmegosztás tartalmát a biztonsági másolatból. A fájlok az újonnan létrehozott App Service fájlmegosztás helyére való másolásához tetszőleges módszert használhat. Ha ezt a példát a fájlkiszolgálón futtatja, a PowerShell és a Robocopy használatával csatlakozhat egy távoli megosztáshoz, és átmásolja a fájlokat a megosztásba:
@@ -99,8 +99,8 @@ Az Azure Stack hub App Service nem támogatja a bérlői felhasználói alkalmaz
 1. Hozzon létre egy új, a függvényalkalmazás által használandó Storage-fiókot. Ez a tároló lehet Azure Stack hub Storage, Azure Storage vagy bármilyen kompatibilis tároló.
 2. A tárolóhoz tartozó kapcsolatok karakterláncának beolvasása.
 3. Nyissa meg a Function Portalt, és keresse meg a Function alkalmazást.
-4. Keresse meg a **platform szolgáltatásai** lapot, és kattintson az **Alkalmazásbeállítások**elemre.
-5. Módosítsa a **AzureWebJobsDashboard** és a **AzureWebJobsStorage** az új kapcsolódási karakterláncra, majd kattintson a **Mentés**gombra.
+4. Keresse meg a **platform szolgáltatásai** lapot, és kattintson az **Alkalmazásbeállítások** elemre.
+5. Módosítsa a **AzureWebJobsDashboard** és a **AzureWebJobsStorage** az új kapcsolódási karakterláncra, majd kattintson a **Mentés** gombra.
 6. Váltson át az **áttekintésre**.
 7. Indítsa újra az alkalmazást. Több próbálkozást is igénybe vehet az összes hiba törléséhez.
 

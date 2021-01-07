@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873741"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973578"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>N szintű alkalmazás futtatása több Azure Stack hub-régióban a magas rendelkezésre állás érdekében
 
@@ -35,9 +35,9 @@ Ez az architektúra az [N szintű alkalmazásban SQL Server](iaas-architecture-w
 
 -   **Virtuális hálózatok**. Hozzon létre külön virtuális hálózatot az egyes régiókban. Ügyeljen arra, hogy a címterek ne legyenek átfedésben.
 
--   **SQL Server always on rendelkezésre állási csoport**. Az SQL Server használata esetén az [SQL Server Always On rendelkezésre állási csoportok](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15) használata javasolt a magas rendelkezésre állás érdekében. Hozzon létre egyetlen rendelkezésre állási csoportot, amely mindkét régióban tartalmazza az SQL Server-példányokat.
+-   **SQL Server always on rendelkezésre állási csoport**. Az SQL Server használata esetén az [SQL Server Always On rendelkezésre állási csoportok](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true) használata javasolt a magas rendelkezésre állás érdekében. Hozzon létre egyetlen rendelkezésre állási csoportot, amely mindkét régióban tartalmazza az SQL Server-példányokat.
 
--   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
+-   **VNET a VNET VPN-kapcsolathoz**. Mivel virtuális társhálózatok létesítése még nem érhető el Azure Stack hub-on, a VNET használatával VNET a VPN-kapcsolatot a két virtuális hálózatok csatlakoztatása érdekében. További információ: [VNET to VNET in Azure stack hub](./azure-stack-network-howto-vnet-to-vnet.md) .
 
 ## <a name="recommendations"></a>Javaslatok
 
@@ -113,7 +113,7 @@ Az rendelkezésre állási csoport konfigurálása:
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Hozzon létre egy [Windows Server feladatátvételi fürtszolgáltatást](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15) (WSFC) fürtöt, amely mindkét régióban tartalmazza SQL Server-példányokat.
+-   Hozzon létre egy [Windows Server feladatátvételi fürtszolgáltatást](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15&preserve-view=true) (WSFC) fürtöt, amely mindkét régióban tartalmazza SQL Server-példányokat.
 
 -   Hozzon létre egy SQL Server Always On rendelkezésre állási csoportot, amely tartalmazza az elsődleges és a másodlagos régió SQL Server-példányait. Ennek lépéseit az [Always On rendelkezésre állási csoport kiterjesztése távoli Azure adatközpontra (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217) című cikkben találja.
 
@@ -134,10 +134,10 @@ A Traffic Manager a rendszer egyik lehetséges meghibásodási pontja. Ha a Traf
 
 Az SQL Server-fürt esetében két feladatátvételi forgatókönyvet kell figyelembe venni:
 
--   Az összes SQL Server-adatbázisreplika meghibásodik az elsődleges régióban. Ez például regionális kimaradás során fordulhat elő. Ebben az esetben manuálisan kell elvégeznie a rendelkezésre állási csoport feladatátvételét, annak ellenére, hogy a Traffic Manager az előtérben automatikusan elvégzi a feladatátvételt. Kövesse a [Kényszerített manuális feladatátvétel elvégzése SQL Server rendelkezésre állási csoporton](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) című cikk lépéseit. A cikk leírja, hogyan végezhető kényszerített feladatátvétel az SQL Server Management Studio, a Transact-SQL vagy a PowerShell használatával az SQL Server 2016-ban.
+-   Az összes SQL Server-adatbázisreplika meghibásodik az elsődleges régióban. Ez például regionális kimaradás során fordulhat elő. Ebben az esetben manuálisan kell elvégeznie a rendelkezésre állási csoport feladatátvételét, annak ellenére, hogy a Traffic Manager az előtérben automatikusan elvégzi a feladatátvételt. Kövesse a [Kényszerített manuális feladatátvétel elvégzése SQL Server rendelkezésre állási csoporton](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) című cikk lépéseit. A cikk leírja, hogyan végezhető kényszerített feladatátvétel az SQL Server Management Studio, a Transact-SQL vagy a PowerShell használatával az SQL Server 2016-ban.
 
     > [!Warning]  
-    > A kényszerített feladatátvétel esetében adatvesztés fordulhat elő. Amint az elsődleges régió újra elérhetővé válik, készítsen pillanatfelvételt az adatbázisról, és használja a [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15) parancsot a különbségek megkereséséhez.
+    > A kényszerített feladatátvétel esetében adatvesztés fordulhat elő. Amint az elsődleges régió újra elérhetővé válik, készítsen pillanatfelvételt az adatbázisról, és használja a [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15&preserve-view=true) parancsot a különbségek megkereséséhez.
 
 -   A Traffic Manager átadja a feladatokat a másodlagos régiónak, de az elsődleges SQL Server-adatbázisreplika továbbra is elérhető marad. Például előfordulhat, hogy az előtérréteg meghibásodik, de ez nincs hatással az SQL Servert futtató virtuális gépekre. Ebben az esetben a rendszer átirányítja az internetes forgalmat a másodlagos régióba, és ez a régió továbbra is csatlakozhat az elsődleges replikához. Ekkor azonban nagyobb lesz a késés, mivel az SQL Server-kapcsolatoknak több régión kell áthaladniuk. Ebben a helyzetben manuálisan kell végrehajtania a feladatátvételt az alábbiak szerint:
 
@@ -169,6 +169,6 @@ Tesztelje a rendszer meghibásodásokkal szembeni rugalmasságát. Alább talál
 
 Mérje meg a helyreállítási időtartamokat, és győződjön meg róla, hogy azok megfelelnek az üzleti követelményeinek. Több hibaállapot kombinációját is tesztelje.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

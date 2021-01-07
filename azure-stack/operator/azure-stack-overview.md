@@ -8,12 +8,12 @@ ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 88ece6a5d29e56caf0752fd8c7b71989237d70c1
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869814"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974302"
 ---
 # <a name="azure-stack-hub-overview"></a>Az Azure Stack Hub áttekintése
 
@@ -72,7 +72,7 @@ Azure Stack hub a felügyeleti portál, a felhasználói portál vagy a [PowerSh
 
 > Az Azure Stack hub felügyeleti portál használatával történő kezelésével kapcsolatos további információkért tekintse meg a [Azure stack hub felügyeleti portáljának](azure-stack-manage-portals.md)használatának első lépéseit.
 
-Azure Stack hub-kezelőként a [virtuális gépeket](./tutorial-offer-services.md?view=azs-2002), [webalkalmazásokat](azure-stack-app-service-overview.md), valamint a rendelkezésre álló [SQL Server](azure-stack-tutorial-sql.md)és a [MySQL-kiszolgáló](azure-stack-tutorial-mysql.md) adatbázisait is továbbíthatja. A SharePoint, az Exchange és más rendszereken a Azure Stack hub gyors üzembe helyezési [Azure Resource Manager sablonjaival](https://github.com/Azure/AzureStack-QuickStart-Templates) is elvégezheti a telepítést.
+Azure Stack hub-kezelőként a [virtuális gépeket](./tutorial-offer-services.md), [webalkalmazásokat](azure-stack-app-service-overview.md), valamint a rendelkezésre álló [SQL Server](azure-stack-tutorial-sql.md)és a [MySQL-kiszolgáló](azure-stack-tutorial-mysql.md) adatbázisait is továbbíthatja. A SharePoint, az Exchange és más rendszereken a Azure Stack hub gyors üzembe helyezési [Azure Resource Manager sablonjaival](https://github.com/Azure/AzureStack-QuickStart-Templates) is elvégezheti a telepítést.
 
 Az operátorok a [felügyeleti portál](azure-stack-manage-portals.md) vagy a [PowerShell](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1)használatával felügyelhetik Azure stack hubot. Azure Stack hub-t úgy konfigurálhatja, hogy a szolgáltatásokat a bérlők számára a csomagok, kvóták, ajánlatok és előfizetések használatával [kézbesítse](service-plan-offer-subscription-overview.md) . A bérlői felhasználók több ajánlatra is fizethetnek. Az ajánlatok egy vagy több csomaggal rendelkezhetnek, a csomagok pedig egy vagy több szolgáltatással rendelkezhetnek. A kezelők is kezelhetik a kapacitást, és reagálnak a riasztásokra.
 
@@ -100,7 +100,7 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 - **SQL Server**: a [SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider.md) használatával Azure stack hub szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server példánnyal, Ön és a felhasználók létrehozhatnak adatbázisokat a Felhőbeli natív alkalmazásokhoz, az SQL-t használó webhelyekhez és az SQL-t használó egyéb munkaterhelésekhez.
 - **MySQL-kiszolgáló**: a MySQL- [kiszolgáló erőforrás-szolgáltatójának](azure-stack-mysql-resource-provider-deploy.md) használatával tegye elérhetővé a mysql-adatbázisokat Azure stack hub-szolgáltatásként. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2019 Server Core virtuális gépen.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 

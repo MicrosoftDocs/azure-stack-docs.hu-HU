@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2019
-ms.openlocfilehash: b06ab0601616f8c089d7bcf90526dae97a8c6e5f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 518062e13e06dead8564aa649796621dfb93db7a
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489538"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974353"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service Azure Stack hub Update 2 kibocsátási megjegyzései
 
@@ -29,7 +29,7 @@ A App Service Azure Stack hub Update 2 Build száma **72.0.13698.10**.
 ## <a name="prerequisites"></a>Előfeltételek
 
 > [!IMPORTANT]
-> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: ** \* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
+> A Azure App Service Azure Stack hub-beli új központi telepítései mostantól egy három tárgyú helyettesítő karaktert igényelnek, mivel a kudu-hez tartozó SSO-t a Azure App Service-ben kezelik. Az új Tárgy: **\* . SSO. appservice. \<region\> \<domainname\> \<extension\> .** .
 
 Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítésének Előfeltételeit Azure stack hub-on](azure-stack-app-service-before-you-get-started.md) .
 
@@ -37,9 +37,9 @@ Az üzembe helyezés megkezdése előtt tekintse át a [app Service telepítés�
 
 A Azure App Service on Azure Stack hub Update 2 a következő javításokat és javításokat tartalmazza:
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök** frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.11612**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.11612** frissítése.
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
@@ -85,7 +85,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
+Tekintse meg az [Azure stack Hub 1804 kibocsátási megjegyzései](./release-notes.md?view=azs-1804&preserve-view=true) dokumentációját
 
 ## <a name="next-steps"></a>Következő lépések
 

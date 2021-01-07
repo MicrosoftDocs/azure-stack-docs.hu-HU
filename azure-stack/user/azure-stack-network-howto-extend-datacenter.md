@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525795"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974098"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
 
@@ -50,7 +50,7 @@ Ebben a forgatókönyvben egy Windows Server 2019 rendszerű virtuális gépet h
 
 2.  Ha már rendelkezik Windows Server 2019 rendszerképpel a Azure Stack hub-környezetben, **Jelentkezzen be a Azure stack hub felhasználói portálra**.
 
-3.  Miután bejelentkezett az Azure Stack hub felhasználói portálra, ellenőrizze, hogy van-e [előfizetése az ajánlathoz](../operator/azure-stack-subscribe-plan-provision-vm.md?view=azs-1908), amely lehetővé teszi a IaaS-erőforrások (számítási, tárolási és hálózati) kiépítését.
+3.  Miután bejelentkezett az Azure Stack hub felhasználói portálra, ellenőrizze, hogy van-e [előfizetése az ajánlathoz](../operator/azure-stack-subscribe-plan-provision-vm.md), amely lehetővé teszi a IaaS-erőforrások (számítási, tárolási és hálózati) kiépítését.
 
 4.  Miután elérhetővé vált egy előfizetést, az Azure Stack hub felhasználói portál **irányítópultján** kattintson az **erőforrás létrehozása** elemre, válassza a **számítás** lehetőséget, majd válassza a **Windows Server 2019 Datacenter Gallery elemet**.
 
@@ -363,6 +363,6 @@ A kommunikáció ellenőrzéséhez és a fájl-másolási teszt futtatásához e
 
 Ennek a forgatókönyvnek a célja, hogy kiemelje az Azure Stack hub-on futó munkaterhelés és egy külső tárolási tömb, ebben az esetben egy Windows Server-alapú iSCSI-tároló közötti kapcsolatot. Ez nem teljesítménytesztnek lett kialakítva, és nem tükrözheti azokat a lépéseket, amelyeket végre kell hajtania, ha alternatív iSCSI-alapú készüléket használ, de a munkaterhelések Azure Stack hubhoz való üzembe helyezéséhez szükséges alapvető szempontokat is kiemeli, és csatlakoztatja azokat a Azure Stack hub-környezeten kívüli tárolási rendszerekhez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)

@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 6bbca7a38e23a0dfadcd0e7654430430d55da3f2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525693"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974064"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>A Storage-fiókok biztonsági mentése Azure Stack hub-on
 
@@ -32,7 +32,7 @@ Az adatok replikálása a Storage-fiókok között külön Azure Stack hub-mére
 
 A AzCopy egy kiváló eszköz, amellyel helyi fájlrendszerekből, Azure Cloud Storage-ból, Azure Stack hub-tárolóból és S3-ból másolhatók az adatok. Jelenleg a AzCopy nem tud az Adatmásolást két Azure Stack hub Storage-fiók között. Az objektumok forrás Azure Stack hub Storage-fiókból egy célként megadott Azure Stack hub Storage-fiókba való másolása egy közvetítő helyi fájlrendszert igényel.
 
-További információkért tekintse meg a AzCopy az [adatátviteli eszközök használata Azure stack hub Storage-ban](./azure-stack-storage-transfer.md?view=azs-1908#azcopy) című cikket.
+További információkért tekintse meg a AzCopy az [adatátviteli eszközök használata Azure stack hub Storage-ban](./azure-stack-storage-transfer.md#azcopy) című cikket.
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack hub (forrás)
 
@@ -123,6 +123,6 @@ Az alkalmazás-kapcsolódási karakterláncok akkor módosíthatók, ha az objek
 
 Ha az alkalmazás az HRE vagy a AD FS helyett a SAS-t használja, a fenti metódus nem fog működni, és az alkalmazás-kapcsolódási karakterláncokat frissíteni kell a célként megadott Storage-fiók URL-címével és a cél Storage-fiókhoz generált SAS-kulcsokkal.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)

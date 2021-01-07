@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b1aae77d4247c80ace7a94e2b034f29f10220b55
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573768"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974030"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Az SQL Server ajánlott eljárásai Azure Stack hub teljesítményének optimalizálásához
 
@@ -123,14 +123,14 @@ Azt javasoljuk, hogy adatlemezként tárolja a TempDB, mivel az adatlemezek legf
 
 ## <a name="io-guidance"></a>I/O-útmutatás
 
-- Érdemes lehet engedélyezni az azonnali fájl inicializálását, hogy csökkentse a kezdeti fájl lefoglalásához szükséges időt. Az azonnali fájl inicializálásának kihasználásához adja meg a SQL Server (MSSQLSERVER) szolgáltatásfiókot a **SE_MANAGE_VOLUME_NAME** , és vegye fel a **kötet-karbantartási feladatok elvégzése** biztonsági szabályzatba. Ha SQL Server platform-rendszerképet használ az Azure-hoz, a rendszer nem adja hozzá az alapértelmezett szolgáltatásfiókot (**NT Service\MSSQLSERVER**) a **kötet-karbantartási feladatok végrehajtása** biztonsági házirendhez. Más szóval az azonnali fájl inicializálása nincs engedélyezve egy SQL Server Azure platform-rendszerképben. Miután hozzáadta a SQL Server szolgáltatásfiókot a **kötet-karbantartási feladatok elvégzése** biztonsági házirendhez, indítsa újra a SQL Server szolgáltatást. Ennek a funkciónak a használatához biztonsági megfontolásokat lehet használni. További információ: [adatbázisfájlok inicializálása](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15).
+- Érdemes lehet engedélyezni az azonnali fájl inicializálását, hogy csökkentse a kezdeti fájl lefoglalásához szükséges időt. Az azonnali fájl inicializálásának kihasználásához adja meg a SQL Server (MSSQLSERVER) szolgáltatásfiókot a **SE_MANAGE_VOLUME_NAME** , és vegye fel a **kötet-karbantartási feladatok elvégzése** biztonsági szabályzatba. Ha SQL Server platform-rendszerképet használ az Azure-hoz, a rendszer nem adja hozzá az alapértelmezett szolgáltatásfiókot (**NT Service\MSSQLSERVER**) a **kötet-karbantartási feladatok végrehajtása** biztonsági házirendhez. Más szóval az azonnali fájl inicializálása nincs engedélyezve egy SQL Server Azure platform-rendszerképben. Miután hozzáadta a SQL Server szolgáltatásfiókot a **kötet-karbantartási feladatok elvégzése** biztonsági házirendhez, indítsa újra a SQL Server szolgáltatást. Ennek a funkciónak a használatához biztonsági megfontolásokat lehet használni. További információ: [adatbázisfájlok inicializálása](/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver15&preserve-view=true).
 - Az **automatikus növekedés váratlan** növekedést mutat. Az automatikus növekedéssel nem kezelheti az adatait, és napi rendszerességgel elvégezheti a naplózást. Ha az automatikus növekedés használatban van, a **méret** kapcsoló használatával növelje a fájl előzetes növekedését.
 - Ügyeljen arra, hogy a szükségtelen terhelés elkerülése érdekében az **AutoShrink** le legyen tiltva, ami negatív hatással lehet a teljesítményre.
-- Alapértelmezett biztonsági mentési és adatbázisfájl-tárolóhelyek beállítása. Használja az ebben a cikkben szereplő javaslatokat, és végezze el a módosításokat a kiszolgáló tulajdonságai ablakban. Útmutatásért lásd: az adatfájlok [és naplófájlok alapértelmezett helyeinek megtekintése vagy módosítása (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15). A következő képernyőképen látható, hol végezheti el a módosításokat:
+- Alapértelmezett biztonsági mentési és adatbázisfájl-tárolóhelyek beállítása. Használja az ebben a cikkben szereplő javaslatokat, és végezze el a módosításokat a kiszolgáló tulajdonságai ablakban. Útmutatásért lásd: az adatfájlok [és naplófájlok alapértelmezett helyeinek megtekintése vagy módosítása (SQL Server Management Studio)](/sql/database-engine/configure-windows/view-or-change-the-default-locations-for-data-and-log-files?view=sql-server-ver15&preserve-view=true). A következő képernyőképen látható, hol végezheti el a módosításokat:
 
     > ![Az alapértelmezett helyszínek megtekintése és módosítása](./media/sql-server-vm-considerations/image1.png)
 
-- Az i/o és a lapozási tevékenységek csökkentéséhez engedélyezze a zárolt lapokat. További információ: [a zárolási lapok engedélyezése a memóriában (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15).
+- Az i/o és a lapozási tevékenységek csökkentéséhez engedélyezze a zárolt lapokat. További információ: [a zárolási lapok engedélyezése a memóriában (Windows)](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-ver15&preserve-view=true).
 
 - Vegye figyelembe az adatfájlok tömörítését Azure Stack hub-ba való átvitelkor, beleértve a biztonsági mentéseket is.
 
@@ -140,7 +140,7 @@ Néhány üzemelő példány további teljesítménybeli előnyöket érhet el f
 
 - **Biztonsági mentés az Azure** **Storage** -ba. Azure Stack hub-alapú virtuális gépeken futó SQL Server biztonsági mentésének készítésekor SQL Server biztonsági mentést használhat az URL-címre. Ez a funkció SQL Server 2012 SP1 CU2 kezdődően érhető el, és ajánlott a csatlakoztatott adatlemezekre történő biztonsági mentéshez.
 
-    Ha az Azure Storage szolgáltatással készít biztonsági mentést vagy visszaállítást, kövesse az [SQL Server biztonsági mentés az URL-címekkel kapcsolatos ajánlott eljárásokat, valamint](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15) a [Microsoft Azure tárolt biztonsági](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017)másolatokból történő hibaelhárítási és visszaállítási javaslatokat. Ezeket a biztonsági mentéseket a [SQL Server Azure-beli virtuális gépeken történő automatikus biztonsági mentésével](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)is automatizálhatja.
+    Ha az Azure Storage szolgáltatással készít biztonsági mentést vagy visszaállítást, kövesse az [SQL Server biztonsági mentés az URL-címekkel kapcsolatos ajánlott eljárásokat, valamint](/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting?view=sql-server-ver15&preserve-view=true) a [Microsoft Azure tárolt biztonsági](/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017&preserve-view=true)másolatokból történő hibaelhárítási és visszaállítási javaslatokat. Ezeket a biztonsági mentéseket a [SQL Server Azure-beli virtuális gépeken történő automatikus biztonsági mentésével](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)is automatizálhatja.
 
 -   **Biztonsági mentés Azure Stack hub-tárolóba.** Az Azure Storage-ba történő biztonsági mentéshez hasonló módon készíthet biztonsági mentést Azure Stack hub-tárolóba. Ha SQL Server Management Studioon (SSMS) belül készít biztonsági másolatot, manuálisan kell megadnia a konfigurációs adatokat. A SSMS nem használható a tároló vagy a közös hozzáférési aláírás létrehozásához. A SSMS csak az Azure-előfizetésekhez csatlakozik, Azure Stack hub-előfizetésekhez nem. Ehelyett létre kell hoznia a Storage-fiókot, a tárolót és a közös hozzáférésű aláírást az Azure Stack hub-portálon vagy a PowerShell-lel.
 

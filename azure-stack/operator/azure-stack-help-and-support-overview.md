@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870715"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974319"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -103,8 +103,8 @@ Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső s
 
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- További információ a [diagnosztikai naplók gyűjtéséről](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
+- További információ a [diagnosztikai naplók gyűjtéséről](./azure-stack-diagnostic-log-collection-overview.md).
 - Megtudhatja, hogyan [keresheti meg a Felhőbeli azonosítóját](azure-stack-find-cloud-id.md).
 - Tudnivalók a [Azure stack hub hibaelhárításáról](azure-stack-troubleshooting.md).

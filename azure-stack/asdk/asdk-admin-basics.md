@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 205df69311e2543f245af7bdb8c8ddd98f2511be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873639"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973350"
 ---
 # <a name="asdk-admin-basics"></a>ASDK-adminisztrátor alapjai
 Több dolgot kell tudnia, ha még nem ismeri a Azure Stack Development Kit (ASDK) felügyeletét. Ez az útmutató áttekintést nyújt a szerepkörről Azure Stack operátorként a kiértékelési környezetben. Az adatok megismerésével biztosíthatja, hogy a felhasználók a lehető leggyorsabban hatékonyak legyenek.
@@ -38,7 +38,7 @@ A Azure Stack kezelésére a Azure Stack felügyeleti portál `https://adminport
 A Azure Stack a Azure Resource Manager használja a mögöttes üzembe helyezési, felügyeleti és szervezeti mechanizmusként. Ha Azure Stack fogja kezelni a felhasználókat, és segítségre van szüksége a felhasználók támogatásához, ismerkedjen meg a Azure Resource Managerokkal. További információt a Első lépések Azure Resource Manager tanulmányban való elolvasásával [foglalkozó](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)témakörben olvashat.
 
 ## <a name="your-typical-responsibilities"></a>Tipikus feladatai
-A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. A ASDK segítségével megtudhatja, hogy mely szolgáltatásokat ajánljuk, és hogyan teheti elérhetővé ezeket a szolgáltatásokat [csomagok, ajánlatok és kvóták létrehozásával](../operator/tutorial-offer-services.md?view=azs-2002). Emellett elemeket is hozzá kell adnia a piactérhez, például a virtuális gépekhez (VM). A legegyszerűbb módszer, ha a [Piactéri elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból Azure Stackba tölti le.
+A felhasználók a szolgáltatásokat szeretnék használni. A legfontosabb szerepe, hogy ezek a szolgáltatások elérhetők legyenek a saját szemszögéből. A ASDK segítségével megtudhatja, hogy mely szolgáltatásokat ajánljuk, és hogyan teheti elérhetővé ezeket a szolgáltatásokat [csomagok, ajánlatok és kvóták létrehozásával](../operator/tutorial-offer-services.md). Emellett elemeket is hozzá kell adnia a piactérhez, például a virtuális gépekhez (VM). A legegyszerűbb módszer, ha a [Piactéri elemeket](../operator/azure-stack-create-and-publish-marketplace-item.md) az Azure-ból Azure Stackba tölti le.
 
 > [!NOTE]
 > A csomagok, ajánlatok és szolgáltatások teszteléséhez használja a felhasználói portált, `https://portal.local.azurestack.external` ne pedig a felügyeleti portált `https://adminportal.local.azurestack.external` .
@@ -58,5 +58,5 @@ A fórumokat a felügyeleti portál jobb felső sarkában található **Súgó**
 > [!IMPORTANT]
 > Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálataon keresztül nem érhető el hivatalos támogatás.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK üzembe helyezése](asdk-install.md)

@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 008c49c4db50be2ac7c7544211c0f0a82f3b2e2b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a4b2ae49e052731e372f4bfdaf8ff30c9b5490e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489691"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974404"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>App Service Azure Stack hub Update 5 kibocsátási megjegyzései
 
@@ -52,9 +52,9 @@ Mielőtt megkezdené a Azure App Service frissítését Azure Stack hub-ról 1,5
 
 Az Azure Stack hub Update 5 Azure App Service a következő javításokat és javításokat tartalmazza:
 
-- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök**frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
+- A **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközök** frissítései. Konzisztens Azure Stack hub Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.12205**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.12205** frissítése.
 
 - A **kudu-eszközök** frissítései a **megszakadt** Azure stack hub-t használó ügyfelek stílusával és funkcióival kapcsolatos problémák megoldásához. 
 
@@ -221,7 +221,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1809 kibocsátási megjegyzései](./release-notes.md?view=azs-2002)dokumentációját.
+Tekintse meg az [Azure stack Hub 1809 kibocsátási megjegyzései](./release-notes.md)dokumentációját.
 
 ## <a name="next-steps"></a>Következő lépések
 

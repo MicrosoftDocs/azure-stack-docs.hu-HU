@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 449c1dac3e983aacefe4d69581ee854239d435ae
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 779bbce3a3dbcf3b19b8bb142b10729f85d960b2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489606"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974217"
 ---
 # <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service Azure Stack hub Update 7 kibocsátási megjegyzései
 
@@ -56,7 +56,7 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 
 - Frissítések **app Service bérlő, rendszergazda, functions portálok és kudu eszközökhöz**. Konzisztens Azure Stack hub Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.12582**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.12582** frissítése.
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
@@ -93,7 +93,7 @@ A Azure App Service on Azure Stack hub Update 7 a következő javításokat és 
 
   **Új** Központi telepítések – a Windows Update szolgáltatás alapértelmezés szerint le van tiltva.
 
-  **Meglévő** Központi telepítések – Ha módosította a vezérlő beállítását, az érték **false** értékről **Letiltva** értékűre változik, és az **igaz** érték korábbi értéke **automatikus**lesz.
+  **Meglévő** Központi telepítések – Ha módosította a vezérlő beállítását, az érték **false** értékről **Letiltva** értékűre változik, és az **igaz** érték korábbi értéke **automatikus** lesz.
 
 ## <a name="post-deployment-steps"></a>Üzembe helyezés után lépések
 
@@ -118,7 +118,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-2002) dokumentációját
+Tekintse meg az [Azure stack Hub 1907 kibocsátási megjegyzései](./release-notes.md?view=azs-1907&preserve-view=true) dokumentációját
 
 ## <a name="next-steps"></a>Következő lépések
 

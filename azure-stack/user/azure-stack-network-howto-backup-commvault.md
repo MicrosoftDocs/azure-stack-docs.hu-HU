@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 0d5b48c04e546d3b8776f436e5562786b8e77f33
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524792"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974132"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>A virtuális gép biztonsági mentése Azure Stack hub-on a CommVault
 
@@ -69,7 +69,7 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     h. Válassza ki az Azure Stack hub **helyét** . Ha ASDK használ, válassza a **helyi** lehetőséget.
     
-    i. Kattintson az **OK** gombra.
+    i. Válassza az **OK** lehetőséget.
 
     ![Az "irányítópult > új > virtuális gép létrehozása > méret választása" párbeszédpanel megjeleníti a virtuális gép méretezési lehetőségeinek listáját.](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-02.png)
 
@@ -101,9 +101,9 @@ Ennek a megközelítésnek a topológiája a következő ábrához hasonlóan fo
     
     k. Hagyja meg az alapértelmezett **diagnosztikai Storage-fiókot**.
     
-    l. Kattintson az **OK** gombra.
+    l. Válassza az **OK** lehetőséget.
 
-6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Kattintson az **OK** gombra.
+6. Tekintse át a CommVault virtuális gép összegzését, miután az érvényesítése sikeres volt. Válassza az **OK** lehetőséget.
 
 ## <a name="get-your-service-principal"></a>Az egyszerű szolgáltatás beszerzése
 
@@ -111,12 +111,12 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 | Elem | Leírás | Forrás |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Resource Manager URL-cím | Az Azure Stack hub Resource Manager-végpont. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
+| Azure Resource Manager URL-cím | Az Azure Stack hub Resource Manager-végpont. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint |
 | Alkalmazásnév |  |  |
-| Alkalmazásazonosító | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| Előfizetés azonosítója | Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat az Azure Stack hub szolgáltatásban. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| Bérlő azonosítója (címtár-azonosító) | Az Azure Stack hub-bérlő azonosítója. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
-| Alkalmazás jelszava | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
+| Alkalmazásazonosító | Az egyszerű szolgáltatásnév a jelen cikk előző szakaszában a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
+| Előfizetés azonosítója | Az előfizetés-AZONOSÍTÓval érheti el az ajánlatokat az Azure Stack hub szolgáltatásban. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions |
+| Bérlő azonosítója (címtár-azonosító) | Az Azure Stack hub-bérlő azonosítója. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview |
+| Alkalmazás jelszava | A szolgáltatás egyszerű alkalmazásának titkos kulcsa a szolgáltatásnév létrehozásakor mentve. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>A biztonsági mentés konfigurálása a CommVault-konzol használatával
 
@@ -135,7 +135,7 @@ Tudnia kell, hogy az Identity Manager Azure AD vagy ADFS. A következő tábláz
 
 5. Adja hozzá a Storage-készlet nevét. Kattintson a **Tovább** gombra.
 
-6. Válassza **Create** a  >  **Felhőbeli tároló** létrehozása lehetőséget.
+6. Válassza a  >  **Felhőbeli tároló** létrehozása lehetőséget.
 
     ![A StorageDevice # párbeszédpanel az általános Többlapos oldalt jeleníti meg a létrehozandó tárolóeszköz megadására szolgáló különböző listával és szövegmezővel.](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
@@ -206,6 +206,6 @@ Válassza ki a helyreállítani kívánt virtuális gépeket a helyreállítási
 
 ![A fázis részletei című lista hat eseményt mutat be négy gépen. Minden esetben a fázis neve, az állapot, a kezdési idő és a befejezési idő szerepel. A fázisok nevei kikapcsolva, bekapcsolva, a szinkronizálás letiltása és a post művelet.](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások](azure-stack-network-differences.md)  

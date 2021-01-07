@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 3b12c794550c3d39809369ae86117d9c684e1a53
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: d1177361f8980c44f67a0d1757f7bb146aed04be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489793"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973435"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Az App Service biztonsági mentése az Azure Stack Hubon
 
@@ -36,7 +36,7 @@ Az App Service-titkok biztonsági mentését az adminisztrációs portálon vég
 
 2. Keresse meg **app Service**  ->  **titkokat**. 
 
-3. Válassza a **titkos kulcsok letöltése**lehetőséget.
+3. Válassza a **titkos kulcsok letöltése** lehetőséget.
 
    ![A titkok letöltése Azure Stack hub felügyeleti portálján](./media/app-service-back-up/download-secrets.png)
 
@@ -61,7 +61,7 @@ Ha manuálisan szeretné biztonsági másolatot készíteni ezekről az adatbáz
   ```
 
 > [!NOTE]
-> Ha SQL AlwaysOn-adatbázisokról kell biztonsági mentést készítenie, kövesse [az alábbi utasításokat](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017). 
+> Ha SQL AlwaysOn-adatbázisokról kell biztonsági mentést készítenie, kövesse [az alábbi utasításokat](/sql/database-engine/availability-groups/windows/configure-backup-on-availability-replicas-sql-server?view=sql-server-2017&preserve-view=true). 
 
 Miután az összes adatbázis biztonsági mentése sikeres volt, másolja a. bak fájlokat egy biztonságos helyre a App Service Secrets információval együtt.
 

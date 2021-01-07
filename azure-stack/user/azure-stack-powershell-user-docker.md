@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: d187058561f166084b672d941262c7979f7deec2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620687"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974047"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>A Azure Stack hub PowerShellének futtatása a Docker használatával
 
@@ -34,7 +34,7 @@ Ebben a cikkben a Docker használatával létrehozhat egy tárolót, amelyen fut
 
 Ahhoz, hogy a PowerShell használatával hozzáférhessen a Azure Stack hub erőforrásaihoz, szüksége lesz egy egyszerű szolgáltatásnév használatára a Azure Active Directory-(Azure AD-) bérlőben. Engedélyeket delegálhat a felhasználói szerepköralapú hozzáférés-vezérléssel (RBAC). Előfordulhat, hogy az egyszerű szolgáltatást a felhő üzemeltetőjétől kell kérnie.
 
-1. Az egyszerű szolgáltatás beállításához kövesse az [alkalmazások Azure stack hub-erőforrásokhoz való hozzáférésének biztosítása az egyszerű szolgáltatások létrehozásával](../operator/azure-stack-create-service-principals.md?view=azs-2002)című témakör utasításait.
+1. Az egyszerű szolgáltatás beállításához kövesse az [alkalmazások Azure stack hub-erőforrásokhoz való hozzáférésének biztosítása az egyszerű szolgáltatások létrehozásával](../operator/azure-stack-create-service-principals.md)című témakör utasításait.
 
 2. Jegyezze fel az alkalmazás AZONOSÍTÓját, a titkos kulcsot, a bérlői azonosítót és az objektumazonosítót a későbbi használatra.
 
@@ -165,7 +165,7 @@ A Docker megnyitja a Microsoft */Windowsservercore Microsoft-* rendszerképét, 
 
 ---
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Tekintse át az [Azure stack hub PowerShell Azure stack hub-](azure-stack-powershell-overview.md)beli áttekintését.
 - További információ a [PowerShell API-profiljairól](azure-stack-version-profiles.md) Azure stack hub-ban.

@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 2f84233e47a5d86b9a22b76cb0d5a6dd993f4464
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: fe28503ec5072cb11996563efcb70662bb1025fa
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96526016"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973962"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>API-verziók profiljainak kezelése Azure Stack hub-ban
 
@@ -74,7 +74,7 @@ Az Azure Stack hub használatával a profilok segítségével integrálhatja meg
 Használja a .NET API-profilt az erőforrás-szolgáltatói csomagban található egyes erőforrástípusok legújabb, legstabilabb verziójának beszerzéséhez. További információ: az [API-verziók profiljainak használata a .net-ben Azure stack hub-ban](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Használja az az  **. bootstrapper** modult az PowerShell-galériaon keresztül az API-verzió profiljainak használatához szükséges PowerShell-parancsmagok beszerzéséhez. További információ: [API-verziók profiljainak használata a powershellhez](azure-stack-version-profiles-powershell.md).
-Használja az PowerShell-galéria elérhető  **AzureRM. bootstrapper** modult az API-verzió profiljainak használatához szükséges PowerShell-parancsmagok beszerzéséhez. További információ: [API-verziók profiljainak használata a powershellhez](../operator/powershell-install-az-module.md?view=azs-2002).
+Használja az PowerShell-galéria elérhető  **AzureRM. bootstrapper** modult az API-verzió profiljainak használatához szükséges PowerShell-parancsmagok beszerzéséhez. További információ: [API-verziók profiljainak használata a powershellhez](../operator/powershell-install-az-module.md).
 - **Azure CLI**  
 Frissítse környezeti konfigurációját az Azure Stack Hub-specifikus API-verzió profiljának használatára. További információ: az [API-verziók profiljainak használata az Azure CLI-hez](azure-stack-version-profiles-azurecli2.md).
 - **Ugrás**  
@@ -86,7 +86,7 @@ A Python SDK támogatja az API-verziók profiljait különböző felhőalapú pl
 - **Node.js**  
 Az Azure Stack hub Resource Managerhez készült Node.js SDK olyan eszközöket biztosít, amelyek segítenek az infrastruktúra kiépítésében és kezelésében. További információ: az [API-verziók profiljainak használata a Node.jshasználatával ](azure-stack-version-profile-nodejs.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [A PowerShell telepítése Azure Stack hubhoz](../operator/powershell-install-az-module.md)
 - [A Azure Stack hub felhasználói PowerShell-környezetének konfigurálása](azure-stack-powershell-configure-user.md)

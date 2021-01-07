@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 81a27e841565e00c60183de0228896d56b9eede9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869508"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974285"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -249,7 +249,7 @@ A PEP-támogatás hitelesítési válaszának tokenje két objektumból áll:
 Ezután a rendszer titkosítja a válasz tokent a kérelem jogkivonatában található önaláírt tanúsítvánnyal. Az önaláírt tanúsítványt visszautasította az Azure-felhőhöz társított titkos kulccsal, amelyhez az Azure Stack hub-környezet regisztrálva van.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
-- [Azure Stack hub diagnosztikai eszközök](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
+- [Azure Stack hub diagnosztikai eszközök](./azure-stack-diagnostic-log-collection-overview.md)
 - [Azure Stack hub privilegizált végpontjának referenciája](../reference/pep-2002/index.md)

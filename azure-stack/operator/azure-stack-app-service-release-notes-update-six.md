@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 932686cb52e7aa2a1aa1c948e1ab5d5469d4bf30
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 689f5eaccb7dc30ce7888e9fffdbbd62ac9b5267
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489589"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974370"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service Azure Stack hub Update 6 kibocsátási megjegyzései
 
@@ -54,7 +54,7 @@ A Azure Stack hub Update 6 Azure App Service a következő javításokat és jav
 
 - Frissítések **app Service bérlő, a rendszergazda, a functions portál és a kudu eszközökhöz**. Konzisztens Azure Stack hub Portal SDK verziójával.
 
-- A **Azure functions Runtime** és a **v 1.0.12299**frissítése.
+- A **Azure functions Runtime** és a **v 1.0.12299** frissítése.
 
 - Az alapszolgáltatások frissítései a megbízhatóság és a hibák javításához, ami lehetővé teszi a gyakori problémák egyszerűbb diagnosztizálását.
 
@@ -98,7 +98,7 @@ Ha úgy döntött, hogy egy meglévő virtuális hálózatra és egy belső IP-c
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a Cloud adminok operációs Azure App Service Azure Stack központban
 
-Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](./release-notes.md?view=azs-1908)dokumentációját.
+Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](./release-notes.md?view=azs-1908&preserve-view=true)dokumentációját.
 
 ## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Ismert problémák a bérlők számára a Azure Stack hub-on Azure App Service alkalmazások üzembe helyezése során
 
@@ -112,7 +112,7 @@ Tekintse meg az [Azure stack Hub 1908 kibocsátási megjegyzései](./release-not
 
 - Az Azure Function monitoring folyamatosan megjeleníti a betöltést a portálon.
 
-    Amikor megkísérli figyelni az egyes függvényeket a felhasználói portálon, nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma. A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók**menüpontra, és válassza az **Alkalmazásbeállítások**lehetőséget.  Vegyen fel egy **AzureWebJobsDashboard** nevű új alkalmazás-beállítást, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre. Ezután nyissa meg a figyelés nézetet a függvényben, és tekintse meg a figyelési adatokat.
+    Amikor megkísérli figyelni az egyes függvényeket a felhasználói portálon, nem fog megjelenni a Meghívási napló, a sikeres műveletek száma vagy a hibák száma. A funkció újbóli engedélyezéséhez lépjen a **függvényalkalmazás**, lépjen a **platform funkciók** menüpontra, és válassza az **Alkalmazásbeállítások** lehetőséget.  Vegyen fel egy **AzureWebJobsDashboard** nevű új alkalmazás-beállítást, és állítsa be az értéket a AzureWebJobsStorage beállítással megegyező értékre. Ezután nyissa meg a figyelés nézetet a függvényben, és tekintse meg a figyelési adatokat.
 
 ## <a name="next-steps"></a>Következő lépések
 
