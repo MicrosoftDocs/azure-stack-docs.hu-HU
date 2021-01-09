@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 4f451e5e3202c301e39295ec99953d3fc62a7570
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: c6f58a2364378180641a7b3ea2e3a38e4bb4f183
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974336"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052306"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack hub tárolási kapacitásának kezelése
 
@@ -51,7 +51,7 @@ Ha egy objektum-tároló kötete kevés a szabad területnél, és [a lemezterü
 
 További információ arról, hogy a bérlői felhasználók hogyan működnek a Azure Stack hub blob Storage [szolgáltatásával: Azure stack hub Storage Services](../user/azure-stack-storage-overview.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Tárolók
 
 A bérlői felhasználók a Blobok tárolására szolgáló tárolókat hoznak létre. Bár a felhasználók határozzák meg a Blobok elhelyezését, a Storage szolgáltatás algoritmus használatával határozza meg, hogy melyik köteten helyezi el a tárolót. Az algoritmus általában kiválasztja a legnagyobb szabad területtel rendelkező kötetet.  
 
@@ -69,7 +69,7 @@ A **felügyelt lemezek** leegyszerűsítik az Azure IaaS virtuális gépek lemez
 
 Javasoljuk, hogy a virtuális gépekhez Managed Disks használjon a könnyebb felügyelet és a kapacitás elosztása érdekében. A Managed Disks használata előtt nem kell előkészítenie a Storage-fiókot és-tárolókat. Több felügyelt lemez létrehozásakor a lemezek több kötetre oszlanak, ami segít a kötetek kapacitásának kiegyensúlyozásában.  
 
-A nem **felügyelt lemezek** az Azure Storage-fiókokban blobként tárolt VHD-fájlok. A bérlők által létrehozott blobokat virtuálisgép-lemeznek nevezzük, és tárolókban tárolódnak a Storage-fiókokban. Javasoljuk, hogy a nem felügyelt lemezeket csak olyan virtuális gépek esetében használja, amelyeknek kompatibilisnek kell lenniük a harmadik féltől származó eszközökkel, csak Azure-Unmanaged lemezeket támogatnak.
+A nem **felügyelt lemezek** az Azure Storage-fiókokban blobként tárolt VHD-fájlok. A bérlők által létrehozott blobokat virtuálisgép-lemeznek nevezzük, és tárolókban tárolódnak a Storage-fiókokban. Javasoljuk, hogy a nem felügyelt lemezeket csak olyan virtuális gépek esetében használja, amelyeknek kompatibilisnek kell lenniük azokkal a harmadik féltől származó eszközökkel, amelyek csak Azure-Unmanaged lemezeket támogatják.
 
 A bérlőknek szóló útmutatás az egyes lemezek külön tárolóba helyezése a virtuális gép teljesítményének növelése érdekében.
 
@@ -343,6 +343,6 @@ A terület kezelésének legszélsőségesebb módszere a nem felügyelt lemezek
 
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ha többet szeretne megtudni a virtuális gépek felhasználók számára történő felajánlásáról, tekintse meg a [Azure stack hub tárterület-kapacitásának kezelése](./tutorial-offer-services.md)című témakört.

@@ -42,6 +42,10 @@
       items:
         - name: Fürt létrehozása a PowerShell-lel
           href: deploy/create-cluster-powershell.md
+    - name: Számítási feladatok üzembe helyezése
+      items:
+        - name: Megbízható vállalati virtualizálás üzembe helyezése
+          href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Kezelés
   items:
     - name: Virtuális gépek kezelése
@@ -114,7 +118,7 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
-- name: Alapelvek
+- name: Fogalmak
   items:
     - name: Tárolás és fürtök
       items:

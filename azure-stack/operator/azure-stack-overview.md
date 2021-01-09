@@ -3,17 +3,17 @@ title: Az Azure Stack Hub áttekintése
 description: Áttekintés arról, hogy mi Azure Stack hub, és hogyan teszi lehetővé az Azure-szolgáltatások futtatását az adatközpontban.
 author: PatAltimore
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 01/08/2021
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 88ece6a5d29e56caf0752fd8c7b71989237d70c1
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 2083e0a8a5e51fbc9606d82a95dfdd1a9ad595bc
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974302"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052289"
 ---
 # <a name="azure-stack-hub-overview"></a>Az Azure Stack Hub áttekintése
 
@@ -26,6 +26,9 @@ Az Azure sokoldalú platformot biztosít a fejlesztők számára modern alkalmaz
 - **Edge és leválasztott megoldások**. A késéssel és a kapcsolattal kapcsolatos követelmények a Azure Stack hub-ban helyileg feldolgozott adatfeldolgozással, majd az Azure-ban való összesítésével további elemzések céljából, a közös alkalmazás-logikával együtt. Az internetről az Azure-hoz való csatlakozás nélkül is üzembe helyezheti az Azure Stack hubot. Példaként tekintse meg a gyári padlókat, a tengerjáró hajókat és a bánya-aknákat.
 
 - **A különböző szabályozásoknak megfelelő felhőalapú alkalmazások**. Alkalmazások fejlesztése és üzembe helyezése az Azure-ban teljes körű rugalmassággal a helyszíni üzembe helyezéshez Azure Stack hub-mel a szabályozási és a szabályzati követelmények teljesítése érdekében. Nincs szükség kód módosítására. Az alkalmazás példái közé tartozik a globális audit, a pénzügyi jelentéskészítés, a deviza-kereskedelem, az online játékok és a költségek bejelentése.
+
+   > [!IMPORTANT]
+   > Azure Stack hub egy helyszíni berendezés, amely az ügyfelek számára teljesen saját és felügyelhető. Az ügyfelek a Azure Stack-központban tárolt adattárolási és-vezérlési jogosultságokat használják. A Microsoft nem fér hozzá Azure Stack hub-környezetben tárolt ügyféladatokat.
 
 - Helyszíni **Cloud app Model**. Az Azure-szolgáltatások, tárolók, kiszolgáló nélküli és a Service-architektúrák használatával frissítheti és bővítheti a meglévő alkalmazásokat, illetve újakat építhet ki. A felhőben az Azure-ban konzisztens DevOps-folyamatokat használhat, és Azure Stack a helyszínen, hogy felgyorsítsa az alkalmazások modernizációját a legfontosabb alapvető fontosságú alkalmazásokhoz.
 
@@ -100,7 +103,7 @@ A Azure Stack hub szolgáltatásban három opcionális, a (z) rendszerbe telepí
 - **SQL Server**: a [SQL Server erőforrás-szolgáltató](azure-stack-sql-resource-provider.md) használatával Azure stack hub szolgáltatásként kínál SQL-adatbázisokat. Miután telepítette az erőforrás-szolgáltatót, és összekapcsolta egy vagy több SQL Server példánnyal, Ön és a felhasználók létrehozhatnak adatbázisokat a Felhőbeli natív alkalmazásokhoz, az SQL-t használó webhelyekhez és az SQL-t használó egyéb munkaterhelésekhez.
 - **MySQL-kiszolgáló**: a MySQL- [kiszolgáló erőforrás-szolgáltatójának](azure-stack-mysql-resource-provider-deploy.md) használatával tegye elérhetővé a mysql-adatbázisokat Azure stack hub-szolgáltatásként. A MySQL erőforrás-szolgáltató szolgáltatásként fut egy Windows Server 2019 Server Core virtuális gépen.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [Az Azure Stack hub-portfólió összehasonlítása](compare-azure-azure-stack.md)
 
