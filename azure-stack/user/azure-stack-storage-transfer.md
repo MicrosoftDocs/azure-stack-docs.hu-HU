@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: d35ee0999dfa25e5cee12ff3df3c91b945733430
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: cde8b474a27b577beca757a806a6411d934465c0
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518024"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123714"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Adatátviteli eszközök használata Azure Stack hub Storage-ban
 
@@ -69,7 +69,7 @@ A AzCopy API-verziójának a Azure Stack hub támogatásához való konfigurál�
 
 A AzCopy 10,1-es verziójában a Azure Stack hub következő szolgáltatásai támogatottak:
 
-| Funkció | Támogatott műveletek |
+| Szolgáltatás | Támogatott műveletek |
 | --- | --- |
 |Tároló kezelése|Tároló létrehozása<br>Tárolók tartalmának listázása
 |Feladatok kezelése|Feladatok megjelenítése<br>Feladatok folytatása
@@ -120,7 +120,7 @@ Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack
 
 1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/powershell-install-az-module.md).
 2. Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
-3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >  **New** egy új parancsfájl létrehozásához.
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >   egy új parancsfájl létrehozásához.
 4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
 5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
    > [!NOTE]
@@ -167,17 +167,17 @@ New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccount
 Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
-New-AzureStorageContainer -Name $ContainerName -Permission Off
+New-AzStorageContainer -Name $ContainerName -Permission Off
 
 # Upload a blob into a container.
-Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+Set-AzStorageBlobContent -Container $ContainerName -File $ImageToUpload
 
 # List all blobs in a container.
-Get-AzureStorageBlob -Container $ContainerName
+Get-AzStorageBlob -Container $ContainerName
 
 # Download blobs from the container:
 # Get a reference to a list of all blobs in a container.
-$blobs = Get-AzureStorageBlob -Container $ContainerName
+$blobs = Get-AzStorageBlob -Container $ContainerName
 
 # Create the destination directory.
 New-Item -Path $DestinationFolder -ItemType Directory -Force  
@@ -193,7 +193,7 @@ Ez a példa feltételezi, hogy sikeresen [telepítette a powershellt Azure stack
 
 1. Telepítse [Azure stack hub-kompatibilis Azure PowerShell modulokat](../operator/azure-stack-powershell-install.md).
 2. Töltse le az [Azure stack hub használatához szükséges eszközöket](../operator/azure-stack-powershell-download.md).
-3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >  **New** egy új parancsfájl létrehozásához.
+3. Nyissa meg a **Windows PowerShell integrált parancsprogram-kezelési környezet** és a **Futtatás rendszergazdaként** lehetőséget, majd kattintson az új **fájl** elemre  >   egy új parancsfájl létrehozásához.
 4. Másolja az alábbi szkriptet, és illessze be az új parancsfájlba.
 5. Frissítse a parancsfájl-változókat a konfigurációs beállítások alapján.
    > [!NOTE]

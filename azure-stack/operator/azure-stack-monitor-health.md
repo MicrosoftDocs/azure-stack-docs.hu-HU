@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 00357a7b16ee1ec6b158ea881d9f4a2c77d69e72
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869933"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123738"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Állapot- és riasztásmonitorozás az Azure Stack Hubban
 
@@ -69,21 +69,29 @@ Egy adott riasztásra kattintva megtekintheti a riasztás részleteit. A riaszt�
 
 ![A riasztás részletei panel Azure Stack hub felügyeleti portálon](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>Riasztások javítása
+## <a name="alert-remediation"></a>Riasztás szervizelése
 
-Néhány riasztásban kiválaszthatja a **javítás** lehetőséget.
+### <a name="automated-remediation"></a>Automatikus szervizelés
 
-Ha bejelöli ezt a beállítást, a **javítási** művelet a riasztásra vonatkozó lépéseket hajt végre a probléma megoldására tett kísérlet során. A kiválasztást követően a **javítási** művelet állapota portál-értesítésként érhető el.
+Néhány riasztás támogatja a **javítási** lehetőséget, ahogy az az előző képen is látható. Ha bejelöli ezt a beállítást, a **javítási** művelet a riasztásra vonatkozó lépéseket hajt végre a probléma megoldására tett kísérlet során. A kiválasztást követően a **javítási** művelet állapota portál-értesítésként érhető el.
 
 ![A javítási riasztás művelete folyamatban van](media/azure-stack-monitor-health/repair-in-progress.png)
 
-A **javítási** művelet bejelenti a sikeres befejezést, vagy nem sikerül befejezni a műveletet ugyanazon portál értesítési paneljén.  Ha egy riasztás esetében sikertelen volt a javítási művelet, a riasztás részleteiben újra futtathatja a **javítási** műveletet. Ha a javítási művelet sikeresen befejeződött, **ne** futtassa újra a **javítási** műveletet.
+A **javítási** művelet bejelenti a sikeres befejezést, vagy nem sikerül befejezni a műveletet ugyanazon portál értesítési paneljén.  Ha egy riasztás esetében sikertelen volt a javítási művelet, a riasztás részleteiben újra futtathatja a **javítási** műveletet. Ha a javítási művelet sikeresen befejeződött, **ne** futtassa újra a **javítási** műveletet. Miután az infrastruktúra-szerepkör-példány ismét online állapotba került, a riasztás automatikusan bezáródik.
 
 ![A javítási művelet sikeresen befejeződött.](media/azure-stack-monitor-health/repair-completed.png)
 
-Miután az infrastruktúra-szerepkör-példány ismét online állapotba került, a riasztás automatikusan bezáródik. Sok, de nem minden riasztás, automatikusan be lesz zárva, amikor az alapul szolgáló probléma megoldódik. Ha Azure Stack hub feloldja a problémát, a javítási művelet gomb megadására szolgáló riasztások automatikusan be lesznek zárva. Az összes többi riasztás esetében válassza a **riasztás lezárása** lehetőséget a szervizelés lépéseinek elvégzése után. Ha a probléma továbbra is fennáll, Azure Stack hub új riasztást hoz létre. Ha megoldja a problémát, a riasztás bezárul, és nem igényel további lépéseket.
+### <a name="manual-remediation"></a>Manuális szervizelés
 
-## <a name="next-steps"></a>További lépések
+Ha a **javítási** lehetőség nem támogatott, ügyeljen arra, hogy kövesse a riasztásban megadott szervizelési utasítások teljes készletét. Példaként a belső tanúsítvány lejáratának szervizelési lépései végigvezetik a titkos elforgatás folyamatán:
+
+![Tanúsítvány lejáratának szervizelése](media/azure-stack-monitor-health/certificate-expiration.png)
+
+### <a name="alert-closure"></a>Riasztás bezárása
+
+Sok, de nem minden riasztás, automatikusan le lesz zárva, amikor az alapul szolgáló probléma megoldódik. Ha Azure Stack hub feloldja a problémát, a javítási művelet gomb megadására szolgáló riasztások automatikusan be lesznek zárva. Az összes többi riasztás esetében válassza a **riasztás lezárása** lehetőséget a szervizelés lépéseinek elvégzése után. Ha a probléma továbbra is fennáll, Azure Stack hub új riasztást hoz létre. Ha megoldja a problémát, a riasztás bezárul, és nem igényel további lépéseket.
+
+## <a name="next-steps"></a>Következő lépések
 
 [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 

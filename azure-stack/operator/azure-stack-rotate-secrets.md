@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban.
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/29/2020
-ms.reviewer: ppacent
+ms.date: 01/07/2021
+ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 08/15/2020
+ms.lastreviewed: 01/07/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343159"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123697"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Az Azure Stack Hub titkos kulcsainak rotálása
 
@@ -24,14 +24,23 @@ Ez a cikk útmutatást nyújt a titkos rotációs feladatok végrehajtásához, 
 
 Azure Stack hub titkokat használ az infrastruktúra-erőforrásokkal és-szolgáltatásokkal való biztonságos kommunikáció fenntartásához. Az Azure Stack hub-infrastruktúra integritásának fenntartása érdekében a kezelőknek képesnek kell lenniük arra, hogy a szervezet biztonsági követelményeinek megfelelő gyakorisággal forgatni tudják a titkokat.
 
-Ha a titkos kulcsok érvényessége 30 napon belül lejár, a következő riasztások jönnek létre a felügyeleti portálon. A titkos kód elforgatása megoldja ezeket a riasztásokat:
+Ha a titkok hamarosan lejárnak, a következő riasztások jönnek létre a felügyeleti portálon. A titkos kód elforgatása megoldja ezeket a riasztásokat:
 
 - A szolgáltatásfiók jelszavának lejárta folyamatban
 - Belső tanúsítvány lejárata miatt függőben
 - Külső tanúsítvány lejárata miatt függőben
 
+> [!WARNING]
+> A felügyeleti portálon a lejárat előtt két fázisban aktiválva van a riasztás:
+> - 90 nappal a lejárat előtt figyelmeztető riasztás jön létre.
+> - 30 nappal a lejárat előtt kritikus riasztás jön létre. 
+>
+> ***Fontos, hogy ha* ezeket az értesítéseket kapja, a titkos elforgatást hajtsa végre. Ha ezt elmulasztja, a számítási feladatok elvesztését és a lehetséges Azure Stack hub-újratelepítést a saját költségén keresztül teheti meg.**
+
+A riasztások figyelésével és szervizelésével kapcsolatos további információkért tekintse meg az [állapot és riasztások figyelése Azure stack központban](azure-stack-monitor-health.md)című témakört.
+
 ::: moniker range="<azs-1811"  
-> [!Note]
+> [!NOTE]
 > Az 1811 előtti verziókban Azure Stack hub-környezetek riasztásokat láthatnak a függőben lévő belső tanúsítványokra vagy a titkos kódokra vonatkozóan. Ezek a riasztások pontatlanok, és figyelmen kívül kell hagyni a belső titkos rotáció futtatása nélkül. A belső titkos kulcs lejárati idejének pontatlan riasztásai a 1811-ben megoldott ismert problémák. A belső titkok nem járnak le, kivéve, ha a környezet két évig aktív.
 ::: moniker-end
 
@@ -85,7 +94,7 @@ A külső titkok forgása előtt:
 1. Futtassa a **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell-parancsmagot a (z) `-group SecretRotationReadiness` paraméter használatával, hogy az összes teszt kimenet állapota Kifogástalan legyen a titkok elforgatása előtt.
 2. Új helyettesítő külső tanúsítványok előkészítése:
    - Az új készletnek meg kell egyeznie az [Azure stack hub PKI-tanúsítvány követelményeiben](azure-stack-pki-certs.md)ismertetett tanúsítvány-specifikációkkal. 
-   - Tanúsítvány-aláírási kérés (CSR) létrehozása a hitelesítésszolgáltató (CA) számára a [tanúsítvány-aláírási kérelmek előállítása](azure-stack-get-pki-certs.md) és az Azure stack hub-környezetben való használatra való felkészülés során a [PKI-tanúsítványok előkészítése](azure-stack-prepare-pki-certs.md)című témakörben leírt lépések alapján. Az Azure Stack hub a következő kontextusokban támogatja a külső tanúsítványok titkos elforgatását egy új hitelesítésszolgáltatótól (CA):
+   - Tanúsítvány-aláírási kérés (CSR) létrehozása a hitelesítésszolgáltató (CA) számára történő küldéshez. Kövesse a [tanúsítvány-aláírási kérelmek előállítása](azure-stack-get-pki-certs.md) és a Azure stack hub-környezetben való használatra való előkészítésének lépéseit a [PKI-tanúsítványok előkészítése](azure-stack-prepare-pki-certs.md)című témakörben leírtak alapján. Az Azure Stack hub a következő kontextusokban támogatja a külső tanúsítványok titkos elforgatását egy új hitelesítésszolgáltatótól (CA):
 
      |Forgatás a CA-ból|Elforgatás a CA-ba|Azure Stack hub verziójának támogatása|
      |-----|-----|-----|-----|
@@ -108,7 +117,7 @@ A külső titkok forgása előtt:
 3. Biztonsági másolat készítése a biztonságos biztonsági mentési helyen történő elforgatáshoz használt tanúsítványokról. Ha az elforgatás fut, majd a művelet meghiúsul, cserélje le a fájlmegosztás tanúsítványait a biztonsági másolatokra a elforgatás újrafuttatása előtt. Tárolja a biztonsági másolatokat a biztonságos biztonsági mentési helyen.
 4. Hozzon létre egy fájlmegosztás, amely a ERCS virtuális gépekről érhető el. A fájlmegosztás legyen olvasható és írható a **CloudAdmin** -identitáshoz.
 5. Nyisson meg egy PowerShell ISE-konzolt egy olyan számítógépről, amelyhez hozzáféréssel rendelkezik a fájlmegosztás. Navigáljon a fájlmegosztás, ahol a külső tanúsítványok elhelyezésére szolgáló címtárakat hoz létre.
-6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** a hálózati fájlmegosztás, és futtassa a parancsfájlt. A szkript létrehoz egy mappastruktúrát, amely megfelel a **_.\Certificates\AAD_*_ vagy _*_.\Certificates\ADFS_*_ értéknek, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának _* \\ Certificates mappával kell kezdődnie** , amelyet csak egy **\\ HRE** vagy **\\ ADFS** -mappa követ. Az előző struktúrában az összes további alkönyvtár szerepel. Például:
+6. Töltse le **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** a hálózati fájlmegosztás, és futtassa a parancsfájlt. A szkript létrehoz egy mappastruktúrát, amely megfelel a **_.\Certificates\AAD_*_ vagy _*_.\Certificates\ADFS_*_ értéknek, az Ön személyazonossági szolgáltatójától függően. A mappa struktúrájának _* \\ Certificates mappával kell kezdődnie** , amelyet csak egy **\\ HRE** vagy **\\ ADFS** -mappa követ. Az előző struktúrában minden további alkönyvtár szerepel. Például:
     - Fájlmegosztás = **\\\\\<IPAddress>\\\<ShareName>**
     - Tanúsítvány gyökérkönyvtára az Azure AD-szolgáltatóhoz = **\\ Certificates\AAD**
     - Teljes elérési út = **\\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**
@@ -213,7 +222,7 @@ A külső titkok elforgatásához hajtsa végre az alábbi lépéseket:
 
 ## <a name="rotate-internal-secrets"></a>Belső titkok elforgatása
 
-A belső titkok közé tartoznak az Azure Stack hub-infrastruktúra által használt tanúsítványok, jelszavak, biztonságos karakterláncok és kulcsok, az Azure Stack hub-kezelő beavatkozása nélkül. A belső titkos kód elforgatása csak akkor szükséges, ha azt gyanítja, hogy az egyik sérült, vagy lejárati riasztást kapott. A belső titkok nem járnak le, kivéve, ha a környezet két évig aktív.
+A belső titkok közé tartoznak az Azure Stack hub-infrastruktúra által használt tanúsítványok, jelszavak, biztonságos karakterláncok és kulcsok, az Azure Stack hub-kezelő beavatkozása nélkül. A belső titkos kód elforgatása csak akkor szükséges, ha azt gyanítja, hogy az egyik sérült, vagy lejárati riasztást kapott. 
 ::: moniker range="<azs-1811"  
 Az 1811-es előtti üzembe helyezések riasztásokat látnak a függőben lévő belső tanúsítvány vagy a titkos lejáratok esetében. Ezek a riasztások pontatlanok, és figyelmen kívül hagyhatók, és ismert probléma történt a 1811-es megoldásban.
 ::: moniker-end
@@ -318,13 +327,13 @@ A [Start-SecretRotation parancsmag](../reference/pep-2002/start-secretrotation.m
 
 | Paraméter | Típus | Kötelező | Pozíció | Alapértelmezett | Leírás |
 |--|--|--|--|--|--|
-| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincsenek  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates** kell lennie. |
-| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincsenek  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
-| `Internal` | Sztring | Hamis | Elemzi | Nincsenek | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
-| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincsenek  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
-| `ReRun` | Kapcsolóparaméter | Hamis  | Elemzi  | Nincsenek  | A rendszer a sikertelen kísérlet után újrapróbálkozik a titkos kód megfordításával. |
+| `PfxFilesPath` | Sztring  | Hamis  | Elemzi  | Nincs  | A **\Certificates** könyvtár fájlmegosztás elérési útja, amely az összes külső hálózati végpont tanúsítványát tartalmazza. Csak külső titkok elforgatásakor szükséges. A befejező könyvtárnak **\Certificates** kell lennie. |
+| `CertificatePassword` | SecureString | Hamis  | Elemzi  | Nincs  | A-PfXFilesPath megadott összes tanúsítvány jelszava. Kötelező érték, ha a PfxFilesPath a külső titkos kódok elforgatásakor van megadva. |
+| `Internal` | Sztring | Hamis | Elemzi | Nincs | A belső jelzőt csak akkor kell használni, amikor egy Azure Stack hub operátor belső infrastruktúra-titkokat kíván forgatni. |
+| `PathAccessCredential` | PSCredential | Hamis  | Elemzi  | Nincs  | Az összes külső hálózati végpont tanúsítványát tartalmazó **\Certificates** könyvtár fájlmegosztás tartozó PowerShell-hitelesítő adat. Csak külső titkok elforgatásakor szükséges.  |
+| `ReRun` | Kapcsolóparaméter | Hamis  | Elemzi  | Nincs  | A rendszer a sikertelen kísérlet után újrapróbálkozik a titkos kód megfordításával. |
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Szintaxis
 
 #### <a name="for-external-secret-rotation"></a>Külső titkos kód elforgatásához
 
