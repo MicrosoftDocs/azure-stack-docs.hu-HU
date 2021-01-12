@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: e85d20755a92806177e7d5e7a9f1d425e4a18018
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950688"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103088"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
@@ -168,7 +168,7 @@ Ha az SQL-és a MySQL-erőforrás-szolgáltatót Azure Stack hub integrált rend
 
 ### <a name="known-issues"></a>Ismert problémák
 
-**Probléma:**<br>
+**Kérdés**<br>
 A titkok rotációs naplója nem kerül automatikusan begyűjtésre, ha a titkos elforgatási parancsfájl futtatása meghiúsul.
 
 **Workaround**<br>
@@ -181,6 +181,8 @@ Az Get-AzsDBAdapterLogs parancsmaggal gyűjtheti össze az összes erőforrás-s
 Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai naplókat Microsoft ügyfélszolgálataba. A 1.1.93 verziótól kezdődően a MySQL erőforrás-szolgáltató támogatja a naplók Azure Stack hub-környezetből való gyűjtésének szabványos módját. További információ: [diagnosztikai naplók gyűjteménye](diagnostic-log-collection.md).
 
 ::: moniker-end
+
+::: moniker range="< azs-2008"
 
 A 1.1.93 verziótól kezdődően a MySQL erőforrás-szolgáltató támogatja a naplók Azure Stack hub-környezetből való gyűjtésének szabványos módját. Ha régebbi verziót használ, javasoljuk, hogy frissítse a MySQL erőforrás-szolgáltatót a legújabb verzióra.
 
@@ -236,6 +238,8 @@ $session | Remove-PSSession
 
 ```
 
+::: moniker-end
+
 ## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>Azure Diagnostics bővítmény konfigurálása a MySQL erőforrás-szolgáltatóhoz
 
 A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL erőforrás-szolgáltatói adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt a MySQL erőforrás-szolgáltató működési eseménynaplóinak és az IIS-naplóknak a hibaelhárítási és naplózási célokra való összegyűjtéséhez
@@ -262,6 +266,6 @@ Ha az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van a MySQL
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A MySQL erőforrás-szolgáltató eltávolítása](azure-stack-mysql-resource-provider-remove.md)

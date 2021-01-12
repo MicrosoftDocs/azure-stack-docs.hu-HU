@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Számítási feladatok üzembe helyezése
       items:
+        - name: SQL Server üzembe helyezése
+          href: deploy/deploy-sql-server-workload.md
         - name: Megbízható vállalati virtualizálás üzembe helyezése
           href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Kezelés
@@ -118,7 +120,7 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: Tárolás és fürtök
       items:
@@ -138,7 +140,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
@@ -222,7 +224,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'

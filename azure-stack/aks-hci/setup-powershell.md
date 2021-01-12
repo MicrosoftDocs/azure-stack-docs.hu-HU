@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b4150372a6b5660b65cf6ed2c99bec6970260edf
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918701"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103052"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Gyors útmutató: Azure Kubernetes Service Host beállítása Azure Stack HCI-ben a PowerShell használatával
 
@@ -130,7 +130,7 @@ Konfigurálja az üzemelő példányt a következő paranccsal.
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlandID <int>]
+                    [-vlanID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
@@ -224,7 +224,7 @@ Ezzel a beállítással megadhatja az Azure Kubernetes Service Host VM-hez haszn
 
 Ezzel a beállítással adható meg az Azure Kubernetes Service Host virtuális géphez használni kívánt MAC-készlet MAC-címe. A MAC-címek szintaxisa megköveteli, hogy az első bájt legkisebb jelentős részének mindig 0 legyen, és az első bájtnak mindig páros számnak kell lennie (azaz 00, 02, 04, 06...). Az átadott címnek első bájtjának meg kell `-macPoolEnd` egyeznie a-ként átadott címek első bájtjának értékével `-macPoolStart` . A MAC-készletek használata hosszú élettartamú központi telepítésekhez, hogy a hozzárendelt MAC-címek konzisztensek legyenek. Ez akkor hasznos, ha követelmény, hogy a virtuális gépek egyedi MAC-címmel rendelkezzenek. Az alapértelmezett érték a none.
 
-`-vlandID`
+`-vlanID`
 
 Ez a hálózati VLAN-azonosító megadására használható. Az Azure Kubernetes Service Host és a Kubernetes cluster VM hálózati adapterek a megadott VLAN-AZONOSÍTÓval lesznek címkézve. Ezt akkor kell használni, ha van egy adott VLAN-azonosító, amelyet meg kell adni a megfelelő kapcsolat beszerzéséhez. Az alapértelmezett érték a none.
 

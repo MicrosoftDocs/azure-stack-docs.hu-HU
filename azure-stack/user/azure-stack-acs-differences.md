@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 9cac2ee9798388f955bfd3376395d21438889fc9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867366"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103069"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack hub Storage: különbségek és megfontolások
 
@@ -43,7 +43,7 @@ Ez a cikk az Azure Storage-szolgáltatásokból származó ismert Azure Stack hu
 |Tábla partíciós kulcsának és a sor kulcsának mérete|1 024 karakter (2 048 bájt).|400 karakter (800 bájt).
 |BLOB pillanatképe|Egy blob pillanatképének maximális száma nincs korlátozva.|Egy blob pillanatképének maximális száma 1 000.
 |Azure AD-hitelesítés a Storage-hoz|Előzetes verzióban. |Még nem támogatott.
-|Megváltoztathatatlan Blobok|Általánosan elérhető. |Még nem támogatott.
+|Megváltoztathatatlan Blobok|Általánosan elérhető. |Az 2008-es vagy újabb verzió használata esetén támogatott.
 |Tűzfal-és virtuális hálózati szabályok a tároláshoz|Általánosan elérhető. |Még nem támogatott.|
 
 A tárolási metrikákkal kapcsolatban is különbségek vannak:
@@ -140,7 +140,7 @@ A Storage-modul PowerShell-hez vegye figyelembe a REST API kompatibilis verziót
 
 További információ a Azure Stack hub támogatott Storage-kódtárakkal kapcsolatban: Ismerkedés [a Azure stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel](azure-stack-storage-dev.md)
 * [Adatátviteli eszközök használata az Azure Stack hub Storage szolgáltatáshoz](azure-stack-storage-transfer.md)

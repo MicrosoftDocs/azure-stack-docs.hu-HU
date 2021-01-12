@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950705"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103100"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -193,6 +193,8 @@ Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai na
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 A 1.1.93 verziótól kezdődően az SQL erőforrás-szolgáltató támogatja a naplók Azure Stack hub-környezetből való gyűjtésének szabványos módját. Ha régebbi verziót használ, javasoljuk, hogy frissítse az SQL-erőforrás-szolgáltatót a legújabb verzióra.
 
 A zárolt virtuális gépről származó naplók gyűjtéséhez használja a PowerShell elég adminisztrációs (JEA) végpont *DBAdapterDiagnostics*. Ez a végpont a következő parancsokat tartalmazza:
@@ -245,6 +247,9 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+
+::: moniker-end
+
 ## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató Azure Diagnostics-bővítményének konfigurálása
 A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van az SQL Resource Provider adapter virtuális gépén. A következő lépések bemutatják, hogyan szabhatja testre a bővítményt az SQL erőforrás-szolgáltató operatív eseménynaplóinak és az IIS-naplóknak a hibaelhárítás és a naplózás céljából történő összegyűjtéséhez.
 
@@ -267,6 +272,6 @@ Miután az eseménynaplók és az IIS-naplók gyűjteménye konfigurálva van az
 
 Ha többet szeretne megtudni a Azure Diagnostics bővítménnyel kapcsolatban, tekintse meg a [Mi az Azure Diagnostics Extension](/azure/azure-monitor/platform/diagnostics-extension-overview)című témakört.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [SQL Server üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)
