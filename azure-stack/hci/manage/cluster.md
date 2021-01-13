@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/11/2021
-ms.openlocfilehash: a2c07e171468aad411bed1b752834939827be971
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.date: 01/12/2021
+ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
+ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103236"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98130350"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Azure Stack HCI-fürtök kezelése a Windows felügyeleti központtal
 
@@ -38,14 +38,6 @@ Ezen információk megtekintéséhez válassza ki a fürt nevét az **összes ka
 - Teljes fürt bemeneti/kimeneti műveletei/másodperc (IOPS)
 - Fürt átlagos késése ezredmásodpercben
 
-## <a name="view-cluster-resources"></a>Fürt erőforrásainak megtekintése
-
-A fürt áttekintő lapja információkat jelenít meg a fürt erőforrásairól, például a kiszolgálókról, az infrastruktúráról és a kvórumról.
-
-:::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="A fürt áttekintése képernyő" lightbox="media/manage-cluster/cluster-overview.png":::
-
-Ezen információk megtekintéséhez válassza ki a fürt nevét az **összes kapcsolat** területen, majd a bal oldali **eszközök** területen válassza az **Áttekintés** lehetőséget.
-
 ## <a name="change-storage-settings"></a>Tárolási beállítások módosítása
 
 Kiválaszthatja, hogy a kiszolgáló memóriáját használja a gyakori olvasások gyorsítótárazásához, és adja meg a kiszolgálónként használandó maximális memóriát. További információ: [a gyorsítótár megismerése Azure stack HCI-ben](../concepts/cache.md).
@@ -56,9 +48,17 @@ Kiválaszthatja, hogy a kiszolgáló memóriáját használja a gyakori olvasás
 
     :::image type="content" source="media/manage-cluster/cluster-settings-memory.png" alt-text="fürt memóriában tárolt gyorsítótárának képernyője" lightbox="media/manage-cluster/cluster-settings-memory.png":::
 
-1. Módosíthatja Közvetlen tárolóhelyek által használt tárolási készlet nevét. Válassza a **tárolási készletek** lehetőséget, és adja meg az új nevet.
+1. Módosíthatja Közvetlen tárolóhelyek által használt tárolási készlet nevét. Válassza a **tárolási készletek** lehetőséget, és adja meg az új nevet. Ez a kiterjesztett fürtök esetében alkalmazható.
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-ssd.png" alt-text="fürt Storage-készlet képernyője" lightbox="media/manage-cluster/cluster-settings-ssd.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-pools.png" alt-text="fürt Storage-készlet képernyője" lightbox="media/manage-cluster/cluster-settings-storage-pools.png":::
+
+1. Módosíthatja Közvetlen tárolóhelyek beállításait. Válassza a **közvetlen tárolóhelyek** lehetőséget, és szükség szerint módosítsa az alábbi beállításokat:
+
+    - **Állandó gyorsítótár** – az állandó gyorsítótár engedélyezése vagy letiltása
+    - **HDD-gyorsítótár mód** – HDD-meghajtók gyorsítótáras üzemmódjának módosítása
+    - **Gyorsítótáras üzemmód az SSD-hez** – SSD meghajtók gyorsítótárának módosítása
+
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-spaces-direct.png" alt-text="fürt Közvetlen tárolóhelyek képernyő" lightbox="media/manage-cluster/cluster-settings-storage-spaces-direct.png":::
 
 ## <a name="change-cluster-settings"></a>Fürt beállításainak módosítása
 
@@ -78,7 +78,7 @@ A fürtre több általános beállítás is alkalmazható. Itt állíthatja be �
 
    - **Alapvető forgalom** – titkosítja a NetFT (fürtözött virtuális adapter) a 3343-es porton keresztül továbbított forgalmat
 
-   - **Kiszolgálói forgalom** – titkosítja fürt megosztott KÖTETE (CSV) és a Storage Bus Layer (SBL) forgalmát
+   - **Tárolási forgalom** – titkosítja fürt megosztott KÖTETE (CSV) és a Storage Bus Layer (SBL) forgalmát
 
         :::image type="content" source="media/manage-cluster/cluster-settings-encryption.png" alt-text="fürt fürt forgalmának titkosítása képernyő" lightbox="media/manage-cluster/cluster-settings-encryption.png":::
 
@@ -125,8 +125,6 @@ Több Hyper-V-gazdagépre vonatkozó beállítás is alkalmazható a fürtön.
 
    - **Virtual Machines elérési út** – Itt adhatja meg a virtuális gép konfigurációs fájljainak tárolására szolgáló alapértelmezett mappát.
 
-   - **Hypervisor Scheduler típusa** – válassza a **Core Scheduler** vagy a **klasszikus ütemező** lehetőséget. Ez határozza meg, hogy a hypervisor hogyan ütemezze a virtuális folyamatokat olyan fizikai processzorokon, amelyek egyidejű többszálas (más néven SMT vagy Hyper-Threading) szolgáltatást használnak. Az alapvető ütemezés ajánlott.
-
         :::image type="content" source="media/manage-cluster/cluster-settings-hyperv.png" alt-text="fürt Hyper-V általános beállításainak képernyője" lightbox="media/manage-cluster/cluster-settings-hyperv.png":::
 
 1. Ha engedélyezni szeretné a helyi eszközök és erőforrások átirányítását a virtuális gépekről, válassza a **bővített munkamenet mód** lehetőséget. Vegye figyelembe, hogy a kibővített munkamenet-üzemmódú kapcsolatokhoz támogatott vendég operációs rendszer szükséges.
@@ -141,37 +139,15 @@ Több Hyper-V-gazdagépre vonatkozó beállítás is alkalmazható a fürtön.
 
    - a **hitelesítési protokoll** beállításnál válassza a **CredSSP** vagy a **Kerberos** lehetőséget.
 
-   - a **teljesítmény beállításnál** válassza a **tömörítés** vagy az **SMB** lehetőséget. A tömörített adat egy TCP/IP-kapcsolaton keresztül lesz elküldve.
+   - a **teljesítmény beállításainál** válassza a **tömörítés** vagy az **SMB** lehetőséget. A tömörített adat egy TCP/IP-kapcsolaton keresztül lesz elküldve.
 
    - a **bármely hálózat használata** jelölőnégyzet bejelölésével bármely elérhető hálózat használható a csomóponton az áttelepítés elvégzéséhez
 
-        :::image type="content" source="media/manage-cluster/cluster-settings-liv-migration.png" alt-text="fürt Élő áttelepítés képernyő" lightbox="media/manage-cluster/cluster-settings-liv-migration.png":::
+        :::image type="content" source="media/manage-cluster/cluster-settings-live-migration.png" alt-text="fürt Élő áttelepítés képernyő" lightbox="media/manage-cluster/cluster-settings-live-migration.png":::
 
 1. Ha meg szeretné határozni, hogy hány tárterület-áttelepítést lehet végrehajtani egyszerre, válassza a **tárterület áttelepítése** lehetőséget, majd válasszon egy számot.
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-sto-migration.png" alt-text="fürt tárterületének áttelepítése képernyő" lightbox="media/manage-cluster/cluster-settings-sto-migration.png":::
-
-## <a name="manage-cluster-resources"></a>Fürterőforrások kezelése
-
-A fürterőforrás meghibásodásának elindításához, leállításához, eltávolításához vagy szimulálásához tegye a következőt:
-
-1. Válassza az **Áttekintés** lehetőséget, majd a **fürterőforrások** területen válassza ki az erőforrást, és válassza az **Indítás**, a **Leállítás** vagy az **Eltávolítás** lehetőséget.
-
-    :::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="fürterőforrások kezelése képernyő" lightbox="media/manage-cluster/cluster-overview.png":::
-
-1. Válassza a **hiba szimulálása** lehetőséget a fürt hibájának szimulálása érdekében:
-
-    :::image type="content" source="media/manage-cluster/cluster-simulate-failure.png" alt-text="erőforrás-hiba szimulálása képernyő" lightbox="media/manage-cluster/cluster-simulate-failure.png":::
-
-## <a name="validate-the-cluster"></a>A fürt ellenőrzése
-
-A fürt érvényesítéséhez válassza az **Áttekintés**, majd a **fürt ellenőrzése** lehetőséget. A fürt ellenőrzésével kapcsolatos részletes információkért lásd: [Azure stack HCI összekapcsolása az Azure-](../deploy/validate.md)ba.
-
-:::image type="content" source="media/manage-cluster/validate-cluster.png" alt-text="fürt ellenőrzése képernyő" lightbox="media/manage-cluster/validate-cluster.png":::
-
-A fürt-ellenőrzési jelentések megtekintéséhez és letöltéséhez válassza az **ellenőrzési jelentések**, majd a **jelentés letöltése** lehetőséget.
-
-:::image type="content" source="media/manage-cluster/validation-reports.png" alt-text="ellenőrzési jelentések képernyő" lightbox="media/manage-cluster/validation-reports.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-migration.png" alt-text="fürt tárterületének áttelepítése képernyő" lightbox="media/manage-cluster/cluster-settings-storage-migration.png":::
 
 ## <a name="register-the-cluster-with-azure"></a>A fürt regisztrálása az Azure-ban
 
@@ -179,14 +155,6 @@ A fürt Azure-beli regisztrálásához vagy regisztrációjának törléséhez v
 
 :::image type="content" source="media/manage-cluster/cluster-registration.png" alt-text="fürt Azure-regisztrációja képernyő" lightbox="media/manage-cluster/cluster-registration.png":::
 
-## <a name="remove-the-cluster"></a>A fürt eltávolítása
-
-A fürt eltávolításához (megsemmisítéséhez) válassza az **Áttekintés**, majd a **fürt eltávolítása** lehetőséget.
-
-:::image type="content" source="media/manage-cluster/remove-cluster.png" alt-text="fürt eltávolítása képernyő" lightbox="media/manage-cluster/remove-cluster.png":::
-
 ## <a name="next-steps"></a>Következő lépések
 
-- A fürt figyeléséhez tekintse meg a következőt: [Azure stack HCI monitorozása Azure monitor](azure-monitor.md)használatával.
-
-- A fürt-ellenőrzési jelentések hibáinak megoldásához lásd: a [fürt érvényesítési jelentéseinek hibája](validate-qos.md).
+A fürt figyeléséhez tekintse meg a következőt: [Azure stack HCI monitorozása Azure monitor](azure-monitor.md)használatával.

@@ -7,17 +7,17 @@ ms.date: 01/06/2021
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 01/06/2021
-ms.openlocfilehash: d041a4b30c4f95c5b476e8fd00b9231368706466
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 002015d0d00e09de07e4a46f5ad6525dac2b7254
+ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973537"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98130224"
 ---
 # <a name="troubleshoot-the-asdk"></a>A ASDK hibáinak megoldása
 Ez a cikk a Azure Stack Development Kit (ASDK) gyakori hibaelhárítási információit tartalmazza. Azure Stack integrált rendszerekkel kapcsolatos segítségért lásd: [Microsoft Azure stack hibaelhárítás](../operator/azure-stack-troubleshooting.md). 
 
-Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálata nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Microsoft Q&a](https://docs.microsoft.com/answers/questions/topics/single/25482.html)szakértőitől.
+Mivel a ASDK egy kiértékelési környezet, Microsoft ügyfélszolgálata nem nyújt támogatást. Ha olyan problémát tapasztal, amely nincs dokumentálva, segítséget kérhet a [Microsoft Q&a Azure Stackhoz tartozó](https://docs.microsoft.com/answers/questions/topics/azure-stack-hub.html)szakértőktől.
 
 ## <a name="deployment"></a>Üzembe helyezés
 ### <a name="deployment-failure"></a>Üzembe helyezési hiba
@@ -64,7 +64,7 @@ Az interneten található erőforrásokhoz való kapcsolódás ellenőrzéséhez
 Ha a parancs végrehajtása sikertelen, ellenőrizze, hogy a TOR kapcsoló és bármely más hálózati eszköz úgy van-e konfigurálva, hogy [engedélyezze a hálózati forgalmat](../operator/azure-stack-network.md).
 
 
-## <a name="virtual-machines"></a>Virtual machines (Virtuális gépek)
+## <a name="virtual-machines"></a>Virtuális gépek
 ### <a name="default-image-and-gallery-item"></a>Alapértelmezett rendszerkép és gyűjtemény elem
 A virtuális gépek Azure Stack-ben való üzembe helyezése előtt hozzá kell adni egy Windows Server-lemezképet és-gyűjteményi elemeket.
 
@@ -88,7 +88,7 @@ Ha "árva" virtuális merevlemezeket lát, fontos tisztában lennie azzal, hogy 
 
 További információk az adatmegőrzési küszöbérték és az igény szerinti, a [Storage-fiókok kezelése](../operator/azure-stack-manage-storage-accounts.md)című témakörben olvashatók.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Tárolás
 ### <a name="storage-reclamation"></a>Tárhely-visszanyerés
 Akár 14 órát is igénybe vehet, ha visszaigényelt kapacitást szeretne megjeleníteni a portálon. A lemezterület-visszanyerés a különböző tényezőktől függ, például a belső tároló fájljainak használati százaléka a blob-tárolóban. Ezért attól függően, hogy mennyi adattal törli a rendszer, nem garantálható, hogy a rendszer mennyi helyet szabadít fel a Garbage Collector futtatásakor.
 
