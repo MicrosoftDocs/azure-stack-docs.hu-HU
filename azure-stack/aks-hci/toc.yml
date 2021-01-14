@@ -27,7 +27,7 @@
   items:
     - name: Azure Kubernetes Azure Stack HCI-fogalmakkal
       href: kubernetes-concepts.md
-    - name: Rendszerkövetelmények
+    - name: System requirements (Rendszerkövetelmények)
       href: system-requirements.md
 - name: Útmutatók
   items:
@@ -37,11 +37,11 @@
       href: adapt-apps-mixed-os-clusters.md
     - name: Windows Server-tárolók használata
       items:
-        - name: .NET-alkalmazások üzembe helyezése az AK-ban Azure Stack HCI-ben
+        - name: .NET-alkalmazások telepítése
           href: deploy-windows-application.md
         - name: Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz
           href: prepare-windows-nodes-gmsa.md
-        - name: Állandó kötet használata Azure Stack HCI-fürtön található AK-ban
+        - name: Állandó kötet használata
           href: persistent-volume.md
     - name: Hibaelhárítás
       href: troubleshoot.md

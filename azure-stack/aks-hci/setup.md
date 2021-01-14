@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 3d8be2b6b1e3251875ca014e221c9bf4de35671e
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 25c9163bfaecfd595d56369312d149716c6748fe
+ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918731"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98175753"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával
 
@@ -71,9 +71,6 @@ Most, hogy ellenőrizte a rendszerbeállításokat, kezdjük a kezdéssel:
 5. Tekintse át az összes kijelölést a **felülvizsgálat + létrehozás** lépésben. Ha elégedett a kiválasztott beállításokkal, válassza a **tovább** lehetőséget a gazdagép telepítésének megkezdéséhez. 
 6. A **telepítési folyamat** lapon megtekintheti a gazdagép telepítőjének állapotát. Ekkor a Windows felügyeleti központot egy új lapon nyithatja meg, és folytathatja a felügyeleti feladatokat. 
 7. Ha az üzembe helyezés sikeres, válassza a *Befejezés* lehetőséget, és egy felügyeleti irányítópulttal fog megjelenni, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül.
-
-
-1. Ha az üzembe helyezés sikeres, megjelenik egy felügyeleti irányítópult, ahol létrehozhatja és kezelheti a Kubernetes-fürtöket. Ez az irányítópult, mint a Azure Stack HCI-ben található többi Azure Kubernetes-szolgáltatás, előzetes verzióban érhető el, és a későbbi kiadásokban további funkciókkal frissül. 
  
   ![Bemutatja az Azure Kubernetes-szolgáltatásokat Azure Stack HCI felügyeleti irányítópulton.](.\media\setup\dashboard.png)
  

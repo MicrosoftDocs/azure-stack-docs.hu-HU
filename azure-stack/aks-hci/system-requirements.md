@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
+ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918661"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98175736"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -46,32 +46,70 @@ Az Azure Kubernetes Service on Azure Stack HCI vagy a Windows Server 2019 Datace
 
 ## <a name="network-requirements"></a>A hálózatra vonatkozó követelmények 
 
-Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 2019 Datacenter feladatátvevő fürtre vonatkoznak: 
+Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 2019 Datacenter-fürtre vonatkoznak: 
 
  - Ellenőrizze, hogy van-e meglévő, külső virtuális kapcsoló konfigurálva, ha a Windows felügyeleti központot használja. Azure Stack HCI-fürtök esetében ennek a kapcsolónak és nevének meg kell egyeznie az összes fürtcsomóponton. 
 
  - Ellenőrizze, hogy az összes hálózati adapteren letiltotta-e az IPv6 protokollt. 
 
- - Sikeres telepítés esetén a Azure Stack HCI-fürtcsomópontok és a Kubernetes-fürt virtuális gépei külső internetkapcsolattal kell rendelkezniük. 
+ - Sikeres telepítés esetén a Azure Stack HCI-fürtcsomópontok és a Kubernetes-fürt virtuális gépei külső internetkapcsolattal kell rendelkezniük.
+  
+ - Ellenőrizze, hogy van-e hálózati kapcsolat a Azure Stack HCI-gazdagépek és a bérlői virtuális gépek között.
 
  - A DNS-névfeloldás szükséges ahhoz, hogy az összes csomópont kommunikálni tudjon egymással. A Kubernetes külső névfeloldáshoz használja a DHCP-kiszolgáló által biztosított DNS-kiszolgálókat, amikor az IP-cím beszerzése megtörténik. A belső névfeloldás Kubernetes használja az alapértelmezett Kubernetes Core DNS-alapú megoldást. 
 
  - Ebben az előzetes kiadásban csak egyetlen VLAN-támogatást biztosítunk a teljes telepítéshez. 
 
  - Ebben az előzetes kiadásban korlátozott a PowerShell használatával létrehozott Kubernetes-fürtök proxy-támogatása. 
+ 
+### <a name="ip-address-assignment"></a>IP-cím hozzárendelése  
+ 
+A Azure Stack HCI üzembe helyezésének sikeres AK-ra vonatkozó részeként azt javasoljuk, hogy a DHCP-kiszolgálóval konfigurálja a virtuális IP-címkészlet tartományát. Azt is javasoljuk, hogy az összes munkaterhelés-fürthöz három – öt, magasan elérhető vezérlési sík-csomópontot konfiguráljon. 
+
+> [!NOTE]
+> A statikus IP-címek hozzárendelésének használata önmagában nem támogatott. Az előzetes kiadás részeként konfigurálnia kell egy DHCP-kiszolgálót.
+
+#### <a name="dhcp"></a>DHCP
+Kövesse ezeket a követelményeket, miközben DHCP-t használ az IP-címek fürtön belüli hozzárendeléséhez:  
+
+ - A hálózatnak rendelkeznie kell egy elérhető DHCP-kiszolgálóval a virtuális gépek és a virtuális gépek gazdagépei számára a TCP/IP-címek biztosításához. A DHCP-kiszolgálónak tartalmaznia kell a Network Time Protocol (NTP) és a DNS-gazdagép adatait is.
+ 
+ - Az Azure Stack HCI-fürt által elérhető IPv4-címek dedikált hatókörű DHCP-kiszolgáló.
+ 
+ - A DHCP-kiszolgáló által megadott IPv4-címeknek irányíthatónak kell lenniük, és 30 napos bérlettel kell rendelkezniük, hogy elkerüljék az IP-kapcsolat elvesztését a virtuális gépek frissítése vagy újraépítése esetén.  
+
+Legalább a következő számú DHCP-címet le kell foglalni:
+
+| Fürt típusa  | Vezérlési sík csomópont | Munkavégző csomópont | Frissítés | Terheléselosztóval  |
+| ------------- | ------------------ | ---------- | ----------| -------------|
+| AK-gazdagép |  1  |  0  |  2  |  0  |
+| Munkaterhelés-fürt  |  1/csomópont  | 1/csomópont |  5  |  1  |
+
+Megtekintheti, hogy a szükséges IP-címek száma milyen változó a környezetében lévő munkaterhelés-fürtök és a vezérlési sík és a munkavégző csomópontok számától függően. Javasoljuk, hogy a DHCP IP-készletben 256 IP-címet (/24 alhálózatot) őrizzen meg.
+  
+    
+#### <a name="vip-pool-range"></a>VIP-készlet tartománya
+
+A virtuális IP-(VIP-) készletek használata erősen ajánlott egy AK-ra Azure Stack HCI-környezetben. A VIP-készletek a hosszú élettartamú üzemelő példányok számára fenntartott statikus IP-címek, amelyek biztosítják, hogy a központi telepítés és az alkalmazás számítási feladatai mindig elérhetők legyenek. Jelenleg csak IPv4-címeket támogatunk, ezért ellenőriznie kell, hogy az összes hálózati adapteren le van-e tiltva az IPv6. Győződjön meg arról is, hogy a virtuális IP-címek nem részei a DHCP IP-címének.
+
+Legalább egy IP-címet le kell foglalni a fürtön (munkaterhelés és AK-gazdagép) és egy IP-címet a Kubernetes szolgáltatásban. A VIP-készlet tartományában a szükséges IP-címek száma a környezetében használt munkaterhelés-fürtök és Kubernetes-szolgáltatások számától függ. Javasoljuk, hogy 16 statikus IP-címet őrizzen meg az AK-HCI üzembe helyezéshez. 
+
+Az AK-gazdagép beállításakor a és a `-vipPoolStartIp` `-vipPoolEndIp` paraméter használatával `Set-AksHciConfig` hozzon létre egy VIP-készletet.
+
+#### <a name="mac-pool-range"></a>MAC-készlet tartománya
+Javasoljuk, hogy a tartományon belül legalább 16 MAC-címet engedélyezzen, hogy az egyes fürtökön több vezérlési sík csomópont legyen. Az AK-gazdagép beállításakor használja a `-macPoolStart` és a `-macPoolEnd` paramétert a `Set-AksHciConfig` Kubernetes-szolgáltatások DHCP Mac-KÉSZLETÉBEN található MAC-címek lefoglalásához.
   
 ### <a name="network-port-and-url-requirements"></a>A hálózati port és az URL-cím követelményei 
 
 Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automatikusan megnyitja a következő tűzfal-portokat a fürt minden kiszolgálóján. 
 
 
-| Tűzfal portja               | Leírás         | 
+| Tűzfal portja               | Leírás     | 
 | ---------------------------- | ------------ | 
-| 45000           | wssdagent GPRC-kiszolgáló portja           |
+| 45000           | wssdagent GPRC-kiszolgáló portja     |
 | 45001             | wssdagent GPRC hitelesítési port  | 
-| 55000           | wssdcloudagent GPRC-kiszolgáló portja           |
-| 65000             | wssdcloudagent GPRC hitelesítési port  | 
-
+| 55000           | wssdcloudagent GPRC-kiszolgáló portja      |
+| 65000            | wssdcloudagent GPRC hitelesítési port  | 
 
 
 A tűzfal URL-címére vonatkozó kivételek a Windows felügyeleti központ számítógépén és az Azure Stack HCI-fürt összes csomópontján szükségesek. 
@@ -82,7 +120,8 @@ https://helm.sh/blog/get-helm-sh/  | 443 | Ügynök letöltése, WAC | A Helm bi
 https://storage.googleapis.com/  | 443 | Felhőbeli init | Kubernetes bináris fájljainak letöltése 
 https://azurecliprod.blob.core.windows.net/ | 443 | Felhőbeli init | Bináris fájlok és tárolók letöltése 
 https://aka.ms/installazurecliwindows | 443 | WAC | Az Azure CLI letöltése 
-https://:443 | 443 | TCP | Az Azure arc-ügynökök támogatásához használatos 
+https://:443 | 443 | TCP | Az Azure arc-ügynökök támogatásához használatos  
+*.blob.core.windows.net | 443 | TCP | Letöltésekhez szükséges
 *. api.cdp.microsoft.com, *. dl.delivery.mp.microsoft.com, *. emdl.ws.microsoft.com | 80, 443 | Ügynök letöltése | Metaadatok letöltése 
 *. dl.delivery.mp.microsoft.com, *. do.dsp.mp.microsoft.com. | 80, 443 | Ügynök letöltése | VHD-lemezképek letöltése 
 ecpacr.azurecr.io | 443 | Kubernetes | Tároló lemezképének letöltése 
