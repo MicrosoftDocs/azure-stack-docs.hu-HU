@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: dec5c65f39bec2f459abba9adba25c4c097aff04
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620653"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208080"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -196,7 +196,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
    A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
 
    > [!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzureRMRmAccount` : `RemoveAzAccount -Scope Process` .
+   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzureRMRmAccount` : `Remove-AzureRMAccount -Scope Process` .
 
 3. Ha több előfizetéssel rendelkezik, a következő parancs futtatásával válassza ki a regisztrációhoz használtt:
 
@@ -213,7 +213,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 5. Az alábbi parancs futtatásával válassza ki a Piactéri elemeket (például a virtuálisgép-lemezképeket, a bővítményeket vagy a megoldási sablonokat) a letöltéshez:
 
    ```powershell
-   $products = Select-AzureRMsMarketplaceItem
+   $products = Select-AzsMarketplaceItem
    ```
 
    Ez egy olyan táblázatot jelenít meg, amely felsorolja a kijelölt előfizetésben elérhető összes Azure Stack regisztrációt. Válassza ki azt a regisztrációt, amely megfelel annak a Azure Stack-környezetnek, amelyet a piactérhez tartozó elemek letöltéséhez, majd kattintson **az OK gombra**.

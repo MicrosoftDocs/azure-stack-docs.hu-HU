@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 02765dbc33fe1bbcb4100e1523be96526549f367
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974098"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208097"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Tároló kiterjesztése Azure Stack hubhoz
 
@@ -264,7 +264,7 @@ Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure s
 
 15. Ismételje meg a folyamatot a következővel:
 
-    a. * * IP-cím * *: a második iSCSI cél IP-címe.
+    a. **IP-cím**: a második iSCSI cél IP-címe.
 
     b.  **Helyi adapter**: Microsoft iSCSI-kezdeményező.
 
@@ -292,7 +292,7 @@ Az iSCSI-kezdeményező beállításához először jelentkezzen be az **Azure s
 
 1.  Ismételje meg a folyamatot a második kezdeményező/cél kombinációnál.
 
-    a. * * Helyi adapter * *: Microsoft iSCSI-kezdeményező.
+    a. **Helyi adapter**: Microsoft iSCSI-kezdeményező.
 
     b.  **Kezdeményező IP-címe**: 10.10.11.4.
 

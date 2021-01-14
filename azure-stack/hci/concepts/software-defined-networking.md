@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/21/2020
-ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.date: 01/13/2021
+ms.openlocfilehash: 579ccb529ff2ac00a864a165fa5086244f0c0870
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208012"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
 
@@ -38,7 +38,7 @@ A hálózati vezérlő üzembe helyezése a következő funkciókat biztosítja:
 - Virtuális készülékek csatlakoztatása a virtuális hálózatokhoz.
 - Konfigurálja a szolgáltatásminőség (QoS) házirendeket a virtuális hálózatokhoz vagy a hagyományos VLAN-alapú hálózatokhoz csatolt virtuális gépekhez.
 
-Javasoljuk, hogy [a hálózati vezérlőt a fürt létrehozása során telepítse](../deploy/create-cluster.md#step-5-sdn-optional). Azt is megteheti, hogy [a hálózati vezérlőt a PowerShell használatával helyezi üzembe](../deploy/network-controller-powershell.md) egy Azure stack HCI-fürt létrehozása után.
+Azt javasoljuk, hogy Azure Stack HCI-fürt létrehozása után telepítse [a hálózati vezérlőt az Sdn Express használatával](../deploy/sdn-express.md) .
 
 ## <a name="software-load-balancing"></a>Szoftveres terheléselosztás
 
@@ -54,10 +54,10 @@ Az átjárók a virtuális hálózat és egy másik hálózat (helyi vagy távol
 
 Az átjárók [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a GRE-végpontok reklámozására és pont-pont típusú kapcsolatok létrehozására szolgálnak. Az SDN üzembe helyezése egy alapértelmezett átjárót hoz létre, amely támogatja az összes kapcsolattípust. Ebben a készletben megadhatja, hogy hány átjáró legyen lefoglalva készenléti állapotban, ha egy aktív átjáró meghibásodik.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Szoftveresen definiált hálózati infrastruktúra megtervezése](plan-software-defined-networking-infrastructure.md)
 - [SDN a Windows Serverben – áttekintés](/windows-server/networking/sdn/software-defined-networking)
-- [Szoftveralapú hálózati infrastruktúra telepítése parancsprogramokkal](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)
+- [SDN-infrastruktúra üzembe helyezése az SDN Express használatával](../deploy/sdn-express.md)

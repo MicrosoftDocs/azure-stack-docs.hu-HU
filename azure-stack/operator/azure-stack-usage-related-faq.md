@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
-ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
+ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97576972"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98207995"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -37,7 +37,7 @@ A használatot a következő erőforrás-szolgáltatók jelentik:
 **Egység**: IP-címek  
 **Megjegyzések**: a használt IP-címek száma. Ha napi részletességgel hívja meg a használati API-t, a mérő az IP-címet adja vissza, szorozva az órák számával.  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Tárolás
   
 **FOGYASZTÁSMÉRŐ azonosítója**: B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Fogyasztásmérő neve**: TableCapacity  
@@ -210,6 +210,18 @@ Mérőszám **azonosítója**: 75D4b707-1027-4403-9986-6ec7c05579c8- **fogyaszt�
 **Egység**: MB \* óra  
 **Megjegyzések**: az adatbázis teljes kapacitása a létrehozáskor. Ha napi részletességgel hívja meg a használati API-t, a mérő a MB-ot adja meg, szorozva az órák számával.
 
+### <a name="event-hubs"></a>Event Hubs
+
+**FOGYASZTÁSMÉRŐ azonosítója**: d3a257e7-cf59-43bd-82c0-cf29ca8f7da0 (fizetős fogyasztásmérő)  
+**Fogyasztásmérő neve**: 1 mag    
+**Egység**: alapszintű \* óra  
+**Megjegyzések**: Event Hubs telepített fürtök által használt magok száma. A magok száma több, mint 10.
+
+**FOGYASZTÁSMÉRŐ azonosítója**: 29ea0bfc-6780-4711-98fc-2c7db191e1a4 (felügyeleti fogyasztásmérő)  
+**Fogyasztásmérő neve**: 1 Magos rendszergazda   
+**Egység**: alapszintű \* óra  
+**Megjegyzések**: Event Hubs telepített fürtök által használt magok száma. A magok száma több, mint 10.
+
 ### <a name="key-vault"></a>Key Vault
   
 **FOGYASZTÁSMÉRŐ azonosítója**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
@@ -328,7 +340,7 @@ Azt is megteheti, hogy a REST API-kat használja a [szolgáltatói erőforrás-h
 
 A használati rekordok közé tartozik a **AdditionalInfo** nevű tulajdonság, amely tartalmazza az Azure stack hub előfizetés-azonosítóját. Ez az azonosító a megfelelő használati rekordot kibocsátó felhasználói előfizetés.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Ügyfél számlázása és jóváírása Azure Stack központban](azure-stack-billing-and-chargeback.md)
 * [Szolgáltatói erőforrás-használati API](azure-stack-provider-resource-api.md)

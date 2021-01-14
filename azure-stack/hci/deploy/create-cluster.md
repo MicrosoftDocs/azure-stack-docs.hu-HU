@@ -1,19 +1,19 @@
 ---
-title: Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
+title: Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364217"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208053"
 ---
-# <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows felügyeleti központtal
+# <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 
 > A következőre vonatkozik Azure Stack HCI, Version v20H2
 
@@ -199,7 +199,7 @@ A varázsló 3. lépése gondoskodik arról, hogy minden eddig helyesen legyen b
 
     :::image type="content" source="media/cluster/create-cluster.png" alt-text="Fürt létrehozása varázsló – fürt létrehozása" lightbox="media/cluster/create-cluster.png":::
 
-1. Az **IP-cím** területen válassza ki a használni kívánt statikus vagy dinamikus IP-címeket.
+1. Az **IP-cím** területen válassza ki a használni kívánt statikus vagy dinamikus IP-címeket. Az IP-címet a következő formátumban kell megadni: *IP-cím/aktuális alhálózat hossza*. Például: 10.0.0.200/24.
 1. Válassza az **Advanced** (Speciális) lehetőséget. Néhány lehetőség közül választhat:
 
     - **A fürt regisztrálása a DNS-sel és Active Directory**
@@ -231,74 +231,9 @@ Eltarthat egy ideig, amíg a fürt neve replikálódik a tartományon belül, k�
 
 Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben a fürt neve helyett a kiszolgáló nevét lehet helyettesíteni.
 
-## <a name="step-5-sdn-optional"></a>5. lépés: SDN (nem kötelező)
-
-Ez a választható lépés végigvezeti a [szoftveresen definiált hálózatkezelés (Sdn)](../concepts/software-defined-networking.md)hálózati vezérlő összetevőjének beállításán. A hálózati vezérlő beállítása után az SDN más összetevőit is konfigurálhatja, például a szoftver Load Balancer (SLB) és a RAS-átjárót igény szerint.
-
-> [!NOTE]
-> A varázsló nem konfigurálja az SDN-hez készült SLB és RAS-átjárót. Ezeket az összetevőket az SDN Express-parancsfájlok használatával konfigurálhatja. Ennek módjáról a [SDNExpress GitHub](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)-tárházban talál további információt.
-
-> [!NOTE]
-> Az SDN nem támogatott a kifeszített fürtök esetében.
-
-1. Válassza a **Tovább: Sdn** lehetőséget.
-
-    :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Fürt létrehozása varázsló – SDN hálózati vezérlő" lightbox="media/cluster/create-cluster-network-controller.png":::
-
-1. **Az 5,1-es hálózati vezérlő fürtön** adja meg a hálózati vezérlő nevét a **gazdagép** alatt. Ez a felügyeleti ügyfelek (például a Windows felügyeleti központ) által használt DNS-név a hálózati vezérlővel való kommunikációhoz.
-1. A Azure Stack HCI VHD-fájl elérési útjának megadása. Gyorsabb keresés a **tallózással** .
-1. A hálózati vezérlő számára dedikált virtuális gépek számának megadása. A magas rendelkezésre állás érdekében legalább három virtuális gép használata javasolt.
-1. A **hálózat** alatt adja meg a felügyeleti hálózat VLAN-azonosítóját. A hálózati vezérlőnek csatlakoznia kell ugyanahhoz a felügyeleti hálózathoz, mint a gazdagépek közötti kommunikációhoz és konfiguráláshoz.
-
-    > [!NOTE]
-    > A hálózati vezérlő virtuális gépek a fürtözéshez használt virtuális kapcsolót használják, ha vannak ilyenek, ellenkező esetben a "számítási" virtuális kapcsolót használják, mint a fürt többi virtuális gépe. További információkért lásd a hálózati [vezérlő üzembe helyezésének megtervezése](../concepts/network-controller.md)című témakör [hálózati vezérlőre vonatkozó követelmények](../concepts/network-controller.md#network-controller-requirements) című szakaszát.
-
-1. A **VM-hálózat címzése** beállításnál válassza a **DHCP** vagy a **statikus** lehetőséget.
-1. Ha a **DHCP** lehetőséget választotta, adja meg a hálózati vezérlő virtuális gépek nevét.
-1. Ha a **statikus** lehetőséget választotta, a következőt kell megadnia:
-    1. IP-cím.
-    1. Alhálózat előtagja.
-    1. Alapértelmezett átjáró.
-    1. Egy vagy több DNS-kiszolgáló. További DNS-kiszolgálók hozzáadásához kattintson a **Hozzáadás** gombra.
-1. A **hitelesítő adatok** területen adja meg a hálózati vezérlő virtuális gépek fürt tartományhoz való csatlakoztatásához használt felhasználónevet és jelszót.
-1. Adja meg a virtuális gépek helyi rendszergazdai jelszavát.
-1. A **speciális** alatt adja meg a virtuális gépek elérési útját.
-1. Adja meg az értékeket a **Mac-címkészlet kezdő** és a **Mac-címkészlet végéhez**.
-1. Amikor végzett, kattintson a **Tovább** gombra.
-1. A **hálózati vezérlő üzembe helyezése** területen várjon, amíg a varázsló befejezi a feladatot. Maradjon ezen a lapon, amíg az összes végrehajtási feladat be nem fejeződik. Ezután kattintson a **Befejezés** gombra.
-
-1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a DNS-kiszolgálón a hálózati vezérlő fürtjének dinamikus DNS-frissítéseit. Ennek módjáról további információt a [dinamikus DNS-regisztráció konfigurálása hálózati vezérlőhöz](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)című témakörben talál.
-
-1. Ha a hálózati vezérlő üzembe helyezése sikertelen, a következő próbálkozás előtt tegye a következőket:
-
-- Állítsa le és törölje a varázsló által létrehozott hálózati vezérlő virtuális gépeket.  
-
-- Törölje a varázsló által létrehozott VHD-csatlakoztatási pontokat.  
-
-- Győződjön meg arról, hogy a Hyper-V-gazdagépeken legalább 50 100 GB szabad terület van.  
-
-## <a name="after-you-complete-the-wizard"></a>A varázsló befejezése után
-
-A varázsló befejezése után még néhány fontos feladatot végre kell hajtania.
-
-Az első feladat a hitelesítő adatok biztonsági támogató szolgáltató (CredSSP) protokolljának letiltása az egyes kiszolgálókon biztonsági okokból. Ne feledje, hogy a CredSSP szükséges, hogy engedélyezve legyen a varázsló. Ha a CredSSP kapcsolatos problémákat tapasztal, további információért tekintse meg a [CredSSP hibaelhárításával](../manage/troubleshoot-credssp.md) foglalkozó témakört.
-
-1. A Windows felügyeleti központban az **összes kapcsolat** területen válassza ki az imént létrehozott fürtöt.
-1. Az **eszközök** területen válassza a **kiszolgálók** elemet.
-1. A jobb oldali ablaktáblában válassza ki az első kiszolgálót a fürtben.
-1. Az **Áttekintés** területen válassza a **CredSSP letiltása** lehetőséget. Ekkor láthatja, hogy a piros **CREDSSP engedélyezte** a szalagcímet a felső részen.
-1. Ismételje meg a 3. és a 4. lépést a fürt minden kiszolgálóján.
-
-OK, most a következő műveleteket kell végrehajtania:
-
-- Állítson be egy tanúsító fürtöt. Lásd: [tanúsító fürt beállítása](witness.md).
-- Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
-- A kifeszített fürtök esetében hozza létre a köteteket, és állítsa be a replikációt. Lásd: [a kifeszített fürtözött kötetek létrehozása és a replikáció beállítása](../manage/create-stretched-volumes.md).
-
 ## <a name="next-steps"></a>Következő lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)
 - A virtuális gépek kiépítése. Lásd: [virtuális gépek kezelése Azure stack HCI-ben a Windows felügyeleti központ használatával](../manage/vm.md).
 - Fürtöt a PowerShell használatával is üzembe helyezhet. Lásd: [Azure stack HCI-fürt létrehozása a PowerShell használatával](create-cluster-powershell.md).
-- A hálózati vezérlőt a PowerShell használatával is üzembe helyezheti. Lásd: [hálózati vezérlő üzembe helyezése a PowerShell használatával](network-controller-powershell.md).

@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/15/2020
-ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
-ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
+ms.date: 01/13/2021
+ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515018"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208029"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
@@ -136,7 +136,7 @@ A Azure Stack HCI az Azure és a Azure Stack család része, és ugyanazt a szof
 A Windows felügyeleti központ 2009-es verziója számos funkciót biztosít a HCI Azure Stackához, beleértve a következőket:
 
 - **Azure Kubernetes szolgáltatás üzemeltetési képességei**: most már telepítheti az [Azure Kubernetes Service előzetes verzióját Azure stack HCI-on](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- A **szoftver által definiált hálózatkezelés belefoglalása a fürt létrehozása varázslóban**: a fürt létrehozása varázsló már tartalmazza a [szoftveres hálózatkezelés (Sdn)](concepts/software-defined-networking.md) hálózati vezérlő funkciójának telepítését a [fürt létrehozása](deploy/create-cluster.md#step-5-sdn-optional)során.
+
 - **Távoli közvetlen memória-hozzáférés (RDMA) továbbfejlesztése a fürt létrehozása varázslóban**: a fürt létrehozása varázsló mostantól konfigurálhatja a RDMA a iWARP és a RoCE hálózati adapterekhez, beleértve az adatközpont-áthidalás (DCB) szolgáltatást is.
 
 További információ az új funkciókról: [a fürt létrehozási bővítményének általánosan elérhetővé való bejelentése a Windows felügyeleti központban](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332).
@@ -185,7 +185,7 @@ Egy hibrid Felhőbeli virtuális eseményből származó videó:
 
 - [Azure Stack HCI | Hibrid Felhőbeli virtuális esemény](https://www.youtube.com/watch?v=nxpoEva-R2Y)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack HCI letöltése](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban](deploy/deployment-quickstart.md)
