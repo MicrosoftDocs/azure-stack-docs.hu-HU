@@ -58,6 +58,8 @@
           href: manage/vm-powershell.md
         - name: VM-affinitási szabályok létrehozása
           href: manage/vm-affinity.md
+        - name: VIRTUÁLIS gépek terheléselosztása
+          href: manage/vm-load-balancing.md
         - name: GPU csatlakoztatása Linux rendszerű virtuális géphez
           href: manage/attach-gpu-to-linux-vm.md
     - name: Tárhely kezelése

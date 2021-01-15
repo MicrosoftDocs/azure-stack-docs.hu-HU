@@ -2,7 +2,7 @@
   href: index.yml
 - name: Áttekintés
   items:
-    - name: Mi az Azure Stack hub?
+    - name: Mi az Azure Stack Hub?
       href: user-overview.md
     - name: Fő szempontok
       href: azure-stack-considerations.md
@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Általános célú virtuális gép
                       href: vm-move-generalized.md
-            - name: Storage
+            - name: Tárolás
               items:
                 - name: Áttekintés
                   href: azure-stack-storage-overview.md
@@ -169,7 +169,7 @@
                   href: azure-stack-storage-transfer.md
                 - name: A Storage Explorer csatlakoztatása
                   href: azure-stack-storage-connect-se.md
-            - name: Hálózat
+            - name: Network (Hálózat)
               items:
                 - name: Áttekintés
                   href: azure-stack-network-overview.md
@@ -298,6 +298,8 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: NodeJS-webalkalmazás üzembe helyezése
               href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: GitHub-művelet létrehozása – bejelentkezés
+          href: ci-cd-github-action-login-cli.md
         - name: GPU IoT-modul üzembe helyezése
           href: gpu-deploy-sample-module.md
     - name: Alapvető minták üzembe helyezése
@@ -339,7 +341,7 @@
               href: azure-stack-network-howto-backup-storage.md
             - name: Előfizetés-erőforrások másolása
               href: azure-stack-network-howto-backup-replicator.md
-- name: Fogalmak
+- name: Alapelvek
   items:
     - name: IaaS architektúrák
       items:
@@ -353,7 +355,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Hálózati virtuális berendezések
           href: iaas-architecture-nva-architecture.md
-- name: Hivatkozás
+- name: Referencia
   items:
     - name: Azure Stack hub PowerShell
       href: /powershell/azure/azure-stack/overview
@@ -369,7 +371,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: További források
+- name: Források
   items:
     - name: Azure Stack hub közúti Térkép
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
