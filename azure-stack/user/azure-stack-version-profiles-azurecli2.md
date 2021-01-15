@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974013"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243578"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Az Azure CLI telepítése Azure Stack hubhoz
 
@@ -67,7 +67,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
           --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
       ```
 
-    Az Azure CLI dokumentációjában talál egy hivatkozást a [Register parancshoz](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) .
+    Az Azure CLI dokumentációjában talál egy hivatkozást a [Register parancshoz](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) .
 
 
 4. Állítsa be az aktív környezetet az alábbi parancsok használatával.
@@ -398,8 +398,8 @@ Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
 
 ---
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../operator/azure-stack-cli-admin.md)
-- [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md) 
+- [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)

@@ -8,12 +8,12 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 6ee19c12e1a80e8c41c5c33d9c2b613d86fbc104
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909684"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243493"
 ---
 # <a name="azure-stack-hub-administration-basics---ruggedized"></a>Azure Stack hub adminisztrációs alapjai – robusztus
 
@@ -49,7 +49,7 @@ A következő kiegészítő szolgáltatásként nyújtott platform-szolgáltatá
 - IoT Hub
 - Eseményközpont
 
-Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a   >   [Azure stack hub-kezelő dokumentációjában](https://docs.microsoft.com/azure-stack/operator/).
+Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, hogy elérhetővé tegyék azokat a felhasználók számára. További információ: **oktatóanyagok** és útmutatók a   >   [Azure stack hub-kezelő dokumentációjában](../../operator/index.yml).
 
 ### <a name="service-roadmap"></a>Szolgáltatási ütemterv
 
@@ -88,11 +88,11 @@ A szolgáltatások biztosítása mellett az operátorok rendszeres kötelessége
 - A [hálózati](../../operator/azure-stack-viewing-public-ip-address-consumption.md) és [tárolási](../../operator/azure-stack-manage-storage-accounts.md) erőforrások kezelése.
 - [Azure stack hub elindítása és leállítása](../../operator/azure-stack-start-and-stop.md).
 - [A kiterjesztett tároló üzemeltetése](../../user/azure-stack-network-howto-extend-datacenter.md).
-- [IoT hub kezelése](https://docs.microsoft.com/azure/iot-hub/about-iot-hub).
-- Az [Event hub kezelése](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- [App Service kezelése](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [IoT hub kezelése](/azure/iot-hub/about-iot-hub).
+- Az [Event hub kezelése](../../operator/event-hubs-rp-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
+- [App Service kezelése](../../operator/azure-stack-app-service-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
 - Cserélje le a hibás hardvereket. Itt láthatók a [cserélhető részek](../../operator/azure-stack-replace-component.md)listája.
-- [Támogatás kérése](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Támogatás kérése](../../operator/azure-stack-help-and-support-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
 
 ## <a name="operator-tasks"></a>Operátori feladatok
 
@@ -111,7 +111,7 @@ Az alábbi lista az operátorok napi, heti és havi feladatait sorolja fel:
 1. Kapacitásának ellenőrzését.
 2. Futtassa `isi status –verbose` a parancsot a Avocent-kapcsolatban.
 
-# <a name="monthly"></a>[havonta](#tab/monthly)
+# <a name="monthly"></a>[Havonta](#tab/monthly)
 
 1. Havi frissítési csomagok (Microsoft & OEM) alkalmazása.
 2. A biztonsági mentés ellenőrzése a ASDK használatával.
@@ -135,7 +135,7 @@ Az alábbi lista az operátorok napi, heti és havi feladatait sorolja fel:
 
 ## <a name="what-to-tell-your-users"></a>Mit kell tudniuk a felhasználóknak
 
-Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak Azure Stack hub szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes lehet biztosítani a felhasználók számára, [Azure stack hub felhasználói dokumentációra](https://docs.microsoft.com/azure-stack/user/)irányíthatja a felhasználókat.
+Lehetővé kell tennie, hogy a felhasználók tudják, hogyan dolgozhatnak Azure Stack hub szolgáltatásaival, hogyan csatlakozhat a környezethez, és hogyan fizethet elő az ajánlatokra. Minden olyan egyéni dokumentáció mellett, amelyet érdemes lehet biztosítani a felhasználók számára, [Azure stack hub felhasználói dokumentációra](../../user/index.yml)irányíthatja a felhasználókat.
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>Ismerje meg, hogyan dolgozhat a szolgáltatásokkal Azure Stack központban
 
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [Területi felügyelet Azure Stack központban](../../operator/azure-stack-region-management.md)

@@ -14,12 +14,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 1/9/2020
-ms.openlocfilehash: c0de30c44d2938d17bbd4c48abbd1372bb7f6f79
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 34dafb113d2e87dddd0d744878c8be5e406751d0
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874285"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243561"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Erőforrások kezelése és üzembe helyezése az Azure Stack Hubon az Azure CLI-vel
 
@@ -47,7 +47,7 @@ Beállíthat egy nyilvánosan elérhető végpontot, amely egy virtuálisgép-al
 
 ### <a name="install-or-upgrade-cli"></a>PARANCSSORI felület telepítése vagy frissítése
 
-Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure Stack hub esetében az Azure CLI 2,0-es vagy újabb verziójára van szükség. Az API-profilok legújabb verziójának a parancssori felület aktuális verzióját kell megadnia. A CLI-t az [Azure CLI telepítése](https://docs.microsoft.com/cli/azure/install-azure-cli) című cikkben ismertetett lépések segítségével telepítheti. 
+Jelentkezzen be a fejlesztői munkaállomásra, és telepítse a CLI-t. Azure Stack hub esetében az Azure CLI 2,0-es vagy újabb verziójára van szükség. Az API-profilok legújabb verziójának a parancssori felület aktuális verzióját kell megadnia. A CLI-t az [Azure CLI telepítése](/cli/azure/install-azure-cli) című cikkben ismertetett lépések segítségével telepítheti. 
 
 Annak ellenőrzéséhez, hogy a telepítés sikeres volt-e, nyisson meg egy terminált vagy egy parancssorablakot, és futtassa a következő parancsot:
 
@@ -218,4 +218,4 @@ Ismert problémák léptek fel a CLI Azure Stack hub-ban való használatakor:
 
 - [Sablonok üzembe helyezése az Azure CLI-vel](../../user/azure-stack-deploy-template-command-line.md)
 - [Az Azure CLI engedélyezése Azure Stack hub-felhasználók számára (operátor)](../../operator/azure-stack-cli-admin.md)
-- [Felhasználói engedélyek kezelése](../../user/azure-stack-manage-permissions.md) 
+- [Felhasználói engedélyek kezelése](../../user/azure-stack-manage-permissions.md)

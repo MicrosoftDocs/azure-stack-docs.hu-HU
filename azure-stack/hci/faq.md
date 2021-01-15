@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 1/15/2021
+ms.openlocfilehash: 97979a9fb96840337e89a4a3db3e3307cdb70eac
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051598"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243391"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI – gyakori kérdések
 A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
@@ -24,7 +24,9 @@ A Azure Stack HCI egy Azure Hybrid Service-ként szállított helyszíni hiperko
 
 **A rendszer elküldi a Azure Stack HCI-ben tárolt adataikat a felhőbe?**
 
-Nem. A helyszíni virtuális gépek (VM-EK) nevét, metaadatait, konfigurációját és tartalmát a rendszer soha nem továbbítja a felhőbe, kivéve, ha a további szolgáltatásokat kifejezetten erre a célra kapcsolja be, például Azure Backup vagy Azure Site Recovery. Vagy hacsak nem regisztrálja ezeket a virtuális gépeket egyenként a felhőalapú felügyeleti szolgáltatásokban, például az Azure arc-ban.
+Nem. A rendszer soha nem küldi el az adatokat a felhőbe, beleértve a neveket, a metaadatokat, a konfigurációt és a helyszíni virtuális gépek (VM-EK) tartalmát, kivéve, ha a további szolgáltatásokat kifejezetten erre a célra kapcsolja be, például Azure Backup vagy Azure Site Recovery, vagy ha nem regisztrálja ezeket a virtuális gépeket a felhőalapú felügyeleti szolgáltatásokhoz (például az Azure arc).
+
+Ha többet szeretne megtudni a gyűjtött diagnosztikai adatokról, hogy Azure Stack HCI biztonságos, naprakész és a várt módon működjön, tekintse meg a következőt: [Azure stack HCI adatgyűjtési](concepts/data-collection.md) és [-adattárolási szolgáltatás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="edge-local-management-and-control"></a>Edge – helyi felügyelet és vezérlés
 
@@ -68,7 +70,7 @@ Ez az Ön által használt funkcióktól függ. Azure Stack HCI-nek legalább 12
 
 **Hová kerül ténylegesen a szinkronizált adatok?**
 
-Azure Stack HCI szinkronizál az Azure-val, és biztonságos, Microsoft által működtetett adatközpontban tárolja az adattárolást. További információ: [Azure stack HCI](concepts/data-collection.md) -adatgyűjtés és [-tárolás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI szinkronizál az Azure-val, és biztonságos, Microsoft által működtetett adatközpontban tárolja az adattárolást. Ha többet szeretne megtudni a gyűjtött diagnosztikai adatokról, hogy Azure Stack HCI biztonságos, naprakész és a várt módon működjön, tekintse meg a következőt: [Azure stack HCI adatgyűjtési](concepts/data-collection.md) és [-adattárolási szolgáltatás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Leválasztva vagy "Air-gapped"
 

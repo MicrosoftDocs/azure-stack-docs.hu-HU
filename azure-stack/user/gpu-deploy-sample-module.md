@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2020
 ms.reviewer: gara
 ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: b8aef224c5694cd6b8408538473dce3b86996c4d
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 7a5a29c48533874cf2c859780ab0332b8410811f
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94632796"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243476"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-hub"></a>GPU-t támogató IoT-modul üzembe helyezése Azure Stack központban
 
@@ -41,7 +41,7 @@ A következő erőforrásokkal kell rendelkeznie a Azure Stack hub-példányban,
     További információ a Azure Stack hub GPU-ról: [Graphics Processing Unit (GPU) VM Azure stack hub-on](gpu-vms-about.md).
   - Globális Azure-előfizetés. Ha nem rendelkezik globális Azure-előfizetéssel, hozzon létre egy [ingyenes fiókot](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) a Kezdés előtt.
 - Egy [Azure Container Registry (ACR)](/). Jegyezze fel az ACR bejelentkezési kiszolgálóját, a felhasználónevet és a jelszót.
--   Egy ingyenes vagy standard szintű [IoT hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) a globális Azure-ban.
+-   Egy ingyenes vagy standard szintű [IoT hub](/azure/iot-hub/iot-hub-create-through-portal) a globális Azure-ban.
 
 ### <a name="a-development-machine"></a>Egy fejlesztői gép
 
@@ -63,13 +63,13 @@ Használjon külön eszközt a IoT Edge eszköz üzemeltetéséhez. Egy külön�
 
 IoT Edge-eszköz létrehozása az Azure-ban Linux rendszerű virtuális géppel:
 
-1.  [Hozzon létre egy N sorozatú Linux Server rendszerű virtuális gépet](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal) Azure stack hub-on. A kiszolgálóhoz tartozó összetevők telepítésekor a kiszolgáló SSH-n keresztül fog működni. További információ: [nyilvános SSH-kulcs használata](/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).
+1.  [Hozzon létre egy N sorozatú Linux Server rendszerű virtuális gépet](./azure-stack-quick-linux-portal.md) Azure stack hub-on. A kiszolgálóhoz tartozó összetevők telepítésekor a kiszolgáló SSH-n keresztül fog működni. További információ: [nyilvános SSH-kulcs használata](./azure-stack-dev-start-howto-ssh-public-key.md).
 
-2.  [IoT Edge-eszköz létrehozása és regisztrálása](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
+2.  [IoT Edge-eszköz létrehozása és regisztrálása](/azure/iot-edge/how-to-register-device)
 
 ## <a name="prepare-a-gpu-enabled-vm"></a>GPU-t támogató virtuális gép előkészítése
 
-1. Telepítse a NVIDA GPU-illesztőprogramokat az N sorozatú Linux-kiszolgálóra a cikk lépéseit követve, [telepítse az NVIDIA GPU-illesztőprogramokat a Linux rendszerű n sorozatú virtuális gépekre](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
+1. Telepítse a NVIDA GPU-illesztőprogramokat az N sorozatú Linux-kiszolgálóra a cikk lépéseit követve, [telepítse az NVIDIA GPU-illesztőprogramokat a Linux rendszerű n sorozatú virtuális gépekre](/azure/virtual-machines/linux/n-series-driver-setup).
 
     > [!NOTE]  
     > A szoftver telepítéséhez a bash parancssorát fogja használni. Jegyezze fel a parancsokat, mivel ugyanazokat a parancsokat fogja használni az illesztőprogramok telepítéséhez a Docker-t futtató tárolón a GPU-t támogató virtuális gépen
@@ -84,7 +84,7 @@ Telepítenie kell a Docker 19,02-es vagy újabb telepítését. A Docker Runtime
 
 ### <a name="install-docker"></a>A Docker telepítése
 
-A Docker-tárolók bárhol, a helyszíni adatközpontban, egy külső szolgáltatón vagy a felhőben, az Azure-on futhatnak. A Docker-rendszerkép tárolói natív módon futtathatók Linux és Windows rendszeren. A Windows-lemezképek azonban csak Windows-gazdagépeken és Linux-rendszerképeken futtathatók Linux-gazdagépeken és Windows-gazdagépeken (eddig egy Hyper-V Linux rendszerű virtuális gép használatával), ahol a gazdagép egy kiszolgálót vagy egy virtuális gépet jelent. További információ: [Mi az a Docker?](https://docs.microsoft.com/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+A Docker-tárolók bárhol, a helyszíni adatközpontban, egy külső szolgáltatón vagy a felhőben, az Azure-on futhatnak. A Docker-rendszerkép tárolói natív módon futtathatók Linux és Windows rendszeren. A Windows-lemezképek azonban csak Windows-gazdagépeken és Linux-rendszerképeken futtathatók Linux-gazdagépeken és Windows-gazdagépeken (eddig egy Hyper-V Linux rendszerű virtuális gép használatával), ahol a gazdagép egy kiszolgálót vagy egy virtuális gépet jelent. További információ: [Mi az a Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 1. Csatlakozzon az N-sorozatú Linux-kiszolgálóhoz az SSH-ügyfél használatával.
 
@@ -177,4 +177,4 @@ Térjen vissza a Azure Portalhoz, és adja hozzá a modellt a peremhálózati es
 
   - Tudjon meg többet a Azure Stack hub-ról, a Data Box Edgeről és az intelligens környezetről, [a számítástechnika jövőjéről: intelligens felhő és intelligens peremhálózat](https://azure.microsoft.com/overview/future-of-cloud)
 
-  - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások](https://docs.microsoft.com/hybrid/app-solutions/)
+  - További információ a hibrid felhőalapú alkalmazásokról: [hibrid felhőalapú megoldások](/hybrid/app-solutions/)

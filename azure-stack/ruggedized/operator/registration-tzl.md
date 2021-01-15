@@ -15,12 +15,12 @@ ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 3d24ba3a714c8ea8f17189a7c63a134dab0f8d12
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 34dbff445ed06291712223b17f8443b384b8cac8
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909803"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243527"
 ---
 # <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Azure Stack hub regisztrálása az Azure-Azure Stack hub robusztus
 
@@ -310,13 +310,13 @@ A **régió kezelése** csempével ellenőrizheti, hogy az Azure stack hub regis
 
 4. A Azure Portal használatával megtekintheti Azure Stack hub regisztrációs erőforrásait, majd ellenőrizheti, hogy a regisztráció sikeres volt-e. Jelentkezzen be a [Azure Portal](https://portal.azure.com/) az Azure stack hub regisztrálásához használt előfizetéshez társított fiókkal. Válassza a **minden erőforrás** lehetőséget, engedélyezze a **rejtett típusok megjelenítése** jelölőnégyzetet, majd válassza ki a regisztrációs nevet.
 
-5. Ha a regisztráció sikertelen volt, újra kell regisztrálnia a probléma megoldásához [használt előfizetés módosításával](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#change-the-subscription-you-use) .
+5. Ha a regisztráció sikertelen volt, újra kell regisztrálnia a probléma megoldásához [használt előfizetés módosításával](../../operator/azure-stack-registration.md#change-the-subscription-you-use) .
 
 Másik lehetőségként ellenőrizheti, hogy a regisztráció sikeres volt-e a piactér-felügyeleti szolgáltatás használatával. Ha a piactér- **kezelés** panelen megjelenik a piactér-elemek listája, a regisztráció sikeres volt. A leválasztott környezetekben azonban nem láthatók a piactéren a Marketplace-elemek.
 
 > [!NOTE]
 > A regisztráció befejezése után a nem regisztrált aktív figyelmeztetés többé nem jelenik meg.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-[Azure Stack hub adminisztrációs alapjai](../../operator/azure-stack-manage-basics.md)  
+[Azure Stack hub adminisztrációs alapjai](../../operator/azure-stack-manage-basics.md)

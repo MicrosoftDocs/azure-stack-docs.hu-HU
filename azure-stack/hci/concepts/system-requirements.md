@@ -1,20 +1,20 @@
 ---
-title: Azure Stack HCI rendszerkövetelményei
+title: Az Azure Stack HCI rendszerkövetelményei
 description: Kiszolgálók, tárolók és hálózatkezelési összetevők kiválasztása Azure Stack HCI-hez.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b29dfb35bad91ef02feebc22255b89116da1505
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354156"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243459"
 ---
-# <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI rendszerkövetelményei
+# <a name="system-requirements-for-azure-stack-hci"></a>Az Azure Stack HCI rendszerkövetelményei
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
@@ -61,20 +61,6 @@ Egy Azure Stack HCI-fürtnek megbízható, nagy sávszélességű, kis késlelte
 
 - Győződjön meg arról, hogy legalább egy hálózati adapter elérhető, és dedikált a fürt felügyeletéhez.
 - Győződjön meg arról, hogy a hálózati fizikai kapcsolók úgy vannak konfigurálva, hogy engedélyezzék a forgalom használatát minden olyan VLAN-on, amelyet használni fog.
-
-Több típusú kommunikáció zajlik a kiszolgálói csomópontok között:
-
-- Fürt kommunikációja (node joins, cluster Updates, Registry Updates)
-- Fürt Szívverései
-- Fürt megosztott kötete (CSV) átirányított forgalom
-- Virtuális gépek élő áttelepítési forgalma
-
-A Közvetlen tárolóhelyek további hálózati forgalmat is figyelembe kell venni:
-
-- Storage Bus Layer (SBL) – egységek vagy adategységek a csomópontok között
-- Állapot – objektumok figyelése és kezelése (csomópontok, meghajtók, hálózati kártyák, fürtszolgáltatás)
-
-A többhelyes fürtök esetében a helyek között további tárolási replika forgalom is áramlik. A Storage Bus Layer (SBL) és a Fürt megosztott kötete (CSV) forgalom nem megy át a helyek között, csak az egyes helyeken belüli kiszolgálói csomópontok között.
 
 A gazdagép hálózatkezelési szempontjait és követelményeit lásd: a [gazdagép hálózati követelményei](host-network-requirements.md).
 

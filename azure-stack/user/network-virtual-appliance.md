@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517148"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243323"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>A hálózati virtuális berendezésekkel kapcsolatos problémák elhárítása
 
@@ -63,7 +63,7 @@ Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, 
 
 ### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
-1. Futtassa az alábbi parancsot: Cserélje le az értékeket a szögletes zárójelbe az adataival.
+1. Futtassa az alábbi parancsot. Cserélje le az értékeket a szögletes zárójelbe az adataival.
 
    ```powershell
    Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -84,7 +84,7 @@ Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, 
 
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
 
-1. Futtassa az alábbi parancsot: Cserélje le az értékeket a szögletes zárójelbe az adataival.
+1. Futtassa az alábbi parancsot. Cserélje le az értékeket a szögletes zárójelbe az adataival.
 
    ```powershell
    Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
@@ -187,4 +187,4 @@ Ha segítségre van szüksége, [forduljon a NVA gyártójához](https://support
 
 ### <a name="create-a-support-ticket"></a>Támogatási jegy létrehozása
 
-Ha az előző lépések nem oldják meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/azure-stack-diagnostic-log-collection-overview.md) a naplók biztosításához.
+Ha az előző lépések nem oldják meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/diagnostic-log-collection.md) a naplók biztosításához.

@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: a39cbd5a845e79114393710c8ec77d37f30a68a0
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518194"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243510"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok hibaelhárítása
 
@@ -98,4 +98,4 @@ Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -Re
 
 ## <a name="create-a-support-ticket"></a>Támogatási jegy létrehozása
 
-Ha a fenti lépések egyike sem oldja meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/azure-stack-diagnostic-log-collection-overview.md) a naplók biztosításához.
+Ha a fenti lépések egyike sem oldja meg a problémát, hozzon létre egy [támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support) , és használja a [on demand log Collection eszközt](../operator/diagnostic-log-collection.md) a naplók biztosításához.

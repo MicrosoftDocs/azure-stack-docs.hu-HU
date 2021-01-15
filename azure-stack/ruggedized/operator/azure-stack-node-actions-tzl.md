@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: d0aa0ce6680d45fb6c8a760ab72908e306efe0a1
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965477"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243544"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Az egység csomópont-műveleteinek méretezése Azure Stack hub-ban – robusztus
 
@@ -90,7 +90,7 @@ A Leállítás művelet futtatásához nyisson meg egy rendszergazda jogú Power
 
 Ha nem valószínű, hogy a leállítási művelet nem működik, próbálja megismételni a műveletet, és ha másodszor is használja a BMC webes felületet, akkor próbálkozzon újra.
 
-További információ: [stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
+További információ: [stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
 ## <a name="start"></a>Indítás
 
@@ -104,7 +104,7 @@ Az indítási művelet futtatásához nyisson meg egy rendszergazda jogú PowerS
 
 Ha nem valószínű, hogy az indítási művelet nem működik, próbálja megismételni a műveletet. Ha a művelet második alkalommal meghiúsul, használja helyette a BMC webes felületét.
 
-További információ: [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
+További információ: [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
 ## <a name="drain"></a>Kiürítési
 
@@ -121,7 +121,7 @@ A kiürítési művelet futtatásához nyisson meg egy rendszergazda jogú Power
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-További információ: [disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
+További információ: [disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
 ## <a name="resume"></a>Folytatás
 
@@ -133,7 +133,7 @@ A folytatás művelet futtatásához nyisson meg egy rendszergazda jogú PowerSh
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-További információ: [enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+További információ: [enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Javítás
 
@@ -169,4 +169,4 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
 
 ## <a name="next-steps"></a>További lépések
 
-Tudnivalók [a Azure stack hub Fabric-kezelő modulról](https://docs.microsoft.com/powershell/module/azs.fabric.admin/).
+Tudnivalók [a Azure stack hub Fabric-kezelő modulról](/powershell/module/azs.fabric.admin/).
