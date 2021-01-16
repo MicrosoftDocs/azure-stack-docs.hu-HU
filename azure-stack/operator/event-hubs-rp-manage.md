@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343586"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255792"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Event Hubs kezelése Azure Stack hub-on
 
@@ -72,7 +72,7 @@ Ha kijelöl egy riasztást a listából, a jobb oldalon a **riasztás részletei
 
 [![Event hubok kezelése – riasztások részletei](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
-További információ a Azure Stack hub figyelési képességeiről, beleértve a riasztásokat is: az [állapot és a riasztások figyelése](azure-stack-monitor-health.md). A naplók gyűjtésével kapcsolatos részletekért lásd: [Azure stack diagnosztikai naplók áttekintése](azure-stack-diagnostic-log-collection-overview.md).
+További információ a Azure Stack hub figyelési képességeiről, beleértve a riasztásokat is: az [állapot és a riasztások figyelése](azure-stack-monitor-health.md). A naplók gyűjtésével kapcsolatos részletekért lásd: [Azure stack diagnosztikai naplók áttekintése](./diagnostic-log-collection.md).
 
 ## <a name="event-hubs-clusters"></a>Fürtök Event Hubs
 
@@ -95,23 +95,10 @@ A szolgáltatási korlátok a Event Hubs működési határait meghatározó kon
 > [!IMPORTANT]
 > A szolgáltatási korlátok módosítása előtt időt kell fordítania a teljes hatás elemzésére. A szolgáltatási korlát módosítása hatással lehet a megoldás viselkedésére, amely az eseményeket használja és állítja elő. A módosítások a Azure Stack kapacitásának erőforrás-felhasználását is befolyásolhatják.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a következőről:
 
 - A Event Hubshoz megadott kvóta-típusok a [kvóták típusainál](azure-stack-quota-types.md#event-hubs-quota-types)tekinthetők meg.
 - Azure Stack hub figyelési képességei, beleértve a riasztásokat, lásd: [állapotok és riasztások figyelése](azure-stack-monitor-health.md). 
-- Azure Stack hub-naplófájlok gyűjteménye: [Azure stack diagnosztikai naplók áttekintése](azure-stack-diagnostic-log-collection-overview.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Azure Stack hub-naplófájlok gyűjteménye: [Azure stack diagnosztikai naplók áttekintése](./diagnostic-log-collection.md).

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069808"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254636"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 
@@ -36,7 +36,7 @@ Az áttelepítés megkezdése előtt több követelményt és megfontolandó sze
 
 - A Azure Stack HCI-hez rendszergazdai engedélyekkel rendelkező tartományi hitelesítő adatokkal kell rendelkeznie.
 
-- A forráskiszolgálón lévő összes virtuális gép biztonsági mentése. Fejezze be az összes alkalmazás és szolgáltatás összeomlás-konzisztens biztonsági mentését, valamint az összes adatbázis alkalmazás-konzisztens biztonsági mentését.  Az Azure-ba történő biztonsági mentéshez lásd: [Azure Backup használata](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- A forráskiszolgálón lévő összes virtuális gép biztonsági mentése. Fejezze be az összes alkalmazás és szolgáltatás összeomlás-konzisztens biztonsági mentését, valamint az összes adatbázis alkalmazás-konzisztens biztonsági mentését.  Az Azure-ba történő biztonsági mentéshez lásd: [Azure Backup használata](../manage/use-azure-backup.md).
 
 - Összegyűjti az összes fürtcsomópont leltárát és konfigurációját, a fürt elnevezését, a hálózati konfigurációt, a Fürt megosztott kötete (CSV) rugalmasságot és kapacitást, valamint a kvórum tanúsító.
 
@@ -181,7 +181,7 @@ A fürt PowerShell használatával történő létrehozásával kapcsolatos tov�
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. Hozza létre a kvórum tanúsító. További információ: a [tanúsító fürt beállítása](https://docs.microsoft.com/azure-stack/hci/deploy/witness).
+1. Hozza létre a kvórum tanúsító. További információ: a [tanúsító fürt beállítása](./witness.md).
 
 1. Győződjön meg arról, hogy a tárterület-javítási feladatok befejeződtek a következők szerint:
 
@@ -269,7 +269,7 @@ A virtuális gépek importálásához hajtsa végre az alábbi lépéseket a Azu
     Get-VM | Update-VMVersion -Force
     ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A fürt érvényesítése az áttelepítés után. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md).
 - Ha Windows Server rendszerű virtuális gépeket szeretne áttelepíteni új Azure Stack HCI-hardverre, tekintse [meg az áttelepítés Azure stack a HCI-re új hardveren](migrate-cluster-new-hardware.md)

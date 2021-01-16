@@ -1,5 +1,5 @@
 ---
-title: A IoT Hub telepítése Azure Stack hubhoz
+title: Az IoT Hub telepítésének módja az Azure Stack Hubon
 description: Ismerje meg, hogyan telepítheti a IoT Hub erőforrás-szolgáltatót az Azure Stack hub-ra.
 author: yiyiguo
 ms.author: yiygu
@@ -7,14 +7,14 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 13bac36ffd7d771d1b5504067bfe1d679cdda5e6
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 47d06bc7363a9ce8d4de8971bf26c38bfdb16bcc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050004"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256115"
 ---
-# <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>A IoT Hub telepítése Azure Stack hubhoz
+# <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>Az IoT Hub telepítésének módja az Azure Stack Hubon
 
 [!INCLUDE [preview-banner](../includes/iot-hub-preview.md)]
 
@@ -41,7 +41,7 @@ Egy csatlakoztatott telepítés IoT Hub letöltéséhez hajtsa végre a követke
 
     [![IoT Hub csomag részletei](../operator/media/iot-hub-rp-install/download2.png)](../operator/media/iot-hub-rp-install/download2.png#lightbox)
 
-5. Várjon, amíg a csomag letöltése befejeződik. Az állapot megmutatja a **letöltést** , és akár 10 percet is igénybe vehet.
+5. Várjon, amíg a csomag letöltése befejeződik. Az állapot megmutatja a **letöltést**, és akár 10 percet is igénybe vehet.
 
     [![IoT Hub csomag letöltési állapota](../operator/media/iot-hub-rp-install/download3.png)](../operator/media/iot-hub-rp-install/download3.png#lightbox)
 
@@ -63,7 +63,7 @@ A leválasztott vagy részben csatlakoztatott központi telepítés IoT Hub let�
 
 A **piactér-kezelés** lapon kövesse az alábbi lépéseket a IoT hub csomag telepítéséhez:
 
-1. Kattintson a **IoT hub** sorra, majd **indítsa el a telepítést** .
+1. Kattintson a **IoT hub** sorra, majd **indítsa el a telepítést**.
 
     [![A telepítésre váró IoT Hub RP](../operator/media/iot-hub-rp-install/install1.png)](../operator/media/iot-hub-rp-install/install1.png#lightbox)
 
@@ -105,7 +105,7 @@ A **piactér-kezelés** lapon kövesse az alábbi lépéseket a IoT hub csomag t
 
 A IoT Hub erőforrás-szolgáltató telepítése sikerült! A kezdéshez hajtsa végre a következő lépéseket:
 
-1. Ha szükséges, kövesse az utasításokat a [tervek, ajánlatok és előfizetések létrehozásához](azure-stack-plan-offer-quota-overview.md).
+1. Ha szükséges, kövesse az utasításokat a [tervek, ajánlatok és előfizetések létrehozásához](./service-plan-offer-subscription-overview.md).
 
 2. Ha már létezik előfizetés, frissítse a kapcsolódó ajánlatot/tervet a **Microsoft. Devices** szolgáltatás belefoglalásához. Nyissa meg a **terv**  ->  **elemet a**  ->  **szolgáltatás hozzáadása és a kvóta** frissítése érdekében.
 

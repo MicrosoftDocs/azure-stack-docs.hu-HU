@@ -15,18 +15,18 @@ ms.date: 10/01/2020
 ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8dea13880e2703290e1528fca47b777f98fca7b2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872398"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255520"
 ---
 # <a name="extended-storage-health-checks"></a>Kiterjesztett tárterület állapotának ellenőrzése
 
 Ez a cikk útmutatást nyújt az adatközpont kiterjesztett tárolási hardverének és a Azure Stack hub telepítésének állapotának ellenőrzéséhez.
 
-Mielőtt elkezdené, tekintse át és kövesse a [belső vezérlőprogram frissítése a kiterjesztett tárolóhoz](extended-storage-firmware-updates.md)című témakör lépéseit.
+Mielőtt elkezdené, tekintse át és kövesse a [belső vezérlőprogram frissítése a kiterjesztett tárolóhoz]()című témakör lépéseit.
 
 Az utolsó lépés a rendszer leszállítása előtt. Kövesse a Rövid útmutató lépéseit.
 
@@ -110,4 +110,4 @@ A problémákkal kapcsolatos segítségért forduljon Microsoft ügyfélszolgál
 
 ## <a name="next-steps"></a>További lépések
 
-- [Belső vezérlőprogram frissítése](extended-storage-firmware-updates.md)
+- [Belső vezérlőprogram frissítése]()

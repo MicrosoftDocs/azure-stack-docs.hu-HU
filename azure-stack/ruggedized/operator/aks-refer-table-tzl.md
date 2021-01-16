@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 780a8d7bfde9afca01a0e2c60dd6e8f772e06735
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f4506ac5eb606d4def07fcc741ed5ad1c4900783
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867349"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256098"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Riasztások a Azure Stack hub aka.ms hivatkozásához
 
@@ -37,7 +37,7 @@ Ez a cikk a hiúság aka.ms hivatkozásaira és a hozzájuk tartozó átirányí
 | `https://aka.ms/azurestackaddcapacity` | [További skálázásiegység-csomópontok hozzáadása az Azure Stackben](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [További skálázásiegység-csomópontok hozzáadása az Azure Stackben](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Igény szerinti Azure Stack diagnosztikai naplók gyűjtése](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Igény szerinti Azure Stack diagnosztikai naplók gyűjtése](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [A rendszerjogosultságú végpont használata Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Skálázásiegység-csomópont cseréje Azure Stackkel integrált rendszeren](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

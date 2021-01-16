@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 01/15/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869916"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256013"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -167,6 +167,29 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201111
+- 01/06/2021: SQL Server 2017 standard a Windows Server 2016-on – a go-verzió 14.0.20201111
+- 01/06/2021: SQL Server 2017 standard on Windows Server 2016 – saját licenc-verzió 14.0.20201111
+- 01/06/2021: SQL Server 2019 Enterprise a Windows Server 2019-on – a go-verzió 15.0.20201111
+- 01/06/2021: SQL Server 2019 Enterprise Windows Server 2019 rendszeren – saját licenc-verzió 15.0.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL 2019 Developer a Windows Server 2019-on – a go-verzió 15.0.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL 2019 Developer on Windows Server 2019 – saját licenc-verzió 15.0.20201111
+- 01/06/2021: SQL Server 2019 standard a Windows Server 2019-on – a go-verzió 15.0.20201111
+- 01/06/2021: SQL Server 2019 standard on Windows Server 2019 – saját licenc-verzió 15.0.20201111
+- 01/06/2021: ingyenes licenc: SQL Server 2016 SP2 Developer a Windows Server 2016-on – a go-verzió 13.2.20201111
+- 01/06/2021: ingyenes licenc: SQL Server 2016 SP2 Developer on Windows Server 2016 – saját licenc-verzió 13.2.20201111
+- 01/06/2021: ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016-on – 13.2.20201111-verzió
+- 01/06/2021: ingyenes licenc: SQL Server 2016 SP2 Express Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL Server 2017 fejlesztő a Windows Server 2016-ban – a go-verzió 14.0.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL Server 2017 Developer on Windows Server 2016 – saját licenc-verzió 14.0.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-on – a go-verzió 14.0.20201111
+- 01/06/2021: ingyenes SQL Server licenc: SQL Server 2017 Express a Windows Server 2016-ban – saját licenc-verzió 14.0.20201111
+- 01/06/2021: SQL Server 2016 SP2 Enterprise Windows Server 2016-on – a go-verzió 13.2.20201111
+- 01/06/2021: SQL Server 2016 SP2 Enterprise Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201111
+- 01/06/2021: SQL Server 2016 SP2 standard a Windows Server 2016-on – a go-verzió 13.2.20201111
+- 01/06/2021: SQL Server 2016 SP2 standard a Windows Server 2016 rendszeren – saját licenc-verzió 13.2.20201111
+- 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – a go-verzió 14.0.20201111
+- 01/06/2021: SqlIaaSExtension 1.3.20560
 - 12/22/2020: szélhámos Wave szoftver CentOS 7,8 – verzió 7.8.2020062400
 - 12/07/2020: Bitnami Elasticsearch-fürt – 1.0.2 verzió
 - 12/07/2020: Bitnami Cassandra-fürt verziója – 1.0.21

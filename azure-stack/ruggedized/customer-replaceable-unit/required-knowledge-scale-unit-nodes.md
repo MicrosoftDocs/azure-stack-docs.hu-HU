@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874557"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256132"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Szükséges ismeretek a méretezési egység csomópontjainak működéséhez egy taktikai felhőalapú berendezésben
 
@@ -30,8 +30,8 @@ További információ a privilegizált hozzáférésű munkaállomásról és a 
 ## <a name="azure-stack-hub-administrator-portal"></a>Azure Stack hub felügyeleti portál
 
 Szerezze be a rendszergazdai portál hitelesítő adatait és URL-címét az ügyféltől.
-További információ: Azure stack [hub felügyeleti portáljának használata](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals) 
- [](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals).
+További információ: Azure stack [hub felügyeleti portáljának használata](../../operator/azure-stack-manage-portals.md) 
+ [](../../operator/azure-stack-manage-portals.md).
 
 ## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>A Dell EMC PowerEdge R640 telepítése és szervizelési kézikönyve
 
@@ -46,4 +46,3 @@ Az Microsoft Azure Stack hub taktikai Cloud Appliance szolgáltatásának kézik
 ## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
 
 Ismernie kell a Dell EMC PowerEdge iDRAC webes felületének navigálása és használata című témakört. A iDRAC használatával kapcsolatos további információkért tekintse meg az [integrált Dell távelérési vezérlő 9 felhasználói \' útmutatóját](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003).
-

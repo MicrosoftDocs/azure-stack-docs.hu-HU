@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 12/10/2020
-ms.openlocfilehash: 9acbb273ea67d989f3ec1e1e88c51a96dd440256
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010872"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254432"
 ---
 # <a name="manage-azure-registration"></a>Azure-regisztráció kezelése
 
@@ -96,7 +96,7 @@ A legszigorúbb lehetőség az egyéni AD-szerepkör létrehozása egyéni enged
    > [!NOTE]
    > Ehhez a lehetőséghez prémium szintű Azure AD licencre van szükség, és egyéni AD-szerepköröket és egyéni engedélyezési házirend-funkciókat használ, amelyek jelenleg nyilvános előzetes verzióban érhetők el.
 
-   1. Kapcsolódás az Azure AD-hez:
+   1. Összekapcsolás az Azure Active Directoryval:
    
       ```powershell
       Connect-AzureAD
@@ -108,7 +108,7 @@ A legszigorúbb lehetőség az egyéni AD-szerepkör létrehozása egyéni enged
       New-AzureADMSPermissionGrantPolicy -Id "AzSHCI-registration-consent-policy" -DisplayName "Azure Stack HCI registration admin app consent policy" -Description "Azure Stack HCI registration admin app consent policy"
       ```
 
-   3. Vegyen fel egy olyan feltételt, amely tartalmazza a Azure Stack HCI szolgáltatáshoz szükséges alkalmazás-engedélyeket, amely az alkalmazás AZONOSÍTÓjának 1322e676-dee7-41ee-a874-ac923822781c. Vegye figyelembe, hogy a következő engedélyek a Azure Stack HCI kiadásához szükségesek, és a nyilvános előzetes verzióban nem működnek, hacsak nem alkalmazta a [november 23., 2020 előzetes frissítést (KB4586852)](../release-notes.md) a fürt összes kiszolgálójára, és az az. StackHCI modul 0.4.1 vagy újabb verzióját töltötte le.
+   3. Vegyen fel egy olyan feltételt, amely tartalmazza a Azure Stack HCI szolgáltatáshoz szükséges alkalmazás-engedélyeket, amely az alkalmazás AZONOSÍTÓjának 1322e676-dee7-41ee-a874-ac923822781c. Vegye figyelembe, hogy a következő engedélyek a Azure Stack HCI kiadásához szükségesek, és a nyilvános előzetes verzióban nem működnek, hacsak nem alkalmazta a [november 23., 2020 előzetes frissítést (KB4586852)](https://support.microsoft.com/help/4595086/azure-stack-hci-release-notes-overview) a fürt összes kiszolgálójára, és az az. StackHCI modul 0.4.1 vagy újabb verzióját töltötte le.
    
       ```powershell
       New-AzureADMSPermissionGrantConditionSet -PolicyId "AzSHCI-registration-consent-policy" -ConditionSetType "includes" -PermissionType "application" -ResourceApplication "1322e676-dee7-41ee-a874-ac923822781c" -Permissions "bbe8afc9-f3ba-4955-bb5f-1cfb6960b242","8fa5445e-80fb-4c71-a3b1-9a16a81a1966","493bd689-9082-40db-a506-11f40b68128f","2344a320-6a09-4530-bed7-c90485b5e5e2"
@@ -167,9 +167,9 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 Megjelenik egy interaktív Azure bejelentkezési ablak. A pontos Rákérdezés a biztonsági beállításoktól (például kétfaktoros hitelesítés) függően változhat. Az utasításokat követve jelentkezzen be.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
-- [Azure Stack HCI összekötése az Azure-ba](../deploy/register-with-azure.md)
-- [Azure Stack HCI figyelése Azure Monitor](azure-monitor.md)
+- [Az Azure Stack HCI csatlakoztatása az Azure-hoz](../deploy/register-with-azure.md)
+- [Az Azure Stack HCI figyelése az Azure Monitorral](azure-monitor.md)

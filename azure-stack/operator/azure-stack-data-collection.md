@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: fd383d25f34bcd8342b8e37468fb34f455cb790f
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974200"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255979"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack hub-napló és az ügyfelek adatkezelése 
 
@@ -21,7 +21,7 @@ Ahhoz, hogy a Microsoft az Azure Stack hub-vel kapcsolatban a személyes adat pr
 - A személyes adatainak feldolgozása; GDPR "az [online szolgáltatások használati feltételei](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)" adatvédelmi feltételek "szakaszában.
 - Az Európai Unió Általános adatvédelmi rendelet az [online szolgáltatások használati feltételeinek](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)4. mellékletében foglalt feltételeket.
 
-Ahogy Azure Stack hub található az ügyfél-adatközpontokban, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](./azure-stack-diagnostic-log-collection-overview.md), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
+Ahogy Azure Stack hub található az ügyfél-adatközpontokban, a Microsoft az adatkezelő kizárólag a Microsofttal közösen a [diagnosztika](./diagnostic-log-collection.md), a [telemetria](azure-stack-telemetry.md)és a [számlázás](azure-stack-usage-reporting.md)útján megosztva tárolt adat.  
 
 ## <a name="data-access-controls"></a>Adathozzáférési vezérlők 
 Az adott támogatási eset kivizsgálásához hozzárendelt Microsoft-alkalmazottak csak olvasási hozzáférést kapnak a titkosított adathoz. A Microsoft alkalmazottai is hozzáférhetnek az adattörléshez használt eszközökhöz, ha szükségesek. A rendszer naplózza és naplózza az ügyféladatok összes hozzáférését.  
@@ -41,7 +41,7 @@ Az automatikus adattörlési művelethez (a kis-és nagybetűk után 90 nappal) 
 Az igény szerinti adattörlési művelethez a Microsoft támogatási szakemberei hozzáférhetnek az eszközhöz, amellyel igény szerint törölhetik az adatvesztést. Megerősítik a telefont az ügyféllel, ha elkészült.
 
 ## <a name="diagnostic-data"></a>Diagnosztikai adatok
-A támogatási folyamat részeként Azure Stack hub-operátorok [megoszthatják a diagnosztikai naplókat](./azure-stack-diagnostic-log-collection-overview.md) a Azure stack hub támogatási és mérnöki csapatával, hogy segítséget nyújtson a hibaelhárításhoz.
+A támogatási folyamat részeként Azure Stack hub-operátorok [megoszthatják a diagnosztikai naplókat](./diagnostic-log-collection.md) a Azure stack hub támogatási és mérnöki csapatával, hogy segítséget nyújtson a hibaelhárításhoz.
 
 A Microsoft egy eszközt és parancsfájlt biztosít az ügyfeleknek a kért diagnosztikai naplófájlok gyűjtéséhez és feltöltéséhez. Az adatgyűjtés után a rendszer a naplófájlokat HTTPS-védelemmel ellátott, titkosított kapcsolaton keresztül továbbítja a Microsoftnak. Mivel a HTTPS biztosítja a titkosítást a hálózaton keresztül, nincs szükség jelszóra az átvitelhez szükséges titkosításhoz. A fogadást követően a rendszer titkosítja és tárolja a naplókat, amíg a támogatási eset bezárása után 90 nappal automatikusan törlődnek.
 
@@ -56,5 +56,5 @@ A Microsoft nem szeretne bizalmas adatokat gyűjteni, például hitelkártyaszá
 Azure Stack hub-operátorok a használati adatok Azure-ba való továbbításához konfigurálhatják Azure Stack hub-t a számlázáshoz. Ez a konfiguráció szükséges az olyan Azure Stack hub-beli integrált rendszerek ügyfelei számára, akik az Ön által használt fizetési számlázási modellt választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek az olyan integrált rendszerű ügyfelek számára, akik a kapacitás modellt vagy Azure Stack Development Kit felhasználókat választják. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl](azure-stack-usage-reporting.md)használatával.
 
 
-## <a name="next-steps"></a>Következő lépések 
-[További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md) 
+## <a name="next-steps"></a>További lépések 
+[További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md)

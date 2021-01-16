@@ -5,12 +5,12 @@ author: jasonnyi
 ms.author: jasonyi
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 03d5bf97e29009c67e9520ea59a802c55659db3b
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 8d8a78d0a5faaa3c041e17c3c38f208132f19834
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811230"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254789"
 ---
 # <a name="use-diskspd-to-test-workload-storage-performance"></a>A DISKSPD használata a munkaterhelés tárolási teljesítményének teszteléséhez
 
@@ -116,7 +116,7 @@ A tesztelési fájlt az egyesített névtér alatt, a Fürt megosztott kötete (
 
 Ahogy látni fogja, a virtuális gép vagy a IOPS teljes mértékben függetlenül elérheti a maximális értéket vagy a sávszélesség felső határát. Ezért fontos, hogy megértse a virtuális gép méretét és a meghajtó típusát, mivel mindkettő rendelkezik a maximális IOPS korláttal és a sávszélesség felső határával. Ez az információ segít a szűk keresztmetszetek megtalálásában és a teljesítménybeli eredmények megismerésében. Ha többet szeretne megtudni arról, hogy milyen méretűek lehetnek a számítási feladatok, tekintse meg a következő forrásokat:
 
-- [A virtuális gépek mérete](https://docs.microsoft.com/azure/virtual-machines/sizes-general?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)
+- [A virtuális gépek mérete](/azure/virtual-machines/sizes-general?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Lemez típusa](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="understand-the-output"></a>A kimenet ismertetése
@@ -174,7 +174,7 @@ Most, hogy megkezdte a DISKSPD használatát, több dolgot is figyelembe kell ve
 A DISKSPD mesterséges tesztelése viszonylag összehasonlítható eredményeket biztosít a valós számítási feladatokhoz. Azonban Kiemelt figyelmet kell fordítania a beállított paraméterekre, valamint attól, hogy megfelelnek-e a valós forgatókönyvnek. Fontos tisztában lenni azzal, hogy a szintetikus munkaterhelések soha nem fogják tökéletesen képviselni az alkalmazás valós számítási feladatait az üzembe helyezés során.
 
 ### <a name="preparation"></a>Előkészítés
-A DISKSPD-teszt futtatása előtt néhány javasolt művelet van. Ezek közé tartozik a tárolóhely állapotának ellenőrzése, az erőforrás-használat ellenőrzése, hogy egy másik program ne zavarja a tesztet, és ha további adatokat szeretne gyűjteni, készítse elő a Teljesítményfigyelőt. Mivel azonban ennek a témakörnek a célja, hogy gyorsan lekérje a DISKSPD, nem tárgyalja a műveletek sajátosságait. További információ: a [tárolóhelyek teljesítményének tesztelése szintetikus számítási feladatok használatával a Windows Serveren](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
+A DISKSPD-teszt futtatása előtt néhány javasolt művelet van. Ezek közé tartozik a tárolóhely állapotának ellenőrzése, az erőforrás-használat ellenőrzése, hogy egy másik program ne zavarja a tesztet, és ha további adatokat szeretne gyűjteni, készítse elő a Teljesítményfigyelőt. Mivel azonban ennek a témakörnek a célja, hogy gyorsan lekérje a DISKSPD, nem tárgyalja a műveletek sajátosságait. További információ: a [tárolóhelyek teljesítményének tesztelése szintetikus számítási feladatok használatával a Windows Serveren](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
 ### <a name="variables-that-affect-performance"></a>A teljesítményt befolyásoló változók
 A tárolási teljesítmény kényes dolog. Ez azt jelenti, hogy számos változó befolyásolja a teljesítményt. Ezért valószínű, hogy olyan számmal találkozhat, amely nem felel meg az elvárásainak. A következőkben néhány olyan változó szerepel, amely hatással van a teljesítményre, bár ez nem egy átfogó lista:
@@ -213,7 +213,7 @@ Az alábbi rövid összefoglalás azt ismerteti, hogy miért érdemes a fájl m�
 - **Előfordulhat, hogy a fájlok másolása nem optimalizált,** Kétféle párhuzamossági szint létezik, egy belső és egy másik külső. Belsőleg, ha a fájl másolása egy távoli cél számára történik, a CopyFileEx motor bizonyos párhuzamos alkalmaz. Külsőleg a CopyFileEx motor meghívásának különböző módjai. A Fájlkezelőből például egyetlen szálból másolhatók, de a Robocopy többszálú. Ezen okok miatt fontos tisztában lennie azzal, hogy milyen hatással van a tesztre.
 - **Minden másolat két oldalból áll.** Ha egyszerűen másol és beilleszt egy fájlt, lehet, hogy két lemezt használ: a forrás lemezt és a céllemez. Ha az egyik lassabb, mint a másik, lényegében a lassabb lemez teljesítményét méri. Más esetekben előfordulhat, hogy a forrás, a cél és a másolási motor közötti kommunikáció egyedi módon hatással lehet a teljesítményre.
     
-    További információ: a [fájlok másolásának használata a tárolási teljesítmény mérésére](https://docs.microsoft.com/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irgwc=1&OCID=AID2000142_aff_7593_1243925&tduid=%28ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00%29%287593%29%281243925%29%28je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q%29%28%29&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00).
+    További információ: a [fájlok másolásának használata a tárolási teljesítmény mérésére](/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00&irgwc=1&OCID=AID2000142_aff_7593_1243925&ranEAID=je6NUbpObpQ&ranMID=24542&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&tduid=(ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00)(7593)(1243925)(je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q)()).
 
 ## <a name="experiments-and-common-workloads"></a>Kísérletek és gyakori számítási feladatok
 Ez a szakasz néhány példát, kísérleteket és számítási feladatokat tartalmaz.
@@ -257,7 +257,7 @@ A számítási feladatok teszteléséhez szükséges alapszintű kialakításnak
 
     - A második megoldás a-T használatával jár\<offset>\. Ez lehetővé teszi, hogy megadhatja az eltolási méretet (több-I/O-hézagot) a különböző szálak által ugyanazon a célhelyen végrehajtott I/O-műveletek között. Például a szálak általában a 0 eltolásnál kezdődnek, de ez a specifikáció lehetővé teszi a két szál közötti távolságot, így azok nem fedik át egymást. A többszálú környezetekben a szálak valószínűleg a működő cél különböző részein lesznek, és ez a helyzet szimulálása.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 További információt és részletes példákat a rugalmassági beállítások optimalizálásával kapcsolatban a következő témakörben talál:
-- [OLTP és OLAP](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
+- [OLTP és OLAP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
 - [Rugalmassági választás](https://techcommunity.microsoft.com/t5/storage-at-microsoft/volume-resiliency-and-efficiency-in-storage-spaces-direct/ba-p/425831)

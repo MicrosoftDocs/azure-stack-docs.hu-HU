@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/8/2020
-ms.openlocfilehash: c207b436571d85d0902cd69a2168144e176919b1
-ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
+ms.openlocfilehash: f8c559ff409cb6344f20ffa85a60983724ae5b17
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893900"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255044"
 ---
 # <a name="what-is-network-controller"></a>Mi az a hálózati vezérlő?
 
@@ -77,10 +77,10 @@ A felhasználó által megadott útvonalakkal kapcsolatos további tudnivalóké
 - A magas rendelkezésre állás és a méretezhetőség érdekében a hálózati vezérlő Service Fabricra támaszkodik. A Service Fabric méretezhető, megbízható és könnyen kezelhető alkalmazások kialakítására szolgáló elosztott rendszerplatformot biztosít. [További információ a hálózati vezérlőről Service Fabric alkalmazásként](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability#network-controller-as-a-service-fabric-application).
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [A hálózati vezérlő üzembe helyezésének megtervezése](network-controller.md)
-- [Hálózati vezérlő telepítése a Windows PowerShell használatával](../deploy/network-controller-powershell.md)
+- [Hálózati vezérlő telepítése a Windows PowerShell használatával](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 - [SDN Azure Stack HCI-ben](software-defined-networking.md)

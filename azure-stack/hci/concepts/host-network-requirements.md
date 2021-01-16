@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2d31294b2b3a402efcfd4376988d1de6c3dbabd1
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355544"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255299"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI gazdagép hálózati követelményei
 
@@ -156,11 +156,11 @@ A SET további funkciókat biztosít a LBFO felett, beleértve a minőségi és 
 - sebesség (átviteli sebesség)
 - konfiguráció
 
-A legegyszerűbb módszer annak azonosítására, hogy az adapterek szimmetrikusak-e, ha a sebességek megegyeznek, és a csatoló leírása megegyezik. Csak a leírásban felsorolt számokban térhetnek el. A [`Get-NetAdapterAdvancedProperty`](https://docs.microsoft.com/powershell/module/netadapter/get-netadapteradvancedproperty) parancsmag használatával győződjön meg arról, hogy a megadott konfigurációban ugyanazok a tulajdonságértékek szerepelnek.
+A legegyszerűbb módszer annak azonosítására, hogy az adapterek szimmetrikusak-e, ha a sebességek megegyeznek, és a csatoló leírása megegyezik. Csak a leírásban felsorolt számokban térhetnek el. A [`Get-NetAdapterAdvancedProperty`](/powershell/module/netadapter/get-netadapteradvancedproperty) parancsmag használatával győződjön meg arról, hogy a megadott konfigurációban ugyanazok a tulajdonságértékek szerepelnek.
 
 Tekintse meg az alábbi táblázatot, amely egy példát mutat be a csak számokból (#) álló illesztőfelület-leírásokra:
 
-|Név|Interfész leírása|Kapcsolat sebessége|
+|Name|Interfész leírása|Kapcsolat sebessége|
 |----|----|----|
 |NIC1|Hálózati adapter #1|25 GB/s|
 |NIC2|Hálózati adapter #2|25 GB/s|
@@ -262,11 +262,11 @@ Az alábbi példában a sávszélesség-foglalási táblázat látható:
 
 |Hálózati adapter sebessége|Összevont sávszélesség|SMB-sávszélesség foglalása * *|SBL/CSV%|SBL/CSV-sávszélesség|Élő áttelepítés%|Maximális Élő áttelepítés sávszélesség|Szívverés|Szívverési sávszélesség|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10 Gbit/s|20 GB/s|10 Gbit/s|70%|7 GB/s|*|*|2%|200 Mbit/s|
+|10 Gbps|20 GB/s|10 Gbps|70%|7 GB/s|*|*|2%|200 Mbit/s|
 |25 GB/s|50 GB/s|25 GB/s|70%|17,5 GB/s|29|7,25 GB/s|1%|250 Mbps|
 |40 Gbps|80 GB/s|40 Gbps|70%|28 GB/s|29|11,6 GB/s|1%|400 Mbps|
-|50 GB/s|100 Gbit/s|50 GB/s|70%|35 GB/s|29|14,5 GB/s|1%|500 Mbit/s|
-|100 Gbit/s|200 Gbit/s|100 Gbit/s|70%|70 GB/s|29|29 GB/s|1%|1 Gbit/s|
+|50 GB/s|100 Gbps|50 GB/s|70%|35 GB/s|29|14,5 GB/s|1%|500 Mbps|
+|100 Gbps|200 Gbit/s|100 Gbps|70%|70 GB/s|29|29 GB/s|1%|1 Gbps|
 |200 Gbit/s|400 GB/s|200 Gbit/s|70%|140 GB/s|29|58 GB/s|1%|2 Gbps|
 
 * – a RDMA helyett tömörítést kell használnia, mivel Élő áttelepítés forgalom sávszélesség-kiosztása <5 GB/s
@@ -298,6 +298,6 @@ A kiterjesztett fürtök a következő követelményekkel és jellemzőkkel rend
 
 - A hálózati kapcsolók és a fizikai hálózati követelmények megismerése. Lásd: [fizikai hálózati követelmények](physical-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)
-- Ecset a SET használatával. Lásd: [távoli közvetlen memória-hozzáférés (RDMA) és Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
-- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központtal](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)
-- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows PowerShell használatával](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell)
+- Ecset a SET használatával. Lásd: [távoli közvetlen memória-hozzáférés (RDMA) és Switch Embedded Teaming (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)
+- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központtal](../deploy/create-cluster.md)
+- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows PowerShell használatával](../deploy/create-cluster-powershell.md)

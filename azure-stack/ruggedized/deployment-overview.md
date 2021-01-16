@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867536"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256183"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack hub robusztus üzembe helyezésének áttekintése
 
@@ -38,9 +38,9 @@ Ez az üzembe helyezési útmutató a Microsoft Field Professional csapata szám
 
 A virtualizáció, a kiszolgálók, az operációs rendszerek, a Hálózatkezelés és a tárolási megoldások technikai tapasztalata szükséges ahhoz, hogy teljes mértékben megértsék az útmutató tartalmát. A központi telepítési mérnöknek a Hyper-V, Azure Stack hub, az Azure és a Microsoft PowerShell használatával ismernie kell a Microsoft Windows Server 2019-es verziójának ismeretét.
 
-Ez az útmutató az Microsoft Azure Stack hub alapvető összetevőinek üzembe helyezését, valamint a Azure Stack hub robusztus megoldásának sajátosságait ismerteti. Az útmutató nem ismerteti az Azure Stack hub működési eljárásait, és nem fedi le Azure Stack hub összes funkcióját. További információ: [Azure stack hub-kezelői útmutató](https://docs.microsoft.com/azure-stack/operator/).
+Ez az útmutató az Microsoft Azure Stack hub alapvető összetevőinek üzembe helyezését, valamint a Azure Stack hub robusztus megoldásának sajátosságait ismerteti. Az útmutató nem ismerteti az Azure Stack hub működési eljárásait, és nem fedi le Azure Stack hub összes funkcióját. További információ: [Azure stack hub-kezelői útmutató](../operator/index.yml).
 
-## <a name="introduction"></a>Bevezetés
+## <a name="introduction"></a>Introduction (Bevezetés)
 
 Azure Stack hub robusztus, robusztus és mezővel telepíthető Microsoft Azure Stack hub-ajánlat. Az alapvető összetevők, például a kiszolgálók és kapcsolók a hüvelyek nevű tranzit esetekben szerepelnek.
 
@@ -52,7 +52,7 @@ Minden SU Pod két Azure Stack hub robusztus R640 SU-kiszolgálóval rendelkezik
 
 A következő táblázat felsorolja az útmutatóban használt néhány kifejezést.
 
-|Időszak   | Meghatározás |
+|Kifejezés   | Definíció |
 |-------|------------|
 |Hardver életciklus-állomása (HLH)| A HLH a kezdeti üzembe helyezési rendszerindításhoz használt fizikai kiszolgáló, valamint az Azure Stack hub-infrastruktúra folyamatos hardveres felügyelete, támogatása és biztonsági mentése. A HLH asztali felhasználói felülettel és Hyper-V szerepkörrel futtatja a Windows Server 2019-es verzióját. A kiszolgáló a hardver-felügyeleti eszközök, a felügyeleti eszközök, az Azure Stack hub-partneri eszközkészlet és a telepítési virtuális gép üzemeltetésére szolgál. |
 |Üzembe helyezési virtuális gép (DVM)|  A DVM egy virtuális gép, amely az Azure Stack hub szoftver központi telepítésének időtartama alatt jön létre a HLH. A DVM Azure Stack hub szoftvertelepítő motort futtat, amely az Enterprise Cloud Engine (EGB) használatával telepíti és konfigurálja a Azure Stack hub Fabric-infrastruktúra szoftverét az összes Azure Stack hub-méretezési egység kiszolgálóin a hálózaton keresztül.|

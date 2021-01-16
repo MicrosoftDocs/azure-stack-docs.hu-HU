@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: fb2fce649ecdda418c899b94a34d435a2050a73f
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: df6f531c2aa9642f52cde4fb2bbfd93375340684
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874438"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256166"
 ---
 # <a name="azure-stack-hub-ruggedized-network-integration"></a>Azure Stack hub robusztus hálózati integrációja 
 
@@ -236,6 +236,5 @@ A belső infrastruktúra-VIP-címek nincsenek felsorolva, mert nem szükségesek
 |  |&#42;. SCM. appservice. *&lt; régió>. &lt; teljes tartománynév>*|TCP|443 (HTTPS)|
 |  |API. appservice. *&lt; régió>. &lt; teljes tartománynév>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
 |  |FTP. appservice. *&lt; régió>. &lt; teljes tartománynév>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
-|VPN-átjárók|     |     |[Lásd: VPN Gateway – gyakori kérdések](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
+|VPN-átjárók|     |     |[Lásd: VPN Gateway – gyakori kérdések](/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability).|
 |     |     |     |     |
-

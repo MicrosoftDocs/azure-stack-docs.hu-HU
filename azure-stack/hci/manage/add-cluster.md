@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 01/06/2021
-ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103134"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254738"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Kiszolgálók hozzáadása vagy eltávolítása egy Azure Stack HCI-fürthöz
 
@@ -71,9 +71,9 @@ Több percet is igénybe vehet, és megtekintheti a kiszolgáló-csomópontok ki
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-Kiszolgálókat adhat hozzá vagy távolíthat el egy kifeszített fürthöz a Windows PowerShell használatával. A [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) és a [set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) parancsmagok használatával a kiszolgálók hozzáadása előtt először a hely (tartalék tartomány) adatait kell módosítania.
+Kiszolgálókat adhat hozzá vagy távolíthat el egy kifeszített fürthöz a Windows PowerShell használatával. A [Get-ClusterFaultDomainXML](/powershell/module/failoverclusters/get-clusterfaultdomainxml) és a [set-ClusterFaultDomainXML](/powershell/module/failoverclusters/set-clusterfaultdomainxml) parancsmagok használatával a kiszolgálók hozzáadása előtt először a hely (tartalék tartomány) adatait kell módosítania.
 
-Ezután hozzáadhatja a kiszolgálói párt az egyes helyekhez az [Add-fürtcsomópont](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) parancsmaggal egyidejűleg, amely lehetővé teszi, hogy minden új kiszolgáló meghajtója egy időben is felvehető legyen.
+Ezután hozzáadhatja a kiszolgálói párt az egyes helyekhez az [Add-fürtcsomópont](/powershell/module/failoverclusters/add-clusternode) parancsmaggal egyidejűleg, amely lehetővé teszi, hogy minden új kiszolgáló meghajtója egy időben is felvehető legyen.
 
 A fürtöket általában egy távoli számítógépről kell kezelni, nem pedig a fürtben lévő kiszolgálókon. Ezt a távoli számítógépet felügyeleti számítógépnek nevezzük.
 
@@ -167,7 +167,7 @@ A kiszolgálók sikeres hozzáadása után a rendszer automatikusan hozzáadja a
 
 ## <a name="remove-server-pairs-from-a-stretched-cluster"></a>Kiszolgálói párok eltávolítása egy kifeszített fürtből
 
-Egy kiszolgálói pár egy kiterjesztett fürtből való eltávolítása hasonló folyamat egy kiszolgálói pár hozzáadásához, de ehelyett a [Remove-fürtcsomópont](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) parancsmagot használja.
+Egy kiszolgálói pár egy kiterjesztett fürtből való eltávolítása hasonló folyamat egy kiszolgálói pár hozzáadásához, de ehelyett a [Remove-fürtcsomópont](/powershell/module/failoverclusters/remove-clusternode) parancsmagot használja.
 
 1. A fürt állapotának meghatározásához használja a következő PowerShell-parancsmagokat:
 
@@ -220,6 +220,6 @@ Egy kiszolgálói pár egy kiterjesztett fürtből való eltávolítása hasonl�
 
 A kiszolgálók sikeres eltávolítása után a rendszer automatikusan eltávolítja a társított meghajtókat a hely készletből. Végül a Állapotfigyelő szolgáltatás létrehoz egy tárolási feladatot a meghajtók eltávolításához.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A kiszolgáló hozzáadásával vagy eltávolításával érvényesítse a fürtöt. További információ: [a fürt érvényesítése](../deploy/validate.md) további információért.

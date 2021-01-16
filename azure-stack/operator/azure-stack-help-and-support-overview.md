@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974319"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255928"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -66,8 +66,8 @@ Ez az oktatóanyag testreszabott, attól függően, hogy a ASDK vagy az integrá
 
 A következő két módon küldhet diagnosztikai naplókat a Microsoftnak:
 
-- [Naplók elküldése proaktív módon](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively): Ha engedélyezve van, a rendszer bizonyos állapot-riasztásokkal aktiválja a naplózási gyűjteményt.
-- [Naplók elküldése most](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
+- [Naplók elküldése proaktív módon](./diagnostic-log-collection.md#send-logs-proactively): Ha engedélyezve van, a rendszer bizonyos állapot-riasztásokkal aktiválja a naplózási gyűjteményt.
+- [Naplók elküldése most](./diagnostic-log-collection.md#send-logs-now): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
 
 ![A diagnosztikai naplók gyűjtésének megkezdését bemutató képernyőkép.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -83,7 +83,7 @@ A 1907-es kiadástól kezdve két új módon gyűjthet naplókat a **súgóban �
 
 ![Diagnosztikai naplók gyűjtésének beállításai](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Az integrált rendszerek a Microsoft ügyfélszolgálata segítségével oszthatják meg a diagnosztikai naplókat. Mivel a Azure Stack Development Kit (ASDK) egy kiértékelési környezet, Microsoft ügyfélszolgálata nem támogatja. További információ: [Azure stack hub diagnosztikai naplójának gyűjteménye – áttekintés](azure-stack-diagnostic-log-collection-overview.md).
+Az integrált rendszerek a Microsoft ügyfélszolgálata segítségével oszthatják meg a diagnosztikai naplókat. Mivel a Azure Stack Development Kit (ASDK) egy kiértékelési környezet, Microsoft ügyfélszolgálata nem támogatja. További információ: [Azure stack hub diagnosztikai naplójának gyűjteménye – áttekintés](./diagnostic-log-collection.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Súgó és támogatás az Azure Stack hub korábbi kiadásaihoz (pre-1905)
 
@@ -103,8 +103,8 @@ Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső s
 
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
-- További információ a [diagnosztikai naplók gyűjtéséről](./azure-stack-diagnostic-log-collection-overview.md).
+- További információ a [diagnosztikai naplók gyűjtéséről](./diagnostic-log-collection.md).
 - Megtudhatja, hogyan [keresheti meg a Felhőbeli azonosítóját](azure-stack-find-cloud-id.md).
 - Tudnivalók a [Azure stack hub hibaelhárításáról](azure-stack-troubleshooting.md).

@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974251"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255707"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -30,7 +30,7 @@ Ezek a fejezetek olyan dokumentumokra mutató hivatkozásokat tartalmaznak, amel
 
 ### <a name="updates-and-diagnostics"></a>Frissítések és diagnosztika
 
-* [Diagnosztikai eszközök használata az Azure Stack hub-ban](./azure-stack-diagnostic-log-collection-overview.md)
+* [Diagnosztikai eszközök használata az Azure Stack hub-ban](./diagnostic-log-collection.md)
 * [Azure Stack hub rendszerállapotának ellenőrzése](azure-stack-diagnostic-test.md)
 * [A csomag kiadási ritmusának frissítése](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Csomópont állapotának ellenőrzése és hibakeresése](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ Ha a App Service szükséges Create-AADIdentityApp.ps1 parancsfájl nem sikerül
 
 Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, hogy a kezelők következetes és áramvonalas módon alkalmazzák a frissítési csomagokat. Habár nem gyakori, a javítások és a frissítési folyamat során problémák léphetnek fel. A javítási és frissítési folyamat során a következő lépések ajánlottak:
 
-0. **Előfeltételek**: Győződjön meg arról, hogy követte a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és engedélyezze az előjelzéses [naplók gyűjtését](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively).
+0. **Előfeltételek**: Győződjön meg arról, hogy követte a [frissítési tevékenység ellenőrzőlistáját](release-notes-checklist.md) , és engedélyezze az előjelzéses [naplók gyűjtését](./diagnostic-log-collection.md#send-logs-proactively).
 
 1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
 
-2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) az időtartományhoz.
+2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./diagnostic-log-collection.md#send-logs-now) az időtartományhoz.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
 

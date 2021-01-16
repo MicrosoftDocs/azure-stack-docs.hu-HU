@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e26299a53583fa7d4e4b4b61fc46be7d2faa9eba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872721"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255010"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>A Azure Stack HCI fizikai hálózati követelményei
 
@@ -26,7 +26,7 @@ Ez a témakör a fizikai (háló) hálózati szempontokat és a Azure Stack HCI-
 
 A Microsoft az alábbi, a **hálózati kapcsolókra vonatkozó követelmények** szakaszban azonosított szabványoknak és protokolloknak Azure stack a HCI-t. Noha a Microsoft nem hitelesíti a hálózati kapcsolókat, a gyártókkal együttműködve azonosíthatja a Azure Stack HCI-követelményeket támogató eszközöket.
 
-Ezeket a követelményeket a [Windows hardverkompatibilitási programjának specifikációi és szabályzatai](https://docs.microsoft.com/windows-hardware/design/compatibility/whcp-specifications-policies)is közzéteszik.  Válassza a **specifikációk és szabályzatok letöltése** elemet, a 1809-es verziót, nyissa meg a zip-fájlt, nyissa meg **WHCP-Components-Peripherals-Specification-1809.pdf**, majd lásd a **Device. Network. Switch. SDDC** szakaszt.
+Ezeket a követelményeket a [Windows hardverkompatibilitási programjának specifikációi és szabályzatai](/windows-hardware/design/compatibility/whcp-specifications-policies)is közzéteszik.  Válassza a **specifikációk és szabályzatok letöltése** elemet, a 1809-es verziót, nyissa meg a zip-fájlt, nyissa meg **WHCP-Components-Peripherals-Specification-1809.pdf**, majd lásd a **Device. Network. Switch. SDDC** szakaszt.
 
 > [!IMPORTANT]
 > Míg más, az itt nem felsorolt technológiákat és protokollokat használó hálózati kapcsolók működhetnek, a Microsoft nem tudja garantálni, hogy a Azure Stack HCI-mel működjenek együtt, és előfordulhat, hogy nem tud segíteni a hibák elhárításában.
@@ -145,6 +145,6 @@ A Azure Stack HCI minden fürt mérete esetében támogatja a nem megfelelő (k�
 
 - A hálózati adapter és a gazdagép követelményeinek megismerése. Lásd a [gazdagép hálózati követelményeit](host-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
-- Ecset a SET használatával. Tekintse [meg a távoli közvetlen memória-hozzáférés (RDMA) című témakört, és kapcsolja be a beágyazott összevonást (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központból](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- A telepítéshez lásd: [fürt létrehozása a Windows PowerShell használatával](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Ecset a SET használatával. Tekintse [meg a távoli közvetlen memória-hozzáférés (RDMA) című témakört, és kapcsolja be a beágyazott összevonást (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- A telepítéssel kapcsolatban lásd: [fürt létrehozása a Windows felügyeleti központból](../deploy/create-cluster.md).
+- A telepítéshez lásd: [fürt létrehozása a Windows PowerShell használatával](../deploy/create-cluster-powershell.md).

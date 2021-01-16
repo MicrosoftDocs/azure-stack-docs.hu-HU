@@ -7,18 +7,18 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 416b00b66b62788c49554e8dbc358a871a681dab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885750"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254721"
 ---
 # <a name="asdk-release-notes"></a>ASDK kibocsátási megjegyzései
 
 Ez a cikk a Azure Stack Development Kit (ASDK) változásairól, javításáról és ismert problémáiról tartalmaz információkat. Ha nem biztos abban, hogy melyik verziót futtatja, [a portálon ellenőrizze a](../operator/azure-stack-updates.md)következőt:.
 
-Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára](https://aka.ms/asdkrss)való feliratkozással naprakész maradhat a ASDK újdonságai.
+Az ![ RSS ](./media/asdk-release-notes/feed-icon-14x14.png) [RSS-hírcsatornára](/api/search/rss?locale=en-us&search=ASDK+release+notes)való feliratkozással naprakész maradhat a ASDK újdonságai.
 
 ::: moniker range="azs-2008"
 ## <a name="build-12008059"></a>1.2008.0.59 létrehozása

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874523"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256200"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Emelt szintű hozzáférési munkaállomás és privilegizált végponti hozzáférés
 
@@ -44,5 +44,5 @@ Az emelt szintű végpont munkamenetének bezárásához futtassa a következőt
 
 ## <a name="further-reading"></a>További információ
 
-További információ a privilegizált végponthoz való csatlakozásról és azokkal való együttműködésről: [a privilegizált végpont használata Azure stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) 
- [központban](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+További információ a privilegizált végponthoz való csatlakozásról és azokkal való együttműködésről: [a privilegizált végpont használata Azure stack](../../operator/azure-stack-privileged-endpoint.md) 
+ [központban](../../operator/azure-stack-privileged-endpoint.md).

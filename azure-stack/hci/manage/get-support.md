@@ -5,18 +5,18 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 12/11/2020
-ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f5dc475cde9baeb053fbaec1144d1ff65cc4e2ba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343341"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254381"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Támogatás kérése Azure Stack HCI-hez
 
 >A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
-Ez a témakör útmutatást nyújt a Azure Stack HCI operációs rendszer támogatásának beszerzéséhez. Azure Stack HCI ugyanazt a támogatási folyamatot követi, mint az Azure. A nagyvállalati ügyfelek követheti az [Azure-támogatási kérelem létrehozása](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től.
+Ez a témakör útmutatást nyújt a Azure Stack HCI operációs rendszer támogatásának beszerzéséhez. Azure Stack HCI ugyanazt a támogatási folyamatot követi, mint az Azure. A nagyvállalati ügyfelek követheti az [Azure-támogatási kérelem létrehozása](/azure/azure-portal/supportability/how-to-create-azure-support-request)című témakörben leírt eljárást. Ha Ön egy felhőalapú megoldás-szolgáltató (CSP) ügyfele, kérjen segítséget a CSP-től.
 
 Azure Stack HCI-támogatási kérelem létrehozásához standard vagy Professional Direct Azure-támogatási csomag szükséges. Alapszintű és fejlesztői csomagok nem használhatók.
 
@@ -34,6 +34,6 @@ Azure Stack a HCI integrált rendszermegoldási hardvert az Ön által előnyben
 
 Ha többet szeretne megtudni az integrált rendszerpartnerekről és azok megoldásairól és támogatási ajánlatáról, tekintse meg a [Azure stack HCI katalógust](https://hcicatalog.azurewebsites.net).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 A kapcsolódó információkkal kapcsolatban lásd még:
 - [Azure Stack HCI – gyakori kérdések](../faq.md)

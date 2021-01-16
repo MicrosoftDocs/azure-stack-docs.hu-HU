@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 054a3267d48f823ad6d0767f1946e94667c6e12d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 924819805bd0626e68d9e4cb5bcaa7735b44fa90
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872517"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255571"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM-funkciók – moduláris adatközpont (MDC)
 
@@ -28,7 +28,7 @@ Azure Stack virtuális gépek (VM-EK) igény szerinti, méretezhető számítás
 
 ## <a name="vm-differences"></a>VIRTUÁLIS gépek közötti különbségek
 
-| Szolgáltatás | Azure (globális) | Azure Stack |
+| Funkció | Azure (globális) | Azure Stack |
 | --- | --- | --- |
 | Virtuálisgép-rendszerképek | Az Azure Marketplace-en lemezképek hozhatók létre virtuális gépek létrehozásához. Az Azure Marketplace-en elérhető rendszerképek listájának megtekintéséhez tekintse meg az [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) oldalát. | Alapértelmezés szerint nincs elérhető lemezkép a Azure Stack piactéren. A Azure Stack a felhő rendszergazdájának közzé kell tennie vagy le kell töltenie a lemezképeket a Azure Stack piactéren, mielőtt a felhasználók használni tudják őket. |
 | Virtuálisgép-méretek | Az Azure számos méretben támogatja a virtuális gépeket. A rendelkezésre álló méretek és beállítások megismeréséhez tekintse meg a [Windows rendszerű virtuális gépek méreteit](/azure/virtual-machines/sizes) és a linuxos virtuálisgép- [méretek](/azure/virtual-machines/linux/sizes) témakört. | A Azure Stack az Azure-ban elérhető virtuálisgép-méretek egy részhalmazát támogatja. A támogatott méretek listájának megtekintéséhez tekintse meg a jelen cikk [VM-méretek](#vm-sizes) című szakaszát. |
@@ -41,7 +41,7 @@ Azure Stack virtuális gépek (VM-EK) igény szerinti, méretezhető számítás
 | Azure Instance Metadata szolgáltatás | Az Azure Instance Metadata Service információt nyújt a virtuális gép felügyeletére és beállítására használható virtuálisgép-példányok futtatásáról.  | Az Azure Instance Metadata Service Azure Stack nem támogatott. |
 | Virtuális gépek rendelkezésreállási csoportjai|Több tartalék tartomány (2 vagy 3 régiónként).<br>Több frissítési tartomány.|Több tartalék tartomány (2 vagy 3 régiónként).<br>Egyetlen frissítési tartomány, élő áttelepítéssel a munkaterhelések megóvása érdekében a frissítés során. 20 frissítési tartomány támogatott a sablonok kompatibilitásához.<br>A virtuális gép és a rendelkezésre állási csoportnak azonos helyen és erőforráscsoporthoz kell lennie.|
 | Virtuálisgép-méretezési csoportok|Az autoskálázás támogatott.|Az autoskálázás nem támogatott.<br><br>További példányok hozzáadása egy méretezési csoporthoz a portál, a Resource Manager-sablonok vagy a PowerShell használatával. |
-| Felhőbeli tanúsító | Válassza ki a Azure Stackban elérhető Storage-fiók tulajdonságaiból származó végpontokat. | A [Felhőbeli tanúsító](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) a feladatátvevő fürt Kvórumának olyan típusa, amely Microsoft Azure használatával szavaz a fürt kvórumáról.<br>A globális Azure-beli végpontok a Azure Stackhoz képest a következőkhöz hasonlóak:<br>Globális Azure esetén:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack esetén:<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| Felhőbeli tanúsító | Válassza ki a Azure Stackban elérhető Storage-fiók tulajdonságaiból származó végpontokat. | A [Felhőbeli tanúsító](/windows-server/failover-clustering/deploy-cloud-witness) a feladatátvevő fürt Kvórumának olyan típusa, amely Microsoft Azure használatával szavaz a fürt kvórumáról.<br>A globális Azure-beli végpontok a Azure Stackhoz képest a következőkhöz hasonlóak:<br>Globális Azure esetén:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack esetén:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Virtuálisgép-diagnosztika | A Linux rendszerű virtuális gépek diagnosztikája támogatott. | A Linux rendszerű virtuális gépek diagnosztikája nem támogatott Azure Stackban. Ha olyan linuxos virtuális gépet telepít, amelyen engedélyezve van a virtuálisgép-diagnosztika, a telepítés sikertelen lesz. A központi telepítés akkor is meghiúsul, ha a Linux virtuális gép alapmetrikáit a diagnosztikai beállítások segítségével engedélyezi. |
 
 ## <a name="vm-sizes"></a>A virtuális gépek mérete
@@ -136,12 +136,12 @@ A támogatott erőforrástípusok és API-verziók listája eltérő lehet, ha a
 
 ## <a name="windows-activation"></a>A Windows aktiválása
 
-A Windows-termékeket a termék használati jogainak és a Microsoft licencfeltételek feltételeinek megfelelően kell használni. A Azure Stack a [virtuális gép aktiválását](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) használja a Windows Server rendszerű virtuális gépek aktiválásához.
+A Windows-termékeket a termék használati jogainak és a Microsoft licencfeltételek feltételeinek megfelelően kell használni. A Azure Stack a [virtuális gép aktiválását](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) használja a Windows Server rendszerű virtuális gépek aktiválásához.
 
 - Azure Stack-gazdagép aktiválja a Windowst a Windows Server 2016 AVMA kulcsaival. A Windows Server 2012 R2 vagy újabb rendszert futtató virtuális gépek automatikusan aktiválódnak.
-- A Windows Server 2012-es vagy korábbi verzióját futtató virtuális gépeket nem aktiválja automatikusan a rendszer, és a [MAK-aktiválás](https://technet.microsoft.com/library/ff793438.aspx)használatával kell aktiválni. A MAK-aktiválás használatához meg kell adnia a saját termékkulcsot.
+- A Windows Server 2012-es vagy korábbi verzióját futtató virtuális gépeket nem aktiválja automatikusan a rendszer, és a [MAK-aktiválás](/previous-versions/tn-archive/ff793438(v=technet.10))használatával kell aktiválni. A MAK-aktiválás használatához meg kell adnia a saját termékkulcsot.
 
-Microsoft Azure KMS-aktiválást használ a Windows rendszerű virtuális gépek aktiválásához. Ha Azure Stackról az Azure-ba helyez át egy virtuális gépet, és az aktiválási problémákba ütközik, tekintse meg az [Azure Windows virtuális gépek aktiválásával kapcsolatos problémák](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems) További információ: [Windows-aktiválási hibák elhárítása Azure-beli virtuális gépeken](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) az Azure támogatási csapatának blogbejegyzésében.
+Microsoft Azure KMS-aktiválást használ a Windows rendszerű virtuális gépek aktiválásához. Ha Azure Stackról az Azure-ba helyez át egy virtuális gépet, és az aktiválási problémákba ütközik, tekintse meg az [Azure Windows virtuális gépek aktiválásával kapcsolatos problémák](/azure/virtual-machines/windows/troubleshoot-activation-problems) További információ: [Windows-aktiválási hibák elhárítása Azure-beli virtuális gépeken](/archive/blogs/mast/troubleshooting-windows-activation-failures-on-azure-vms) az Azure támogatási csapatának blogbejegyzésében.
 
 ## <a name="next-steps"></a>További lépések
 

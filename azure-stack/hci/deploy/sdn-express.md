@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ba28d5904e58d84a913777fe80c5aa05a8ecdffe
-ms.sourcegitcommit: 6a99a188bbad491e7d2817de0b9500a27797107e
+ms.openlocfilehash: 968782c4fd5ac0f4e057815c526fbde8f90164af
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97658277"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254840"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>SDN-infrastruktúra üzembe helyezése az SDN Express használatával
 
@@ -21,7 +21,7 @@ Ebben a témakörben egy teljes körű szoftveres hálózati (SDN) infrastruktú
 
 A parancsfájlok támogatják a többfázisú telepítést, ahol csak a hálózati vezérlőt telepítheti a minimális hálózati követelményekkel rendelkező alapvető funkciók eléréséhez. A hálózati vezérlőt a fürt létrehozása varázslóval is üzembe helyezheti a Windows felügyeleti központban. Más SDN-összetevők, például a SLB és az átjáró üzembe helyezéséhez azonban az SDN Express szkripteket kell használnia.
 
-Az SDN-infrastruktúrát System Center Virtual Machine Manager (VMM) használatával is üzembe helyezheti. További információ: [az Sdn-erőforrások kezelése a VMM-hálóban](https://docs.microsoft.com/system-center/vmm/network-sdn).
+Az SDN-infrastruktúrát System Center Virtual Machine Manager (VMM) használatával is üzembe helyezheti. További információ: [az Sdn-erőforrások kezelése a VMM-hálóban](/system-center/vmm/network-sdn).
 
 ## <a name="before-you-begin"></a>Előkészületek
 
@@ -62,8 +62,8 @@ Győződjön meg arról, hogy minden gazdagépen telepítve van a Azure Stack HC
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose
     ```
 
-1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a dinamikus DNS-frissítéseket a hálózati vezérlő fürtjének neveként a DNS-kiszolgálón. További információ: a [hálózati vezérlő üzembe helyezésére vonatkozó követelmények](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)3. lépése.
+1. A hálózati vezérlő virtuális gépek létrehozása után konfigurálja a dinamikus DNS-frissítéseket a hálózati vezérlő fürtjének neveként a DNS-kiszolgálón. További információ: a [hálózati vezérlő üzembe helyezésére vonatkozó követelmények](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)3. lépése.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A virtuális gépek kezelése. További információ: [virtuális gépek kezelése](../manage/vm.md)

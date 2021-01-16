@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f9a7a42fafe55e7b598e6fcb67e5353c2453222e
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343206"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255826"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Az Azure Stack Hub PKI-tanúsítványok gyakori problémáinak kijavítása
 
@@ -23,13 +23,13 @@ Az ebben a cikkben található információk segítséget nyújt a Azure Stack h
 
 **Probléma** – a tanúsítvány nem tartalmazza a CDP-bővítményben a http CRL-t.
 
-**Javítás** – ez egy nem blokkoló probléma. Azure Stack a visszavonási ellenőrzéshez szükséges HTTP CRL [-t igényel Azure stack hub nyilvánoskulcs-infrastruktúra (PKI) tanúsítványának követelményei](https://aka.ms/azspki)szerint.  Nem észlelhető HTTP CRL a tanúsítványon.  A tanúsítvány-visszavonási ellenőrzés működésének biztosításához a hitelesítésszolgáltatónak egy HTTP CRL-sel rendelkező tanúsítványt kell kiállítania a CDP-bővítményben.
+**Javítás** – ez egy nem blokkoló probléma. Azure Stack a visszavonási ellenőrzéshez szükséges HTTP CRL [-t igényel Azure stack hub nyilvánoskulcs-infrastruktúra (PKI) tanúsítványának követelményei](./azure-stack-pki-certs.md)szerint.  Nem észlelhető HTTP CRL a tanúsítványon.  A tanúsítvány-visszavonási ellenőrzés működésének biztosításához a hitelesítésszolgáltatónak egy HTTP CRL-sel rendelkező tanúsítványt kell kiállítania a CDP-bővítményben.
 
 ## <a name="http-crl---fail"></a>HTTP CRL – sikertelen
 
 **Probléma** – nem lehet csatlakozni a http CRL-hez a CDP-bővítményben.
 
-**Javítás** – ez egy blokkolási probléma. Azure Stack a visszavonási ellenőrzéshez egy HTTP CRL-hez való kapcsolódás szükséges a [közzétételi Azure stack hub-portok és URL-címek (kimenő)](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)szerint.
+**Javítás** – ez egy blokkolási probléma. Azure Stack a visszavonási ellenőrzéshez egy HTTP CRL-hez való kapcsolódás szükséges a [közzétételi Azure stack hub-portok és URL-címek (kimenő)](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)szerint.
 
 ## <a name="pfx-encryption"></a>PFX-titkosítás
 
@@ -156,6 +156,6 @@ A következő előfeltételeket kell megadnia azon a számítógépen, amelyen a
    Repair-AzsPfxCertificate Completed
    ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - [További információ a Azure Stack hub biztonságáról](azure-stack-rotate-secrets.md)

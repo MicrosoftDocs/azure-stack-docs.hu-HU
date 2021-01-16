@@ -15,12 +15,12 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 8b173f26fdd731de1d7eb21ee7a5c6947da78b55
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910618"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256149"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Marketplace-elemek letöltése Azure Stack hubhoz (robusztus)
 
@@ -74,7 +74,7 @@ Az Azure Stack hub üzembe helyezéséhez internetkapcsolatra van szükség, és
 
 A leválasztott környezetekben nem tölthetők le Marketplace-elemek az Azure-ból. A Piactéri elemek helyi meghajtóra való letöltéséhez az offline szindikált eszközt kell használni, majd onnan fel kell tölteni ezeket az elemeket az Azure Stack hubhoz.
 
-[Az offline hírszolgáltatási eszközöket innen töltheti le](https://aka.ms/azsSyndicationtool).
+[Az offline hírszolgáltatási eszközöket innen töltheti le](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 
 ### <a name="download-marketplace-items-from-azure"></a>Marketplace-elemek letöltése az Azure-ból
 

@@ -211,7 +211,7 @@
       items:
         - name: Biztonsági áttekintés
           href: azure-stack-security-foundations.md
-        - name: A biztonság konfigurálása
+        - name: Biztonság konfigurálása
           href: azure-stack-security-configuration.md
         - name: Identitás
           items:
@@ -370,7 +370,7 @@
                 - name: Biztonsági mentés és visszaállítás
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Naplók gyűjtése
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: ./diagnostic-log-collection.md
                 - name: Állapot-& riasztások
                   href: azure-stack-monitor-health.md
                 - name: Kezelés

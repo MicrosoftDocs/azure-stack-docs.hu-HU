@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 5c8b446c642414727b6e7a1f1689c86e5f7acf70
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910925"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255367"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Riasztások aka.ms Azure Stack hub-moduláris adatközponthoz (MDC)
 
@@ -37,7 +37,7 @@ Ez a témakör felsorolja azokat a hivatkozásokat, amelyek megjelennek a riaszt
 | `https://aka.ms/azurestackaddcapacity` | [További skálázásiegység-csomópontok hozzáadása az Azure Stackben](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [További skálázásiegység-csomópontok hozzáadása az Azure Stackben](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Igény szerinti Azure Stack diagnosztikai naplók gyűjtése](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Igény szerinti Azure Stack diagnosztikai naplók gyűjtése](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [A rendszerjogosultságú végpont használata Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Skálázásiegység-csomópont cseréje Azure Stackkel integrált rendszeren](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |
@@ -51,6 +51,6 @@ Ez a témakör felsorolja azokat a hivatkozásokat, amelyek megjelennek a riaszt
 | `https://docs.microsoft.com/azure/azure-stack/azure-stack-register` | [Az Azure Stack regisztrálása az Azure-ban](../../operator/azure-stack-registration.md) |
 | `https://docs.microsoft.com/azure/azure-stack/azure-stack-registration` | [Az Azure Stack regisztrálása az Azure-ban](../../operator/azure-stack-registration.md) |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A **Súgó** és támogatás szolgáltatással kapcsolatban a [Microsoft Azure stack Súgó és támogatás](../../operator/azure-stack-help-and-support-overview.md) című cikkben talál további információt.

@@ -7,18 +7,18 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 32a09b833e2e5a76abf0c9a6c67540ca124bfe94
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524681"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254585"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Tanúsítványok beállítása az Azure CLI-hez Azure Stack Development Kit
 
 A cikk lépéseit követve állítsa be az Azure Command-Line felületét (CLI) a Linux-, Mac-és Windows-ügyféloldali platformok Azure Stack Development Kit (ASDK) erőforrásainak kezelésére.
 
-Ez a cikk a tanúsítványok beszerzésével és a távoli felügyeleti gépen való megbízhatóságával foglalkozik. Az Azure CLI telepítéséhez és a környezethez való kapcsolódáshoz lásd: az [Azure CLI telepítése Azure stack hubhoz](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Ez a cikk a tanúsítványok beszerzésével és a távoli felügyeleti gépen való megbízhatóságával foglalkozik. Az Azure CLI telepítéséhez és a környezethez való kapcsolódáshoz lásd: az [Azure CLI telepítése Azure stack hubhoz](../user/azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="prepare-for-azure-cli"></a>Felkészülés az Azure CLI-re
 
@@ -126,7 +126,7 @@ Ha az Azure CLI-t a aSDK szeretné használni, meg kell bíznia a távoli gépen
     Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-Az Azure CLI telepítésével és csatlakozásával kapcsolatos utasításokért lásd: az [Azure CLI telepítése Azure stack hub-ra](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Az Azure CLI telepítésével és csatlakozásával kapcsolatos utasításokért lásd: az [Azure CLI telepítése Azure stack hub-ra](../user/azure-stack-version-profiles-azurecli2.md).
 
 ### <a name="linux"></a>[Linux](#tab/lin)
 
@@ -154,7 +154,7 @@ A CLI beállításakor bízza meg a Azure Stack hub HITELESÍTÉSSZOLGÁLTATÓI 
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-Az Azure CLI telepítésével és csatlakozásával kapcsolatos utasításokért lásd: az [Azure CLI telepítése Azure stack hub-ra](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Az Azure CLI telepítésével és csatlakozásával kapcsolatos utasításokért lásd: az [Azure CLI telepítése Azure stack hub-ra](../user/azure-stack-version-profiles-azurecli2.md).
 
 ---
 

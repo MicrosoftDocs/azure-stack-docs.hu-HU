@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 16fb7544fb223a1038b3f27d0416f0eda04012b6
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 7a0c0ca7a99b3554b74cc80911acbee92793aa52
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011672"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254823"
 ---
 # <a name="migrate-to-azure-stack-hci-on-new-hardware"></a>Áttelepítés Azure Stack HCI-re új hardveren
 
 > A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
-Ez a témakör azt ismerteti, hogyan telepítheti át a virtuális gépek (VM) fájljait a Windows Server 2012 R2, a Windows Server 2016 vagy a Windows Server 2019 rendszerből a Windows PowerShell és a Robocopy használatával új Azure Stack HCI Server-hardverre. A Robocopy egy robusztus módszer a fájlok egyik kiszolgálóról a másikra történő másolásához. Folytatja, ha a kapcsolat megszakadt, és folytatja az utolsó ismert állapottal való munkát. A Robocopy a többszálas fájlok másolását is támogatja a kiszolgálói üzenetblokk (SMB) protokollon keresztül. További információ: [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
+Ez a témakör azt ismerteti, hogyan telepítheti át a virtuális gépek (VM) fájljait a Windows Server 2012 R2, a Windows Server 2016 vagy a Windows Server 2019 rendszerből a Windows PowerShell és a Robocopy használatával új Azure Stack HCI Server-hardverre. A Robocopy egy robusztus módszer a fájlok egyik kiszolgálóról a másikra történő másolásához. Folytatja, ha a kapcsolat megszakadt, és folytatja az utolsó ismert állapottal való munkát. A Robocopy a többszálas fájlok másolását is támogatja a kiszolgálói üzenetblokk (SMB) protokollon keresztül. További információ: [Robocopy](/windows-server/administration/windows-commands/robocopy).
 
 > [!NOTE]
 > A Hyper-V Élő áttelepítés és a Hyper-V replika a Windows Serverről a Azure Stack HCI-re nem támogatott.
@@ -57,7 +57,7 @@ Az áttelepítés megkezdése előtt több követelményt és megfontolandó sze
 
 - Ellenőrizze, hogy Azure Stack HCI támogatja-e a virtuális gépek verzióját a virtuális gépek igény szerinti importálására és frissítésére. Ennek módjáról a [virtuális gépek verziójának támogatása és frissítése](#vm-version-support-and-update) című szakaszban olvashat.
 
-- A forráskiszolgálón lévő összes virtuális gép biztonsági mentése. Fejezze be az összes alkalmazás és szolgáltatás összeomlás-konzisztens biztonsági mentését, valamint az összes adatbázis alkalmazás-konzisztens biztonsági mentését. Az Azure-ba történő biztonsági mentéshez lásd: [Azure Backup használata](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- A forráskiszolgálón lévő összes virtuális gép biztonsági mentése. Fejezze be az összes alkalmazás és szolgáltatás összeomlás-konzisztens biztonsági mentését, valamint az összes adatbázis alkalmazás-konzisztens biztonsági mentését. Az Azure-ba történő biztonsági mentéshez lásd: [Azure Backup használata](../manage/use-azure-backup.md).
 
 - Készítsen ellenőrzőpontot a forrásoldali fürt virtuális gépei és a tartományvezérlő számára abban az esetben, ha vissza kell állítania egy korábbi állapotot. Ez a fizikai kiszolgálók esetében nem alkalmazható.
 
@@ -336,9 +336,9 @@ A folyamat a következőképpen használható:
 
     `Robocopy \\2012R2-Clus01\c$\clusterstorage\volume01\Hyper-V\ \\20H2-Clus01\c$\clusterstorage\volume01\Hyper-V\ /E /MT:32 /R:0 /w:1 /NFL /NDL /copyall /log:c:\log.txt /xf`
 
-1. Hozzon létre új 1. generációs virtuális gépeket. Ennek módjával kapcsolatos részletes információkat a [virtuális gépek kezelése](https://docs.microsoft.com/azure-stack/hci/manage/vm)című témakörben talál.
+1. Hozzon létre új 1. generációs virtuális gépeket. Ennek módjával kapcsolatos részletes információkat a [virtuális gépek kezelése](../manage/vm.md)című témakörben talál.
 
-1. Csatolja a másolt VHD-fájlokat az új virtuális gépekhez. Részletes információk: [virtuális merevlemezek kezelése (VHD)](https://docs.microsoft.com/windows-server/storage/disk-management/manage-virtual-hard-disks)
+1. Csatolja a másolt VHD-fájlokat az új virtuális gépekhez. Részletes információk: [virtuális merevlemezek kezelése (VHD)](/windows-server/storage/disk-management/manage-virtual-hard-disks)
 
 A következő Windows Server vendég operációs rendszerek támogatják a 2. generációs virtuális gépeket:
 
@@ -349,9 +349,9 @@ A következő Windows Server vendég operációs rendszerek támogatják a 2. ge
 - Windows 10
 - a Windows 8,1 64 bites verziói (64-bit)
 - 64 – a Windows 8 bites verziói (64 bites)
-- Linux (lásd [a támogatott Linux és FreeBSD rendszerű virtuális gépeket](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
+- Linux (lásd [a támogatott Linux és FreeBSD rendszerű virtuális gépeket](/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - A fürt érvényesítése az áttelepítés után. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md).
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/8/2020
-ms.openlocfilehash: 79588b25f76540aed1499123f7d39e4d57cf9ecd
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 35cf6d997a7200b762b8da052e5e30038f288bdc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858900"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254993"
 ---
 # <a name="what-is-software-load-balancer-slb-for-sdn"></a>Mi a szoftver Load Balancer \( SLB \) for Sdn?
 
@@ -116,7 +116,7 @@ Emellett konfigurálnia kell a Azure Stack HCI-gazdagépeket az SDN-kompatibilis
 
 Az alábbi ábra áttekintést nyújt a SLB-infrastruktúráról.
 
-:::image type="content" source="media/software-load-balancing/slb-overview.png" alt-text="Szoftveres terheléselosztási folyamat" border="false":::
+:::image type="content" source="media/software-load-balancing/slb-overview.png" alt-text="Szoftver-Load Balancer infrastruktúra" border="false":::
 
 A következő szakaszokban további információkat talál a szoftver Load Balancer infrastruktúra ezen elemeiről.
 
@@ -205,5 +205,5 @@ A következő szakaszok ismertetik a szoftverek Load Balancer funkcióit és ké
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Hálózati vezérlő – áttekintés](network-controller-overview.md)
-- [Hálózati vezérlő telepítése a Windows PowerShell használatával](../deploy/network-controller-powershell.md)
+- [Hálózati vezérlő telepítése a Windows PowerShell használatával](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 - [SDN Azure Stack HCI-ben](software-defined-networking.md)
