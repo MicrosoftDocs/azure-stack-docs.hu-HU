@@ -3,16 +3,16 @@ title: A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 description: Megtudhatja, hogyan használhatja a ASDK az Azure Stack integrált rendszerek biztonsági mentésének ellenőrzésére.
 author: PatAltimore
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 1/15/2020
 ms.author: patricka
 ms.reviewer: hectorl
-ms.lastreviewed: 03/11/2020
-ms.openlocfilehash: 0829174ab080ebc482e99490b7a5af5c2e0f2806
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/15/2020
+ms.openlocfilehash: d04116cb3eeb74eda7241c35c377d34df97dde28
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873044"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561978"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>A ASDK használata Azure Stack biztonsági mentés ellenőrzéséhez
 Azure Stack üzembe helyezése és a felhasználói erőforrások kiépítése (például ajánlatok, csomagok, kvóták és előfizetések) után [engedélyeznie kell Azure stack-infrastruktúra biztonsági mentését](../operator/azure-stack-backup-enable-backup-console.md). Az infrastruktúra rendszeres biztonsági mentésének ütemezése és futtatása biztosítja, hogy az infrastruktúra-kezelési adatokat ne veszítse el a rendszer, ha katasztrofális hardveres vagy szolgáltatási hiba történik.
@@ -24,7 +24,7 @@ Azure Stack az infrastruktúra biztonsági mentései olyan fontos adatokat tarta
 
 A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogatott:
 
-|Eset|Cél|
+|Használati eset|Cél|
 |-----|-----|
 |Az infrastruktúra biztonsági mentésének ellenőrzése egy integrált megoldásból.|Rövid élettartamú ellenőrzés, hogy a biztonsági mentésben szereplő értékek érvényesek-e.|
 |Ismerje meg a teljes körű helyreállítási munkafolyamatot.|A ASDK használatával ellenőrizze a teljes biztonsági mentési és visszaállítási élményt.|
@@ -32,7 +32,7 @@ A ASDK biztonsági másolatainak ellenőrzése a következő esetekben támogato
 
 A következő forgatókönyv **nem** támogatott a biztonsági másolatok ASDK való ellenőrzésekor:
 
-|Eset|Cél|
+|Használati eset|Cél|
 |-----|-----|
 |ASDK Build a biztonsági mentés és a visszaállítás létrehozásához.|A ASDK korábbi verziójából származó biztonsági mentési adatok visszaállítása újabb verzióra.|
 |     |     |
@@ -162,7 +162,7 @@ A Azure Stack operátorként való bejelentkezés után [telepítse Azure stack 
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
-Restore-AzsBackup -ResourceId "<BackupID>" `
+Restore-AzsBackup -Name "<BackupID>" `
  -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
  -DecryptionCertPassword $decryptioncertpassword
 ```

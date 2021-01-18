@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Számítási feladatok üzembe helyezése
       items:
+        - name: VDI üzembe helyezése
+          href: deploy/deploy-vdi.md
         - name: SQL Server üzembe helyezése
           href: deploy/deploy-sql-server-workload.md
         - name: Megbízható vállalati virtualizálás üzembe helyezése
@@ -142,7 +144,7 @@
           href: concepts/stretched-clusters.md
         - name: Fürt-és tárolási készlet kvóruma
           href: concepts/quorum.md
-    - name: Hálózat
+    - name: Hálózatkezelés
       items:
         - name: Fizikai hálózati követelmények
           href: concepts/physical-network-requirements.md
