@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 2312219d67741b9485a6070c00418762e50fac73
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 225c765642dc48b299c899d71eb0d0ce13d4852d
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737835"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571365"
 ---
 # <a name="mysql-resource-provider-1193x-release-notes"></a>MySQL erőforrás-szolgáltató 1.1.93. x kibocsátási megjegyzései
 
@@ -42,6 +42,8 @@ Javasoljuk, hogy a MySQL erőforrás-szolgáltató 1.1.93.1 alkalmazza Azure Sta
 
 ## <a name="known-issues"></a>Ismert problémák
 A 1.1.93.0 verziójának telepítése sikertelen lehet, ha nem megfelelő AzureRmContext van használatban. Javasoljuk, hogy közvetlenül a 1.1.93.1 verzióra frissítsen. Ha már sikeresen frissített a 1.1.93.0-ra, nyugodtan kihagyhatja a 1.1.93.1 verzióját.
+
+A MySQL erőforrás-szolgáltató újbóli üzembe helyezésekor, miközben ugyanazon verzió már telepítve lett (például ha a MySQL erőforrás-szolgáltató 1.1.93.1 már telepítve van, és ugyanaz a verzió van telepítve), a MySQL erőforrás-szolgáltatót üzemeltető virtuális gép leáll. A probléma megoldásához nyissa meg a felügyeleti portált, keresse meg, majd indítsa újra a mysqlvm nevű virtuális gépet \<version\> a System... nevű erőforráscsoport-csoportban. \<region\> mysqladapter.
 
 ## <a name="next-steps"></a>További lépések
 

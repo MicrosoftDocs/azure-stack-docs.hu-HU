@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 9cf3339398516688865f7aab3a696562f4974699
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255792"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571331"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Event Hubs kezelése Azure Stack hub-on
 
@@ -50,8 +50,8 @@ A Event Hubs erőforrás-szolgáltató a következő riasztásokat támogatja:
 |----------|-------|------|-----------|
 | Teljesítmény | | | |
 | | EventHub-CpuUsage | Figyelmeztetés | Event Hubs fürt átlagos CPU-használata az elmúlt 6 órában nagyobb, mint 50%. |
-| | EventHub-MemoryUsage | Figyelmeztetés | A (z)% adatlemez átlaga (E:) Event Hubs-fürt használata az elmúlt 6 órában nagyobb, mint 50%. |
-| | EventHub-DiskUsage | Figyelmeztetés | A Event Hubs-fürt utolsó 6 órában mért szabad lemezterületének átlaga 50%-nál kisebb. |
+| | EventHub-MemoryUsage | Figyelmeztetés | A Event Hubs-fürt utolsó 6 órában mért szabad lemezterületének átlaga 50%-nál kisebb. |
+| | EventHub-DiskUsage | Figyelmeztetés | A (z)% adatlemez átlaga (E:) Event Hubs-fürt használata az elmúlt 6 órában nagyobb, mint 50%. |
 | Használat/kvóta | | | |
 | | EventHub-QuotaExceeded | Figyelmeztetés | A kvóta túllépte az elmúlt hat órában történt hibát. |
 | | EventHub-NamespaceCreditUsage | Figyelmeztetés | Az elmúlt hat órában a névtérbeli kreditek használatának összege nagyobb, mint 10000,0. |

@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dec5c65f39bec2f459abba9adba25c4c097aff04
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 9560e9e2fcf5d7b01ca44b409d14a7827cac4060
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208080"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571399"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Marketplace-elemek letöltése Azure Stack hubhoz
 
@@ -128,7 +128,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
    A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
 
    > [!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzRmAccount` : `RemoveAzAccount -Scope Process` .
+   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzAccount` : `Remove-AzAccount -Scope Process` .
 
 3. Ha több előfizetéssel rendelkezik, a következő parancs futtatásával válassza ki a regisztrációhoz használtt:
 
@@ -187,7 +187,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
 
 1. Egy internetkapcsolattal rendelkező számítógépen nyisson meg egy PowerShell-konzolt rendszergazdaként.
 
-2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt `Add-AzureRMureRmAccount` :
+2. Jelentkezzen be a megfelelő Azure Cloud-és AzureAD-címtár-bérlőbe az Azure Stack hub regisztrálásához használt Azure-fiók használatával. A fiók hozzáadásához a PowerShellben futtassa a következőt `Add-AzureRMAccount` :
 
    ```powershell  
    Login-AzureRMAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
@@ -196,7 +196,7 @@ A Azure Stack regisztrálása után figyelmen kívül hagyhatja a Marketplace-ke
    A rendszer felszólítja az Azure-fiók hitelesítő adatainak megadására, és előfordulhat, hogy a fiók konfigurációjától függően kétfaktoros hitelesítést kell használnia.
 
    > [!NOTE]
-   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzureRMRmAccount` : `Remove-AzureRMAccount -Scope Process` .
+   > Ha a munkamenet lejár, a jelszó módosult, vagy ha a fiókokat szeretné váltani, futtassa a következő parancsmagot, mielőtt bejelentkezik a használatával `Add-AzureRMAccount` : `Remove-AzureRMAccount -Scope Process` .
 
 3. Ha több előfizetéssel rendelkezik, a következő parancs futtatásával válassza ki a regisztrációhoz használtt:
 

@@ -44,12 +44,12 @@
           href: deploy/create-cluster-powershell.md
     - name: Számítási feladatok üzembe helyezése
       items:
-        - name: VDI üzembe helyezése
-          href: deploy/deploy-vdi.md
-        - name: SQL Server üzembe helyezése
-          href: deploy/deploy-sql-server-workload.md
-        - name: Megbízható vállalati virtualizálás üzembe helyezése
-          href: deploy/deploy-trusted-enterprise-virtualization.md
+        - name: Virtuális asztali infrastruktúra
+          href: deploy/virtual-desktop-infrastructure.md
+        - name: SQL Server
+          href: deploy/sql-server.md
+        - name: Megbízható vállalati virtualizálás
+          href: deploy/trusted-enterprise-virtualization.md
 - name: Kezelés
   items:
     - name: Virtuális gépek kezelése

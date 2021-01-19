@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/19/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 01/07/2021
+ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 229b7b3995340298b7162de7ae051d0f742e86cf
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210954"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571348"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Az Azure Stack Hub titkos kulcsainak rotálása
 
@@ -67,6 +67,7 @@ A riasztások figyelésével és szervizelésével kapcsolatos további informá
 > - A rendszergazdának manuálisan kell elvégeznie a **nem Tanúsítványos titkokat, például a biztonságos kulcsokat és a karakterláncokat** . Ide tartoznak a felhasználói és rendszergazdai fiókok jelszavai és a [hálózati kapcsolók jelszavai](azure-stack-customer-defined.md).
 > - **Érték – az erőforrás-szolgáltatói (RP) titkokat** külön útmutatóban tárgyaljuk:
 >    - [App Service az Azure Stack Hubon](app-service-rotate-certificates.md)
+>    - [Event Hubs az Azure Stack Hubon](event-hubs-rp-rotate-secrets.md)
 >    - [IoT Hub az Azure Stack Hubon](iot-hub-rp-rotate-secrets.md)
 >    - [MySQL Azure Stack hub-on](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [SQL Azure Stack hub-on](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
@@ -417,6 +418,6 @@ Remove-PSSession -Session $PEPSession
 Ez a parancs elforgatja Azure Stack hub belső hálózata számára elérhető infrastruktúra-titkokat, valamint a Azure Stack hub külső hálózati infrastruktúra-végpontokhoz használt TLS-tanúsítványokat. Start-SecretRotation elforgatja az összes verem által generált titkot, és mivel vannak megadott tanúsítványok, a külső végponti tanúsítványok is el lesznek forgatva.  
 ::: moniker-end
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 [További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md)

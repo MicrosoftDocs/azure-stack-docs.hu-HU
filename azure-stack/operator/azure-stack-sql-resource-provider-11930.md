@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 80caef7369a3cf5ebe79338bc907fa9b31d1a759
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 0f03d1209587bcf27dec2a309b7cec4abc67bf32
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737912"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571314"
 ---
 # <a name="sql-resource-provider-1193x-release-notes"></a>SQL Resource Provider 1.1.93. x kibocsátási megjegyzések
 
@@ -42,6 +42,8 @@ Azt javasoljuk, hogy az SQL Resource Provider 1.1.93.1 Az Azure Stack hub 2005-e
 
 ## <a name="known-issue"></a>Ismert probléma
 A 1.1.93.0 verziójának telepítése sikertelen lehet, ha nem megfelelő AzureRmContext van használatban. Javasoljuk, hogy közvetlenül a 1.1.93.1 verzióra frissítsen. Ha már sikeresen frissített a 1.1.93.0-ra, nyugodtan kihagyhatja a 1.1.93.1 verzióját.
+
+Ha az SQL-erőforrás-szolgáltató újbóli üzembe helyezése már megtörtént, és a verzió már telepítve lett (például ha az SQL Resource Provider 1.1.93.1 már telepítve van, és a rendszer ismét telepíti ugyanezt a verziót), az SQL-erőforrás-szolgáltatót futtató virtuális gép le lesz állítva. A probléma megoldásához nyissa meg a felügyeleti portált, keresse meg, majd indítsa újra a sqlvm nevű virtuális gépet \<version\> a System... nevű erőforráscsoport-csoportban. \<region\> sqladapter.
 
 ## <a name="next-steps"></a>További lépések
 
