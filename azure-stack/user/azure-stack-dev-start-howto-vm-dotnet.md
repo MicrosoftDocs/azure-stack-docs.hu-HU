@@ -3,16 +3,16 @@ title: C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuá
 description: Helyezzen üzembe egy C# ASP.NET-webalkalmazást Azure Stack hub egyik virtuális gépén.
 author: mattbriggs
 ms.topic: overview
-ms.date: 12/2/2020
+ms.date: 1/19/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 9ae951565b8715248c63f255c738fe30cb20a3a3
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525412"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584309"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>C# ASP.NET-webalkalmazás üzembe helyezése Azure Stack hub-beli virtuális gépen
 
@@ -39,7 +39,7 @@ Ez a cikk egy C# 6,0-alkalmazást használ, amely a Windows 2016-kiszolgálón f
 
 1. Töltse le a [web Deploy v 3.6](https://www.microsoft.com/download/details.aspx?id=43717)-ot. Telepítse az MSI-fájlból, majd engedélyezze az összes funkciót.
 
-1. Telepítse a .NET Core 2,2 üzemeltetési csomagot a kiszolgálóra. Útmutatásért lásd: [.net Core Installer](https://dotnet.microsoft.com/download/dotnet-core/2.2). Győződjön meg arról, hogy a .NET Core azonos verzióját használja a fejlesztői gépen és a célkiszolgálón is.
+1. Telepítse a .NET Core 5,0 üzemeltetési csomagot a kiszolgálóra. Útmutatásért lásd: [.net Core Installer](https://dotnet.microsoft.com/download/dotnet/5.0). Győződjön meg arról, hogy a .NET Core azonos verzióját használja a fejlesztői gépen és a célkiszolgálón is.
 
 1. A Azure Stack hub portálon nyissa meg a virtuális gép hálózati beállításaiban felsorolt portokat.
 
@@ -128,7 +128,7 @@ Hozzon létre egy közzétételi célt a virtuális géphez Azure Stack hub-ban.
 1. Nyissa meg az új kiszolgálót. Látnia kell a futó webalkalmazást.
 
     ```http  
-        mywebapp.local.cloudapp.azurestack.external
+    mywebapp.local.cloudapp.azurestack.external
     ```
 
 ## <a name="next-steps"></a>További lépések

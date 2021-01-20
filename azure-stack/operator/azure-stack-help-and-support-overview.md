@@ -3,16 +3,16 @@ title: Azure Stack hub Súgó és támogatás
 description: Microsoft Azure Stack hub támogatásának beszerzése.
 author: PatAltimore
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 01/19/2021
+ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255928"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584327"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -32,7 +32,7 @@ A **Súgó és támogatás** felső részén olyan dolgokat érdemes kipróbáln
 
 ![Önkiszolgáló támogatás az Azure Stack hub-ban](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentáció**. [Azure stack hub-kezelő dokumentációja](index.yml) olyan fogalmakat, útmutatókat és oktatóanyagokat tartalmaz, amelyek bemutatják, hogyan kínálhat Azure stack hub-szolgáltatásokat. Ezek a szolgáltatások többek között a következők: Virtual Machines, SQL Database, Web Apps és sok más.
+- **Dokumentáció**. [Azure stack hub-kezelő dokumentációja](index.yml) olyan fogalmakat, útmutatásokat és oktatóanyagokat tartalmaz, amelyek bemutatják, hogyan kínálhat Azure stack hub-szolgáltatásokat. Ezek a szolgáltatások többek között a következők: Virtual Machines, SQL Database, Web Apps és sok más.
 
 - **További információ a számlázásról**. Tippek a [használat és a számlázáshoz](azure-stack-billing-and-chargeback.md).
 
@@ -55,6 +55,22 @@ Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső s
 A probléma megoldásához, illetve az online képzések fejlesztéséhez és a saját képességeinek javításához az MSDN-fórumokat is elérheti.
 
 ![Azure Stack hub szakértői súgójának beolvasása](media/azure-stack-help-and-support/get-support-cards.png)
+
+### <a name="information-for-a-support-request"></a>Támogatási kérelem információi
+
+A támogatási élmény felgyorsításához a következő információk szükségesek:
+
+ - Ön Azure Stack hub Hardware partner?
+ - Hány Azure Stack hub-csomópont van a rendszeren?
+ - Mi a rendszer aktuális javítási szintje?
+ - Melyik Build-szám a rendszer jelenleg fut?
+ - Mi a felhő régiójának neve?
+ - Csatlakoztatott vagy leválasztott rendszer?
+ - Mikor jelentkezett először a probléma?
+ - Megadhatja a pontos időt, amikor a legutóbbi biztonsági mentés meghiúsult?
+ - Milyen szerepkörökre van sikertelen a biztonsági mentés?
+ - Elvégezte a legutóbbi módosításokat? Például elvégezte a frissítést, a hardver módosítását vagy egy OEM-frissítés alkalmazását?
+ - Meg tudja adni a naplókat a probléma kivizsgálásához?
 
 ### <a name="get-up-to-speed-with-azure-stack-hub"></a>Az Azure Stack hub gyors üzembe lépésének lépései
 
