@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Számítási feladatok üzembe helyezése
       items:
+        - name: Fiókiroda és peremhálózat
+          href: deploy/branch-office-edge.md
         - name: Virtuális asztali infrastruktúra
           href: deploy/virtual-desktop-infrastructure.md
         - name: SQL Server

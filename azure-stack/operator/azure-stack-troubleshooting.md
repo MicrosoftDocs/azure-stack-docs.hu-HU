@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
 author: PatAltimore
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
+ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255707"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98672876"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -203,7 +203,7 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 1. Ha a frissítés sikertelen volt, kövesse a sikertelen riasztások által létrehozott hibaelhárítási lépéseket.
 
-2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./diagnostic-log-collection.md#send-logs-now) az időtartományhoz.
+2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./diagnostic-log-collection.md#send-logs-now) az időtartományhoz. Ha egy frissítés sikertelen, kritikus riasztással vagy figyelmeztetéssel, fontos, hogy áttekintse a hibát, és forduljon a Microsoft ügyfél-támogatási szolgálatához a riasztás szerint, hogy a skálázási egység hosszú ideig ne maradjon hibás állapotban. Ha egy méretezési egység egy sikertelen frissítési állapotban marad hosszabb ideig, akkor további problémákat okozhat, amelyeket később nehezebb megoldani.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
 
