@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 01/20/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 0d92840b8a98d612c971895cd3cc9f39815eed75
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208053"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659408"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 
@@ -152,9 +152,6 @@ További információ a RDMA és a Hyper-V gazdagép hálózatkezeléséről Azu
 
         :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="Fürt létrehozása varázsló – virtuális kapcsolók" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
-    > [!NOTE]
-    > Ha az SDN hálózati vezérlőjét szeretné telepíteni (a varázsló **5. lépés: Sdn** ), szüksége lesz egy virtuális kapcsolóra. Tehát ha nem szeretne létrehozni egy virtuális kapcsolót, és nem hoz létre egyet a varázslón kívül, a varázsló nem helyezi üzembe a hálózati vezérlőt.
-
     A következő táblázat bemutatja, hogy mely virtuális kapcsolók támogatottak és engedélyezettek a különböző hálózati adapterek konfigurációjában:
 
     | Beállítás | 1-2 adapter | 3 + adapter | összevont adapterek |
@@ -235,5 +232,3 @@ Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben 
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)
-- A virtuális gépek kiépítése. Lásd: [virtuális gépek kezelése Azure stack HCI-ben a Windows felügyeleti központ használatával](../manage/vm.md).
-- Fürtöt a PowerShell használatával is üzembe helyezhet. Lásd: [Azure stack HCI-fürt létrehozása a PowerShell használatával](create-cluster-powershell.md).

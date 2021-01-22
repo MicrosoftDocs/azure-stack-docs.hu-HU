@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/18/2020
-ms.openlocfilehash: 22f5ee148952046d78baf6fd44b52136fd81c902
-ms.sourcegitcommit: 5d292b43676a55c0acd635d5253b342de1feca1f
+ms.date: 1/19/2021
+ms.openlocfilehash: cd27f6d76cae7655e354c659d080a03fbee467de
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97710278"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659306"
 ---
 # <a name="azure-stack-hci-release-information"></a>Azure Stack HCI kiadási információ
 
@@ -32,9 +32,10 @@ Az összes dátum az ISO 8601 formátumban van felsorolva: *éééé-hh-nn*
 
 | **Operációs rendszer létrehozása** | **Elérhetőség dátuma** | **TUDÁSBÁZISCIKK**                                           |
 |:------------ |:----------------------|:---------------------------------------------------------|
+| 17784,1466   | 2021-01-12            | [KB 4598232](https://support.microsoft.com/help/4598232/january-12-2021-security-update-kb4598232) |
 | 17784,1408   | 2020-12-10            | [KB 4592441](https://support.microsoft.com/help/4592441) |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 További információért lásd még:
 

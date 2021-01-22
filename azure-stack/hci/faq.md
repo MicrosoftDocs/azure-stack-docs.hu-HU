@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 1/15/2021
-ms.openlocfilehash: 97979a9fb96840337e89a4a3db3e3307cdb70eac
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.date: 1/21/2021
+ms.openlocfilehash: 6c84bad0de72235c6ccde1b8c23016afeb956cba
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243391"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659357"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI – gyakori kérdések
 A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
@@ -24,7 +24,7 @@ A Azure Stack HCI egy Azure Hybrid Service-ként szállított helyszíni hiperko
 
 **A rendszer elküldi a Azure Stack HCI-ben tárolt adataikat a felhőbe?**
 
-Nem. A rendszer soha nem küldi el az adatokat a felhőbe, beleértve a neveket, a metaadatokat, a konfigurációt és a helyszíni virtuális gépek (VM-EK) tartalmát, kivéve, ha a további szolgáltatásokat kifejezetten erre a célra kapcsolja be, például Azure Backup vagy Azure Site Recovery, vagy ha nem regisztrálja ezeket a virtuális gépeket a felhőalapú felügyeleti szolgáltatásokhoz (például az Azure arc).
+Nem. A vásárlói adatokat, például a helyszíni virtuális gépek nevét, metaadatait, konfigurációját és tartalmát soha nem küldi el a felhőbe, hacsak nem kapcsol be kifejezetten erre a célra olyan további szolgáltatásokat, mint például a Azure Backup vagy a Azure Site Recovery, vagy ha nem regisztrálja ezeket a virtuális gépeket külön a felhőalapú felügyeleti szolgáltatásokhoz, például az Azure archoz.
 
 Ha többet szeretne megtudni a gyűjtött diagnosztikai adatokról, hogy Azure Stack HCI biztonságos, naprakész és a várt módon működjön, tekintse meg a következőt: [Azure stack HCI adatgyűjtési](concepts/data-collection.md) és [-adattárolási szolgáltatás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
