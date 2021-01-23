@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 description: Megtudhatja, hogyan hozhat létre fürtöt Azure Stack HCI-hez a Windows PowerShell használatával
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4228b025eaa0067b0819bd84eee522d013d69475
-ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
+ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659374"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717981"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 
@@ -57,7 +57,9 @@ Először csatlakozni fogunk a kiszolgálókhoz, csatlakoztatjuk őket egy tarto
 
 A kiszolgálókhoz való csatlakozáshoz először hálózati kapcsolattal kell rendelkeznie, ugyanahhoz a tartományhoz vagy teljesen megbízható tartományhoz kell csatlakoznia, és helyi rendszergazdai engedélyekkel kell rendelkeznie a kiszolgálókhoz.
 
-Nyissa meg a PowerShellt, és használja vagy annak a kiszolgálónak a teljes tartománynevét vagy IP-címét, amelyhez csatlakozni szeretne. A következő parancs minden kiszolgálón való futtatása után a rendszer jelszót kér (Kiszolgáló1, Kiszolgáló2, Server3, Server4):
+Nyissa meg a PowerShellt, és használja vagy annak a kiszolgálónak a teljes tartománynevét vagy IP-címét, amelyhez csatlakozni szeretne. A következő parancs minden kiszolgálón való futtatása után a rendszer jelszót kér. 
+
+Ebben a példában feltételezzük, hogy a kiszolgálók neve Kiszolgáló1, Kiszolgáló2, Server3 és Server4:
 
    ```powershell
    Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
@@ -134,7 +136,7 @@ Ezután indítsa újra az összes kiszolgálót:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Restart-Computer -ComputerName $ServerList
+Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 ```
 
 ## <a name="step-2-configure-networking"></a>2. lépés: a hálózatkezelés konfigurálása
@@ -146,32 +148,13 @@ Ez a lépés a környezet különböző hálózati elemeit konfigurálja.
 Le kell tiltania minden olyan hálózatot, amely le van választva a felügyelethez, a tároláshoz vagy a munkaterhelés-forgalomhoz (például virtuális gépekhez). A használaton kívüli hálózatok azonosításának módja:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected
 ```
 A következő módon tilthatja le őket:
 
 ```powershell
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
-```
-
-### <a name="assign-virtual-network-adapters"></a>Virtuális hálózati adapterek kiosztása
-
-Ezután rendeljen hozzá virtuális hálózati adaptereket (Vnic) a felügyelethez és a többi forgalomhoz, ahogy az alábbi példában is látható. Legalább egy hálózati adaptert konfigurálnia kell a fürt felügyeletéhez.
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-$vSwitchName="vSwitch"
-Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $Servers
-```
-
-És ellenőrizze, hogy sikeresen hozzáadta és hozzárendelte-e a következőket:
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
 ```
 
 ### <a name="create-virtual-switches"></a>Virtuális kapcsolók létrehozása
@@ -181,29 +164,51 @@ A fürt minden egyes kiszolgáló-csomópontján szükség van egy virtuális ka
 Minden hálózati adapternek azonosnak kell lennie az összevonási hálózati adapterek esetében.
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $vSwitchName="vSwitch"
 ```
 
 És hozza létre a virtuális kapcsolót:
 
 ```powershell
-Invoke-Command -ComputerName $Servers -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
+Invoke-Command -ComputerName $ServerList -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
 ```
 
 Most ellenőrizze, hogy a kapcsoló sikeresen létrejött-e:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMSwitch -CimSession $Servers | Select-Object Name, IOVEnabled, IOVS*
-Get-VMSwitchTeam -CimSession $Servers
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMSwitch -CimSession $ServerList | Select-Object Name, IOVEnabled, IOVS*
+Get-VMSwitchTeam -CimSession $ServerList
+```
+
+### <a name="assign-virtual-network-adapters"></a>Virtuális hálózati adapterek kiosztása
+
+Ezután rendeljen hozzá virtuális hálózati adaptereket (Vnic) a felügyelethez és a többi forgalomhoz, ahogy az alábbi példában is látható. Legalább egy hálózati adaptert konfigurálnia kell a fürt felügyeletéhez.
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+$vSwitchName="vSwitch"
+Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $ServerList
+```
+
+És ellenőrizze, hogy sikeresen hozzáadta és hozzárendelte-e a következőket:
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMNetworkAdapter -CimSession $ServerList -ManagementOS
 ```
 
 ### <a name="configure-ip-addresses-and-vlans"></a>IP-címek és VLAN-ok konfigurálása
 
 Egy vagy két alhálózatot is beállíthat. Két alhálózat használata javasolt, ha meg szeretné akadályozni a Switch Interconnect túlterhelését. Az SMB Storage-forgalom például egy fizikai kapcsolóhoz dedikált alhálózaton marad.
 
-### <a name="obtain-network-interface-information"></a>Hálózati adapter információinak beszerzése
+> [!NOTE]
+> Az IP-címek konfigurálásakor a kapcsolat néhány percen belül megszakadhat, mivel az új IP-cím beszerzése során előfordulhat, hogy az egyik virtuális adapterhez kapcsolódott.
+
+#### <a name="obtain-network-interface-information"></a>Hálózati adapter információinak beszerzése
 
 A hálózati adapterek IP-címeinek beállítása előtt meg kell adnia néhány információt, például a csatoló indexét ( `ifIndex` ), `Interface Alias` és `Address Family` . Írja le ezeket az összes kiszolgáló-csomópontra, mert később szüksége lesz rájuk.
 
@@ -211,19 +216,19 @@ Futtassa a következőt:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Get-NetIPInterface -ComputerName $ServerList
+Get-NetIPInterface -CimSession $ServerList
 ```
 
 #### <a name="configure-one-subnet"></a>Egy alhálózat konfigurálása
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet="172.16.1."
 $StorVLAN=1
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     $IP++
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
@@ -231,17 +236,16 @@ foreach ($Server in $Servers){
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
-Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
-Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
+Restart-NetAdapter "vEthernet (SMB01)" -CimSession $ServerList
+Restart-NetAdapter "vEthernet (SMB02)" -CimSession $ServerList
 ```
 
 #### <a name="configure-two-subnets"></a>Két alhálózat konfigurálása
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet1="172.16.1."
 $StorNet2="172.16.2."
 $StorVLAN1=1
@@ -249,15 +253,15 @@ $StorVLAN2=2
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet1+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     New-NetIPAddress -IPAddress ($StorNet2+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
     $IP++
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $ServerList
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
 Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
 Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
@@ -266,12 +270,12 @@ Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
 #### <a name="verify-vlan-ids-and-subnets"></a>VLAN-azonosítók és alhálózatok ellenőrzése
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 #verify ip config
-Get-NetIPAddress -CimSession $servers -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
+Get-NetIPAddress -CimSession $ServerList -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
 
 #Verify that the VlanID is set
-Get-VMNetworkAdapterVlan -ManagementOS -CimSession $servers | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
+Get-VMNetworkAdapterVlan -ManagementOS -CimSession $ServerList | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
 ```
 
 ## <a name="step-3-prep-for-cluster-setup"></a>3. lépés: a fürt telepítésének előkészítője
@@ -300,9 +304,6 @@ Get-ClusterNetwork
 
 A Közvetlen tárolóhelyek engedélyezése előtt gondoskodjon arról, hogy a meghajtók üresek legyenek. Futtassa a következő szkriptet a régi partíciók vagy egyéb adatlemezek eltávolításához.
 
-> [!WARNING]
-> Ez a parancsfájl véglegesen eltávolítja a Azure Stack HCI rendszerindító meghajtón kívül más meghajtókon tárolt összes adatfájlt.
-
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
@@ -329,7 +330,7 @@ Invoke-Command ($ServerList) {
 Ebben a lépésben meg kell győződnie arról, hogy a kiszolgáló-csomópontok megfelelően vannak konfigurálva a fürt létrehozásához. A `Test-Cluster` parancsmag a tesztek futtatására szolgál, hogy ellenőrizze, a konfiguráció alkalmas-e hiperkonvergens-fürtként való működésre. Az alábbi példa a `-Include` paramétert használja a megadott típusú tesztek alapján. Ez biztosítja, hogy a megfelelő tesztek szerepeljenek az ellenőrzésben.
 
 ```powershell
-Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster –Node $ServerList –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>4. lépés: a fürt létrehozása
@@ -342,18 +343,27 @@ A fürt létrehozásakor egy figyelmeztetés jelenik meg, amely szerint `"There 
 > Ha a kiszolgálók statikus IP-címeket használnak, módosítsa az alábbi parancsot a statikus IP-cím megjelenítéséhez a következő paraméter hozzáadásával és az IP-cím megadásával: `–StaticAddress <X.X.X.X>;` .
 
 ```powershell
- New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
+$ClusterName="cluster1" New-Cluster -Name $ClusterName –Node $ServerList –nostorage
 ```
 
 A fürt már létrejött.
 
-A fürt létrehozása után időbe telik a fürt nevének replikálása a tartományon belül, különösen akkor, ha a munkacsoport-kiszolgálók újonnan lettek hozzáadva a Active Directoryhoz. Bár előfordulhat, hogy a fürt a Windows felügyeleti központban jelenik meg, előfordulhat, hogy még nem érhető el a kapcsolódás.
+A fürt létrehozása után eltarthat egy ideig, amíg a fürt neve a DNS-en keresztül replikálódik a tartományon keresztül, különösen akkor, ha a munkacsoport-kiszolgálók újonnan lettek hozzáadva a Active Directoryhoz. Bár előfordulhat, hogy a fürt a Windows felügyeleti központban jelenik meg, előfordulhat, hogy még nem érhető el a kapcsolódás.
+
+Ellenőrizze, hogy a fürt összes erőforrása online állapotban van-e:
+
+```powershell
+Get-Cluster -Name $ClusterName | Get-ClusterResource
+```
 
 Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben a fürt neve helyett a fürtözött kiszolgálók egyikének nevével lehet kapcsolatot létesíteni.
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>5. lépés: helyek beállítása (kifeszített fürt)
 
-Ez a feladat csak akkor érvényes, ha egy kifeszített fürtöt hoz létre két hely között.
+Ez a feladat csak akkor érvényes, ha egy kifeszített fürtöt hoz létre két hely között. 
+
+> [!NOTE]
+> Ha korábban már beállította Active Directory helyeket és szolgáltatásokat, nem kell manuálisan létrehoznia a helyeket az alább leírtak szerint.
 
 ### <a name="step-51-create-sites"></a>5,1. lépés: helyek létrehozása
 
@@ -436,7 +446,7 @@ A kiterjesztett fürtök esetében a `Enable-ClusterStorageSpacesDirect` parancs
 A következő parancs engedélyezi a Közvetlen tárolóhelyek. A Storage-készlet rövid nevét is megadhatja, ahogy az itt látható:
 
 ```powershell
-$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
+Enable-ClusterStorageSpacesDirect -PoolFriendlyName "$ClusterName Storage Pool" -CimSession $ClusterName
 ```
 
 A tárolási készletek megtekintéséhez használja a következőt:
@@ -445,7 +455,7 @@ A tárolási készletek megtekintéséhez használja a következőt:
 Get-StoragePool -CimSession $session
 ```
 
-Gratula, ezzel létrehozott egy operációs rendszer nélküli fürtöt.
+Gratula, már létrehozott egy fürtöt.
 
 ## <a name="after-you-create-the-cluster"></a>A fürt létrehozása után
 
@@ -455,7 +465,7 @@ Most, hogy elkészült, még néhány fontos feladatot végre kell hajtania:
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 08877d386e2b890f3b3bdca043e716ae644f60a7
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.openlocfilehash: 8bcc605632b47ec2bfa384b9a0fe174902ad9b20
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705232"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98718015"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -133,7 +133,7 @@ Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljár
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2008.20.102](https://support.microsoft.com/help/4595075)
+- [Azure Stack hub gyorsjavítási 1.2008.23.108](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

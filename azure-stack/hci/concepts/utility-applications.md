@@ -4,13 +4,13 @@ description: Ez a témakör a Microsoft partnereitől származó, a Azure Stack 
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 79490100adaef813af6b8df05779620b315765b3
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254959"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717998"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Segédprogram-alkalmazások Azure Stack HCI-hez
 
@@ -31,6 +31,7 @@ A Altáró VM Backup egy díjnyertes VM biztonsági mentési és replikációs m
 
 - Alkalmazás listázása: [virtuális gépek biztonsági mentése és replikációja a Hyper-V és a VMware rendszerhez](https://www.altaro.com/vm-backup/)
 - Alkalmazás-támogatás: [Altáró-támogatás Azure stack HCI-hez](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
+- Replikálási támogatás: [altáró WAN-Optimized replikáció](https://www.altaro.com/vm-backup/wan-optimized-replication.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Veeam-cég emblémája" border="false":::
 
@@ -38,6 +39,7 @@ A Veeam Backup & replikációja az egyetlen megoldás a Felhőbeli, virtuális �
 
 - Alkalmazás listázása: [Veeam biztonsági mentési & replikációja](https://www.veeam.com/vm-backup-recovery-replication-software.html)
 - Alkalmazás-támogatás: [Veeam-támogatás Azure stack HCI-hez](https://www.veeam.com/kb4047)
+- [A Hyper-V virtuális gépek replikálásának támogatása](https://www.veeam.com/vm-advanced-replication.html?ad=in-text-link)
 
 :::image type="content" source="./media/utility-applications/commvault-logo.png" alt-text="CommVault-cég emblémája" border="false":::
 
@@ -45,6 +47,7 @@ A CommVault egy teljes körű adatkezelési platform, amely a helyszíni és a F
 
 - Alkalmazás listázása: [Microsoft Azure stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
 - Alkalmazás-támogatás: [Azure stack HCI](https://documentation.commvault.com/11.21/essential/132799_microsoft_azure_stack_hci.html)
+- [A CommVault biztonsági mentése és helyreállítása mostantól támogatja a Microsoft Azure Stack HCI-t](https://www.commvault.com/blogs/commvault-backup-and-recovery-now-supports-microsoft-azure-stack-hci)
 
 :::image type="content" source="./media/utility-applications/veritas-logo.png" alt-text="A Veritas vállalati emblémája" border="false":::
 
@@ -52,6 +55,7 @@ A Veritas Backup Exec egy könnyen használható biztonsági mentési és helyre
 
 - Alkalmazás listázása: [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Alkalmazás-támogatás: [Azure stack HCI Protect exec biztonsági mentése](https://www.veritas.com/support/en_US/article.100048860)
+- [A Veritas Backup Exec támogatása Microsoft Azure](https://www.veritas.com/protection/backup-exec/azure)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Datadag-cég emblémája" border="false":::
 
