@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 08877d386e2b890f3b3bdca043e716ae644f60a7
+ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256064"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98705232"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -127,15 +127,9 @@ További információkért tekintse meg a [karbantartási szabályzatot](azure-s
 
 Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
 
-### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Gyorsjavítások előfeltételei: az 2008-es frissítés alkalmazása előtt
-
-Azure Stack hub 2008-es kiadását a 2005-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
-
-- [Azure Stack hub gyorsjavítási 1.2005.25.92](https://support.microsoft.com/help/4595074)
-
 ### <a name="after-successfully-applying-the-2008-update"></a>Az 2008-es frissítés sikeres alkalmazása után
 
-Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
+Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljárásként telepítenie kell a buildhez kiadott összes gyorsjavítást, hogy biztosítsa a legfontosabb kiadások közötti legjobb frissítési élményt. Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban.
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 

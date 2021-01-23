@@ -6,6 +6,8 @@
       href: overview.md
     - name: Összehasonlítás a Windows Serverrel
       href: concepts/compare-windows-server.md
+    - name: Összehasonlítás az Azure Stack hub-val
+      href: concepts/compare-azure-stack-hub.md
     - name: Kiadási információk
       href: release-information.md
     - name: Kibocsátási megjegyzések
