@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8bcc605632b47ec2bfa384b9a0fe174902ad9b20
-ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
+ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
+ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98718015"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763143"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -225,7 +225,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 
 Azure Stack hub 2005-es kiadását a 2002-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
-- [Azure Stack hub gyorsjavítási 1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack hub gyorsjavítási 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Az 2005-es frissítés sikeres alkalmazása után
 
@@ -233,7 +233,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.25.92](https://support.microsoft.com/help/4595074)
+- [Azure Stack hub gyorsjavítási 1.2005.28.98](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -362,7 +362,7 @@ Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.2002.63.167](https://support.microsoft.com/help/4595072)
+- [Azure Stack hub gyorsjavítási 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 ::: moniker-end
 
 <!------------------------------------------------------------>
