@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/12/2021
-ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.date: 01/22/2021
+ms.openlocfilehash: 4b6e7537a1111ed2e38d1783acf7197a4249b2ac
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130350"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772108"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Azure Stack HCI-fürtök kezelése a Windows felügyeleti központtal
 
@@ -97,7 +97,7 @@ A fürtre több általános beállítás is alkalmazható. Itt állíthatja be �
    - **Tanúsító lemez** – lemezes erőforrás használata tanúsító (nem használható a kiterjesztett fürtök esetében)
    - **Tanúsító fájlmegosztás** – tanúsító fájlmegosztás használata
 
-        A tanúsító beállításával kapcsolatos részletes információkat a [tanúsító fürt beállítása](../deploy/witness.md)című témakörben talál. Lásd még: [a fürt és a készlet Kvórumának megértése Azure stack HCI-](../concepts/quorum.md)ben.
+        A tanúsító beállításával kapcsolatos részletes információkat a [tanúsító fürt beállítása](witness.md)című témakörben talál. Lásd még: [a fürt és a készlet Kvórumának megértése Azure stack HCI-](../concepts/quorum.md)ben.
 
         :::image type="content" source="media/manage-cluster/cluster-settings-witness.png" alt-text="Tanúsító fürt képernyője" lightbox="media/manage-cluster/cluster-settings-witness.png":::
 
@@ -155,6 +155,6 @@ A fürt Azure-beli regisztrálásához vagy regisztrációjának törléséhez v
 
 :::image type="content" source="media/manage-cluster/cluster-registration.png" alt-text="fürt Azure-regisztrációja képernyő" lightbox="media/manage-cluster/cluster-registration.png":::
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A fürt figyeléséhez tekintse meg a következőt: [Azure stack HCI monitorozása Azure monitor](azure-monitor.md)használatával.

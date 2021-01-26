@@ -4,13 +4,13 @@ description: Operációs rendszer és belső vezérlőprogram frissítéseinek a
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/25/2020
+ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010821"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98771973"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
@@ -24,14 +24,32 @@ Ez a témakör az operációs rendszerre és a szoftverfrissítésekra koncentr�
 
 A Windows felügyeleti központ megkönnyíti a fürt frissítését, valamint az operációs rendszer és a megoldás frissítéseinek egyszerű felhasználói felületen történő alkalmazását. Ha már vásárolt egy integrált rendszert egy Microsoft-hardveres partnertől, akkor a megfelelő partner-frissítési bővítmény (ek) telepítésével egyszerűen lekérheti a legújabb illesztőprogramokat, belső vezérlőprogramot és egyéb frissítéseket közvetlenül a Windows felügyeleti központból. Ha a hardvert nem integrált rendszerként vásárolta meg, akkor előfordulhat, hogy a hardver gyártójával kapcsolatos javaslatok után külön kell végrehajtani a belső vezérlőprogram és az illesztőprogram frissítéseit.
 
-A Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e konfigurálva Cluster-Aware frissítés futtatásához, és ha szükséges, megkérdezi, hogy szeretné-e, ha a Windows felügyeleti központ konfigurálja a CAU, beleértve a CAU-fürt szerepkörének telepítését és a szükséges tűzfalszabályok engedélyezését is.
+A frissítések telepítéséhez kövesse az alábbi lépéseket:
 
 1. Amikor egy fürthöz csatlakozik, a Windows felügyeleti központ irányítópultja riasztást küld, ha egy vagy több kiszolgáló frissítésre készen áll, és megadhat egy hivatkozást a frissítéshez. Azt is megteheti, hogy a bal oldali **eszközök** menüjéből kijelöli a **frissítések** elemet.
-1. Ha a Windows felügyeleti központban szeretné használni a Cluster-Aware frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen** gombra.
-1. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás**) gombra.
-1. A rendszer minden elérhető frissítést megjelenít; a lista frissítéséhez kattintson az **elérhető frissítések keresése** elemre.
-1. Válassza ki a telepíteni kívánt frissítéseket, és kattintson az **összes frissítés alkalmazása** lehetőségre. Ekkor a rendszer telepíti a frissítéseket a fürt minden kiszolgálójára. Ha újraindításra van szükség, a fürt szerepkörei, például a virtuális gépek átkerülnek egy másik kiszolgálóra, hogy elkerülje a fennakadást.
-1. A biztonság növelése érdekében tiltsa le a CredSSP, amint befejezte a frissítések telepítését:
+
+2. Ha első alkalommal frissíti a fürtöt, a Windows felügyeleti központ ellenőrizze, hogy a fürt megfelelően van-e konfigurálva Cluster-Aware frissítés futtatásához, és ha szükséges, megkérdezi, hogy szeretné-e, ha a Windows felügyeleti központ konfigurálja a CAU, beleértve a CAU-fürt szerepkörének telepítését és a szükséges tűzfalszabályok engedélyezését is. A frissítési folyamat elindításához kattintson az első **lépések** elemre.
+
+   :::image type="content" source="media/update-cluster/add-cau-role.png" alt-text="A Windows felügyeleti központ automatikusan konfigurálja a fürtöt Cluster-Aware frissítés futtatásához" lightbox="media/update-cluster/add-cau-role.png":::
+
+   > [!NOTE]
+   > Ha a Windows felügyeleti központban szeretné használni a Cluster-Aware frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen** gombra. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás**) gombra.
+
+3. Ekkor megjelenik a fürt frissítési állapota. kattintson a **frissítések keresése** lehetőségre a fürt egyes kiszolgálóihoz elérhető operációsrendszer-frissítések listájának lekéréséhez. Előfordulhat, hogy rendszergazdai hitelesítő adatokat kell megadnia. Ha nincs elérhető operációsrendszer-frissítés, kattintson a **Tovább gombra: hardveres frissítések** , és folytassa a 7. lépéssel.
+
+4. Válassza a Next (tovább) lehetőséget **: telepítse** az operációs rendszer frissítéseinek telepítését, vagy kattintson a **kihagyás** gombra a kizárásához. 
+
+   :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Kattintson a Next (tovább) gombra: telepítse az operációs rendszer frissítéseinek telepítését, vagy kattintson a Kihagyás gombra a kizárásához" lightbox="media/update-cluster/operating-system-updates.png":::
+
+5. Válassza a **telepítés** lehetőséget az operációs rendszer frissítéseinek telepítéséhez a fürt minden kiszolgálóján. A frissítési állapot változása "frissítések telepítése" lesz. Ha a frissítések bármelyike újraindítást igényel, akkor a kiszolgálók egy időben újraindulnak, így a fürt szerepkörei, például a kiszolgálók közötti virtuális gépek áthelyezhetők a leállás megakadályozása érdekében.
+
+   :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="A telepítés gombra kattintva telepítheti az operációs rendszer frissítéseit a fürt minden kiszolgálójára" lightbox="media/update-cluster/install-os-updates.png":::
+
+6. Az operációs rendszer frissítéseinek befejezését követően a frissítési állapot "sikeres" állapotúra változik. Kattintson a **Tovább gombra: a hardver frissítései** képernyőre való továbblépéshez.
+
+7. A Windows felügyeleti központ megkeresi az adott kiszolgáló hardverét támogató telepített bővítmények fürtjét. Kattintson a **Tovább gombra: telepítse** a hardveres frissítéseket a fürt minden kiszolgálójára. Ha nem találhatók bővítmények vagy frissítések, kattintson a **Kilépés** gombra.
+
+8. A biztonság növelése érdekében tiltsa le a CredSSP, amint befejezte a frissítések telepítését:
     - A Windows felügyeleti központban a **minden kapcsolat** területen válassza ki az első kiszolgálót a fürtben, majd válassza a **Csatlakozás** lehetőséget.
     - Az **Áttekintés** lapon válassza a **CredSSP letiltása** lehetőséget, majd a **CredSSP letiltására** szolgáló előugró ablakban válassza az **Igen** lehetőséget.
 
@@ -197,10 +215,10 @@ Ha van olyan kritikus fontosságú biztonsági frissítés, amelyet gyorsan kell
 9. A virtuális lemezek újbóli online állapotba helyezése.
 10. A virtuális lemezek állapotának figyeléséhez futtassa a **Get-Volume** és a **Get-VirtualDisk** parancsmagot.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Fürtöket támogató frissítés (CAU)](/windows-server/failover-clustering/cluster-aware-updating)
 - [A meghajtó belső vezérlőprogram frissítése Közvetlen tárolóhelyek](/windows-server/storage/update-firmware)
-- [Azure Stack HCI-fürt ellenőrzése](../deploy/validate.md)
+- [Azure Stack HCI-fürt érvényesítése](../deploy/validate.md)

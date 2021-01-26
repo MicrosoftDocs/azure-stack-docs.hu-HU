@@ -8,12 +8,12 @@ metadata:
   author: khdownie
   ms.author: v-kedow
   ms.date: 12/10/2020
-  ms.openlocfilehash: e40fd475493f82a11f5d0b276133b2e939212bfa
-  ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+  ms.openlocfilehash: 4be55308fade55861f57597f0b6d2c5f731f1834
+  ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 12/11/2020
-  ms.locfileid: "97343142"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98771946"
 landingContent:
 - title: Tudnivalók a Azure Stack HCI-ről
   linkLists:
@@ -27,7 +27,7 @@ landingContent:
       url: get-started.md
     - text: Azure Stack HCI-fürt létrehozása
       url: deploy/deployment-quickstart.md
-- title: Azure Stack HCI üzembe helyezése
+- title: Az Azure Stack HCI üzembe helyezése
   linkLists:
   - linkListType: deploy
     links:
@@ -36,7 +36,7 @@ landingContent:
     - text: Fürt létrehozása
       url: deploy/create-cluster.md
     - text: Tanúsító fürt beállítása
-      url: deploy/witness.md
+      url: manage/witness.md
     - text: Regisztrálás az Azure-ban
       url: deploy/register-with-azure.md
     - text: Fürt ellenőrzése

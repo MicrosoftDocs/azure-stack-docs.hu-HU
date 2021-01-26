@@ -28,10 +28,6 @@
       href: deploy/operating-system.md
     - name: Fürt létrehozása
       href: deploy/create-cluster.md
-    - name: Tanúsító fürt beállítása
-      href: deploy/witness.md
-    - name: SDN-infrastruktúra üzembe helyezése
-      href: deploy/sdn-express.md
     - name: Áttelepítés új hardverre
       href: deploy/migrate-cluster-new-hardware.md
     - name: Áttelepítés ugyanazon a hardveren
@@ -96,6 +92,8 @@
           href: manage/update-cluster.md
         - name: A fürt figyelése
           href: manage/monitor-cluster.md
+        - name: Tanúsító fürt beállítása
+          href: manage/witness.md
         - name: Adatközponti tűzfal használata
           href: manage/use-datacenter-firewall.md
         - name: A DISKSPD használata a számítási feladatok teszteléséhez
@@ -114,6 +112,10 @@
           href: manage/validate-qos.md
         - name: A CredSSP hibáinak megoldása
           href: manage/troubleshoot-credssp.md
+    - name: SDN kezelése
+      items:
+        - name: SDN-infrastruktúra üzembe helyezése
+          href: manage/sdn-express.md
     - name: Azure-szolgáltatások kezelése
       items:
         - name: A Windows felügyeleti központ regisztrálása az Azure-ban
