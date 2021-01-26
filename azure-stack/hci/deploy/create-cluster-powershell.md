@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
-ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
+ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98717981"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772200"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 
@@ -37,9 +37,11 @@ Ha érdekli a Azure Stack HCI kipróbálása, de korlátozott vagy nem rendelkez
 Mielőtt elkezdené, győződjön meg róla, hogy:
 
 - Olvassa el a [Azure stack HCI rendszerkövetelményeit](../concepts/system-requirements.md).
+- Olvassa el a Azure Stack HCI [fizikai hálózati követelményeit](../concepts/physical-network-requirements.md) és a [gazdagép hálózati követelményeit](../concepts/host-network-requirements.md) .
 - Telepítse a Azure Stack HCI operációs rendszert a fürt minden kiszolgálóján. Lásd: [a Azure stack HCI operációs rendszer telepítése](operating-system.md).
 - Olyan fiókkal kell rendelkeznie, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 - Objektumok létrehozásához Active Directory rendelkezik jogosultságokkal.
+- A többhelyes fürtök esetében a két helyet előre kell beállítani Active Directoryban.
 
 ## <a name="using-windows-powershell"></a>A Windows PowerShell használata
 
@@ -141,7 +143,9 @@ Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 
 ## <a name="step-2-configure-networking"></a>2. lépés: a hálózatkezelés konfigurálása
 
-Ez a lépés a környezet különböző hálózati elemeit konfigurálja.
+Ez a lépés különböző hálózati elemeket, például virtuális kapcsolókat és hálózati adaptereket konfigurál a környezetében. A RDMA (iWARP és RoCE) hálózati adapterek is támogatottak.
+
+További információ a RDMA és a Hyper-V gazdagép hálózatkezeléséről Azure Stack HCI esetében: a [gazdagép hálózati követelményei](../concepts/host-network-requirements.md).
 
 ### <a name="disable-unused-networks"></a>Nem használt hálózatok letiltása
 
@@ -461,7 +465,7 @@ Gratula, már létrehozott egy fürtöt.
 
 Most, hogy elkészült, még néhány fontos feladatot végre kell hajtania:
 
-- Állítson be egy tanúsító fürtöt. Lásd: [tanúsító fürt beállítása](witness.md).
+- Állítson be egy tanúsító fürtöt. Lásd: [tanúsító fürt beállítása](../manage/witness.md).
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 

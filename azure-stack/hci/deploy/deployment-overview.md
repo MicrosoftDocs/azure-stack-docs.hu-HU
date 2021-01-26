@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 641615aafd8531cf31e326a2f829b0bf5f5c7a12
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 02c9a76a92a0876a36d00bfad80ee3da0f6aa86d
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772181"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Mi az Azure Stack HCI üzembe helyezésének folyamata?
 
@@ -50,7 +50,7 @@ Hozzon létre egy feladatátvevő fürtöt a [Windows felügyeleti központtal](
 
 ### <a name="3-set-up-a-cluster-witness"></a>3. a tanúsító fürt beállítása
 
-[A tanúsító erőforrások beállítása](witness.md) minden fürt esetében kötelező. A két csomópontos fürtöknek egy tanúsító elemre van szükségük, hogy a kiszolgáló offline állapotba kerüljön, a másik csomópont is elérhetetlenné válik. A három és a magasabb csomópontos fürtöknek egy tanúsító kell lenniük ahhoz, hogy elbírjanak két kiszolgáló meghibásodását vagy offline állapotba helyezését. 
+[A tanúsító erőforrások beállítása](../manage/witness.md) minden fürt esetében kötelező. A két csomópontos fürtöknek egy tanúsító elemre van szükségük, hogy a kiszolgáló offline állapotba kerüljön, a másik csomópont is elérhetetlenné válik. A három és a magasabb csomópontos fürtöknek egy tanúsító kell lenniük ahhoz, hogy elbírjanak két kiszolgáló meghibásodását vagy offline állapotba helyezését. 
 
 ### <a name="4-register-with-azure"></a>4. regisztráció az Azure-ban
 

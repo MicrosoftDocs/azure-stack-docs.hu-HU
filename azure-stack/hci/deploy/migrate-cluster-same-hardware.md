@@ -3,15 +3,15 @@ title: Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 description: Megtudhatja, hogyan telepíthet át egy fürtöt Azure Stack HCI-re ugyanazon a hardveren
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254636"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772279"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 
@@ -54,10 +54,10 @@ Függetlenül attól, hogy a virtuális gép operációs rendszerének milyen ve
 
 |Operációs rendszer verziója|VM-verzió|
 |---|---|
-|Windows Server 2008 SP1|2,0|
-|Windows Server 2008 R2|3,0|
+|Windows Server 2008 SP1|2.0|
+|Windows Server 2008 R2|3.0|
 |Windows Server 2012|4,0|
-|Windows Server 2012 R2|5,0|
+|Windows Server 2012 R2|5.0|
 |Windows Server 2016|8.0|
 |Windows Server 2019|9.0|
 |Azure Stack HCI|9.0|
@@ -181,7 +181,7 @@ A fürt PowerShell használatával történő létrehozásával kapcsolatos tov�
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. Hozza létre a kvórum tanúsító. További információ: a [tanúsító fürt beállítása](./witness.md).
+1. Hozza létre a kvórum tanúsító. További információ: a [tanúsító fürt beállítása](../manage/witness.md).
 
 1. Győződjön meg arról, hogy a tárterület-javítási feladatok befejeződtek a következők szerint:
 

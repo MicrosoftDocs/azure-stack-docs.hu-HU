@@ -4,13 +4,13 @@ description: A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
-ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
+ms.date: 01/22/2021
+ms.openlocfilehash: cd352017027b7e122b39e1d16c867d5b2e3576fc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98561995"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772226"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>A fürt és a készlet Kvórumának megértése Azure Stack HCI-ben
 
@@ -227,4 +227,4 @@ A 24 meghajtó mindegyike egy szavazattal rendelkezik, a két csomópont pedig e
 További információkat a következő cikkekben talál:
 
 - [Kvórum konfigurálása és kezelése](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Tanúsító fürt beállítása](../deploy/witness.md)
+- [Tanúsító fürt beállítása](../manage/witness.md)

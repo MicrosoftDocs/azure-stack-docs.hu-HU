@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 8ffab5fa1ffff5012edfbce3da69f35a753ff72e
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243578"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772296"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Az Azure CLI telepítése Azure Stack hubhoz
 
@@ -53,7 +53,7 @@ Ez a szakasz végigvezeti a parancssori felület beállításán, ha az Azure AD
       | Érték | Példa | Leírás |
       | --- | --- | --- |
       | Környezet neve | AzureStackUser | `AzureStackUser`A felhasználói környezethez használható. Ha az operátor van megadva, akkor a ( `AzureStackAdmin` ) lehetőséget. |
-      | Resource Manager-végpont | `https://management.contoso.onmicrosoft.com` | A ASDK található **ResourceManagerUrl** : `https://management.contoso.onmicrosoft.com/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
+      | Resource Manager-végpont | `https://management.contoso.onmicrosoft.com` | A ASDK található **ResourceManagerUrl** : `https://management.local.azurestack.external/` az integrált rendszerek **ResourceManagerUrl** : `https://management.<region>.<fqdn>/` Ha kérdése van az integrált rendszervégponttal kapcsolatban, forduljon a felhő üzemeltetőjéhez. |
       | Tárolási végpont | local.contoso.onmicrosoft.com | `local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
       | Kulcstartó utótagja | . vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` a ASDK. Integrált rendszer esetén használjon végpontot a rendszer számára.  |
       | Végpont Active Directory Graph erőforrás-azonosítója | https://graph.windows.net/ | Az Active Directory erőforrás-azonosító. |

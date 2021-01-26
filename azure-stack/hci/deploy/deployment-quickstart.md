@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.date: 01/22/2021
+ms.openlocfilehash: 6527623ba5b42f40eb24cd6269f5d45bbccb0d25
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343176"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772245"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Gyors útmutató: Azure Stack HCI-fürt létrehozása és regisztrálása az Azure-ban
 
@@ -38,7 +38,7 @@ Az alábbi lépéseket követve hozzon létre egy egyszerű, két csomópontos, 
 1. Az **erőforrások hozzáadása** panelen, a **Windows Server-fürt** területen válassza az **új létrehozása** lehetőséget.
 1. A **fürt típusának kiválasztása** területen válassza a **Azure stack HCI** lehetőséget.
 1. A **kiszolgáló helyeinek kiválasztása** területen válassza **a minden kiszolgáló lehetőséget az egyik helyen**.
-1. Kattintson a **Létrehozás** gombra. Ekkor megjelenik a fürt létrehozása varázsló. Ha megjelenik a **hitelesítő adatok biztonsági szolgáltatójának (CredSSP)** előugró ablaka, válassza az **Igen** lehetőséget, hogy ideiglenesen engedélyezze. 
+1. Kattintson a **Létrehozás** lehetőségre. Ekkor megjelenik a fürt létrehozása varázsló. Ha megjelenik a **hitelesítő adatok biztonsági szolgáltatójának (CredSSP)** előugró ablaka, válassza az **Igen** lehetőséget, hogy ideiglenesen engedélyezze. 
 
 A fürt létrehozása varázsló öt szakaszt tartalmaz, amelyek mindegyike több lépésből áll.
 
@@ -46,7 +46,7 @@ A fürt létrehozása varázsló öt szakaszt tartalmaz, amelyek mindegyike töb
 2. **Hálózati.** A varázsló ezen szakasza ellenőrzi, hogy a megfelelő hálózati adapterek engedélyezve vannak-e, és letiltja a nem használt funkciókat. Válassza ki a felügyeleti adaptereket, állítson be egy virtuális kapcsolót, és adja meg a hálózatot az IP-címek megadásával.
 3. **Fürtszolgáltatás.** Ez a szakasz ellenőrzi, hogy a kiszolgálók konzisztens konfigurációval rendelkeznek-e, és alkalmas-e a fürtözésre, és létrehozza a tényleges fürtöt.
 4. **Storage.** Ezután tisztítsa és ellenőrizze a meghajtókat, érvényesítse a tárhelyét, és engedélyezze Közvetlen tárolóhelyek.
-5. **Sdn.** Kihagyhatja az 5. szakaszt, mert nem használjuk a szoftveresen definiált hálózatkezelést (SDN) ehhez a fürthöz.
+5. **SDN.** Kihagyhatja az 5. szakaszt, mert nem használjuk a szoftveresen definiált hálózatkezelést (SDN) ehhez a fürthöz.
 
 Ha a varázslóban engedélyezte a CredSSP protokollt, biztonsági okokból le kell tiltania az egyes kiszolgálókon.
 
@@ -58,7 +58,7 @@ Ha a varázslóban engedélyezte a CredSSP protokollt, biztonsági okokból le k
 
 ## <a name="set-up-a-cluster-witness"></a>Tanúsító fürt beállítása
 
-Szükség van egy tanúsító erőforrás beállítására, hogy ha a fürt egyik kiszolgálója offline állapotba kerül, a másik csomópont is elérhetetlenné válik. Ebben a rövid útmutatóban egy másik kiszolgálón található SMB-fájlmegosztást használjuk tanúsító. Érdemes lehet egy Azure-beli Felhőbeli tanúsító használni, ha a fürt összes kiszolgáló-csomópontja megbízható internetkapcsolattal rendelkezik. További információ a tanúsító lehetőségekről: [a tanúsító fürt beállítása](witness.md).
+Szükség van egy tanúsító erőforrás beállítására, hogy ha a fürt egyik kiszolgálója offline állapotba kerül, a másik csomópont is elérhetetlenné válik. Ebben a rövid útmutatóban egy másik kiszolgálón található SMB-fájlmegosztást használjuk tanúsító. Érdemes lehet egy Azure-beli Felhőbeli tanúsító használni, ha a fürt összes kiszolgáló-csomópontja megbízható internetkapcsolattal rendelkezik. További információ a tanúsító lehetőségekről: [a tanúsító fürt beállítása](../manage/witness.md).
 
 1. A Windows felügyeleti központban válassza ki a **Fürtfelügyelő** elemet a felső legördülő listából.
 1. A **fürt kapcsolatai** területen válassza ki a fürtöt.
@@ -72,6 +72,6 @@ Szükség van egy tanúsító erőforrás beállítására, hogy ha a fürt egyi
 
 Azure Stack HCI-hez kapcsolódnia kell az Azure-hoz, és Azure Active Directory engedélyekkel kell rendelkeznie a regisztráció befejezéséhez. Ha még nem rendelkezik ezekkel, kérje meg az Azure AD-rendszergazdát, hogy adjon meg engedélyeket vagy delegáljon Önnek. További információért lásd: [Azure stack HCI összekötése az Azure-](register-with-azure.md) ba. A regisztrálás után a fürt automatikusan csatlakozik a háttérben.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 Ebben a rövid útmutatóban létrehozott egy Azure Stack HCI-fürtöt, és regisztrálta az Azure-ban. Most már készen áll a [kötetek létrehozására](../manage/create-volumes.md) , majd a [virtuális gépek létrehozására](../manage/vm.md).
