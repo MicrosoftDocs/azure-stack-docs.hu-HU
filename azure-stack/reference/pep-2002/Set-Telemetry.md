@@ -1,32 +1,32 @@
 ---
-title: Set-telemetria
-description: Hivatkozás a PowerShell Azure Stack privilegizált végpont – Bezárás – PrivilegedEndpoint
+title: Set-Telemetry
+description: Hivatkozás a PowerShell Azure Stack privilegizált végpont-Set-Telemetry
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ad20bb8ab278e1cb6f46d4fb245ea31b3e00f61a
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 89e9182dd5ebb7a7ab9da6e9d4e7b21da6d4ce9e
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742678"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810917"
 ---
-# <a name="set-telemetry"></a>Set-telemetria
+# <a name="set-telemetry"></a>Set-Telemetry
 
 ## <a name="synopsis"></a>Áttekintés
 Engedélyezheti vagy letilthatja a telemetria-adatok átvitelét a Microsoftnak.
 
-## <a name="syntax"></a>Szintaxis
+## <a name="syntax"></a>Syntax
 
 ```
 Set-Telemetry [-Disable] [-Enable] [-AsJob]
 ```
 
 ## <a name="description"></a>Leírás
-A set-telemetria parancsmaggal szabályozhatja, hogy a rendszer az telemetria adatait elküldi-e a Microsoftnak a beállításjegyzék megfelelő beállításának módosításával.
+A Set-Telemetry parancsmaggal szabályozhatja, hogy a rendszer elküldi-e az telemetria-adatait a Microsoftnak a beállításjegyzék megfelelő beállításának módosításával.
 
 Pontosabban, ez a parancsmag konfigurálja a tartományi csoportházirendet úgy, hogy a telemetria beállításazonosító értékét állítsa 0 értékre, és állítsa le a Windows UTC szolgáltatást az összes infrastruktúra-virtuális gépen és gazdagépen.
 
@@ -89,6 +89,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>További lépések
 
 További információ a privilegizált végpont eléréséről és használatáról: [a privilegizált végpont használata Azure stack központban](../../operator/azure-stack-privileged-endpoint.md).
