@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 description: Megtudhatja, hogyan hozhat létre kiszolgálófürt Azure Stack HCI-hez a Windows felügyeleti központtal
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/27/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7b745ec5f521be3ed520b41a4eb5d788799ad20b
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 12f2152099c935977fd42c4b63989854ca0faf88
+ms.sourcegitcommit: 27ffc5f41de3de17ff2395e44c6c5debef50bcc2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772307"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98925857"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Azure Stack HCI-fürt létrehozása a Windows Admin Centerrel
 
@@ -37,6 +37,7 @@ A fürt létrehozása varázsló futtatása előtt győződjön meg róla, hogy:
 - Telepítse a Azure Stack HCI operációs rendszert a fürt minden kiszolgálóján. Lásd: [a Azure stack HCI operációs rendszer telepítése](operating-system.md).
 - Olyan fiókkal kell rendelkeznie, amely tagja a helyi Rendszergazdák csoportnak az egyes kiszolgálókon.
 - Telepítse a Windows felügyeleti központot egy számítógépre vagy kiszolgálóra a felügyelethez. Lásd: a [Windows felügyeleti központ telepítése](/windows-server/manage/windows-admin-center/deploy/install).
+- Ha Microsoft-hardveres partnertől származó integrált rendszert használ, győződjön meg arról, hogy a Windows felügyeleti központban telepített gyártói bővítmények legújabb verziója biztosítja az integrált hardver-és belső vezérlőprogram-frissítések előnyeit.
 - A többhelyes fürtök esetében a két helyet előre kell beállítani Active Directoryban. De ne aggódjon, a varázsló az Ön számára is beállíthatja őket.
 
 Ha a Windows felügyeleti központot egy kiszolgálón (helyi számítógép helyett) futtatja, olyan fiókot használjon, amely az átjáró-rendszergazdák csoport tagja, vagy a helyi Rendszergazdák csoport a Windows felügyeleti központ kiszolgálóján.
@@ -52,12 +53,13 @@ A fürt létrehozása varázsló főbb lépései:
 
 A varázsló befejezése után be kell állítania a tanúsító fürtöt, regisztrálnia kell az Azure-ban, és létre kell hoznia a köteteket (amely a helyek közötti replikációt is beállítja, ha kifeszített fürtöt hoz létre).
 
-A varázsló elindítása előtt ellenőrizze, hogy telepítve van-e a legújabb Windows felügyeleti központ-bővítmények, különösen a fürt létrehozási bővítménye. Ehhez tegye a következőket:
+A varázsló elindítása előtt ellenőrizze, hogy telepítve vannak-e a legújabb bővítmények, különösen a Windows felügyeleti központ fürt-létrehozási bővítménye és bármely partner-bővítmény. Ehhez tegye a következőket:
 
 1. Nyissa meg a Windows felügyeleti központot, és kattintson a beállítások (fogaskerék ikon) elemre a jobb felső sarokban.
 1. A **BEÁLLÍTÁSOK** területen válassza a **Bővítmények** elemet.
 1. Válassza a **fürt létrehozása** lehetőséget, majd kattintson a **telepítés** gombra.
 1. Válassza ki a **Fürtfelügyelő** elemet, majd kattintson a **telepítés** gombra.
+1. Válassza ki a megfelelő hardver-gyártói bővítményeket, és telepítse azokat is.
 
 Most már készen áll, ezért kezdjük:
 
@@ -228,7 +230,7 @@ Eltarthat egy ideig, amíg a fürt neve replikálódik a tartományon belül, k�
 
 Ha a fürt feloldása egy kis idő elteltével nem sikerül, a legtöbb esetben a fürt neve helyett a kiszolgáló nevét lehet helyettesíteni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Tanúsító beállítása. Lásd: [tanúsító fürt beállítása](../manage/witness.md).
