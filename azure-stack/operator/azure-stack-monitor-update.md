@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 769de4eb2c86c1fa17dd4a575611816b3ef0e9d9
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870256"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981240"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Frissítések monitorozása az Azure Stack Hubban a kiemelt végpont használatával
 
@@ -27,7 +27,7 @@ A következő új PowerShell-parancsmagok szerepelnek az Update Managementhez Az
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Ellenőrizze, hogy elérhetők-e a parancsmagok
-Mivel a parancsmagok a Azure Stack hub 1710-es frissítési csomagjához tartoznak, a 1710 frissítési folyamatnak egy bizonyos pontra kell jutnia ahhoz, hogy elérhető legyen a figyelési funkció. A parancsmagok jellemzően akkor érhetők el, ha a felügyeleti portálon lévő állapot azt jelzi, hogy az 1710-es frissítés a **Storage-gazdagépek újraindítása** lépéssel történik. A parancsmag frissítése a lépés végrehajtása során következik be **: a 2,6-es lépés – a PrivilegedEndpoint engedélyezési** listájának frissítése.
+Mivel a parancsmagok a Azure Stack hub 1710-es frissítési csomagjához tartoznak, a 1710 frissítési folyamatnak egy bizonyos pontra kell jutnia ahhoz, hogy elérhető legyen a figyelési funkció. A parancsmagok jellemzően akkor érhetők el, ha a felügyeleti portálon lévő állapot azt jelzi, hogy az 1710-es frissítés a **Storage-gazdagépek újraindítása** lépéssel történik. A parancsmag frissítése a lépés során történik **: a 2,6-es lépés a PrivilegedEndpoint-engedélyezési lista futtatása**.
 
 Azt is meghatározhatja, hogy a parancsmagok programozott módon elérhetők-e a parancsok a Kiemelt végpontról történő lekérdezésével. A lekérdezés végrehajtásához futtassa a következő parancsokat a hardver életciklus-gazdagépén vagy egy emelt szintű hozzáférési munkaállomáson. Győződjön meg arról is, hogy a Kiemelt végpont megbízható gazdagép. További információ: [a privilegizált végpont elérésének](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)1. lépése.
 
@@ -100,7 +100,7 @@ $statusString.Value
 A lehetséges értékek a következők:
 
 - Futó
-- Befejezve
+- Befejeződött
 - Sikertelen 
 - Megszakítva
 
@@ -163,7 +163,7 @@ A Kiemelt végpont az Azure Stack hub-környezetben található összes ERCS vir
 
 További információ a frissítések hibaelhárításáról: [Azure stack hibaelhárítás](azure-stack-troubleshooting.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Frissítések kezelése Azure Stack központban](azure-stack-updates.md)
 

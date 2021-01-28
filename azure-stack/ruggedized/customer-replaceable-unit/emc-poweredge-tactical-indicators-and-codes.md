@@ -1,29 +1,26 @@
 ---
-title: EMC PowerEdge taktikai mutatók és kódok
-description: Tudnivalók az EMC PowerEdge Tactical-mutatókról és-kódokról
-author: PatAltimore
+title: Mutatók és kódok
+description: Tudnivalók a mutatókról és a kódokról
+author: justinha
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.author: patricka
-ms.reviewer: ''
+ms.date: 01/28/2021
+ms.author: justinha
+ms.reviewer: thoroet
 ms.lastreviewed: ''
-ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7aff7f648bb74a428a9f21ae61ece770f0ad841b
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910278"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981257"
 ---
-# <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge – taktikai mutatók és kódok
+# <a name="indicators-and-codes"></a>Mutatók és kódok
 
 Az ebben a szakaszban ismertetett funkciók megegyeznek a hardver életciklus-gazdagép és a skálázási egység csomópont-kiszolgálók esetében.
 
 ## <a name="system-information-label"></a>Rendszerinformáció címkéje
 
 Az alábbi ábra a rendszerinformációk címkéjét mutatja be, amely az előlapon található.
-
-
-10. ábra. LED-viselkedés
 
 ![A Rendszerinformáció címkéje a LED viselkedéséhez.](media/image-75.png)
 
@@ -53,21 +50,20 @@ Az alábbi ábrán a bal oldali Vezérlőpult állapota és állapotjelzői lát
 
 A következő táblázat a bal oldali panel funkcióit ismerteti.
 
-5. táblázat PowerEdge bal oldali Vezérlőpult állapota és állapotjelzői
 
 |    <br>Elem       |    <br>Kijelző vagy gomb                       |    <br>Ikon                                |    <br>Leírás                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|    <br>1          |    <br>Állapotjelző LED-mutatók                     |    <br>N.A.                                 |    <br>A szolgáltatás állapotát jelzi. További információ: PowerEdge status LED-mutatók a 61-es oldalon.    |
+|    <br>1          |    <br>Állapotjelző LED-mutatók                     |    <br>N/A                                 |    <br>A szolgáltatás állapotát jelzi.     |
 |    <br>2 és 3    |    <br>Rendszerállapot-és rendszerazonosítók mutatói    | ![Rendszerállapot ikon](media/image-77.png) |    <br>A rendszerállapotot jelzi.                                                                                 |
 
-A következő táblázat a PowerEdge állapotának LED-mutatóit sorolja fel.
+A következő táblázat az állapot LED-mutatóit sorolja fel.
 
 > [!NOTE]
 > Az állapotjelző LED-mutatók mindig ki vannak kapcsolva, és csak folytonos borostyánra változnak, ha bármilyen hiba történik.
 
-6. táblázat PowerEdge állapotú LED-mutatók
 
-| <br>Ikon | <br>Leírás           | <br>Feltétel                                                                                                                                                                       | <br>Javító művelet                                                                                                                                                                                                                                                                                                    |
+
+| <br>Ikon | <br>Description           | <br>Feltétel                                                                                                                                                                       | <br>Javító művelet                                                                                                                                                                                                                                                                                                    |
 |----------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          | <br>Meghajtó jelzője       | <br>Ha hiba történik, a kijelzőn a stabil sárga szín jelenik meg.                                                                                                                      | 1. Ellenőrizze a rendszer eseménynaplóját, és állapítsa meg, hogy a meghajtó hibával rendelkezik-e.<br>2. Futtassa a megfelelő online diagnosztikai tesztet.<br>3. Indítsa újra a rendszert, és futtassa a beágyazott diagnosztikát (ePSA).<br>4. Ha a meghajtók RAID-tömbben vannak konfigurálva, indítsa újra a rendszert, és adja meg a gazdagép adapterének konfigurációs segédprogramját. |
 |          | <br>Hőmérséklet kijelző | <br>Ha a rendszer termikus hibát tapasztal (például a környezeti hőmérséklet a tartományon kívül esik, vagy ventilátor meghibásodása van), a kijelző stabil sárga színűre vált.                 | Győződjön meg arról, hogy a következő feltételek egyike sem létezik:<br>* A hűtőventilátor el lett távolítva vagy meghiúsult. <br>* A rendszerszintű, a légi lepel, a memóriamodul üres vagy a hátsó kitöltő zárójel el lesz távolítva.<br>* A környezeti hőmérséklet túl magas.<br>* A külső légáram akadályozva van.                                                 |
@@ -95,4 +91,4 @@ A következő táblázat a jelölő kódokat határozza meg.
 | Villogó sárga                | A PSU hibáját jelzi.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Nincs kivilágítva               | A Power nincs csatlakoztatva a PSU-hoz.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Villogó zöld                | Ha a PSU belső vezérlőprogram frissítése folyamatban van, a PSU-fogantyú zöld színnel villog. <br>Ne válassza le a tápkábelt, vagy húzza ki a TÁPEGYSÉGet a belső vezérlőprogram frissítésekor. Ha a belső vezérlőprogram frissítése megszakad, a tápegységek nem működnek.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Zöld villogás és kikapcsolás  | A PSU gyors csatlakoztatásakor a PSU öt alkalommal, 4 Hz-es sebességgel villog, és kikapcsol. Ez azt jelzi, hogy a PSU nem egyezik a hatékonysággal, a funkciók készletével, az állapottal vagy a támogatott feszültséggel kapcsolatban. <br><br>Ha két PSUs van telepítve, a PSUs-nek ugyanolyan típusú címkével kell rendelkeznie; például: kiterjesztett teljesítmény (EPP) felirat. A PowerEdge-kiszolgálók előző generációi által használt PSUs-keverők nem támogatottak, még akkor is, ha a PSUs-nek azonos az energiafogyasztásuk. Ez egy PSU-eltérési feltételt eredményez, vagy nem sikerül a rendszer bekapcsolása. <br>A PSU-eltérések kijavításakor csak a TÁPEGYSÉGet cserélje le a villogó kijelzőre. Ha a PSU-t felcseréli egy egyeztetett pár kiváltására, akkor a hiba feltétele és <br>váratlan rendszerleállítás történt. Ha magas kimeneti konfigurációról alacsony kimeneti konfigurációra szeretne váltani, vagy fordítva, ki kell kapcsolni a rendszerét. <br>Az AC PSUs a 240 V és a 120 V bemeneti feszültséget is támogatja a titán PSUs kivételével, amely csak a 240 V-t támogatja. Ha két azonos PSUs különböző bemeneti feszültséget kap, különböző teljesítmények tudnak kiadni, és eltérést válthatnak ki. <br>Ha két PSUs van használatban, ugyanolyan típusúnak kell lennie, és a maximális kimeneti teljesítménnyel kell rendelkeznie. <br>Az AC és a DC PSUs együttes használata nem támogatott, és eltérést vált ki. |
+| Zöld villogás és kikapcsolás  | A PSU gyors csatlakoztatásakor a PSU öt alkalommal, 4 Hz-es sebességgel villog, és kikapcsol. Ez azt jelzi, hogy a PSU nem egyezik a hatékonysággal, a funkciók készletével, az állapottal vagy a támogatott feszültséggel kapcsolatban. <br><br>Ha két PSUs van telepítve, a PSUs-nek ugyanolyan típusú címkével kell rendelkeznie; például: kiterjesztett teljesítmény (EPP) felirat. A kiszolgálók előző generációi által kezelt PSUs nem támogatott, még akkor is, ha a PSUs-nek azonos az energiafogyasztásuk. Ez egy PSU-eltérési feltételt eredményez, vagy nem sikerül a rendszer bekapcsolása. <br>A PSU-eltérések kijavításakor csak a TÁPEGYSÉGet cserélje le a villogó kijelzőre. Ha a PSU-t felcseréli egy egyeztetett pár kiváltására, akkor a hiba feltétele és <br>váratlan rendszerleállítás történt. Ha magas kimeneti konfigurációról alacsony kimeneti konfigurációra szeretne váltani, vagy fordítva, ki kell kapcsolni a rendszerét. <br>Az AC PSUs a 240 V és a 120 V bemeneti feszültséget is támogatja a titán PSUs kivételével, amely csak a 240 V-t támogatja. Ha két azonos PSUs különböző bemeneti feszültséget kap, különböző teljesítmények tudnak kiadni, és eltérést válthatnak ki. <br>Ha két PSUs van használatban, ugyanolyan típusúnak kell lennie, és a maximális kimeneti teljesítménnyel kell rendelkeznie. <br>Az AC és a DC PSUs együttes használata nem támogatott, és eltérést vált ki. |

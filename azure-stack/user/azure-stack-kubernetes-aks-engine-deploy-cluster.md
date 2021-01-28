@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: af366bbb7ae12dfc71451f4faa477dbd6d185e60
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981223"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -75,7 +75,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
     | Mező | Leírás |
     | --- | --- |
-    | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)megadott konfigurációs elemeket használja.  |
+    | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://aka.ms/aksengine-json-example)megadott konfigurációs elemeket használja.  |
     | vmSize | Adja meg [Azure stack hub által támogatott méretet](./azure-stack-vm-sizes.md)(példa `Standard_D2_v2` ). |
     | disztribúció | Írja be a következő szöveget: `aks-ubuntu-16.04`. |
 
@@ -121,9 +121,9 @@ Fürt üzembe helyezésének folytatása:
     | resource-group | Kube – RG | Adja meg egy új erőforráscsoport nevét, vagy válasszon ki egy meglévő erőforráscsoportot. Az erőforrás nevének alfanumerikusnak és kisbetűsnek kell lennie. |
     | API – modell | ./kubernetes-azurestack.jsbekapcsolva | A fürt konfigurációs fájljának vagy API-modellének elérési útja. |
     | kimenet – könyvtár | Kube – RG | Adja meg annak a könyvtárnak a nevét, amely a kimeneti fájlt `apimodel.json` és más létrehozott fájlokat is tartalmaz. |
-    | ügyfél-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
-    | ügyfél – titok | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az egyszerű szolgáltatás titkos kulcsát. A szolgáltatás létrehozásakor az ügyfél titkát kell beállítania. |
-    | előfizetés-azonosító | XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | Adja meg az előfizetés-AZONOSÍTÓját. Meg kell adnia egy előfizetést a bérlő. A felügyeleti előfizetésre való telepítés nem támogatott.  További információ: [előfizetés egy ajánlatra](./azure-stack-subscribe-services.md#subscribe-to-an-offer) |
+    | ügyfél-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatásnév GUID azonosítóját. Az ügyfél-azonosító az alkalmazás AZONOSÍTÓJAként van azonosítva, amikor a Azure Stack hub rendszergazdája létrehozta a szolgáltatásnevet. |
+    | ügyfél – titok | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az egyszerű szolgáltatás titkos kulcsát. A szolgáltatás létrehozásakor az ügyfél titkát kell beállítania. |
+    | előfizetés-azonosító | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Adja meg az előfizetés-AZONOSÍTÓját. Meg kell adnia egy előfizetést a bérlő. A felügyeleti előfizetésre való telepítés nem támogatott.  További információ: [előfizetés egy ajánlatra](./azure-stack-subscribe-services.md#subscribe-to-an-offer) |
 
     Alább bemutatunk egy példát:
 
@@ -243,7 +243,7 @@ A Kubernetes-fürt az AK-motorral való üzembe helyezését követően az egysz
 
 Azt is megteheti, hogy lecseréli a hitelesítő adatokat a alkalmazásban, `apimodel.json` és a frissített JSON-val futtatja a frissítést a Kubernetes azonos vagy újabb verziójára. A modell frissítésével kapcsolatos útmutatásért lásd: [Kubernetes-fürt frissítése Azure stack hub-on](azure-stack-kubernetes-aks-engine-upgrade.md)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [Az AK-motor hibáinak megoldása Azure Stack hub-on](azure-stack-kubernetes-aks-engine-troubleshoot.md)
