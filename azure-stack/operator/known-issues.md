@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935148"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050110"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -54,7 +54,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
@@ -85,6 +85,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik. 
 - Ok: Ha a **munkamenet-affinitást** egy terheléselosztó esetében engedélyezi, a 2 rekordos kivonat a PA IP-címet (fizikai cím IP) használja a virtuális gépekhez rendelt magánhálózati IP-címek helyett. Olyan esetekben, amikor a terheléselosztó felé irányuló forgalom egy VPN-en keresztül érkezik, vagy ha az összes ügyfél-virtuális gép (forrás IP-címe) ugyanazon a csomóponton található, és a munkamenet-affinitás is engedélyezve van, az összes forgalmat egyetlen háttérbeli virtuális gépre irányítja a rendszer.
+- Előfordulás: gyakori
+
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Az IPv6 gomb látható az előtér-IP-konfigurációban 
+
+- Alkalmazható: Ez a probléma a 2008 kiadásra vonatkozik. 
+- Ok: az IPv6 gomb látható és engedélyezve van egy nyilvános Load Balancer előtérbeli IP-konfigurációjának létrehozásakor. Ez egy kozmetikai probléma a portálon. Az IPv6 Azure Stack hub esetében **nem** támogatott. 
 - Előfordulás: gyakori
 
 <!-- ## Compute -->
@@ -118,7 +124,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Szervizelés: Ha a két előfizetésen futó erőforrásokkal rendelkezik, hozza létre újra a felhasználói előfizetésekben.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="network-security-groups"></a>Network Security Groups (Hálózati biztonsági csoportok)
 
@@ -205,7 +211,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a virtuális gépek létrehozása 3 tartalék tartomány rendelkezésre állási készletében, a virtuálisgép-méretezési csoport példányainak létrehozása **FabricVmPlacementErrorUnsupportedFaultDomainSize** hibával meghiúsul a 4 csomópontos Azure stack hub-környezet frissítési folyamata során.
 - Szervizelés: egyetlen virtuális gépet hozhat létre egy rendelkezésre állási csoportba 2 tartalék tartománnyal. A méretezési csoport példányának létrehozása azonban még nem érhető el a 4 csomópontos Azure Stack hub-telepítés frissítési folyamata során.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Tárolás
 
 ### <a name="retention-period-reverts-to-0"></a>A megőrzési idő visszaállt 0-ra
 
@@ -290,7 +296,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy kábel le van választva egy hálózati adapterről, a riasztás nem jelenik meg a felügyeleti portálon. Ezt a problémát az okozza, hogy ez a hiba a Windows Server 2019 rendszerben alapértelmezés szerint le van tiltva.
 - Előfordulás: gyakori
 
-## <a name="networking"></a>Hálózat
+## <a name="networking"></a>Hálózatkezelés
 
 ### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound-szabály nem hozható létre
 
@@ -416,7 +422,7 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha egy meglévő Storage-fiókkal állítja be az SQL virtuális gépek automatikus biztonsági mentését, a hiba **SQL Server IaaS-ügynökkel meghiúsul: az alapul szolgáló kapcsolat bezárult: váratlan hiba történt a küldéskor.**
 - Előfordulás: gyakori
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Tárolás
 
 ### <a name="retention-period-revert-to-0"></a>Megőrzési időszak visszavonása 0-ra
 

@@ -4,13 +4,13 @@ description: Az Azure-regisztráció kezelése Azure Stack HCI-hez, a regisztrá
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.openlocfilehash: c16216a52b0955277bc6d30725f88d0555908685
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.date: 01/28/2021
+ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981186"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050093"
 ---
 # <a name="manage-azure-registration"></a>Azure-regisztráció kezelése
 
@@ -168,7 +168,7 @@ Ha készen áll a Azure Stack HCI-fürt leszerelésére, egyszerűen kapcsolódj
 
 A `Unregister-AzStackHCI` parancsmaggal Azure stack HCI-fürtöt is törölheti. A parancsmagot fürtözött csomóponton vagy egy felügyeleti SZÁMÍTÓGÉPRŐL is futtathatja.
 
-Előfordulhat, hogy telepítenie kell a modul legújabb verzióját `Az.StackHCI` . Előfordulhat, hogy a rendszer arra kéri, hogy telepítse a modulokat a "PSGallery"? "értékről, amelyhez az igen (Y) értéket kell megadnia.
+Előfordulhat, hogy telepítenie kell a modul legújabb verzióját `Az.StackHCI` . Előfordulhat, hogy a rendszer kéri, **hogy telepítse a modulokat a "PSGallery" webhelyről?** , amelyhez az igen (Y) **értéket** kell megadnia.
 
 ```PowerShell
 Install-Module -Name Az.StackHCI

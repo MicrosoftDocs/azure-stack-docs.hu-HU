@@ -102,8 +102,6 @@
           href: manage/add-cluster.md
         - name: Kiszolgáló offline állapotba állítása karbantartás céljából
           href: manage/maintain-servers.md
-        - name: Azure-regisztráció kezelése
-          href: manage/manage-azure-registration.md
         - name: Nyelvek módosítása
           href: manage/languages.md
         - name: Adatvédelmi beállítások módosítása
@@ -120,6 +118,8 @@
       items:
         - name: A Windows felügyeleti központ regisztrálása az Azure-ban
           href: manage/register-windows-admin-center.md
+        - name: Fürt regisztrációjának kezelése az Azure-ban
+          href: manage/manage-azure-registration.md
         - name: Az Azure Portal használata
           href: manage/azure-portal.md
         - name: Monitorozás az Azure Monitorral
@@ -234,7 +234,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'
