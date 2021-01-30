@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 22327cfb7761513eb18337e1e45e9c6d34482235
+ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871429"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99099267"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack hub Datacenter integrációs útmutató
 
@@ -66,7 +66,7 @@ A Microsoft vagy egy Azure Stack hub Solution partner segít kiértékelni a cé
 -   Milyen méretű megoldásra lesz szüksége?
 -   Mik a szükséges energiagazdálkodási és hűtési követelmények?
 
-Az [Azure stack Hub Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) segítségével vizsgálhatja és elemezheti az igényeinek legmegfelelőbb hardver-kapacitást és konfigurációt. 
+Az [Azure stack Hub Capacity Planner](https://download.microsoft.com/download/4/a/2/4a2bd10c-58a0-4ee7-8c3f-55b526ce7e75/AzureStackHubCapacityPlanner_v2005.01.xlsm) segítségével vizsgálhatja és elemezheti az igényeinek legmegfelelőbb hardver-kapacitást és konfigurációt. 
 
 ## <a name="ordering"></a>Rendezés
 A szervezet vállalja az Azure Stack hub megvásárlását, aláírja a szerződéseket és a vásárlási rendeléseket, és biztosítja az integrációs követelmények adatait a megoldás szolgáltatójának.
@@ -164,5 +164,5 @@ Az Azure Stack hub lehetővé teszi, hogy az Azure-konzisztens, integrált támo
 
 Az integrált támogatási élmény egy Case Exchange-mechanizmust használ a támogatási esetek és a Microsoft és a hardverprofil közötti, kétirányú átvitelhez. Az Microsoft Azure Stack hub a [modern életciklus-szabályzattal](https://support.microsoft.com/help/30881)fog járni.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 További információ az [általános adatközpont integrációs szempontjairól](azure-stack-datacenter-integration.md).
