@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
+ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050110"
+ms.locfileid: "99065522"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -87,10 +87,16 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: Ha a **munkamenet-affinitást** egy terheléselosztó esetében engedélyezi, a 2 rekordos kivonat a PA IP-címet (fizikai cím IP) használja a virtuális gépekhez rendelt magánhálózati IP-címek helyett. Olyan esetekben, amikor a terheléselosztó felé irányuló forgalom egy VPN-en keresztül érkezik, vagy ha az összes ügyfél-virtuális gép (forrás IP-címe) ugyanazon a csomóponton található, és a munkamenet-affinitás is engedélyezve van, az összes forgalmat egyetlen háttérbeli virtuális gépre irányítja a rendszer.
 - Előfordulás: gyakori
 
-#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Az IPv6 gomb látható az előtér-IP-konfigurációban 
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Az IPv6 gomb látható az előtér-IP-konfigurációban
 
-- Alkalmazható: Ez a probléma a 2008 kiadásra vonatkozik. 
-- Ok: az IPv6 gomb látható és engedélyezve van egy nyilvános Load Balancer előtérbeli IP-konfigurációjának létrehozásakor. Ez egy kozmetikai probléma a portálon. Az IPv6 Azure Stack hub esetében **nem** támogatott. 
+- Alkalmazható: Ez a probléma az 2008-es kiadásra vonatkozik.
+- Ok: az IPv6 gomb látható és engedélyezve van egy nyilvános Load Balancer előtérbeli IP-konfigurációjának létrehozásakor. Ez egy kozmetikai probléma a portálon. Az IPv6 Azure Stack hub esetében nem támogatott.
+- Előfordulás: gyakori
+
+#### <a name="backend-port-and-frontend-port-need-to-be-the-same-when-floating-ip-is-enabled"></a>Ha a lebegőpontos IP engedélyezve van, a háttér-portnak és a frontend-portnak azonosnak kell lennie
+
+- Alkalmazható: Ez a probléma minden kiadásra vonatkozik. 
+- Ok: a előtér-portnak és a háttér-portnak meg kell egyeznie a terheléselosztási szabályban, ha a lebegőpontos IP engedélyezve van. Ez az elvárt működés.
 - Előfordulás: gyakori
 
 <!-- ## Compute -->
