@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
-ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
+ms.openlocfilehash: 508a64729213d633324e3af0e200c74dfcb56db5
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763143"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227463"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -118,7 +118,7 @@ További információ a Azure Stack hub ezen frissítésében található bizton
 
 ## <a name="hotfixes"></a>Gyorsjavítások
 
-Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
+Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arról, hogy a legújabb 2005-es gyorsjavítást telepíti a 2008-es frissítés előtt. Emellett a 2005 kiadástól kezdve, amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a legújabb gyorsjavítások (ha vannak ilyenek a csomag letöltésekor) az új főverzióban automatikusan települnek. Az 2008-es telepítés az összes gyorsjavítással együtt naprakész. Ettől a ponttól kezdve, ha a 2008-es gyorsjavítás megjelent, telepítse azt.
 
 > [!NOTE]
 > Azure Stack hub gyorsjavítási kiadásai kumulatívak; a legújabb gyorsjavítást csak akkor kell telepíteni, ha az adott verzióhoz tartozó korábbi gyorsjavítások összes javítását beolvassa.
@@ -129,7 +129,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Az 2008-es frissítés sikeres alkalmazása után
 
-Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljárásként telepítenie kell a buildhez kiadott összes gyorsjavítást, hogy biztosítsa a legfontosabb kiadások közötti legjobb frissítési élményt. Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban.
+Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljárásként telepítenie kell a buildhez kiadott összes gyorsjavítást, hogy biztosítsa a legfontosabb kiadások közötti legjobb frissítési élményt. Amikor új főverzióra frissít (például 1.2005. x – 1.2008. x), a legújabb gyorsjavítások (ha vannak ilyenek a csomag letöltésekor) az új főverzióban automatikusan települnek.
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 

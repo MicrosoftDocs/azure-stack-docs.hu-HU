@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/06/2021
-ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/29/2021
+ms.openlocfilehash: 0d8aa3cc6418c8e64b7a8dc97290757c8be41856
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254738"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227428"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Kiszolgálók hozzáadása vagy eltávolítása egy Azure Stack HCI-fürthöz
 
@@ -21,7 +21,7 @@ Azure Stack HCI-ben könnyedén hozzáadhat vagy eltávolíthat kiszolgálókat 
 
 Amikor kiszolgálót ad hozzá vagy távolít el, a fürt érvényesítését is végre kell hajtania, hogy a fürt megfelelően működjön. Ez a nem kifeszített és a kibővített fürtökre is vonatkozik.
 
-## <a name="obtain-oem-hardware"></a>OEM-hardver beszerzése
+## <a name="before-you-begin"></a>Előkészületek
 
 Az első lépés az új HCI-hardver beszerzése az eredeti OEM-ből. Mindig tekintse meg a SZÁMÍTÓGÉPGYÁRTÓ által biztosított dokumentációt, amikor új kiszolgálói hardvert ad hozzá a fürtben való használathoz.
 
@@ -29,11 +29,13 @@ Az első lépés az új HCI-hardver beszerzése az eredeti OEM-ből. Mindig teki
 1. Engedélyezheti a fizikai kapcsoló portjait, és módosíthatja a hozzáférés-vezérlési listákat (ACL) és a VLAN-azonosítókat.
 1. Konfigurálja a megfelelő IP-címet a alaplapi felügyeleti vezérlőben (BMC), és az összes BIOS-beállítást alkalmazza OEM-utasítások alapján.
 1. Alkalmazza a jelenlegi belső vezérlőprogram-alapkonfigurációt az összes összetevőre az OEM által biztosított eszközök használatával.
-1. Futtassa az OEM-ellenőrző teszteket a meglévő fürtcsomópontok egységességének biztosításához.
+1. Futtassa az OEM-ellenőrző teszteket a hardveres egységesség biztosításához a meglévő fürtözött kiszolgálókkal.
+1. Telepítse az Azure Stack HCI operációs rendszert az új kiszolgálóra. Részletes információkért lásd: [Azure stack HCI üzembe helyezése](../deploy/operating-system.md).
+1. Csatlakoztassa a kiszolgálót a fürt tartományához.
 
 ## <a name="add-a-server-to-a-cluster"></a>Kiszolgáló hozzáadása fürthöz
 
-Ha a kiszolgáló megfelelően megpördült, a Windows felügyeleti központban csatlakoztassa a kiszolgálót a fürthöz.
+A Windows felügyeleti központ használatával csatlakoztassa a kiszolgálót a fürthöz.
 
 :::image type="content" source="media/manage-cluster/add-server.png" alt-text="Kiszolgáló hozzáadása képernyő" lightbox="media/manage-cluster/add-server.png":::
 
@@ -220,6 +222,6 @@ Egy kiszolgálói pár egy kiterjesztett fürtből való eltávolítása hasonl�
 
 A kiszolgálók sikeres eltávolítása után a rendszer automatikusan eltávolítja a társított meghajtókat a hely készletből. Végül a Állapotfigyelő szolgáltatás létrehoz egy tárolási feladatot a meghajtók eltávolításához.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A kiszolgáló hozzáadásával vagy eltávolításával érvényesítse a fürtöt. További információ: [a fürt érvényesítése](../deploy/validate.md) további információért.

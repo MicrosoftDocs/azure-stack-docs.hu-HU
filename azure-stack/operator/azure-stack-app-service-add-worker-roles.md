@@ -3,16 +3,16 @@ title: Feldolgozók és infrastruktúra hozzáadása App Service Azure Stack hub
 description: Részletes útmutató a Azure Stack hub Azure App Service méretezéséhez
 author: bryanla
 ms.topic: article
-ms.date: 11/15/2020
+ms.date: 1/29/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/15/2020
-ms.openlocfilehash: 3265b77fc6a26a4e43b82d0997ec3e883a29f9da
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 1/29/2020
+ms.openlocfilehash: fe13c43859a3eaabb64b327953159ae67a5f2cee
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518092"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227455"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Feldolgozók és infrastruktúra hozzáadása az Azure App Service-hez az Azure Stack Hubon
 
@@ -76,8 +76,8 @@ A Azure Stack hub Azure App Service a Virtual Machine Scale Sets használatával
     
     ##### Scale out the AppService Role instances ######
     
-    # Set context to AzureRMureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureRMureStackAdmin
+    # Set context to AzureStackAdmin admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
                                                     
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"

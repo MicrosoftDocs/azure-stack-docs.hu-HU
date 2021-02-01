@@ -3,16 +3,16 @@ title: Azure Stack hub-szolgáltató erőforrás-használati API
 description: Az erőforrás-használati API-ra vonatkozó hivatkozás, amely lekéri Azure Stack hub használati adatait.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 13eb197cee1da34f5e4e2b934ed05e26446b4970
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544938"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227400"
 ---
 # <a name="provider-resource-usage-api"></a>Szolgáltatói erőforrás-használati API
 
@@ -26,7 +26,7 @@ A *szolgáltató* kifejezés a szolgáltatás-rendszergazdára és a delegált s
 
 A kérelem lekéri a kért előfizetések és a kért időkeret felhasználásának részleteit. Nincs kérelem törzse.
 
-Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos** , **közreműködő** vagy **olvasó** szerepkört a szolgáltató előfizetésében.
+Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendelnie egy **tulajdonos**, **közreműködő** vagy **olvasó** szerepkört a szolgáltató előfizetésében.
 
 | Metódus | Kérés URI-ja |
 | --- | --- |
@@ -36,7 +36,7 @@ Ez a használati API egy szolgáltatói API, így a hívónak hozzá kell rendel
 
 | Argumentum | Leírás |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://adminmanagement.{domain-name}` . Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external* , akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external` . |
+| `armendpoint` |Azure Resource Manager a Azure Stack hub-környezet végpontját. Az Azure Stack hub-egyezmény azt adja meg, hogy a Azure Resource Manager végpont neve a (z) formátumban van `https://adminmanagement.{domain-name}` . Például a Azure Stack Development Kit (ASDK) esetében, ha a tartománynév *helyi. azurestack. external*, akkor a Resource Manager-végpont a következő: `https://adminmanagement.local.azurestack.external` . |
 | `subId` |Annak a felhasználónak az előfizetés-azonosítója, aki a hívást kezdeményezi. |
 | `reportedStartTime` |A lekérdezés kezdési időpontja. Az értéknek az `DateTime` egyezményes világidő (UTC) és az óra elején kell lennie, például: 13:00. A napi összesítéshez állítsa ezt az értéket UTC éjfélre. A formátum megmenekült ISO 8601; például, `2015-06-16T18%3a53%3a11%2b00%3a00Z` Ha a kettőspont megmenekül, `%3a` és a plusz megmenekül, hogy `%2b` URI-barát legyen. |
 | `reportedEndTime` |A lekérdezés befejezési időpontja. A rájuk vonatkozó korlátozások `reportedStartTime` erre az argumentumra is érvényesek. Az érték `reportedEndTime` nem lehet a jövőben vagy az aktuális dátum. Ha igen, az eredmény "feldolgozás nem fejeződött be" értékre van állítva. |
@@ -114,13 +114,13 @@ A törölt előfizetésekre vonatkozó használati adatokat a **Microsoft. Comme
 
 | Metódus | Kérés URI-ja |
 | --- | --- |
-| GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
+| GET | `https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Törölt vagy aktív bérlő használatának visszaküldése
 
 | Metódus | Kérés URI-ja |
 | --- | --- |
-| GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
+| GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
 ## <a name="next-steps"></a>Következő lépések
 

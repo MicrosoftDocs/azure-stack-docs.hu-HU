@@ -3,15 +3,15 @@ title: Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 description: Megtudhatja, hogyan hozhat létre fürtöt Azure Stack HCI-hez a Windows PowerShell használatával
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: ca2a9448b787a93e297d4bc666a37d81e4d02b28
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772200"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227361"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Azure Stack HCI-fürt létrehozása a Windows PowerShell használatával
 
@@ -147,9 +147,11 @@ Ez a lépés különböző hálózati elemeket, például virtuális kapcsolóka
 
 További információ a RDMA és a Hyper-V gazdagép hálózatkezeléséről Azure Stack HCI esetében: a [gazdagép hálózati követelményei](../concepts/host-network-requirements.md).
 
-### <a name="disable-unused-networks"></a>Nem használt hálózatok letiltása
+### <a name="disable-unused-network-adapters"></a>Nem használt hálózati adapterek letiltása
 
-Le kell tiltania minden olyan hálózatot, amely le van választva a felügyelethez, a tároláshoz vagy a munkaterhelés-forgalomhoz (például virtuális gépekhez). A használaton kívüli hálózatok azonosításának módja:
+Le kell tiltania azokat a leválasztott hálózatokat és adaptereket, amelyeket nem a felügyelethez, a tároláshoz vagy a számítási feladatokhoz, például virtuális gépekhez használnak Ide tartoznak a fej nélküli felügyelethez használt hálózati adapterek, például a alaplapi felügyeleti vezérlők (bmc).
+
+A használaton kívüli hálózatok azonosításának módja:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
@@ -469,7 +471,7 @@ Most, hogy elkészült, még néhány fontos feladatot végre kell hajtania:
 - Hozza létre a köteteket. Lásd: [kötetek létrehozása](../manage/create-volumes.md).
 - A kiterjesztett fürtök esetében hozzon létre köteteket, és állítsa be a replikálást a Storage-replika használatával. Lásd: [kötetek létrehozása és replikáció beállítása a kifeszített fürtökhöz](../manage/create-stretched-volumes.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Regisztrálja a fürtöt az Azure-ban. Lásd: az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md).
 - Végezze el a fürt végső érvényesítését. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md)

@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 8b12dafed031c8f69ddb4ef6d9f475487da4b1b2
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 6e2f6728b2c27c7571ac34bdf01499c1300c0675
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518109"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227378"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rövid útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -31,7 +31,7 @@ A Azure Stack hub PowerShell használatával létrehozhat egy Ubuntu Server 16,0
 
 * A (z) *id_rsa. pub* nevű nyilvános Secure Shell-(SSH-) kulcs a Windows felhasználói profil *. ssh* könyvtárába lett mentve. Az SSH-kulcsok létrehozásával kapcsolatos részletes információkért lásd: [SSH nyilvános kulcs használata](azure-stack-dev-start-howto-ssh-public-key.md).
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
 Az erőforráscsoport olyan logikai tároló, amely Azure Stack hub-erőforrások üzembe helyezésére és kezelésére szolgál. Erőforráscsoport létrehozásához futtassa a következő kódrészletet: 
 
@@ -572,7 +572,7 @@ Set-AzureRMCurrentStorageAccount `
 
 # Create a storage container to store the VM image
 $containerName = 'osdisks'
-$container = New-AzureRMureStorageContainer `
+$container = New-AzureStorageContainer `
   -Name $containerName `
   -Permission Blob
 
