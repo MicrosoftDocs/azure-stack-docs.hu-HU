@@ -305,8 +305,9 @@
         - name: GPU IoT-modul üzembe helyezése
           href: gpu-deploy-sample-module.md
     - name: Alapvető minták üzembe helyezése
-      href: deploy-foundational-patterns.md
       items:
+        - name: Alapvető minták üzembe helyezése
+          href: deploy-foundational-patterns.md
         - name: Hálózati minták
           items:
             - name: Külső gyártótól származó NVA használata (Fortinet FortiGate NVA)
