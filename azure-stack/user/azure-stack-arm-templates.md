@@ -3,16 +3,16 @@ title: Azure Resource Manager-sablonok használata Azure Stack hub-ban
 description: Ismerje meg, hogyan hozhat létre erőforrásokat a Azure Stack hub Azure Resource Manager sablonjaival.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 8551bd8c8387bd4527a858fc5aeaf58470e828ce
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 21c6fd7408179c71e6ff2ab64bfc94afba0140b2
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874234"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247013"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Resource Manager-sablonok használata Azure Stack hub-ban
 
@@ -68,7 +68,7 @@ A PowerShell DSC bővítmény használatával konfigurálhat egy meglévő virtu
 
 Egy futó sablon központi telepítésének megszakításához használja a [stop-AzResourceGroupDeployment PowerShell-](/powershell/module/Az.resources/stop-Azresourcegroupdeployment) [parancsmagot](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a portállal](azure-stack-deploy-template-portal.md)
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)

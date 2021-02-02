@@ -2,17 +2,17 @@
 title: Azure Stack hub hálózati különbségek
 description: Ismerje meg a Azure Stack hub hálózatkezelésével kapcsolatos különbségeket és szempontokat.
 author: mattbriggs
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b16c65554be272d4aacc89959fe2e0d71561c363
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918692"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247914"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>A Azure Stack hub hálózatkezelésével kapcsolatos különbségek és megfontolások
 
@@ -30,7 +30,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | DNS-rekordhalmazok száma zónában | 5000 (alapértelmezett)<br>Igény szerint növelhető. | 5000 |
 |  | Névkiszolgálók a zónák delegálásához | Az Azure négy névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. | Azure Stack hub két névszervert biztosít minden létrehozott felhasználói (bérlői) zónához. |
 | Azure Firewall | Hálózati biztonsági szolgáltatás | Az Azure Firewall egy felügyelt, felhőalapú hálózatbiztonsági szolgáltatás, amely Azure Virtual Network-erőforrásait védi. | Még nem támogatott. |
-| Virtual Network | Virtuális hálózati társviszony | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Az 2008-es verzió óta támogatott [Virtual Network](virtual-network-peering.md) |
+| Virtual Network | Társviszony létesítése virtuális hálózatok között | Két virtuális hálózat összekötése ugyanabban a régióban az Azure gerinc hálózatán keresztül. | Az 2008-es verzió óta támogatott [Virtual Network](virtual-network-peering.md) |
 |  | IPv6-címek | A [hálózati adapter konfigurációjának](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)részeként egy IPv6-cím is hozzárendelhető. | Kizárólag az IPv4 használata támogatott. |
 |  | DDoS Protection terv | Támogatott | Még nem támogatott. |
 |  | Méretezési csoport IP-konfigurációi | Támogatott | Még nem támogatott. |
@@ -53,7 +53,7 @@ Ez a cikk áttekintést nyújt az Azure Stack hub hálózatkezelésének és fun
 |  | Rendelkezésre állási konfiguráció | Aktív/aktív | Aktív/passzív |
 |  | UsePolicyBasedTrafficSelectors | Az Azure támogatja a házirend-alapú forgalom-választókat az Útválasztás-alapú átjáró kapcsolataival. | Még nem támogatott. |
 |  | Figyelés és riasztások | Az Azure Azure Monitort használ a VPN-erőforrásokra vonatkozó riasztások beállításához. | Még nem támogatott.|
-| Terheléselosztó | Termékváltozat | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer 10 előtér-IP-konfigurációt támogat a 1807-1906-es és a 200-es előtér-IP-konfigurációkhoz a Load balancernél a 1907-as és újabb verziókban.  |
+| Terheléselosztóval | Termékváltozat | Az alapszintű és a standard Load Balancer támogatott | Csak az alapszintű Load Balancer támogatott.<br>Az SKU tulajdonság nem támogatott.<br>Az alapszintű SKU Load Balancer 10 előtér-IP-konfigurációt támogat a 1807-1906-es és a 200-es előtér-IP-konfigurációkhoz a Load balancernél a 1907-as és újabb verziókban.  |
 |  | Zóna | A Availability Zones támogatottak. | Még nem támogatott |
 |  | Bejövő NAT-szabályok támogatása szolgáltatási végpontok számára | Az Azure támogatja a szolgáltatási végpontok megadását a bejövő NAT-szabályokhoz. | Azure Stack hub még nem támogatja a szolgáltatási végpontokat, ezért ezeket nem lehet megadni. |
 |  | Protokoll | Az Azure támogatja a GRE vagy az ESP megadását. | A Protocol osztály nem támogatott Azure Stack hub-ban. |

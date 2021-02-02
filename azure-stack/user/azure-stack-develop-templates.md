@@ -3,16 +3,16 @@ title: Sablonok fejlesztése Azure Stack hubhoz
 description: Ismerje meg, hogyan fejleszthet Azure Resource Manager-sablonokat az Azure és az Azure Stack hub közötti alkalmazás-hordozhatósághoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2d449adc59be9051188c1d942ae54d6a0761d28e
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a99f3803f5b8ea8d23913efafd1f8d72005b49bd
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874217"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247761"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Sablonok fejlesztése Azure Stack hubhoz Azure Resource Manager
 
@@ -40,7 +40,7 @@ Az Azure-szolgáltatási verziók eltérőek lehetnek az Azure és az Azure Stac
 | --- | --- |
 | Compute |**2015-06-15** |
 | Network (Hálózat) |**2015-06-15**, **2015-05-01 – előzetes** verzió |
-| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
+| Tárolás |**2016-01-01**, **2015-06-15**, **2015-05-01 – előzetes** verzió |
 | KeyVault | **2015-06-01** |
 | App Service |**2015-08-01** |
 
@@ -55,7 +55,7 @@ Azure Resource Manager [függvények](/azure/azure-resource-manager/resource-gro
 Ezek a függvények nem érhetők el Azure Stack központban:
 
 * Kihagyás
-* Eltarthat
+* Take
 
 ## <a name="resource-location"></a>Erőforrás helye
 
@@ -76,7 +76,7 @@ Azure Resource Manager-sablonok egy `location` attribútum használatával helye
 ]
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Sablonok üzembe helyezése a PowerShell-lel](azure-stack-deploy-template-powershell.md)
 * [Sablonok üzembe helyezése az Azure CLI-vel](azure-stack-deploy-template-command-line.md)

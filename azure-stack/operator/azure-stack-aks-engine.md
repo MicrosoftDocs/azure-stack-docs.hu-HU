@@ -3,16 +3,16 @@ title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételei
 description: Megtudhatja, hogyan adhatja hozzá az AK-motor előfeltételeit az Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899448"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246163"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
@@ -47,9 +47,9 @@ Adja hozzá a következő elemeket a piactérhez:
 
 1. Jelentkezzen be a felügyeleti portálra `https://adminportal.local.azurestack.external` .
 
-1. Válassza a **minden szolgáltatás**lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés** lehetőséget.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Válassza **a + Hozzáadás az Azure-ból** lehetőséget.
 
 1. Írja be a következő szöveget: `AKS Base`.
 
@@ -69,9 +69,9 @@ Az egyéni szkriptet hozzáadhatja a piactérhez úgy, hogy beolvassa az elemet 
 
 1. Nyissa meg a felügyeleti portált `https://adminportal.local.azurestack.external` .
 
-1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés**lehetőséget.
+1. Válassza a **minden szolgáltatás** lehetőséget, majd az **Adminisztráció** kategóriában válassza a **piactér-kezelés** lehetőséget.
 
-1. Válassza **a + Hozzáadás az Azure-ból**lehetőséget.
+1. Válassza **a + Hozzáadás az Azure-ból** lehetőséget.
 
 1. Írja be a következő szöveget: `Custom Script for Linux`.
 

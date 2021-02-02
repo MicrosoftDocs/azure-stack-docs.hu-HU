@@ -68,7 +68,7 @@
               href: ../operator/azure-stack-deployment-worksheet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Adatközpont integrációja
               items:
-                - name: Introduction (Bevezetés)
+                - name: Bevezetés
                   href: network-introduction.md
                 - name: Hálózati telepítés
                   href: network-deployment.md
@@ -464,7 +464,7 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
-    - name: További források
+    - name: Források
       items:
         - name: Képzés és tanúsítványok
           href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -607,7 +607,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: GPU virtuális gépek
                       href: azure-stack-gpu.md
-                - name: Storage
+                - name: Tárolás
                   items:
                     - name: Áttekintés
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -734,35 +734,39 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Alapvető minták üzembe helyezése
           items:
-            - name: VNET-társítás
+            - name: Hálózati minták
               items:
-                - name: VNet-társítás a FortiGate
-                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: VNet-társítás virtuális gépekkel
+                - name: Külső gyártótól származó NVA használata (Fortinet FortiGate NVA)
+                  items:
+                    - name: VNet-VNet kapcsolat a FortiGate
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: VPN beállítása helyszíni rendszerre
+                      href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Azure Stack hub-példányok közötti kapcsolat VNet
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Az RRAS használata
+              items:
+                - name: VNet-VNet kapcsolat létesítése az RRAS használatával
                   href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: VPN beállítása helyszíni rendszerre
-              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: VNET – VNET-kapcsolatok
-              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Az adatközpont kiterjesztése
-              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: F5 Load Balancer
-              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Kapcsolódás iSCSI-tárolóhoz
-              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Alagutak beállítása
-              items:
-                - name: Több helyek közötti VPN beállítása
+                - name: Több helyek közötti VPN-alagút beállítása
                   href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: VPN-alagút létrehozása (GRE)
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: VPN-alagút (IPSEC) létrehozása
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5 Load Balancer
+              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Kapcsolódás külső tárolóhoz
+              items:
+                - name: Kapcsolódás iSCSI-tárolóhoz
+                  href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Az adatközpont kiterjesztése
+                  href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Biztonsági másolat és helyreállítás
               items:
-                - name: A virtuális gép biztonsági mentése a MDC a CommVault-mel
+                - name: A virtuális gép biztonsági mentése a CommVault-vel robusztus Azure Stack hub-ban
                   href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: A Storage-fiókok biztonsági mentése a MDC-on
+                - name: A Storage-fiókok biztonsági mentése a Azure Stack hub-ban robusztus
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Előfizetés-erőforrások másolása
                   href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

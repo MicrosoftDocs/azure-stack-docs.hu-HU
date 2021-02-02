@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 3f8381940d7482b82ce36fd995cfac0929545f6c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8799b1e0623023d9b9b6451ba1f695c54199dfe0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867324"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245768"
 ---
 1. Jelentkezzen be az Azure Stack hub felhasználói portálra.
 
@@ -32,6 +32,6 @@ ms.locfileid: "97867324"
         - A **standard szintű lemezek (HDD-ket)** a mágneses meghajtókon alapulnak, és olyan alkalmazásokhoz ajánlottak, amelyekben az adathozzáférés ritkán történik. A Zone-redundáns lemezeket a zóna redundáns tárolója (ZRS) támogatja, amely több zónában replikálja az adatait, és akkor is elérhető, ha egyetlen zóna nem működik.
 
     8. Válassza az **olvasás/írás** lehetőséget a gazdagép elfogása elemnél.
-    9. Kattintson a **Létrehozás** gombra.
+    9. Válassza a **Létrehozás** lehetőséget.
 
 4. A rendszerkép létrehozása után a rendszerkép használatával hozzon létre egy új virtuális gépet.

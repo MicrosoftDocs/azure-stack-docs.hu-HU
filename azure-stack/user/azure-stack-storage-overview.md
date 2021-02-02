@@ -3,15 +3,15 @@ title: Az Azure Stack hub Storage bemutatása
 description: Ismerkedjen meg Azure Stack hub tárolási szolgáltatásaival.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: c9b8d2bbe30cedcd84759fbb5cd9a51b0a03c51a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3c02ef69ce2359c050e381d4dec027c28f157765
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873826"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247557"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Az Azure Stack hub Storage bemutatása
 
@@ -82,7 +82,7 @@ A méretezhető alkalmazások tervezésekor az alkalmazás-összetevők gyakran 
 
 A Storage-fiókok tetszőleges számú várólistát tartalmazhatnak, és a várólista tetszőleges számú üzenetet tartalmazhat (a Storage-fiók kapacitási korlátja alapján). Az egyes üzenetek akár a 64 KB-os méretet is elérhetik.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure-konzisztens tárolás: különbségek és megfontolások](azure-stack-acs-differences.md)
 

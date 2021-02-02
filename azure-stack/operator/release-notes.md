@@ -7,12 +7,12 @@ ms.date: 01/29/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 508a64729213d633324e3af0e200c74dfcb56db5
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 63a7a8104c772a23a349d9e1888818b4c59aa298
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227463"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247659"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -421,5 +421,5 @@ A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítás
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-[A Azure stack hub kibocsátási megjegyzésének régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
+Az Azure Stack hub kibocsátási megjegyzései régebbi verziói a bal oldali tartalomjegyzékben érhetők el, az [**erőforrások > kibocsátási megjegyzések archívuma**](./relnotearchive/release-notes-1910.md)alatt. Ezek az archivált cikkek kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end

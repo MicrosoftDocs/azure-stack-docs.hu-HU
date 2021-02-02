@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 6cac7624a99ccd430f64243586c773238ec8c4c2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8bc77528bec5fdb22e2ea83b45cc4eedc3b7984c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872075"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246383"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>A Container Registry frissítése Azure Stack hub-moduláris adatközpontban (MDC)
 
@@ -35,7 +35,7 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
 
   ![AK-alapú alaprendszerkép](./media/container-registry-template-updating-tzl/aks-base-image.png)
 
-### <a name="user"></a>Felhasználó
+### <a name="user"></a>User
 
 1.  Győződjön meg arról, hogy a tároló beállításjegyzék-sablon üzembe helyezéséhez használt AK alaprendszerkép SKU-jának tallózással keresse meg az erőforráscsoport központi telepítési rekordját, és válassza a **bemenetek** lehetőséget.
 
@@ -103,6 +103,6 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
 
 3.  A következő 30 perc időszakos hozzáférést biztosít a tároló-beállításjegyzékhez, mivel a DNS-rekord propagálva lesz. Ellenőrizze a kapcsolatokat a Docker-beállításjegyzékbe való bejelentkezéssel, és egy rendszerkép kihúzásával/kitolásával.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack Marketplace – áttekintés](../../operator/azure-stack-marketplace.md)

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 13b38a80e782db1a81cccfe5f5e2e5e11b2d59f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d2bd3b3ce7b5a096ea013b0f80a9aece6c426acb
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872500"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246231"
 ---
 # <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Azure Stack moduláris adatközpontban (MDC) támogatott virtuálisgép-méretek
 
@@ -189,6 +189,6 @@ A NVv4 sorozatú virtuális gépeket az [AMD Radeon ösztön MI25](https://www.a
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)

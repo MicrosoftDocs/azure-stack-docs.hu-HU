@@ -3,16 +3,16 @@ title: A Azure Stack hub Storage fejlesztői eszközeinek megismerése
 description: Útmutató az Azure Stack hub Storage fejlesztői eszközök használatának megkezdéséhez
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.topic: conceptual
 ms.reviewer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 452a572dfccaaa4c33a2630bd8459f89ba8b26d6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: aa2f5374a91208a27f73bc2978a21e9d00c72777
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873843"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247574"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Ismerkedés a Azure Stack hub Storage fejlesztői eszközeivel
 
@@ -271,6 +271,6 @@ A következő Azure Table Storage-oktatóanyagok a Azure Stack hub-ra vonatkozna
 * [A Table Storage használata a Pythonban](/azure/cosmos-db/table-storage-how-to-use-python)
 * [How to use Table storage from Ruby (A Table Storage használata Rubyval)](/azure/cosmos-db/table-storage-how-to-use-ruby)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [A Microsoft Azure Storage bemutatása](/azure/storage/common/storage-introduction)

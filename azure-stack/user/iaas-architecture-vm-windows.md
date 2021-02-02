@@ -3,16 +3,16 @@ title: Windows rendszerű virtuális gép futtatása Azure Stack hub-on
 description: Megtudhatja, hogyan futtathat Windowsos virtuális gépet Azure Stack hub-on.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 2c2ff4007e92f6263e6b59ac61cb15d303b347d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5bbad22a6a0998cd56fd3fefc309c14f665b2faa
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873707"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247540"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Windows rendszerű virtuális gép futtatása Azure Stack hub-on
 
@@ -99,7 +99,7 @@ Helyezze üzembe a virtuális gépeket [Azure Security Center](/azure/security-c
 **Adattitkosítás**. Azure Stack hub BitLocker 128 bites AES-titkosítást használ a felhasználói és infrastrukturális adatok védelme érdekében a tárolási alrendszerben. További információ: inaktív [adatok titkosítása Azure stack hub-ban](../operator/azure-stack-security-bitlocker.md).
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - Azure Stack hub virtuális gépekkel kapcsolatos további tudnivalókért lásd: [Azure stack hub](azure-stack-vm-considerations.md)virtuálisgép-funkciók.  
 - Az Azure Cloud Patterns szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tervezési minták](/azure/architecture/patterns).

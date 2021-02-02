@@ -3,16 +3,16 @@ title: Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 description: Megtudhatja, hogyan futtathat egy Windows N szintű alkalmazást Azure Stack hubhoz a SQL Server használatával.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: b543a94c75ac50c7b0e75f5635956093340b970d
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 5af32be701617f7ff357d4776557b2edbbdee729
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973579"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247489"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>Windows N szintű alkalmazás Azure Stack hub-on SQL Server
 
@@ -24,7 +24,7 @@ Az architektúra a következő összetevőket tartalmazza.
 
 ![A diagram egy olyan virtuális hálózatot mutat be, amely hat alhálózatot tartalmaz: Application Gateway, felügyelet, webes réteg, üzleti réteg, adatréteg és Active Directory. Az adatcsomag alhálózata Felhőbeli tanúsító használ. Három terheléselosztó van.](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
-## <a name="general"></a>Általános kérdések
+## <a name="general"></a>Általános
 
 -   **Erőforráscsoport**. Az [erőforráscsoportok](/azure/azure-resource-manager/resource-group-overview) az Azure-erőforrások csoportosítására használhatók, így élettartamuk, tulajdonosuk vagy egyéb feltételek szerint kezelhetők.
 
@@ -46,7 +46,7 @@ Az architektúra a következő összetevőket tartalmazza.
 
 -   **SQL Server always on rendelkezésre állási csoport**. Magas rendelkezésre állást biztosít az adatszinten a replikáció és a feladatátvétel engedélyezésével. A feladatátvételhez a Windows Server feladatátvételi fürt (WSFC) technológiáját használja.
 
--   **(AD DS) Active Directory Domain Services-kiszolgálók** A feladatátvevő fürt és a hozzá tartozó fürtözött szerepkörök számítógép-objektumai a Active Directory tartományi szolgáltatásokban (AD DS) jönnek létre. Az azonos virtuális hálózatban lévő virtuális gépeken AD DS-kiszolgálók beállítása előnyben részesített módszer a más virtuális gépekhez való csatlakozásra AD DS. A virtuális gépeket a meglévő vállalati AD DShoz is csatlakoztathatja, ha VPN-kapcsolattal csatlakozik a vállalati hálózathoz. Mindkét módszer esetében módosítania kell a virtuális hálózat DNS-jét a AD DS DNS-kiszolgálóra (virtuális hálózaton vagy meglévő vállalati hálózatban) a AD DS tartomány teljes tartománynevének feloldásához.
+-   **(AD DS) Active Directory Domain Services-kiszolgálók** A feladatátvevő fürt és a hozzá tartozó fürtözött szerepkörök számítógép-objektumai a Active Directory Domain Servicesban (AD DS) jönnek létre. Az azonos virtuális hálózatban lévő virtuális gépeken AD DS-kiszolgálók beállítása előnyben részesített módszer a más virtuális gépekhez való csatlakozásra AD DS. A virtuális gépeket a meglévő vállalati AD DShoz is csatlakoztathatja, ha VPN-kapcsolattal csatlakozik a vállalati hálózathoz. Mindkét módszer esetében módosítania kell a virtuális hálózat DNS-jét a AD DS DNS-kiszolgálóra (virtuális hálózaton vagy meglévő vállalati hálózatban) a AD DS tartomány teljes tartománynevének feloldásához.
 
 -   **Felhőbeli tanúsító**. A feladatátvevő fürtök több mint felet igényelnek a csomópontok futtatásához, amely kvórumnak ismert. Ha a fürt csak két csomóponttal rendelkezik, a hálózati partíciók az egyes csomópontok esetében úgy gondolják, hogy ez a fő csomópont. Ebben az esetben szükség van egy *tanúra* a kapcsolatok megszakításához és a kvórum létrehozásához. A tanúsító egy olyan erőforrás, például egy megosztott lemez, amely döntetlen-MEGSZAKÍTÓKÉNT működhet kvórum létrehozásához. A Felhőbeli tanúsító olyan tanúsító típus, amely az Azure Blob Storage-t használja. A kvórum fogalmával kapcsolatos további tudnivalókért tekintse meg a [fürt és a készlet Kvórumának ismertetése](/windows-server/storage/storage-spaces/understand-quorum)című témakört. A Felhőbeli tanúsító szolgáltatással kapcsolatos további információkért lásd: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](/windows-server/failover-clustering/deploy-cloud-witness). Azure Stack központban a Felhőbeli tanúsító végpont különbözik a globális Azure-tól. 
 
@@ -82,7 +82,7 @@ Ne tegye elérhetővé a virtuális gépeket közvetlenül az internethez, hanem
 
 Adja meg a terheléselosztó a virtuális gépek felé irányuló közvetlen hálózati forgalomra vonatkozó szabályait. Ha például engedélyezni szeretné a HTTP-forgalmat, a 80-as portot az előtér-konfigurációból a 80-es portra a háttér-címkészlet esetében. Amikor egy ügyfél HTTP-kérelmet küld a 80-as port felé, a terheléselosztó kiválaszt egy háttérbeli IP-címet egy [kivonatoló algoritmus](/azure/load-balancer/concepts#limitations) használatával, amely tartalmazza a forrás IP-címét. Az ügyfelek kérései a háttérbeli címkészlet összes virtuális gépe között oszlanak meg.
 
-### <a name="network-security-groups"></a>Hálózati biztonsági csoportok
+### <a name="network-security-groups"></a>Network security groups (Hálózati biztonsági csoportok)
 
 A szintek közötti forgalmat NSG-szabályokkal korlátozhatja. A fentiekben bemutatott háromrétegű architektúrában a webes réteg nem kommunikál közvetlenül az adatbázis szintjével. A szabály betartatásához az adatbázis-szinten le kell tiltani a webes szintű alhálózatról érkező bejövő forgalmat.
 

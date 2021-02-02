@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Ismerje meg, hogy mely vendég operációs rendszerek használhatók Azure Stack központban.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 336a4d27adf5f0ab52fffc6b624ce84f7fd0b53c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620585"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245908"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Az Azure Stack Hub által támogatott vendég operációs rendszerek
 
@@ -50,9 +50,17 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 
 | Disztribúció | Leírás | Publisher | Azure Stack hub piactér |
 | --- | --- | --- | --- |
-| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 8,0 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,8 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,7 LVM | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,7 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,6 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7,5 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,5 LVM | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 7,4 | 64 bites | Gazember hullám | Igen |
 | CentOS-alapú 7.3 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 6,9 | 64 bites | Gazember hullám | Igen |
+| CentOS-alapú 6,10 | 64 bites | Gazember hullám | Igen |
 | ClearLinux | 64 bites | ClearLinux.org | Igen |
 | CoreOS Linux (stabil) |  64 bites | CoreOS | Igen |
 | Debian 8 "Megbéklyóz" | 64 bites | credativ |  Igen |
@@ -64,10 +72,11 @@ A Azure Stack hub piactéren elérhetőként felsorolt Linux-disztribúciók kö
 | Ubuntu 14,04 – LTS | 64 bites | Canonical | Igen |
 | Ubuntu 16,04 – LTS | 64 bites | Canonical | Igen |
 | Ubuntu 18,04 – LTS | 64 bites | Canonical | Igen |
+| Ubuntu Server 20,04 LTS | 64 bites | Canonical | Igen |
 
 Red Hat Enterprise Linux támogatási információkat a [Red Hat és a Azure stack hub: gyakori kérdések](https://access.redhat.com/articles/3413531)című témakörben talál.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

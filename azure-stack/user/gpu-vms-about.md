@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 10/20/2020
+ms.date: 2/1/2021
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 0379b435a1f8b71766540865f358ca5da71d63e6
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630753"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247098"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Graphics Processing Unit (GPU) virtuális gép (VM) Azure Stack hub-on
 
@@ -85,7 +85,7 @@ Ehhez a forgatókönyvhöz a GRID-illesztőprogramok használata szükséges. A 
 
 Az NVIDIA CUDA-szárítókat és a GRID-illesztőprogramokat manuálisan kell telepíteni a virtuális gépre. A Tesla CUDA-illesztőprogramok az NVIDIA [letöltési webhelyéről](https://www.nvidia.com/Download/index.aspx)szerezhetők be. A CUDA-illesztőprogramok nem igényelnek licenckiszolgálót.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Virtuálisgép-funkciók Azure Stack](azure-stack-vm-considerations.md)  
 - [GPU-t támogató IoT-modul üzembe helyezése Azure Stack központban](gpu-deploy-sample-module.md)

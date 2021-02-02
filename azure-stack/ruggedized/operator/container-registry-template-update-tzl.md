@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: f63f0d550a841902e1d7c27d9c7688a8b5373149
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: b627b3f34b585189492cb3c3c3dfdef6965d5c61
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910584"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247404"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>A tároló beállításjegyzékének frissítése Azure Stack központban
 
@@ -35,7 +35,7 @@ Azure Stack hub-felhasználók frissíthetik a tároló beállításjegyzékéne
 
 > ![Képernyőkép: a "Hozzáadás az Azure-ból" oldal, amely a "AK Base Übü" keresési eredményeit jeleníti meg.](./media/container-registry-template-updating-tzl/image1.png)
 
-### <a name="user"></a>Felhasználó
+### <a name="user"></a>User
 
 1.  Győződjön meg arról, hogy a tároló beállításjegyzék-sablon üzembe helyezéséhez használt AK alaprendszerkép SKU-jának tallózással keresse meg az erőforráscsoport központi telepítési rekordját, és válassza a **bemenetek** lehetőséget.
 

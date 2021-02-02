@@ -3,16 +3,16 @@ title: Speciális virtuális gép áthelyezése a helyszínről a Azure Stack hu
 description: Megtudhatja, hogyan helyezhet át egy speciális virtuális gépet a helyszínről Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c88ef8ff8cfebc3749a6988d2e5e7f604df63cc0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b5d46af0ebb5a1ae059ff7f778c8177e0ea4a04d
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872857"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247846"
 ---
 # <a name="move-a-specialized-vm-from-on-premises-to-azure-stack-hub"></a>Speciális virtuális gép áthelyezése a helyszínről a Azure Stack hubhoz
 
@@ -121,6 +121,6 @@ Ebben a verzióban jelenleg nincs `Provisioning.Agent` lehetőség a teljes kié
 
 [!INCLUDE [Create the disk in Azure Stack Hub](../includes/user-compute-create-disk.md)]
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Virtuális gép áthelyezése Azure Stack hub-ra – áttekintés](vm-move-overview.md)

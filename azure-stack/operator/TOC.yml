@@ -521,8 +521,56 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: További források
+- name: Források
   items:
+    - name: Kiadási megjegyzések archívuma
+      items:
+        - name: Kibocsátási megjegyzések – 1910
+          href: ./relnotearchive/release-notes-1910.md
+        - name: 1910 ismert problémák
+          href: ./relnotearchive/known-issues-1910.md
+        - name: 1908 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-1908.md
+        - name: 1908 ismert problémák
+          href: ./relnotearchive/known-issues-1908.md
+        - name: 1907 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-1907.md
+        - name: 1907 ismert problémák
+          href: ./relnotearchive/known-issues-1907.md
+        - name: Kibocsátási megjegyzések – 1906
+          href: ./relnotearchive/release-notes-1906.md
+        - name: 1906 ismert problémák
+          href: ./relnotearchive/known-issues-1906.md
+        - name: 1905 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-1905.md
+        - name: 1905 ismert problémák
+          href: ./relnotearchive/known-issues-1905.md
+        - name: 1904 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-1904.md
+        - name: 1904 ismert problémák
+          href: ./relnotearchive/known-issues-1904.md
+        - name: 1903 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1903.md
+        - name: Kibocsátási megjegyzések – 1902
+          href: ./relnotearchive/release-notes-known-issues-1902.md
+        - name: 1901 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1901.md
+        - name: 1811 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1811.md
+        - name: 1809 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1809.md
+        - name: 1808 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1808.md
+        - name: 1807 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1807.md
+        - name: 1805 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1805.md
+        - name: 1804 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1804.md
+        - name: 1803 kibocsátási megjegyzések
+          href: ./relnotearchive/release-notes-known-issues-1803.md
+        - name: Kibocsátási megjegyzések – 1802
+          href: ./relnotearchive/release-notes-known-issues-1802.md
     - name: Képzés és tanúsítványok
       href: azure-stack-train-and-cert.md
     - name: Azure Stack hub közúti Térkép

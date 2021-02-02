@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz
 description: További információ a Azure Stack hub összekapcsolásáról.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b8a9c565cf618ea97714574a8f4d662afadaa749
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874251"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247829"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Kapcsolódás Azure Stack hubhoz
 
@@ -99,7 +99,7 @@ Kapcsolódjon az Azure Stack hub-példányhoz a következő két módszer egyik�
 
 A portál-kapcsolatok teszteléséhez nyisson meg egy böngészőt, és nyissa meg a felhasználói portált `https://portal.local.azurestack.external/` , jelentkezzen be, majd hozzon létre erőforrásokat.  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 
 

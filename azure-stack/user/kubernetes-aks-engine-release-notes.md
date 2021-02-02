@@ -3,16 +3,16 @@ title: Az Azure Kubernetes Service (ak) motor kibocsátási megjegyzései Azure 
 description: Megtudhatja, milyen lépéseket kell végrehajtania a Azure Stack hub-ban lévő AK-os motor frissítéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
-ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
+ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810643"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247676"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 ::: moniker range=">=azs-2002"
