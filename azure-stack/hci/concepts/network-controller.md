@@ -1,22 +1,22 @@
 ---
 title: A hálózati vezérlő üzembe helyezésének megtervezése
-description: Ez a témakör bemutatja, hogyan tervezheti meg a hálózati vezérlő telepítését a Windows felügyeleti központban a Azure Stack HCI operációs rendszert futtató virtuális gépek (VM-EK) használatával.
+description: Ez a témakör bemutatja, hogyan tervezheti meg a hálózati vezérlő üzembe helyezését a Windows felügyeleti központban a virtuális gépek (VM-EK) készletén.
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 10/7/2020
-ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: bfea9216cefdc64c7749f8b49d5ecc3a422e5130
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255078"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510788"
 ---
 # <a name="plan-to-deploy-network-controller"></a>A hálózati vezérlő üzembe helyezésének megtervezése
 
->A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+>A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
-A hálózati vezérlő Windows felügyeleti központon keresztül történő telepítésének megtervezéséhez a Azure Stack HCI operációs rendszert futtató virtuális gépeket (VM) kell használnia. A hálózati vezérlő egy magas rendelkezésre állású és méretezhető kiszolgálói szerepkör, amelynek legalább három virtuális gépnek kell lennie ahhoz, hogy magas rendelkezésre állást biztosítson a hálózaton.
+A hálózati vezérlő Windows felügyeleti központon keresztül történő telepítésének megtervezéséhez a Azure Stack HCI vagy a Windows Server operációs rendszert futtató virtuális gépek (VM-EK) szükségesek. A hálózati vezérlő egy magas rendelkezésre állású és méretezhető kiszolgálói szerepkör, amelynek legalább három virtuális gépnek kell lennie ahhoz, hogy magas rendelkezésre állást biztosítson a hálózaton.
 
    >[!NOTE]
    > Javasoljuk, hogy a hálózati vezérlőt saját dedikált virtuális gépekre telepítse.
@@ -55,13 +55,11 @@ A hálózati vezérlő fürtcsomópontok ugyanazon az alhálózaton vagy más al
 
 További információ: [dinamikus DNS-regisztráció konfigurálása a hálózati vezérlőhöz](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
-## <a name="next-steps"></a>További lépések
-Most már készen áll a hálózati vezérlő üzembe helyezésére az operációs rendszert futtató virtuális gépeken.
+## <a name="next-steps"></a>Következő lépések
+Most már készen áll a hálózati vezérlő üzembe helyezésére a virtuális gépeken.
 
-További információ:
+## <a name="see-also"></a>Lásd még
 - [Azure Stack HCI-fürt létrehozása](../deploy/create-cluster.md)
-- [Hálózati vezérlő telepítése a Windows PowerShell használatával](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-
-## <a name="see-also"></a>További információ
-- [Hálózati vezérlő](/windows-server/networking/sdn/technologies/network-controller/network-controller)
+- [SDN-infrastruktúra üzembe helyezése az SDN Express használatával](../manage/sdn-express.md)
+- [Hálózati vezérlő – áttekintés](network-controller-overview.md)
 - [Hálózati vezérlő magas rendelkezésre állása](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

@@ -94,8 +94,6 @@
           href: manage/monitor-cluster.md
         - name: Tanúsító fürt beállítása
           href: manage/witness.md
-        - name: Adatközponti tűzfal használata
-          href: manage/use-datacenter-firewall.md
         - name: A DISKSPD használata a számítási feladatok teszteléséhez
           href: manage/diskspd-overview.md
         - name: Kiszolgálók hozzáadása vagy eltávolítása
@@ -114,6 +112,8 @@
       items:
         - name: SDN-infrastruktúra üzembe helyezése
           href: manage/sdn-express.md
+        - name: Adatközponti tűzfal használata
+          href: manage/use-datacenter-firewall.md
         - name: Bérlői virtuális hálózatok kezelése
           href: manage/tenant-virtual-networks.md
     - name: Azure-szolgáltatások kezelése

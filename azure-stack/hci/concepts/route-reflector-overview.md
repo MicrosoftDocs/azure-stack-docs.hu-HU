@@ -1,22 +1,22 @@
 ---
-title: A BGP Route-tükrözés áttekintése Azure Stack HCI-ben
-description: Ebből a témakörből megtudhatja, hogyan használható a BGP Route-tükröző a szoftverek által meghatározott hálózatkezeléshez Azure Stack HCI-ben.
+title: A BGP Route-tükrözés áttekintése Azure Stack HCI-ben és a Windows Serverben
+description: Ebből a témakörből megtudhatja, hogyan használható a BGP Route-tükröző a szoftverek által meghatározott hálózatkezeléshez Azure Stack HCI-ben és a Windows Serverben.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: ca130c60e8cf08484001f606c4d0f84d786ca16b
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.date: 02/02/2021
+ms.openlocfilehash: 836931b0efa6c3629123602c141ec5ea35f8aa40
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858905"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510839"
 ---
 # <a name="what-is-route-reflector"></a>Mi az az útvonal-tükröző?
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 A Border Gateway Protocol (BGP) útvonal-tükröző tartalmazza a [távelérési szolgáltatás (RAS) átjáróját](gateway-overview.md) , és alternatívát biztosít az útválasztók közötti útvonal-szinkronizáláshoz szükséges BGP teljes hálós topológiához. A szoftveresen definiált hálózati telepítés útvonal-tükröző egy olyan logikai entitás, amely az RAS-átjárók és a [hálózati vezérlő](network-controller-overview.md)közötti vezérlési síkon helyezkedik el. Azonban nem vesz részt az adatsík-útválasztásban.
 
@@ -42,7 +42,7 @@ Az ellenőrzési síkon található BGP Route-tükröző kezeli ezeket a problé
 
 - Ha a vállalati ügyfelek BGP-útválasztást használnak az ügyfél címterület területén, a RAS Gateway Route-tükröző az egyetlen külső BGP-(eBGP-) szomszéd a megfelelő bérlő összes helyéhez. Ez a vállalati bérlő alagút-megszakítási pontjaitól függetlenül igaz. Más szóval, függetlenül attól, hogy a CSP-adatközpontban lévő RAS Gateway virtuális gép leáll-e a helyek közötti VPN-alagút a bérlői helyhez, az összes bérlői hely eBGP-társa az útvonal-tükröző.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 

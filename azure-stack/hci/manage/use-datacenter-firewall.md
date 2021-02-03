@@ -1,22 +1,22 @@
 ---
-title: Adatközponti tűzfal használata az SDN-hez Azure Stack HCI-ben
-description: Ebből a témakörből megtudhatja, hogyan kezdheti el az adatközponti tűzfalat Software-Defined hálózatkezeléshez Azure Stack HCI-ben.
+title: Adatközponti tűzfal használata az SDN-hez Azure Stack HCI-ben és a Windows Serverben
+description: Ebből a témakörből megtudhatja, hogyan kezdheti el az adatközponti tűzfalat Software-Defined hálózatkezeléshez Azure Stack HCI, a Windows Server 2019 és a Windows Server 2016 rendszeren.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 833780947bd698a0e39709668715372bd8508e90
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 8c150de090bd1f863a29109ddae9d6e4bb104dfc
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94881215"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510703"
 ---
-# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci"></a>Adatközponti tűzfal használata Software-Defined hálózatkezeléshez Azure Stack HCI-ben
+# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci-and-windows-server"></a>Adatközponti tűzfal használata Software-Defined hálózatkezeléshez Azure Stack HCI-ben és a Windows Serverben
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 Ez a témakör útmutatást nyújt a hozzáférés-vezérlési listák (ACL-ek) konfigurálásához az adatforgalom kezeléséhez a Windows PowerShell használatával a Azure Stack HCI-ben a szoftveresen definiált hálózatkezelés (SDN [) használatával.](../concepts/datacenter-firewall-overview.md) Az adatközpont tűzfalát az alhálózatra vagy hálózati adapterre alkalmazott ACL-ek létrehozásával engedélyezheti és konfigurálhatja. A jelen témakörben található parancsfájlok a **NetworkController** modulból exportált Windows PowerShell-parancsokat használják. Az ACL-ek konfigurálásához és kezeléséhez használhatja a Windows felügyeleti központot is.
 
@@ -26,7 +26,7 @@ Az SDN üzembe helyezése után tesztelje az alapszintű hálózati kapcsolatot 
 
 Az alábbi táblázat bejegyzéseivel hozhat létre olyan szabályokat, amelyek engedélyezik az összes bejövő és kimenő hálózati forgalmat.
 
-| Forrás IP-címe | Cél IP-címe | Protokoll | Forrásport | Célport | Irány | Műveletek | Prioritás |
+| Forrás IP-címe | Cél IP-címe | Protokoll | Forrásport | Célport | Irány | Művelet | Prioritás |
 |:---------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
 |    \*     |       \*       |   Mind    |     \*      |        \*        |  Bejövő  | Engedélyezés  |   100    |
 |    \*     |       \*       |   Mind    |     \*      |        \*        | Kimenő  | Engedélyezés  |   110    |
@@ -84,7 +84,7 @@ New-NetworkControllerAccessControlList -ResourceId "AllowAll" -Properties $aclli
 ## <a name="use-acls-to-limit-traffic-on-a-subnet"></a>Az alhálózaton lévő adatforgalom korlátozására szolgáló ACL-ek használata
 Ebben a példában egy ACL-t hoz létre, amely megakadályozza, hogy a 192.168.0.0/24 alhálózaton belül a virtuális gépek (VM-EK) kommunikálnak egymással. Ez a típusú ACL hasznos lehet arra, hogy korlátozza a támadók az alhálózaton belüli későbbi terjesztésének lehetőségét, miközben továbbra is lehetővé teszi a virtuális gépek számára az alhálózaton kívülről érkező kérések fogadását, valamint a más alhálózatokon lévő más szolgáltatásokkal való kommunikációt.
 
-|   Forrás IP-címe    | Cél IP-címe | Protokoll | Forrásport | Célport | Irány | Műveletek | Prioritás |
+|   Forrás IP-címe    | Cél IP-címe | Protokoll | Forrásport | Célport | Irány | Művelet | Prioritás |
 |:--------------:|:--------------:|:--------:|:-----------:|:----------------:|:---------:|:------:|:--------:|
 |  192.168.0.1   |       \*       |   Mind    |     \*      |        \*        |  Bejövő  | Engedélyezés  |   100    |
 |       \*       |  192.168.0.1   |   Mind    |     \*      |        \*        | Kimenő  | Engedélyezés  |   101    |
@@ -207,7 +207,7 @@ New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Propert
 
 ## <a name="add-an-acl-to-a-network-interface"></a>Hozzáférés-vezérlési lista hozzáadása hálózati adapterhez
 
-Miután létrehozott egy ACL-t, és hozzárendelte azt egy virtuális alhálózathoz, érdemes lehet felülbírálni az alapértelmezett ACL-t a virtuális alhálózaton egy egyedi hálózati adapterhez tartozó ACL-sel. Ebben az esetben a virtuális hálózat helyett közvetlenül a VLAN hálózatokhoz csatolt hálózati adapterekre alkalmazza a megadott ACL-eket. Ha a hálózati adapterhez csatlakoztatott virtuális alhálózathoz ACL-ek vannak beállítva, a rendszer mindkét ACL-t alkalmazza, és rangsorolja a hálózati adapter hozzáférés-vezérlési listáin a virtuális alhálózat ACL-jeit.
+Miután létrehozott egy ACL-t, és hozzárendelte azt egy virtuális alhálózathoz, érdemes lehet felülbírálni az alapértelmezett ACL-t a virtuális alhálózaton egy egyedi hálózati adapterhez tartozó ACL-sel. A Windows Server 2019 Datacenter rendszertől kezdve a konkrét ACL-eket közvetlenül az SDN logikai hálózatokhoz csatolt hálózati adapterekre alkalmazhatja, az SDN virtuális hálózatokon kívül. Ha a hálózati adapterhez csatlakoztatott virtuális alhálózathoz ACL-ek vannak beállítva, akkor mindkét ACL-t alkalmazza a rendszer, és a hálózati adapterek ACL-jei a virtuális alhálózati ACL-ek felett vannak rangsorolva.
 
 Ebben a példában bemutatjuk, hogyan adhat hozzá egy ACL-t egy virtuális hálózathoz.
 
@@ -259,7 +259,7 @@ Ebben a példában bemutatjuk, hogyan távolíthat el egy ACL-t egy hálózati a
 
 ## <a name="firewall-auditing"></a>Tűzfal naplózása
 
-A tűzfal naplózása új képesség az adatközpont tűzfala számára, amely rögzíti az SDN tűzfalszabályok által feldolgozott folyamatokat. A rendszer minden olyan ACL-t rögzít, amelyen engedélyezve van a naplózás. A naplófájloknak olyan szintaxissal kell rendelkezniük, amely konzisztens az [Azure Network Watcher flow naplóival](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ezeket a naplókat diagnosztikai célból vagy a későbbi elemzések archiválására is felhasználhatják.
+A Windows Server 2019 rendszerben bevezetett tűzfal-naplózás új képesség az adatközpont tűzfala számára, amely az SDN tűzfalszabályok által feldolgozott folyamatokat rögzíti. A rendszer minden olyan ACL-t rögzít, amelyen engedélyezve van a naplózás. A naplófájloknak olyan szintaxissal kell rendelkezniük, amely konzisztens az [Azure Network Watcher flow naplóival](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Ezeket a naplókat diagnosztikai célból vagy a későbbi elemzések archiválására is felhasználhatják.
 
 Itt látható egy példa a tűzfal naplózásának engedélyezésére a gazdagép-kiszolgálókon. Frissítse a változókat az elején, majd futtassa ezt egy Azure Stack HCI-fürtön, amelyen telepítve van a [hálózati vezérlő](../concepts/network-controller-overview.md) :
 
@@ -412,4 +412,4 @@ A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Az adatközpont tűzfala – áttekintés](../concepts/datacenter-firewall-overview.md)
 - [Hálózati vezérlő – áttekintés](../concepts/network-controller-overview.md)
-- [SDN Azure Stack HCI-ben](../concepts/software-defined-networking.md)
+- [SDN a Azure Stack HCI-ben és a Windows Serverben](../concepts/software-defined-networking.md)

@@ -1,28 +1,28 @@
 ---
-title: Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
+title: Szoftveres hálózatkezelés (SDN) a Azure Stack HCI-ben és a Windows Serverben
 description: A szoftveresen definiált hálózatkezelés (SDN) lehetővé teszi a hálózatok és hálózati szolgáltatások központi konfigurálását és kezelését, például a váltást, az útválasztást és a terheléselosztást az adatközpontban.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/22/2021
-ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/02/2021
+ms.openlocfilehash: d67f16b65e13c700360bd85096dd1454745772c0
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772260"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510720"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Szoftveresen definiált hálózatkezelés (SDN) Azure Stack HCI-ben
+# <a name="software-defined-networking-sdn-in-azure-stack-hci-and-windows-server"></a>Szoftveres hálózatkezelés (SDN) a Azure Stack HCI-ben és a Windows Serverben
 
-> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 A szoftveresen definiált hálózatkezelés (SDN) lehetővé teszi a hálózatok és hálózati szolgáltatások központi konfigurálását és kezelését, például a váltást, az útválasztást és a terheléselosztást az adatközpontban. Az SDN használatával dinamikusan hozhatja létre, biztonságossá teheti és összekapcsolhatók a hálózata, hogy megfeleljenek az alkalmazások változó igényeinek. A globálisan méretezhető adatközpont-hálózatok olyan szolgáltatásokhoz, mint például a Microsoft Azure, amelyek minden nap több tízezer hálózati módosítást tesznek lehetővé, csak az SDN miatt lehetséges.
 
 A virtuális hálózati elemek, például a [Hyper-v virtuális kapcsoló](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), a [Hyper-v hálózati virtualizálás](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), a [szoftveres](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)terheléselosztás és a [RAS-átjáró](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) az Sdn-infrastruktúra szerves elemeivé vannak kialakítva. Meglévő SDN-kompatibilis eszközeit is használhatja a virtuális hálózatokban és a fizikai hálózaton futó munkaterhelések közötti mélyebb integráció eléréséhez.
 
-A Azure Stack HCI három fő SDN-összetevővel rendelkezik, és kiválaszthatja, hogy melyik szolgáltatást szeretné telepíteni: hálózati vezérlő, szoftveres Load Balancer és átjáró.
+Három fő SDN-összetevő létezik, és kiválaszthatja, hogy melyiket szeretné telepíteni: hálózati vezérlő, szoftver Load Balancer és átjáró.
 
    > [!NOTE]
    > Az SDN nem támogatott a kiterjesztett (többhelyes) fürtökön.
@@ -38,7 +38,7 @@ A hálózati vezérlő üzembe helyezése a következő funkciókat biztosítja:
 - Virtuális készülékek csatlakoztatása a virtuális hálózatokhoz.
 - Konfigurálja a szolgáltatásminőség (QoS) házirendeket a virtuális hálózatokhoz vagy a hagyományos VLAN-alapú hálózatokhoz csatolt virtuális gépekhez.
 
-Azt javasoljuk, hogy Azure Stack HCI-fürt létrehozása után telepítse [a hálózati vezérlőt az Sdn Express használatával](../manage/sdn-express.md) .
+Javasoljuk, hogy [a hálózati vezérlőt az Sdn Express használatával](../manage/sdn-express.md)telepítse.
 
 ## <a name="software-load-balancing"></a>Szoftveres terheléselosztás
 
@@ -54,10 +54,9 @@ Az átjárók a virtuális hálózat és egy másik hálózat (helyi vagy távol
 
 Az átjárók [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) a GRE-végpontok reklámozására és pont-pont típusú kapcsolatok létrehozására szolgálnak. Az SDN üzembe helyezése egy alapértelmezett átjárót hoz létre, amely támogatja az összes kapcsolattípust. Ebben a készletben megadhatja, hogy hány átjáró legyen lefoglalva készenléti állapotban, ha egy aktív átjáró meghibásodik.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Szoftveresen definiált hálózati infrastruktúra megtervezése](plan-software-defined-networking-infrastructure.md)
-- [SDN a Windows Serverben – áttekintés](/windows-server/networking/sdn/software-defined-networking)
 - [SDN-infrastruktúra üzembe helyezése az SDN Express használatával](../manage/sdn-express.md)

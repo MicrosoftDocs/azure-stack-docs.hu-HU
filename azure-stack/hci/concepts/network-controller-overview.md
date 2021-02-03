@@ -1,22 +1,22 @@
 ---
-title: A hálózati vezérlő áttekintése Azure Stack HCI-ben
-description: Ebből a témakörből megtudhatja, hogyan lehet a hálózati vezérlőt Azure Stack HCI-ben definiált szoftveres hálózatkezeléshez használni.
+title: A hálózati vezérlő áttekintése Azure Stack HCI-ben és a Windows Serverben
+description: Ebből a témakörből megtudhatja, hogyan használható a hálózati vezérlő a szoftverek által meghatározott hálózatkezeléshez Azure Stack HCI-ben és a Windows Serveren.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: f8c559ff409cb6344f20ffa85a60983724ae5b17
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: e73d76657ec8f92ced5397f1b5d251cffbe59b9d
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255044"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510873"
 ---
 # <a name="what-is-network-controller"></a>Mi az a hálózati vezérlő?
 
-> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 A hálózati vezérlő a szoftveres hálózatkezelés (SDN) felügyeletének sarokköve. Ez egy jól méretezhető kiszolgálói szerepkör, amely központosított, programozható automatizálási pontot biztosít a virtuális hálózati infrastruktúra kezeléséhez, konfigurálásához, figyeléséhez és hibakereséséhez.
 
@@ -76,11 +76,10 @@ A felhasználó által megadott útvonalakkal kapcsolatos további tudnivalóké
 
 - A magas rendelkezésre állás és a méretezhetőség érdekében a hálózati vezérlő Service Fabricra támaszkodik. A Service Fabric méretezhető, megbízható és könnyen kezelhető alkalmazások kialakítására szolgáló elosztott rendszerplatformot biztosít. [További információ a hálózati vezérlőről Service Fabric alkalmazásként](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability#network-controller-as-a-service-fabric-application).
 
-
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [A hálózati vezérlő üzembe helyezésének megtervezése](network-controller.md)
 - [Hálózati vezérlő telepítése a Windows PowerShell használatával](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [SDN Azure Stack HCI-ben](software-defined-networking.md)
+- [SDN a Azure Stack HCI-ben és a Windows Serverben](software-defined-networking.md)

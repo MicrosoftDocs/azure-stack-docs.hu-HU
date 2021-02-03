@@ -1,22 +1,22 @@
 ---
-title: Az adatközpont tűzfala Azure Stack HCI-ben – áttekintés
-description: Ez a témakör az adatközpont tűzfala Azure Stack HCI-ben való megismerésére használható.
+title: Az adatközpont tűzfalának áttekintése Azure Stack HCI-ben és a Windows Serverben
+description: Ebben a témakörben megismerheti a Azure Stack HCI és a Windows Server Datacenter-tűzfalát.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 34efe18aee4a62481d81a5e9a810a0a71d97b063
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 78ed83e5be35bacb51d6e03d88d7662663117f61
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874957"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510890"
 ---
 # <a name="what-is-datacenter-firewall"></a>Mi az az adatközpont tűzfala?
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 Az adatközpont tűzfala egy hálózati réteg, 5 rekord (protokoll, forrás és cél portszámok, forrás és cél IP-címek), állapot-nyilvántartó, több-bérlős szoftverek által definiált hálózatkezelési (SDN) tűzfal. Az adatközpont tűzfala védi a kelet-nyugati és az észak-déli forgalmat a virtuális hálózatok és a hagyományos VLAN-hálózatok hálózati rétegében.
 
@@ -62,5 +62,5 @@ Az adatközpont tűzfala a következő előnyöket kínálja a bérlők számár
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
-- [Adatközponti tűzfal használata Software-Defined hálózatkezeléshez Azure Stack HCI-ben](../manage/use-datacenter-firewall.md)
-- [SDN Azure Stack HCI-ben](software-defined-networking.md)
+- [Adatközponti tűzfal használata Software-Defined hálózatkezeléshez Azure Stack HCI-ben és a Windows Serverben](../manage/use-datacenter-firewall.md)
+- [SDN a Azure Stack HCI-ben és a Windows Serverben](software-defined-networking.md)

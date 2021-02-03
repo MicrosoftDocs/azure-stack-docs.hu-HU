@@ -1,22 +1,22 @@
 ---
-title: A RAS-átjáró áttekintése Azure Stack HCI-ben
-description: Ebből a témakörből megtudhatja, hogyan használható a RAS Gateway a szoftverek által meghatározott hálózatkezeléshez Azure Stack HCI-ben.
+title: A RAS-átjáró áttekintése Azure Stack HCI-ben és a Windows Serverben
+description: Ebből a témakörből megtudhatja, hogyan használható a RAS Gateway a szoftverek által meghatározott hálózatkezeléshez Azure Stack HCI-ben és a Windows Serveren.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: a7f05f7e07960e83681a13c92f4653b0993668de
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.date: 02/02/2021
+ms.openlocfilehash: d0658ab5d000f42a2cc9309a1a298eb62048b980
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858913"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510856"
 ---
 # <a name="what-is-ras-gateway-for-software-defined-networking"></a>Mi az RAS-átjáró a szoftveresen definiált hálózatkezeléshez?
 
-> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
 A távelérési szolgáltatás (RAS) átjárója egy szoftveres Border Gateway Protocol (BGP) kompatibilis útválasztó, amely a Hyper-V hálózati virtualizálás (HNV) használatával a több-bérlős virtuális hálózatokat üzemeltető vállalatok számára készült. A RAS Gateway segítségével átirányíthatja a hálózati forgalmat egy virtuális hálózat és egy másik hálózat között, akár helyi, akár távoli módon.
 
@@ -63,11 +63,11 @@ Minden átjáró készlete M + N redundanciát biztosít. Ez azt jelenti, hogy a
 
 Egyetlen nyilvános IP-címet is hozzárendelhet az összes készlethez vagy a készletek egy részhalmazához. Ez jelentősen csökkenti a használni kívánt nyilvános IP-címek számát, mivel lehetséges, hogy az összes bérlő egyetlen IP-címen csatlakozik a felhőhöz.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [RAS-átjáró telepítési architektúrája](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-deployment-architecture)
 - [Hálózati vezérlő – áttekintés](network-controller-overview.md)
 - [A hálózati vezérlő üzembe helyezésének megtervezése](network-controller.md)
-- [SDN Azure Stack HCI-ben](software-defined-networking.md)
+- [SDN a Azure Stack HCI-ben és a Windows Serverben](software-defined-networking.md)

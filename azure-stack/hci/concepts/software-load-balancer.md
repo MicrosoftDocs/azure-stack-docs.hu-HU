@@ -1,24 +1,24 @@
 ---
-title: Szoftver Load Balancer (SLB) az SDN-hez Azure Stack HCI-ben
-description: Ebből a témakörből megtudhatja, hogyan Azure Stack a HCI-ben a szoftveresen definiált hálózatkezelés szoftvereit Load Balancer.
+title: Szoftver Load Balancer (SLB) az SDN-hez Azure Stack HCI-ben és a Windows Serverben
+description: Ebből a témakörből megtudhatja, hogyan Azure Stack a HCI-ben és a Windows Serverben a szoftverek által meghatározott hálózatkezeléshez Load Balancer.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: 35cf6d997a7200b762b8da052e5e30038f288bdc
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: cabd243daa8ea427ca7a1684f1db9be4770c214f
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254993"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510771"
 ---
 # <a name="what-is-software-load-balancer-slb-for-sdn"></a>Mi a szoftver Load Balancer \( SLB \) for Sdn?
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
 
-[A Azure stack HCI-ben a szoftveres hálózatkezelést (Sdn)](software-defined-networking.md) telepítő felhőalapú szolgáltatók (CSP-EK) és a szoftveres Load BALANCER (SLB) segítségével egyenletesen terjeszthetik a bérlői és bérlői ügyfél hálózati forgalmát a virtuális hálózati erőforrások között. A SLB lehetővé teszi, hogy több kiszolgáló ugyanazt a számítási feladatot működtesse, magas rendelkezésre állást és méretezhetőséget biztosítva.
+A felhőalapú szolgáltatók (CSP-EK) és a [szoftveres hálózatkezelést (Sdn)](software-defined-networking.md) telepítő vállalatok a szoftveres Load BALANCER (SLB) segítségével egyenletesen terjeszthetik a bérlői és bérlői ügyfél hálózati forgalmát a virtuális hálózati erőforrások között. A SLB lehetővé teszi, hogy több kiszolgáló ugyanazt a számítási feladatot működtesse, magas rendelkezésre állást és méretezhetőséget biztosítva.
 
 A szoftver Load Balancer a következő képességeket tartalmazza:
 
@@ -200,10 +200,10 @@ A következő szakaszok ismertetik a szoftverek Load Balancer funkcióit és ké
 
 - Az állapot-figyelési adategységek a felügyeleti entitások számára érhetők el.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
 - [Hálózati vezérlő – áttekintés](network-controller-overview.md)
 - [Hálózati vezérlő telepítése a Windows PowerShell használatával](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [SDN Azure Stack HCI-ben](software-defined-networking.md)
+- [SDN a Azure Stack HCI-ben és a Windows Serverben](software-defined-networking.md)
