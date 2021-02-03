@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4e1a00be9f4adadee5d1bf1e647c455773211b61
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974285"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495533"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>A rendszerjogosultságú végpont használata Azure Stack központban
 
@@ -43,7 +43,7 @@ Az IP-címet az Azure Stack hub felügyeleti portálján is megtalálhatja. Nyis
 Az emelt szintű végpont futtatásakor be kell állítania az aktuális kulturális környezet beállítását `en-US` , ellenkező esetben a parancsmagok (például Test-AzureStack vagy Get-AzureStackLog) nem a várt módon fognak működni.
 
 > [!NOTE]
-> Biztonsági okokból szükség van arra, hogy csak a hardveres életciklus-gazdagépen futó megerősített virtuális gépről, vagy egy dedikált és biztonságos számítógépről, például egy emelt [szintű hozzáférési munkaállomásról](/windows-server/identity/securing-privileged-access/privileged-access-workstations)kapcsolódjon a PEP-hez. A hardveres életciklus-gazdagép eredeti konfigurációja nem módosítható az eredeti konfigurációjától (beleértve az új szoftverek telepítését), vagy a PEP-hez való kapcsolódáshoz használt konfigurációt.
+> Biztonsági okokból szükség van arra, hogy csak a hardveres életciklus-gazdagépen futó megerősített virtuális gépről, vagy egy dedikált és biztonságos számítógépről, például egy emelt [szintű hozzáférési munkaállomásról](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model)kapcsolódjon a PEP-hez. A hardveres életciklus-gazdagép eredeti konfigurációja nem módosítható az eredeti konfigurációjától (beleértve az új szoftverek telepítését), vagy a PEP-hez való kapcsolódáshoz használt konfigurációt.
 
 1. Hozza létre a bizalmi kapcsolatot.
 
@@ -251,5 +251,5 @@ Ezután a rendszer titkosítja a válasz tokent a kérelem jogkivonatában talá
 
 ## <a name="next-steps"></a>Következő lépések
 
-- [Azure Stack hub diagnosztikai eszközök](./azure-stack-diagnostic-log-collection-overview.md)
+- [Azure Stack hub diagnosztikai eszközök](./diagnostic-log-collection.md)
 - [Azure Stack hub privilegizált végpontjának referenciája](../reference/pep-2002/index.md)

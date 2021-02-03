@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: f247e8c604b9b1060f4cc011acdbd9786b487ab1
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243323"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495499"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>A hálózati virtuális berendezésekkel kapcsolatos problémák elhárítása
 
@@ -23,7 +23,7 @@ Ez a cikk segítséget nyújt a Azure Stack hub alapszintű platformokra vonatko
 A NVA szállítója technikai támogatást nyújt a NVA és az Azure Stack hub platformmal való integrálásához.
 
 > [!NOTE]
-> Ha van olyan kapcsolat vagy útválasztási probléma, amely egy NVA tartalmaz, forduljon közvetlenül [a NVA-gyártóhoz](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) .
+> Ha van olyan kapcsolat vagy útválasztási probléma, amely egy NVA tartalmaz, forduljon közvetlenül [a NVA-gyártóhoz](https://mskb.pkisolutions.com/kb/2984655) .
 
 Ha ez a cikk nem foglalkozik az Azure Stack hub-vel kapcsolatos NVA-problémával, hozzon létre egy [Azure stack hub támogatási jegyet](../operator/azure-stack-manage-basics.md#where-to-get-support).
 
@@ -44,7 +44,7 @@ Ha ez a cikk nem foglalkozik az Azure Stack hub-vel kapcsolatos NVA-problémáva
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Az Azure-beli NVA minimális konfigurációs követelményeinek ellenõrzése
 
-Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, hogy az Azure Stack hub megfelelően működjön. Ez a szakasz az alapvető konfigurációk ellenőrzésének lépéseit mutatja be. További információért [forduljon a NVA gyártójához](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Minden NVA meg kell felelnie az alapszintű konfigurációs követelményeknek, hogy az Azure Stack hub megfelelően működjön. Ez a szakasz az alapvető konfigurációk ellenőrzésének lépéseit mutatja be. További információért [forduljon a NVA gyártójához](https://mskb.pkisolutions.com/kb/2984655).
 
 > [!IMPORTANT]
 > Ha a csomagok egy S2S-alagutat használnak, további fejlécekkel vannak beágyazva. Ez a beágyazás növeli az egyes csomagok teljes méretét.
@@ -135,7 +135,7 @@ Előfordulhat, hogy egyes vendég szintű operációs rendszerek rendelkeznek t�
    netstat -an | grep -i listen
    ```
 
-1. Keresse meg a NVA szoftver által használt TCP-portokat, amelyek az eredmények között szerepelnek. Ha nem látja őket, konfigurálja az alkalmazást a NVA és a virtuális gépen, hogy figyelje és válaszoljon a portokat elérő forgalomra. [Segítségért forduljon a NVA gyártójához](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+1. Keresse meg a NVA szoftver által használt TCP-portokat, amelyek az eredmények között szerepelnek. Ha nem látja őket, konfigurálja az alkalmazást a NVA és a virtuális gépen, hogy figyelje és válaszoljon a portokat elérő forgalomra. [Segítségért forduljon a NVA gyártójához](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>NVA teljesítményének megtekintése
 
@@ -147,7 +147,7 @@ A CPU-tüske során vizsgálja meg, hogy a vendég virtuális gépen melyik foly
 
 Előfordulhat, hogy át kell méreteznie a virtuális gépet egy nagyobb SKU-méretre, vagy egy virtuálisgép-méretezési csoportnál növelje a példányszámot.
 
-Ha segítségre van szüksége, [forduljon a NVA gyártójához](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Ha segítségre van szüksége, [forduljon a NVA gyártójához](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="validate-vm-network-statistics"></a>Virtuálisgép-hálózati statisztika ellenőrzése
 
@@ -183,7 +183,7 @@ Ha nem látja a csomagokat a háttérbeli virtuális gép nyomkövetéséhez, eg
 
 Ha úgy látja, hogy a csomagok beérkeznek, de válasz nélkül, lehetséges, hogy problémát kell megválaszolnia egy virtuálisgép-alkalmazással vagy tűzfallal.
 
-Ha segítségre van szüksége, [forduljon a NVA gyártójához](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Ha segítségre van szüksége, [forduljon a NVA gyártójához](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="create-a-support-ticket"></a>Támogatási jegy létrehozása
 

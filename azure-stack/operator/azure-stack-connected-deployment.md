@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 82317b5212775f37b25ff465a4ea3b4ba085b585
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6812ac4b0841e44b760ce3397c5a06b2051e0036
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871072"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495516"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti a Azure stack hub telepítési döntéseit.
@@ -65,10 +65,10 @@ Ha úgy dönt, hogy a kapacitás számlázási modelljét használja, akkor a re
 
 A kapacitás számlázásához Nagyvállalati Szerződés (EA) Azure-előfizetés szükséges a regisztrációhoz. Ennek az az oka, hogy a regisztráció a piactéren elérhető elemek rendelkezésre állását állítja be, amelyhez Azure-előfizetés szükséges. Az előfizetés nem használatos Azure Stack hub-használathoz.
 
-## <a name="learn-more"></a>További információ
+## <a name="learn-more"></a>Tudjon meg többet
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
-- Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 - Ha többet szeretne megtudni a Microsoft Azure Stack hub csomagolásáról és díjszabásáról, [töltse le a. PDF fájlt](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Datacenter hálózati integráció](azure-stack-network.md)

@@ -8,12 +8,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: b5221162dd4a75fd9ffbd5fb382ab05560d622f6
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 2e88907094ea18e6fe3f8cbb49811fd1db307733
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255316"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495455"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Azure Stack hub adminisztrációs alapjai – moduláris adatközpont (MDC)
 
@@ -33,7 +33,7 @@ Alapértelmezés szerint a Azure Stack hub a következő alapszolgáltatásokat 
 
 - Compute
 - Storage
-- Hálózat
+- Hálózatkezelés
 - Key Vault
 
 Ezekkel az alapszolgáltatásokkal minimális konfigurációval biztosíthat infrastruktúra-szolgáltatást (IaaS) a felhasználók számára.
@@ -53,7 +53,7 @@ Ezeknek a szolgáltatásoknak további konfigurációra van szükségük ahhoz, 
 
 ### <a name="service-roadmap"></a>Szolgáltatási ütemterv
 
-Azure Stack hub továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg az [Azure stack hub: az Azure-tanulmány bővítményét](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) . Az új hirdetmények [Azure stack hub-blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is figyelheti.
+Azure Stack hub továbbra is támogatja az Azure-szolgáltatásokat. A tervezett ütemtervhez tekintse meg az [Azure stack hub: az Azure-tanulmány bővítményét](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/) . Az új hirdetmények [Azure stack hub-blogbejegyzéseit](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) is figyelheti.
 
 ## <a name="what-account-should-i-use"></a>Milyen fiókot használok?
 
@@ -169,6 +169,6 @@ Ha probléma merül fel az üzembe helyezéssel, a javítással és a frissíté
 
 Bármilyen más esetben forduljon a Microsoft CSS-hez.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Területi felügyelet Azure Stack központban](../../operator/azure-stack-region-management.md)

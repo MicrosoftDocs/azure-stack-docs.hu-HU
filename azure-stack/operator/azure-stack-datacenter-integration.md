@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 56b0025de1eee074eb0d6fbcdff8228cdbb9ac4e
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871021"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495550"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Adatközpont-integráció tervezési szempontjai Azure Stack hub integrált rendszerek esetén
 
@@ -198,10 +198,10 @@ A Linux vagy a Windows IaaS virtuális gépek biztonsági mentéséhez olyan biz
 
 Ha egy másodlagos helyre szeretné replikálni az alkalmazásokat, és vészhelyzet esetén az alkalmazás feladatátvételét koordinálja, használhat Azure Site Recovery vagy támogatott harmadik féltől származó termékeket. Emellett a natív replikálást támogató alkalmazások, például a Microsoft SQL Server is képesek replikálni az adatfájlokat egy másik helyre, ahol az alkalmazás fut.
 
-## <a name="learn-more"></a>További információ
+## <a name="learn-more"></a>Tudjon meg többet
 
 - További információ a használati esetekről, a beszerzésről, a partnerekről és az OEM-hardvergyártók használatáról: [Azure stack hub](https://azure.microsoft.com/overview/azure-stack/) terméke oldal.
-- Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Az Azure Stack hub integrált rendszerek ütemtervével és földrajzi elérhetőségével kapcsolatos információkért tekintse meg a következő tanulmányt: [Azure stack hub: az Azure kiterjesztése](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [Azure Stack hub üzembe helyezési kapcsolatainak modelljei](azure-stack-connection-models.md)

@@ -7,12 +7,12 @@ ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: dcd2779bf1166b6418a0ecbec3b025e889ca048a
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871973"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495567"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Új Azure Stack hub felhasználói fiók hozzáadása Azure Active Directory (Azure AD)
 
@@ -40,7 +40,7 @@ Az Azure Portal használatához Azure-előfizetéssel kell rendelkeznie.
 
 5. Jelölje be a **jelszó megjelenítése** jelölőnégyzetet, és másolja ki a **jelszó** mezőben megadott automatikusan generált jelszót. Erre a jelszóra lesz szüksége a kezdeti bejelentkezési folyamathoz.
 
-6. Kattintson a **Létrehozás** gombra.
+6. Válassza a **Létrehozás** lehetőséget.
 
     A rendszer létrehozza a felhasználót, és hozzáadja az Azure AD-bérlőhöz
 
@@ -54,7 +54,7 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
 > [!NOTE]
 > Ha Microsoft-fiókot használ a ASDK üzembe helyezéséhez, nem használhatja az Azure AD PowerShellt a bérlői fiók létrehozásához.
 
-1. Telepítse a [Microsoft Online Services Bejelentkezési segédének](https://go.microsoft.com/fwlink/p/?LinkId=286152) **64-bites** verzióját az informatikai szakemberek RTW-hez.
+1. Telepítse a [Microsoft Online Services Bejelentkezési segédének](https://www.microsoft.com/download/details.aspx?id=28177) **64-bites** verzióját az informatikai szakemberek RTW-hez.
 
 2. Telepítse a Windows PowerShell Microsoft Azure AD modulját a következő lépésekkel:
 
@@ -81,6 +81,6 @@ Ha nem rendelkezik Azure-előfizetéssel, nem használhatja a Azure Portal bérl
 1. Jelentkezzen be az Azure-ba az új fiókkal. Ha a rendszer kéri, módosítsa a jelszót.
 2. A `https://portal.local.azurestack.external` felhasználói portál megtekintéséhez jelentkezzen be az új fiókkal.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub-felhasználók hozzáadása a AD FS](azure-stack-add-users-adfs.md)

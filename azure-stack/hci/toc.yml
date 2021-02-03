@@ -132,6 +132,10 @@
           href: manage/use-azure-backup.md
         - name: Az Azure hálózati adapter használata
           href: manage/use-azure-network-adapter.md
+    - name: SDN kezelése
+      items:
+        - name: Bérlői logikai hálózatok
+          href: manage/tenant-logical-networks.md
 - name: Alapelvek
   items:
     - name: Tárolás és fürtök
