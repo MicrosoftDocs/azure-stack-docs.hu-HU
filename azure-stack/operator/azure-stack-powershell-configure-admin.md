@@ -3,16 +3,16 @@ title: Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 description: Megtudhatja, hogyan csatlakozhat Azure Stack hubhoz a PowerShell-lel.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 791923d3b2deacdc886dfcc0167736bd7214f9b8
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.lastreviewed: 2/1/2021
+ms.openlocfilehash: ab38cc4b00da140a529df43ac49789d7eab80327
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697626"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534181"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Kapcsolódás Azure Stack hubhoz a PowerShell használatával
 
@@ -46,7 +46,7 @@ Az Azure Stack hub-kezelő környezet PowerShell-lel való konfigurálásához f
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+    Connect-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm1)
 
@@ -84,7 +84,7 @@ Kapcsolódjon a Azure Stack hub operátori környezethez a PowerShell-lel Azure 
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzAccount -EnvironmentName "AzureStackAdmin"
+  Connect-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 ### <a name="azurerm-modules"></a>[AzureRM modulok](#tab/azurerm2)
@@ -121,7 +121,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ---
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az előfizetések, csomagok és ajánlatok kezelése a PowerShell használatával Azure Stack hub-ban](azure-stack-powershell-plan-offer.md)
 - [Sablonok fejlesztése Azure stack hub számára](../user/azure-stack-develop-templates.md).

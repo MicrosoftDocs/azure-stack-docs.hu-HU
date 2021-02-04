@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: ad73123be109a6c75014d9e314477b184182a52e
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518126"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534096"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Az Azure-szabályzat kezelése az Azure Stack hub házirend moduljának használatával
 
@@ -35,7 +35,7 @@ Az alábbi parancsokkal telepítheti az alapértelmezett Azure Stack hub-szabál
 ### <a name="az-modules"></a>[Az modulok](#tab/az1)
 
 ```powershell
-Add-AzAccount
+Connect-AzAccount
 $s = Select-AzSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -60,7 +60,7 @@ Előfordulhat, hogy olyan házirendeket szeretne alkalmazni, amelyek részletese
 ### <a name="az-modules"></a>[Az modulok](#tab/az2)
 
 ```powershell
-Add-AzAccount
+Connect-AzAccount
 $rgName = 'myRG01'
 $s = Select-AzSubscription -SubscriptionName "Azure subscription name"
 $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

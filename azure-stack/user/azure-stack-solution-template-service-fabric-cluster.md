@@ -7,12 +7,12 @@ ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 8196ac3bd4a945a3f620e83c9cdf44b189add3f4
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518313"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534215"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric-fürt üzembe helyezése Azure Stack központban
 
@@ -100,7 +100,7 @@ A következő szkripttel hozza létre a Key Vault, és adja hozzá a *fürt tan�
    #==============================================================================
    
    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   Connect-AzAccount -Environment AzureStack -TenantId $tenantId
    
    $rgName = "sfvaultrg"
    Write-Host "Creating Resource Group..." -ForegroundColor Yellow

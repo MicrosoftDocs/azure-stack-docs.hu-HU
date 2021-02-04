@@ -7,12 +7,12 @@ ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 1/19/2021
-ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: 67f381a50d1b98361207a00a300921a636679326
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584283"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534164"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Skálázásiegység-csomópontokkal kapcsolatos műveletek az Azure Stack Hubban
 
@@ -70,7 +70,7 @@ A következő lépések alkalmazása előtt győződjön meg arról, hogy jelenl
 
     ```powershell
     Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-    Add-AzAccount -Environment AzureStack
+    Connect-AzAccount -Environment AzureStack
     ```
 
 2. Futtassa a következő parancsot a háló erőforrás-szolgáltatói szerepkörének újraindításához.
@@ -232,7 +232,7 @@ A leállítási művelet futtatásához nyisson meg egy rendszergazda jogú Powe
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az Azure Stack PowerShell telepítése](./powershell-install-az-module.md)
 - [Tudnivalók a Azure Stack hub Fabric-kezelő modulról](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
