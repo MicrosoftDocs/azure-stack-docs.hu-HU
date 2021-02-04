@@ -7,12 +7,12 @@ ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
-ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
+ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99065522"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554148"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -531,5 +531,5 @@ Egy régebbi verzió archivált ismert problémáinak eléréséhez használja a
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-[A Azure stack hub ismert problémáinak régebbi verzióit a TechNet Gallery webhelyen](https://aka.ms/azsarchivedrelnotes)érheti el. Ezek az archivált dokumentumok kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
+A bal oldalon található tartalomjegyzékben a Azure Stack hub ismert problémáinak régebbi verzióit érheti el, az [**erőforrások > kibocsátási megjegyzések archívuma**](./relnotearchive/known-issues-1910.md)alatt. Ezek az archivált cikkek kizárólag referencia jellegűek, és nem jelentenek támogatást ezekhez a verziókhoz. További információ az Azure Stack hub támogatásáról: [Azure stack hub karbantartási szabályzata](azure-stack-servicing-policy.md). További segítségért forduljon a Microsoft ügyfél-támogatási szolgálatához.
 ::: moniker-end

@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 9da037a08aaa7394306c518211fc045453530a71
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 38628b6fba6136149cb6ef7e7ce818e2e2039d11
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246962"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554125"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -26,10 +26,10 @@ A fürt specifikációját megadhatja egy dokumentum-fájlban az [API-modell](ht
 
 Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
-1.  Kezdje egy Azure Stack hub [példa](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API-modellel, és készítsen helyi másolatot a telepítéshez. A gépről telepítette az AK motort:
+1.  Először a [Linux](https://aka.ms/aksengine-json-example-raw) vagy a [Windows](https://aka.ms/aksengine-json-example-raw-win) rendszerhez készült Azure stack hub API-modellel, és a telepítéshez készítsen helyi másolatot. A gépről telepítette az AK motort:
 
     ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
+    curl -o kubernetes-azurestack.json https://aka.ms/aksengine-json-example-raw
     ```
 
     > [!NOTE]  
@@ -75,7 +75,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
     | Mező | Leírás |
     | --- | --- |
-    | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://aka.ms/aksengine-json-example)megadott konfigurációs elemeket használja.  |
+    | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://aka.ms/aksengine-json-example-raw)megadott konfigurációs elemeket használja.  |
     | vmSize | Adja meg [Azure stack hub által támogatott méretet](./azure-stack-vm-sizes.md)(példa `Standard_D2_v2` ). |
     | disztribúció | Írja be a következő szöveget: `aks-ubuntu-16.04`. |
 

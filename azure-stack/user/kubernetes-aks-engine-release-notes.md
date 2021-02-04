@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 35fbcf51430d063110f4f14ae1203f79df6cf739
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247676"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554119"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 ::: moniker range=">=azs-2002"
@@ -94,7 +94,7 @@ Az aktuális verziót és a verziófrissítést a következő táblázatban tal�
 | 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
 | 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
-Az API-modell JSON-fájljában adja meg a kiadási és verziószám-értékeket a `orchestratorProfile` szakasz alatt, például ha a Kubernetes-1.16.14 üzembe helyezését tervezi, akkor a következő két értéket be kell állítani (lásd: példa [kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)):
+Az API-modell JSON-fájljában adja meg a kiadási és verziószám-értékeket a `orchestratorProfile` szakasz alatt, például ha a Kubernetes-1.16.14 üzembe helyezését tervezi, akkor a következő két értéket be kell állítani (lásd: példa [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)):
 
 ```json  
     -   "orchestratorRelease": "1.16",
@@ -205,7 +205,7 @@ Az aktuális verziót és a verziófrissítést a következő táblázatban tal�
 
 ## <a name="whats-new"></a>Újdonságok 
 
--   A Kubernetes-verzió 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)) támogatása. Új fürt telepítésekor ügyeljen arra, hogy az API-modell JSON-fájljában legyen megadva (a.k.s. fürt definíciós fájlja) a kiadás verziószáma, valamint a másodlagos verziószám. A következő példában talál egy példát: [kubernetes-azurestack.js](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
+-   A Kubernetes-verzió 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)) támogatása. Új fürt telepítésekor ügyeljen arra, hogy az API-modell JSON-fájljában legyen megadva (a.k.s. fürt definíciós fájlja) a kiadás verziószáma, valamint a másodlagos verziószám. A következő példában talál egy példát: [kubernetes-azurestack.js](https://aka.ms/aksengine-json-example-raw):
 
     - `"orchestratorRelease": "1.15`,
 
