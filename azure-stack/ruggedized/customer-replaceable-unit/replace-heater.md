@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 9474c198f7a22dbca0b6fefe8998c7eb208796b7
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910533"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571313"
 ---
 # <a name="replacing-the-heater"></a>A melegítő cseréje
 
@@ -20,7 +20,7 @@ A régi melegítő eltávolítása előtt olvassa el a következő szakaszt, és
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>A melegítő kicsomagolása és leltárba vétele 
 
-A taktikai 1U melegítő-v2 (a melegítő) általában a taktikai Cloud Appliance rendszer előre telepített alösszetevőjének számít. Külön szállítás esetén a melegítőt egy szabványos kereskedelmi szállítási kartondobozba szállítjuk, amely védelmi csomagolóanyagot tartalmaz. 
+A strapabíró 1U melegítő-v2 (a melegítő) jellemzően a robusztus felhőalapú Berendezésrendszer előre telepített alösszetevőjéként szállítja a lemezeket. Külön szállítás esetén a melegítőt egy szabványos kereskedelmi szállítási kartondobozba szállítjuk, amely védelmi csomagolóanyagot tartalmaz. 
 
 Óvatosan távolítsa el a melegítőt a szállítási kartondobozból. Ha egy szállítási kartondobozba csomagolták, a melegítő a váz összes összetevőjét telepíti. A melegítő általában egy árutovábbítási eset része, és az eszközök egy teljes csoportjába van integrálva egy tranzit esetben. Tartsa meg a szállítási kartondobozt és a csomagoló anyagokat, hogy a jövőben újra lehessen szállítani a melegítőt. Amíg a melegítő robusztus, gondoskodjon arról, hogy az egység megfelelően legyen csomagolva a szállításhoz. 
 
@@ -75,7 +75,7 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
     ![Húzza el a szűrő szerelvényt.](media/image-89.png)
 
-1. A kilépési lapokat a Tactical 1U melegítő-v2-ből kell lekérnie, amíg a fedél fel nem szabadul, majd a fedél kifelé helyezi a hüvelyben lévő állványból. 
+1. A kilépési lapokat a strapabíró 1U melegítő-v2-ből húzva távolítsa el, majd helyezze át a fedelet a hüvelyben lévő állványból. 
 
     ![A kiadási lapokat megjelenítő diagram.](media/image-90.png)
 
@@ -83,7 +83,7 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
     ![Az eltávolítandó csatlakozót ábrázoló diagram.](media/image-91.png)
 
-1. Az eset elején távolítsa el a zip-nyakkendőt a taktikai 1U heater-v2 alatt. Szükség esetén használja az átlós vágókat. 
+1. Az eset elején távolítsa el a zip-nyakkendőt a strapabíró 1U melegítő-v2-ről. Szükség esetén használja az átlós vágókat. 
 
     ![Diagram, amely megjeleníti a zip-nyakkendő szögletes zárójelét és a Micro-összekötőt a hőmérséklet-bemeneti érzékelő kiemeléséhez.](media/image-92.png)
 
@@ -126,7 +126,7 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
     ![Az a diagram, amely a bal oldali hátoldalról lehúzott csatlakozót mutatja.](media/image-101.png)
 
 
-1. Az eset hátoldalán bontsa ki a kiszolgáló tápkábeleit a Tactical 1U melegítő-v2-ből, és engedje, hogy szabadon fel lehessen akasztani őket. 
+1. Az eset hátoldalán bontsa ki a kiszolgáló tápkábeleit a strapabíró 1U melegítő-v2-ből, és engedje, hogy szabadon fel lehessen akasztani őket. 
 
     ![Az eset hátoldalán található kiszolgálói energiaellátási kábelek helyét bemutató diagram.](media/image-102.png)
 
@@ -235,19 +235,19 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 > [!WARNING]
 > A hüvely feloldásakor körültekintően járjon el a berendezések és a személyi sérülések károsodásának megelőzése érdekében. A legjobb eredmény érdekében használjon egy kétszemélyes lift-vagy teherfelvevő eszközt a személyes sérülések vagy az összetevők vagy a hüvely sérülésének csökkentéséhez. 
 
-1. A hüvely elején csúsztassa el egy új zip-nyakkendőt, bár a taktikai 1U melegítő-v2 alsó részén lévő hurok, de ne zip a döntetlen a helyükre. 
+1. A hüvely elején csúsztassa egy új zip-nyakkendőt, bár a strapabíró 1U melegítő-v2 alsó részén lévő hurok, de ne zip a döntetlen a helyükre. 
 
     ![A melegítő alsó részén látható hurkot ábrázoló diagram.](media/image-119.png)
 
 
-1. A hüvely elülső részén illessze be a Tactical 1U melegítő-v2-t úgy, hogy az elölről hátrafelé mutat. Ügyeljen arra, hogy a zip-nyakkendő ne érje el. 
+1. A hüvely elején szúrja be a strapabíró 1U melegítő-v2-t, és az elejétől a vissza. Ügyeljen arra, hogy a zip-nyakkendő ne érje el. 
 
-1. A hüvely elején telepítse a Two. 064 hüvelykes alátéteket a rack és a Tactical 1U melegítő-v2 között. 
+1. A hüvely elején telepítse a Two. 064 hüvelykes alátéteket a rack és a strapabíró 1U melegítő-v2 között. 
 
     ![A hüvely elején lévő alátétek helyét bemutató diagram.](media/image-120.png)
 
 
-1. A pod hátoldalán telepítse a Two. 064 hüvelykes alátéteket a rack és a Tactical 1U melegítő-v2 között. 
+1. A pod hátoldalán telepítse a Two. 064 hüvelykes alátéteket a rack és a strapabíró 1U heater-v2 között. 
 
     ![A pod hátoldalán található alátétek helyét bemutató diagram.](media/image-121.png)
 
@@ -269,19 +269,19 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
     ![Azt a diagramot, amely a két kiszolgáló hátsó csatlakoztatási csavart mutatja.](media/image-124.png)
 
 
-1. A pod hátoldalán telepítse a Tactical 1U melegítő-v2 négy hátsó szerelvény 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 27 hüvelyk-font értékre. 
+1. A pod hátoldalán telepítse a strapabíró 1U melegítő-v2 négy hátsó szerelvény 10-32 csavart, a zárolási alátéteket és a lapos alátéteket. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 27 hüvelyk-font értékre. 
 
     ![Diagram, amely a melegítő számára újracsatolt négy csavart mutatja.](media/image-125.png)
 
 
-1. A pod hátoldalán távolítsa el a két alátétet a Tactical 1U melegítő-v2 alá, és helyezze őket a melegítő készletbe későbbi használatra. 
+1. A pod hátoldalán távolítsa el a két alátétet a strapabíró 1U melegítő-v2 alá, és helyezze őket a melegítő készletbe későbbi használatra. 
 
-1. A hüvely elején távolítsa el a két alátétet a Tactical 1U melegítő-v2 alá, és helyezze őket a melegítő készletbe későbbi használatra. 
+1. A hüvely elején távolítsa el a két alátétet a strapabíró 1U melegítő-v2 alá, és helyezze őket a melegítő készletbe későbbi használatra. 
 
-1. A pod hátoldalán telepítse a hat 4-40 csavart, amely a csatlakozó zsanért csatolja a Tactical 1U melegítő-v2-hez. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 4,5 inch-fontra. 
+1. A pod hátoldalán telepítse a hat 4-40 csavart, amely a csatlakozó zsanért a robusztus 1U melegítő-v2-re csatolja. Alkalmazza az alapozót és az alacsony szilárdságú threadlocker a csavaros szálakra, és a csavarokat 4,5 inch-fontra. 
 
     > [!NOTE]
-    > Helyezzen el egy elektrosztatikus mentesítési (ESD) zacskót vagy ESD-habot a Tactical 1U melegítő-v2-nyíláson, hogy megakadályozza a külső objektumok károsodását a melegítőben. 
+    > Helyezzen el egy elektrosztatikus kisülés (ESD) táskát vagy ESD-habot a strapabíró 1U melegítő-v2-nyíláson, hogy elkerülje a külső objektumok károsodását a melegítőben. 
 
 1. A pod hátoldalán telepítse a bal oldali belső kötélpálya-konzolt. Miközben a szögletes zárójelet a rackbe bekapcsolva tartja, a fogságban lévő 6-32-es csavarok teljes mértékben megszigorítják a csavarokat, majd a csavart 9 hüvelykre 
 
@@ -305,7 +305,7 @@ A melegítő olyan árutovábbítási esethez van csatlakoztatva, amely képes a
 
 1. Az anya és a 16 hüvelyk közötti nyomatékot. 
 
-1. A pod hátoldalán kapcsolja újra a két kiszolgáló tápkábelét, majd a négy taktikai 1U melegítő-v2 tápkábelt az eredeti helyükre. 
+1. A pod hátoldalán kapcsolja újra a két kiszolgáló tápkábelét, majd a négy strapabíró 1U melegítő-v2 tápkábelt az eredeti helyükre. 
 
 1. A hüvely hátoldalán a kapcsolatnak fel kell vennie a labdát, és el kell végeznie a golyó lefoglalását, ha nem helyezi át a kapcsolati kart a szükséges pozícióba. 
 

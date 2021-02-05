@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 74addf295c35099e90e3a7fe4fd95aad34e47361
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 299b7da3ad514092c86f1855b9261fda0d76ac5d
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910635"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571014"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>A méretezési egység csomópont-hozzáférésének és állapotának ellenőrzése
 
@@ -31,13 +31,13 @@ Jelentkezzen be az emelt szintű hozzáférési munkaállomásra, indítsa el a 
 
     Válassza a **régió kezelése** csempét, és válassza a **Tulajdonságok** lehetőséget. Görgessen a panel aljára, és keresse meg az IP-címeket az emelt **szintű végpont IP-címei** mezőben. Ezeket az eljárás későbbi részében szükség lehet rájuk, vagy ha bármilyen probléma merül fel, támogatásra lesz szüksége.
 
-    [![Képernyőkép, amely az "adminisztráció" oldalt mutatja be az "emelt szintű végpont I P-címekkel" című szakaszban.](media/image-18-inline.png)](media/image-18-expanded.png)
+    [![Képernyőkép, amely az "adminisztráció" oldalt mutatja be az "emelt szintű végpont I P-címekkel" című szakaszban.](media/image-18-inline.png)](media/image-18-expanded.png#lightbox)
     
 4.  Tekintse át az aktuális riasztásokat.
 
     A **régió kezelése** területen válassza a **riasztások** lehetőséget, és tekintse át az aktuális riasztásokat. Ha váratlan riasztások jelennek meg, ellenőrizze, hogy a Dell Technologies támogatja-e a törlést vagy a biztonság figyelmen kívül hagyása.
     
-    A " [ ![ Name" (név) szakaszt Kiemelt "Properties" (Tulajdonságok) lapot megjelenítő képernyőkép](media/image-19-inline.png)](media/image-19-expanded.png)
+    [![Képernyőfelvétel: a "Name" (Tulajdonságok) oldal kiemelve.](media/image-19-inline.png)](media/image-19-expanded.png#lightbox)
     
 5.  Azonosítsa a méretezési egység csomópontjait.
 
@@ -47,11 +47,11 @@ Jelentkezzen be az emelt szintű hozzáférési munkaállomásra, indítsa el a 
     
     1.  A Node szolgáltatás címkéjének beszerzéséhez válassza a **bmc** IP-cím hivatkozását, amely egy új lapon vagy ablakban nyitja meg a kiszolgáló iDRAC webes felületét.
 
-        [![Képernyőkép, amely a "BMC" oszlop kiemelésével jeleníti meg a "csomópontok" oldalt.](media/image-20-inline.png)](media/image-20-expanded.png) 
+        [![Képernyőkép, amely a "BMC" oszlop kiemelésével jeleníti meg a "csomópontok" oldalt.](media/image-20-inline.png)](media/image-20-expanded.png#lightbox) 
     
     1.  Jelentkezzen be a iDRAC felületére, és ellenőrizze a csomópont szolgáltatási címkéjét a **rendszerinformációk** ablaktáblán.
     
     1.  Ismételje meg az eljárást minden csomópont esetében, és kapcsolja össze ezeket a szolgáltatási címkéket az ütemezett hardveres lecseréléssel annak megállapításához, hogy melyik csomópontot vagy csomópontokat kell szervizelni.
 
-        [![Képernyőkép, amely az "irányítópultot" jeleníti meg a "Service tag" kiemelésével.](media/image-21-inline.png)](media/image-21-expanded.png)
+        [![Képernyőkép, amely az "irányítópultot" jeleníti meg a "Service tag" kiemelésével.](media/image-21-inline.png)](media/image-21-expanded.png#lightbox)
     

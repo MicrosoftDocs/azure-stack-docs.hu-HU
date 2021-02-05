@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 03f2f79a1d849edb65da0097eb4135146ae7a16e
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 09e417e0ab42dc0add297cf774fa4052579c5e13
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874472"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571143"
 ---
 # <a name="replacing-a-power-supply-unit"></a>Tápegység egységének cseréje
 
@@ -26,7 +26,7 @@ Az alábbi eljárással lecserélheti az áramellátási egységet (PSU).
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak használatához egy taktikai Felhőbeli berendezésben, ha a méretezési egység csomópontja működik
+    -   Szükséges ismeretek a méretezési egység csomópontjainak a robusztus felhőalapú berendezésben való használatához, ha a méretezési egység csomópontja működik
 
     -   Szükséges ismeretek a hardveres életciklus-gazdagép használatáról, ha a hardveres életciklus-gazdagépet dolgozik
 
@@ -44,7 +44,7 @@ Az alábbi eljárással lecserélheti az áramellátási egységet (PSU).
 
 Hajtsa végre a PSU-helyettesítési folyamatot a [Dell EMC PowerEdge R640 telepítése és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a méretezési egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

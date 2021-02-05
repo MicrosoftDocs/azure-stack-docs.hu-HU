@@ -3,16 +3,16 @@ title: A Border connectivity és a hálózati integráció Azure Stack hub integ
 description: Ismerje meg, hogyan tervezheti meg az adatközpontok szegélyének hálózati kapcsolatát Azure Stack hub integrált rendszerekben.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 01/14/2021
 ms.author: patricka
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/14/2021
+ms.openlocfilehash: 091b6e5d1ac4c097c39e425cb6b15da4db96a7a1
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871548"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570650"
 ---
 # <a name="border-connectivity"></a>Szegélyek közötti kapcsolat 
 A hálózati integráció megtervezése a sikeres Azure Stack hub integrált rendszerek üzembe helyezésének, működtetésének és felügyeletének fontos előfeltétele. A határok közötti kapcsolat megtervezése megkezdődik, ha a dinamikus útválasztást a Border Gateway Protocol (BGP) használatával szeretné használni. Ehhez hozzá kell rendelni egy 16 bites autonóm rendszerszámot (ASN), nyilvános vagy magánjellegű, vagy statikus útválasztást kell használnia.
@@ -50,17 +50,7 @@ A statikus útválasztás csak a TOR és a Border kapcsolók közötti kapcsolat
 
 <sup>\*\*\*</sup> A kapcsoló-felügyeleti hálózatot kötelező megadni, és a kapcsoló infrastruktúra hálózata külön is felvehető.
 
-## <a name="transparent-proxy"></a>Transzparens proxy
-Ha az adatközpontban az összes forgalom proxy használatára van szüksége, egy *transzparens proxyt* kell konfigurálnia az állványról a szabályzatnak megfelelően kezelendő összes forgalom feldolgozásához, a hálózati zónák közötti forgalom elkülönítésével.
+## <a name="next-steps"></a>Következő lépések
 
-> [!IMPORTANT]
-> Az Azure Stack hub-megoldás nem támogatja a normál webproxykat.  
-
-Egy transzparens proxy (más néven lehallgatás, beágyazott vagy kényszerített proxy) elfogja a normál kommunikációt a hálózati rétegben anélkül, hogy speciális ügyfél-konfigurációra lenne szükség. Az ügyfeleknek nem kell megismerniük a proxy létezését.
-
-![Transzparens proxy](media/azure-stack-border-connectivity/transparent-proxy.svg)
-
-Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. Az identitáshoz szükséges végpontokkal folytatott kommunikáció maximális támogatott időtúllépése 60 – 3 újrapróbálkozási kísérlet.
-
-## <a name="next-steps"></a>További lépések
-[DNS-integráció](azure-stack-integrate-dns.md)
+- [DNS-integráció](azure-stack-integrate-dns.md)
+- [Transzparens proxy Azure Stack hubhoz](azure-stack-transparent-proxy.md)

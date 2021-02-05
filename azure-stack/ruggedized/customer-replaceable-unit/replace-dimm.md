@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 66b2bc606aefd07d693d8fc86b042f321550271b
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867825"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571289"
 ---
 # <a name="replacing-a-dimm"></a>A DIMM cseréje
 
@@ -26,7 +26,7 @@ A DIMM cseréjéhez kövesse az alábbi eljárást.
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak használatához egy taktikai Felhőbeli berendezésben, ha a méretezési egység csomópontja működik
+    -   Szükséges ismeretek a méretezési egység csomópontjainak a robusztus felhőalapú berendezésben való használatához, ha a méretezési egység csomópontja működik
 
     -   Szükséges ismeretek a hardveres életciklus-gazdagép használatáról, ha a hardveres életciklus-gazdagépet dolgozik
 
@@ -59,7 +59,7 @@ A DIMM cseréjéhez kövesse az alábbi eljárást.
 
     Ha a hálózat újrakapcsolódása után a kiszolgáló nem indul el automatikusan, nyomja meg a főkapcsoló gombot a csomópont újbóli bekapcsolásához.
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

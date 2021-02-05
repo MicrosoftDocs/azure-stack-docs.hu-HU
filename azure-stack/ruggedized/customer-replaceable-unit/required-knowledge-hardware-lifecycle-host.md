@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d6b13e26a1df94958f2b91d7a587e6d7f7a9f4bf
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a53d2410c9b4ff7494877a39ec6e4c5405261f19
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867587"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571160"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>A hardveres életciklus-gazdagép használatának szükséges ismerete
 
@@ -53,9 +53,9 @@ A megfelelő hardverek fizikai cseréjével kapcsolatos részletekért tekintse 
  [EMC PowerEdge R640 telepítés és szolgáltatás kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
 Keresse meg a [rendszerösszetevők telepítése és törlése](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us) szakaszt.
 
-## <a name="microsoft-azure-stack-hub-tactical-cloud-appliance-service-manual"></a>Microsoft Azure Stack hub taktikai Cloud Appliance szolgáltatás manuális
+## <a name="microsoft-azure-stack-hub-ruggedized-cloud-appliance-service-manual"></a>Microsoft Azure Stack hub robusztus Cloud Appliance Service-kézikönyv
 
-Az Microsoft Azure Stack hub taktikai Cloud Appliance szolgáltatásának kézikönyve a Tracewell taktikai hüvelyből való eltávolítására vonatkozó utasításokat tartalmaz.
+Az Microsoft Azure Stack hub robusztus Cloud Appliance Service-kézikönyv a hardveres életciklus-gazdagép eltávolítására vonatkozó utasításokat tartalmaz.
 
 ## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
 

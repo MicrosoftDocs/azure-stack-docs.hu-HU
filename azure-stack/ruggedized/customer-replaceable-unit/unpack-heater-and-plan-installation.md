@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d8dd3d2b3cd2bc63f1f15a1cf5c44b82c0ede44e
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867604"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571211"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>Csomagolja ki a melegítőt, és tervezze meg a melegítő telepítését
 
@@ -20,7 +20,7 @@ A melegítő cseréje előtt olvassa el a következő részeket.
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>A melegítő kicsomagolása és leltárba vétele
 
-A taktikai 1U heater--v2 (a melegítő) jellemzően a taktikai Cloud Appliance rendszer előre telepített alösszetevőjéként szállítja a hajókat.
+A strapabíró 1U melegítő--v2 (a melegítő) általában a robusztus felhőalapú Berendezésrendszer előre telepített alösszetevőjéként szállítja a lemezeket.
 Külön szállítás esetén a melegítőt egy szabványos kereskedelmi szállítási kartondobozba szállítjuk, amely védelmi csomagolóanyagot tartalmaz.
 
 Óvatosan távolítsa el a melegítőt a szállítási kartondobozból. Ha egy szállítási kartondobozba csomagolták, a melegítő a váz összes összetevőjét telepíti. A melegítő általában egy árutovábbítási eset része, és az eszközök egy teljes csoportjába van integrálva egy tranzit esetben. Tartsa meg a szállítási kartondobozt és a csomagoló anyagokat, hogy a jövőben újra lehessen szállítani a melegítőt. Amíg a melegítő robusztus, gondoskodjon arról, hogy az egység megfelelően legyen csomagolva a szállításhoz.

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: dcf7240b3f62758fc1468890fcd4ce19ccb89bd8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: defa5328f41ee394aefe2130d3678a1ad4f3831d
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874608"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571194"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Hálózati lánya kártya cseréje
 
@@ -26,7 +26,7 @@ Az alábbi eljárással cserélhet le egy hálózati lánya vagy kártyát.
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak működéséhez egy taktikai felhőalapú berendezésben
+    -   Szükséges ismeretek a méretezési egység csomópontjainak működéséhez robusztus felhőalapú berendezésben
 
     -   Az 5. oldalon a hardveres életciklus-gazdagép használatához szükséges ismeretek, ha a hardveres életciklus-gazdagépet dolgozik
 
@@ -60,7 +60,7 @@ Az alábbi eljárással cserélhet le egy hálózati lánya vagy kártyát.
 
     Ha a hálózat újrakapcsolódása után a kiszolgáló nem indul el automatikusan, nyomja meg a főkapcsoló gombot a csomópont újbóli bekapcsolásához.
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

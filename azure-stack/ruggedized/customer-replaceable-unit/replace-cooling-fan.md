@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 418501e5ee6e2f14536ace5ea61f172d2736a31a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c04f4af7b19fd02c3c41acaed45e70acb0131e1a
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874506"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571285"
 ---
 # <a name="replacing-a-cooling-fan"></a>A hűtési ventilátor cseréje
 
@@ -26,7 +26,7 @@ A hűtőventilátor vagy a ventilátorok cseréjéhez kövesse az alábbi eljár
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak működéséhez egy taktikai felhőalapú berendezésben
+    -   Szükséges ismeretek a méretezési egység csomópontjainak működéséhez robusztus felhőalapú berendezésben
 
     -   Az 5. oldalon a hardveres életciklus-gazdagép használatához szükséges ismeretek, ha a hardveres életciklus-gazdagépet dolgozik
 
@@ -59,7 +59,7 @@ A hűtőventilátor vagy a ventilátorok cseréjéhez kövesse az alábbi eljár
 
     Ha a hálózat újrakapcsolódása után a kiszolgáló nem indul el automatikusan, nyomja meg a főkapcsoló gombot a csomópont újbóli bekapcsolásához.
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ha a méretezési egység csomópontot dolgozik:
 

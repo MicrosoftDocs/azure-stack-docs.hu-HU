@@ -555,9 +555,9 @@
                 - name: Azure Stack hub hardver diagramja
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
                 - name: Kiszolgáló áttekintése
-                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                  href: customer-replaceable-unit/r640-server-overview.md
                 - name: Mutatók és kódok
-                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                  href: customer-replaceable-unit/indicators-and-codes.md
                 - name: IDRAC felület elérése közvetlen USB-kapcsolaton keresztül
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
                 - name: Belső vezérlőprogram telepítése iDRAC felületen keresztül

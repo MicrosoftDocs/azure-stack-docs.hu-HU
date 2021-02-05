@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 36050d42a012ffc40db98ab506b1ef81086e609a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8ab8cd77a9ce3641a65eeb60460305830d524462
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867638"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571177"
 ---
 # <a name="replacing-an-operating-system-disk"></a>Operációs rendszer lemezének cseréje
 
@@ -24,7 +24,7 @@ A következő eljárással lecserélheti az operációs rendszer hibás lemezét
 
 2.  Tekintse át a kezelési óvintézkedéseket.
 
-3.  Szükséges ismeretek a méretezési egység csomópontjainak a taktikai Felhőbeli berendezésekben való használatához, ha a skálázási egység csomópontot dolgozik.
+3.  Szükséges ismeretek a skálázási egység csomópontjainak a robusztus felhőalapú berendezésben való használatához, ha a méretezési egység csomópontja dolgozik.
 
 4.  Fejezze be a méretezési egység csomópont-hozzáférésének és állapotának ellenőrzését.
 
@@ -49,7 +49,7 @@ A következő eljárással lecserélheti az operációs rendszer hibás lemezét
 
     Ha a hálózat újrakapcsolódása után a kiszolgáló nem indul el automatikusan, nyomja meg a főkapcsoló gombot a csomópont újbóli bekapcsolásához.
     
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 1.  Egy méretezési egység csomópontjának bekapcsolása és javítása.
 

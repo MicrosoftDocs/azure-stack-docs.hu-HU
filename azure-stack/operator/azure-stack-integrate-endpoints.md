@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870802"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570616"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban
 
@@ -69,7 +69,7 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 
 ## <a name="ports-and-urls-outbound"></a>Portok és URL-címek (kimenő)
 
-Azure Stack hub csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz.
+Azure Stack hub csak transzparens proxykiszolgálók használatát támogatja. Egy transzparens proxyval rendelkező üzemelő példányban, amely egy hagyományos proxykiszolgálóhoz csatlakozik, engedélyeznie kell a portok és URL-címek használatát a következő táblázatban a kimenő kommunikációhoz. Az átlátszó proxykiszolgálók konfigurálásával kapcsolatos további információkért lásd: [Azure stack hub transzparens proxyja](azure-stack-transparent-proxy.md).
 
 Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. Az identitáshoz szükséges végpontokkal folytatott kommunikáció maximális támogatott időtúllépése 60-as.
 
@@ -100,6 +100,6 @@ A kimenő URL-címek terheléselosztása az Azure Traffic Managerrel történik,
 
 A kimenő DNS-t mindig kötelező megadni; a változó a külső DNS lekérdezési forrását, valamint az identitás-integráció típusát választotta. Egy csatlakoztatott forgatókönyv esetén a BMC-hálózaton található DVM kimenő hozzáférésre van szüksége. Az üzembe helyezést követően azonban a DNS szolgáltatás olyan belső összetevőre kerül, amely nyilvános VIP-en keresztül küld lekérdezéseket. Ekkor a BMC-hálózaton keresztüli kimenő DNS-hozzáférés el lehet távolítani, de a DNS-kiszolgálóhoz való nyilvános VIP-hozzáférésnek továbbra is meg kell maradnia, vagy más hitelesítés sikertelen lesz.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub PKI-követelményei](azure-stack-pki-certs.md)

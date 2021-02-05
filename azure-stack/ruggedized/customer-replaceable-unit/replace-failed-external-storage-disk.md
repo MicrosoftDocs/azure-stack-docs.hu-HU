@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910652"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571242"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>A meghibásodott külső tároló lemezének cseréje
 
@@ -26,7 +26,7 @@ A meghibásodott külső lemez cseréjéhez kövesse az alábbi eljárást.
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak használatához egy taktikai Felhőbeli berendezésben, ha a méretezési egység csomópontja működik
+    -   Szükséges ismeretek a méretezési egység csomópontjainak a robusztus felhőalapú berendezésben való használatához, ha a méretezési egység csomópontja működik
 
     -   Szükséges ismeretek a hardveres életciklus-gazdagép használatáról, ha a hardveres életciklus-gazdagépet dolgozik
 

@@ -1,22 +1,22 @@
 ---
 title: Azure Stack hub hardver diagramja
-description: Ismerje meg az Azure Stack hub TCA hardverét.
+description: Ismerje meg az Azure Stack hub hardverét.
 author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b91e5825200f7a05a403bb90db3825377e042cf9
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: eb74ea811c5a8dc76cd3cfb24ce617ac94062551
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910414"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570922"
 ---
 # <a name="azure-stack-hub-hardware-diagram"></a>Azure Stack hub hardver diagramja
 
-Az alábbi ábrán a teljes verem látható a hardveres életciklus-állomás, a kapcsolók és a skálázási egységek kiszolgálói számára a Microsoft Azure Stack hub Tactical-hoz készült integrált Dell EMC rendszerhez.
+Az alábbi ábrák a hardveres életciklus-gazdagép,-kapcsolók és-skálázási egységek teljes veremét mutatják be az Microsoft Azure Stack hub számára készült Dell EMC integrált rendszer számára.
 
 1. ábra Front
 
