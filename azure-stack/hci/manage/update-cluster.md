@@ -4,13 +4,13 @@ description: Operációs rendszer és belső vezérlőprogram frissítéseinek a
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2020
-ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/05/2021
+ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
+ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98771973"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99588648"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
@@ -24,6 +24,9 @@ Ez a témakör az operációs rendszerre és a szoftverfrissítésekra koncentr�
 
 A Windows felügyeleti központ megkönnyíti a fürt frissítését, valamint az operációs rendszer és a megoldás frissítéseinek egyszerű felhasználói felületen történő alkalmazását. Ha már vásárolt egy integrált rendszert egy Microsoft-hardveres partnertől, akkor a megfelelő partner-frissítési bővítmény (ek) telepítésével egyszerűen lekérheti a legújabb illesztőprogramokat, belső vezérlőprogramot és egyéb frissítéseket közvetlenül a Windows felügyeleti központból. Ha a hardvert nem integrált rendszerként vásárolta meg, akkor előfordulhat, hogy a hardver gyártójával kapcsolatos javaslatok után külön kell végrehajtani a belső vezérlőprogram és az illesztőprogram frissítéseit.
 
+   > [!WARNING]
+   > Ha elindítja a frissítési folyamatot a Windows felügyeleti központtal, folytassa a varázsló használatát, amíg a frissítések befejeződik. Ne kísérelje meg a Cluster-Aware frissítési eszköz használatát, vagy a Windows felügyeleti központban a frissítési folyamat részleges befejezése után frissítsen egy fürtöt a PowerShell-lel. Ha a PowerShell használatával szeretné elvégezni a frissítéseket a Windows felügyeleti központ helyett, ugorjon előre a [fürt frissítéséhez a PowerShell használatával](#update-a-cluster-using-powershell).
+
 A frissítések telepítéséhez kövesse az alábbi lépéseket:
 
 1. Amikor egy fürthöz csatlakozik, a Windows felügyeleti központ irányítópultja riasztást küld, ha egy vagy több kiszolgáló frissítésre készen áll, és megadhat egy hivatkozást a frissítéshez. Azt is megteheti, hogy a bal oldali **eszközök** menüjéből kijelöli a **frissítések** elemet.
@@ -36,6 +39,9 @@ A frissítések telepítéséhez kövesse az alábbi lépéseket:
    > Ha a Windows felügyeleti központban szeretné használni a Cluster-Aware frissítési eszközt, engedélyeznie kell a hitelesítő adatok biztonsági szolgáltatóját (CredSSP), és explicit hitelesítő adatokat kell megadnia. Ha a rendszer megkérdezi, hogy engedélyezve van-e a CredSSP, kattintson az **Igen** gombra. Adja meg felhasználónevét és jelszavát, majd kattintson a **Continue (folytatás**) gombra.
 
 3. Ekkor megjelenik a fürt frissítési állapota. kattintson a **frissítések keresése** lehetőségre a fürt egyes kiszolgálóihoz elérhető operációsrendszer-frissítések listájának lekéréséhez. Előfordulhat, hogy rendszergazdai hitelesítő adatokat kell megadnia. Ha nincs elérhető operációsrendszer-frissítés, kattintson a **Tovább gombra: hardveres frissítések** , és folytassa a 7. lépéssel.
+
+   > [!IMPORTANT]
+   > Ha a frissítések képernyőről indul el, amíg egy frissítés folyamatban van, előfordulhat, hogy váratlan viselkedés fordul elő, például a frissítések lap előzmények szakasza nem megfelelően töltődik be, amíg az aktuális Futtatás be nem fejeződik. Javasoljuk, hogy a Windows felügyeleti központot egy új böngészőablakban vagy ablakban nyissa meg, ha továbbra is használni szeretné az alkalmazást, amíg a frissítések folyamatban vannak.
 
 4. Válassza a Next (tovább) lehetőséget **: telepítse** az operációs rendszer frissítéseinek telepítését, vagy kattintson a **kihagyás** gombra a kizárásához. 
 
@@ -215,7 +221,7 @@ Ha van olyan kritikus fontosságú biztonsági frissítés, amelyet gyorsan kell
 9. A virtuális lemezek újbóli online állapotba helyezése.
 10. A virtuális lemezek állapotának figyeléséhez futtassa a **Get-Volume** és a **Get-VirtualDisk** parancsmagot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
