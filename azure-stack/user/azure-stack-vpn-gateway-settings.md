@@ -3,21 +3,21 @@ title: A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 description: Az Azure Stack hub VPN Gateway-beállításainak ismertetése és konfigurálása.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: 465c07d1f943a0a3abad8a8fc2d900444b366112
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801946"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975928"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>A VPN-átjáró beállításainak konfigurálása Azure Stack hubhoz
 
 A VPN Gateway olyan virtuális hálózati átjáró, amely titkosított forgalmat küld Azure Stack hub és egy távoli VPN-átjáró között a virtuális hálózat között. A távoli VPN-átjáró lehet az Azure-ban, egy eszköz az adatközpontban vagy egy másik helyen lévő eszköz. Ha van hálózati kapcsolat a két végpont között, létrehozhat egy biztonságos helyek közötti (S2S) VPN-kapcsolatot a két hálózat között.
 
-A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. A [VPN Gateway for Azure stack hub](azure-stack-vpn-gateway-about-vpn-gateways.md)-hoz kapcsolódó összes csatlakoztatási megoldáshoz leírásokat és topológiai diagramokat talál.
+A VPN Gateway-kapcsolatok több erőforrás konfigurációján alapulnak, amelyek mindegyike konfigurálható beállításokat tartalmaz. Ez a cikk a Resource Manager-alapú üzemi modellben létrehozott virtuális hálózatok VPN Gateway-hez kapcsolódó erőforrásait és beállításait ismerteti. Az egyes kapcsolati megoldásokhoz tartozó leírások és topológiai diagramok a [Azure stack hub VPN-átjárók létrehozása csomópontjában](azure-stack-vpn-gateway-about-vpn-gateways.md)találhatók.
 
 ## <a name="vpn-gateway-settings"></a>VPN-átjáró beállításai
 
@@ -29,8 +29,8 @@ Amikor létrehoz egy virtuális hálózati átjárót, meg kell győződnie arr�
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+   -VpnType RouteBased
 ```
 
 ### <a name="gateway-skus"></a>Átjáró-termékváltozatok
@@ -63,8 +63,8 @@ A következő PowerShell-példa a `-GatewaySku` paramétert **szabványosként**
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>Kapcsolattípusok
@@ -75,8 +75,8 @@ A következő PowerShell-példában létrejön egy S2S-kapcsolat, amely az IPsec
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
 ### <a name="vpn-types"></a>VPN-típusok
@@ -99,8 +99,8 @@ A következő PowerShell-példa az `-VpnType` as **útvonalalapú** adja meg. Am
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="gateway-requirements"></a>Az átjáróra vonatkozó követelmények
@@ -144,7 +144,7 @@ Ez a PowerShell-példa egy új helyi hálózati átjárót hoz létre:
 
 ```powershell
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
--Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+   -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
 Előfordulhat, hogy módosítania kell a helyi hálózati átjáró beállításait; például a címtartomány hozzáadásakor vagy módosításakor, vagy a VPN-eszköz IP-címének megváltozásakor. További információ: [helyi hálózati átjáró beállításainak módosítása a PowerShell használatával](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
@@ -188,10 +188,10 @@ Az Azure-tól eltérően, amely több ajánlatot is támogat kezdeményezőként
 >|-|-|
 >|Diffie-Hellman Group   | DHGroup2 |
 >|Kivonatoló algoritmusok | SHA256 |
->|Sérülés utáni titkosságvédelem (PFS) | None |
+>|Sérülés utáni titkosságvédelem (PFS) | Nincs |
 
 \* Új vagy módosított paraméter.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [Csatlakozás ExpressRoute használatával](../operator/azure-stack-connect-expressroute.md)

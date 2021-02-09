@@ -3,16 +3,16 @@ title: A hardver állapotának figyelése Azure Stack központban
 description: Megtudhatja, hogyan figyelheti Azure Stack hub hardveres összetevőinek állapotát.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
-ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
+ms.openlocfilehash: 0b1d107d33cb19223018f6d6ac26f11f65d6cc15
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93239563"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975911"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Azure Stack hub hardver-összetevőinek figyelése
 
@@ -26,7 +26,7 @@ Az Azure Stack hub állapot-és figyelési rendszere figyeli a tárolási alrend
 - Rendszerindító meghajtók
 
 > [!NOTE]
-> A szolgáltatás engedélyezése előtt ellenőriznie kell a hardveres partnerét, hogy készen állnak-e. A hardveres partner emellett részletesen ismerteti a funkció engedélyezésének lépéseit a alaplapi felügyeleti vezérlőben (BMC). Az alapszintű felügyeleti vezérlőben lévő felhasználói titkosítást az 2005-es vagy újabb buildek AES-verziójára kell beállítani. 
+> A szolgáltatás engedélyezése előtt ellenőriznie kell a hardveres partnerét, hogy készen állnak-e. A hardveres partner emellett részletesen ismerteti a funkció engedélyezésének lépéseit a alaplapi felügyeleti vezérlőben (BMC). Az alapszintű felügyeleti vezérlőben lévő felhasználói titkosítást az 2005-es vagy újabb buildek AES-verziójára kell beállítani.
 
 ## <a name="snmp-listener-scenario"></a>SNMP-figyelő forgatókönyve
 
