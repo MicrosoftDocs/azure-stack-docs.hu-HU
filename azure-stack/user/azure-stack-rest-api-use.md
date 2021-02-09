@@ -3,22 +3,22 @@ title: API-kérelmek készítése Azure Stack hubhoz
 description: Megtudhatja, hogyan kérhet le hitelesítést az Azure-ból, hogy API-kérelmeket Azure Stack hub-ra hozzon.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: c48eb869ded6be5f2c05171edf4d0cc6a88945ca
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623319"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975843"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
 # <a name="make-api-requests-to-azure-stack-hub"></a>API-kérelmek készítése Azure Stack hubhoz
 
-Az Azure Stack hub REST API-k segítségével automatizálhat olyan műveleteket, mint például a virtuális gép (VM) hozzáadása a Azure Stack hub-felhőhöz.
+Az Azure Stack hub REST API-k segítségével automatizálhatja a műveleteket, például hozzáadhat egy virtuális gépet (VM) a Azure Stack hub-felhőhöz.
 
 Az API-k megkövetelik, hogy az ügyfél hitelesítse magát a Microsoft Azure bejelentkezési végpontján. A végpont visszaadja az Azure Stack hub API-khoz eljuttatott minden kérelem fejlécében használandó tokent. Microsoft Azure a 2,0 OAuth használja.
 
@@ -210,6 +210,6 @@ https://adminmanagement.local.azurestack.external/{subscription id}/resourcegrou
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure REST-végpontok használatával kapcsolatos további információkért lásd az [azure REST API referenciáját](/rest/api/).

@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 11e79a4d998f012a58c7f3b0ab8ecb928c861851
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873316"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975860"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>A ASDK üzembe helyezés utáni konfigurációi
 
@@ -197,11 +197,11 @@ Ha hiba történt, kövesse a hibaelhárítási lépéseket a Súgó beszerzés�
 
 ## <a name="enable-multi-tenancy"></a>A több-bérlős üzemmód engedélyezése
 
-Az Azure AD-t használó központi telepítések esetén [engedélyeznie kell a több-bérlős](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) telepítést a ASDK-telepítéshez.
+Az Azure AD-t használó központi telepítések esetén [engedélyeznie kell a több-bérlős](../operator/azure-stack-enable-multitenancy.md) telepítést a ASDK-telepítéshez.
 
 > [!NOTE]
 > Ha az Azure Stack regisztrálásához használt tartománytól eltérő rendszergazdai vagy felhasználói fiókok vannak használatban egy Azure Stack portálra való bejelentkezéshez, a Azure Stack regisztrálásához használt tartománynevet a portál URL-címéhez kell csatolni. Ha például Azure Stack regisztrálva van a fabrikam.onmicrosoft.com-ben, és a felhasználói fiókja be van jelentkezve admin@contoso.com , a felhasználói portálra való bejelentkezéshez használt URL-cím a következő lesz: https \: //Portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [A ASDK regisztrálása az Azure-ban](asdk-register.md)

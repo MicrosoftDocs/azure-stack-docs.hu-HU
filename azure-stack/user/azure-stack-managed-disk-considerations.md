@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: b1cadf68de1c072b7dcc8b2f0f5f7c02736eebd7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: fd1f827ec9108d1412df544c94044aabf600224a
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518228"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975877"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack hub által felügyelt lemezek: különbségek és szempontok
 
@@ -24,7 +24,7 @@ A felügyelt lemezek alapértelmezés szerint engedélyezve vannak a virtuális 
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>Cheat Sheet: felügyelt lemezes különbségek
 
-| Funkció | Azure (globális) | Azure Stack Hub |
+| Szolgáltatás | Azure (globális) | Azure Stack Hub |
 | --- | --- | --- |
 |Inaktív adatok titkosítása |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE).     |BitLocker 128 bites AES-titkosítás      |
 |Kép          | Felügyelt egyéni rendszerkép |Támogatott|
@@ -358,7 +358,7 @@ Az 1808-es vagy újabb frissítés alkalmazása után a következő konfiguráci
 - Ha előfizetést hozott létre az 1808-es frissítés előtt, az alábbi lépéseket követve frissítheti az előfizetést. Ellenkező esetben előfordulhat, hogy a virtuális gépek üzembe helyezése ebben az előfizetésben sikertelen lehet, ha a "belső hiba a lemezmeghajtóban" hibaüzenet jelenik meg.
    1. Az Azure Stack hub felhasználói portálon lépjen az **előfizetések** elemre, és keresse meg az előfizetést. Kattintson az **erőforrás-szolgáltatók** elemre, majd a **Microsoft. számítás** elemre, majd az **újbóli regisztrálás** elemre.
    2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy a **Azure stack hub által felügyelt lemez szerepel-** e a listáján.
-- Ha több-bérlős környezetet használ, kérje meg a Felhőbeli operátort (amely a saját szervezetében vagy a szolgáltatónál lehet), hogy az [ebben a cikkben](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory)leírt lépéseket követve konfigurálja újra az egyes vendég címtárakat. Ellenkező esetben előfordulhat, hogy a virtuális gépeknek az adott vendég címtárhoz társított előfizetésben való telepítése sikertelen lehet, ha a "belső hiba a Lemezkezelésben" hibaüzenet jelenik meg.
+- Ha több-bérlős környezetet használ, kérje meg a Felhőbeli operátort (amely a saját szervezetében vagy a szolgáltatónál lehet), hogy konfigurálja újra az egyes vendég címtárakat a [Azure stack hub-ban a többszörös kiszervezés konfigurálása](../operator/azure-stack-enable-multitenancy.md#configure-guest-directory)című részben ismertetett lépéseket követve. Ellenkező esetben előfordulhat, hogy a virtuális gépeknek az adott vendég címtárhoz társított előfizetésben való telepítése sikertelen lehet, ha a "belső hiba a Lemezkezelésben" hibaüzenet jelenik meg.
 
 ## <a name="next-steps"></a>Következő lépések
 

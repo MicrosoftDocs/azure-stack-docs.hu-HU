@@ -3,16 +3,16 @@ title: Portál felhasználói adatainak törlése igény szerint Azure Stack hub
 description: Megtudhatja, hogyan törölheti a portál felhasználói információit Azure Stack hub-felhasználók kérésére.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f85f5a06699b11d5316a889c045a33376304a0f0
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545091"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975894"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>A portál felhasználói adatainak törlése Azure Stack hub-ból
 
@@ -25,7 +25,7 @@ A portál felhasználói beállításainak eltávolítása csak a felhasználói
 > [!NOTE]
 > A jelen cikkben ismertetett útmutatást követve bizonyos felhasználói adatmennyiségek továbbra is megjelenhetnek az eseménynaplók rendszer szakaszában. Ezek az adat több napig is maradhat, amíg a naplók automatikusan át nem térnek.
 
-## <a name="requirements"></a>Követelmények
+## <a name="prerequisites"></a>Előfeltételek
 
 - [Telepítse a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 - [Töltse le a legújabb Azure stack hub-eszközöket](azure-stack-powershell-download.md) a githubról.
