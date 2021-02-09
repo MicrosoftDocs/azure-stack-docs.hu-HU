@@ -3,16 +3,16 @@ title: Frissítési csomag előkészítése Azure Stack központban
 description: Megtudhatja, hogyan készítheti elő a frissítési csomagot Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564785"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850921"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack hub-frissítési csomag előkészítése
 
@@ -45,7 +45,7 @@ Tekintse át a csomag tartalmát. A frissítési csomagok általában a követke
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>Frissítési csomagok automatikus letöltése és előkészítése
 
-A Azure Stack hub-szoftverfrissítések és-gyorsjavítások automatikusan előkészítve vannak a **Azure stack hub automatikus frissítési végpontokkal**létesített kapcsolattal rendelkező rendszerekhez: `https://*.azureedge.net` és `https://aka.ms/azurestackautomaticupdate` . Az **Azure stack hub automatikus frissítési végpontokhoz**való kapcsolódás beállításával kapcsolatos további információkért tekintse meg a [Azure stack hub tűzfal-integráció](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)című témakörben leírt **javítási és frissítési** végpontokat.
+A Azure Stack hub-szoftverfrissítések és-gyorsjavítások automatikusan előkészítve vannak a **Azure stack hub automatikus frissítési végpontokkal** létesített kapcsolattal rendelkező rendszerekhez: `https://*.azureedge.net` és `https://aka.ms/azurestackautomaticupdate` . Az **Azure stack hub automatikus frissítési végpontokhoz** való kapcsolódás beállításával kapcsolatos további információkért tekintse meg a [Azure stack hub tűzfal-integráció](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)című témakörben leírt **javítási és frissítési** végpontokat.
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Honnan tölthetők le Azure Stack hub frissítési csomagjai
 
@@ -56,7 +56,7 @@ A [teljes és expressz frissítések](./azure-stack-updates.md#update-package-ty
 
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Honnan tölthetők le Azure Stack hub gyorsjavítási csomagjai
 
-[Azure stack hub-gyorsjavítások](./azure-stack-updates.md#update-package-types) csomagjai ugyanabban a biztonságos Azure-végponton futnak, mint Azure stack hub-frissítés. A csatlakoztatott példányokkal rendelkező Azure Stack hub-operátorok [automatikusan megjelennek a felügyeleti portálon,](#automatic-download-and-preparation-for-update-packages) amikor elérhetővé válnak a Azure stack hub frissítései. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozásokkal töltheti le, például [Azure stack hub gyorsjavítási 1.1906.11.52](https://support.microsoft.com/help/4515650). A gyorsjavításokra mutató hivatkozásokat az Azure Stack hub verziójának megfelelő kibocsátási megjegyzésekben is talál.
+[Azure stack hub-gyorsjavítások](./azure-stack-updates.md#update-package-types) csomagjai ugyanabban a biztonságos Azure-végponton futnak, mint Azure stack hub-frissítés. A csatlakoztatott példányokkal rendelkező Azure Stack hub-operátorok [automatikusan megjelennek a felügyeleti portálon,](#automatic-download-and-preparation-for-update-packages) amikor elérhetővé válnak a Azure stack hub frissítései. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. A gyorsjavítási TUDÁSBÁZIS cikkeire mutató hivatkozásokat az Azure Stack hub verziójának megfelelő kibocsátási megjegyzésekben talál.
 
 ### <a name="where-to-download-oem-update-packages"></a>Honnan tölthetők le az OEM-frissítési csomagok
 
@@ -69,17 +69,17 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 > [!IMPORTANT]  
 > Értesítse a felhasználókat minden karbantartási műveletről, és gondoskodjon arról, hogy a szokásos karbantartási időszakok a munkaidőn kívüli órákban legyenek beütemezhetve. A karbantartási műveletek befolyásolhatják a felhasználói munkaterheléseket és a portálon végzett műveleteket is.
 
-1. A felügyeleti portálon válassza a **minden szolgáltatás**lehetőséget. Ezután az **adat + tárolás** kategóriában válassza a Storage- **fiókok**lehetőséget. Vagy a szűrő mezőbe írja be a Storage- **fiókok**kifejezést, majd jelölje ki.
+1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget. Ezután az **adat + tárolás** kategóriában válassza a Storage- **fiókok** lehetőséget. Vagy a szűrő mezőbe írja be a Storage- **fiókok** kifejezést, majd jelölje ki.
 
     ![Azure Stack hub frissítése](./media/azure-stack-update-prepare-package/image1.png)
 
-2. A szűrő mezőbe írja be a **frissítés**értéket, majd válassza ki a **updateadminaccount** .
+2. A szűrő mezőbe írja be a **frissítés** értéket, majd válassza ki a **updateadminaccount** .
 
-3. A Storage-fiók adatai alatt, a **szolgáltatások**területen válassza a **Blobok**elemet.
+3. A Storage-fiók adatai alatt, a **szolgáltatások** területen válassza a **Blobok** elemet.
 
     ![Azure Stack hub frissítése – blob](./media/azure-stack-update-prepare-package/image2.png)
 
-4. A tároló létrehozásához a **blob Service**alatt válassza a **+ tároló** elemet. Adjon meg egy nevet (például **Update-1811**), majd kattintson **az OK gombra**.
+4. A tároló létrehozásához a **blob Service** alatt válassza a **+ tároló** elemet. Adjon meg egy nevet (például **Update-1811**), majd kattintson **az OK gombra**.
 
     ![Azure Stack hub frissítése – tároló](./media/azure-stack-update-prepare-package/image3.png)
 
@@ -87,9 +87,9 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 
     ![Azure Stack hub frissítése – feltöltés](./media/azure-stack-update-prepare-package/image4.png)
 
-6. A **blob feltöltése**területen válassza a mappa ikont, keresse meg a frissítési csomag. zip fájlt, majd kattintson a **Megnyitás** gombra a fájlkezelő ablakban.
+6. A **blob feltöltése** területen válassza a mappa ikont, keresse meg a frissítési csomag. zip fájlt, majd kattintson a **Megnyitás** gombra a fájlkezelő ablakban.
 
-7. A **blob feltöltése**területen válassza a **feltöltés**lehetőséget.
+7. A **blob feltöltése** területen válassza a **feltöltés** lehetőséget.
 
     ![Azure Stack hub frissítése – blob feltöltése](./media/azure-stack-update-prepare-package/image5.png)
 
@@ -99,7 +99,7 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 
 10. Lépjen vissza az irányítópult **frissítés** paneljére. A panelnek jeleznie kell, hogy van elérhető frissítés. Ez azt jelzi, hogy a frissítés sikeresen előkészített. Válassza ki a panelt az újonnan hozzáadott frissítési csomag áttekintéséhez.
 
-11. A frissítés telepítéséhez jelölje ki a **készként**megjelölt csomagot, és kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most**lehetőséget, vagy válassza a **Frissítés most** a felül műveletet.
+11. A frissítés telepítéséhez jelölje ki a **készként** megjelölt csomagot, és kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most** lehetőséget, vagy válassza a **Frissítés most** a felül műveletet.
 
 12. Amikor kiválasztja a frissítési csomag telepítését, megtekintheti az állapotot a **frissítési Futtatás részletei** területen. Innen kiválaszthatja az **Összefoglalás letöltése** lehetőséget is a naplófájlok letöltéséhez. A frissítési folyamatokból származó naplók a kísérlet befejezése után hat hónapig elérhetők.
 

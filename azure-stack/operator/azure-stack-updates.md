@@ -3,16 +3,16 @@ title: Frissítések kezelése
 description: Ismerje meg, hogyan kezelheti a frissítéseket Azure Stack hub-ban
 author: sethmanheim
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 163485eddb18f0fdc1400aa61fee6b944c397cbf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367223"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850865"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Frissítések kezelése az Azure Stack Hubban
 
@@ -27,13 +27,13 @@ Az integrált rendszerek három különböző típusú frissítési csomaggal re
 
 - **Azure stack hub-szoftverfrissítések**. A Microsoft a Microsoft szoftverfrissítési csomagjainak teljes körű karbantartási életciklusát felelős. Ezek a csomagok magukban foglalhatják a Windows Server legújabb biztonsági frissítéseit, a nem biztonsági frissítéseket és a Azure Stack hub szolgáltatás frissítéseit. A tézisek frissítési csomagjait közvetlenül a Microsofttól töltheti le.
 
-    Minden frissítési csomaghoz tartozik egy **teljes** vagy **expressz**típus.
+    Minden frissítési csomaghoz tartozik egy **teljes** vagy **expressz** típus.
 
     A **teljes** frissítési csomagok frissítik a fizikai gazdagép operációs rendszereit a méretezési egységben, és nagyobb karbantartási időszakot igényelnek.
 
     Az **expressz** frissítési csomagok hatóköre, és nem frissíti a mögöttes fizikai gazdagép operációs rendszereit.
 
-- **Azure stack hub-gyorsjavítások**. A Microsoft [gyorsjavításokat biztosít Azure stack hubhoz](azure-stack-servicing-policy.md#hotfixes) , amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely a probléma, az ok és a megoldás részleteit ismerteti. A gyorsjavításokat ugyanúgy letöltheti és telepítheti, mint a Azure Stack hub normál teljes frissítési csomagjait. A gyorsjavítások kumulatívak, és percek alatt telepíthetők.
+- **Azure stack hub-gyorsjavítások**. A Microsoft [gyorsjavításokat biztosít Azure stack hubhoz](azure-stack-servicing-policy.md#hotfixes) , amely egy gyakran megelőző vagy időérzékeny probléma megoldására szolgál. Az egyes gyorsjavítások a Microsoft Tudásbázis megfelelő cikkében jelennek meg, amely részletezi az adott csomagban található javításokat. A gyorsjavításokat ugyanúgy letöltheti és telepítheti, mint a Azure Stack hub normál teljes frissítési csomagjait. A gyorsjavítások kumulatívak, és percek alatt telepíthetők.
 
    A Build 2005-es verziójától kezdve, amikor új főverzióra frissít (például: 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban. Ettől a ponttól kezdve, ha a buildhez kiadott egy gyorsjavítást, telepítse azt.
 
@@ -45,7 +45,7 @@ A frissítések három típusát a következő lépésszám bocsátja ki:
 
 - **Azure stack hub-szoftverfrissítések**. A Microsoft évente több teljes és expressz szoftverfrissítési csomagot bocsát ki.
 
-- **Azure stack hub-gyorsjavítások**. A gyorsjavítások időérzékeny kiadások, amelyeket bármikor fel lehet szabadítani. Ha az egyik főverzióról a másikra frissít (például 1.2002. x – 1.2005. x), a rendszer automatikusan telepíti a legújabb gyorsjavításokat (ha vannak ilyenek) az új főverzióban.
+- **Azure stack hub-gyorsjavítások**. A gyorsjavítások időérzékeny kiadások, amelyeket bármikor fel lehet szabadítani. Ha az egyik főverzióról a másikra (például 1.2002. x – 1.2005. x) frissít, a legújabb gyorsjavítások, ha vannak ilyenek, automatikusan települnek.
 
 - **OEM hardver gyártó által megadott frissítések**. Az OEM-hardvergyártók a szükséges módon szabadítják fel a frissítéseiket.
 
@@ -59,7 +59,7 @@ A frissítések figyelmeztetése néhány tényezőtől függ, például az inte
 
     A Microsoft-szoftverfrissítések és-gyorsjavítások frissítési riasztása megjelenik az internethez csatlakozó Azure Stack hub-példányok **frissítés** paneljén. Ha a **frissítés** panel nem jelenik meg, indítsa újra az infrastruktúra-kezelő vezérlő virtuális gépet.
 
-    Ha a példány nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára.
+    Ha a példány nincs csatlakoztatva, és szeretne értesítést kapni az egyes gyorsjavítási kiadásokról, fizessen elő az [RSS-hírcsatornára](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 - **OEM hardver szállítója – megadott frissítések**
 

@@ -3,16 +3,16 @@ title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 38628b6fba6136149cb6ef7e7ce818e2e2039d11
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554125"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850848"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -29,7 +29,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 1.  Először a [Linux](https://aka.ms/aksengine-json-example-raw) vagy a [Windows](https://aka.ms/aksengine-json-example-raw-win) rendszerhez készült Azure stack hub API-modellel, és a telepítéshez készítsen helyi másolatot. A gépről telepítette az AK motort:
 
     ```bash
-    curl -o kubernetes-azurestack.json https://aka.ms/aksengine-json-example-raw
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  

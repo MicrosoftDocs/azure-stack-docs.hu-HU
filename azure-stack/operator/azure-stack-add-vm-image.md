@@ -3,16 +3,16 @@ title: Egyéni virtuálisgép-rendszerkép hozzáadása Azure Stack hubhoz
 description: Ismerje meg, hogyan adhat hozzá vagy távolíthat el egy egyéni virtuálisgép-rendszerképet Azure Stack hubhoz.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 6b80ea5a25ab83eb5b62842fe1c21e7e698ab51a
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060123"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850938"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Egyéni virtuálisgép-rendszerkép hozzáadása és eltávolítása Azure Stack hubhoz
 
@@ -40,21 +40,21 @@ Adja hozzá a virtuálisgép-rendszerképet Azure Stack hub-operátorként a por
 
 1. Jelentkezzen be Azure Stack hubhoz operátorként. Válassza ki az **irányítópultot** a bal oldali navigációs sávon.
 
-2. Az **erőforrás-szolgáltatók** listában válassza a **számítás**lehetőséget.
+2. Az **erőforrás-szolgáltatók** listában válassza a **számítás** lehetőséget.
 
    [![Számítás kiválasztása](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
 
-3. Válassza a virtuálisgép- **rendszerképek**lehetőséget, majd válassza a **Hozzáadás**lehetőséget.
+3. Válassza a virtuálisgép- **rendszerképek** lehetőséget, majd válassza a **Hozzáadás** lehetőséget.
 
    [![Virtuálisgép-rendszerkép hozzáadása](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-4. A **rendszerkép létrehozása**területen adja meg a **közzétevőt**, az **ajánlatot**, az **SKU**-t, a **verziót**és az operációsrendszer-lemez blob URI-ját. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
+2. A **rendszerkép létrehozása** területen adja meg a **közzétevőt**, az **ajánlatot**, az **SKU**-t, a **verziót** és az operációsrendszer-lemez blob URI-ját. Ezután válassza a **Létrehozás** lehetőséget a virtuálisgép-rendszerkép létrehozásának megkezdéséhez.
 
    [![Egyéni rendszerkép közvetlen telepítési felhasználói felülete](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
-   A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota **sikeresre**változik.
+   A rendszerkép sikeres létrehozása után a virtuális gép rendszerképének állapota **sikeresre** változik.
 
-5. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
+3. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU** és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 
@@ -87,7 +87,7 @@ Adja hozzá a virtuálisgép-rendszerképet Azure Stack hub-operátorként a por
      Azon virtuálisgép-rendszerkép **SKU** -neve szegmense, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
    - **verziója**  
      Például: `1.0.0`  
-     Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma ** \# . \# . \# **. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
+     Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma **\# . \# . \#**. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
    - **osType**  
      Például: `Linux`  
      A rendszerkép **OsType** Windows vagy **Linux** **rendszernek** kell lennie.  
@@ -97,7 +97,7 @@ Adja hozzá a virtuálisgép-rendszerképet Azure Stack hub-operátorként a por
 
      További információkért lásd az [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) parancsmag PowerShell-referenciáját.
 
-4. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU**és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
+4. Rendszerkép hozzáadásakor csak Azure Resource Manager-alapú sablonok és PowerShell-telepítések esetén érhető el. Ha egy képet Piactéri elemként kíván elérhetővé tenni a felhasználók számára, tegye közzé a piactér-elemeket a piactér-elem [létrehozása és közzététele](azure-stack-create-and-publish-marketplace-item.md)című cikkben ismertetett lépések alapján. Ügyeljen rá, hogy a **közzétevő**, az **ajánlat**, az **SKU** és a **Version** értékeket jegyezze fel. A Resource Manager-sablon szerkesztéséhez és az egyéni. azpkg való Manifest.jséhez szüksége lesz rájuk.
 
 ---
 
@@ -111,7 +111,7 @@ A virtuálisgép-rendszerkép Azure Stack hub-kezelőként való eltávolítás�
 
 1. Nyissa meg az Azure Stack hub [felügyeleti portált](https://portal.azure.com/signin/index).
 
-2. Ha a virtuálisgép-rendszerképhez társított Piactéri elem tartozik, válassza a **piactér-kezelés**elemet, majd válassza ki a törölni kívánt virtuálisgép-Piactéri elemet.
+2. Ha a virtuálisgép-rendszerképhez társított Piactéri elem tartozik, válassza a **piactér-kezelés** elemet, majd válassza ki a törölni kívánt virtuálisgép-Piactéri elemet.
 
 3. Ha a virtuálisgép-rendszerkép nem rendelkezik társított Piactéri elemmel, navigáljon az **összes szolgáltatás > a számítási >** virtuálisgép-lemezképek elemre, majd válassza a virtuális gép lemezképe melletti három pontot (**..**.).
 
@@ -147,7 +147,7 @@ Ha el szeretné távolítani a virtuálisgép-rendszerképet Azure Stack hub-kez
      Azon virtuálisgép-rendszerkép **SKU** -neve szegmense, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
    - **verziója**  
      Például: `1.0.0`  
-     Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma ** \# . \# . \# **. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
+     Azon virtuálisgép-rendszerkép verziója, amelyet a felhasználók a virtuálisgép-lemezkép telepítésekor használnak. Ennek a verziónak a formátuma **\# . \# . \#**. Ebben a mezőben ne szerepeljen szóköz vagy egyéb speciális karakter.  
 
      A **Remove-AzsPlatformImage** parancsmaggal kapcsolatos további információkért tekintse meg a Microsoft PowerShell [Azure stack hub kezelő moduljának dokumentációját](/powershell/azure/azure-stack/overview).
 

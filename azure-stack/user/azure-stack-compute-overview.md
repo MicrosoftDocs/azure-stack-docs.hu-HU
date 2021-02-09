@@ -3,16 +3,16 @@ title: Azure Stack hub virtuális gépek bemutatása
 description: Ismerkedjen meg Azure Stack hub virtuális gépekkel.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: ff462a8fbdb2de67e58f15248aaffa79f0abb695
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 70bbb35b8433e8542fc58303f1e8cc56c28c84d7
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545762"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850805"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack hub virtuális gépek bemutatása
 
@@ -20,13 +20,13 @@ Az Azure Stack hub a virtuális gépeket igény szerinti és méretezhető szám
 
 Egy Azure Stack hub virtuális gép rugalmasságot biztosít a virtualizálás számára, anélkül, hogy a fürtöket vagy az egyes gépeket kellene kezelnie. Azonban továbbra is fenn kell tartania a virtuális gépet olyan feladatok elvégzésével, mint például a konfigurálás, a javítás/frissítés és a rajta futó szoftver telepítése.
 
-Azure Stack hub virtuális gépek többféleképpen is használhatók. Ilyenek többek között:
+Azure Stack hub virtuális gépek többféleképpen is használhatók. Például:
 
-- **Fejlesztés és tesztelés** : Azure stack hub virtuális gépek lehetővé teszik, hogy olyan számítógépet hozzon létre, amely az alkalmazások kódolásához és teszteléséhez szükséges adott konfigurációval rendelkezik.
+- **Fejlesztés és tesztelés**: Azure stack hub virtuális gépek lehetővé teszik, hogy olyan számítógépet hozzon létre, amely az alkalmazások kódolásához és teszteléséhez szükséges adott konfigurációval rendelkezik.
 
-- **Felhőbeli alkalmazások** : mivel az alkalmazás iránti igény ingadozhat, a gazdasági szempontok alapján a Azure stack hub-beli virtuális gépen is futtathatja azt. Ha szüksége van rájuk, további virtuális gépekért kell fizetnie, és nem kell leállítania.
+- **Felhőbeli alkalmazások**: mivel az alkalmazás iránti igény ingadozhat, a gazdasági szempontok alapján a Azure stack hub-beli virtuális gépen is futtathatja azt. Ha szüksége van rájuk, további virtuális gépekért kell fizetnie, és nem kell leállítania.
 
-- **Kiterjesztett adatközpont** : az Azure stack hub virtuális hálózatban lévő virtuális gépek csatlakoztathatók a szervezet hálózatához vagy az Azure-hoz.
+- **Kiterjesztett adatközpont**: az Azure stack hub virtuális hálózatban lévő virtuális gépek csatlakoztathatók a szervezet hálózatához vagy az Azure-hoz.
 
 Az alkalmazás által használt virtuális gépek akár vertikális felskálázást vagy vertikális felskálázást is igénybe vehetnek, hogy megfeleljenek az igényeinek.
 
@@ -73,11 +73,11 @@ Megadhatja a saját rendszerképének feltöltését és használatát. Ha így 
 
 A virtuálisgép-bővítmények a telepítés utáni konfiguráció és az automatizált feladatok révén további képességeket biztosítanak a virtuális gépek számára. Ezeket a gyakori feladatokat a bővítmények segítségével hajthatja végre:
 
-- **Egyéni parancsfájlok futtatása** : az egyéni szkriptek bővítménye lehetővé teszi a számítási feladatok konfigurálását a virtuális gépen úgy, hogy a virtuális gép üzembe helyezésekor futtatja a parancsfájlt.
+- **Egyéni parancsfájlok futtatása**: az egyéni szkriptek bővítménye lehetővé teszi a számítási feladatok konfigurálását a virtuális gépen úgy, hogy a virtuális gép üzembe helyezésekor futtatja a parancsfájlt.
 
-- **Konfigurációk üzembe helyezése és kezelése** : a PowerShell desired State CONFIGURATION (DSC) bővítménye segítségével beállíthatja a DSC-t egy virtuális gépen a konfigurációk és környezetek kezeléséhez.
+- **Konfigurációk üzembe helyezése és kezelése**: a PowerShell desired State CONFIGURATION (DSC) bővítménye segítségével beállíthatja a DSC-t egy virtuális gépen a konfigurációk és környezetek kezeléséhez.
 
-- **Diagnosztikai adatok gyűjtése** : a Azure Diagnostics bővítmény segít a virtuális gép konfigurálásában az alkalmazás állapotának figyelésére használható diagnosztikai adatok gyűjtéséhez.
+- **Diagnosztikai adatok gyűjtése**: a Azure Diagnostics bővítmény segít a virtuális gép konfigurálásában az alkalmazás állapotának figyelésére használható diagnosztikai adatok gyűjtéséhez.
 
 ### <a name="related-resources"></a>Kapcsolódó források (lehet, hogy a cikkek angol nyelvűek)
 
@@ -85,12 +85,12 @@ A virtuális gép a következő táblázatban található erőforrásokat haszn�
 
 |Erőforrás|Kötelező|Leírás|
 |---------|---------|---------|
-|Erőforráscsoport|Yes|A virtuális gépnek egy erőforráscsoport tagjának kell lennie.|
-|Tárfiók|No|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. |
-|Virtuális hálózat|Yes|A virtuális gépnek egy virtuális hálózat tagjának kell lennie.|
-|Nyilvános IP-cím|No|A virtuális gép rendelkezhet hozzárendelt nyilvános IP-címmel, hogy távolról is el lehessen érni.|
-|Hálózati adapter|Yes|A virtuális gépnek szüksége van a hálózati illesztőre a hálózattal való kommunikációhoz.|
-|Adatlemezek|No|A virtuális gépek a tárolókapacitást bővítő adatlemezeket is tartalmazhatnak.|
+|Erőforráscsoport|Igen|A virtuális gépnek egy erőforráscsoport tagjának kell lennie.|
+|A(z)|Nem|A virtuális gépnek felügyelt lemezek használata esetén nincs szükség a Storage-fiókra a virtuális merevlemezek tárolásához. |
+|Virtuális hálózat|Igen|A virtuális gépnek egy virtuális hálózat tagjának kell lennie.|
+|Nyilvános IP-cím|Nem|A virtuális gép rendelkezhet hozzárendelt nyilvános IP-címmel, hogy távolról is el lehessen érni.|
+|Hálózati adapter|Igen|A virtuális gépnek szüksége van a hálózati illesztőre a hálózattal való kommunikációhoz.|
+|Adatlemezek|Nem|A virtuális gépek a tárolókapacitást bővítő adatlemezeket is tartalmazhatnak.|
 
 ## <a name="create-your-first-vm"></a>Az első virtuális gép létrehozása
 
