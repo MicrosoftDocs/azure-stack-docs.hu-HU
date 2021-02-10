@@ -113,7 +113,7 @@
         - name: SDN-infrastruktúra üzembe helyezése
           href: manage/sdn-express.md
         - name: Adatközponti tűzfal használata a PowerShell-lel
-          href: manage/use-datacenter-firewall.md
+          href: manage/use-datacenter-firewall-powershell.md
         - name: Bérlői logikai hálózatok kezelése
           href: manage/tenant-logical-networks.md
         - name: Bérlői virtuális hálózatok kezelése

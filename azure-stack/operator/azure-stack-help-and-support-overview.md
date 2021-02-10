@@ -7,12 +7,12 @@ ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/19/2021
-ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: fbe9221e61de46c2af28bf50268d0e23b20d2844
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584327"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013251"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack hub Súgó és támogatás
 
@@ -83,7 +83,7 @@ Ez az oktatóanyag testreszabott, attól függően, hogy a ASDK vagy az integrá
 A következő két módon küldhet diagnosztikai naplókat a Microsoftnak:
 
 - [Naplók elküldése proaktív módon](./diagnostic-log-collection.md#send-logs-proactively): Ha engedélyezve van, a rendszer bizonyos állapot-riasztásokkal aktiválja a naplózási gyűjteményt.
-- [Naplók elküldése most](./diagnostic-log-collection.md#send-logs-now): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
+- [Naplók elküldése most](./diagnostic-log-collection.md#send-logs-now-with-the-administrator-portal): manuálisan is kiválaszthat egy adott csúszó ablakot a naplók időkeretén belül.
 
 ![A diagnosztikai naplók gyűjtésének megkezdését bemutató képernyőkép.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -119,7 +119,7 @@ Kattintson a **Súgó** (kérdőjel) elemre a felügyeleti portál jobb felső s
 
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a [diagnosztikai naplók gyűjtéséről](./diagnostic-log-collection.md).
 - Megtudhatja, hogyan [keresheti meg a Felhőbeli azonosítóját](azure-stack-find-cloud-id.md).
