@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247098"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009230"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Graphics Processing Unit (GPU) virtuális gép (VM) Azure Stack hub-on
 
@@ -26,11 +26,17 @@ Három GPU-modell közül választhat a nyilvános előzetes verzióban. Ezek az
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> A Azure Stack hub GPU-támogatás jelenleg nyilvános előzetes verzióban érhető el. Az előzetes verzióban való részvételhez fejezze be az űrlapot a következő címen: [aka.MS/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
+> A Azure Stack hub GPU-támogatás a 2005-es és 2008-as Azure Stack hub-kiadások nyilvános előzetes verziója.  
 > Erre az előzetes verzióra nem vonatkozik szolgáltatói szerződés, és a használata nem javasolt éles számítási feladatok esetén. Előfordulhat, hogy néhány funkció nem támogatott, vagy korlátozott képességekkel rendelkezik.
 > További információ: [Kiegészítő használati feltételek a Microsoft Azure előzetes verziójú termékeihez](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> Ebben a kiadásban a GPU virtuális gépek nem támogatottak. A Azure Stack hub 2005-es vagy újabb verziójára kell frissítenie. Emellett a Azure Stack hub-hardvernek fizikai GPU-val kell rendelkeznie.
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 Az NCv3 sorozatú virtuális gépeket NVIDIA Tesla V100 GPU-k működtetik. Az ügyfelek igénybe vehetik a frissített GPU-ket a hagyományos HPC-számítási feladatokhoz, mint például a tározó modellezése, a DNS-szekvencia, a protein-elemzés, a Monte Carlo-szimulációk és egyebek. 
@@ -50,6 +56,11 @@ A NVv4 sorozatú virtuális gépeket az [AMD Radeon ösztön MI25](https://www.a
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
+
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> Ezek a virtuálisgép-méretek nem helyezhetők üzembe a portál felhasználói felületén keresztül. Használhatja a PowerShell, az Azure CLI vagy a Azure Resource Manager sablonokat.
+::: moniker-end
 
 | Méret | vCPU | Memória: GiB | GPU | GPU memória: GiB | Adatlemezek max. száma | Hálózati adapterek maximális száma | 
 | --- | --- | --- | --- | --- | --- | --- |

@@ -12,6 +12,12 @@
           href: release-notes-security-updates.md
         - name: Kibocsátási megjegyzések
           href: release-notes.md
+        - name: Gyorsjavítások
+          items:
+            - name: Gyorsjavítás 1.2005.29.100
+              href: hotfix-1-2005-29-100.md
+            - name: Gyorsjavítás 1.2008.25.114
+              href: hotfix-1-2008-25-114.md
         - name: Ismert problémák
           href: known-issues.md
 - name: Rövid útmutatók
@@ -524,7 +530,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: Források
+- name: További források
   items:
     - name: Kiadási megjegyzések archívuma
       items:

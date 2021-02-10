@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: fe0ff0d81ebf863ff2096675ba113a5416136e8f
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697638"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009077"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Helyek közötti VPN-kapcsolatok IPsec/IKE-szabályzatának konfigurálása
 
@@ -69,13 +69,13 @@ Az ebben a cikkben szereplő utasítások segítséget nyújtanak az IPsec/IKE-s
 
 A következő táblázat felsorolja a támogatott titkosítási algoritmusokat és a Azure Stack hub által konfigurálható fő erősségeket:
 
-| IPsec/IKEv2                                          | Lehetőségek                                                                  |
+| IPsec/IKEv2                                          | Beállítások                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2-titkosítás                                     | AES256, AES192, AES128, DES3, DES                                        |
 | IKEv2-integritás                                      | SHA384, MD5, SHA1, SHA256                                                |
 | DH-csoport                                             | ECP384, DHGroup14, DHGroup2, DHGroup1, ECP256 *, DHGroup24*             |
 | IPsec-titkosítás                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nincs |
-| IPsec-integritás                                      | GCMAES256, GCMAES192, GCMAES128                                          |
+| IPsec-integritás                                      | GCMAES256, GCMAES192, GCMAES128, SHA256                                         |
 | PFS-csoport                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, PFSMM, nincs                  |
 | Gyorsmódú biztonsági társítás élettartama                                       | (Nem kötelező: Ha nincs megadva, az alapértelmezett értékek szerepelnek)<br />                         Másodperc (egész szám; min. 300/alapértelmezett érték: 27000 másodperc)<br />                         KB (egész szám; min. 1024/alapértelmezett érték: 102400000 KB) |
 | Forgalomválasztó                                     | A házirend-alapú forgalmi választókat Azure Stack hub nem támogatja.         |
@@ -472,6 +472,6 @@ Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 
 Ugyanazzal a parancsfájllal ellenőrizhető, hogy a házirend el lett-e távolítva a kapcsolatban.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Az Azure Stack Hub VPN Gateway-konfigurációs beállításai](azure-stack-vpn-gateway-settings.md)

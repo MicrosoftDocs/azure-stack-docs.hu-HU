@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5829e1b1b02636eeb1632f3a8f2fc3bcd2b38699
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248188"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009213"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 frissítés
 
@@ -301,7 +301,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
   - Ha az előfizetés az 1808-es frissítés előtt lett létrehozva, akkor a Managed Disks-t tartalmazó virtuális gép üzembe helyezése belső hibaüzenettel meghiúsulhat. A hiba elhárításához kövesse az alábbi lépéseket az egyes előfizetésekhez:
      1. A bérlői portálon lépjen az **előfizetések** elemre, és keresse meg az előfizetést. Kattintson az **erőforrás-szolgáltatók** elemre, majd a **Microsoft. számítás** elemre, majd az **újbóli regisztrálás** elemre.
      2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy szerepel-e a **AzureStack-DiskRP-Client** szerepkör.
-  - Ha több-bérlős környezetet konfigurált, akkor előfordulhat, hogy a virtuális gépeknek a vendég címtárhoz társított előfizetésben való telepítése belső hibaüzenettel meghiúsul. A hiba elhárításához kövesse a [cikk](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) következő lépéseit az egyes vendég-címtárak újrakonfigurálásához.
+  - Ha több-bérlős környezetet konfigurált, akkor előfordulhat, hogy a virtuális gépeknek a vendég címtárhoz társított előfizetésben való telepítése belső hibaüzenettel meghiúsul. A hiba elhárításához kövesse a [cikk](../azure-stack-enable-multitenancy.md#register-a-guest-directory) következő lépéseit az egyes vendég-címtárak újrakonfigurálásához.
 
 - Az SSH-hitelesítéssel létrehozott Ubuntu 18,04-es virtuális gép nem teszi lehetővé az SSH-kulcsok használatát a bejelentkezéshez. Megkerülő megoldásként használja a virtuális gép hozzáférését a Linux-bővítményhez az SSH-kulcsok kiépítés után való megvalósításához, vagy használjon jelszó alapú hitelesítést.
 

@@ -1,22 +1,22 @@
 ---
-title: Azure-regisztráció kezelése Azure Stack HCI-hez
-description: Az Azure-regisztráció kezelése Azure Stack HCI-hez, a regisztrációs állapot megismerése és a fürt regisztrációjának törlése, amikor készen áll a leszerelésre.
+title: Azure Stack HCI-fürt regisztrációjának kezelése az Azure-ban
+description: Az Azure-regisztráció kezelése Azure Stack HCI-fürtökhöz, a regisztrációs állapot megismerése és a fürt regisztrációjának törlése, amikor készen áll a leszerelésre.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/09/2021
+ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050093"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013234"
 ---
-# <a name="manage-azure-registration"></a>Azure-regisztráció kezelése
+# <a name="manage-cluster-registration-with-azure"></a>Fürt regisztrációjának kezelése az Azure-ban
 
 > Azure Stack HCI-v20H2 vonatkozik
 
-Miután létrehozott egy Azure Stack HCI-fürtöt, [regisztrálnia kell a fürtöt az Azure arc](../deploy/register-with-azure.md)-ban. A fürt regisztrálása után rendszeres időközönként szinkronizálja a helyszíni fürt és a felhő közötti információkat. Ez a témakör a regisztrációs állapot megértését, Azure Active Directory engedélyek megadását és a fürt regisztrációjának törlését ismerteti, amikor készen áll a leszerelésre.
+Miután létrehozott egy Azure Stack HCI-fürtöt, [regisztrálnia kell a Windows felügyeleti központot az Azure](register-windows-admin-center.md) -ban, majd [regisztrálnia kell a fürtöt az Azure](../deploy/register-with-azure.md)-ban. A fürt regisztrálása után rendszeres időközönként szinkronizálja a helyszíni fürt és a felhő közötti információkat. Ez a témakör a regisztrációs állapot megértését, Azure Active Directory engedélyek megadását és a fürt regisztrációjának törlését ismerteti, amikor készen áll a leszerelésre.
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>A regisztráció állapotának megértése a Windows felügyeleti központban
 
@@ -162,7 +162,7 @@ A legszigorúbb lehetőség az egyéni AD-szerepkör létrehozása egyéni enged
 Ha készen áll a Azure Stack HCI-fürt leszerelésére, egyszerűen kapcsolódjon a fürthöz a Windows felügyeleti központban, és válassza a **Beállítások** lehetőséget a bal oldali **eszközök** menü alján. Ezután válassza ki **Azure stack HCI-regisztrációt**, és kattintson a **Regisztráció törlése** gombra. A regisztráció megszüntetése folyamat automatikusan törli a fürtöt jelképező Azure-erőforrást, az Azure-erőforráscsoportot (ha a csoportot a regisztráció során hozta létre, és nem tartalmaz más erőforrásokat) és az Azure AD-alkalmazás identitását. Ezzel leállítja az összes figyelési, támogatási és számlázási funkciót az Azure arc használatával.
 
    > [!NOTE]
-   > Azure Stack HCI-fürt regisztrációjának visszavonásához szükség van egy Azure Active Directory rendszergazdára vagy egy olyan felhasználóra, aki rendelkezik a megfelelő engedélyekkel. Lásd: [Azure Active Directory felhasználói engedélyek](#azure-active-directory-user-permissions).
+   > Azure Stack HCI-fürt regisztrációjának visszavonásához szükség van egy Azure Active Directory rendszergazdára vagy egy olyan felhasználóra, aki rendelkezik a megfelelő engedélyekkel. Lásd: [Azure Active Directory felhasználói engedélyek](#azure-active-directory-user-permissions). Ha a Windows felügyeleti központja egy másik Azure Active Directory (bérlői) AZONOSÍTÓhoz és alkalmazás-AZONOSÍTÓhoz van regisztrálva, mint amennyit a fürt első regisztrálásához használt, akkor problémák léphetnek fel, amikor megpróbálják törölni a fürtöt a Windows felügyeleti központban. Ha ez történik, kövesse az alábbi PowerShell-utasításokat.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Azure Stack HCI regisztrációjának törlése a PowerShell használatával
 
@@ -204,4 +204,5 @@ Az Azure Stack HCI-erőforrás törléséhez navigáljon a Azure Portal oldalár
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
+- [A Windows felügyeleti központ regisztrálása az Azure-ban](register-windows-admin-center.md)
 - [Az Azure Stack HCI csatlakoztatása az Azure-hoz](../deploy/register-with-azure.md)

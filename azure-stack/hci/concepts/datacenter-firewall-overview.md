@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/02/2021
-ms.openlocfilehash: 78ed83e5be35bacb51d6e03d88d7662663117f61
-ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
+ms.date: 02/09/2021
+ms.openlocfilehash: 417ab5a64a9594d52072c4c6fccd7501e75baaac
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99510890"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013166"
 ---
 # <a name="what-is-datacenter-firewall"></a>Mi az az adatközpont tűzfala?
 
@@ -62,5 +62,5 @@ Az adatközpont tűzfala a következő előnyöket kínálja a bérlők számár
 
 A kapcsolódó információkkal kapcsolatban lásd még:
 
-- [Adatközponti tűzfal használata Software-Defined hálózatkezeléshez Azure Stack HCI-ben és a Windows Serverben](../manage/use-datacenter-firewall.md)
+- [Az ACL-ek konfigurálása a PowerShell-lel a Datacenter tűzfal használatával](../manage/use-datacenter-firewall-powershell.md)
 - [SDN a Azure Stack HCI-ben és a Windows Serverben](software-defined-networking.md)

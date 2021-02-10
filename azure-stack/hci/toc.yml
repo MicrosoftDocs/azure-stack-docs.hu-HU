@@ -112,7 +112,7 @@
       items:
         - name: SDN-infrastruktúra üzembe helyezése
           href: manage/sdn-express.md
-        - name: Adatközponti tűzfal használata
+        - name: Adatközponti tűzfal használata a PowerShell-lel
           href: manage/use-datacenter-firewall.md
         - name: Bérlői logikai hálózatok kezelése
           href: manage/tenant-logical-networks.md
@@ -238,7 +238,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Források
+- name: További források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'

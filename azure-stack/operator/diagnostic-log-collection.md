@@ -3,32 +3,31 @@ title: Diagnosztikai naplók gyűjteménye
 description: További információ a diagnosztikai naplók gyűjtéséről.
 author: PatAltimore
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 02/03/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.lastreviewed: 02/03/2021
+ms.openlocfilehash: ad5f0a7f6028249dba3d63490cdc3c91d7a45e72
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950739"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013217"
 ---
 # <a name="diagnostic-log-collection"></a>Diagnosztikai naplók gyűjteménye
 
-Az Azure Stack hub mind a Windows-összetevők, mind a helyszíni Azure-szolgáltatások gyűjteménye, amelyek egymással együttműködnek. Ezek az összetevők és szolgáltatások saját naplókat hoznak létre. Mivel Microsoft ügyfélszolgálata ezeket a naplókat használja a problémák azonosításához és kijavításához, diagnosztikai naplókat is kínálunk. A diagnosztikai napló gyűjteménye segítségével gyorsan gyűjthet és oszthat meg diagnosztikai naplókat a Microsoft ügyfélszolgálataokkal.
+Megoszthatja Azure Stack hub által létrehozott diagnosztikai naplókat. Ezeket a naplókat a Windows-összetevők és a helyszíni Azure-szolgáltatások hozzák létre. Microsoft ügyfélszolgálata a naplók segítségével kijavíthatja vagy azonosíthatja az Azure Stack hub-példánnyal kapcsolatos problémákat.
 
-> [!IMPORTANT]
-> Regisztrálnia kell Azure Stack hubot a diagnosztikai naplók gyűjtéséhez. Ha még nem regisztrált Azure Stack hub-t, használja [a Kiemelt végpontot (PEP)](azure-stack-get-azurestacklog.md) a naplók megosztásához. 
+Az Azure Stack hub diagnosztikai naplók gyűjtésének megkezdéséhez regisztrálnia kell a példányt. Ha még nem regisztrált Azure Stack hub-t, használja [a Kiemelt végpontot (PEP)](azure-stack-get-azurestacklog.md) a naplók megosztásához. 
 
 ::: moniker range=">= azs-2005"
 
-Azure Stack hub több módon is gyűjthet, menthet és küldhet diagnosztikai naplókat Microsoft ügyfélszolgálataba. Az Azure-hoz való kapcsolattól függően a naplók gyűjtésére és küldésére vonatkozó lehetőségek a következők:
+Több módon is elküldheti a diagnosztikai naplókat Microsoft ügyfélszolgálataba. Az Azure-kapcsolattól függően a következő lehetőségek közül választhat:
 * [Naplók interaktív küldése (ajánlott)](#send-logs-proactively)
 * [Naplók küldése most](#send-logs-now)
 * [Naplók helyi mentése](#save-logs-locally)
 
-Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használni a diagnosztikai naplók küldésére az egyes esetekben. Ha Azure Stack hub tud csatlakozni az Azure-hoz, javasoljuk, hogy engedélyezze a **proaktív naplózási gyűjteményt**, amely automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztás válik szükségessé. Az igény szerinti naplókat a **naplók elküldése** lehetőség használatával is összegyűjtheti. Ha Azure Stack hub le van választva az Azure-ból, akkor **helyileg mentheti a naplókat**. 
+A folyamatábra azt mutatja, hogy melyik beállítást kell használni a diagnosztikai naplók küldéséhez. Ha Azure Stack hub csatlakozik az Azure-hoz, engedélyezze a **proaktív naplózási gyűjteményt**. A proaktív naplók gyűjtése automatikusan feltölti a diagnosztikai naplókat egy Microsoft által vezérelt Storage-blobba az Azure-ban, ha kritikus riasztást kap. Az igény szerinti naplókat a **naplók küldése** lehetőséggel is gyűjtheti. Leválasztott környezetben futó Azure Stack hub esetén, vagy ha kapcsolódási problémák léptek fel, válassza a **naplók helyi mentését**.
 
 ![A folyamatábra bemutatja, hogyan küldhet naplókat most a Microsoftnak](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -36,11 +35,24 @@ Az alábbi folyamatábra azt mutatja be, hogy milyen lehetőséget kell használ
 
 ## <a name="send-logs-proactively"></a>Naplók interaktív küldése
 
-A proaktív naplók gyűjtése a támogatási eset megnyitása előtt automatikusan összegyűjti és elküldi a Azure Stack hub diagnosztikai naplóit a Microsoftnak. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy [rendszerállapot-riasztást](#proactive-diagnostic-log-collection-alerts) emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
+A proaktív naplók gyűjtése a támogatási eset megnyitása előtt automatikusan összegyűjti és elküldi a Azure Stack hub diagnosztikai naplóit a Microsoftnak. Ezeket a naplókat csak akkor gyűjti a rendszer, ha egy rendszerállapot-riasztást emelnek fel, és csak Microsoft ügyfélszolgálata egy támogatási eset kontextusában érik el őket.
 
 ::: moniker range=">= azs-2008"
 
-A Azure Stack hub 2008-es verziójától kezdve a proaktív naplózási gyűjtemény egy továbbfejlesztett algoritmust használ, amely akkor is rögzíti a naplókat, ha olyan hibák merülnek fel, amelyek nem láthatók az operátor számára. Ez biztosítja, hogy a megfelelő diagnosztikai adatok gyűjtése a megfelelő időben történjen, anélkül, hogy az operátorok beavatkozására lenne szükség. A Microsoft támogatási szolgálata bizonyos esetekben hamarabb megkezdheti a hibaelhárítást és a problémák megoldását. A kezdeti algoritmus fejlesztése a javítási és frissítési műveletekre összpontosít. Az előjelzéses naplózási gyűjtemények engedélyezése javasolt, mivel a további műveletek optimalizáltak, és az előnyök növekednek.
+A Azure Stack hub 2008-es verziójától kezdve a proaktív naplózási gyűjtemény egy továbbfejlesztett algoritmust használ, amely akkor is rögzíti a naplókat, ha olyan hibák merülnek fel, amelyek nem láthatók az operátor számára. Ez biztosítja, hogy a megfelelő diagnosztikai adatok gyűjtése a megfelelő időben történjen, anélkül, hogy az operátorok beavatkozására lenne szükség. A Microsoft támogatási szolgálata bizonyos esetekben hamarabb megkezdheti a hibaelhárítást és a problémák megoldását. A kezdeti algoritmus fejlesztése a javítási és frissítési műveletekre összpontosít.
+
+Azure Stack hub a riasztások és más rejtett sikertelen események naplóit gyűjti, amelyek nem láthatók az Ön számára.
+
+Azure Stack hub proaktív módon gyűjti a naplókat a következőhöz:
+
+- A frissítés nem sikerült.
+- A frissítés figyelmet igényel.
+
+Ha egy esemény elindítja ezeket a riasztásokat, Azure Stack hub proaktív módon küldi el a naplókat a Microsoftnak.
+
+Emellett a Azure Stack hub más meghibásodási események által aktivált naplókat küld a Microsoftnak. Ezek az események nem láthatók az Ön számára.
+
+Az előjelzéses naplózási gyűjtemények engedélyezése javasolt, mivel a további műveletek optimalizáltak, és az előnyök növekednek.
 
 ::: moniker-end
 
@@ -63,38 +75,6 @@ Az engedély visszavonása a korábban a beleegyezéssel gyűjtött adatokat nem
 
 A **proaktív** naplók használatával gyűjtött naplókat a Microsoft által kezelt és felügyelt Azure Storage-fiókba feltölti a rendszer. Ezeket a naplókat a Microsoft egy támogatási eset kontextusában, valamint Azure Stack hub állapotának javításához is elérheti.
 
-### <a name="proactive-diagnostic-log-collection-alerts"></a>Proaktív diagnosztikai naplók gyűjtésével kapcsolatos riasztások
-
-Ha engedélyezve van, az előjelzéses naplózási gyűjtemény feltölti a naplókat, ha a következő események valamelyike következik be.
-
-A **frissítés sikertelen volt** például egy olyan riasztás, amely előidézi a proaktív diagnosztikai naplók gyűjtését. Ha engedélyezve van, a rendszer proaktív módon rögzíti a diagnosztikai naplókat a frissítés során, hogy segítsen Microsoft ügyfélszolgálata a probléma megoldásában. A rendszer csak akkor gyűjti a diagnosztikai naplókat, ha a frissítésre vonatkozó riasztást **nem sikerült** megemelni.
-
-| Riasztás címe | FaultIdType |
-|---|---|
-|Nem lehet csatlakozni a távoli szolgáltatáshoz | UsageBridge.NetworkError|
-|Sikertelen frissítés | Urp.UpdateFailure |
-|Tárolási erőforrás-szolgáltatói infrastruktúra/függőségek nem érhetők el |    StorageResourceProviderDependencyUnavailable |
-|A csomópont nem csatlakozik a vezérlőhöz| ServerHostNotConnectedToController |  
-|Útvonal-közzétételi hiba | SlbMuxRoutePublicationFailure |
-|A tárolási erőforrás-szolgáltató belső adattára nem érhető el |    StorageResourceProvider. DataStoreConnectionFail |
-|Hiba az adattároló eszközön | Microsoft. Health. hibatípushoz. előzőtől. leválasztva |
-|Az állapot-vezérlő nem fér hozzá a Storage-fiókhoz | Microsoft. Health. hibatípushoz. StorageError |
-|A fizikai lemezzel létesített kapcsolat megszakadt | Microsoft. Health. hibatípushoz. lemez. LostCommunication |
-|A blob szolgáltatás nem fut csomóponton. | A StorageService. The. blob. Service. nem fut. on. a. csomópont – kritikus |
-|Infrastruktúra-szerepkör sérült | Microsoft. Health. hibatípushoz. GenericExceptionFault |
-|Hibák a Table Service-ben | StorageService. table. Service. errors – kritikus |
-|A fájlmegosztás több mint 80%-ot használ | Microsoft. Health. hibatípushoz. fájlmegosztás. Capacity. warning. infra |
-|A skálázásiegység-csomópont offline állapotban van | FRP. Szívverés. PhysicalNode |
-|Az infrastruktúra-szerepkör példánya nem érhető el | FRP. Szívverés. InfraVM |
-|Az infrastruktúra-szerepkör példánya nem érhető el  | FRP. Szívverés. NonHaVm |
-|Az infrastruktúra-szerepkör, a címtár-kezelés, az idő szinkronizációs hibáit jelentette | DirectoryServiceTimeSynchronizationError |
-|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. warning |
-|Külső tanúsítvány lejárata miatt függőben | CertificateExpiration. ExternalCert. Critical |
-|Az adott osztályú és méretű virtuális gépek az alacsony memóriakapacitás miatt nem építhetők ki | AzureStack. ComputeController. VmCreationFailure. LowMemory |
-|A csomópont nem érhető el a virtuális gép elhelyezéséhez | AzureStack. ComputeController. HostUnresponsive |
-|Sikertelen biztonsági mentés  | AzureStack. BackupController. BackupFailedGeneralFault |
-|Az ütemezett biztonsági mentés a sikertelen műveletekkel való ütközés miatt kimaradt    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
-
 ## <a name="send-logs-now"></a>Naplók küldése most
 
 > [!TIP]
@@ -106,7 +86,7 @@ A diagnosztikai naplókat kétféleképpen lehet elküldeni Microsoft ügyfélsz
 * [Felügyeleti portál (ajánlott)](#send-logs-now-with-the-administrator-portal)
 * [PowerShell](#send-logs-now-with-powershell)
 
-Ha Azure Stack hub csatlakozik az Azure-hoz, javasoljuk, hogy használja a felügyeleti portált, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, inkább a PowerShell használatával küldje el a naplókat.
+Ha Azure Stack hub csatlakozik az Azure-hoz, javasoljuk, hogy használja a felügyeleti portált, mert ez a legegyszerűbb módszer a naplók közvetlen elküldésére a Microsoftnak. Ha a portál nem érhető el, a PowerShell használatával kell elküldenie a naplókat.
 
 ### <a name="send-logs-now-with-the-administrator-portal"></a>Naplók küldése most a felügyeleti portálon
 
@@ -117,7 +97,7 @@ Naplók elküldése mostantól a felügyeleti portál használatával:
 1. Válassza ki a helyi időzónát.
 1. Válassza **a gyűjtés és feltöltés** lehetőséget.
 
-Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez.
+Ha nem csatlakozik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez.
 
 ### <a name="send-logs-now-with-powershell"></a>Naplók küldése most a PowerShell-lel
 
@@ -195,7 +175,7 @@ Ha a **naplók küldése most** módszert használja, és a felügyeleti portál
   ```
 
 > [!NOTE]
-> Ha nem kapcsolódik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. 
+> Ha nem csatlakozik az internethez, vagy csak helyileg szeretné menteni a naplókat, használja a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) metódust a naplók elküldéséhez. 
 
 ### <a name="how-the-data-is-handled"></a>Az adatkezelés módja
 
@@ -205,7 +185,9 @@ A Azure Stack hub-ból származó diagnosztikai naplók összegyűjtésének kez
 
 ## <a name="save-logs-locally"></a>Naplók helyi mentése
 
-A naplókat a helyi kiszolgáló üzenetblokk (SMB) megosztásba mentheti, ha Azure Stack hub le van választva az Azure-ból. A **Settings (beállítások** ) panelen adja meg az elérési utat és egy felhasználónevet és jelszót, amely jogosult a megosztásba való írásra. A támogatási esetekben a Microsoft ügyfélszolgálata részletesen ismerteti az átvitt helyi naplók beolvasásának lépéseit. Ha a felügyeleti portál nem érhető el, a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) használatával helyileg mentheti a naplókat.
+A naplókat a helyi kiszolgáló üzenetblokk (SMB) megosztásba mentheti, ha Azure Stack hub le van választva az Azure-ból. Előfordulhat például, hogy leválasztott környezetet futtat. Ha általában csatlakozik, de kapcsolódási problémák léptek fel, a naplókat helyileg mentheti, hogy segítsen a hibaelhárításban.
+
+ A **Settings (beállítások** ) panelen adja meg az elérési utat és egy felhasználónevet és jelszót, amely jogosult a megosztásba való írásra. A támogatási esetekben a Microsoft ügyfélszolgálata részletesen ismerteti az átvitt helyi naplók beolvasásának lépéseit. Ha a felügyeleti portál nem érhető el, a [Get-AzureStackLog](azure-stack-get-azurestacklog.md) használatával helyileg mentheti a naplókat.
 
 ![A diagnosztikai naplók gyűjtési lehetőségeinek képernyőképe](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -221,7 +203,7 @@ Az alábbi táblázat az Azure-hoz korlátozott vagy mért kapcsolattal rendelke
 |----|---|
 | Alacsony sávszélességű/nagy késleltetésű kapcsolat | A napló feltöltése hosszabb időt vesz igénybe. |
 | Megosztott kapcsolatok | A feltöltés hatással lehet más alkalmazásokra, illetve a hálózati kapcsolatokat megosztó felhasználókra is. |
-| Mért kapcsolatok | A további hálózati használatért az INTERNETSZOLGÁLTATÓ felár ellenében vehető igénybe. |
+| Mért kapcsolatok | Előfordulhat, hogy a további hálózati használatért további díjat kell fizetnie az INTERNETSZOLGÁLTATÓtól. |
 
 ## <a name="view-log-collection"></a>Napló-gyűjtemény megtekintése
 

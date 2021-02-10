@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d7ba1e7e3b6686002d24df2e286af81ddda5ce7
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248187"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009196"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 frissítés
 
@@ -244,7 +244,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
       2. Ugyanebben az előfizetésben lépjen a **Access Control (iam)** elemre, és ellenőrizze, hogy a **Azure stack felügyelt lemez** szerepel-e a listáján.
    2. Ha több-bérlős környezetet konfigurált, a virtuális gépek üzembe helyezése egy vendég címtárral társított előfizetésben meghiúsulhat, és belső hibaüzenet jelenhet meg. A hiba elhárításához kövesse az alábbi lépéseket:
       1. Alkalmazza a [1808 Azure stack gyorsjavítást](https://support.microsoft.com/help/4465859).
-      2. A [cikk](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) lépéseit követve konfigurálja újra az egyes vendég-címtárakat.
+      2. A [cikk](../azure-stack-enable-multitenancy.md#register-a-guest-directory) lépéseit követve konfigurálja újra az egyes vendég-címtárakat.
 
 <!-- 2869209 IS, ASDK --> 
 - Az [ **Add-AzsPlatformImage** parancsmag](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)használatakor a **-OsUri** paramétert kell használnia a lemez FELTÖLTÉSÉHEZ használt Storage-fiók URI azonosítójaként. Ha a lemez helyi elérési útját használja, a parancsmag a következő hibával meghiúsul: a *hosszú ideig futó művelet sikertelen volt, mert az állapot meghiúsult*. 
