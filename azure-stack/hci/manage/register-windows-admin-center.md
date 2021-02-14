@@ -4,21 +4,24 @@ description: A Windows felügyeleti központ átjárójának regisztrálása az 
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050059"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487884"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>A Windows felügyeleti központ regisztrálása az Azure-ban
 
 > Azure Stack HCI-v20H2 vonatkozik; Windows Server 2019
 
-Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné használni, először telepítenie kell a Windows felügyeleti központot egy felügyeleti számítógépre, és el kell végeznie a Windows felügyeleti központ átjárójának egyszeri regisztrációját. Ez a fürt Azure-beli regisztrálásának előfeltétele, és ugyanazon a felügyeleti számítógépen kell történnie, amelyet a [fürt regisztrációs](../deploy/register-with-azure.md) folyamatának elvégzéséhez kíván használni, ugyanazzal az Azure-ELŐfizetési azonosítóval és BÉRLŐi azonosítóval.
+Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné használni, először [telepítenie kell a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és el kell végeznie a Windows felügyeleti központ átjárójának egyszeri regisztrációját. Ez a fürt Azure-ban való [regisztrálásának](../deploy/register-with-azure.md) előfeltétele.
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Az átjáró regisztrációs folyamatának befejezése a Windows felügyeleti központ használatával
+   > [!IMPORTANT]
+   > Regisztrálja a Windows felügyeleti központot ugyanazon a felügyeleti számítógépen, amelyet a fürt regisztrálásához kíván használni, ugyanazzal a Azure Active Directory-(bérlői) AZONOSÍTÓval.
+
+## <a name="complete-the-registration-process"></a>A regisztrációs folyamat befejezése
 
 1. Indítsa el a Windows felügyeleti központot, és kattintson a jobb felső sarokban található **Beállítások** fogaskerék ikonra, amely a fiók oldalára kerül. Ezután a bal oldali **átjáró** menüjében válassza az **Azure** lehetőséget, majd kattintson a **regisztráció** elemre.
 

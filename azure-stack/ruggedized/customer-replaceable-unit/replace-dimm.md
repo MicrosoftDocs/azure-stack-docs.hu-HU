@@ -3,16 +3,16 @@ title: DIMM cseréje
 description: Tudnivalók a DIMM lecseréléséről
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 66b2bc606aefd07d693d8fc86b042f321550271b
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: f20cdf77cb5ed3b63bcbd9b57770039efb6d29e5
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571289"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487935"
 ---
 # <a name="replacing-a-dimm"></a>A DIMM cseréje
 
@@ -53,7 +53,7 @@ A DIMM cseréjéhez kövesse az alábbi eljárást.
     
 3.  Cserélje le a DIMM vagy a DIMM.
 
-    Kövesse a memóriamodul-helyettesítési folyamatot a [Dell EMC PowerEdge R640 telepítési és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a méretezési egység csomópontjai vagy a hardveres életciklus-gazdagépek számára.
+    A skálázási egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében kövesse a [memóriamodul cseréjének folyamatát](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) .
     
 4.  Kapcsolja be a csomópontot.
 

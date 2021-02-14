@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/28/2020
-ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2020
+ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050025"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487323"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
@@ -34,11 +34,11 @@ Nem fog tudni regisztrálni az Azure-ban, amíg létre nem Azure Stack HCI-fürt
 A legegyszerűbb regisztrációs élmény érdekében az Azure AD-rendszergazda a Windows felügyeleti központtal vagy a PowerShell-lel végezheti el a regisztrációt.
 
    > [!IMPORTANT]
-   > Ha azt tervezi, hogy regisztrálja a fürtöt a Windows felügyeleti központban, először [regisztrálnia kell a Windows felügyeleti központ átjáróját](../manage/register-windows-admin-center.md) az Azure-ban ugyanazzal az Azure-előfizetés-azonosítóval és a BÉRLŐi azonosítóval, amelyet a fürt regisztrálásához használni kíván.
+   > Azure Stack HCI-fürt Windows felügyeleti központon keresztüli regisztrálásához először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md) -ba a fürt regisztrálásához használni kívánt Azure Active Directory (bérlői) azonosító használatával.
 
 ### <a name="internet-access"></a>Internet-hozzáférés
 
-Az Azure Stack HCI-nek rendszeresen kapcsolódnia kell az Azure nyilvános felhőhöz. Ha a kimenő kapcsolatot a külső vállalati tűzfal vagy a proxykiszolgáló korlátozza, azt úgy kell konfigurálni, hogy csak korlátozott számú, jól ismert Azure-beli IP-címen engedélyezze a kimenő hozzáférést a 443-es porthoz (HTTPS). A tűzfalak előkészítésével kapcsolatos további információkért lásd: [tűzfalak konfigurálása Azure stack HCI-hez](../concepts/configure-firewalls.md).
+Az Azure Stack HCI-nek rendszeresen kapcsolódnia kell az Azure nyilvános felhőhöz. Ha a kimenő kapcsolatot a külső vállalati tűzfal vagy a proxykiszolgáló korlátozza, azt úgy kell konfigurálni, hogy csak korlátozott számú, jól ismert Azure-beli IP-címen engedélyezze a kimenő hozzáférést a 443-es porthoz (HTTPS). További információ a tűzfalak előkészítéséről és a proxykiszolgáló beállításáról: [tűzfalak konfigurálása Azure stack HCI számára](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > A regisztrációs folyamat megpróbálja felvenni a kapcsolatot a PowerShell-galéria annak ellenőrzéséhez, hogy rendelkezik-e a szükséges PowerShell-modulok legújabb verziójával, például az az és a AzureAD. Bár a PowerShell-galéria az Azure-ban üzemelteti, jelenleg nem rendelkezik szolgáltatási címkével. Ha nem tudja futtatni a fenti parancsmagot olyan felügyeleti gépről, amely rendelkezik kimenő internet-hozzáféréssel, javasoljuk, hogy töltse le a modulokat, és manuálisan vigye át azokat egy fürtcsomóponton, ahol a parancsot futtatni fogja `Register-AzStackHCI` . Azt is megteheti, hogy [a modulokat leválasztott forgatókönyvben is telepíti](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -106,10 +106,10 @@ A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Acti
 
 Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását.
 
-1. A regisztrációs folyamat megkezdése előtt [regisztrálnia kell a Windows felügyeleti központ átjáróját](../manage/register-windows-admin-center.md) az Azure-ban, ha még nem tette meg.
+1. A regisztrációs folyamat megkezdése előtt először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban, ha még nem tette meg.
 
    > [!IMPORTANT]
-   > Ha a Windows felügyeleti központot az Azure-ban regisztrálja, fontos, hogy ugyanazt az Azure-előfizetési azonosítót és bérlői azonosítót használja, amelyet a fürt tényleges regisztrálásához kíván használni. Az Azure AD-bérlői azonosító a fiókokat és csoportokat tartalmazó Azure AD-példányokat jelöli, míg az Azure-előfizetés azonosítója az Azure-erőforrások használatára vonatkozó szerződést jelöl, amelyért a díjak felmerülnek. A bérlő AZONOSÍTÓjának megkereséséhez látogasson el a [Portal.Azure.com](https://portal.azure.com) webhelyre, és válassza a **Azure Active Directory** lehetőséget. A bérlői azonosító a **bérlői adatok** területen jelenik meg. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez navigáljon az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából.
+   > Ha a Windows felügyeleti központot az Azure-ban regisztrálja, fontos, hogy ugyanazt a Azure Active Directory-(bérlői) azonosítót használja, amelyet a fürt tényleges regisztrálásához kíván használni. Az Azure AD-bérlői azonosító a fiókokat és csoportokat tartalmazó Azure AD-példányokat jelöli, míg az Azure-előfizetés azonosítója az Azure-erőforrások használatára vonatkozó szerződést jelöl, amelyért a díjak felmerülnek. A bérlő AZONOSÍTÓjának megkereséséhez látogasson el a [Portal.Azure.com](https://portal.azure.com) webhelyre, és válassza a **Azure Active Directory** lehetőséget. A bérlői azonosító a **bérlői adatok** területen jelenik meg. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez navigáljon az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából.
 
 2. Nyissa meg a Windows felügyeleti központot, és válassza a bal oldali **eszközök** menü alján található **Beállítások** lehetőséget. Ezután válassza ki **Azure stack HCI regisztráció** elemet a **Beállítások** menü alján. Ha a fürt még nincs regisztrálva az Azure-ban, akkor a **regisztráció állapota** **nem lesz regisztrálva**. A folytatáshoz kattintson a **regisztráció** gombra.
 

@@ -3,16 +3,16 @@ title: Hálózati lánya kártya cseréje
 description: Ismerje meg, hogyan cserélhet le egy hálózati lánya kártyát
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: defa5328f41ee394aefe2130d3678a1ad4f3831d
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 2d63631cf1c5300c617f3a7164d1681d2edd7bc4
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487901"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Hálózati lánya kártya cseréje
 
@@ -26,7 +26,7 @@ Az alábbi eljárással cserélhet le egy hálózati lánya vagy kártyát.
 
 3.  Áttekintés
 
-    -   Szükséges ismeretek a méretezési egység csomópontjainak működéséhez robusztus felhőalapú berendezésben
+    -   Szükséges ismeretek a méretezési egység csomópontjainak a Azure Stack hub-ban robusztus működéséhez
 
     -   Az 5. oldalon a hardveres életciklus-gazdagép használatához szükséges ismeretek, ha a hardveres életciklus-gazdagépet dolgozik
 
@@ -54,7 +54,7 @@ Az alábbi eljárással cserélhet le egy hálózati lánya vagy kártyát.
     
 3.  Cserélje le a hálózati lánya kártyáját vagy kártyáit.
 
-    Kövesse a hálózati kártya cseréjének folyamatát a [Dell EMC PowerEdge R640 telepítése és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a méretezési egység csomópontjai vagy a hardveres életciklus-gazdagépek számára.
+    A skálázási egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében kövesse a [hálózati kártya cseréjének folyamatát](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) .
     
 4.  Kapcsolja be a csomópontot.
 

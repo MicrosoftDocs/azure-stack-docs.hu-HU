@@ -7,12 +7,12 @@ ms.date: 01/28/2021
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: ''
-ms.openlocfilehash: 7aff7f648bb74a428a9f21ae61ece770f0ad841b
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: af4b9e3cbbff2c9d2c06f3c3966a2f67b1b7c037
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577291"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488071"
 ---
 # <a name="indicators-and-codes"></a>Mutatók és kódok
 

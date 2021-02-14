@@ -1,22 +1,22 @@
 ---
-title: Meghibásodott külső tároló lemezének cseréje
-description: Megtudhatja, hogyan cserélhet le egy meghibásodott külső tárolóeszközt
+title: Hibás adatmeghajtó cseréje
+description: Útmutató a meghibásodott adatmeghajtók lecseréléséhez
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a5b7796794a0444a434fdb9a628ff04b93adcc03
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571242"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488105"
 ---
-# <a name="replacing-a-failed-external-storage-disk"></a>A meghibásodott külső tároló lemezének cseréje
+# <a name="replacing-a-failed-data-drive"></a>Sikertelen adatmeghajtó cseréje
 
-A meghibásodott külső lemez cseréjéhez kövesse az alábbi eljárást.
+A meghibásodott adatmeghajtó cseréjéhez kövesse az alábbi eljárást.
 
 ## <a name="prerequisites"></a>Előfeltételek
 
@@ -48,8 +48,7 @@ A meghibásodott külső lemez cseréjéhez kövesse az alábbi eljárást.
 
 2.  Ellenőrizze a lemez modelljét.
 
-    Ellenőrizze, hogy az új lemez modell támogatott-e a [Microsoft Azure stack hub 14G támogatási mátrix * integrált rendszerében](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D) 
-     [](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D).
+    Ellenőrizze, hogy az új lemez modell támogatott-e a [támogatási mátrixban](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D).
     Ha a lemez nem a támogatási mátrixban található, akkor másik helyettesítőt kell kérnie.
     
     > [!CAUTION]
@@ -57,9 +56,9 @@ A meghibásodott külső lemez cseréjéhez kövesse az alábbi eljárást.
         
     A modell ellenőrzéséhez keresse meg a címkét, és ellenőrizze, hogy az összetevő megtalálható-e a támogatási mátrixban.
     
-3.  Cserélje le a meghibásodott külső tárolóeszköz lemezét.
+3.  Cserélje le a meghibásodott adatmeghajtót.
 
-    Kövesse a lemezmeghajtó-szolgáltató helyettesítési folyamatát a [Dell EMC PowerEdge R640 telepítési és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a méretezési egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében.
+    Kövesse a [lemezmeghajtó-szolgáltató helyettesítési folyamatát](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a skálázási egység csomópontjai vagy a hardveres életciklus-gazdagépek esetében.
     
     Emellett a lemezmeghajtók lemezről történő eltávolításához és a lemezmeghajtó-vagy lemezmeghajtó-adapterhez való telepítéséhez szükséges részekre is hivatkoznia kell.
     

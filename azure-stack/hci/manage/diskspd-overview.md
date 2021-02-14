@@ -5,12 +5,12 @@ author: jasonnyi
 ms.author: jasonyi
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 8d8a78d0a5faaa3c041e17c3c38f208132f19834
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: a7154d37512070875dd68e39a5938655356b4c2a
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254789"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487374"
 ---
 # <a name="use-diskspd-to-test-workload-storage-performance"></a>A DISKSPD használata a munkaterhelés tárolási teljesítményének teszteléséhez
 
@@ -43,7 +43,7 @@ További lépések nélkül kezdjük az első lépéseket:
     ```
 
      ```powershell
-     $client.DownloadFile("https://github.com/Microsoft/diskspd/releases/download/v2.0.21a/DiskSpd-2.0.21a.zip","<ENTER_PATH>\DiskSpd-2.0.21a.zip")
+     $client.DownloadFile("https://github.com/microsoft/diskspd/releases/download/v2.0.21a/DiskSpd.zip","<ENTER_PATH>\DiskSpd-2.0.21a.zip")
     ```
 
 1. Az alábbi paranccsal bontsa ki a letöltött fájlt:
@@ -257,7 +257,7 @@ A számítási feladatok teszteléséhez szükséges alapszintű kialakításnak
 
     - A második megoldás a-T használatával jár\<offset>\. Ez lehetővé teszi, hogy megadhatja az eltolási méretet (több-I/O-hézagot) a különböző szálak által ugyanazon a célhelyen végrehajtott I/O-műveletek között. Például a szálak általában a 0 eltolásnál kezdődnek, de ez a specifikáció lehetővé teszi a két szál közötti távolságot, így azok nem fedik át egymást. A többszálú környezetekben a szálak valószínűleg a működő cél különböző részein lesznek, és ez a helyzet szimulálása.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 További információt és részletes példákat a rugalmassági beállítások optimalizálásával kapcsolatban a következő témakörben talál:
 - [OLTP és OLAP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
 - [Rugalmassági választás](https://techcommunity.microsoft.com/t5/storage-at-microsoft/volume-resiliency-and-efficiency-in-storage-spaces-direct/ba-p/425831)

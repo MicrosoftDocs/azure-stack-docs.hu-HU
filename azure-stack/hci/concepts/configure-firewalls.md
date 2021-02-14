@@ -4,13 +4,13 @@ description: Ez a témakör útmutatást nyújt a Azure Stack HCI operációs re
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 01/06/2020
-ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/12/2021
+ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255231"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487391"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Tűzfalak konfigurálása Azure Stack HCI-hez
 
@@ -42,7 +42,7 @@ A *szolgáltatási címke* az adott Azure-szolgáltatás IP-címeinek egy csopor
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Szükséges végponti napi hozzáférés (az Azure-regisztráció után)
 Az Azure jól ismert IP-címeket tart fenn az Azure-szolgáltatások számára, amelyek szolgáltatás-címkék használatával vannak rendszerezve. Az Azure minden szolgáltatás IP-címének heti JSON-fájlját közzéteszi. Az IP-címek gyakran változnak, de évente néhány alkalommal változnak. A következő táblázat az operációs rendszer eléréséhez szükséges szolgáltatási címke végpontokat mutatja be.
 
-| Leírás                   | Az IP-címtartomány szolgáltatási címkéje  | URL-cím                                                                                 |
+| Description                   | Az IP-címtartomány szolgáltatási címkéje  | URL-cím                                                                                 |
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
@@ -75,8 +75,51 @@ Ez a szakasz bemutatja, hogyan konfigurálhatja a Microsoft Defender-tűzfalat �
     ```
 
 ## <a name="additional-endpoint-for-one-time-azure-registration"></a>További végpont egy egyszeri Azure-regisztrációhoz
-Az Azure regisztrációs folyamata során `Register-AzStackHCI` a vagy a Windows felügyeleti központ futtatásakor a parancsmag megpróbálja felvenni a kapcsolatot a PowerShell-Galéria annak ellenőrzéséhez, hogy rendelkezik-e a szükséges PowerShell-modulok legújabb verziójával, például az az és a AzureAD. Bár a PowerShell-galéria az Azure-ban üzemelteti, jelenleg nincs szolgáltatás címkéje. Ha nem tudja futtatni a `Register-AzStackHCI` parancsmagot egy kiszolgáló-csomópontról, mert nincs internet-hozzáférés, javasoljuk, hogy töltse le a modulokat a felügyeleti számítógépére, majd manuálisan vigye át azokat a kiszolgálói csomópontra, amelyen a parancsmagot futtatni szeretné.
+Az Azure regisztrációs folyamata során `Register-AzStackHCI` a vagy a Windows felügyeleti központ futtatásakor a parancsmag megpróbálja felvenni a kapcsolatot a PowerShell-Galéria annak ellenőrzéséhez, hogy rendelkezik-e a szükséges PowerShell-modulok legújabb verziójával, például az az és a AzureAD.
 
-## <a name="next-steps"></a>További lépések
+Bár a PowerShell-galéria az Azure-ban üzemelteti, jelenleg nincs szolgáltatás címkéje. Ha nem tudja futtatni a `Register-AzStackHCI` parancsmagot egy kiszolgáló-csomópontról, mert nincs internet-hozzáférés, javasoljuk, hogy töltse le a modulokat a felügyeleti számítógépére, majd manuálisan vigye át azokat a kiszolgálói csomópontra, amelyen a parancsmagot futtatni szeretné.
+
+## <a name="set-up-a-proxy-server"></a>Proxykiszolgáló beállítása
+Ha Azure Stack HCI-hez szeretne proxykiszolgálót beállítani, futtassa a következő PowerShell-parancsot rendszergazdaként:
+
+```powershell
+Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
+```
+
+Használja a `ProxySettingsPerUser 0` jelzőt, hogy a proxy konfigurációs kiszolgálóját felhasználónként nem, felhasználónként, ez az alapértelmezett érték legyen. 
+
+Töltse le a WinInetProxy. psm1 szkriptet a következő címen: [PowerShell-Galéria | WinInetProxy. psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1).
+
+## <a name="network-port-requirements"></a>Hálózati portokra vonatkozó követelmények
+Győződjön meg arról, hogy a megfelelő hálózati portok nyitva vannak az összes kiszolgáló-csomópont között egy helyen és a helyek között (a kifeszített fürtök esetében). Szüksége lesz a megfelelő tűzfal-és útválasztó-szabályokra az ICMP, az SMB (445-es port, a 5445-es port, az SMB Direct esetében) és a WS-MAN (port 5985) kétirányú forgalom engedélyezéséhez a fürt összes kiszolgálója között.
+
+Ha a fürt létrehozásához a Windows felügyeleti központban a fürt létrehozása varázslót használja, a varázsló automatikusan megnyitja a megfelelő tűzfal-portokat a fürt minden kiszolgálóján a feladatátvételi fürtszolgáltatás, a Hyper-V és a tárolási replika számára. Ha az egyes kiszolgálókon eltérő tűzfalat használ, nyissa meg a következő portokat:
+
+### <a name="failover-clustering-ports"></a>Feladatátvételi fürtszolgáltatás portjai
+- ICMPv4 és ICMPv6
+- 445-es TCP-port
+- Dinamikus RPC-portok
+- 135-es TCP-port
+- 137-es TCP-port
+- 3343-es TCP-port
+- 3343-es UDP-port
+
+### <a name="hyper-v-ports"></a>Hyper-V-portok
+- 135-es TCP-port
+- 80-es TCP-port (HTTP-kapcsolat)
+- 443-es TCP-port (HTTPS-kapcsolat)
+- 6600-es TCP-port
+- 2179-es TCP-port
+- Dinamikus RPC-portok
+- RPC végpontleképező
+- 445-es TCP-port
+
+### <a name="storage-replica-ports-stretched-cluster"></a>Tárolási replika portjai (kifeszített fürt)
+- 445-es TCP-port
+- TCP 5445 (ha iWarp RDMA használ)
+- 5985-es TCP-port
+- ICMPv4 és ICMPv6 (ha a `Test-SRTopology` PowerShell-parancsmagot használja)
+
+## <a name="next-steps"></a>Következő lépések
 További információért lásd még:
 - A Azure Stack HCI kapcsolódási szakasza [– Gyakori kérdések](../faq.md)

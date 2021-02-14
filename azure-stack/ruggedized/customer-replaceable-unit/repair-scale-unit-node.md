@@ -3,16 +3,16 @@ title: Méretezési egység csomópontjának bekapcsolása és javítása
 description: Útmutató a méretezési egységek csomópontjainak bekapcsolásához és kijavításához
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 0a2aa54234b5dccc8f1ce3425906425064463910
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909922"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488122"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Méretezési egység csomópontjának bekapcsolása és javítása
 
@@ -37,7 +37,7 @@ Ha vissza szeretné állítani a méretezési egység csomópontját az éles k�
     
     
     > [!NOTE]
-    > Ha a javítási eljárás három órán belül nem fejeződik be, vagy probléma merül fel, nyisson meg egy esetet a Dell Technologies támogatásával, aki további hibaelhárításhoz is felvehet Microsoft ügyfélszolgálata.
+    > Ha a javítási eljárás három órán belül nem fejeződik be, vagy probléma merül fel, a további hibaelhárítás érdekében nyisson meg egy esetet Microsoft ügyfélszolgálata.
     
     A javítási folyamat befejezése után a csomópont egy **futó működési állapotba** tér vissza.
     

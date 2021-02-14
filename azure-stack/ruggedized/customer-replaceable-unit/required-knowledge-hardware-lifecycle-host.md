@@ -3,16 +3,16 @@ title: A hardveres életciklus-gazdagép használatának szükséges ismerete
 description: Ismerje meg a hardveres életciklus-gazdagép használatának szükséges ismereteit
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a53d2410c9b4ff7494877a39ec6e4c5405261f19
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 3d3e650e9b6b1b6c37e2f265aa5c049246600c2f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571160"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487782"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>A hardveres életciklus-gazdagép használatának szükséges ismerete
 
@@ -47,17 +47,4 @@ Egy teljes körű rendszergazdai jogosultságokkal rendelkező Windows-fiók.
 
 Ha nem kapcsolódik közvetlenül a kiszolgálóhoz egy összeomlási kosár használatával, akkor a iDRAC fiók hitelesítő adataira lesz szüksége, hogy hozzáférjen a virtuális KVM-hoz.
 
-## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>A Dell EMC PowerEdge R640 telepítése és szervizelési kézikönyve
-
-A megfelelő hardverek fizikai cseréjével kapcsolatos részletekért tekintse meg a PowerEdge R640 cserélhető helyettesítő eljárásokat a [Dell](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) 
- [EMC PowerEdge R640 telepítés és szolgáltatás kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
-Keresse meg a [rendszerösszetevők telepítése és törlése](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us) szakaszt.
-
-## <a name="microsoft-azure-stack-hub-ruggedized-cloud-appliance-service-manual"></a>Microsoft Azure Stack hub robusztus Cloud Appliance Service-kézikönyv
-
-Az Microsoft Azure Stack hub robusztus Cloud Appliance Service-kézikönyv a hardveres életciklus-gazdagép eltávolítására vonatkozó utasításokat tartalmaz.
-
-## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
-
-Ismernie kell a Dell EMC PowerEdge iDRAC webes felületének navigálása és használata című témakört.
 

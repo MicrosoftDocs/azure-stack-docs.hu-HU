@@ -7,16 +7,14 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 299b7da3ad514092c86f1855b9261fda0d76ac5d
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: d636b5ebb0d07c2711a17b2b2f10651480c38068
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571014"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488020"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>A méretezési egység csomópont-hozzáférésének és állapotának ellenőrzése
-
-
 
 Jelentkezzen be az emelt szintű hozzáférési munkaállomásra, indítsa el a felügyeleti portált, ellenőrizze a rendszerállapotot, szerezze be a Kiemelt végpont IP-címeit, és azonosítsa, hogy mely csomópontokat kell kiüríteni vagy folytatni.
 
@@ -35,7 +33,7 @@ Jelentkezzen be az emelt szintű hozzáférési munkaállomásra, indítsa el a 
     
 4.  Tekintse át az aktuális riasztásokat.
 
-    A **régió kezelése** területen válassza a **riasztások** lehetőséget, és tekintse át az aktuális riasztásokat. Ha váratlan riasztások jelennek meg, ellenőrizze, hogy a Dell Technologies támogatja-e a törlést vagy a biztonság figyelmen kívül hagyása.
+    A **régió kezelése** területen válassza a **riasztások** lehetőséget, és tekintse át az aktuális riasztásokat. Ha váratlan riasztások jelennek meg, ellenőrizze a Microsoft ügyfélszolgálata, hogy törölhető vagy biztonságosan figyelmen kívül hagyható-e.
     
     [![Képernyőfelvétel: a "Name" (Tulajdonságok) oldal kiemelve.](media/image-19-inline.png)](media/image-19-expanded.png#lightbox)
     

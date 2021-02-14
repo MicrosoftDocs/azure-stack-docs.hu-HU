@@ -3,16 +3,16 @@ title: Operációs rendszer lemezének cseréje
 description: Útmutató az operációs rendszer lemezének lecseréléséhez
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 8ab8cd77a9ce3641a65eeb60460305830d524462
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 24447611a4b3c775b92f4d163bb250060e29417e
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571177"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487833"
 ---
 # <a name="replacing-an-operating-system-disk"></a>Operációs rendszer lemezének cseréje
 
@@ -24,13 +24,13 @@ A következő eljárással lecserélheti az operációs rendszer hibás lemezét
 
 2.  Tekintse át a kezelési óvintézkedéseket.
 
-3.  Szükséges ismeretek a skálázási egység csomópontjainak a robusztus felhőalapú berendezésben való használatához, ha a méretezési egység csomópontja dolgozik.
+3.  A skálázási egység csomópontjainak az Azure Stack hub-ban való használatának szükséges ismerete robusztus, ha a méretezési egység csomópontja működik.
 
 4.  Fejezze be a méretezési egység csomópont-hozzáférésének és állapotának ellenőrzését.
 
 5.  Fejezze be a skálázási egység csomópontjainak kikapcsolását.
 
-    Az Azure Stack hub skálázási egység csomópontjai esetében az operációs rendszer a Dell PowerEdge rendszerindításra optimalizált tárolási megoldás (BOSS) kártyán található, M. 2 SSD-modulok egy tükrözött párja alapján fut. Az operációs rendszer lemezének cseréjéhez ki kell kapcsolni a rendszert.
+    Az Azure Stack hub skálázási egység csomópontjai esetében az operációs rendszer a rendszerindításra optimalizált tárolási megoldás (BOSS) kártyán található, M. 2 SSD-modulok tükrözött párja alapján fut. Az operációs rendszer lemezének cseréjéhez ki kell kapcsolni a rendszert.
     
 ## <a name="steps"></a>Lépések
 
@@ -43,7 +43,7 @@ A következő eljárással lecserélheti az operációs rendszer hibás lemezét
     
 3.  Cserélje le a sikertelen M. 2 SSD-modult.
 
-    Kövesse az M. 2 SSD-modul helyettesítési folyamatát a [Dell EMC PowerEdge R640 telepítési és szervizelési kézikönyvében](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a skálázási egység csomópontjaihoz.
+    Kövesse az [M. 2 SSD-modul helyettesítési folyamatát](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) a skálázási egység csomópontjaihoz.
     
 4.  Kapcsolja be a csomópontot.
 

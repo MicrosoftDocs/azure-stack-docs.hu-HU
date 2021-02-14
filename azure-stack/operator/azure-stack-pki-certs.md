@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: 2368c38e5fc06b36e11eb19069092b4e8a999406
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965528"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487816"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Az Azure Stack Hub nyilvános kulcsú infrastruktúrájának (PKI) tanúsítványkövetelményei
 
@@ -28,7 +28,7 @@ Azure Stack hub olyan nyilvános infrastruktúra-hálózattal rendelkezik, amely
 ## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 A következő lista az általános tanúsítvány-kiállítási, biztonsági és formázási követelményeket ismerteti:
 
-- A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát itt tekintheti meg [: Microsoft megbízható legfelső szintű tanúsítvány programja: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+- A tanúsítványokat a belső hitelesítésszolgáltatótól vagy egy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Ha nyilvános hitelesítésszolgáltató van használatban, azt a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát lásd: [résztvevők listája – Microsoft megbízható legfelső szintű program](/security/trusted-root/participants-list).
 - Az Azure Stack hub-infrastruktúrának a tanúsítványban közzétett tanúsítvány-visszavonási lista (CRL) elérési helyéhez hálózati hozzáféréssel kell rendelkeznie. A CRL-nek egy HTTP-végponton kell lennie.
 ::: moniker range="< azs-1903"
 - Ha a tanúsítványokat előre 1903-buildekben futtatja, akkor a tanúsítványokat ugyanabból a belső hitelesítésszolgáltatótól kell kibocsátani, amely a telepítéskor vagy bármely nyilvános hitelesítésszolgáltatónál elérhető tanúsítványok aláírására használatos.
@@ -119,5 +119,5 @@ Az alábbi táblázat az erőforrás-szolgáltatókhoz szükséges végpontokat 
 ## <a name="learn-more"></a>Tudjon meg többet
 Ismerje meg, hogyan [hozhatja ki a PKI-tanúsítványokat Azure stack hub telepítéséhez](azure-stack-get-pki-certs.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).

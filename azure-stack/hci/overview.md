@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 02/10/2021
+ms.openlocfilehash: 66156b01796c483f509b5b0787ca947f85fa6a1a
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208029"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487867"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Az Azure Stack HCI-megoldás áttekintése
 
@@ -103,6 +103,15 @@ A kezdéshez a következőkre lesz szüksége:
 - Ha a szoftveres hálózatkezelés (SDN) használatát tervezi, szüksége lesz egy virtuális merevlemezre (VHD) a Azure Stack HCI operációs rendszerhez a hálózati vezérlő virtuális gépek létrehozásához (lásd: a [hálózati vezérlő üzembe helyezésének tervezése](concepts/network-controller.md))
 
 További információ: [rendszerkövetelmények](concepts/system-requirements.md). Az Azure Kubernetes Service Azure Stack HCI-követelményekkel kapcsolatban lásd: az [AK-követelmények Azure stack HCI](../aks-hci/overview.md#what-you-need-to-get-started)-ben.
+
+## <a name="availability"></a>Rendelkezésre állás
+
+|Szempont|Részletek|
+|----|:----|
+|Kiadás állapota:|Általánosan elérhető (GA)|
+|Árképzési|[Számlázás az Azure-előfizetéssel](concepts/billing.md)|
+|Szükséges szerepkörök és engedélyek:|**Azure Active Directory rendszergazdai** vagy delegált engedélyek|
+|||
 
 ## <a name="hardware-partners"></a>Hardveres partnerek
 

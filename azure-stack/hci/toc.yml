@@ -204,6 +204,8 @@
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Azure Stack HCI JavaScript-csomag
       href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
+    - name: Azure Stack HCI-REST API referenciája
+      href: /rest/api/stackhci
     - name: .NET-névterek Azure Stack HCI-hez
       href: /dotnet/api/overview/azure/stackhci/management
     - name: Hyper-V PowerShell-parancsok
@@ -238,7 +240,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: További források
+- name: Források
   items:
     - name: Azure Stack HCI-termék lapja
       href: 'https://azure.com/hci'

@@ -4,13 +4,13 @@ description: Az Azure-regisztráció kezelése Azure Stack HCI-fürtökhöz, a r
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/09/2021
-ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013234"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487459"
 ---
 # <a name="manage-cluster-registration-with-azure"></a>Fürt regisztrációjának kezelése az Azure-ban
 
@@ -162,7 +162,7 @@ A legszigorúbb lehetőség az egyéni AD-szerepkör létrehozása egyéni enged
 Ha készen áll a Azure Stack HCI-fürt leszerelésére, egyszerűen kapcsolódjon a fürthöz a Windows felügyeleti központban, és válassza a **Beállítások** lehetőséget a bal oldali **eszközök** menü alján. Ezután válassza ki **Azure stack HCI-regisztrációt**, és kattintson a **Regisztráció törlése** gombra. A regisztráció megszüntetése folyamat automatikusan törli a fürtöt jelképező Azure-erőforrást, az Azure-erőforráscsoportot (ha a csoportot a regisztráció során hozta létre, és nem tartalmaz más erőforrásokat) és az Azure AD-alkalmazás identitását. Ezzel leállítja az összes figyelési, támogatási és számlázási funkciót az Azure arc használatával.
 
    > [!NOTE]
-   > Azure Stack HCI-fürt regisztrációjának visszavonásához szükség van egy Azure Active Directory rendszergazdára vagy egy olyan felhasználóra, aki rendelkezik a megfelelő engedélyekkel. Lásd: [Azure Active Directory felhasználói engedélyek](#azure-active-directory-user-permissions). Ha a Windows felügyeleti központja egy másik Azure Active Directory (bérlői) AZONOSÍTÓhoz és alkalmazás-AZONOSÍTÓhoz van regisztrálva, mint amennyit a fürt első regisztrálásához használt, akkor problémák léphetnek fel, amikor megpróbálják törölni a fürtöt a Windows felügyeleti központban. Ha ez történik, kövesse az alábbi PowerShell-utasításokat.
+   > Azure Stack HCI-fürt regisztrációjának visszavonásához szükség van egy Azure Active Directory rendszergazdára vagy egy olyan felhasználóra, aki rendelkezik a megfelelő engedélyekkel. Lásd: [Azure Active Directory felhasználói engedélyek](#azure-active-directory-user-permissions). Ha a Windows felügyeleti központ átjárója egy másik Azure Active Directory (bérlői) AZONOSÍTÓhoz van regisztrálva, mint a fürt első regisztrálásához, akkor problémákba ütközhet, amikor megkísérli törölni a fürt regisztrációját a Windows felügyeleti központban. Ha ez történik, kövesse az alábbi PowerShell-utasításokat.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Azure Stack HCI regisztrációjának törlése a PowerShell használatával
 
@@ -199,6 +199,24 @@ Megjelenik egy interaktív Azure bejelentkezési ablak. A pontos Rákérdezés a
 Ha egy felhasználó megsemmisít egy Azure Stack HCI-fürtöt a regisztráció törlése nélkül, például a gazdagép-kiszolgálók újbóli lemezképének vagy a virtuális fürtcsomópontok törlésének megszüntetésével, akkor az összetevők az Azure-ban maradnak. Ezek ártalmatlanok, és nem járnak számlázással vagy erőforrás-használattal, de a Azure Portal rendetlenséget okozhatnak. A törléshez manuálisan is törölheti őket.
 
 Az Azure Stack HCI-erőforrás törléséhez navigáljon a Azure Portal oldalára, majd válassza a **Törlés** lehetőséget a felül található műveleti sávon. Írja be az erőforrás nevét a törlés megerősítéséhez, majd válassza a **Törlés** lehetőséget. Az Azure AD-alkalmazás identitásának törléséhez navigáljon az **Azure ad**-be, majd az alkalmazások **regisztrációja** lehetőségre, és megtalálja az **összes alkalmazás** területen. Válassza a **Törlés** lehetőséget, és erősítse meg.
+
+Az Azure Stack HCI-erőforrást a PowerShell használatával is törölheti:
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+Lehetséges, hogy telepítenie kell a `Az.Resources` modult:
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+Ha az erőforráscsoport a regisztráció során lett létrehozva, és nem tartalmaz más erőforrásokat, akkor azt is törölheti:
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
 
 ## <a name="next-steps"></a>Következő lépések
 

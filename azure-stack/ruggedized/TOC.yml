@@ -528,7 +528,7 @@
                   href: customer-replaceable-unit/power-off-scu.md
                 - name: DIMM cseréje
                   href: customer-replaceable-unit/replace-dimm.md
-                - name: A meghibásodott külső tároló lemezének cseréje
+                - name: Sikertelen adatmeghajtó cseréje
                   href: customer-replaceable-unit/replace-failed-external-storage-disk.md
                 - name: Hűtőventilátor cseréje
                   href: customer-replaceable-unit/replace-cooling-fan.md
@@ -560,8 +560,6 @@
                   href: customer-replaceable-unit/indicators-and-codes.md
                 - name: IDRAC felület elérése közvetlen USB-kapcsolaton keresztül
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
-                - name: Belső vezérlőprogram telepítése iDRAC felületen keresztül
-                  href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: Emelt szintű hozzáférési munkaállomás és privilegizált végponti hozzáférés
                   href: customer-replaceable-unit/privileged-access-workstation.md
     - name: Referencia
