@@ -3,15 +3,15 @@ title: Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 description: Megtudhatja, hogyan telepíthet át egy fürtöt Azure Stack HCI-re ugyanazon a hardveren
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772279"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524942"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Áttelepítés ugyanarra a hardverre Azure Stack HCI-re
 
@@ -215,15 +215,9 @@ A fürt PowerShell használatával történő létrehozásával kapcsolatos tov�
 
 ## <a name="refs-volumes"></a>ReFS-kötetek
 
-Ha a Windows Server 2016 rendszerről végez áttelepítést, a rugalmas fájlrendszer (ReFS) kötetei támogatottak, de ezek a kötetek nem élvezik az Azure Stack HCI következő teljesítménybeli fejlesztéseit:
+Ha a Windows Server 2016-es verzióról végez áttelepítést, akkor a rugalmas fájlrendszer (ReFS) kötetei támogatottak, de ezek a kötetek nem élvezik az Azure Stack HCI teljesítménybeli fejlesztéseit a tükrözött felgyorsított paritás (MAP) kötetek használatával. Ennek a fejlesztésnek szüksége van egy új ReFS-kötet létrehozására a PowerShell- `New-Volume` parancsmag használatával.
 
-- Tükrözött, gyorsított paritás
-- TÉRKÉPi napló megkerülése
-
-Ezeknek a fejlesztéseknek új ReFS-kötetet kell létrehoznia a `New-Volume` parancsmag használatával.
-
-> [!NOTE]
-> A Windows Server 2016 Mirror gyorsított paritású kötetek esetében a ReFS tömörítés nem volt elérhető, ezért a kötetek újbóli csatolása rendben van, de kevésbé lesz végrehajtva, mint egy Azure Stack HCI-fürtön lévő új TÉRKÉPi kötet létrehozásához.
+A Windows Server 2016-es kötetek esetében a ReFS tömörítés nem volt elérhető, ezért a kötetek újbóli csatolása rendben van, de kevésbé lesz végrehajtva, mint egy Azure Stack HCI-fürtben lévő új LEKÉPEZÉSi kötet létrehozásakor.
 
 ## <a name="import-the-vms"></a>A virtuális gépek importálása
 
@@ -269,7 +263,7 @@ A virtuális gépek importálásához hajtsa végre az alábbi lépéseket a Azu
     Get-VM | Update-VMVersion -Force
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A fürt érvényesítése az áttelepítés után. Lásd: [Azure stack HCI-fürt ellenőrzése](validate.md).
 - Ha Windows Server rendszerű virtuális gépeket szeretne áttelepíteni új Azure Stack HCI-hardverre, tekintse [meg az áttelepítés Azure stack a HCI-re új hardveren](migrate-cluster-new-hardware.md)
