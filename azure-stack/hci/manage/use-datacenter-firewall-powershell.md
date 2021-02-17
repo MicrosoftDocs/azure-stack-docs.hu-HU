@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/09/2021
-ms.openlocfilehash: 11bc8911b48a9ca3f84b1640a7d75460168b4bf1
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.openlocfilehash: 38f7511d4ccc11c4801abde82ec8ab1c7091eb69
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100082645"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562650"
 ---
 # <a name="use-datacenter-firewall-to-configure-acls-with-powershell"></a>Az ACL-ek konfigurálása a PowerShell-lel a Datacenter tűzfal használatával
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server 2016
 
 Ez a témakör útmutatást nyújt a hozzáférés-vezérlési listák (ACL-ek) konfigurálásához az adatforgalom kezeléséhez a Windows PowerShell használatával a Azure Stack HCI-ben a szoftveresen definiált hálózatkezelés (SDN [) használatával.](../concepts/datacenter-firewall-overview.md) Az adatközpont tűzfalát az alhálózatra vagy hálózati adapterre alkalmazott ACL-ek létrehozásával engedélyezheti és konfigurálhatja. A jelen témakörben található parancsfájlok a **NetworkController** modulból exportált Windows PowerShell-parancsokat használják. Az ACL-ek konfigurálásához és kezeléséhez használhatja a Windows felügyeleti központot is.
 

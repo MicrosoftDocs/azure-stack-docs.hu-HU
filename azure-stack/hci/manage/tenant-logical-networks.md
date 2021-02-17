@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.openlocfilehash: e45ca61a09bd989645998a2e8993f29176d1b9cf
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 5cf88e5befd551eb7789388807c9c1e4df671dc9
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500968"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562948"
 ---
 # <a name="manage-tenant-logical-networks"></a>Bérlői logikai hálózatok kezelése
 
->A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019; Windows Server 2016
+>A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server 2016
 
 Ez a témakör részletesen ismerteti, hogyan használhatja a Windows felügyeleti központot a hálózati vezérlő üzembe helyezése után a logikai hálózatok létrehozásához, frissítéséhez és törléséhez. A szoftveresen definiált hálózatkezelés (SDN) logikai hálózat egy hagyományos VLAN-alapú hálózat.
 
@@ -43,7 +43,7 @@ Logikai hálózat létrehozásához használja a következő lépéseket a Windo
     1. Logikai **IP-címkészlet neve**.
     1. A **kezdő IP-cím**.
     1. Egy **záró IP-cím**. A kezdő és a záró IP-címnek az alhálózathoz megadott cím előtagon belül kell lennie.
-    1. Válassza a **Hozzáadás** elemet.
+    1. Válassza a **Hozzáadás** lehetőséget.
 1. A **logikai alhálózat** lapon válassza a **Hozzáadás** lehetőséget.
 1. A **logikai hálózatok** lapon válassza a **Küldés** lehetőséget.
 1. A **logikai hálózatok** listában ellenőrizze, hogy a logikai hálózat állapota **kifogástalan**-e.

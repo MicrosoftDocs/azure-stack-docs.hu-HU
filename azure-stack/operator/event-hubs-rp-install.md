@@ -9,16 +9,16 @@ ms.date: 09/02/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 09/02/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 975ab63a6af9f895f01d4607f998bca9fc52cebf
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 7f20866236099dadc7e6ca3e3c201572f51069ca
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343818"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562482"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>A Event Hubs telepítése Azure Stack hubhoz
 
-Ez a cikk bemutatja, hogyan töltheti le és telepítheti az Event Hubs erőforrás-szolgáltatót, így elérhetővé teheti az ügyfelek számára az előfizetést.
+Ez a cikk bemutatja, hogyan töltheti le és telepítheti az Event Hubs erőforrás-szolgáltatót, így elérhetővé teheti az ügyfelek számára az előfizetést. A folytatás előtt el kell végeznie a [Event Hubs telepítésének előfeltételeit](event-hubs-rp-prerequisites.md) is.
 
 ## <a name="download-packages"></a>Csomagok letöltése
 

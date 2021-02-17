@@ -362,6 +362,10 @@
                   href: event-hubs-rp-rotate-secrets.md
                 - name: Szolgáltatás-frissítési hirdetmények
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: Kibocsátási megjegyzések
+              items:
+                - name: '1.2012.1.0 kibocsátási megjegyzések [Feb 2021]'
+                  href: event-hubs-rp-release-1-2012-10.md
             - name: Eltávolítás
               href: event-hubs-rp-remove.md
         - name: IoT Hub az Azure Stack Hubon
@@ -530,7 +534,7 @@
       href: ../asdk/index.yml
     - name: A hibrid Azure-felhő dokumentációja
       href: /hybrid
-- name: További források
+- name: Források
   items:
     - name: Kiadási megjegyzések archívuma
       items:

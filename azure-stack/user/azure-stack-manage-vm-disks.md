@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: fec078689ca640c66eeec338e3c3a52cd5169287
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 2b5f985f5a7ea6537a56f48f87cf77edf711fde5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518398"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562686"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>VIRTUÁLIS gépek lemezes tárolásának létrehozása Azure Stack központban
 
@@ -20,7 +20,7 @@ Ez a cikk bemutatja, hogyan hozhat létre virtuális gépet (VM) a Azure Stack h
 
 ## <a name="overview"></a>Áttekintés
 
-Az 1808-es verziótól kezdődően a Azure Stack hub támogatja a felügyelt lemezek és a nem felügyelt lemezek használatát a virtuális gépeken, mint az operációs rendszer (OS) és az adatlemezek. Az 1808-es verzió előtt csak a nem felügyelt lemezek támogatottak.
+Azure Stack hub támogatja a felügyelt lemezek és a nem felügyelt lemezek használatát a virtuális gépeken, mint az operációs rendszer (OS) és az adatlemezek.
 
 A [felügyelt lemezek](/azure/virtual-machines/windows/managed-disks-overview) leegyszerűsítik az Azure IaaS virtuális gépek lemezes kezelését a virtuálisgép-lemezekhez társított Storage-fiókok kezelésével. Csak a szükséges lemez méretét kell megadnia, és Azure Stack hub hozza létre és felügyeli a lemezt.
 
@@ -56,19 +56,16 @@ Miután létrehozta a virtuális gépet, a portálon a következőket végezheti
 
 Minden nem felügyelt lemezt helyezzen el egy külön tárolóba.
 
-> [!NOTE]  
-> Az Azure által létrehozott és kezelt lemezeket [felügyelt lemeznek](/azure/virtual-machines/windows/managed-disks-overview)nevezzük.
-
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Új adatlemez létrehozása és csatolása a portál használatával
 
-1. A portálon válassza a **minden szolgáltatás**, majd a **virtuális gépek** lehetőséget.
-   ![Példa: VM-irányítópult](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. A portálon válassza a **minden szolgáltatás**, majd a **számítás**, majd a **virtuális gépek** lehetőséget.
+   [![Példa: VM-irányítópult](media/azure-stack-manage-vm-disks/vm-dashboard-small.png)](media/azure-stack-manage-vm-disks/vm-dashboard.png#lightbox)
 
 2. Válasszon ki egy korábban létrehozott virtuális gépet.
    ![A kiválasztott virtuális gépet bemutató képernyőkép.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. A virtuális gép esetében válassza a **lemezek** elemet, majd **adja hozzá az adatlemezt**.
-   ![Képernyőkép, amely bemutatja, hogyan csatolhat egy új lemezt a virtuális géphez.](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   [![Képernyőkép, amely bemutatja, hogyan csatolhat egy új lemezt a virtuális géphez.](media/azure-stack-manage-vm-disks/attach-disks-small.png)](media/azure-stack-manage-vm-disks/attach-disks.png#lightbox)
 
 4. Adatlemez esetén:
    * Adja meg a **LUN**-t. A logikai egységnek érvényes számnak kell lennie.
@@ -100,11 +97,11 @@ Minden nem felügyelt lemezt helyezzen el egy külön tárolóba.
 
      A lemezes költségek a lemez méretétől függően növekednek.
 
-   * Kattintson a **Létrehozás** gombra. Azure Stack hub létrehoz és érvényesíti a felügyelt lemezt.
+   * Válassza a **Létrehozás** lehetőséget. Azure Stack hub létrehoz és érvényesíti a felügyelt lemezt.
 
-6. Miután Azure Stack hub létrehozta a lemezt, és csatolja a virtuális géphez, az új lemez megjelenik a virtuálisgép-lemez beállításai között az **ADATlemezek** területen.
+6. Miután Azure Stack hub létrehozta a lemezt, és csatolja a virtuális géphez, az új lemez megjelenik a virtuálisgép-lemez beállításai között az **adatlemezek** területen.
 
-   ![Példa: lemez megtekintése](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   [![Példa: lemez megtekintése](media/azure-stack-manage-vm-disks/view-data-disk-small.png)](media/azure-stack-manage-vm-disks/view-data-disk.png#lightbox)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Adatlemez hozzáadása egy Storage-fiókból
 
@@ -114,7 +111,7 @@ További információ a Azure Stack hub Storage-fiókjainak használatáról: [a
 2. Válassza ki azt a **tárolót** , ahová az adatlemezt helyezni kívánja. A **tárolók** panelen új tárolót hozhat létre, ha szeretné. Ezután módosíthatja az új lemez helyét a saját tárolóján. Ha az egyes lemezekhez külön tárolót használ, a teljesítményt javító adatlemez elhelyezését terjeszti.
 3. Válassza **a kijelölés lehetőséget** a kijelölés mentéséhez.
 
-    ![A tároló kiválasztását bemutató képernyőkép.](media/azure-stack-manage-vm-disks/select-container.png)
+    [![A tároló kiválasztását bemutató képernyőkép.](media/azure-stack-manage-vm-disks/select-container-small.png)](media/azure-stack-manage-vm-disks/select-container.png#lightbox)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Meglévő adatlemez csatolása egy virtuális géphez
 

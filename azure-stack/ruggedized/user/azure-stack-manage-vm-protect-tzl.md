@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910959"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562968"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Azure Stack hub-ban üzembe helyezett virtuális gépek elleni védelem – robusztus
 
 Ez a cikk útmutatóként használható olyan virtuális gépek (VM-EK) védelmére, amelyeket a felhasználók Azure Stack hubhoz telepíthetnek.
 
-Az adatvesztés és a nem tervezett leállások elleni védelem érdekében hozzon létre egy adatvédelmi és vész-helyreállítási tervet Azure Stack hub virtuálisgép-alapú alkalmazásaihoz. A megvalósított védelmi terv az alkalmazás üzleti követelményeitől és kialakításától függ. A tervnek követnie kell a szervezete \' átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/Dr) stratégiája által létrehozott keretrendszert. Az Azure Stack hub BC/DR szempontjainak áttekintését lásd: Azure Stack: az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások.
+Az adatvesztés és a nem tervezett leállások elleni védelem érdekében hozzon létre egy adatvédelmi és vész-helyreállítási tervet Azure Stack hub virtuálisgép-alapú alkalmazásaihoz. A megvalósított védelmi terv az alkalmazás üzleti követelményeitől és kialakításától függ. A tervnek követnie kell a szervezete \' átfogó üzletmenet-folytonossági és vész-helyreállítási (BC/Dr) stratégiája által létrehozott keretrendszert. Az Azure Stack hub BC/DR szempontjainak áttekintését lásd [: Azure stack: az üzletmenet folytonosságával és a vész-helyreállítással kapcsolatos megfontolások](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/).
 
 ## <a name="application-recovery-objectives"></a>Alkalmazás-helyreállítási célkitűzések
 
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 Ez a cikk általános iránymutatásokat ismertetett a Azure Stackon üzembe helyezett felhasználói virtuális gépek védelméhez. További információ az Azure-szolgáltatásoknak a felhasználói virtuális gépek számára történő használatáról:
 
-- [A folyamatos üzletmenet és a vészhelyreállítás megfontolandó szempontjai](https://aka.ms/azurestackbcdrconsiderationswp)
+- [A folyamatos üzletmenet és a vészhelyreállítás megfontolandó szempontjai](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>Partneri termékek
 
-- [Azure Stack Datacenter Integration partner ökoszisztémájának Adatlapja](https://aka.ms/azurestackbcdrpartners)
+- [Azure Stack Datacenter Integration partner ökoszisztémájának Adatlapja](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - Ha többet szeretne megtudni a Azure Stack virtuálisgép-védelmet biztosító partneri termékekről, tekintse meg az [alkalmazások és adatok védelme Azure stackon](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)című témakört.

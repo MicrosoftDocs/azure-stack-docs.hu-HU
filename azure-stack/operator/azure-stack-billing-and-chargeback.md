@@ -3,16 +3,16 @@ title: Ügyfél számlázása és jóváírása Azure Stack központban
 description: Ismerje meg, hogyan történik a Azure Stack hub-felhasználók számlázása az erőforrás-használatért, és hogy a számlázási adatok hogyan érhetők el az elemzéshez és a jóváíráshoz.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 066538eb3bccb6e9e296a394400f2d1de0583f93
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 478014ac48ccc060281f8feab2271f1c5af1ed79
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414095"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562551"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Használat és számlázás Azure Stack központban
 
@@ -34,7 +34,7 @@ Az alábbi ábrán a használati folyamat legfontosabb összetevői láthatók:
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Milyen használati információk találhatók meg, és hogyan?
 
-Az Azure Stack hub erőforrás-szolgáltatói (például a számítási, tárolási és hálózati) használati adatokat óránként, az egyes előfizetésekhez tartozó időközönként hoznak. A használati adatok a felhasznált erőforrással kapcsolatos információkat tartalmaznak, például az erőforrás nevét, a felhasznált előfizetést és a felhasznált mennyiséget. A fogyasztásmérők azonosító erőforrásairól a [használati API – gyakori kérdések](azure-stack-usage-related-faq.md)című témakörben olvashat bővebben.
+Az Azure Stack hub erőforrás-szolgáltatói (például a számítási, tárolási és hálózati) használati adatokat óránként, az egyes előfizetésekhez tartozó időközönként hoznak. A használati adatok a felhasznált erőforrással kapcsolatos információkat tartalmaznak; például az erőforrás neve, a felhasznált előfizetés és a felhasznált mennyiség. A fogyasztásmérők azonosító erőforrásairól a [használati API – gyakori kérdések](azure-stack-usage-related-faq.md)című témakörben olvashat bővebben.
 
 A használati adatok gyűjtése után a rendszer [jelentést küld az Azure-nak](azure-stack-usage-reporting.md) a számla létrehozásához, amelyet az Azure számlázási portálján tekinthet meg.
 
@@ -49,7 +49,7 @@ Az Azure Stack hub használatával több-bérlős felhőalapú megoldás-szolgá
 
 Minden ügyfél identitását egy másik Azure Active Directory (Azure AD) bérlő képviseli. Azure Stack hub támogatja az egyes Azure AD-bérlők egy CSP-előfizetésének hozzárendelését. Bérlőket és előfizetéseket adhat hozzá az alap Azure Stack hub-regisztrációhoz. Az alapszintű regisztráció minden Azure Stack hub-példány esetében elkészült. Ha egy előfizetés nincs regisztrálva a bérlő számára, akkor a felhasználó továbbra is használhatja Azure Stack hub-t, és a használatuk az alapregisztrációhoz használt előfizetéshez lesz küldve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Regisztrálás Azure Stack hubhoz](azure-stack-registration.md)
 - [Azure Stack hub használati adatok jelentése az Azure-ba](azure-stack-usage-reporting.md)

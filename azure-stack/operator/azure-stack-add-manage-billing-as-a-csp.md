@@ -3,16 +3,16 @@ title: Azure Stack hub használatának és számlázásának kezelése felhőala
 description: Megtudhatja, hogyan regisztrálhat Azure Stack hub-t felhőalapú megoldás-szolgáltatóként (CSP), és hogyan veheti fel az ügyfeleket a számlázáshoz.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5d7a6dc3f0087f50fa97a0e6f61eee30037f54cc
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562536"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Azure Stack hub használatának és számlázásának kezelése felhőalapú megoldás-szolgáltatóként
 
@@ -74,7 +74,7 @@ Amikor Azure Stack hub a használati adatokat a globális Azure-ba továbbítja,
 
 Mivel a bérlői előfizetések CSP-előfizetések, a számlát a CSP-partnernek küldik, és a használati adatok nem láthatók a végfelhasználók számára.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - További információ a CSP programról: [Cloud Solution Provider program](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
 - Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg a [használat és a számlázás Azure stack hub-ban](azure-stack-billing-and-chargeback.md)című témakört.

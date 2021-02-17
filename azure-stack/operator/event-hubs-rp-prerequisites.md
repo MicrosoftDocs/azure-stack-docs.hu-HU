@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2b3fcfb0325689de08e77a9fbf599d023ba26a4c
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: b4286074828a0cea911ed6ccd977b6b0690e7eb1
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343513"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562975"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>A Event Hubs telepítésének előfeltételei Azure Stack hubhoz
 
@@ -23,7 +23,7 @@ A következő előfeltételeket kell végrehajtania ahhoz, hogy telepíteni tudj
 > Ezek az előfeltételek feltételezik, hogy már üzembe helyezte legalább egy 4 csomópontos Azure Stack hub integrált rendszerét. A Event Hubs erőforrás-szolgáltató nem támogatott a Azure Stack Development Kiton (ASDK).
 
 > [!IMPORTANT]
-> Event Hubs Azure Stack hub 2002 Build vagy újabb verzió szükséges. Vegye figyelembe, hogy Azure Stack hub-buildek növekményes. Ha például telepítve van a 1910-es verzió, akkor először a [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)-ra, majd a 2005-ra kell frissítenie. Ez azt eredményezi, hogy nem lehet kihagyni a-ben létrehozott buildeket.
+> Event Hubs Azure Stack hub 2005 Build vagy újabb verzió szükséges. Vegye figyelembe, hogy Azure Stack hub-buildek növekményes. Ha például telepítve van a 1910-es verzió, akkor először a [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)-ra, majd a 2005-ra kell frissítenie. Ez azt eredményezi, hogy nem lehet kihagyni a-ben létrehozott buildeket.
 
 ## <a name="common-prerequisites"></a>Gyakori előfeltételek
 

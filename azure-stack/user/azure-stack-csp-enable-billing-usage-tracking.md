@@ -3,16 +3,16 @@ title: Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhess
 description: Ismerje meg, hogyan kezelheti a felhőalapú megoldás-szolgáltató (CSP) a Azure Stack hub-előfizetését.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: d54b73595b3f8f79cfa606a1fb41ad945f40157d
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b6a37ad0db4dfb88a64e641dbb21f2869084c3b5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414112"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563056"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Lehetővé teszi, hogy a felhőalapú megoldás szolgáltatója kezelhesse Azure Stack hub-előfizetését
 
@@ -43,6 +43,6 @@ Adja hozzá a CSP-t **tulajdonosként** az előfizetéséhez.
 2. Adja hozzá a **tulajdonos** szerepkört a CSP vendég felhasználóhoz. A CSP-felhasználók előfizetéshez való hozzáadásával kapcsolatos információkért lásd: [Role-Based Access Control használata az Azure-előfizetések erőforrásaihoz való hozzáférés kezeléséhez](/azure/role-based-access-control/role-assignments-portal). A CSP létrehoz egy helyi Azure Stack hub-előfizetést. Készen áll az Azure Stack hub használatának megkezdésére.
 3. A CSP-nek létre kell hoznia egy erőforrást az előfizetésben annak ellenőrzéséhez, hogy képes-e az erőforrások kezelésére.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * Ha többet szeretne megtudni a Azure Stack hub erőforrás-használati adatainak lekéréséről, tekintse meg [a használat és a számlázás Azure stack hub-ban](../operator/azure-stack-billing-and-chargeback.md)című témakört.

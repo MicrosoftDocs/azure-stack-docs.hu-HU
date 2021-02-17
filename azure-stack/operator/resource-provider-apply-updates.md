@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a51a0f53b6df1ec88623f274dec30a68bfaa47c0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107127"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563039"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Azure Stack hub erőforrás-szolgáltató frissítése
 
 > [!IMPORTANT]
-> A folytatás előtt tekintse át az erőforrás-szolgáltató legújabb kibocsátási megjegyzéseit, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal. A kibocsátási megjegyzések az erőforrás-szolgáltatóhoz szükséges minimális Azure Stack hub-verziót is megadhatják.
+> A folytatás előtt tekintse át az erőforrás-szolgáltató legújabb kibocsátási megjegyzéseit, és ismerkedjen meg az új funkciókkal, javításokkal és az üzembe helyezést befolyásoló ismert problémákkal. A kibocsátási megjegyzések az erőforrás-szolgáltatóhoz szükséges minimális Azure Stack hub-verziót is megadhatják. Ha korábban még nem telepítette az erőforrás-szolgáltatót, az erőforrás-szolgáltató előfeltételeit és a kezdeti telepítési utasításokat itt találja.
 
 A piactérről telepített erőforrás-szolgáltatóknak rendszeres karbantartásra lesz szükségük. A karbantartást a Microsoft által rendszeresen biztosított szolgáltatási frissítések alkalmazásával végezheti el. A frissítések tartalmazhatnak új szolgáltatásokat és javításokat is.  
 
@@ -27,7 +27,7 @@ A piactérről telepített erőforrás-szolgáltatóknak rendszeres karbantartá
 Az erőforrás-szolgáltatók ugyanazzal a frissítési funkcióval frissülnek, mint Azure Stack hub-frissítések alkalmazásához.
 
 1. Jelentkezzen be az Azure Stack Hub felügyeleti portálra.
-2. Válassza a **minden szolgáltatás** hivatkozást a bal oldalon, majd a **felügyelet** szakaszban válassza a **frissítések**lehetőséget.
+2. Válassza a **minden szolgáltatás** hivatkozást a bal oldalon, majd a **felügyelet** szakaszban válassza a **frissítések** lehetőséget.
    ![Minden szolgáltatás lap](media/resource-provider-apply-updates/1-all-services.png)
 
 3. A **frissítések** lapon megtalálhatja az erőforrás-szolgáltatók frissítéseit az erőforrás- **szolgáltató** szakaszban.
