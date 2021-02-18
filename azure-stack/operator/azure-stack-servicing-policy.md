@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub karbantartási szabályzatát, valamint azt, hogyan tarthat egy integrált rendszer támogatott állapotú.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255754"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648031"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack hub karbantartási szabályzata
 
@@ -27,7 +27,7 @@ A teljes frissítési csomagokat egy biztonságos Azure-végpont tárolja. Ezeke
 
 A gyorsjavítás-frissítési csomagok ugyanazon a biztonságos Azure-végponton futnak. Ezeket a megfelelő gyorsjavítási TUDÁSBÁZIS cikkeiben található beágyazott hivatkozások használatával töltheti le. például [Azure stack hub gyorsjavítási 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). A teljes, havi frissítési csomagokhoz hasonlóan Azure Stack hub-kezelők letöltheti az. XML és a. zip fájlokat, és importálhatja azokat a [frissítések alkalmazása a Azure stack hub-ban](azure-stack-apply-updates.md)című eljárással. A csatlakoztatott méretezési egységekkel rendelkező Azure Stack hub-operátorok automatikusan megjelennek a felügyeleti portálon az üzenet **frissítése lehetőséggel**.
 
-Ha a méretezési egység nincs csatlakoztatva, és értesítést szeretne kapni az egyes gyorsjavításokról, fizessen elő az [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) -vagy [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) -hírcsatornára, amely minden kiadásban fel van tüntetve.
+Ha a méretezési egység nincs csatlakoztatva, és értesítést szeretne kapni az egyes gyorsjavításokról, fizessen elő az [RSS-hírcsatornára](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss) , hogy értesítést kapjon az egyes gyorsjavítások kiadásáról.
 
 ## <a name="update-package-types"></a>Frissítési csomagok típusai
 
@@ -88,7 +88,7 @@ Azure Stack hub ugyanazt a támogatási folyamatot követi, mint az Azure. A nag
 
 A frissítési problémák elhárításához tekintse meg az [Azure stack hub javításával és frissítésével kapcsolatos hibaelhárítással kapcsolatos ajánlott eljárásokat](azure-stack-troubleshooting.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Frissítések kezelése az Azure Stack Hubban](azure-stack-updates.md)
 - [Ajánlott eljárások a Azure Stack hub javításával és frissítésével kapcsolatos hibák elhárításához](azure-stack-troubleshooting.md)

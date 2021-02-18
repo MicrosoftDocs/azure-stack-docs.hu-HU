@@ -3,16 +3,16 @@ title: Azure Stack hub felhasználói előfizetés számlázási tulajdonosának
 description: Megtudhatja, hogyan módosíthatja egy Azure Stack hub felhasználói előfizetés számlázási tulajdonosát.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 02/11/2021
-ms.openlocfilehash: 547a42cdc2ea6f0655c2431b059ea49a4ddbf732
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: c612ace63515a4df8c8195cfdd1e58797dcd9ba2
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487850"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647844"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack hub felhasználói előfizetés számlázási tulajdonosának módosítása
 
@@ -57,7 +57,7 @@ Set-AzContext -Subscription $providerSubscriptionId
 # Change user subscription owner
 $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
-Set-AzsUserSubscription -InputObject $subscription
+$Subscription | Set-AzsUserSubscription | fl *
 ```
 
 [!include[Remove Account](../includes/remove-account-az.md)]
@@ -77,7 +77,7 @@ Set-AzureRMContext -Subscription $providerSubscriptionId
 # Change user subscription owner
 $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
-Set-AzsUserSubscription -InputObject $subscription
+$Subscription | Set-AzsUserSubscription | fl *
 ```
 [!include[Remove Account](../includes/remove-account-azurerm.md)]
 ---

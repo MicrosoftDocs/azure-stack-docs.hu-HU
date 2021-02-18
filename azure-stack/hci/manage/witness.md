@@ -3,107 +3,136 @@ title: Tanúsító fürt beállítása
 description: Ismerje meg, hogyan állíthat be egy tanúsító fürtöt
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: cb964bafae7dd9252b386c30a12251e89fc8ead5
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 32d0f717e987d757f5315cfe048c75300ae9c776
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98781972"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647903"
 ---
 # <a name="set-up-a-cluster-witness"></a>Tanúsító fürt beállítása
 
 > A következőre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-A tanúsító erőforrások beállítása minden fürt esetében kötelező, és közvetlenül a fürt létrehozása után kell beállítani. A két csomópontos fürtöknek egy tanúsító elemre van szükségük, hogy a kiszolgáló offline állapotba kerüljön, a másik csomópont is elérhetetlenné válik. A három és a magasabb csomópontos fürtöknek egy tanúsító kell lenniük ahhoz, hogy elbírjanak két kiszolgáló meghibásodását vagy offline állapotba helyezését.  
+A tanúsító erőforrások beállítása minden fürt esetében kifejezetten ajánlott, és közvetlenül a fürt létrehozása után kell beállítani. A két csomópontos fürtöknek egy tanúsító elemre van szükségük, hogy a kiszolgáló offline állapotba kerüljön, a másik csomópont is elérhetetlenné válik. A három és a magasabb csomópontos fürtöknek egy tanúsító kell lenniük ahhoz, hogy elbírjanak két kiszolgáló meghibásodását vagy offline állapotba helyezését.  
 
-Használhat egy SMB-fájlmegosztást tanúsító, vagy használhat egy Azure-beli Felhőbeli tanúsító is. Egy Azure-beli Felhőbeli tanúsító használata ajánlott, ha a fürtben található összes kiszolgáló-csomópont megbízható internetkapcsolattal rendelkezik. További információ: [Felhőbeli tanúsító üzembe helyezése feladatátvevő fürtön](/windows-server/failover-clustering/deploy-cloud-witness).
+Az SMB-fájlmegosztást tanúsító vagy Azure-beli Felhőbeli tanúsító is használhatja. Egy Azure-beli Felhőbeli tanúsító használata ajánlott, ha a fürtben található összes kiszolgáló-csomópont megbízható internetkapcsolattal rendelkezik. Ez a cikk a Felhőbeli tanúsító létrehozásával foglalkozik.
 
-A fájl-megosztási tanúk esetében a fájlkiszolgáló követelményei vannak. További információt a [rendszerkövetelmények](../concepts/system-requirements.md) című témakörben talál.
+## <a name="before-you-begin"></a>Előkészületek
 
-## <a name="set-up-a-witness-using-windows-admin-center"></a>Tanú beállítása a Windows felügyeleti központtal
+A Felhőbeli tanúsító létrehozása előtt rendelkeznie kell egy Azure-fiókkal és-előfizetéssel, és regisztrálnia kell az Azure Stack HCI-fürtöt az Azure-ban. További információt a következő cikkekben talál:
+
+- [Azure-fiók létrehozása](https://docs.microsoft.com/dotnet/azure/create-azure-account)
+- Ha van ilyen, [hozzon létre egy további Azure-előfizetést](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
+- [Az Azure Stack HCI csatlakoztatása az Azure-hoz](../deploy/register-with-azure.md)
+
+A fájlmegosztást tanúsító fájlmegosztás esetében követelmények vonatkoznak a fájlkiszolgálón. További információt a [rendszerkövetelmények](../concepts/system-requirements.md) című témakörben talál.
+
+## <a name="create-an-azure-storage-account"></a>Azure-tárfiók létrehozása
+
+Ez a szakasz azt ismerteti, hogyan hozható létre Azure Storage-fiók. Ez a fiók egy adott fürthöz való választottbírósági eljáráshoz használt Azure Blob-fájl tárolására szolgál. Ugyanazzal az Azure Storage-fiókkal több fürthöz is konfigurálhat Felhőbeli tanúsító.
+
+1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
+1. A Azure Portal kezdőlapon az Azure- **szolgáltatások** területen válassza a **Storage-fiókok** lehetőséget. Ha hiányzik az ikon, válassza az **erőforrás létrehozása** lehetőséget a Storage- *fiókok* erőforrásának első létrehozásához.
+
+    :::image type="content" source="media/witness/cloud-witness-home.png" alt-text="Azure Portal kezdőképernyő" lightbox="media/witness/cloud-witness-home.png":::
+
+1. A **Storage-fiókok** lapon válassza az **új** lehetőséget.
+
+    :::image type="content" source="media/witness/cloud-witness-create.png" alt-text="Azure új Storage-fiók" lightbox="media/witness/cloud-witness-create.png":::
+
+1. A **Storage-fiók létrehozása** oldalon hajtsa végre a következőket:
+    1. Válassza ki azt az Azure- **előfizetést** , amelyre alkalmazni szeretné a Storage-fiókot.
+    1. Válassza ki azt az Azure- **erőforráscsoportot** , amelyre alkalmazni szeretné a Storage-fiókot.
+    1. Adjon meg egy nevet a **Storage-fióknak**.
+    <br>A tárfiókok neve 3–24 karakter hosszúságú lehet, és csak számokból és kisbetűkből állhat. Ennek a névnek egyedinek kell lennie az Azure-on belül is.
+    1. Válassza ki a fizikailag legközelebb eső **helyet** .
+    1. A **Teljesítmény** mezőben válassza a **Standard** lehetőséget.
+    1. A **Fiók típusa** területen válassza az **általános célú tárolás** lehetőséget.
+    1. A **replikáláshoz** válassza a **helyileg REDUNDÁNS tárolás (LRS)** lehetőséget.
+    1. Ha elkészült, kattintson a **felülvizsgálat + létrehozás** gombra.
+
+    :::image type="content" source="media/witness/cloud-witness-create-storage-account.png" alt-text="Azure Storage-fiók létrehozása" lightbox="media/witness/cloud-witness-create-storage-account.png":::
+
+1. Győződjön meg arról, hogy a Storage-fiók ellenőrzi az ellenőrzést, majd tekintse át a Fiókbeállítások beállítást. Ha végzett, kattintson a **Létrehozás** gombra.
+
+    :::image type="content" source="media/witness/cloud-witness-validation.png" alt-text="Azure Storage-fiók ellenőrzése" lightbox="media/witness/cloud-witness-validation.png":::
+
+1. Eltarthat néhány másodpercig, amíg a fiókok üzembe helyezése az Azure-ban történik. Ha a telepítés befejeződött, kattintson **az erőforrás** megnyitása lehetőségre.
+
+    :::image type="content" source="media/witness/cloud-witness-deployment.png" alt-text="Azure Storage-fiók üzembe helyezése" lightbox="media/witness/cloud-witness-deployment.png":::
+
+## <a name="copy-the-access-key-and-endpoint-url"></a>A hozzáférési kulcs és a végpont URL-címének másolása
+
+Azure Storage-fiók létrehozásakor a folyamat automatikusan létrehoz két hozzáférési kulcsot, egy elsődleges kulcsot (key1) és egy másodlagos kulcsot (key2). Ha első alkalommal hoz létre egy Felhőbeli tanúsító, a rendszer **key1** használ. A végpont URL-címe is automatikusan létrejön.
+
+Az Azure-beli Felhőbeli tanúsító egy blob-fájlt használ a tároláshoz, és az *storage_account_name. blob. Core. Windows. net* formátumú végpontot hozza létre végpontként. 
+
+> [!NOTE]  
+> Az Azure-beli Felhőbeli tanúsító a HTTPS protokollt használja (az alapértelmezett 443-as port) az Azure Blob Service-szel folytatott kommunikáció érdekében. Győződjön meg arról, hogy a HTTPS-port elérhető.
+
+### <a name="copy-the-account-name-and-access-key"></a>A fiók nevének és elérési kulcsának másolása
+
+1. A Azure Portal a **Beállítások** területen válassza a **hozzáférési kulcsok** elemet.
+1. Válassza a **kulcsok megjelenítése** lehetőséget a legfontosabb információk megjelenítéséhez.
+1. Kattintson a **Storage-fiók neve** és a **key1** mező jobb oldalán lévő másolás és beillesztés ikonra, és illessze be az egyes szöveges karakterláncokat a Jegyzettömbbe vagy más szövegszerkesztőbe.
+
+    :::image type="content" source="media/witness/cloud-witness-access-keys.png" alt-text="Azure Storage-fiók hozzáférési kulcsainak" lightbox="media/witness/cloud-witness-access-keys.png":::
+
+### <a name="copy-the-endpoint-url-optional"></a>A végpont URL-címének másolása (nem kötelező)
+
+A végpont URL-címe nem kötelező, és előfordulhat, hogy nem szükséges egy Felhőbeli tanúsító.
+
+1. A Azure Portal válassza a **Tulajdonságok** lehetőséget.
+1. Válassza a **kulcsok megjelenítése** lehetőséget a végponti információk megjelenítéséhez.
+1. A **blob Service** alatt kattintson a **blob Service** mező jobb oldalán lévő másolás és beillesztés ikonra, és illessze be a szöveges karakterláncot a Jegyzettömbbe vagy más szövegszerkesztőbe.
+
+    :::image type="content" source="media/witness/cloud-witness-blob-service.png" alt-text="Azure Blob-végpont" lightbox="media/witness/cloud-witness-blob-service.png":::
+
+## <a name="create-a-cloud-witness-using-windows-admin-center"></a>Felhőbeli tanú létrehozása a Windows felügyeleti központtal
+
+Most már készen áll a Windows felügyeleti központ használatával létrehozni egy tanúsító példányt a fürthöz.
 
 1. A Windows felügyeleti központban válassza ki a **Fürtfelügyelő** elemet a felső legördülő listából.
 1. A **fürt kapcsolatai** területen válassza ki a fürtöt.
 1. Az **eszközök** területen válassza a **Beállítások** lehetőséget.
 1. A jobb oldali ablaktáblán válassza a **tanúsító** elemet.
 1. A **tanúsító típusa** beállításnál válassza a következők egyikét:
-      - **Felhőbeli tanúsító** – adja meg az Azure Storage-fiók nevét, a hozzáférési kulcsot és a végpont URL-címét az alább leírtak szerint.
+      - **Felhőbeli tanúsító** – adja meg az Azure Storage-fiók nevét, a hozzáférési kulcsot és a végpont URL-címét az előzőekben leírtak szerint.
       - **Tanúsító fájlmegosztás** – adja meg a fájlmegosztás elérési útját: "(//Server/share)"
+1. Felhőbeli tanúsító esetén a következő mezőkbe illessze be a korábban átmásolt szöveges karakterláncokat:
+    1. **Azure Storage-tárfiók neve**
+    1. **Azure Storage-hozzáférési kulcs**
+    1. **Azure szolgáltatási végpont**
+
+    :::image type="content" source="media/witness/cloud-witness-1.png" alt-text="Felhőbeli tanúsító hozzáférési kulcsok" lightbox="media/witness/cloud-witness-1.png":::
+
+1. Amikor végzett, kattintson a **Mentés** gombra. Eltarthat egy kis ideig, amíg az információk propagálni tudnak az Azure-ba.
 
 > [!NOTE]
 > A harmadik lehetőség, a **tanúsító lemez** nem alkalmas a kifeszített fürtökben való használatra.
 
-## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>Felhőbeli tanúsító használandó Azure Storage-fiók létrehozása
+## <a name="create-a-cloud-witness-using-windows-powershell"></a>Felhőbeli tanúsító létrehozása a Windows PowerShell használatával
 
-Ez a szakasz azt ismerteti, hogyan hozhat létre egy Storage-fiókot, és hogyan tekinthet meg és másolhat végponti URL-címeket és hozzáférési kulcsokat a fiókhoz.
+Azt is megteheti, hogy a PowerShell használatával létrehoz egy tanúsító példányt a fürthöz.
 
-A Felhőbeli tanúsító szolgáltatás konfigurálásához érvényes Azure Storage-fiókkal kell rendelkeznie, amely a blob-fájl (választottbírósági eljáráshoz használt) tárolására használható. A Felhőbeli tanúsító a Microsoft Storage-fiókban létrehoz egy jól ismert tárolót ( **MSFT-Cloud-tanúsító** ). A Felhőbeli tanúsító egy olyan blob-fájlt ír be, amely a megfelelő fürt egyedi AZONOSÍTÓját használja, amely az ezen **MSFT-Cloud-tanúsító** tárolóban lévő blob fájl neveként szerepel. Ez azt jelenti, hogy ugyanazt a Microsoft Azure Storage fiókot használhatja a Felhőbeli tanúk több különböző fürthöz való konfigurálásához.
-
-Ha ugyanazt az Azure Storage-fiókot használja a Felhőbeli tanúsító több különböző fürthöz való konfigurálásához, az egyetlen **MSFT-Cloud-tanúsító** tároló automatikusan létrejön. Ez a tároló fürtön egy blob-fájlt fog tartalmazni.
-
-> [!NOTE]  
-> A Felhőbeli tanúsító a HTTPS protokollt használja (az alapértelmezett 443-as port) az Azure Blob Service-szel folytatott kommunikációhoz. Győződjön meg arról, hogy a HTTPS-port elérhető a hálózati proxyn keresztül.
-
-### <a name="to-create-an-azure-storage-account"></a>Azure Storage-fiók létrehozása
-
-1. Jelentkezzen be az [Azure Portalra](https://portal.azure.com).
-1. A központi menüben válassza a New-> az adattároló > a Storage-fiók lehetőséget.
-1. A Storage-fiók létrehozása lapon tegye a következőket:
-    1. Adja meg a tárfiók nevét.
-    <br>A tárfiókok neve 3–24 karakter hosszúságú lehet, és csak számokból és kisbetűkből állhat. A Storage-fiók nevének az Azure-on belül is egyedinek kell lennie.
-    1. A **Fiók típusa** területen válassza az **általános célú** lehetőséget.
-    <br>Nem használhat blob Storage-fiókot Felhőbeli tanúsító számára.
-    1. A **Teljesítmény** mezőben válassza a **Standard** lehetőséget.
-    <br>Az Azure Premium Storage nem használható a Felhőbeli tanúk számára.
-    1. A **replikáláshoz** válassza a **helyileg REDUNDÁNS tárolás (LRS)** lehetőséget.
-    <br>A feladatátvételi fürtszolgáltatás a blob-fájlt használja választottbírósági pontként, amely némi konzisztencia-garanciát igényel az adatolvasáskor. Ezért ki kell választania a **helyileg redundáns tárolást** a **replikálási** típushoz.
-
-### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>Az Azure Storage-fiókhoz tartozó Storage-hozzáférési kulcsok megtekintése és másolása
-
-Microsoft Azure Storage fiók létrehozásakor a rendszer két, automatikusan az elsődleges elérési kulcs és a másodlagos elérési kulcs által generált hozzáférési kulcshoz van társítva. A Felhőbeli tanúk első alkalommal történő létrehozásához használja az **elsődleges hozzáférési kulcsot**. Nincs korlátozás arra vonatkozóan, hogy melyik kulcsot használja a Felhőbeli tanúsító.  
-
-#### <a name="to-view-and-copy-storage-access-keys"></a>Tároló-hozzáférési kulcsok megtekintése és másolása
-
-A Azure Portal navigáljon a Storage-fiókjához, kattintson az **összes beállítás** elemre, majd kattintson a **hozzáférési kulcsok** elemre a fiók hozzáférési kulcsainak megtekintéséhez, másolásához és újralétrehozásához. Az Elérési kulcsok panel is tartalmaz az elsődleges és másodlagos kulcsok segítségével előre konfigurált kapcsolati sztringekat, amelyeket az alkalmazásokban történő használat céljából másolhat.
-
-:::image type="content" source="media/witness/cloud-witness-1.png" alt-text="Felhőbeli tanúsító hozzáférési kulcsok" lightbox="media/witness/cloud-witness-1.png":::
-
-### <a name="view-and-copy-endpoint-url-links"></a>Végpont URL-hivatkozásainak megtekintése és másolása
-
-A Storage-fiók létrehozásakor a következő URL-címek jönnek létre a formátum használatával: `https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
-
-A Felhőbeli tanúsító mindig a **blobot** használja tárolási típusként. Az Azure a **. Core.Windows.net** -t használja végpontként. A Felhőbeli tanúsító beállításakor lehetséges, hogy egy másik végponttal konfigurálja azt a forgatókönyv szerint (például a Kínában Microsoft Azure adatközpont egy másik végponttal rendelkezik).  
-
-> [!NOTE]  
-> A végponti URL-címet a Felhőbeli tanúsító erőforrás automatikusan generálja, és az URL-címhez nem szükséges további konfigurációs lépés.  
-
-#### <a name="to-view-and-copy-endpoint-url-links"></a>Végpont URL-hivatkozásainak megtekintése és másolása
-
-A Azure Portal navigáljon a Storage-fiókjához, kattintson a **minden beállítás** elemre, majd kattintson a **Tulajdonságok** elemre a végponti URL-címek megtekintéséhez és másolásához.  
-
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Felhőbeli tanúsító végpont URL-címe" lightbox="media/witness/cloud-witness-2.png":::  
-
-## <a name="set-up-a-witness-using-windows-powershell"></a>Tanúsító beállítása a Windows PowerShell használatával
-
-Ha egy tanúsító fürtöt a PowerShell használatával szeretne beállítani, futtassa az alábbi parancsmagok egyikét.
-
-Az alábbi parancsmaggal hozzon létre egy Azure-beli Felhőbeli tanúsító:
+A következő parancsmaggal hozzon létre egy Azure-beli Felhőbeli tanúsító. Adja meg az Azure Storage-fiók nevét és a hozzáférési kulcs adatait az előzőekben leírtak szerint:
 
 ```powershell
 Set-ClusterQuorum –Cluster "Cluster1" -CloudWitness -AccountName "AzureStorageAccountName" -AccessKey "AzureStorageAccountAccessKey"
 ```
 
-A következő parancsmag használatával hozzon létre egy tanúsító fájlmegosztást:
+A tanúsító fájlmegosztás létrehozásához használja a következő parancsmagot. Adja meg a fájlkiszolgáló megosztásának elérési útját:
 
 ```powershell
 Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Credential)
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A fürt kvórumával kapcsolatos további információkért lásd: [a fürt és a készlet Kvórumának ismertetése Azure stack HCI](../concepts/quorum.md)-ben.
 
-- Az Azure Storage-fiókok létrehozásával és kezelésével kapcsolatos további információkért lásd: [Tudnivalók az Azure Storage-fiókokról](/azure/storage/common/storage-account-create).
+- További információ az Azure Storage-fiókok létrehozásáról és kezeléséről: [Storage-fiók létrehozása](https://docs.microsoft.com/azure/storage/common/storage-account-create).

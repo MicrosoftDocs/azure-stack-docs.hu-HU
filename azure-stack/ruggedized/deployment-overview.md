@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256183"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648065"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Azure Stack hub robusztus üzembe helyezésének áttekintése
 
@@ -40,7 +40,7 @@ A virtualizáció, a kiszolgálók, az operációs rendszerek, a Hálózatkezel�
 
 Ez az útmutató az Microsoft Azure Stack hub alapvető összetevőinek üzembe helyezését, valamint a Azure Stack hub robusztus megoldásának sajátosságait ismerteti. Az útmutató nem ismerteti az Azure Stack hub működési eljárásait, és nem fedi le Azure Stack hub összes funkcióját. További információ: [Azure stack hub-kezelői útmutató](../operator/index.yml).
 
-## <a name="introduction"></a>Introduction (Bevezetés)
+## <a name="introduction"></a>Bevezetés
 
 Azure Stack hub robusztus, robusztus és mezővel telepíthető Microsoft Azure Stack hub-ajánlat. Az alapvető összetevők, például a kiszolgálók és kapcsolók a hüvelyek nevű tranzit esetekben szerepelnek.
 
@@ -52,7 +52,7 @@ Minden SU Pod két Azure Stack hub robusztus R640 SU-kiszolgálóval rendelkezik
 
 A következő táblázat felsorolja az útmutatóban használt néhány kifejezést.
 
-|Kifejezés   | Definíció |
+|Időszak   | Definíció |
 |-------|------------|
 |Hardver életciklus-állomása (HLH)| A HLH a kezdeti üzembe helyezési rendszerindításhoz használt fizikai kiszolgáló, valamint az Azure Stack hub-infrastruktúra folyamatos hardveres felügyelete, támogatása és biztonsági mentése. A HLH asztali felhasználói felülettel és Hyper-V szerepkörrel futtatja a Windows Server 2019-es verzióját. A kiszolgáló a hardver-felügyeleti eszközök, a felügyeleti eszközök, az Azure Stack hub-partneri eszközkészlet és a telepítési virtuális gép üzemeltetésére szolgál. |
 |Üzembe helyezési virtuális gép (DVM)|  A DVM egy virtuális gép, amely az Azure Stack hub szoftver központi telepítésének időtartama alatt jön létre a HLH. A DVM Azure Stack hub szoftvertelepítő motort futtat, amely az Enterprise Cloud Engine (EGB) használatával telepíti és konfigurálja a Azure Stack hub Fabric-infrastruktúra szoftverét az összes Azure Stack hub-méretezési egység kiszolgálóin a hálózaton keresztül.|
@@ -63,31 +63,36 @@ A következő táblázat felsorolja az útmutatóban használt néhány kifejez�
 |Pod    |Azure Stack hub robusztus környezete kontextusában a pod egy olyan fizikai robusztus tároló, amely két személy számára készült, amely rack-rögzítő zárójeleket és lengéscsillapítókat tartalmaz, hogy megvédje Azure Stack hub robusztus hardvert a környezeti fizikai terheléstől. Magában foglalja az előre és vissza továbbítási eseteket is, amelyek a hardver szállítására telepíthetők és lezárhatók. A minimális konfigurációban a teljes megoldás három hüvelyt tartalmaz.|
 
 
-## <a name="deployment-overflow"></a>Központi telepítés túlcsordulása
+## <a name="deployment-workflow"></a>Üzembe helyezési munkafolyamat
 
-Magas szinten a Azure Stack hub robusztus üzembe helyezési folyamata a következő lépésekből áll.
+A MDC üzembe helyezési folyamata magas szinten a következő szakaszokban ismertetett fázisokból áll.
 
-1. Tervezési fázis:
-   1. Az adatközpont teljesítményének és hűtésének tervezése.
-   1. Azure Stack hub logikai hálózati konfigurációjának megtervezése.
-   1. Az adatközpont hálózati integrációjának megtervezése.
-   1. Identitás-és biztonsági integráció tervezése.
-   1. PKI-tanúsítványok tervezése.
-1. Előkészítési fázis:
-   1. A kicsomagolás és a leltár begyűjtése.
-   1. A megoldás csatlakoztatása és az áramellátás.
-   1. A fizikai hardver állapotának ellenőrzése.
-1. Végrehajtási fázis:
-   1. A hardver életciklus-gazdagép konfigurálása.
-   1. Hálózati kapcsolók konfigurálása.
-   1. Datacenter hálózati integráció.
-   1. A fizikai hardver beállításainak konfigurálása.
-   1. Azure Stack hub Fabric-infrastruktúra üzembe helyezése.
-   1. Adatközpont identitásának integrációja.
-   1. Bővítmények telepítése kiterjesztett funkciókhoz.
-1. Ellenőrzési fázis:
-   1. Telepítés utáni állapot ellenőrzése.
-   1. Azure Stack hub regisztrálása a Microsofttal.
-   1. Azure Stack hub operátora.
-   
-A fenti témakörök mindegyikét részletesebben ismertetjük ebben az útmutatóban.
+### <a name="planning-phase"></a>Tervezési fázis
+1. Az adatközpont energiagazdálkodásának tervezése.
+1. Azure Stack hub logikai hálózati konfigurációjának megtervezése.
+1. Az [adatközpont hálózati integrációjának](../operator/azure-stack-network.md)megtervezése.
+1. Az [identitás](../operator/azure-stack-identity-overview.md) -integráció megtervezése.
+1. A [biztonsági](../operator/azure-stack-security-foundations.md) integráció megtervezése.
+1. PKI- [tanúsítványok](../operator/azure-stack-pki-certs.md)tervezése.
+
+### <a name="preparation-phase"></a>Előkészítési fázis
+1. Leltár gyűjtése.
+1. A megoldás csatlakoztatása és az áramellátás.
+1. A HVAC-rendszerek állapotának ellenőrzése.
+1. A tűzvédelmi és a riasztási rendszer állapotának ellenőrzése.
+1. A fizikai hardver állapotának ellenőrzése.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Végrehajtási fázis – külön a három hüvely esetében
+1. A hardver életciklus-gazdagép konfigurálása.
+1. Hálózati kapcsolók konfigurálása.
+1. Datacenter hálózati integráció.
+1. A fizikai hardver beállításainak konfigurálása.
+1. Isilon-tároló konfigurálása.
+1. Azure Stack hub Fabric-infrastruktúra üzembe helyezése.
+1. Adatközpont identitásának integrációja.
+1. Bővítmények telepítése kiterjesztett funkciókhoz.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Ellenőrzési fázis – külön a három hüvely esetében
+1. Telepítés utáni állapot ellenőrzése.
+1. Azure Stack hub regisztrálása a Microsofttal.
+1. Azure Stack hub-ügyfél számára.

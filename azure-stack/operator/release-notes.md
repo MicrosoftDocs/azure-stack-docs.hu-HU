@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/03/2021
+ms.date: 02/17/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 6360c0127c53e8c5e7c8686050208f3e6f537f56
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013267"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648082"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -126,6 +126,9 @@ Azure Stack hub rendszeresen bocsát ki gyorsjavításokat. Győződjön meg arr
 További információkért tekintse meg a [karbantartási szabályzatot](azure-stack-servicing-policy.md).
 
 Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre érvényesek; Ne kísérelje meg a gyorsjavítások telepítését a ASDK.
+
+> [!TIP]
+> Ha értesítést szeretne kapni az egyes gyorsjavítási kiadásokról, fizessen elő az [**RSS-hírcsatornára**](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss) , hogy értesítést kapjon az egyes gyorsjavítások kiadásáról.
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Az 2008-es frissítés sikeres alkalmazása után
 

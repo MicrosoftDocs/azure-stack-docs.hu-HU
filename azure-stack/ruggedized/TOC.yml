@@ -267,7 +267,7 @@
             - name: A hardver cseréje
               items:
                 - name: Csomópont-műveletek
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md
         - name: Biztonság és megfelelőség
           items:
             - name: Biztonság konfigurálása
