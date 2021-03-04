@@ -5,14 +5,14 @@ author: daschott
 ms.author: daschott
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 93c0103cc13fdffbee7ba0d16aea9c33474565ba
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612641"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116767"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service-hez készült Kubernetes alapvető fogalmai Azure Stack HCI-ben
+# <a name="clusters-and-workloads-for-azure-kubernetes-service-on-azure-stack-hci"></a>Fürtök és munkaterhelések az Azure Kubernetes Service-hez Azure Stack HCI-ben
 
 > A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
 
@@ -51,7 +51,7 @@ A cél (számítási feladat) fürt a Kubernetes széles körben elérhető köz
 ### <a name="worker-nodes"></a>Munkavégző csomópontok
 Az alkalmazások és a támogató szolgáltatások futtatásához szükség van egy Kubernetes-csomópontra. Az Azure Stack HCI-ben egy Azure Kubernetes Service Target-fürt egy vagy több munkavégző csomóponttal rendelkezik, amely egy virtuális gép (VM), amely a Kubernetes csomópont-összetevőket futtatja, valamint az alkalmazás számítási feladatait alkotó hüvelyeket és szolgáltatásokat.
 
-### <a name="load-balancer"></a>Terheléselosztó
+### <a name="load-balancer"></a>Terheléselosztóval
 A Load Balancer egy Linux és HAProxy + életben futó virtuális gép, amely elosztott terhelésű szolgáltatásokat biztosít a felügyeleti fürt által üzembe helyezett cél fürtök számára.
 
 Az Azure Kubernetes Service on Azure Stack HCI minden egyes cél fürthöz legalább egy terheléselosztó virtuális gépet (LB VM) fog hozzáadni. Ezen kívül egy másik terheléselosztó is létrehozható az API-kiszolgáló magas rendelkezésre állásához a célként megadott fürtön. Bármely, a Kubernetes létrehozott típusú szolgáltatás egy terheléselosztási `LoadBalancer` szabályt fog létrehozni az LB virtuális gépen.

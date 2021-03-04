@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 2/10/2021
 ms.author: jeguan
-ms.openlocfilehash: 42d9318b40dc19e77858641364a246209275e5cd
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 68539a77907bb0c5eef4809882c562525b93e983
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101839844"
+ms.locfileid: "102116733"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Gyors útmutató: Kubernetes-fürtök létrehozása Azure Stack HCI-ben a Windows PowerShell használatával
 
@@ -27,7 +27,7 @@ Ebből a rövid útmutatóból megtudhatja, hogyan hozhat létre Azure Kubernete
 
 Az Azure Kubernetes Service Host telepítése után készen áll egy Kubernetes-fürt üzembe helyezésére.
 
-Nyissa meg a PowerShellt rendszergazdaként, és futtassa a következő [New-AksHciCluster](./new-akshcicluster) parancsot.
+Nyissa meg a PowerShellt rendszergazdaként, és futtassa a következő [New-AksHciCluster](./new-akshcicluster.md) parancsot.
 
 ```powershell
 New-AksHciCluster -name mycluster
@@ -43,7 +43,7 @@ Get-AksHciCluster
 
 ## <a name="step-2-scale-a-kubernetes-cluster"></a>2. lépés: Kubernetes-fürt skálázása
 
-Ha fel-vagy leskálázást szeretne készíteni a fürtön, a [set-AksHciClusterNodeCount](./set-akshciclusternodecount) parancs használatával módosíthatja a vezérlési sík csomópontjainak, a Linux-feldolgozó csomópontoknak vagy a Windows-munkavégző csomópontoknak a számát.
+Ha fel-vagy leskálázást szeretne készíteni a fürtön, a [set-AksHciClusterNodeCount](./set-akshciclusternodecount.md) parancs használatával módosíthatja a vezérlési sík csomópontjainak, a Linux-feldolgozó csomópontoknak vagy a Windows-munkavégző csomópontoknak a számát.
 
 A vezérlési sík csomópontjainak méretezéséhez futtassa a következő parancsot.
 
@@ -73,11 +73,11 @@ A legújabb Kubernetes-verzióra való frissítéshez futtassa a következő par
 Update-AksHciCluster -name mycluster -kubernetesVersion <k8s version>
 ```
 
-Ha ezt a parancsot a Kubernetes-verzió meghatározása nélkül futtatja, a rendszer frissíti a fürtöt a legújabb verzióra. Ha nem a legújabb verzióra szeretne frissíteni, használja az [Update-AksHciCluster](./update-akshcicluster) `-kubernetesVersion` paramétert és a kívánt verziót az értékként (azaz v 1.18.8).
+Ha ezt a parancsot a Kubernetes-verzió meghatározása nélkül futtatja, a rendszer frissíti a fürtöt a legújabb verzióra. Ha nem a legújabb verzióra szeretne frissíteni, használja az [Update-AksHciCluster](./update-akshcicluster.md) `-kubernetesVersion` paramétert és a kívánt verziót az értékként (azaz v 1.18.8).
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>4. lépés: a fürtök elérése a kubectl használatával
 
-Ha a Kubernetes-fürtöket a kubectl használatával szeretné elérni, futtassa a [Get-AksHciCredential](./get-akshcicredential) parancsot. Ez a megadott fürt kubeconfig-fájlját fogja használni a kubectl alapértelmezett kubeconfig-fájljához.
+Ha a Kubernetes-fürtöket a kubectl használatával szeretné elérni, futtassa a [Get-AksHciCredential](./get-akshcicredential.md) parancsot. Ez a megadott fürt kubeconfig-fájlját fogja használni a kubectl alapértelmezett kubeconfig-fájljához.
 
 ```powershell
 Get-AksHciCredential -name mycluster
@@ -93,7 +93,7 @@ Remove-AksHciCluster -name mycluster
 
 ## <a name="get-logs"></a>Naplók lekérése
 
-Az összes hüvelyből származó naplók lekéréséhez futtassa a [Get-AksHciLogs](./get-akshcilogs) parancsot. Ez a parancs létrehoz egy nevű kimeneti tömörített mappát `akshcilogs.zip` a munkakönyvtárában. Az alábbi parancs futtatása után a mappa teljes elérési útja lesz `akshcilogs.zip` a kimenet.
+Az összes hüvelyből származó naplók lekéréséhez futtassa a [Get-AksHciLogs](./get-akshcilogs.md) parancsot. Ez a parancs létrehoz egy nevű kimeneti tömörített mappát `akshcilogs.zip` a munkakönyvtárában. Az alábbi parancs futtatása után a mappa teljes elérési útja lesz `akshcilogs.zip` a kimenet.
 
 ```powershell
 Get-AksHciLogs

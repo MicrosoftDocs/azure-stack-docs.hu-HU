@@ -160,7 +160,9 @@
           href: concepts/physical-network-requirements.md
         - name: Gazdagép hálózati követelményei
           href: concepts/host-network-requirements.md
-        - name: Szoftveralapú hálózatkezelés (SDN)
+    - name: Szoftveralapú hálózatkezelés (SDN)
+      items:
+        - name: Az SDN áttekintése
           href: concepts/software-defined-networking.md
         - name: SDN-infrastruktúra megtervezése
           href: concepts/plan-software-defined-networking-infrastructure.md

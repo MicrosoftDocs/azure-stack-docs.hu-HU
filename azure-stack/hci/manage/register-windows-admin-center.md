@@ -4,22 +4,22 @@ description: A Windows felügyeleti központ átjárójának regisztrálása az 
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.date: 03/04/2021
+ms.openlocfilehash: 93bba2336ab482e1a2bf0fc8e7545f537211382d
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487884"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116784"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>A Windows felügyeleti központ regisztrálása az Azure-ban
 
 > Azure Stack HCI-v20H2 vonatkozik; Windows Server 2019
 
-Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné használni, először [telepítenie kell a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és el kell végeznie a Windows felügyeleti központ átjárójának egyszeri regisztrációját. Ez a fürt Azure-ban való [regisztrálásának](../deploy/register-with-azure.md) előfeltétele.
+Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné használni, először [telepítenie kell a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és regisztrálnia kell a Windows felügyeleti központ átjáróját. Ez a fürt Azure-ban való [regisztrálásának](../deploy/register-with-azure.md) előfeltétele.
 
    > [!IMPORTANT]
-   > Regisztrálja a Windows felügyeleti központot ugyanazon a felügyeleti számítógépen, amelyet a fürt regisztrálásához kíván használni, ugyanazzal a Azure Active Directory-(bérlői) AZONOSÍTÓval.
+   > Regisztrálja a Windows felügyeleti központot ugyanazon a felügyeleti számítógépen, amelyet a fürt (ek) regisztrálásához kíván használni, ugyanazzal a Azure Active Directory (bérlői) AZONOSÍTÓval és alkalmazás-AZONOSÍTÓval.
 
 ## <a name="complete-the-registration-process"></a>A regisztrációs folyamat befejezése
 
@@ -37,13 +37,13 @@ Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné hasz
 
    A következő üzenetnek kell megjelennie: "bejelentkezett a Windows felügyeleti központ alkalmazásba az eszközön." A böngészőablak bezárásával térjen vissza az eredeti regisztrációs lapra.
 
-4. A Azure Active Directory (bérlői) azonosító megadásával csatlakozhat a Azure Active Directoryhoz. Ha már rendelkezik Azure-bérlői AZONOSÍTÓval, és követte az előző lépéseket, előfordulhat, hogy az azonosító mező előre fel van töltve. Ha a szervezet nem ad meg egy meglévő azonosítót, hagyja meg **Azure Active Directory új alkalmazás** **létrehozása** lehetőséget. Ha már rendelkezik AZONOSÍTÓval, kattintson a **meglévő használata** elemre, és a rendszergazda által megadott azonosító megadásához egy üres mező jelenik meg. Az azonosító megadása után a Windows felügyeleti központ megerősíti, hogy az adott AZONOSÍTÓval rendelkező fiók található. Ha rendelkezik meglévő AZONOSÍTÓval, de nem tudja, mi az, kövesse az [alábbi lépéseket](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a lekéréséhez.
+4. Kapcsolódjon Azure Active Directoryhoz a Azure Active Directory (bérlői) AZONOSÍTÓjának és az alkalmazás-AZONOSÍTÓnak a beszerzésével. Ha már rendelkezik Azure-bérlői AZONOSÍTÓval, és követte az előző lépéseket, előfordulhat, hogy a bérlői azonosító mező előre ki van töltve, és több beállítást is tartalmazhat. Válassza ki a megfelelő bérlői azonosítót. Ha az Azure AD-rendszergazda megadta az alkalmazás AZONOSÍTÓját, kattintson a **meglévő használata** elemre, és megjelenik egy üres mező a rendszergazda által megadott azonosító megadásához. Az azonosító megadása után a Windows felügyeleti központ megerősíti, hogy az adott AZONOSÍTÓval rendelkező fiók található. Ha rendelkezik meglévő AZONOSÍTÓval, de nem tudja, mi az, kövesse az [alábbi lépéseket](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a lekéréséhez. Ha a szervezet nem adott meg egy meglévő azonosítót, hagyja meg **Azure Active Directory az alkalmazás** **új létrehozása** lehetőséget.
 
    :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Azure Active Directory csatlakozhat a meglévő Azure Active Directory (bérlői) azonosító megadásával, vagy újat hozhat létre" lightbox="media/register-wac/connect-to-aad.png":::
 
-5. Kattintson a **Kapcsolódás** gombra az Azure-hoz való kapcsolódáshoz. Meg kell jelennie arról, hogy most már kapcsolódott az Azure AD-hez.
+5. Kattintson a **Kapcsolódás** gombra az Azure-hoz való kapcsolódáshoz. Ha Ön Azure AD-rendszergazda, vagy meglévő alkalmazás-azonosítót használt, akkor meg kell jelennie arról, hogy most már csatlakozik az Azure AD-hez. Ha nem, akkor a rendszergazdai jóváhagyást igénylő üzenet jelenik meg. Ha ez az eset áll fenn, válassza a **Visszatérés az alkalmazásba a jóváhagyás megadása nélkül** lehetőséget, és forduljon az Azure ad-rendszergazdához, és adja meg az engedélyeket a regisztráció során létrehozott új alkalmazás-azonosítóhoz a 6. lépés utasításait követve.
 
-6. Engedélyeket adhat meg az Azure-ban az Azure Portalban az **alkalmazás engedélyeivel** . A **jóváhagyás engedélyezése** területen válassza a **rendszergazdai jóváhagyás megadása** lehetőséget.
+6. Ha Ön Azure AD-rendszergazda, adja meg az engedélyeket az Azure-ban a **Azure Active Directoryra** való navigáláshoz, majd **Alkalmazásregisztrációk**. Válassza ki a regisztrálni kívánt átjáró után megnevezett alkalmazás-identitást, és navigáljon az **API-engedélyek** elemre. A **jóváhagyás engedélyezése** területen válassza a **rendszergazdai jóváhagyás megadása** lehetőséget.
 
 7. Zárjuk be az ablakot, és jelentkezzen be a Windows felügyeleti központba az Azure-fiókjával.
 

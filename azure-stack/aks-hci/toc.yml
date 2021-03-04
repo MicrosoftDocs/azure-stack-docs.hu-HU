@@ -27,7 +27,7 @@
       href: deploy-linux-application.md
 - name: Alapelvek
   items:
-    - name: Azure Kubernetes Azure Stack HCI-fogalmakkal
+    - name: Fürtök és számítási feladatok
       href: kubernetes-concepts.md
     - name: System requirements (Rendszerkövetelmények)
       href: system-requirements.md
@@ -51,8 +51,12 @@
           href: ad-sso.md
         - name: Etcd titkos kódok titkosítása
           href: encrypt-secrets.md
-    - name: AK figyelése Azure Stack HCI-fürtökön
-      href: monitor-logging.md
+    - name: Monitorozás és naplózás
+      items:
+        - name: Tárolók Azure Monitor használata
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: Helyszíni figyelés
+          href: monitor-logging.md
     - name: Windows Server-tárolók használata
       items:
         - name: Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz

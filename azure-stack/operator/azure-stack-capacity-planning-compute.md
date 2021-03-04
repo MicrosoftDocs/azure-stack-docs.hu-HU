@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: ee3ecd2bd9d513386f1f5546237204552eb0fc34
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840354"
+ms.locfileid: "102116869"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
 
@@ -58,7 +58,7 @@ A felügyeleti portálon áttekintheti a tortadiagramot, amely megjeleníti Azur
 A felhasznált memória több összetevőből áll. A tortadiagram használat szakaszában a következő összetevők használják a memóriát:  
 
 - **Gazda operációs rendszer használata vagy tartalék:** Az operációs rendszer által a gazdagépen, a virtuális memória lapján, a gazdagép operációs rendszere és a közvetlen tárolóhelyek memóriájának gyorsítótára által használt memória. Mivel ez az érték függ a gazdagépen futó különböző Hyper-V-folyamatok által használt memóriától, az képes ingadozni.
-- **Infrastruktúra-szolgáltatások:** Az Azure Stack hub-t alkotó infrastruktúra-alapú virtuális gépek. Az Azure Stack hub 1904-es kiadási verziójától kezdve ez olyan ~ 31 virtuális gépeket foglal magában, amelyek a memóriából 242 GB-ot (4 GB x # csomópontot) vesznek igénybe. Az infrastruktúra-szolgáltatások összetevő memóriájának kihasználtsága változhat, ahogy az infrastrukturális szolgáltatások méretezhetőségének és rugalmasságának hatékonyabbá tétele.
+- **Infrastruktúra-szolgáltatások:** Az Azure Stack hub-t alkotó infrastruktúra-alapú virtuális gépek. Az Azure Stack hub 2008-es kiadási verziójától kezdve ez olyan ~ 31 virtuális gépeket foglal magában, amelyek a memóriából 258 GB-ot (4 GB x # csomópontot) vesznek igénybe. Az infrastruktúra-szolgáltatások összetevő memóriájának kihasználtsága változhat, ahogy az infrastrukturális szolgáltatások méretezhetőségének és rugalmasságának hatékonyabbá tétele.
 - **Rugalmassági tartalék:** Azure Stack hub fenntartja a memória egy részét, amely lehetővé teszi a bérlők rendelkezésre állását egy gazdagép meghibásodása során, valamint a javítás és a frissítés során, hogy lehetővé váljon a virtuális gépek sikeres élő áttelepítése.
 - **Bérlői virtuális gépek:** Azure Stack hub-felhasználók által létrehozott bérlői virtuális gépek. A virtuális gépeken kívül minden olyan virtuális gép felhasznál memóriát, amely a hálóra van kiképezve. Ez azt jelenti, hogy a "létrehozás" vagy "sikertelen" állapotú virtuális gépek, illetve a virtuális gépek a vendégen belülről leállnak, memóriát fognak használni. A portálról/PowerShell-ből vagy a CLI-ből a delefoglalt leállítás lehetőség használatával felhasználható virtuális gépek azonban nem fogják használni a memóriát Azure Stack hub-ból.
 - **Érték – erőforrás-szolgáltatók hozzáadása (RPs):** Az értékhez telepített virtuális gépek, például az SQL, a MySQL, a App Service és így tovább.
@@ -77,7 +77,7 @@ Rugalmassági tartalék = H + R * ((N-1) * H) + V * (N-2)
 > -    R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15
 > -    V = a méretezési egység legnagyobb virtuális gépe
 
-<sup>1</sup> Azure stack hub-infrastruktúra terhelése = 242 GB + (4 GB x # csomópontok száma). A rendszer körülbelül 31 virtuális gépet használ a Azure Stack hub infrastruktúrájának üzemeltetéséhez, és összesen a memória és a 146 virtuális mag 242 GB + (4 GB x # csomópont) mennyiségét használja fel. A virtuális gépekre vonatkozó ésszerűség az, hogy kielégítse a szükséges szolgáltatások elkülönítését a biztonság, a méretezhetőség, a karbantartás és a javítási követelmények kielégítése érdekében. Ez a belső szolgáltatási struktúra lehetővé teszi az új infrastrukturális szolgáltatások jövőbeli bevezetését a fejlesztésük során.
+<sup>1</sup> Azure stack hub-infrastruktúra terhelése = 258 GB + (4 GB x # csomópontok száma). Körülbelül 32 virtuális gép van használatban Azure Stack hub infrastruktúrájának üzemeltetéséhez, és összesen a memória és a 146 virtuális magok 242 GB + (4 GB x # csomópont) használatát. A virtuális gépekre vonatkozó ésszerűség az, hogy kielégítse a szükséges szolgáltatások elkülönítését a biztonság, a méretezhetőség, a karbantartás és a javítási követelmények kielégítése érdekében. Ez a belső szolgáltatási struktúra lehetővé teszi az új infrastrukturális szolgáltatások jövőbeli bevezetését a fejlesztésük során.
 
 <sup>2</sup> az operációs rendszer tartaléka a csomópont-memória 15%-ában (. 15). Az operációs rendszer foglalásának értéke becslés, és a kiszolgáló fizikai memória-kapacitása és az általános operációs rendszer terhelése alapján változhat.
 

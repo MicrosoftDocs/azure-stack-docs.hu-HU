@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: reference
 ms.date: 2/12/2021
 ms.author: jeguan
-ms.openlocfilehash: 8d6b3410fb6fe6a00d602eeda97e172f1bac4062
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 511b3ad0dcf791550f40136a73f47114e9784bbe
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873815"
+ms.locfileid: "102116750"
 ---
 # <a name="akshci"></a>AksHci 
 
@@ -39,7 +39,7 @@ Parancsok az Azure Kubernetes szolgáltatással való interakcióhoz Azure Stack
 | [Remove-akshcicluster](remove-akshcicluster.md) | Felügyelt Kubernetes-fürt törlése. |
 | [újraindítás – akshci](restart-akshci.md) | Indítsa újra az Azure Kubernetes szolgáltatást a Azure Stack HCI-ben, és távolítsa el az összes telepített Kubernetes-fürtöt. |
 | [set-akshciclusternodecount](set-akshciclusternodecount.md) | A vezérlő sík csomópontjainak vagy a munkavégző csomópontok számának méretezése a fürtben. |
-| [set-akshciconfig](Sset-akshciconfig.md) | Az Azure Kubernetes Service Host konfigurációs beállításainak megadása vagy frissítése. |
+| [set-akshciconfig](set-akshciconfig.md) | Az Azure Kubernetes Service Host konfigurációs beállításainak megadása vagy frissítése. |
 | [eltávolítás – akshci](uninstall-akshci.md) | Távolítsa el az Azure Kubernetes szolgáltatást Azure Stack HCI-on. |
 | [eltávolítás – akshciadauth](uninstall-akshciadauth.md) | Active Directory hitelesítés eltávolítása. |
 | [frissítés – akshci](update-akshci.md) | Frissítse az Azure Kubernetes Service hostt a legújabb Kubernetes-verzióra. |

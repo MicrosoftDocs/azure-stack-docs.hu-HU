@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Megtudhatja, hogyan lehet elhárítani a Azure Stack hubot, beleértve a virtuális gépekkel, a tárolással és a App Serviceekkel kapcsolatos problémákat.
 author: PatAltimore
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
-ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
+ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98672876"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116954"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -83,7 +83,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
-2. Futtassa az `test-azurestack` parancsot.
+2. Futtassa a `test-azurestack` parancsot.
 3. Lépjen ki a PEP-munkamenetből.
 4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott ERCS mappából szerezheti be `test-azurestack` .
@@ -218,6 +218,14 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 **Szervizelés**: a probléma megkerüléséhez kattintson a **Telepítés most** lehetőségre. Ha a probléma továbbra is fennáll, javasoljuk, hogy a [frissítések telepítése](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) szakaszt követve manuálisan töltse fel a frissítési csomagot.
 
 **Előfordulás**: gyakori
+
+### <a name="update-failed-check-and-enforce-external-key-protectors-on-csvs"></a>A frissítés nem sikerült: külső kulcsú védők keresése és kikényszerítés a CSV
+
+**Alkalmazható**: Ez a probléma az összes támogatott kiadásra vonatkozik.
+
+**OK**: a alaplapi felügyeleti vezérlő (bmc) jelszava helytelenül van beállítva.
+
+**Szervizelés**: [frissítse a bmc hitelesítő adatait](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) , és folytassa a frissítést.
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>A frissítés során jelentett figyelmeztetések és hibák
 

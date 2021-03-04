@@ -4,14 +4,14 @@ description: Ismerje meg, hogyan titkosíthatja a etcd titkokat az AK-on Azure S
 author: aabhathipsay
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.author: aaabhathipsay
+ms.author: aabha
 ms.reviewer: ''
-ms.openlocfilehash: d79d6657197237b5806e419d94fbfb75a31a986c
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 82d40c2f97171196b90171e3dda850990bf2fbab
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873804"
+ms.locfileid: "102116716"
 ---
 # <a name="encrypt-etcd-secrets-on-aks-on-azure-stack-hci-clusters"></a>Etcd-titkok titkosítása az AK-on Azure Stack HCI-fürtökön
 
@@ -22,7 +22,7 @@ A Kubernetes egy titka egy olyan objektum, amely kis mennyiségű bizalmas adato
 
 ## <a name="enable-encryption-of-etcd-secrets"></a>Etcd-titkok titkosításának engedélyezése
 
-A `-enableSecretsEncryption` [New-AksHciCluster](./new-akshcicluster) parancs paraméterének használatával engedélyezheti a etcd-titkok titkosítását, és automatizálhatja a titkosítási kulcs rotációját az alábbiak szerint: 
+A `-enableSecretsEncryption` [New-AksHciCluster](./new-akshcicluster.md) parancs paraméterének használatával engedélyezheti a etcd-titkok titkosítását, és automatizálhatja a titkosítási kulcs rotációját az alábbiak szerint: 
 
 ```powershell
 New-AksHciCluster -name mynewcluster -enableSecretsEncryption

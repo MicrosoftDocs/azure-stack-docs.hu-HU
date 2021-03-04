@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: v-susbo
 ms.reviewer: ''
-ms.openlocfilehash: 728f23954d99f6e8cd9373467ed8d104a457e636
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 7bed9a767728525ae1e40ce4f0e607cc6f034055
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873852"
+ms.locfileid: "102116801"
 ---
 # <a name="monitor-aks-on-azure-stack-hci-clusters"></a>AK figyelése Azure Stack HCI-fürtökön
 
@@ -19,16 +19,12 @@ Kétféle figyelési és naplózási megoldás érhető el az AK-hoz Azure Stack
 
 | Megoldás  | Azure-kapcsolat  | Támogatás és szolgáltatás  | Költségek | Üzembe helyezés |
 | ------- |  ------------  | ---------  | --------------  | ---------------- |
-| Azure Monitor | Ehhez csatlakoztatni kell az AK-t Azure Stack HCI-fürtön az Azure-ba az Azure-Kubernetes használatával | A Microsoft által teljes mértékben támogatott és szervizelt | Regisztrálnia kell Azure Monitor szolgáltatásra |  Az Azure arc használata a [fürtök figyeléséhez](#monitor-clusters-using-azure-monitor) |
-| Helyszíni figyelés és naplózás | Nem igényel Azure-kapcsolatot | A Microsoft nyílt forráskódú szoftverként támogatott (támogatási szerződés vagy SLA nélkül), közösségi és/vagy külső szállító  | Szállítótól függő | Ügyfél által vezérelt, lásd: [fürtök figyelése helyszíni figyelés használatával](#monitor-clusters-using-on-premises-monitoring) |
+| Azure Monitor | Ehhez csatlakoztatni kell az AK-t Azure Stack HCI-fürtön az Azure-ba az Azure-Kubernetes használatával | A Microsoft által teljes mértékben támogatott és szervizelt | Regisztrálnia kell Azure Monitor szolgáltatásra |  Az Azure arc használata a [fürtök figyeléséhez](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview) |
+| Helyszíni figyelés és naplózás | Nem igényel Azure-kapcsolatot | A Microsoft nyílt forráskódú szoftverként támogatott (támogatási szerződés vagy SLA nélkül), közösségi és/vagy külső szállító  | Szállítótól függő | Ügyfél által vezérelt, lásd: [fürtök figyelése helyszíni figyelés használatával](#use-on-premises-monitoring) |
 
-## <a name="monitor-clusters-using-azure-monitor"></a>Fürtök figyelése Azure Monitor használatával
-Ha Azure Stack HCI-fürtökön a Azure Monitort AK-val szeretné használni, kövesse az alábbi két témakör lépéseit: 
+Ha Azure Stack HCI-fürtökön a Azure Monitort AK-val szeretné használni, tekintse meg az [Azure monitor áttekintését](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview). 
 
-- [A fürt összekötése az Azure-val az Azure arc Kubernetes használatával](./connect-to-arc.md)  
-- [Azure Monitor engedélyezése Azure arc-kompatibilis Kubernetes-fürtön](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters) 
-
-## <a name="monitor-clusters-using-on-premises-monitoring"></a>Fürtök figyelése helyszíni figyelés használatával
+## <a name="use-on-premises-monitoring"></a>Helyszíni figyelés használata
 
 A Vezérlőpult-csomópontok és munkaterhelések állapotának, teljesítményének és erőforrás-felhasználásának figyelése rendkívül fontos az alkalmazások éles környezetben való futtatásakor. A helyszíni figyelési megoldás beállításával kapcsolatos további információkért lásd: a [Prometheus és a Grafana telepítése](https://github.com/microsoft/AKS-HCI-Apps/tree/main/Monitoring). Ez a figyelési megoldás a következő két eszközt tartalmazza: 
 

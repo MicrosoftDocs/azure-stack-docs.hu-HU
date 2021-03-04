@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009043"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116988"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Azure App Service és Azure Functions a Azure Stack hub-on – áttekintés
 
@@ -33,7 +33,7 @@ A Azure App Service főbb funkciói és képességei:
 Az App Service számos alkalmazástípust kínál, amelyek mindegyike adott számítási feladatot szolgál ki:
 
 - [Web Apps](/azure/app-service/overview) webhelyek, webalkalmazások és REST API-k üzemeltetéséhez.
-- [Azure functions v1](/azure/azure-functions) az eseményvezérelt, kiszolgáló nélküli számítási feladatok üzemeltetéséhez.
+- [Azure functions v1](/azure/azure-functions/functions-versions) az eseményvezérelt, kiszolgáló nélküli számítási feladatok üzemeltetéséhez.
 
 A Word *alkalmazás* a számítási feladatok futtatására kijelölt üzemeltetési erőforrásokra hivatkozik. Tegyük fel, hogy a *webalkalmazást* például úgy gondolja, hogy egy webalkalmazást használ a számítási erőforrások és az alkalmazás kódjának, amelyek együttesen biztosítják a funkcionalitást a böngészőben. Azure App Service a webalkalmazás a Azure Stack hub által az alkalmazás kódjának üzemeltetéséhez biztosított számítási erőforrás.
 
