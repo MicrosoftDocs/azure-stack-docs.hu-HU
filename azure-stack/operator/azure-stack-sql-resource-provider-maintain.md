@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 05ff121ccba8076276c8dd7106d56992500b57d8
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103100"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840286"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL erőforrás-szolgáltató karbantartási műveletei
 
@@ -157,7 +157,7 @@ A Defender-definíciók frissítéséhez szerkesztheti és futtathatja a követk
 
 ```powershell
 # Set credentials for local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -260,10 +260,10 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van az SQL 
 3. A virtuális gép **diagnosztikai beállításainál** lépjen a **naplók** lapra, és az **Egyéni** elemre kattintva testreszabhatja az eseménynaplók gyűjtését.
 ![A diagnosztikai beállítások keresése](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!* _ az SQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!** SQL erőforrás-szolgáltató operatív eseménynaplóinak gyűjtéséhez.
 ![Eseménynaplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az _ *IIS-naplók** és a **Sikertelen kérelmek naplófájljait**.
+5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói** című témakört.
 ![IIS-naplók hozzáadása](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. Végül válassza a **Mentés** lehetőséget a diagnosztika összes beállításának mentéséhez.

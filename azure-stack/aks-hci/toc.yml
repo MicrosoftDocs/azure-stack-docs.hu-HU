@@ -21,6 +21,8 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Oktatóanyagok
   items:
+    - name: .NET-alkalmazások telepítése
+      href: deploy-windows-application.md
     - name: Linux-tárolók használata
       href: deploy-linux-application.md
 - name: Alapelvek
@@ -29,16 +31,30 @@
       href: kubernetes-concepts.md
     - name: System requirements (Rendszerkövetelmények)
       href: system-requirements.md
+    - name: Hálózatkezelés
+      href: concepts-networking.md
 - name: Útmutatók
   items:
+    - name: Értékelés Azure-beli virtuális gépen
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: Kapcsolódás az Azure arc Kubernetes-hoz
       href: connect-to-arc.md
     - name: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
       href: adapt-apps-mixed-os-clusters.md
+    - name: Hálózatkezelés beállítása
+      items:
+        - name: Proxybeállítások konfigurálása
+          href: proxy.md
+    - name: Biztonság és hitelesítés
+      items:
+        - name: Active Directory egyszeri bejelentkezés használata
+          href: ad-sso.md
+        - name: Etcd titkos kódok titkosítása
+          href: encrypt-secrets.md
+    - name: AK figyelése Azure Stack HCI-fürtökön
+      href: monitor-logging.md
     - name: Windows Server-tárolók használata
       items:
-        - name: .NET-alkalmazások telepítése
-          href: deploy-windows-application.md
         - name: Windows-csomópontok előkészítése csoportosan felügyelt szolgáltatásfiók-támogatáshoz
           href: prepare-windows-nodes-gmsa.md
         - name: Állandó kötet használata
@@ -59,6 +75,8 @@
   items:
     - name: Kibocsátási megjegyzések
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: Ismert problémák
       href: known-issues.md
     - name: Azure-ütemterv

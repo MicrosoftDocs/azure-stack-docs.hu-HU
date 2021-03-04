@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 67c6331111e18ec04f3084b4c34a971120733569
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011365"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839980"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Az SQL erőforrás-szolgáltató eltávolítása
 
@@ -34,6 +34,10 @@ Az SQL-erőforrás-szolgáltató eltávolítása törli az operátor által keze
 2. Szerezzen be egy másolatot az SQL Resource Provider telepítési csomagjáról, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához.
 
 3. Nyisson meg egy új emelt szintű PowerShell-konzolt, és váltson arra a könyvtárra, ahová kicsomagolta az SQL Resource Provider telepítési fájljait.
+
+> [!IMPORTANT]
+> Javasoljuk, hogy a **AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a parancsfájl futtatása előtt.
+
 
 4. Futtassa a DeploySqlProvider.ps1 szkriptet a következő paraméterekkel:
 

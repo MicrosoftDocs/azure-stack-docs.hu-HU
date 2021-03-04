@@ -1,42 +1,45 @@
 ---
-title: Kötetek létrehozása Azure Stack HCI-ben
-description: Kötetek létrehozása Azure Stack HCI-ben a Windows felügyeleti központ és a PowerShell használatával.
+title: Kötetek létrehozása Azure Stack HCI-és Windows Server-fürtökben
+description: Kötetek létrehozása Azure Stack HCI-ben és Windows Server-fürtökben a Windows felügyeleti központ és a PowerShell használatával.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570735"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839783"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>Kötetek létrehozása Azure Stack HCI-ben
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>Kötetek létrehozása Azure Stack HCI-és Windows Server-fürtökben
 
-> A következőkre vonatkozik: Azure Stack HCI, Version 20H2
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019, Windows Server 2016
 
-Ez a témakör azt ismerteti, hogyan hozhat létre köteteket egy Azure stack HCI-fürtön a Windows felügyeleti központ és a Windows PowerShell használatával, hogyan dolgozhat a köteteken található fájlokkal, valamint hogyan engedélyezhető az deduplikálás és a kötetek tömörítése. A kötetek létrehozásával és a kiterjesztett fürtök replikálásának beállításával kapcsolatos további információkért lásd a [kiterjesztett kötetek létrehozása](create-stretched-volumes.md)című témakört.
+Ez a témakör azt ismerteti, hogyan hozhat létre köteteket a fürtön a Windows felügyeleti központ és a Windows PowerShell használatával, hogyan dolgozhat a köteteken található fájlokkal, valamint hogyan engedélyezheti a köteteken a deduplikálás és a tömörítés, az integritási ellenőrzőösszegek vagy a BitLocker titkosítását. A kötetek létrehozásával és a kiterjesztett fürtök replikálásának beállításával kapcsolatos további információkért lásd a [kiterjesztett kötetek létrehozása](create-stretched-volumes.md)című témakört.
 
-## <a name="create-a-three-way-mirror-volume"></a>Háromutas tükrözési kötet létrehozása
+> [!TIP]
+> Ha még nem tette meg, tekintse meg a [kötetek megtervezése](../concepts/plan-volumes.md) első lépéseit.
 
-Háromutas tükrözési kötet létrehozása a Windows felügyeleti központ használatával:
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>Kétirányú vagy háromutas tükrözési kötet létrehozása
+
+Kétirányú vagy háromutas tükrözési kötet létrehozása a Windows felügyeleti központ használatával:
 
 1. A Windows felügyeleti központban kapcsolódjon egy fürthöz, majd válassza a **kötetek** elemet az **eszközök** ablaktáblán.
-2. A **kötetek** lapon válassza a **leltár** lapot, majd válassza a **kötet létrehozása** lehetőséget.
-3. A **kötet létrehozása** panelen adja meg a kötet nevét, és hagyja meg a **rugalmasságot** **háromutas tükrözésként**.
-4. A **méret a HDD**-n területen határozza meg a kötet méretét. Például 5 TB (terabájt).
-5. Válassza a **Létrehozás** lehetőséget.
+1. A **kötetek** lapon válassza a **leltár** lapot, majd válassza a **Létrehozás** lehetőséget.
+1. A **kötet létrehozása** panelen adja meg a kötet nevét.
+1. A **rugalmasság** beállításnál válassza a **kétirányú tükrözés** vagy a **háromutas tükrözés** lehetőséget a fürtben lévő kiszolgálók számától függően.
+1. A **méret a HDD**-n területen határozza meg a kötet méretét. Például 5 TB (terabájt).
+1. A **További beállítások** területen a jelölőnégyzetekkel bekapcsolhatja a deduplikálás és a tömörítés, az integritási ellenőrzőösszegek vagy a BitLocker-titkosítás funkciót.
+1. Válassza a **Létrehozás** lehetőséget.
 
-A mérettől függően a kötet létrehozása eltarthat néhány percig. A jobb felső sarokban található értesítések értesítik a kötet létrehozásakor. Az új kötet megjelenik a leltár listában.
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="A Windows felügyeleti központ használatával kétirányú vagy háromutas tükrözési kötetet is létrehozhat" lightbox="media/create-volumes/create-mirror-volume.png":::
 
-Tekintse meg a háromutas tükrözött kötetek létrehozásával kapcsolatos gyors videót.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+A mérettől függően a kötet létrehozása eltarthat néhány percig. A jobb felső sarokban található értesítések értesítik a kötet létrehozásakor. Ekkor megjelenik az új kötet a leltár listában.
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>Tükrözött, gyorsított paritású kötet létrehozása
 
-A tükrözött felgyorsított paritás (MAP) csökkenti a köteten lévő adatlábnyomot a HDD-n. Egy háromutas tükrözési kötet például azt jelenti, hogy minden 10 terabájt méretű méret esetén 30 terabájtra lesz szüksége. A lábnyom terhelésének csökkentése érdekében hozzon létre egy kötetet a tükrözött gyorsítású paritással. Ez csökkenti a 30 terabájtos lábnyomot mindössze 22 terabájtra, akár csak 4 kiszolgálóval, az adatok legaktívabb 20 százalékának tükrözésével, valamint a több helyet biztosító paritás használatával, amely a REST tárolását teszi hatékonyabbá. A paritás és a tükrözés arányát módosíthatja úgy, hogy a teljesítmény és a kapacitás kompromisszuma megfelelő legyen a munkaterhelés számára. Például a 90 százalékos paritás és a 10 százalékos tükrözés kevesebb teljesítményt nyújt, de még tovább egyszerűsíti a lábnyomot.
+A tükrözött felgyorsított paritás (MAP) csökkenti a köteten lévő adatlábnyomot a HDD-n. Egy háromutas tükrözési kötet például azt jelenti, hogy minden 10 terabájt méretű méret esetén 30 terabájtra lesz szüksége. A lábnyom terhelésének csökkentése érdekében hozzon létre egy kötetet a tükrözött gyorsítású paritással. Ez csökkenti a 30 terabájtos lábnyomot mindössze 22 terabájtra, akár csupán 4 kiszolgálóval is, az adatok legaktívabb 20 százalékának tükrözésével és a paritás használatával, amely nagyobb teret biztosít a REST tárolásához. A paritás és a tükrözés arányát módosíthatja úgy, hogy a teljesítmény és a kapacitás kompromisszuma megfelelő legyen a munkaterhelés számára. Például a 90 százalékos paritás és a 10 százalékos tükrözés kevesebb teljesítményt nyújt, de még tovább egyszerűsíti a lábnyomot.
 
   >[!NOTE]
   >A tükrözött, gyorsított paritású kötetek rugalmas fájlrendszert (ReFS) igényelnek.
@@ -44,15 +47,12 @@ A tükrözött felgyorsított paritás (MAP) csökkenti a köteten lévő adatl�
 Tükrözött gyorsítású paritású kötet létrehozása a Windows felügyeleti központban:
 
 1. A Windows felügyeleti központban kapcsolódjon egy fürthöz, majd válassza a **kötetek** elemet az **eszközök** ablaktáblán.
-2. A kötetek lapon válassza a **leltár** lapot, majd válassza a **kötet létrehozása** lehetőséget.
-3. A **kötet létrehozása** panelen adja meg a kötet nevét.
-4. A **rugalmasság** területen válassza a **tükrözött felgyorsított paritás** lehetőséget.
-5. A **paritás százalékában** válassza ki a paritás százalékos arányát.
-6. Válassza a **Létrehozás** lehetőséget.
-
-Tekintse meg a tükrözött paritású kötetek létrehozásával kapcsolatos gyors videót.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. A kötetek lapon válassza a **leltár** lapot, majd válassza a **Létrehozás** lehetőséget.
+1. A **kötet létrehozása** panelen adja meg a kötet nevét.
+1. A **rugalmasság** területen válassza a **tükrözött felgyorsított paritás** lehetőséget.
+1. A **paritás százalékában** válassza ki a paritás százalékos arányát.
+1. A **További beállítások** területen a jelölőnégyzetekkel bekapcsolhatja a deduplikálás és a tömörítés, az integritási ellenőrzőösszegek vagy a BitLocker-titkosítás funkciót.
+1. Válassza a **Létrehozás** lehetőséget.
 
 ## <a name="open-volume-and-add-files"></a>Kötet megnyitása és fájlok hozzáadása
 
@@ -68,10 +68,6 @@ Kötet megnyitása és fájlok hozzáadása a kötethez a Windows felügyeleti k
 5. Navigáljon a kötet elérési útjához. Itt böngészheti a köteten található fájlokat.
 6. Válassza a **feltöltés** lehetőséget, majd válassza ki a feltölteni kívánt fájlt.
 7. A böngésző **vissza** gombjának használatával lépjen vissza a Windows felügyeleti központ **eszközök** ablaktáblájába.
-
-Tekintse meg a kötetek megnyitásával és a fájlok hozzáadásával kapcsolatos gyors videót.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>A deduplikálás és a tömörítés bekapcsolása
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 A három típusú meghajtóval rendelkező központi telepítések esetében az egyik kötet az SSD-és a HDD-rétegre is kiterjedhet, hogy az egyes példányok részben helyezkednek el. Hasonlóképpen, a négy vagy több kiszolgálóval üzemelő példányok esetében az egyik kötet összekeveri a tükrözést és a kettős paritást, hogy az egyes részekben részlegesen lehessen tárolni.
 
-Az ilyen kötetek létrehozásához Azure Stack HCI alapértelmezett szintű sablonokat biztosít a **MirrorOn * MediaType*** és a **NestedMirrorOn * MediaType*** (teljesítmény), valamint a **ParityOn * MediaType*** és **NestedParityOn * MediaType*** (a kapacitáshoz), ahol a *MediaType* HDD vagy SSD. A sablonok adathordozó-típusok alapján tárolják a tárolási rétegeket, és beágyazzák a definíciókat a gyorsabb kapacitású meghajtókon (ha vannak ilyenek) és a kettős paritáson a lassabb kapacitású meghajtókon (ha vannak ilyenek).
+Az ilyen kötetek létrehozásához Azure Stack a HCI és a Windows Server 2019 alapértelmezett szintű sablonokat biztosít a **MirrorOn * MediaType*** és a **NestedMirrorOn * MediaType*** (a teljesítményhez), valamint a **ParityOn * MediaType*** és a **NestedParityOn * MediaType*** (a kapacitáshoz), ahol a *MediaType* HDD vagy SSD. A sablonok adathordozó-típusok alapján tárolják a tárolási rétegeket, és beágyazzák a definíciókat a gyorsabb kapacitású meghajtókon (ha vannak ilyenek) és a kettős paritáson a lassabb kapacitású meghajtókon (ha vannak ilyenek).
 
-Ezeket úgy tekintheti meg, hogy a **Get-StorageTier** parancsmagot a fürt bármely kiszolgálóján futtatja.
+   > [!NOTE]
+   > Közvetlen tárolóhelyek rendszert futtató Windows Server 2016-fürtök esetében az alapértelmezett szintű sablonok egyszerűen **teljesítménynek** és **kapacitásnak** hívták.
+
+A tárolási rétegek megjelenítéséhez futtassa a **Get-StorageTier** parancsmagot a fürt bármely kiszolgálóján.
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ Több kötet létrehozásához szükség szerint ismételje meg a műveletet.
 
 ### <a name="nested-resiliency-volumes"></a>Beágyazott rugalmassági kötetek
 
-Beágyazott rugalmasság csak a két kiszolgálós fürtökre vonatkozik; Ha a fürt három vagy több kiszolgálóval rendelkezik, nem használhat beágyazott rugalmasságot. A beágyazott rugalmasság lehetővé teszi, hogy a két kiszolgálós fürt egyszerre több hardveres hibát ellenálljanak a tárterület rendelkezésre állásának elvesztése nélkül, így a felhasználók, az alkalmazások és a virtuális gépek megszakítás nélkül is futtathatók maradnak. További információért lásd: [kötetek tervezése: a rugalmasság típusának kiválasztása](../concepts/plan-volumes.md#choosing-the-resiliency-type).
+Beágyazott rugalmasság csak Azure Stack HCI vagy Windows Server 2019 rendszert futtató két kiszolgálós fürtökre vonatkozik; a beágyazott rugalmasság nem használható, ha a fürt három vagy több kiszolgálóval rendelkezik, vagy ha a fürt Windows Server 2016 rendszert futtat. A beágyazott rugalmasság lehetővé teszi, hogy a két kiszolgálós fürt egyszerre több hardveres hibát ellenálljanak a tárterület rendelkezésre állásának elvesztése nélkül, így a felhasználók, az alkalmazások és a virtuális gépek megszakítás nélkül is futtathatók maradnak. További információért lásd: [kötetek tervezése: a rugalmasság típusának kiválasztása](../concepts/plan-volumes.md#choosing-the-resiliency-type).
 
 #### <a name="create-nested-storage-tiers"></a>Beágyazott tárolási rétegek létrehozása
 
@@ -179,7 +178,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>Tárolási rétegek összefoglaló táblázata
 
-Az alábbi táblázatok összefoglalják a Azure Stack HCI-ben hozhatók létre, illetve létrehozható tárolási szinteket.
+Az alábbi táblázatok összefoglalják a Azure Stack HCI-ben és a Windows Server 2019-ben létrehozott/hozható tárolási szinteket.
 
 **NumberOfNodes: 2**
 
@@ -219,6 +218,5 @@ Az alábbi táblázatok összefoglalják a Azure Stack HCI-ben hozhatók létre,
 A kapcsolódó témakörökhöz és az egyéb tárolási felügyeleti feladatokhoz lásd még:
 
 - [A Közvetlen tárolóhelyek áttekintése](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Kötetek megtervezése](../concepts/plan-volumes.md)
 - [Kötetek kiterjesztése](extend-volumes.md)
 - [Kötetek törlése](delete-volumes.md)

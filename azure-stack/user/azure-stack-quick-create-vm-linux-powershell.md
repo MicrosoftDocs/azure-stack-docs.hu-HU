@@ -3,15 +3,15 @@ title: Linux rendszerű virtuális gép létrehozása a PowerShell-lel Azure Sta
 description: Hozzon létre egy linuxos virtuális gépet Azure Stack hub PowerShell használatával.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/22/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
-ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 6e2f6728b2c27c7571ac34bdf01499c1300c0675
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 138556f5af6a1f18ed164afcbf8398d69c1f3245
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227378"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840779"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rövid útmutató: Linux Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -277,7 +277,7 @@ $VirtualMachine = Set-AzVMSourceImage `
 $VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostic -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
   Add-AzVMNetworkInterface -Id $nic.Id
 

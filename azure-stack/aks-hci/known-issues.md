@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557004"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840048"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Az Azure Kubernetes szolgáltatás ismert problémái a Azure Stack HCI nyilvános előzetes verziójában
 Ez a cikk az Azure Kubernetes szolgáltatás nyilvános előzetes kiadásával kapcsolatos ismert problémákat ismerteti Azure Stack HCI-ben.
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Ha az Azure Kubernetes Service-gazdagépet a Windows felügyeleti központtal állítja be, a telepítés sikertelen lehet, ha a fájlkezelő meg van nyitva
 Ha a fájlkezelő megnyitva van, és a **C:\Program Files\AksHci** könyvtárban, amikor eléri a "felülvizsgálat + létrehozás" lépést, a létrehozása meghiúsulhat a következő hibával: "a folyamat nem fér hozzá a" C:\Program Files\AksHci\wssdcloudagent.exe "fájlhoz. Ennek az az oka, hogy egy másik folyamat használja. A hiba elkerüléséhez zárja be a fájlkezelőt, vagy navigáljon egy másik címtárhoz, mielőtt elérné ezt a lépést. 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>Nem lehet csatlakozni a Windows felügyeleti központhoz az Azure-ba, mert az új Azure-alkalmazás AZONOSÍTÓjának létrehozása sikertelen
+Ha nem tud csatlakozni a Windows felügyeleti központhoz az Azure-hoz, mert nem tud automatikusan létrehozni és használni egy Azure-alkalmazás AZONOSÍTÓját az átjárón, hozzon létre egy Azure-alkalmazás AZONOSÍTÓját, és rendelje hozzá a portálon a megfelelő engedélyeket. Ezután válassza **a meglévő használata az átjáróban** lehetőséget. További információt az [átjáró csatlakoztatása az Azure-hoz](/windows-server/manage/windows-admin-center/azure/azure-integration)című témakörben találhat.

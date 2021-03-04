@@ -8,12 +8,12 @@ ms.date: 11/16/2020
 ms.lastreviewed: 11/16/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: bd66c181aaafafeb34a2da1e56c4ab01ce27b9f1
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: 57ab28cbc548c8b5b8329fb7c9c8c73aee3b7d93
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697707"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840728"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Alkalmazás-identitás használata Azure Stack hub-erőforrások eléréséhez
 
@@ -83,7 +83,7 @@ A parancsfájlokat emelt szintű ("Futtatás rendszergazdaként") PowerShell-kon
 
 A tanúsítvány hitelesítő adatainak létrehozásakor a következő követelményeknek kell teljesülniük:
 
- - Éles környezetben a tanúsítványt belső hitelesítésszolgáltatótól vagy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Nyilvános szolgáltató használata esetén a szolgáltatót a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát megtalálhatja a [Microsoft megbízható Főtanúsítvány programjában: résztvevők](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). A [tanúsítvány hitelesítő adatainak frissítése](#update-a-certificate-credential)során később egy "önaláírt" teszt-tanúsítvány létrehozására is példa jelenik meg. 
+ - Éles környezetben a tanúsítványt belső hitelesítésszolgáltatótól vagy nyilvános hitelesítésszolgáltatótól kell kibocsátani. Nyilvános szolgáltató használata esetén a szolgáltatót a Microsoft megbízható legfelső szintű felügyeleti programjának részeként kell szerepeltetni az operációs rendszer alaprendszerképében. A teljes listát lásd: [résztvevők listája – Microsoft megbízható legfelső szintű program](/security/trusted-root/participants-list). A [tanúsítvány hitelesítő adatainak frissítése](#update-a-certificate-credential)során később egy "önaláírt" teszt-tanúsítvány létrehozására is példa jelenik meg. 
  - A kriptográfiai szolgáltatót a Microsoft örökölt kriptográfiai szolgáltató (CSP) kulcs szolgáltatójának kell megadnia.
  - A tanúsítvány formátumának PFX-fájlban kell lennie, mivel a nyilvános és a titkos kulcs is kötelező. A Windows-kiszolgálók a nyilvános kulcsfájl (TLS/SSL-tanúsítványfájl) és a hozzá tartozó titkos kulcs fájlját tartalmazó. pfx fájlokat használják.
  - Az Azure Stack hub-infrastruktúrának a tanúsítványban közzétett tanúsítvány-visszavonási lista (CRL) elérési helyéhez hálózati hozzáféréssel kell rendelkeznie. A CRL-nek HTTP-végpontnak kell lennie.
@@ -471,7 +471,7 @@ A választott erőforrás típusa az alkalmazás *hozzáférési hatókörét* i
 
 Most, hogy megadta az alkalmazás identitását, és engedélyezte azt az erőforrás-hozzáféréshez, engedélyezheti a parancsfájlt vagy a kódot a bejelentkezéshez és a Azure Stack hub-erőforrások biztonságos eléréséhez.  
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Felhasználói engedélyek kezelése](azure-stack-manage-permissions.md)  
 [Azure Active Directory dokumentáció](/azure/active-directory)  

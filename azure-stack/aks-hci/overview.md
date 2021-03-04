@@ -1,18 +1,18 @@
 ---
-title: Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
+title: Mi az Azure Stack HCI-n üzemelő Azure Kubernetes Service?
 description: Az Azure Kubernetes Service on Azure Stack HCI az Azure Kubernetes szolgáltatás (ak) helyszíni megvalósítása, amely automatizálja a tároló alkalmazások méretezését.
 ms.topic: overview
 author: v-susbo
 ms.author: v-susbo
 ms.date: 12/02/2020
-ms.openlocfilehash: a7d97d2454e9d77c1760180b46be9ce219d6af68
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: c27e81380514f6b27605f00884d41943146059c7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612658"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840031"
 ---
-# <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
+# <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Mi az Azure Stack HCI-n üzemelő Azure Kubernetes Service?
 > A következőkre vonatkozik: Azure Stack HCI, AK Runtime a Windows Server 2019 Datacenter rendszeren
 
 Az Azure Kubernetes Service on Azure Stack HCI az Azure Kubernetes szolgáltatás (ak) helyszíni megvalósítása, amely automatizálja a tároló alkalmazások méretezését. Az Azure Kubernetes Service mostantól előzetes verzióban érhető el a Azure Stack HCI és a Windows Server 2019 Datacenter rendszerhez, így a Linux-és Windows-tárolók az adatközpontban való üzemeltetésének megkezdése gyorsabb.
@@ -103,12 +103,10 @@ Az alábbi fejezetek összefoglalják, hogy mire van szükség az Azure Kubernet
 
 ### <a name="on-your-windows-admin-center-system"></a>Windows felügyeleti központ rendszeren
 
-A Windows felügyeleti központ átjáróját futtató gépen a következő követelmények vonatkoznak:
+A Windows felügyeleti központ átjáróját futtató gépen a következő követelmények vonatkoznak:  
 
-- Windows 10 rendszerű gép (jelenleg nem támogatott a Windows felügyeleti központ futtatása a Azure Stack HCI vagy a Windows Server 2019 Datacenter rendszeren.)
-- 60 GB szabad terület
-- Regisztrálva az Azure-ban
-- Ugyanabban a tartományban, mint a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürt
+ - Regisztrálva az Azure-ban
+ - Ugyanabban a tartományban, mint a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürt
 
 ### <a name="on-the-azure-stack-hci-cluster-or-windows-server-2019-datacenter-failover-cluster-that-hosts-azure-kubernetes-service"></a>Az Azure Kubernetes szolgáltatást futtató Azure Stack HCI-fürtön vagy a Windows Server 2019 Datacenter feladatátvevő fürtön
 
@@ -123,11 +121,13 @@ A HCI rendszerkövetelményeinek általános Azure Stack lásd: [Azure stack HCI
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI hálózati konfigurációja
 
-Az Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön található virtuális gépekhez csatlakozó hálózat dedikált hatókört igényel az Azure Kubernetes szolgáltatás számára elérhető DHCP IPv4-címek számára, és az Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön elérhető virtuális gépek számára.
+Az Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön található virtuális gépekhez csatlakozó hálózathoz az Azure Kubernetes szolgáltatás számára elérhető IPv4-címek dedikált hatókörére van szükség, amelyet a virtuális gépek a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön elérhetővé tesznek. A hálózati követelményekkel kapcsolatos további információkért látogasson el az [AK-ra Azure stack HCI rendszerkövetelményei](system-requirements.md)című témakörben.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Kubernetes Service Azure Stack HCI-ben való megkezdéséhez tekintse meg a következő cikkeket:
 
 - [Követelmények áttekintése](system-requirements.md)
-- [Az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben](create-kubernetes-cluster.md)
+- [Az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a PowerShell használatával](setup-powershell.md)
+- [Az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával](create-kubernetes-cluster.md)
+

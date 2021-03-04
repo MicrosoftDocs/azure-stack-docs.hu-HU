@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 7c3c33371e50df0dabb7db9fc8c0204fc3caaa83
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 03a4f928c5759f72d78ca09816593d70b1dcc76f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011144"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840014"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató eltávolítása Azure Stack központban
 
@@ -32,6 +32,10 @@ A MySQL erőforrás-szolgáltató eltávolítása törli az operátor által kez
   
 2. Szerezzen be egy másolatot a MySQL erőforrás-szolgáltató telepítési csomagjáról, majd futtassa az önálló kivonót a tartalom ideiglenes könyvtárba való kibontásához.
 3. Nyisson meg egy új emelt szintű PowerShell-konzolt, és váltson arra a könyvtárra, ahová kicsomagolta a MySQL erőforrás-szolgáltató telepítési fájljait.
+
+> [!IMPORTANT]
+> Javasoljuk, hogy a **AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a parancsfájl futtatása előtt.
+
 4. Futtassa a DeployMySqlProvider.ps1 szkriptet a következő paraméterekkel:
     - **Eltávolítás**: eltávolítja az erőforrás-szolgáltatót és az összes kapcsolódó erőforrást.
     - **PrivilegedEndpoint**: a privilegizált végpont IP-címe vagy DNS-neve.

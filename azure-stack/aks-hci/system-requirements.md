@@ -4,13 +4,13 @@ description: Mielőtt elkezdené az Azure Kubernetes szolgáltatást a Azure Sta
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 12/02/2020
-ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
-ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
+ms.date: 02/02/2021
+ms.openlocfilehash: 16d4e7b1de239ee1b08aa696696796fa6f12dff7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98175736"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839742"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service rendszerkövetelményei a Azure Stack HCI rendszeren
 
@@ -44,7 +44,7 @@ Az Azure Kubernetes Service on Azure Stack HCI vagy a Windows Server 2019 Datace
 
  - Ehhez az előzetes kiadáshoz az Azure Stack HCI operációs rendszert kell telepíteni a fürt minden egyes kiszolgálójára az EN-US régió és a nyelv kiválasztása alapján. a telepítés után történő módosítás jelenleg nem elegendő.
 
-## <a name="network-requirements"></a>A hálózatra vonatkozó követelmények 
+## <a name="general-network-requirements"></a>Általános hálózati követelmények 
 
 Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 2019 Datacenter-fürtre vonatkoznak: 
 
@@ -53,52 +53,44 @@ Az alábbi követelmények egy Azure Stack HCI-fürtre és egy Windows Server 20
  - Ellenőrizze, hogy az összes hálózati adapteren letiltotta-e az IPv6 protokollt. 
 
  - Sikeres telepítés esetén a Azure Stack HCI-fürtcsomópontok és a Kubernetes-fürt virtuális gépei külső internetkapcsolattal kell rendelkezniük.
+ 
+ - Győződjön meg arról, hogy a fürthöz definiált összes alhálózat egymás és az internet között irányítható.
   
  - Ellenőrizze, hogy van-e hálózati kapcsolat a Azure Stack HCI-gazdagépek és a bérlői virtuális gépek között.
 
- - A DNS-névfeloldás szükséges ahhoz, hogy az összes csomópont kommunikálni tudjon egymással. A Kubernetes külső névfeloldáshoz használja a DHCP-kiszolgáló által biztosított DNS-kiszolgálókat, amikor az IP-cím beszerzése megtörténik. A belső névfeloldás Kubernetes használja az alapértelmezett Kubernetes Core DNS-alapú megoldást. 
+ - A DNS-névfeloldás szükséges ahhoz, hogy az összes csomópont kommunikálni tudjon egymással. 
 
- - Ebben az előzetes kiadásban csak egyetlen VLAN-támogatást biztosítunk a teljes telepítéshez. 
+## <a name="ip-address-assignment"></a>IP-cím hozzárendelése  
 
- - Ebben az előzetes kiadásban korlátozott a PowerShell használatával létrehozott Kubernetes-fürtök proxy-támogatása. 
- 
-### <a name="ip-address-assignment"></a>IP-cím hozzárendelése  
- 
-A Azure Stack HCI üzembe helyezésének sikeres AK-ra vonatkozó részeként azt javasoljuk, hogy a DHCP-kiszolgálóval konfigurálja a virtuális IP-címkészlet tartományát. Azt is javasoljuk, hogy az összes munkaterhelés-fürthöz három – öt, magasan elérhető vezérlési sík-csomópontot konfiguráljon. 
+Azure Stack HCI-ben található AK-ban a virtuális hálózatok IP-címeket foglalnak le az azokat igénylő Kubernetes-erőforrásokhoz a fent felsoroltak szerint. Két hálózati modell közül választhat, attól függően, hogy a kívánt AK-t Azure Stack HCI hálózati architektúrán szeretné-e kiválasztani. 
 
 > [!NOTE]
-> A statikus IP-címek hozzárendelésének használata önmagában nem támogatott. Az előzetes kiadás részeként konfigurálnia kell egy DHCP-kiszolgálót.
+ > Az Azure Stack HCI-környezetekben itt definiált virtuális hálózati architektúra különbözik az adatközpontban található mögöttes fizikai hálózati architektúrától.
 
-#### <a name="dhcp"></a>DHCP
-Kövesse ezeket a követelményeket, miközben DHCP-t használ az IP-címek fürtön belüli hozzárendeléséhez:  
+- Statikus IP-hálózatkezelés – a virtuális hálózat statikus IP-címeket foglal le a Kubernetes-fürt API-kiszolgálójára, a Kubernetes-csomópontokra, a mögöttes virtuális gépekre, a terheléselosztó és a fürtön futtatott bármely Kubernetes-szolgáltatásra.
 
- - A hálózatnak rendelkeznie kell egy elérhető DHCP-kiszolgálóval a virtuális gépek és a virtuális gépek gazdagépei számára a TCP/IP-címek biztosításához. A DHCP-kiszolgálónak tartalmaznia kell a Network Time Protocol (NTP) és a DNS-gazdagép adatait is.
- 
- - Az Azure Stack HCI-fürt által elérhető IPv4-címek dedikált hatókörű DHCP-kiszolgáló.
- 
- - A DHCP-kiszolgáló által megadott IPv4-címeknek irányíthatónak kell lenniük, és 30 napos bérlettel kell rendelkezniük, hogy elkerüljék az IP-kapcsolat elvesztését a virtuális gépek frissítése vagy újraépítése esetén.  
+- DHCP-hálózatkezelés – a virtuális hálózat dinamikus IP-címeket foglal le a Kubernetes-csomópontok, a mögöttes virtuális gépek és a terheléselosztó számára egy DHCP-kiszolgáló használatával. A Kubernetes-fürt API-kiszolgálója és a fürt tetején futtatott bármely Kubernetes-szolgáltatás továbbra is statikus IP-címeket foglal le.
 
-Legalább a következő számú DHCP-címet le kell foglalni:
+### <a name="minimum-ip-address-reservation"></a>Minimális IP-cím foglalása
 
-| Fürt típusa  | Vezérlési sík csomópont | Munkavégző csomópont | Frissítés | Terheléselosztóval  |
+A telepítéshez legalább a következő IP-címeket kell fenntartania:
+
+| Fürt típusa  | Vezérlési sík csomópont | Munkavégző csomópont | Frissítési műveletekhez | Terheléselosztóval  |
 | ------------- | ------------------ | ---------- | ----------| -------------|
-| AK-gazdagép |  1  |  0  |  2  |  0  |
-| Munkaterhelés-fürt  |  1/csomópont  | 1/csomópont |  5  |  1  |
+| AK-gazdagép |  1 IP |  NA  |  2 IP-CÍM |  NA  |
+| Munkaterhelés-fürt  |  1 IP/csomópont  | 1 IP/csomópont |  5 IP-CÍM  |  1 IP |
 
-Megtekintheti, hogy a szükséges IP-címek száma milyen változó a környezetében lévő munkaterhelés-fürtök és a vezérlési sík és a munkavégző csomópontok számától függően. Javasoljuk, hogy a DHCP IP-készletben 256 IP-címet (/24 alhálózatot) őrizzen meg.
-  
-    
-#### <a name="vip-pool-range"></a>VIP-készlet tartománya
+Emellett a VIP-készlethez a következő IP-címek számát kell fenntartania:
 
-A virtuális IP-(VIP-) készletek használata erősen ajánlott egy AK-ra Azure Stack HCI-környezetben. A VIP-készletek a hosszú élettartamú üzemelő példányok számára fenntartott statikus IP-címek, amelyek biztosítják, hogy a központi telepítés és az alkalmazás számítási feladatai mindig elérhetők legyenek. Jelenleg csak IPv4-címeket támogatunk, ezért ellenőriznie kell, hogy az összes hálózati adapteren le van-e tiltva az IPv6. Győződjön meg arról is, hogy a virtuális IP-címek nem részei a DHCP IP-címének.
+| Erőforrás típusa  | IP-címek száma 
+| ------------- | ------------------
+| Fürt API-kiszolgálója |  1/fürt 
+| Kubernetes-szolgáltatások  |  1/szolgáltatás  
 
-Legalább egy IP-címet le kell foglalni a fürtön (munkaterhelés és AK-gazdagép) és egy IP-címet a Kubernetes szolgáltatásban. A VIP-készlet tartományában a szükséges IP-címek száma a környezetében használt munkaterhelés-fürtök és Kubernetes-szolgáltatások számától függ. Javasoljuk, hogy 16 statikus IP-címet őrizzen meg az AK-HCI üzembe helyezéshez. 
+Amint láthatja, a szükséges IP-címek száma változó a Azure Stack HCI architektúra és a Kubernetes-fürtön futtatott szolgáltatások számától függően. Javasoljuk, hogy az üzemelő példányhoz összesen 256 IP-címet (/24 alhálózatot) őrizzen meg.
 
-Az AK-gazdagép beállításakor a és a `-vipPoolStartIp` `-vipPoolEndIp` paraméter használatával `Set-AksHciConfig` hozzon létre egy VIP-készletet.
+A hálózati követelményekkel kapcsolatos további információkért tekintse meg a [hálózati fogalmakat az AK-ban Azure stack HCI-ben](./concepts-networking.md).
 
-#### <a name="mac-pool-range"></a>MAC-készlet tartománya
-Javasoljuk, hogy a tartományon belül legalább 16 MAC-címet engedélyezzen, hogy az egyes fürtökön több vezérlési sík csomópont legyen. Az AK-gazdagép beállításakor használja a `-macPoolStart` és a `-macPoolEnd` paramétert a `Set-AksHciConfig` Kubernetes-szolgáltatások DHCP Mac-KÉSZLETÉBEN található MAC-címek lefoglalásához.
-  
 ### <a name="network-port-and-url-requirements"></a>A hálózati port és az URL-cím követelményei 
 
 Ha Azure Stack HCI-ben hoz létre Azure Kubernetes-fürtöt, a rendszer automatikusan megnyitja a következő tűzfal-portokat a fürt minden kiszolgálóján. 
@@ -131,7 +123,7 @@ git://:9418 | 9418 | TCP | Az Azure arc-ügynökök támogatásához használato
 
 Az Azure Kubernetes Service a következő tárolási implementációkat támogatja az Azure Stack HCI-ben: 
 
-|  Név                         | Tárolási típus | Szükséges kapacitás |
+|  Name                         | Tárolási típus | Szükséges kapacitás |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack HCI-fürt          | CSV          | 1 TB              |
 | Windows Server 2019 Datacenter feladatátvevő fürt          | CSV          | 1 TB              |
@@ -153,9 +145,8 @@ A Windows felügyeleti központ a felhasználói felület az Azure Kubernetes sz
 
 Az alábbi követelmények vonatkoznak a Windows felügyeleti központ átjáróját futtató gépre: 
 
- - Windows 10 vagy Windows Server rendszerű számítógép (jelenleg nem támogatott a Windows felügyeleti központ futtatása a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürtön)
- - 60 GB szabad terület
- - Regisztrálva az Azure-ban
+ - Windows 10 vagy Windows Server rendszerű számítógép
+ - [Regisztrálva az Azure-ban](/windows-server/manage/windows-admin-center/azure/azure-integration)
  - Ugyanabban a tartományban, mint a Azure Stack HCI vagy a Windows Server 2019 Datacenter-fürt
 
 ## <a name="next-steps"></a>Következő lépések 

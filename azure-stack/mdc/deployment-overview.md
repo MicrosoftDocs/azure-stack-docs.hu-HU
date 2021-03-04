@@ -16,12 +16,12 @@ ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 02/17/2021
-ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 60ff62282f9fadf3b2475cffe057f10a8bbe8b3b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647793"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839657"
 ---
 # <a name="mdc-requirements-overview"></a>A MDC-követelmények áttekintése
 
@@ -39,9 +39,7 @@ Ez az útmutató az Microsoft Azure Stack hub alapvető összetevőinek üzembe 
 
 ## <a name="introduction"></a>Bevezetés
 
-A MDC egy standard 40-Foot Metal szállítási tárolóba csomagolt Azure Stack hub integrált ajánlata. A tároló tartalmazza a klíma-ellenőrzési egységet, a világítást és a riasztási rendszerét. Az alapszintű Azure Stack hub-összetevők három független hüvelybe vannak telepítve: a pod 1, a rack 1 és a rack 2, a pod 2, a rack 1 és a rack 2, valamint a pod 3, a rack 1 és a rack 2.
-
-Mindegyik Pod két 42U állványból áll. A pod a Top-of-rack (ToR) kapcsolók, az Edge-kapcsolók és a alaplapi felügyeleti vezérlő (BMC) kapcsolót is tartalmazza. Emellett minden egyes Pod tartalmaz egy hardveres életciklus-gazdagépet (HLH) és egy soros port koncentrátort is. Az alapszintű számítási és tárolási kapacitást Azure Stack hub Scale Units (SU), amely nyolc robusztus peremhálózati berendezésű (REA) R840-kiszolgálóból áll. Az 48-Isilon további tárolókapacitást biztosít a Storage-csomópontok. Az összes hüvely fizikai konfigurációja azonos.
+A MDC egy standard 40-Foot Metal szállítási tárolóba csomagolt Azure Stack hub integrált ajánlata. A tároló tartalmazza a klíma-ellenőrzési egységet, a világítást és a riasztási rendszerét. Az alapszintű Azure Stack hub-összetevők hüvelyként vannak telepítve.
 
 ## <a name="terminology"></a>Terminológia
 
@@ -54,9 +52,9 @@ A következő táblázat felsorolja az útmutatóban használt néhány kifejez�
 |Azure Stack hub partneri eszközkészlet|    Az ügyfél-specifikus bemeneti paraméterek rögzítéséhez és az Azure Stack hub telepítésének és konfigurálásának kezdeményezéséhez használt szoftvereszközök gyűjteménye. Tartalmazza a telepítési munkalapot, amely egy grafikus felhasználói felület (GUI) eszköz, amely a Azure Stack hub telepítéséhez konfigurálható paraméterek rögzítésére és tárolására szolgál. Emellett tartalmazza a hálózati konfigurációs generátor eszközt is, amely az üzembe helyezési munkalap bemeneteit használja a megoldásban lévő összes fizikai hálózati eszköz hálózati konfigurációs fájljainak létrehozásához.|
 |OEM-bővítmény csomag    |A belső vezérlőprogram, eszközillesztők és hardveres felügyeleti eszközök csomagját Azure Stack hub által a kezdeti telepítés és a frissítés során használt speciális formátumban.|
 |Soros port koncentrátor    |Minden Pod-ban telepített fizikai eszköz, amely a hálózati kapcsolók soros portjaihoz való hálózati hozzáférést biztosít üzembe helyezési és felügyeleti célokra.|
-|Méretezési egység    |Azure Stack hub alapvető összetevője, amely számítási és tárolási erőforrásokat biztosít Azure Stack hub-háló infrastruktúra és munkaterhelések számára. Mindegyik Pod nyolc MDC R840-kiszolgálót tartalmaz, más néven csomópontokat.|
-|Isilon-tároló |    Egy Azure Stack hub-összetevő, amely a MDC-megoldásra jellemző. A Isilon további blob-és file Storage-t biztosít Azure Stack hub munkaterhelésekhez. Mindegyik Pod 48 Isilon-tároló csomópontot tartalmaz.|
-|Pod    |A MDC kontextusában a pod egy független logikai egység, amely két összekapcsolt fizikai állványból áll. A teljes megoldás három, egyetlen tárolóban telepített hüvelyt tartalmaz.|
+|Méretezési egység    |Azure Stack hub alapvető összetevője, amely számítási és tárolási erőforrásokat biztosít Azure Stack hub-háló infrastruktúra és munkaterhelések számára.|
+|Isilon-tároló |    Egy Azure Stack hub-összetevő, amely a MDC-megoldásra jellemző. A Isilon további blob-és file Storage-t biztosít Azure Stack hub munkaterhelésekhez. |
+|Pod    |A MDC kontextusában a pod egy független logikai egység, amely két összekapcsolt fizikai állványból áll.|
 
 ## <a name="deployment-workflow"></a>Üzembe helyezési munkafolyamat
 

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871501"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840354"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack hub számítási kapacitása
 
@@ -43,7 +43,7 @@ Ha elérte a virtuális gép méretezési korlátját, a rendszer a következő 
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>A virtuális gépek kötegelt üzembe helyezésének megfontolása
 
-Az 2002-es és újabb verziók, valamint a kötegek közötti, 5 perces eltéréssel rendelkező kötegekben 2-5 VM-es kiadásokban megbízható virtuálisgép-üzembe helyezést biztosítanak a 700-os virtuális gépek méretének eléréséhez. Az Azure Stack hub 2005-es verziójával megbízhatóan kiépíthető a virtuális gépek száma a 40-es batch-méretekben, 5 perces eltéréssel a Batch-telepítések között.
+Az 2002-es és újabb verziók, valamint a kötegek közötti, 5 perces eltéréssel rendelkező kötegekben 2-5 VM-es kiadásokban megbízható virtuálisgép-üzembe helyezést biztosítanak a 700-os virtuális gépek méretének eléréséhez. Az Azure Stack hub 2005-es verziójával megbízhatóan kiépíthető a virtuális gépek száma a 40-es batch-méretekben, 5 perces eltéréssel a Batch-telepítések között. A Start, a stop-defoglalás és a frissítési műveletek végrehajtása 30, a kötegek közötti 5 percet hagyva.
 
 ## <a name="azure-stack-hub-memory"></a>Azure Stack hub memóriája
 
@@ -71,7 +71,7 @@ Rendelkezésre álló memória a virtuális gép elhelyezéséhez = teljes gazda
 
 Rugalmassági tartalék = H + R * ((N-1) * H) + V * (N-2)
 
-> Kimenet:
+> Ahol:
 > -    H = az egyetlen kiszolgáló memóriájának mérete
 > - N = a méretezési egység mérete (kiszolgálók száma)
 > -    R = az operációsrendszer-terheléshez tartozó operációs rendszer tartaléka, amely a<sup>2</sup> . képletben .15
@@ -91,7 +91,7 @@ Ha a visszafoglalt virtuális gép újraindul, a memóriahasználat vagy a fogla
 
 Az aktuálisan telepített nagyméretű virtuális gépek azt mutatják, hogy a lefoglalt memória 112 GB, de ezeknek a virtuális gépeknek a memória iránti igénye körülbelül 2-3 GB.
     
-| Név | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
+| Name | Hozzárendelt memória (GB) | Memória igénye (GB) | ComputerName |  
 | ---- | -------------------- | ------------------ | ------------ |                                        
 | ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
 | 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
@@ -179,5 +179,5 @@ Rugalmassági foglalás = 512 + 230,4 + 224 = 966,4 GB
 > [!NOTE]
 > A hálózatkezelésre vonatkozó kapacitás-tervezési követelmények minimálisak, mert csak a nyilvános VIP mérete konfigurálható. További információ a nyilvános IP-címek Azure Stack hubhoz való hozzáadásáról: [nyilvános IP-címek hozzáadása](azure-stack-add-ips.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 További tudnivalók az [Azure stack hub Storage](azure-stack-capacity-planning-storage.md) szolgáltatásról

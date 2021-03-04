@@ -3,16 +3,16 @@ title: Az Azure Kubernetes Service (ak) motor kibocsátási megjegyzései Azure 
 description: Megtudhatja, milyen lépéseket kell végrehajtania a Azure Stack hub-ban lévő AK-os motor frissítéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488037"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840813"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ Az API-modell JSON-fájljában adja meg a kiadási és verziószám-értékeket 
 -   Mivel az AK-motor eszköz az Azure-ban és Azure Stack hub-ban található megosztási forráskódok tárháza. A számos kibocsátási Megjegyzés és a lekéréses kérelmek vizsgálatával feltételezhető, hogy az eszköz támogatja a Kubernetes és az operációs rendszer platformjának más verzióit is a fent említetteken kívül, figyelmen kívül hagyja őket, és a fenti Version (verzió) táblázatot használja a frissítés hivatalos útmutatójának.
 
 > [!NOTE]  
-> A Windows-tároló és az Azure CNI-támogatás a privát előzetes verzióban érhető el. Ha szeretne csatlakozni az előzetes verzióhoz, akkor a hozzáférés kérése: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
+> A Windows-tároló és az Azure CNI-támogatás a nyilvános előzetes verzióban érhető el. Ha szeretne csatlakozni az előzetes verzióhoz, akkor a hozzáférés kérése: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>Referencia
 

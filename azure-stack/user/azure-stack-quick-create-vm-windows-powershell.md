@@ -3,17 +3,17 @@ title: Windows Server rendszerű virtuális gép létrehozása a PowerShell-lel 
 description: Hozzon létre egy Windows Server rendszerű virtuális gépet a PowerShell használatával Azure Stack hub-ban.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/22/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/22/2020
+ms.lastreviewed: 02/18/2021
 ms.custom: conteperfq4
-ms.openlocfilehash: c83c65102d77314a0b2c486dd20eedf5fdd421d4
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 7df01aeab1ef8df1e6ea8593d4f25c741f6afc24
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518075"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840796"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Gyors útmutató: Windows Server rendszerű virtuális gép létrehozása a PowerShell használatával Azure Stack hub-ban
 
@@ -34,7 +34,7 @@ Azure Stack hub PowerShell használatával létrehozhat egy Windows Server 2016 
 
 * Az Azure Stack hub PowerShell beállítása után csatlakoznia kell az Azure Stack hub-környezethez. Útmutatásért lásd: [kapcsolódás Azure stack hubhoz felhasználóként a PowerShell-](azure-stack-powershell-configure-user.md)lel.
 
-## <a name="create-a-resource-group"></a>Hozzon létre egy erőforráscsoportot
+## <a name="create-a-resource-group"></a>Erőforráscsoport létrehozása
 
 Az erőforráscsoport olyan logikai tároló, amelybe a rendszer üzembe helyezi és kezeli Azure Stack hub-erőforrásokat. A fejlesztői készletből vagy az Azure Stack hub integrált rendszerből futtassa az alábbi kódrészletet egy erőforráscsoport létrehozásához. 
 
@@ -313,7 +313,7 @@ $VirtualMachine = Set-AzVMSourceImage `
 $VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostic -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
   Add-AzVMNetworkInterface -Id $nic.Id
 

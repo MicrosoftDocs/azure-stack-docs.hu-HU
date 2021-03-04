@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: de9085ee201fd472a0ffd71cb97f519f66fe3621
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873265"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839674"
 ---
 # <a name="download-and-extract-the-asdk"></a>A ASDK letöltése és kibontása
 Miután meggyőződött arról, hogy a fejlesztői csomag gazdagépe megfelel a Azure Stack Development Kit (ASDK) telepítésének alapvető követelményeinek, a következő lépés az ASDK központi telepítési csomag letöltése és kibontása a Cloudbuilder. vhdx beszerzéséhez.
@@ -24,7 +24,7 @@ Miután meggyőződött arról, hogy a fejlesztői csomag gazdagépe megfelel a 
    - Telepíteni kell [a .NET-keretrendszer 4,6-es verzióját (vagy egy újabb verziót)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) .
 
 2. [Lépjen az első lépések oldalra](https://azure.microsoft.com/overview/azure-stack/try/?v=try) , ahol letöltheti a ASDK, megadhatja az adatait, majd kattintson a **Submit (elküldés**) gombra.
-3. Töltse le és futtassa a [Deployment-ellenőröket a ASDK](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) előfeltétel-ellenőrzési parancsfájlhoz. Ez az önálló parancsfájl végigvezeti a ASDK beállításával végzett előfeltételek ellenőrzéseken. Lehetővé teszi, hogy megerősítse a hardveres és a szoftverre vonatkozó követelményeket, mielőtt letölti a nagyobb csomagot a ASDK.
+3. Töltse le és futtassa a [Deployment-ellenőröket a ASDK](https://github.com/Azure/AzureStack-Tools/blob/master/Deployment/asdk-prechecker.ps1) előfeltétel-ellenőrzési parancsfájlhoz. Ez az önálló parancsfájl végigvezeti a ASDK beállításával végzett előfeltételek ellenőrzéseken. Lehetővé teszi, hogy megerősítse a hardveres és a szoftverre vonatkozó követelményeket, mielőtt letölti a nagyobb csomagot a ASDK.
 4. **A szoftver letöltése** területen kattintson a **Azure stack Development Kit** elemre.
 
    > [!NOTE]
@@ -42,5 +42,5 @@ Miután meggyőződött arról, hogy a fejlesztői csomag gazdagépe megfelel a 
 > A fájlok kibontása után törölheti a következőt:. EXE és. BIN-fájlok a merevlemez-terület helyreállításához. A fájlokat biztonsági mentéssel is elvégezheti, így nem kell újból letöltenie a fájlokat, ha újra kell telepítenie a ASDK.
 
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 [A ASDK-gazda számítógép előkészítése](asdk-prepare-host.md)

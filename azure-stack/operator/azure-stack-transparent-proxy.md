@@ -3,16 +3,16 @@ title: Transzparens proxy Azure Stack hub integrált rendszerekhez
 description: Azure Stack hub integrált rendszerek transzparens tulajdonságának áttekintése.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577308"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840694"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Transzparens proxy Azure Stack hubhoz
 
@@ -42,10 +42,11 @@ A Microsoft a piacvezető proxy-szállítókkal együttműködve ellenőrzi Azur
 
 A minta szegélyének konfigurációját a jelen cikk [példa szegélyek konfigurálása](#example-border-configuration) című szakaszában találja.
 
-Tekintse át a következő dokumentumokat az ellenőrzött transzparens proxy-konfigurációk Azure Stack hubhoz való áttekintésével: 
+Tekintse át a következő dokumentumokat az ellenőrzött transzparens proxy-konfigurációkhoz Azure Stack hubhoz:
 
 - [Ellenőrzési pont biztonsági átjárójának transzparens proxyjának konfigurálása](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [A Sophos XG-tűzfal transzparens proxyjának konfigurálása](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [Citrix ADC, Citrix Secure Web Gateway integrálása Azure Stack hubhoz](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 Azokban az esetekben, amikor a Azure Stack hub kimenő forgalmát egy explicit proxyn keresztül kell elvégeznie, a Sophos és az ellenőrzőpont-eszközök olyan kettős üzemmódú szolgáltatást biztosítanak, amely lehetővé teszi a forgalom meghatározott tartományait transzparens módban, míg más tartományok úgy konfigurálhatók, hogy explicit módon továbbítsák a forgalmat. Ezzel a szolgáltatással ezeket a proxy eszközöket úgy lehet konfigurálni, hogy csak az infrastruktúra-forgalmat továbbítsa az átlátszó proxyn keresztül, míg az összes bérlői forgalmat explicit módon küldik el.
 
@@ -56,7 +57,7 @@ Azokban az esetekben, amikor a Azure Stack hub kimenő forgalmát egy explicit p
 
 A megoldás a házirend-alapú útválasztás (PBR) alapján történik, amely egy hozzáférés-vezérlési lista (ACL) által megvalósított rendszergazda által meghatározott feltételeket használ. Az ACL kategorizálja azt a forgalmat, amely az útvonal-leképezésben megvalósított proxy eszközök következő ugrási IP-címére van irányítva, nem pedig a normál útválasztást, amely kizárólag a cél IP-címen alapul. A 80-es és a 443-es portokra vonatkozó specifikus infrastruktúra-hálózati forgalom a szegélyek eszközeiről az átlátszó proxy üzembe helyezésére van irányítva. Az átlátszó proxy URL-szűrést végez, és az *egyik sem engedélyezett* forgalom el lett dobva.
 
-A következő konfigurációs minta a Cisco Nexus 9508 váz. 
+A következő konfigurációs minta a Cisco Nexus 9508 váz.
 
 Ebben az esetben az internet elérését igénylő forrás-infrastrukturális hálózatok a következők:
 

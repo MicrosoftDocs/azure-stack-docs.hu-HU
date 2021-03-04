@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648082"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840830"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -87,7 +87,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Megvalósított belső figyelés a hálózati vezérlőhöz és a SLB, így a szolgáltatások automatikusan szervizelésre kerülnek, ha azok bármikor leállított állapotba kerülnek.
-- Active Directory összevonási szolgáltatások (AD FS) (AD FS) most lekéri az új jogkivonat-aláíró tanúsítványt, afer az ügyfél elforgatta azt a saját AD FS kiszolgálón. A már konfigurált rendszerek új képességének kihasználásához a AD FS integrációt újra kell konfigurálni. További információ: [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).
+- Active Directory összevonási szolgáltatások (AD FS) (AD FS) most lekéri az új jogkivonat-aláíró tanúsítványt, miután az ügyfél elforgatta azt a saját AD FS kiszolgálón. A már konfigurált rendszerek új képességének kihasználásához a AD FS integrációt újra kell konfigurálni. További információ: [AD FS identitás integrálása az Azure stack hub-adatközpontba](azure-stack-integrate-identity.md).
 - Az indítási és leállítási folyamat változásai az infrastruktúra-szerepkör példányain és azok függőségei a méretezési egység csomópontjain. Ez növeli a Azure Stack hub indítási és leállítási megbízhatóságát.
 - A **test-AzureStack** Validation Tool **AzSScenarios** csomagja frissítve lett, hogy a Cloud Service Providers futtassa ezt a Suite-t, hogy az összes ügyfél fiókján engedélyezve legyen a többtényezős hitelesítés.
 - A riasztások megbízhatóságának növelése az életciklus-műveletek során felmerülő 29 ügyfél-riasztások felszámolási logikájának hozzáadásával.
@@ -103,7 +103,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
   Vegye figyelembe, hogy ezek a módosítások egy Azure Stack hub rendszer gazdagép szintjén lesznek hozzáadva. Forduljon a SZÁMÍTÓGÉPGYÁRTÓhoz, és gondoskodjon arról, hogy a szükséges módosítások a ToR-hálózati kapcsolókon legyenek. Ez a ToR-változás a 2008-es kiadásra való frissítés előtt vagy a 2008-es frissítés után végezhető el. További információt a [hálózati integráció dokumentációjában](azure-stack-network.md)talál.
 
-- A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3**, hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak az Azure erőforrás Manager-sablonok használatával használhatók.
+- A GPU-t támogató virtuálisgép-méretek **NCas_v4 (NVIDIA T4)** leváltották ebben a buildben a VM-méretekkel **NCasT4_v3**, hogy konzisztensek legyenek az Azure-ban. Vegye figyelembe, hogy ezek a portálon még nem láthatók, és csak Azure Resource Manager-sablonokon keresztül használhatók.
 
 ### <a name="fixes"></a>Javítások
 
@@ -136,7 +136,7 @@ Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljár
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2008.25.114](hotfix-1-2008-25-114.md)
+- [Azure Stack hub gyorsjavítási 1.2008.26.116](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -189,7 +189,7 @@ További információ a frissítési buildek típusairól: [frissítések kezel�
 
 - Eltávolította a leállításhoz, leállításhoz és az infrastruktúra szerepkör-példányának újraindításához szükséges műveleteket a felügyeleti portálról. A kapcsolódó API-k is el lettek távolítva a háló erőforrás-szolgáltatóban. A következő PowerShell-parancsmagok a rendszergazda RM-modulban és az előzetes verzióban Azure Stack hub-ban már nem működnek: **stop-AzsInfrastructureRoleInstance**, **disable-InfrastructureRoleInstance**, és **restart-InfrastructureRoleInstance**. Ezek a parancsmagok el lesznek távolítva a Azure Stack hub következő rendszergazdájától az Module kiadásával.
 - A Azure Stack hub 2005 mostantól csak [az Azure stack hub 2020 (87. x verzió) App Service](app-service-release-notes-2020-Q2.md)támogatja.
-- A hardver figyeléséhez szükséges felhasználói titkosítási beállítás a DES-ról az AES-ra változott a biztonság fokozása érdekében. Forduljon a hardveres partnerhez, és Ismerje meg, hogyan módosíthatja az alapszintű felügyeleti vezérlő (BMC) beállítását. Előfordulhat, hogy a BMC-ben történt módosítás után a **BmcCredential** újból futtatnia kell a parancsot a jogosultsági végpont használatával. További információ: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)
+- A hardver figyeléséhez szükséges felhasználói titkosítási beállítás a DES-ról az AES-ra változott a biztonság fokozása érdekében. Forduljon a hardveres partnerhez, és Ismerje meg, hogyan módosíthatja az alapszintű felügyeleti vezérlő (BMC) beállítását. Előfordulhat, hogy a BMC-ben történt módosítás után a **BmcCredential** újra kell futtatnia a rendszerjogosultságú végpont használatával. További információ: [titkok Elforgatása Azure stack központban](azure-stack-rotate-secrets.md)
 
 ### <a name="fixes"></a>Javítások
 
@@ -228,7 +228,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 
 Azure Stack hub 2005-es kiadását a 2002-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
-- [Azure Stack hub gyorsjavítási 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack hub gyorsjavítási 1.2002.66.173](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Az 2005-es frissítés sikeres alkalmazása után
 
@@ -236,7 +236,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.29.100](hotfix-1-2005-29-100.md)
+- [Azure Stack hub gyorsjavítási 1.2005.30.102](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -365,7 +365,7 @@ Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.2002.65.171](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [Azure Stack hub gyorsjavítási 1.2002.66.173](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

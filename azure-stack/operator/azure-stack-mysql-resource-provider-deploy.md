@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: e66bdd376a5055e78c261bed5980ee4772f078fb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737834"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840337"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>A MySQL erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -118,7 +118,7 @@ Miután elvégezte az összes előfeltételt, futtathatja a **DeployMySqlProvide
 A MySQL erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta a MySQL erőforrás-szolgáltató bináris fájljait. 
 
 > [!IMPORTANT]
-> Javasoljuk, hogy a **Clear-AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
+> Javasoljuk, hogy a **Clear-AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a telepítési vagy frissítési parancsfájl futtatása előtt.
 
 Futtassa a **DeployMySqlProvider.ps1** parancsfájlt, amely a következő feladatokat hajtja végre:
 
@@ -225,6 +225,6 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül válassza a **virtuális gépek** lehetőséget a felügyeleti portálon annak ellenőrzéséhez, hogy a MySQL erőforrás-szolgáltató virtuális gépe sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-mysql-resource-provider-hosting-servers.md)

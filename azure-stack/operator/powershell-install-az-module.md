@@ -3,16 +3,16 @@ title: A PowerShell telepítése az Azure Stack hub modulhoz
 description: Ismerje meg, hogyan telepítheti a PowerShellt Azure Stack hubhoz.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 031a1695f8ba11db5a8787ef1b38c40763614b88
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069835"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840864"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>A PowerShell telepítése az Azure Stack hub modulhoz
 
@@ -35,7 +35,7 @@ Az Azure Stack hub-kompatibilis PowerShell az a modulok az internethez csatlakoz
 
 Az az modulokat a 2002-es vagy újabb frissítéssel rendelkező Azure Stack hub támogatja, valamint a jelenleg telepített gyorsjavítások. További információért tekintse meg az [Azure stack hub kibocsátási megjegyzéseit](release-notes.md) .
 
-A Azure PowerShell az modulok a PowerShell 5,1-es vagy újabb verziójával működnek a Windowson, vagy a PowerShell Core 6. x-es és újabb verzióiban minden platformon. Telepítenie kell a [PowerShell Core legújabb verzióját](/powershell/scripting/install/installing-powershell#powershell-core) az operációs rendszer számára. A Azure PowerShell nem rendelkezik további követelményekkel a PowerShell Core-on való futtatáskor.
+A Azure PowerShell az modulok a PowerShell 5,1-es vagy újabb verziójával működnek a Windowson, vagy a PowerShell Core 6. x-es és újabb verzióiban minden platformon. Telepítenie kell a [PowerShell Core legújabb verzióját](/powershell/scripting/install/installing-powershell#powershell-core) az operációs rendszer számára. A Azure PowerShell nem rendelkezik más követelményekkel a PowerShell Core-on való futtatáskor.
 
 A PowerShell verziójának megtekintéséhez futtassa az alábbi parancsot:
 
@@ -72,15 +72,23 @@ A szükséges verzió telepítése előtt győződjön meg arról, hogy eltávol
 
 Az Azure Stack az Module Azure Stack hub 2002-as vagy újabb verziójával fog működni. Emellett a Azure Stack az modul a PowerShell 5,1-es vagy újabb verzióját fogja működni Windows-gépen, vagy a PowerShell 6. x-es vagy újabb verzióját egy Linux-vagy macOS-platformon. Az előnyben részesített telepítési módszer a PowerShellGet-parancsmagok használata. Ez a módszer ugyanúgy működik a támogatott platformokon.
 
-Futtassa az alábbi parancsot egy PowerShell-munkamenetből:
+1. Futtassa a következő parancsot egy PowerShell-munkamenetből, hogy frissítse a PowerShellGet-t legalább a 2.2.3-es verzióra.
 
-```powershell  
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```powershell  
+    Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force
+    ```
 
-Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
-Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
-```
+2. Zárjuk be a PowerShell-munkamenetet, majd nyisson meg egy új PowerShell-munkamenetet, hogy a frissítés életbe lépjen.
+
+3. Futtassa az alábbi parancsot egy PowerShell-munkamenetből:
+
+    ```powershell  
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    ```
 
 > [!Note]  
 > Azure Stack hub-modul 2.0.0-verziójának feltörési változása. A részletekért tekintse meg az [áttelepítés a AzureRM-ről Azure PowerShell az az Azure stack hub-ban](migrate-azurerm-az.md) című témakört.

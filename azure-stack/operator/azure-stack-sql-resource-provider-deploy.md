@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 7f3813d241b01e46f4a0eac639e3e6c78d74e50f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737861"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840320"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>A SQL Server erőforrás-szolgáltató üzembe helyezése Azure Stack központban
 
@@ -115,7 +115,7 @@ Miután elvégezte az összes előfeltételt, futtassa a **DeploySqlProvider.ps1
 Az SQL-erőforrás-szolgáltató üzembe helyezéséhez nyisson meg egy **új** emelt szintű PowerShell-ablakot (ne PowerShell ISE), és váltson arra a könyvtárra, ahová kicsomagolta az SQL Resource Provider bináris fájljait. 
 
 > [!IMPORTANT]
-> Javasoljuk, hogy a **Clear-AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat a Frissítési parancsfájl futtatása előtt.
+> Javasoljuk, hogy a **Clear-AzureRmContext-scope CurrentUser** és a **Clear-AzureRmContext-scope folyamat** használatával törölje a gyorsítótárat az üzembe helyezési vagy frissítési parancsfájl futtatása előtt.
 
 Futtassa a DeploySqlProvider.ps1 parancsfájlt, amely a következő feladatokat hajtja végre:
 
@@ -220,6 +220,6 @@ Az erőforrás-szolgáltató telepítési parancsfájljának befejeződése utá
 4. Az erőforráscsoport-áttekintés összefoglaló lapján nem lehetnek sikertelen központi telepítések.
 5. Végül a felügyeleti portálon válassza a **Virtual Machines (virtuális gépek** ) lehetőséget annak ellenőrzéséhez, hogy az SQL Resource Provider virtuális gép sikeresen létrejött-e, és fut-e.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Üzemeltetési kiszolgálók hozzáadása](azure-stack-sql-resource-provider-hosting-servers.md)

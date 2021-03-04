@@ -8,18 +8,18 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
-  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+  ms.openlocfilehash: 8e000bd1fe847c9d35b2ed680102a33424c86d6a
+  ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96612284"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101840099"
 landingContent:
 - title: Tudnivalók az Azure Kubernetes szolgáltatásról
   linkLists:
   - linkListType: overview
     links:
-    - text: Mi az az Azure Kubernetes Service a Azure Stack HCI-ben?
+    - text: Mi az Azure Stack HCI-n üzemelő Azure Kubernetes Service?
       url: overview.md
   - linkListType: concept
     links:
@@ -47,12 +47,16 @@ landingContent:
     links:
     - text: Linux-tárolók használata
       url: deploy-linux-application.md
+    - text: .NET-alkalmazások telepítése
+      url: deploy-windows-application.md
   - linkListType: how-to-guide
     links:
     - text: Alkalmazások adaptálása vegyes operációs rendszerű Kubernetes-fürtökhöz
       url: adapt-apps-mixed-os-clusters.md
-    - text: Windows-alkalmazások központi telepítése
-      url: deploy-windows-application.md
+    - text: Active Directory egyszeri bejelentkezési hitelesítő adatok használata
+      url: ad-sso.md
+    - text: Proxybeállítások konfigurálása
+      url: proxy.md
     - text: Windows-csomópontok előkészítése gMSA-támogatáshoz
       url: prepare-windows-nodes-gmsa.md
     - text: Állandó kötetek használata
@@ -63,3 +67,5 @@ landingContent:
     links:
     - text: Kapcsolódás az Azure arc Kubernetes-hoz
       url: connect-to-arc.md
+    - text: AK figyelése Azure Stack HCI-fürtökön
+      url: monitor-logging.md

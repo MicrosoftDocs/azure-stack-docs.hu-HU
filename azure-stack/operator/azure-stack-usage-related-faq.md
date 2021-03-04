@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: a874e4ee0c3183f7f99da70375d5fc8b0e0818ab
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98207995"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840660"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack hub-használattal kapcsolatos gyakori kérdések
 
@@ -212,15 +212,10 @@ Mérőszám **azonosítója**: 75D4b707-1027-4403-9986-6ec7c05579c8- **fogyaszt�
 
 ### <a name="event-hubs"></a>Event Hubs
 
-**FOGYASZTÁSMÉRŐ azonosítója**: d3a257e7-cf59-43bd-82c0-cf29ca8f7da0 (fizetős fogyasztásmérő)  
-**Fogyasztásmérő neve**: 1 mag    
+**FOGYASZTÁSMÉRŐ azonosítója**: CB6A35C5-FADE-406C-B14D-6DDB7C4CA3D5  
+**Fogyasztásmérő neve**: 1 mag  
 **Egység**: alapszintű \* óra  
-**Megjegyzések**: Event Hubs telepített fürtök által használt magok száma. A magok száma több, mint 10.
-
-**FOGYASZTÁSMÉRŐ azonosítója**: 29ea0bfc-6780-4711-98fc-2c7db191e1a4 (felügyeleti fogyasztásmérő)  
-**Fogyasztásmérő neve**: 1 Magos rendszergazda   
-**Egység**: alapszintű \* óra  
-**Megjegyzések**: Event Hubs telepített fürtök által használt magok száma. A magok száma több, mint 10.
+**Megjegyzések**: az egység az üzembe helyezett Event Hubs-fürtök által felhasznált magok száma óránként. A magok száma több mint 10, mert minden konfigurált CU 10 magot használ.
 
 ### <a name="key-vault"></a>Key Vault
   

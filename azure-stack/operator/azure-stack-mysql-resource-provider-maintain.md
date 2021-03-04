@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103088"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840065"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>MySQL erőforrás-szolgáltató karbantartási műveletei Azure Stack központban
 
@@ -51,7 +51,7 @@ A Defender-definíciók frissítéséhez szerkesztheti és futtathatja a követk
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -252,11 +252,11 @@ A Azure Diagnostics bővítmény alapértelmezés szerint telepítve van a MySQL
    
    ![A diagnosztikai beállítások keresése](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!* a MySQL erőforrás-szolgáltató működési eseménynaplóinak összegyűjtéséhez.
+4. Adja hozzá a **Microsoft-AzureStack-DatabaseAdapter/ \* Operational!** lehetőséget a MySQL erőforrás-szolgáltató operatív eseménynaplóinak összegyűjtéséhez.
 
    ![Eseménynaplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az _ *IIS-naplók** és a **Sikertelen kérelmek naplófájljait**.
+5. Az IIS-naplók gyűjtésének engedélyezéséhez jelölje be az **IIS-naplók** és a **Sikertelen kérelmek naplói** című témakört.
 
    ![IIS-naplók hozzáadása](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

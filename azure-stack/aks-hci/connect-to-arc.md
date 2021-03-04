@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 96e1996cbf22e354b960b1a46a8848543942b0cc
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612352"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839861"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Azure Kubernetes-szolgáltatás összekapcsolása Azure Stack HCI-fürtön az Azure arc for Kubernetes
 
@@ -33,7 +33,7 @@ Ellenőrizze, hogy készen áll-e az alábbi követelményekre:
 
 * Szüksége lesz egy kubeconfig-fájlra a fürt és a fürt rendszergazdai szerepkörének eléréséhez a fürtön az arc-kompatibilis Kubernetes-ügynökök telepítéséhez.
 * Telepítse az Azure Kubernetes szolgáltatást Azure Stack HCI PowerShell-modulon.
-* Az Azure CLI-hez készült Kubernetes CLI-bővítmények telepítéséhez az Azure CLI 2.3-s verziója szükséges. [Telepítse az Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)-t. A legújabb verzióra is frissítheti, hogy az Azure CLI 2.3 + verziója legyen.
+* Az Azure CLI-hez készült Kubernetes CLI-bővítmények telepítéséhez szükség van az Azure CLI 2.3-as verziójára. [Telepítse az Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)-t. A legújabb verzióra is frissítheti, hogy az Azure CLI 2.3 + verziója legyen.
 * Egy Azure-előfizetés, amelynek Ön a tulajdonosa vagy közreműködője. 
 * Futtassa a jelen dokumentumban található parancsokat egy PowerShell felügyeleti ablakban.
 
@@ -141,7 +141,7 @@ Ezután a Kubernetes-fürtöt az Azure-ra fogjuk használni a szolgáltatásnév
 Hivatkozzon az újonnan létrehozott egyszerű szolgáltatásra, és futtassa az `Install-AksHciArcOnboarding` Aks-Hci PowerShell-modulban elérhető parancsot.
 
 ```PowerShell
-Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
+Install-AksHciArcOnboarding -name $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>Csatlakoztatott fürt ellenőrzése
 
@@ -154,7 +154,7 @@ A fürt törléséhez vagy a fürt csatlakozásához, ha az egy kimenő proxykis
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Azure arc-ügynökök a Kubernetes
 
-Az Azure arc-kompatibilis Kubernetes üzembe helyez néhány operátort a `azure-arc` névtérben. Ezeket a központi telepítéseket és hüvelyeket itt tekintheti meg:
+Az Azure arc-kompatibilis Kubernetes üzembe helyez néhány operátort a `azure-arc` névtérben. Ezeket az üzembe helyezéseket és a hüvelyeket alább tekintheti meg `kubectl` . 
 
 ```console
 kubectl -n azure-arc get deployments,pods
@@ -167,10 +167,10 @@ Az Azure arc-kompatibilis Kubernetes néhány ügynököt (operátort) tartalmaz
 * `deployment.apps/metrics-agent`: más ív-ügynökök metrikáinak gyűjtésével biztosíthatja, hogy ezek az ügynökök optimális teljesítményt mutassanak
 * `deployment.apps/cluster-metadata-operator`: a fürt metaadatait – a fürt verzióját, a csomópontok darabszámát és az Azure arc-ügynök verzióját gyűjti.
 * `deployment.apps/resource-sync-agent`: szinkronizálja a fent említett fürt metaadatait az Azure-ba
-* `deployment.apps/clusteridentityoperator`: Az Azure arc-kompatibilis Kubernetes jelenleg támogatja a rendszerhez rendelt identitást. a clusteridentityoperator fenntartja a más ügynökök által az Azure-nal folytatott kommunikációhoz használt felügyelt szolgáltatás-identitás (MSI) tanúsítványát.
+* `deployment.apps/clusteridentityoperator`: Az Azure arc-kompatibilis Kubernetes jelenleg a rendszerhez rendelt identitást támogatja. a clusteridentityoperator fenntartja a más ügynökök által az Azure-nal folytatott kommunikációhoz használt felügyelt szolgáltatás-identitás (MSI) tanúsítványát.
 * `deployment.apps/flux-logs-agent`: naplók gyűjtése a verziókövetés konfigurációjának részeként üzembe helyezett Flux-kezelők számára
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 * [GitOps használata csatlakoztatott fürtben](/azure/azure-arc/kubernetes/use-gitops-connected-cluster)
 * [A fürt konfigurációjának szabályozása Azure Policy használatával](/azure/azure-arc/kubernetes/use-azure-policy)
