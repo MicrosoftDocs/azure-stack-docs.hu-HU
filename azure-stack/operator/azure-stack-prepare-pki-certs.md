@@ -2,18 +2,18 @@
 title: Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan készítheti elő a PKI-tanúsítványokat Azure Stack hub üzembe helyezéséhez vagy a titkok elforgatásához.
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: aa40849a62973b9e5fe989580909d7813acfe92b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 863a10ced2bf4c9ee4efef29472aab595ece4aa4
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869610"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231251"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Azure Stack hub PKI-tanúsítványok előkészítése üzembe helyezéshez vagy elforgatáshoz
 
@@ -200,6 +200,6 @@ Nyissa meg a Tanúsítványkezelő MMC-konzolt, és kapcsolódjon a helyi szám�
 
 11. Válassza a **Befejezés** gombot.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md)

@@ -3,16 +3,16 @@ title: Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 description: Hozza létre az ASK motor Azure Stack hub-on való futtatásának követelményeit.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: be20bb06ce5b8b87bc6099e823ec1a1eb9aec01c
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543527"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231608"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Az AK-motor előfeltételeinek beállítása Azure Stack hub-on
 
@@ -29,10 +29,10 @@ Az AK-motor használatához a következő erőforrásokra van szükség. Ne fele
 A Felhőbeli operátornak a következő elemeket kell megadnia.
 
 | Előfeltétel | Leírás | Kötelező | Utasítások |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Azure Stack hub 1910 vagy újabb | Az KABAi motorhoz Azure Stack hub 1910 vagy újabb rendszer szükséges. | Kötelező | Ha nem biztos abban, hogy Azure Stack hub-verzióját, lépjen kapcsolatba a felhőalapú szolgáltatójával. |
 | Egyéni Linux-szkriptek bővítménye | Linux Custom script bővítmény 2,0<br>Ajánlat: egyéni parancsfájl a Linux 2,0-hez<br>Verzió: 2.0.6 (vagy legújabb verzió)<br>Közzétevő: Microsoft Corp | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez. |
-| AK Base Ubuntu-rendszerkép | AK Base Ubuntu 16,04 – LTS-rendszerkép<br>Tekintse meg a verzió függőségével kapcsolatos további információkat lásd: [a megfelelő motor kiindulási rendszerkép verziója](#matching-engine-to-base-image-version) | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez.<br> Ha Ön a Azure Stack hub Felhőbeli operátora, és az AK-motort szeretné ajánlani, kövesse az [AK-motor hozzáadása az Azure stack hub piactérhez](../operator/azure-stack-aks-engine.md)című témakör útmutatását. |
+| AK-alapú alapképek | AK-alapú Ubuntu-és Windows-rendszerkép<br>Tekintse meg a verzió függőségével kapcsolatos további információkat lásd: [a megfelelő motor kiindulási rendszerkép verziója](#matching-engine-to-base-image-version) | Kötelező | Ha nem rendelkezik ezzel az elemmel az előfizetésében, forduljon a felhő üzemeltetőjéhez.<br> Ha Ön a Azure Stack hub Felhőbeli operátora, és az AK-motort szeretné ajánlani, kövesse az [AK-motor hozzáadása az Azure stack hub piactérhez](../operator/azure-stack-aks-engine.md)című témakör útmutatását. |
 | Egyszerű szolgáltatásnév (SPN) |  Egy olyan alkalmazásnak, amelynek az erőforrásait Azure Resource Manager használatával kell telepítenie vagy konfigurálnia, egy egyszerű szolgáltatásnak kell képviselnie. | Kötelező | Előfordulhat, hogy kapcsolatba kell lépnie az adott elemmel kapcsolatos Azure Stack hub-operátorral.<br>Ha egy Azure Active Directory (Azure AD) egyszerű szolgáltatásnév van használatban, a Kubernetes-fürtben lévő virtuális gépektől internet-hozzáférésre van szükség, hogy az egyszerű szolgáltatás hitelesíthető legyen az Azure AD-vel. Ha nincs internet-hozzáférés, a Kubernetes-fürt nem fog működni.<br>Útmutatásért lásd: [alkalmazás-identitás használata az erőforrásokhoz való hozzáféréshez](../operator/azure-stack-create-service-principals.md) |
 | (SPN) hozzárendelt **közreműködő** szerepkör | Ahhoz, hogy egy alkalmazás hozzáférhessen az előfizetéséhez tartozó erőforrásokhoz az adott szolgáltatásnév használatával, hozzá kell rendelnie a szolgáltatásnevet egy adott erőforráshoz tartozó szerepkörhöz. | Kötelező | Útmutatásért lásd: [szerepkör társítása](../operator/azure-stack-create-service-principals.md#assign-a-role) |
 
@@ -51,9 +51,9 @@ Megadhatja a következő elemeket.
 
 ## <a name="matching-engine-to-base-image-version"></a>Illeszkedő motor az alaprendszerkép verziójához
 
-Az KABAi motor egy testreszabott Ubuntu Server operációs rendszert helyez üzembe minden fürtcsomópont-lemezképhez, az **AK Base Ubuntu 16,04-LTS lemezkép-disztribúcióhoz**. Az egyes alrendszerek motorjának verziója az Azure Stack hub-kezelő által az Azure Stack hub-ben elérhetővé tett rendszerkép-verziótól függ. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)található egy táblázat, amely az AK-motor verziószámait és a megfelelő támogatott Kubernetes-verziókat tartalmazza. Az KABAi motor verziója például `v0.55.0` `2020.08.24` az AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció verziójától függ. Kérje meg a Azure Stack hub-kezelőt, hogy töltse le az adott rendszerkép verzióját az Azure Marketplace-ről a Azure Stack hub piactérre.
+Az KABAi motor egy testreszabott Ubuntu Server operációs rendszert helyez üzembe minden fürtcsomópont-lemezképhez, az **AK Base Ubuntu és a Windows lemezkép-disztribúcióhoz**. Az egyes alrendszerek motorjának verziója az Azure Stack hub-kezelő által az Azure Stack hub-ben elérhetővé tett rendszerkép-verziótól függ. A [támogatott Kubernetes-verziókban](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)található egy táblázat, amely az AK-motor verziószámait és a megfelelő támogatott Kubernetes-verziókat tartalmazza. Az AK-motor verziója például `v0.55.0` `2020.08.24` az AK Base Ubuntu és a Windows rendszerkép-disztribúció verziójától függ. Kérje meg a Azure Stack hub-kezelőt, hogy töltse le az adott rendszerkép verzióját az Azure Marketplace-ről a Azure Stack hub piactérre.
 
-A rendszer elindítja és hibát jelez, ha a rendszerkép nem érhető el a Azure Stack hub piactéren. Ha például jelenleg a (z) 0.55.0 és az AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúciós verziót használja `2020.08.24` , a következő hibaüzenet jelenik meg az AK-motor futtatásakor: 
+A rendszer elindítja és hibát jelez, ha a rendszerkép nem érhető el a Azure Stack hub piactéren. Ha például jelenleg a 0.55.0 és az AK-alapú alapszintű Ubuntu és a Windows-rendszerkép disztribúciós verzióját használja `2020.08.24` , a következő hibaüzenet jelenik meg az AK-motor futtatásakor: 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.08.24' is not available. 

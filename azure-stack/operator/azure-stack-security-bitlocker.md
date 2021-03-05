@@ -2,18 +2,18 @@
 title: Inaktív adatok titkosítása
 titleSuffix: Azure Stack Hub
 description: Ismerje meg, hogyan védi a Azure Stack hub az adatok védelmét a REST-titkosítással.
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 891c544c27be43834ebd1a1785da76282a0fbf59
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 147da85fc75ffbe76c1216c402fcec10ba0eb60f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869321"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231200"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Inaktív adatok titkosítása Azure Stack hub-ban
 
@@ -53,7 +53,7 @@ Szélsőséges körülmények között a BitLocker feloldására irányuló kér
 
 Ha azt gyanítja, hogy a rendszer problémát észlelt a BitLockerben, például Azure Stack hub nem indul el, forduljon az ügyfélszolgálathoz. A támogatáshoz a BitLocker helyreállítási kulcsai szükségesek. A BitLockerrel kapcsolatos problémák többsége az adott virtuális gép/gazdagép/kötet esetében egy cserélhető művelettel oldható fel. Más esetekben a BitLocker helyreállítási kulcsait használó manuális felszabadítási eljárás végezhető el. Ha a BitLocker helyreállítási kulcsai nem érhetők el, az egyetlen lehetőség a biztonsági mentési rendszerképből való visszaállítás. Attól függően, hogy mikor történt az utolsó biztonsági mentés, adatvesztést tapasztalhat.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [További információ a Azure stack hub biztonságáról](azure-stack-security-foundations.md).
 - További információ arról, hogyan védi a BitLocker a CSV: a [fürt megosztott kötetei és a tárolóhelyek hálózatának védelme a BitLockerrel](/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker).

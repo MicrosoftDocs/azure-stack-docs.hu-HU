@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1f29698d1bae0b38a41f19f3c9eb75f76bffc59e
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 42ccc5c8858bf113b7308e4375ee3261a0a96a1f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246860"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231489"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Mi a Azure Stack hub AK-motorja?
 
@@ -27,14 +27,6 @@ Az alKuberneteson- [motor](https://github.com/Azure/aks-engine) parancssori eszk
 Az AK-motor Azure Stack hub-on való használata előtt fontos megérteni az Azure Stack hub és az Azure közötti különbségeket. Ez a szakasz a Kubernetes-fürt felügyeletéhez használt Azure Stack hub és az AK-motor használatával különböző funkciókat és kulcsfontosságú szempontokat tartalmaz.
 
 További információ a Azure Stack hub AK-motorjának adatairól, valamint az Azure-ra vonatkozó eltérésekről: az [Azure stack hub-on található AK-motor](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md).
-
-## <a name="supported-scenarios-with-the-aks-engine"></a>Támogatott forgatókönyvek az AK-motorral
-
-Az Azure Stack hub támogatási csapata a következő forgatókönyveket támogatja:
-
-1.  Az AK-motor az ebben a dokumentációban található irányelveket követve üzembe helyezi a fürt összes összetevőjét, és a [következő sablont](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack)használja.
-2.  Az AK-motor üzembe helyezi a fürtöt egy meglévő VNET. További információ: [Egyéni virtuális hálózat használata az Kabai motorral](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md).
-3.  [Frissítési](azure-stack-kubernetes-aks-engine-upgrade.md) és [méretezési](azure-stack-kubernetes-aks-engine-scale.md) műveletek.
 
 További információ az AK-motorról és a Azure Stack hub-ról: a [Azure stack hub-os motor támogatási szabályzatai](azure-stack-kubernetes-aks-engine-support.md).
 

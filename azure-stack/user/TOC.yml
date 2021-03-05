@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Szolgáltatásfiók-jogkivonat mennyiségi kivetítésének engedélyezése
                       href: kubernetes-aks-engine-service-account.md
+                    - name: Tároló tárolójának hozzáadása
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: Tanúsítványok elforgatása
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: Az KABAi motor hibáinak megoldása
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Tárolók Azure Monitor használata

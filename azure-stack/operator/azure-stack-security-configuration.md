@@ -1,18 +1,18 @@
 ---
 title: Biztonsági vezérlők konfigurálása Azure Stack hub-ban
 description: Megtudhatja, hogyan konfigurálhat biztonsági vezérlőket Azure Stack hub-ban.
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 2ba13915c572c4b71cd5261ddb08cb876dd137a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 300584eba787cf90e459c4faccf5dddf97d37ceb
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869253"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231183"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack hub biztonsági vezérlőinek konfigurálása
 
@@ -55,11 +55,11 @@ A *set-TLSPolicy* parancsmag paraméterei:
 
 | Paraméter | Leírás | Típus | Kötelező |
 |-----|-----|-----|-----|
-| *Verzió* | A TLS engedélyezett verziója (i) Azure Stack hub-ban | Sztring | yes |
+| *Verzió* | A TLS engedélyezett verziója (i) Azure Stack hub-ban | Sztring | igen |
 
 A következő értékek egyikének használatával konfigurálhatja az összes Azure Stack hub-végponthoz engedélyezett TLS-verziót:
 
-| Verzió értéke | Leírás |
+| Verzió értéke | Description |
 |-------|-------|
 | *TLS_All* | Azure Stack hub TLS-végpontok támogatják a TLS 1,2-et, de a TLS 1,1 és a TLS 1,0 egyeztetése engedélyezett. |
 | *TLS_1.2* | Azure Stack hub TLS-végpontok csak a TLS 1,2-et támogatják. |
@@ -120,7 +120,7 @@ VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
 VERBOSE: TLS 1.2 is not enforced
 ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Ismerje meg Azure stack hub-infrastruktúra biztonsági](azure-stack-security-foundations.md)helyzetét.
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure stack hub-ban](azure-stack-rotate-secrets.md).

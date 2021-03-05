@@ -2,18 +2,18 @@
 title: Azure Stack hub biztonsági vezérlők
 titleSuffix: Azure Stack Hub
 description: Ismerje meg az Azure Stack hub-ra alkalmazott biztonsági helyzeteket és vezérlőket.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: e3bda80857a4c7026bac58f9e1d866b1d21168d5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 7706b453ba9666664e6269a2ba90f4fd0f6e3ab4
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869202"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231166"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack hub-infrastruktúra biztonsági vezérlői
 
@@ -105,7 +105,7 @@ Az értékelések a következő szabványokat tartalmazzák:
 
 A megfelelőségi dokumentáció a [Microsoft szolgáltatás megbízhatósági portálján](https://aka.ms/azurestackcompliance)érhető el. A megfelelőségi útmutatók védett erőforrások, és megkövetelik, hogy jelentkezzen be az Azure Cloud Service hitelesítő adataival.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub biztonsági vezérlőinek konfigurálása](azure-stack-security-configuration.md)
 - [Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban](azure-stack-rotate-secrets.md)

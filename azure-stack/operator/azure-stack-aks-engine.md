@@ -3,16 +3,16 @@ title: Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételei
 description: Megtudhatja, hogyan adhatja hozzá az AK-motor előfeltételeit az Azure Stack hub Marketplace-hez.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/1/2021
+ms.openlocfilehash: ceb51221d03f9c037ac3af2304b55d691f17f021
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246163"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231234"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Adja hozzá az Azure Kubernetes Services (ak) motorjának előfeltételeit az Azure Stack hub Marketplace-hez
 
@@ -39,9 +39,9 @@ Ha Azure Active Directoryt (Azure AD-t) használ az Identity Management szolgál
 
 Ha Active Directory összevont szolgáltatásokat (AD FS) használ az Identitáskezelő szolgáltatáshoz, létre kell hoznia egy egyszerű szolgáltatásnevet a Kubernetes-fürtöt telepítő felhasználók számára. Hozzon létre egy egyszerű szolgáltatást az ügyfél titkos kódjával. Útmutatásért lásd: [egyszerű szolgáltatásnév létrehozása az ügyfél titkos](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)kódjával.
 
-## <a name="add-the-aks-base-image"></a>Az AK-alapú alaprendszerkép hozzáadása
+## <a name="add-an-aks-base-image"></a>AK-alapú alaprendszerkép hozzáadása
 
-Az AK alaprendszerképét hozzáadhatja a piactérhez az elem Azure-ból való beolvasásával. Ha azonban az Azure Stack hub le van választva, az alábbi utasításokat követve [töltheti le a piactér-elemeket az Azure-ból](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
+Az Azure-ból való lekérésével hozzáadhat egy AK-alapú alapképet a piactérhez. Ha azonban az Azure Stack hub le van választva, az alábbi utasításokat követve [töltheti le a piactér-elemeket az Azure-ból](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) az elem hozzáadásához. Adja hozzá az 5. lépésben megadott elemeket.
 
 Adja hozzá a következő elemeket a piactérhez:
 
@@ -53,13 +53,7 @@ Adja hozzá a következő elemeket a piactérhez:
 
 1. Írja be a következő szöveget: `AKS Base`.
 
-1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
-
-    A listában válassza a következőket:
-    - **Közzétevő**: Azure Kubernetes Service
-    - **Ajánlat**: AK
-    - **Név**: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, augusztus 2020 (2020.09.14 vagy Version, amely az AK-motorhoz van leképezve)
-    - **Verzió**: 2020.09.14
+1. Válassza ki a rendszerkép azon verzióját, amely megfelel az AK-motor verziójának. A [támogatott Kubernetes-verziókban](..\user\kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)az AK alaprendszerképének az AK-alapú motor verziójára vonatkozó listáját találhatja. 
 
 1. Válassza a **Letöltés lehetőséget.**
 

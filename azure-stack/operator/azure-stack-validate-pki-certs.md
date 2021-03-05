@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan érvényesítheti Azure Stack hub integrált rendszerek PKI-tanúsítványait az Azure Stack hub Readiness-ellenőrző eszköz használatával.
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: BryanLa
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 30a0c94f52a46ae92b1d76e111fae64d5599aba7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b03bd67f774c8034ad68490393a29fc99c118b54
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868829"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231149"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Az Azure Stack Hub PKI-tanúsítványok ellenőrzése
 
@@ -269,6 +269,6 @@ Miután a AzsReadinessChecker érvényesíti a tanúsítványokat, készen áll 
  - A Secret rotációs szolgáltatásban a tanúsítványok segítségével frissítheti az Azure Stack hub-környezet nyilvános infrastruktúra-végpontjának régi tanúsítványait az [Azure stack hub Secret rotációs dokumentációjának](azure-stack-rotate-secrets.md)követésével.
  - A Pásti-szolgáltatások esetében a tanúsítványok segítségével telepítheti az SQL, a MySQL és a App Services erőforrás-szolgáltatót Azure Stack hub-ban az [Azure stack hub dokumentációjában elérhető szolgáltatások áttekintését](service-plan-offer-subscription-overview.md)követve.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Adatközpont identitásának integrációja](azure-stack-integrate-identity.md)

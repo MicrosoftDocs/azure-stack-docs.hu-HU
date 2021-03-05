@@ -3,19 +3,142 @@ title: Az Azure Kubernetes Service (ak) motor kibocsátási megjegyzései Azure 
 description: Megtudhatja, milyen lépéseket kell végrehajtania a Azure Stack hub-ban lévő AK-os motor frissítéséhez.
 author: mattbriggs
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 03/01/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 02/23/2021
-ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.lastreviewed: 03/01/2021
+ms.openlocfilehash: 9cccf83444e79aede3f88751dbcb77b77bd5ea4a
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840813"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231727"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Kibocsátási megjegyzések a Azure Stack hub AK-motorja számára
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-2005"
+*Az KABAi motor v-0.60.1 vonatkozik.*
+
+Ez a cikk az Azure Kubernetes Service (ak) motorjának tartalmát mutatja be Azure Stack hub Update-ben. A frissítés a Azure Stack hub platformra irányuló AK-motor legújabb kiadásával kapcsolatos javításokat és javításokat tartalmaz. Figyelje meg, hogy ez nem a globális Azure-hoz készült AK-motor kiadási információinak dokumentálása.
+
+## <a name="update-planning"></a>Frissítés tervezése
+
+Az AK-motor verziófrissítési parancsa teljesen automatizálja a fürt frissítési folyamatát, és gondoskodik a virtuális gépekről, a hálózati, a tárolási, a Kubernetes és a előkészítési feladatokról. A frissítés alkalmazása előtt mindenképpen tekintse át a kibocsátási Megjegyzés információit.
+
+### <a name="upgrade-considerations"></a>Frissítési megfontolások
+
+-   A megfelelő Piactéri elemeket, az AK Base Ubuntu 16,04-LTS vagy a 18,04 rendszerkép-disztribúciót vagy az AK-alapú Windows Servert használja az AK-motor-verzióhoz? A verziókat az "új lemezképek és AK-motor letöltése" szakaszban találja.
+-   A megfelelő fürt-specifikációt (apimodel.js) és az erőforráscsoportot használja a célként megadott fürthöz? Amikor eredetileg üzembe helyezte a fürtöt, ez a fájl a kimeneti könyvtárban lett létrehozva. Tekintse meg a [Kubernetes-fürt](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster?view=azs-2008#deploy-a-kubernetes-cluster)üzembe helyezése parancs paramétereit.
+-   Megbízható gépet használ az AK-motor futtatásához és a frissítési műveletek végrehajtásához?
+-   Ha aktív számítási feladatokkal rendelkező operatív fürtöt frissít, a frissítést anélkül is alkalmazhatja, hogy az hatással lenne rájuk, feltéve, hogy a fürt normál terhelés alatt van. Ha azonban szükség van arra, hogy a felhasználók átirányítsák a biztonsági mentési fürtöt. A biztonsági mentési fürt használata kifejezetten ajánlott.
+-   Ha lehetséges, futtassa a parancsot a Azure Stack hub-környezetben található virtuális gépről a hálózati ugrások és a lehetséges csatlakozási hibák csökkentése érdekében.
+-   Győződjön meg arról, hogy az előfizetéshez elegendő kvóta tartozik a teljes folyamathoz. A folyamat új virtuális gépeket foglal le a folyamat során. Az eredményül kapott virtuális gépek száma megegyezik az eredetivel, de a folyamat során több virtuális gép létrehozása is megtervezhető.
+-   A rendszer nem tervez frissítéseket vagy ütemezett feladatokat.
+-   Állítson be egy szakaszos frissítést egy olyan fürtön, amely az éles fürttel megegyező értékekkel van konfigurálva, majd tesztelje a frissítést az éles fürtben.
+
+### <a name="use-the-upgrade-command"></a>A verziófrissítési parancs használata
+
+A következő cikkben leírtak szerint kell használnia a [Kubernetes-fürt Azure stack hub-on való frissítését](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade?view=azs-2008).
+
+### <a name="upgrade-interruptions"></a>Frissítési megszakítások
+
+Időnként váratlan tényezők megszakítják a fürt frissítését. Megszakítás akkor fordulhat elő, ha az AK-motor hibát jelez, vagy valami történik az AK-motor végrehajtási folyamata során. Vizsgálja meg a megszakítás okát, küldje el, majd küldje el újra ugyanezt a frissítési parancsot a frissítési folyamat folytatásához. A **frissítési** parancs idempotens, és a parancs újbóli elküldése után folytatnia kell a fürt frissítését. A megszakítások általában megnövelik a frissítés befejezésének idejét, de nem befolyásolhatják a befejezését.
+
+### <a name="estimated-upgrade-time"></a>Becsült frissítési idő
+
+A becsült idő 12 – 15 perc a fürtben virtuális gépenként. Egy 20 csomópontos fürt például a frissítéshez körülbelül öt (5) órát is igénybe vehet.
+
+## <a name="download-new-image-and-aks-engine"></a>Új rendszerkép és AK-motor letöltése
+
+Töltse le az AK Base Ubuntu-rendszerkép és az AK-motor új verzióit.
+
+Amint azt az Azure Stack hub-dokumentációhoz tartozó AK-motor ismerteti, a Kubernetes-fürt üzembe helyezéséhez a következők szükségesek:
+
+-   Az AK-motor bináris fájlja (kötelező)
+-   AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúció (kötelező)
+-   AK Base Ubuntu 18,04 – LTS rendszerkép-disztribúció (opcionális)
+-   AK-alapú Windows Server-rendszerkép disztribúciója (nem kötelező)
+
+A frissítések új verziói a következő frissítéssel érhetők el:
+
+-   Az Azure Stack hub-operátornak le kell töltenie az új AK alaplemezképeit a Stamp Marketplace-be:
+    -   AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, január 2021 (2021.01.28)
+    -   AK Base Ubuntu 18,04-LTS rendszerkép-disztribúció, 2021 Q1 (2021.01.28),
+    -   AK-alapú alapszintű Windows-rendszerkép (17763.1697.210129)
+
+        Kövesse a következő cikk utasításait az [Azure Kubernetes Services (ak) motor előfeltételeinek hozzáadása az Azure stack hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine?view=azs-2008) -hez
+
+-   A Kubernetes-fürt rendszergazdájának (általában Azure Stack hub bérlői felhasználójának) le kell töltenie az új AK-motor-verzió 0.60.1. A következő cikkben található utasításokat követve [telepítse az AK-motort Linux rendszeren Azure stack hub-ban](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008) (vagy ezzel egyenértékű Windows-cikkben). A fürt első telepítéséhez használt eljárást követheti. A frissítés felülírja az előző bináris fájlt. Ha például a get-akse.sh parancsfájlt használta, kövesse az ebben a szakaszban leírt lépéseket a [telepítés csatlakoztatott környezetben](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008#install-in-a-connected-environment)című részben leírtak szerint. Ugyanez a folyamat vonatkozik arra az esetre, ha Windows rendszerre telepíti a-t, a [Azure stack hub-on lévő Windows rendszeren telepítse az AK-motort](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows?view=azs-2008).
+
+## <a name="aks-engine-and-azure-stack-version-mapping"></a>AK-motor és Azure Stack verzió-hozzárendelés
+
+| Azure Stack hub verziója                    | AK-motor verziója         |
+|------------------------------------------------|--------------------------------|
+| 1910                                           | 0.43.0, 0.43.1                 |
+| 2002                                           | 0.48.0, 0.51.0                 |
+| 2005                                           | 0.48.0, 0.51.0, 0.55.0, 0.55.4 |
+| 2008                                           | 0.55.4, 0.60.1                 |
+
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0601"></a>Kubernetes verziófrissítési útvonala az AK Engine v 0.60.1
+
+Az aktuális verziót és a verziófrissítést a következő táblázatban találja Azure Stack hubhoz. Ne kövesse az AK-motor Get-Versions parancsot, mert a parancs az egyik a globális Azure-ban támogatott verziókat is tartalmazza. A következő verzió és verziófrissítési táblázat a Azure Stack hub AK-motor fürtjére vonatkozik.
+
+| Aktuális verzió                                       | Frissítés érhető el |
+|-----------------------------------------------------------|-----------------------|
+| 1.15.12                                                   | 1.16.14, 1.16.15      |
+| 1.16.14                                                   | 1.16.15, 1.17.17      |
+| 1.17.11                                                   | 1.17.17, 1.18.15      |
+| 1.17.17                                                   | 1.18.15               |
+
+Az API-modell JSON-fájljában adja meg a kiadási és a verziószámot a orchestratorProfile szakaszban, például ha a Kubernetes-1.17.17 üzembe helyezését tervezi, akkor a következő két értéket be kell állítani (lásd: példa [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)):
+
+```json  
+    -   "orchestratorRelease": "1.17",
+    -   "orchestratorVersion": "1.17.17"
+```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>AK-motor és a hozzá tartozó képek leképezése
+
+|      AK-motor     |      AK-alapú alaprendszerkép     |      Kubernetes-verziók     |      API Model-minták     |
+|-|-|-|-|
+|     v 0.43.1    |     AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, október 2019 (2019.10.24)    |     1.15.5, 1.15.4, 1.14.8, 1.14.7    |  |
+|     v 0.48.0    |     AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, március 2020 (2020.03.19)    |     1.15.10, 1.14.7    |  |
+|     v 0.51.0    |     AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúció, május 2020 (2020.05.13), AK alapszintű Windows-rendszerkép (17763.1217.200513)    |     1.15.12, 1.16.8, 1.16.9    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55.0    |     AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, August 2020 (2020.08.24), AK alapszintű Windows-rendszerkép (17763.1397.200820)    |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55.4    |     AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúció, szeptember 2020 (2020.09.14), AK-alapú alapszintű Windows-rendszerkép (17763.1397.200820)    |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+|     V 0.60.1    |     AK Base Ubuntu 16,04 – LTS rendszerkép-disztribúció, január 2021 (2021.01.28),   <br>AK Base Ubuntu 18,04-LTS rendszerkép-disztribúció, 2021 Q1 (2021.01.28), <br>AK-alapú alapszintű Windows-rendszerkép (17763.1697.210129)    |     1.16.14, 1.16.15, 1.17.17, 1.18.15    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+
+## <a name="whats-new"></a>Újdonságok
+
+Ha szeretne részt venni egy privát előzetes verzióban, [kérheti az előzetes verzióhoz való hozzáférést](https://forms.office.com/r/yqxXyiDcGG).
+
+Új funkciók többek között az alábbiak:
+-   Az Ubuntu 18,04 általános elérhetősége
+-   Tanúsítvány rotációs nyilvános előzetes verziója [ \# 4214](https://github.com/Azure/aks-engine/pull/4214)
+-   T4 NVIDIA GPU Private Preview [ \# 4259](https://github.com/Azure/aks-engine/pull/4259)
+-   Azure Active Directory integrációs privát előzetes verzió
+-   CSI-illesztőprogram az Azure-Blobok privát előzetes verziójához [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   CSI-illesztőprogram Azure-lemezek nyilvános előzetes [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   CSI-illesztőprogram – nyilvános előzetes [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   Az 1. Kubernetes támogatása. 17,17 [ \# 4188](https://github.com/Azure/aks-engine/issues/4188) és 1.18.15 [ \# 4187](https://github.com/Azure/aks-engine/issues/4187)
+
+## <a name="known-issues"></a>Ismert problémák
+
+-   Ha egy fürtön belül több Kubernetes-szolgáltatást is üzembe helyez, az alapszintű terheléselosztó konfigurációjában hibát okozhat. Javasoljuk, hogy egyszerre egy szolgáltatást telepítsen.
+-   Mivel az AK-motor eszköz az Azure-ban és Azure Stack hub-ban található megosztási forráskód-tárház. A számos kibocsátási Megjegyzés és a lekéréses kérelmek vizsgálatával feltételezhető, hogy az eszköz támogatja a Kubernetes és az operációs rendszer platformjának más verzióit is a fent említetteken kívül, figyelmen kívül hagyja őket, és a fenti Version (verzió) táblázatot használja a frissítés hivatalos útmutatójának.
+
+> [!NOTE]  
+> A Windows-tároló és az Azure CNI-támogatás nyilvános előzetes verzióban érhető el.
+
+## <a name="reference"></a>Referencia
+
+Ez az Azure-hoz és Azure Stack hub-hoz készült kibocsátási megjegyzések teljes készlete:
+
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.1
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.1
+::: moniker-end
+::: moniker range=">azs-1910 <=azs-2005"
 *Az KABAi motor v-0.55.4 vonatkozik.*
 
 Ez a cikk az Azure Kubernetes Service (ak) motorjának tartalmát mutatja be Azure Stack hub Update-ben. A frissítés a Azure Stack hub platformra irányuló AK-motor legújabb kiadásával kapcsolatos javításokat és javításokat tartalmaz. Figyelje meg, hogy ez nem a globális Azure-hoz készült AK-motor kiadási információinak dokumentálása.

@@ -1,18 +1,18 @@
 ---
 title: Új Azure Stack hub felhasználói fiók hozzáadása a Azure Active Directory
 description: Megtudhatja, hogyan hozhat létre felhasználói fiókot Azure Active Directoryban, így a felhasználói portálon is megismerheti.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: dcd2779bf1166b6418a0ecbec3b025e889ca048a
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 57b79c62de98380c97050f6c484cd5ba1b6323fd
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99495567"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231370"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Új Azure Stack hub felhasználói fiók hozzáadása Azure Active Directory (Azure AD)
 

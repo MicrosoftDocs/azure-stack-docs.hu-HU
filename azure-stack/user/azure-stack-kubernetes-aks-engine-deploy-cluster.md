@@ -3,16 +3,16 @@ title: Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 description: Kubernetes-fürt üzembe helyezése Azure Stack hub-on az AK-motort futtató ügyfél virtuális gépről.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/5/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/5/2021
-ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: fac8ea63e3a8359fa6d1455a9ffe5eb86725530f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850848"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231574"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése az AK-motorral Azure Stack hub-on
 
@@ -26,12 +26,16 @@ A fürt specifikációját megadhatja egy dokumentum-fájlban az [API-modell](ht
 
 Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
 
-1.  Először a [Linux](https://aka.ms/aksengine-json-example-raw) vagy a [Windows](https://aka.ms/aksengine-json-example-raw-win) rendszerhez készült Azure stack hub API-modellel, és a telepítéshez készítsen helyi másolatot. A gépről telepítette az AK motort:
+1.  Első lépésként a Linux vagy Windows rendszerhez készült Azure Stack hub API-modell fájlját használhatja.
 
-    ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
-    ```
-
+    1. [ **Linux** esetén töltse le](https://aka.ms/aksengine-json-example-raw) , majd a gépről telepítse a következő parancsot:
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json
+        ```
+    1. [ **Windows rendszeren** töltse le](https://aka.ms/aksengine-json-example-raw-win) és készítsen helyi másolatot a telepítéshez. Ezután a gépről telepítette az AK motort:
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json
+        ```
     > [!NOTE]  
     > Ha le van választva, letöltheti a fájlt, és manuálisan másolhatja azt a leválasztott gépre, ahol szerkeszteni szeretné. A fájlt a Linux rendszerű gépre másolhatja, például a [Putty vagy a megnyerő](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html)eszközzel.
 
@@ -44,7 +48,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     > [!NOTE]  
     > Ha nincs telepítve a nano, akkor telepítheti a nanot Ubuntu-re: `sudo apt-get install nano` .
 
-3.  A kubernetes-azurestack.jsfájlban keresse meg a orchestratorRelease és a orchestratorVersion. Válasszon egy támogatott Kubernetes-verziót. Például az `orchestratorRelease` 1,14-es vagy a 1,15-es, illetve a `orchestratorVersion` 1.14.7 vagy a 1.15.10 használata esetén. A `orchestratorRelease` as x. xx és orchestratorVersion x. xx. x néven kell megadnia. Az aktuális verziók listáját lásd: [támogatott AK-motor verziói](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)
+3.  A kubernetes-azurestack.jsfájlban keresse meg a orchestratorRelease és a orchestratorVersion. Válasszon egy támogatott Kubernetes-verziót; [a verzió tábla a kibocsátási megjegyzésekben](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)található. A `orchestratorRelease` as x. xx és orchestratorVersion x. xx. x néven kell megadnia. Az aktuális verziók listáját lásd: [támogatott AK-motor verziói](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)
 
 4.  Keresse meg `customCloudProfile` és adja meg a bérlői portál URL-címét. Például: `https://portal.local.azurestack.external`. 
 
@@ -69,7 +73,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | dnsPrefix | Adjon meg egy egyedi karakterláncot, amely a virtuális gépek állomásneve azonosítására szolgál majd. Például egy név az erőforráscsoport neve alapján. |
     | count |  Adja meg a központi telepítéshez használni kívánt főkiszolgálók számát. HA egy HA üzemelő példány esetében a minimum a 3, az 1 érték nem lehet üzemelő példányokhoz. |
     | vmSize |  Adja meg [Azure stack hub által támogatott méretet](./azure-stack-vm-sizes.md)(példa `Standard_D2_v2` ). |
-    | disztribúció | Írja be a következő szöveget: `aks-ubuntu-16.04`. |
+    | disztribúció | Adja meg a vagy a értéket `aks-ubuntu-16.04` `aks-ubuntu-18.04` . |
 
 8.  A `agentPoolProfiles` frissítés alatt:
 
@@ -77,10 +81,7 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | --- | --- |
     | count | Adja meg az üzemelő példányhoz használni kívánt ügynökök számát. Az előfizetések által használandó csomópontok maximális száma 50. Ha egy előfizetéshez egynél több fürtöt telepít, győződjön meg arról, hogy az ügynökök teljes száma nem haladja meg az 50-ot. Ügyeljen arra, hogy a [minta API-modell JSON-fájljában](https://aka.ms/aksengine-json-example-raw)megadott konfigurációs elemeket használja.  |
     | vmSize | Adja meg [Azure stack hub által támogatott méretet](./azure-stack-vm-sizes.md)(példa `Standard_D2_v2` ). |
-    | disztribúció | Írja be a következő szöveget: `aks-ubuntu-16.04`. |
-
-
-
+    | disztribúció | Adja meg `aks-ubuntu-16.04` a vagy a értéket `aks-ubuntu-18.04` `Windows` .<br>A `Windows` Windows rendszeren futó ügynökök esetében használható. Lásd például a következőt: [kubernetes-windows.js](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json) |
 
 9.  A `linuxProfile` frissítés alatt:
 
@@ -89,10 +90,20 @@ Ez a szakasz a fürthöz tartozó API-modell létrehozását vizsgálja.
     | adminUsername | Adja meg a virtuális gép rendszergazdájának felhasználónevét. |
     | SSH | Adja meg azt a nyilvános kulcsot, amelyet a virtuális gépekkel való SSH-hitelesítéshez kíván használni. Használja `ssh-rsa` , majd a kulcsot. A nyilvános kulcsok létrehozásával kapcsolatos utasításokért lásd: [SSH-kulcs létrehozása Linux rendszerhez](create-ssh-key-on-windows.md). |
 
-    Ha egyéni virtuális hálózatra telepíti a szolgáltatást, a szükséges kulcsok és értékek megkereséséhez és hozzáadásához útmutatást talál a megfelelő tömbökhöz az API-modellben a [Kubernetes-fürt egyéni virtuális hálózatra történő telepítéséhez](kubernetes-aks-engine-custom-vnet.md).
+    Ha egyéni virtuális hálózatra telepíti a szolgáltatást, a szükséges kulcsok és értékek megkereséséhez és hozzáadásához útmutatást talál a megfelelő tömbökhöz az API-modellben, a [Kubernetes-fürt egyéni virtuális hálózatra történő telepítéséhez](kubernetes-aks-engine-custom-vnet.md).
 
     > [!NOTE]  
     > Az Azure Stack hub AK-motorja nem teszi lehetővé saját tanúsítványok megadását a fürt létrehozásához.
+
+10. Ha Windows rendszert használ, a (z) és a (z) `windowsProfile` értékének frissítése `adminUsername:` `adminPassword` :
+
+    ```json
+    "windowsProfile": {
+    "adminUsername": "azureuser",
+    "adminPassword": "",
+    "sshEnabled": true
+    }
+    ```
 
 ### <a name="more-information-about-the-api-model"></a>További információ az API-modellről
 

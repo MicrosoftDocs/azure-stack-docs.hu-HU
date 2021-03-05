@@ -1,18 +1,18 @@
 ---
 title: Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 description: Megtudhatja, hogyan állíthat be hozzáférési engedélyeket szerepköralapú hozzáférés-vezérléssel (RBAC) az Azure Stack hub-ban.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 12/23/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 852aa0283e3bd88a196c4bcf9e56951142bc4d60
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5b101330f66396d7e1e2fe93d9168244dc97d97e
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870120"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231676"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Hozzáférési engedélyek beállítása szerepköralapú hozzáférés-vezérlés használatával
 
@@ -42,6 +42,6 @@ Azure Stack hub egyik felhasználója lehet olvasó, tulajdonos vagy közreműk�
 3. A **felhasználók** panelen kattintson a **szerepkörök** elemre.
 4. A **szerepkörök** panelen kattintson a **Hozzáadás** gombra az univerzális csoport Active Directory csoport engedélyeinek hozzáadásához.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub-bérlő hozzáadása](azure-stack-add-new-user-aad.md)

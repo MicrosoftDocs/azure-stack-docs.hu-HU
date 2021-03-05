@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-napló és az ügyfelek adatkezelése
 description: Ismerje meg, hogyan gyűjti a Azure Stack hub az ügyféladatokat és az információkat.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 02/24/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 2b0194ba2955ee0c04c574571cbf16ec27edeef7
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255979"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231744"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack hub-napló és az ügyfelek adatkezelése 
 
@@ -56,5 +56,5 @@ A Microsoft nem szeretne bizalmas adatokat gyűjteni, például hitelkártyaszá
 Azure Stack hub-operátorok a használati adatok Azure-ba való továbbításához konfigurálhatják Azure Stack hub-t a számlázáshoz. Ez a konfiguráció szükséges az olyan Azure Stack hub-beli integrált rendszerek ügyfelei számára, akik az Ön által használt fizetési számlázási modellt választják. A használati jelentések a telemetria függetlenül vannak szabályozva, és nem szükségesek az olyan integrált rendszerű ügyfelek számára, akik a kapacitás modellt vagy Azure Stack Development Kit felhasználókat választják. Ezekben a forgatókönyvekben a használati jelentéskészítés kikapcsolható [a regisztrációs parancsfájl](azure-stack-usage-reporting.md)használatával.
 
 
-## <a name="next-steps"></a>További lépések 
+## <a name="next-steps"></a>Következő lépések 
 [További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md)

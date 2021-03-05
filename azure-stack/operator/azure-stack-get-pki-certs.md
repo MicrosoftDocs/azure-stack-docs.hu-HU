@@ -1,18 +1,18 @@
 ---
 title: Tanúsítvány-aláírási kérelem létrehozása az Azure Stack Hubhoz
 description: Megtudhatja, hogyan hozhatja Azure Stack hub PKI-tanúsítványokhoz tartozó tanúsítvány-aláírási kérelmeket Azure Stack hub integrált rendszerekben.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4303e2894deaaa05aa5ff1954cf34f12375c6693
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870443"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231710"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Tanúsítvány-aláírási kérelem létrehozása az Azure Stack Hubhoz
 
@@ -194,6 +194,6 @@ Ezekkel a lépésekkel előkészítheti a tanúsítvány-aláírási kérelmeket
 
 7.  Küldje el a t **.** A CA-hoz GENERÁLT REQ-fájl (belső vagy nyilvános). A **New-AzsCertificateSigningRequest** kimeneti könyvtára tartalmazza a hitelesítésszolgáltatóhoz való beküldéshez szükséges CSR (ka) t. A könyvtár tartalmazza a hivatkozáshoz tartozó alárendelt könyvtárat is, amely a tanúsítványkérelem létrehozásakor használt INF-fájl (oka) t tartalmazza. Győződjön meg arról, hogy a HITELESÍTÉSSZOLGÁLTATÓ olyan tanúsítványokat hoz létre a létrehozott kérelem alapján, amelyek megfelelnek az [Azure stack hub PKI követelményeinek](azure-stack-pki-certs.md).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [Azure Stack hub PKI-tanúsítványok előkészítése](azure-stack-prepare-pki-certs.md)

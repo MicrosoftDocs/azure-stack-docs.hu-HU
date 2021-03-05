@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: bc1aee737743656d200bc51c431bfac64af5edf3
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 2b958dad58b04d27037f7110e2350e73ad6cd880
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247048"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231506"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Kubernetes-fürt üzembe helyezése Azure Stack hub egyéni virtuális hálózatán 
 
@@ -101,7 +101,7 @@ A **orchestratorProfile**-ben keresse meg a **kubernetesConfig** , és állítsa
 
 | Mező | Példa | Leírás |
 | --- | --- | --- |
-| clusterSubnet | `172.16.244.0/24` | A fürt alhálózatának (POD Network) IP-tartományának IP-címtartományt kell használnia a definiált egyéni IP-VNET. |
+| clusterSubnet | `10.244.0.0/16` | A pod hálózati adapterek IP-címeinek lefoglalásához használt IP-alhálózat. Az alhálózatnak a VNET kell lennie. Ha engedélyezve van az Azure CNI, az alapértelmezett érték a 10.240.0.0/12. Az Azure CNI nélkül az alapértelmezett érték a 10.244.0.0/16.  a fürt alhálózat (POD Network) hálózata nem használhatja ugyanazt az IP-helyet, mint a VNET. Használjon/16 helyet/24 alhálózatot. Ha a/24-et használja, az alhálózat csak egy csomóponthoz lesz hozzárendelve. Más csomópontok nem kapják meg a POD Network-t, mert az IP-tárterület kifogyott, így nem lesznek készen a fürtön. |
 
 Például:
 
@@ -123,7 +123,7 @@ Például:
 "kubernetesConfig": [
   {
     ...
-    "clusterSubnet": "172.16.244.0/24",
+    "clusterSubnet": "172.16.244.0/16",
     ...
   },
 

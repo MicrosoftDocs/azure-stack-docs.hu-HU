@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246724"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231761"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Támogatási szabályzatok az AK motorhoz Azure Stack hub-on
 
@@ -85,7 +85,6 @@ A Microsoft nem biztosít technikai támogatást a következőkhöz:
 -  A Kubernetes-konfiguráció módosításai a Kubernetes konfigurációs tároló etcd kívül maradtak. Például a fürt csomópontjain futó statikus hüvelyek.
 -  Kérdések a Kubernetes használatáról. A Microsoft ügyfélszolgálata például nem ad tanácsot az egyéni bejövő vezérlők létrehozásához, az alkalmazások számítási feladatainak használatához, vagy harmadik féltől származó vagy nyílt forráskódú szoftvercsomagok vagy eszközök alkalmazásához.
 -  Harmadik féltől származó nyílt forráskódú projektek, amelyek nem az AK-motor által üzembe helyezett Kubernetes-fürt részeként vannak megadva. Ilyen projektek lehetnek például a Kubeadm, a Kubespray, a Native, a Istio, a Helm, a megbízottat vagy mások.
--  Az KABAi motor használata használati eseteken kívül, a [támogatott forgatókönyvekben az AK-motorral](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine)megadott esetekben.
 -  Harmadik féltől származó szoftver. Ez a szoftver biztonsági ellenőrzési eszközöket és hálózati eszközöket, illetve szoftvereket tartalmazhat.
 -  A többfelhős vagy a többgyártós kiépítéssel kapcsolatos problémák. A Microsoft például nem támogatja az összevont többnyilvános felhő-gyártói megoldás futtatásával kapcsolatos problémákat.
 -  A hálózati testreszabások, amelyek nem szerepelnek az [AK-motor által támogatott területek](#aks-engine-supported-areas) szakaszban.
