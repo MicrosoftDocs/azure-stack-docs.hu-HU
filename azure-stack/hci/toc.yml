@@ -72,7 +72,7 @@
           href: manage/create-stretched-volumes.md
         - name: Kötetek védelemmel
           href: manage/volume-encryption-deduplication.md
-        - name: Kötetek kiterjesztése
+        - name: Kötetek kibontása
           href: manage/extend-volumes.md
         - name: Kötetek törlése
           href: manage/delete-volumes.md
@@ -112,6 +112,8 @@
       items:
         - name: SDN-infrastruktúra üzembe helyezése
           href: manage/sdn-express.md
+        - name: Adatközponti tűzfal használata
+          href: manage/use-datacenter-firewall-windows-admin-center.md
         - name: Adatközponti tűzfal használata a PowerShell-lel
           href: manage/use-datacenter-firewall-powershell.md
         - name: Bérlői logikai hálózatok kezelése

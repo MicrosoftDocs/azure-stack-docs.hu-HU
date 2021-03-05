@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16e11fcbc46065f512cc6b887b9c7159f6b0ac65
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9f68e3f1dc3c789ec0b3b4f247037d49e43f8a42
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187095"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 frissítés
 
@@ -105,12 +105,12 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
 <!-- 2551834 - IS, ASDK --> 
 - Ha a felügyeleti vagy a felhasználói portálon a Storage-fiókok **áttekintését** választja, akkor az *alapvető* erőforrások ablaktáblán található információk nem jelennek meg.  Az Essentials ablaktábla a fiókkal kapcsolatos információkat jeleníti meg, például az *erőforráscsoportot*, a *helyet* és az *előfizetés azonosítóját*.  Az áttekintő egyéb lehetőségei elérhetők, például a *szolgáltatások* és a *figyelés*, valamint a *megnyitási* lehetőségek a Explorerben vagy a *Storage-fiók törlése*. 
 
-  A nem elérhető információk megtekintéséhez használja a [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0&preserve-view=true) PowerShell-parancsmagot. 
+  A nem elérhető információk megtekintéséhez használja a [Get-azureRMstorageaccount](/powershell/module/azurerm.storage/get-azurermstorageaccount?preserve-view=true&view=azurermps-6.2.0) PowerShell-parancsmagot. 
 
 <!-- 2551834 - IS, ASDK --> 
 - Ha a rendszergazdák vagy a felhasználói portálok esetében kiválasztja az egyik Storage-fiók **címkéit** , az információ nem töltődik be, és nem jelenik meg.  
 
-  A nem elérhető információk megtekintéséhez használja a [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0&preserve-view=true) PowerShell-parancsmagot.
+  A nem elérhető információk megtekintéséhez használja a [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag?preserve-view=true&view=azurermps-6.2.0) PowerShell-parancsmagot.
 
 
 <!-- 2332636 - IS -->  
@@ -183,13 +183,13 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** Használhatja az az [VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
+  - **Azure CLI:** Használhatja az az [VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
+- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Amikor **új** számítási rendelkezésre állási készlettel hoz létre egy rendelkezésre állási készletet a portálon  >    >  , csak egy tartalék tartományt és 1. frissítési tartományt tartalmazó rendelkezésre állási csoport hozható létre. Megkerülő megoldásként új virtuális gép létrehozásakor hozza létre a rendelkezésre állási készletet a PowerShell, a parancssori felület vagy a portálon belül.
@@ -213,7 +213,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
 
 ### <a name="networking"></a>Hálózatkezelés
 <!-- TBD - IS ASDK --> 
-- A felhasználó által megadott útvonalak nem hozhatók létre a rendszergazda vagy a felhasználói portálon. Áthidaló megoldásként használja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+- A felhasználó által megadott útvonalak nem hozhatók létre a rendszergazda vagy a felhasználói portálon. Áthidaló megoldásként használja a [Azure PowerShell](/azure/virtual-network/tutorial-create-route-table-powershell).
 
 <!-- 1766332 - IS ASDK --> 
 - Ha VPN-kapcsolat beállításához a **létrehozás VPN Gateway** elemre kattint, a **hálózat** területen a **házirend-alapú** beállítás VPN-típusként jelenik meg. Ne jelölje be ezt a beállítást. Azure Stack csak az **útvonalon alapuló** beállítást támogatja.

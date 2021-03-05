@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009213"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186942"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 frissítés
 
@@ -51,7 +51,7 @@ Ez a frissítés a Azure Stack alábbi tökéletesítéseit tartalmazza:
 
 - Most már [áthelyezheti az Azure-beli regisztrációs erőforrást az](../azure-stack-registration.md#move-a-registration-resource) erőforráscsoportok között anélkül, hogy újra kellene regisztrálnia. A felhőalapú megoldások szolgáltatói (CSP-ket) is áthelyezhetik a regisztrációs erőforrást az előfizetések között, feltéve, hogy az új és a régi előfizetések is ugyanahhoz a CSP-partneri AZONOSÍTÓhoz vannak rendelve. Ez nem befolyásolja a meglévő ügyfél-bérlői leképezéseket. 
 
-- Több IP-cím hozzárendelésének támogatása hálózati adapterek esetén.  További részletekért lásd: [több IP-cím társítása virtuális gépekhez a PowerShell használatával](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Több IP-cím hozzárendelésének támogatása hálózati adapterek esetén.  További részletekért lásd: [több IP-cím társítása virtuális gépekhez a PowerShell használatával](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Megoldott problémák
 
@@ -78,7 +78,7 @@ Ez a frissítés a Azure Stack alábbi tökéletesítéseit tartalmazza:
 ### <a name="changes"></a>Módosítások
 
 <!-- 2635202 - IS, ASDK -->
-- Az infrastruktúra-biztonsági mentési szolgáltatás a [nyilvános infrastruktúra-hálózatról](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) a [nyilvános VIP-hálózatra](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)költözik. Az ügyfeleknek biztosítaniuk kell, hogy a szolgáltatás hozzáférhessen a biztonsági mentési tárhelyhez a nyilvános VIP-hálózatról.  
+- Az infrastruktúra-biztonsági mentési szolgáltatás a [nyilvános infrastruktúra-hálózatról](/azure/azure-stack/azure-stack-network) a [nyilvános VIP-hálózatra](/azure/azure-stack/azure-stack-network#public-vip-network)költözik. Az ügyfeleknek biztosítaniuk kell, hogy a szolgáltatás hozzáférhessen a biztonsági mentési tárhelyhez a nyilvános VIP-hálózatról.  
 
 > [!IMPORTANT]  
 > Ha olyan tűzfallal rendelkezik, amely nem engedélyezi a nyilvános VIP-hálózatról a fájlkiszolgálóra való csatlakozást, ez a változás azt eredményezi, hogy az infrastruktúra biztonsági mentései sikertelenek lesznek a "hiba 53 a hálózati elérési út nem található". Ez egy olyan feltörési változás, amely nem rendelkezik ésszerű megkerülő megoldással. Az ügyfelek visszajelzései alapján a Microsoft egy gyorsjavításban visszaállíthatja ezt a változást. Tekintse át a [frissítés utáni lépések szakaszt](#post-update-steps) a 1809-es rendelkezésre álló gyorsjavításokkal kapcsolatos további információkért. Ha a gyorsjavítás elérhetővé válik, ügyeljen arra, hogy csak a 1809-es frissítés után alkalmazza azt, ha a hálózati házirendek nem teszik lehetővé a nyilvános VIP-hálózat számára az infrastruktúra-erőforrások elérését. 1811-ben ez a változás minden rendszerre vonatkozik. Ha a gyorsjavítást a 1809-es verzióban telepítette, nincs szükség további műveletre.  
@@ -265,7 +265,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
 - Amikor létrehoz egy új virtuális gépet (VM) a Azure Stack-portálon, és kiválasztja a virtuális gép méretét, az USD/hónap oszlop egy nem **elérhető** üzenettel jelenik meg. Ez az oszlop nem szerepelhet; a virtuális gép díjszabási oszlopának megjelenítése Azure Stackban nem támogatott.
 
 <!-- 2869209 - IS, ASDK --> 
-- Az [ **Add-AzsPlatformImage** parancsmag](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)használatakor a **-OsUri** paramétert kell használnia a lemez FELTÖLTÉSÉHEZ használt Storage-fiók URI azonosítójaként. Ha a lemez helyi elérési útját használja, a parancsmag a következő hibával meghiúsul: a *hosszú ideig futó művelet sikertelen volt, mert az állapot meghiúsult*. 
+- Az [ **Add-AzsPlatformImage** parancsmag](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)használatakor a **-OsUri** paramétert kell használnia a lemez FELTÖLTÉSÉHEZ használt Storage-fiók URI azonosítójaként. Ha a lemez helyi elérési útját használja, a parancsmag a következő hibával meghiúsul: a *hosszú ideig futó művelet sikertelen volt, mert az állapot meghiúsult*. 
 
 <!--  2795678 - IS, ASDK --> 
 - Ha a portál használatával hoz létre virtuális gépeket (VM) a prémium szintű virtuálisgép-méretekben (DS, Ds_v2, FS, FSv2), a virtuális gép egy standard Storage-fiókban jön létre. A standard szintű Storage-fiókban való létrehozás nem befolyásolja a működést, a IOPs vagy a számlázást. 
@@ -352,4 +352,4 @@ A Azure Stack 1809 frissítési [csomagot innen töltheti le.](https://aka.ms/az
 - A Azure Stack integrált rendszerek karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, tekintse meg [Azure stack karbantartási házirendet](../azure-stack-servicing-policy.md).  
 - Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](../azure-stack-monitor-update.md).  
 - A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](../azure-stack-updates.md).  
-- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).  
+- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).

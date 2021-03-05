@@ -4,13 +4,13 @@ description: Operációs rendszer és belső vezérlőprogram frissítéseinek a
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/05/2021
-ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
-ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
+ms.date: 03/04/2021
+ms.openlocfilehash: 971ca61e27a97f04319a1c6500f743ad8207954f
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99588648"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186891"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI-fürtök frissítése
 
@@ -47,7 +47,7 @@ A frissítések telepítéséhez kövesse az alábbi lépéseket:
 
    :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Kattintson a Next (tovább) gombra: telepítse az operációs rendszer frissítéseinek telepítését, vagy kattintson a Kihagyás gombra a kizárásához" lightbox="media/update-cluster/operating-system-updates.png":::
 
-5. Válassza a **telepítés** lehetőséget az operációs rendszer frissítéseinek telepítéséhez a fürt minden kiszolgálóján. A frissítési állapot változása "frissítések telepítése" lesz. Ha a frissítések bármelyike újraindítást igényel, akkor a kiszolgálók egy időben újraindulnak, így a fürt szerepkörei, például a kiszolgálók közötti virtuális gépek áthelyezhetők a leállás megakadályozása érdekében.
+5. Az operációs rendszer frissítéseinek telepítéséhez válassza a **telepítés** lehetőséget. Egyenként minden kiszolgáló letölti és alkalmazza a frissítéseket. A frissítési állapot változása "frissítések telepítése" lesz. Ha a frissítések bármelyike újraindítást igényel, akkor a kiszolgálók egy időben újraindulnak, így a fürt szerepkörei, például a kiszolgálók közötti virtuális gépek áthelyezhetők a leállás megakadályozása érdekében. A telepített frissítésektől függően a teljes frissítési kísérlet néhány perctől akár több óráig is eltarthat.
 
    :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="A telepítés gombra kattintva telepítheti az operációs rendszer frissítéseit a fürt minden kiszolgálójára" lightbox="media/update-cluster/install-os-updates.png":::
 

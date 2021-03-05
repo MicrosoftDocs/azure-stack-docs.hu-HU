@@ -3,15 +3,15 @@ title: SDN-infrastruktúra üzembe helyezése az SDN Express használatával
 description: Az Sdn-infrastruktúra üzembe helyezésének megismerése az SDN Express használatával
 author: v-dasis
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e367602252207a673316caf3482d7805bff02ba8
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: d42647faa9b45b696323ca4f3157ce6dea709272
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647810"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186789"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>SDN-infrastruktúra üzembe helyezése az SDN Express használatával
 
@@ -84,7 +84,7 @@ Navigáljon a `C:\SDNExpress\scripts` mappához, és nyissa meg a `MultiNodeSamp
 
 ### <a name="general-settings-and-parameters"></a>Általános beállítások és paraméterek
 
-A beállításokat és paramétereket az SDN általában az összes központi telepítéshez használja:
+A beállításokat és paramétereket az SDN általában az összes üzemelő példányhoz használja. Konkrét javaslatokért lásd az [Sdn-infrastruktúra virtuálisgép-szerepkörre vonatkozó követelményeit](../concepts/plan-software-defined-networking-infrastructure.md#sdn-infrastructure-vm-role-requirements).
 
 - **VHDPath** – a VHD-fájl elérési útja, amelyet az Sdn infrastruktúra összes virtuális gépe használ (NC, SLB, GW)
 - **VHDFile** – az összes Sdn-infrastruktúra virtuális gépei által használt vhd-fájl neve
@@ -119,6 +119,8 @@ A jelszavakat igény szerint is megadhatja, ha titkosított szövegként kódolt
 
 ### <a name="network-controller-vm-section"></a>Hálózati vezérlő virtuális gép szakasza
 
+Az SDN esetében legalább három hálózati vezérlő virtuális gépet ajánlott használni.
+
 A `NCs = @()` szakasz a hálózati vezérlő virtuális gépekhez használatos. Győződjön meg arról, hogy az egyes NC virtuális gépek MAC-címe kívül esik az `SDNMACPool` Általános beállításokban felsorolt tartományon:
 
 - **Számítógépnév** – NC virtuális gép neve
@@ -127,6 +129,8 @@ A `NCs = @()` szakasz a hálózati vezérlő virtuális gépekhez használatos. 
 - **MACAddress** – az NC virtuális gép MAC-címe
 
 ### <a name="software-load-balancer-vm-section"></a>Szoftver Load Balancer VM szakasz
+
+Az SDN esetében legalább három szoftver Load Balancer virtuális gép ajánlott.
 
 A `Muxes = @()` szakasz a SLB virtuális gépekhez használatos. Győződjön meg arról, hogy az egyes SLB virtuális gépek MAC-címe kívül esik az `SDNMACPool` Általános beállításokban felsorolt tartományon. Hagyja üresen ezt a szakaszt ( `Muxes = @()` ), ha nem telepíti a SLB összetevőt:
 
@@ -138,6 +142,8 @@ A `Muxes = @()` szakasz a SLB virtuális gépekhez használatos. Győződjön me
 - **PAMACAddress** -szolgáltató hálózati IP-címe (PA) a SLB virtuális géphez
 
 ### <a name="gateway-vm-section"></a>Átjáró virtuális gép szakasza
+
+Az SDN-hez legalább három átjárót tartalmazó virtuális gép (két aktív és egy redundáns) ajánlott.
 
 A `Gateways = @()` szakasz az átjáró virtuális gépekhez használatos. Győződjön meg arról, hogy az egyes átjáró virtuális gépek MAC-címe kívül esik az `SDNMACPool` Általános beállításokban felsorolt tartományon. Hagyja üresen ezt a szakaszt ( `Gateways = @()` ), ha nem telepíti az átjáró összetevőt:
 

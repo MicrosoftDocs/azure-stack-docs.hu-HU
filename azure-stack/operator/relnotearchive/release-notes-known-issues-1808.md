@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 16606cd9155f4b0225e07462172fe6b132fe2a68
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009196"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187044"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 frissítés
 
@@ -247,7 +247,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
       2. A [cikk](../azure-stack-enable-multitenancy.md#register-a-guest-directory) lépéseit követve konfigurálja újra az egyes vendég-címtárakat.
 
 <!-- 2869209 IS, ASDK --> 
-- Az [ **Add-AzsPlatformImage** parancsmag](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)használatakor a **-OsUri** paramétert kell használnia a lemez FELTÖLTÉSÉHEZ használt Storage-fiók URI azonosítójaként. Ha a lemez helyi elérési útját használja, a parancsmag a következő hibával meghiúsul: a *hosszú ideig futó művelet sikertelen volt, mert az állapot meghiúsult*. 
+- Az [ **Add-AzsPlatformImage** parancsmag](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)használatakor a **-OsUri** paramétert kell használnia a lemez FELTÖLTÉSÉHEZ használt Storage-fiók URI azonosítójaként. Ha a lemez helyi elérési útját használja, a parancsmag a következő hibával meghiúsul: a *hosszú ideig futó művelet sikertelen volt, mert az állapot meghiúsult*. 
 
 <!--  2966665 IS, ASDK --> 
 - SSD-adatlemezek csatlakoztatása a prémium szintű felügyelt lemezes virtuális gépekhez (DS, DSv2, FS, Fs_V2) hiba miatt meghiúsul:  *nem sikerült frissíteni a virtuális gép lemezeit a következő hiba miatt: a kért művelet nem hajtható végre, mert a Premium_LRS nem támogatott a virtuálisgép-méret Standard_DS/Ds_V2/fs/Fs_v2)*
@@ -332,4 +332,4 @@ A Azure Stack 1808 frissítési [csomagot innen töltheti le.](https://aka.ms/az
 - A Azure Stack integrált rendszerek karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, tekintse meg [Azure stack karbantartási házirendet](../azure-stack-servicing-policy.md).  
 - Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](../azure-stack-monitor-update.md).  
 - A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](../azure-stack-updates.md).  
-- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).  
+- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).

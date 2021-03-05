@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248268"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187129"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 frissítés
 
@@ -69,14 +69,14 @@ Ez a frissítés a Azure Stack következő javításait és javításait tartalm
 - A **piactér eléréséhez** mostantól megnyithatja a Azure stack Marketplace-t a rendszergazda és a felhasználói portálon található [+ új](https://ms.portal.azure.com/#create/hub) lehetőség használatával ugyanúgy, ahogy az Azure Portalon is.
  
 <!-- 2202621 --> 
-- **Azure monitor** – a Azure stack hozzáadja a [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) a felügyeleti és felhasználói portálokhoz. Ide tartoznak a metrikák és a tevékenységek naplóihoz tartozó új felfedezők. Ha ezt a Azure Monitor külső hálózatokból szeretné elérni, a **13012** -es portot meg kell nyitni a tűzfal konfigurációjában. A Azure Stack által igényelt portokkal kapcsolatos további információkért lásd: [Azure stack Datacenter Integration – közzétételi végpontok](../azure-stack-integrate-endpoints.md).
+- **Azure monitor** – a Azure stack hozzáadja a [Azure monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) a felügyeleti és felhasználói portálokhoz. Ide tartoznak a metrikák és a tevékenységek naplóihoz tartozó új felfedezők. Ha ezt a Azure Monitor külső hálózatokból szeretné elérni, a **13012** -es portot meg kell nyitni a tűzfal konfigurációjában. A Azure Stack által igényelt portokkal kapcsolatos további információkért lásd: [Azure stack Datacenter Integration – közzétételi végpontok](../azure-stack-integrate-endpoints.md).
 
    Ennek a változásnak a részeként a **További szolgáltatások** alatt a *naplók* mostantól *tevékenység naplóként* jelennek meg. A funkció már konzisztens a Azure Portal. 
 
 <!-- 1664791 --> 
 - **Ritka fájlok** – amikor új rendszerképet ad hozzá a Azure Stackhoz, vagy hozzáadhat egy rendszerképet a Marketplace Syndication használatával, a rendszer egy ritka fájlba konvertálja a rendszerképet. Az 1803-es verzió Azure Stack használata előtt hozzáadott lemezképek nem alakíthatók át. Ehelyett a Piactéri hírszolgáltatás használatával küldje el újra ezeket a lemezképeket a szolgáltatás előnyeinek kihasználásához. 
  
-   A ritka fájlok hatékony fájlformátumot használnak a tárolóhelyek használatának csökkentése és az I/O-műveletek javítása érdekében. ? További információ: az [fsutil ritka](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) for Windows Server. 
+   A ritka fájlok hatékony fájlformátumot használnak a tárolóhelyek használatának csökkentése és az I/O-műveletek javítása érdekében. ? További információ: az [fsutil ritka](/windows-server/administration/windows-commands/fsutil-sparse) for Windows Server. 
 
 ### <a name="fixed-issues"></a>Megoldott problémák
 
@@ -99,7 +99,7 @@ Ez a frissítés a Azure Stack következő javításait és javításait tartalm
 - A virtuális gépek használati adatait mostantól óránként kell elválasztani. Ez konzisztens az Azure-ban. 
 
 <!--  2253274 --> 
-- A rendszergazda és a felhasználói portálok esetében a vNet alhálózatok beállítások panelje nem töltődik be. Áthidaló megoldásként a PowerShell és a [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) parancsmag használatával tekintheti meg és kezelheti ezeket az adatokat.
+- A rendszergazda és a felhasználói portálok esetében a vNet alhálózatok beállítások panelje nem töltődik be. Áthidaló megoldásként a PowerShell és a [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) parancsmag használatával tekintheti meg és kezelheti ezeket az adatokat.
 
 - Virtuális gép létrehozásakor a rendszer nem *jeleníti meg a díjszabást* , ha a virtuálisgép-méret kiválasztásakor nem jelenik meg az üzenet.
 
@@ -178,7 +178,7 @@ A Build  **20180323,2**-es verziójának telepítés utáni ismert problémái a
 
 
 #### <a name="compute"></a>Compute
-- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
+- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
 
 - Amikor **új** számítási rendelkezésre állási készlettel hoz létre egy rendelkezésre állási készletet a portálon  >    >  , csak egy tartalék tartományt és 1. frissítési tartományt tartalmazó rendelkezésre állási csoport hozható létre. Megkerülő megoldásként új virtuális gép létrehozásakor hozza létre a rendelkezésre állási készletet a PowerShell, a parancssori felület vagy a portálon belül.
 

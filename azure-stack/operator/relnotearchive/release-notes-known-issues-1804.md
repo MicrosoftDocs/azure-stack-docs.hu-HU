@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d871458a7af4e9233e750b07404bc151274033a
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: eb55f42161095f9034b6c5cf726240d86366604b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248258"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187078"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 frissítés
 
@@ -79,9 +79,9 @@ A következők már elérhetők, de nem igényelnek Azure Stack 1804-es frissít
 
 - **Új Azure stack felügyeleti PowerShell-verzió 1.3.0**.  Azure Stack PowerShell-1.3.0 már elérhető a telepítéshez. Ez a verzió parancsokat biztosít az összes felügyeleti erőforrás-szolgáltató számára a Azure Stack kezeléséhez.  Ebben a kiadásban egyes tartalmak elavultak lesznek a Azure Stack Tools GitHub- [adattárból](https://github.com/Azure/AzureStack-Tools). 
 
-   A telepítés részleteiért kövesse az [utasításokat](../azure-stack-powershell-install.md) vagy a [Súgó](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) tartalmát Azure stack modul 1.3.0. 
+   A telepítés részleteiért kövesse az [utasításokat](../azure-stack-powershell-install.md) vagy a [Súgó](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) tartalmát Azure stack modul 1.3.0. 
 
-- **Azure stack API Rest-hivatkozás első kiadása**. Az [összes Azure stack felügyeleti erőforrás-szolgáltató API-referenciája](https://docs.microsoft.com/rest/api/azure-stack/) már közzé van téve. 
+- **Azure stack API Rest-hivatkozás első kiadása**. Az [összes Azure stack felügyeleti erőforrás-szolgáltató API-referenciája](/rest/api/azure-stack/) már közzé van téve. 
 
 
 ## <a name="before-you-begin"></a>Előkészületek    
@@ -118,7 +118,7 @@ A Build  **20180513,1**-es verziójának telepítés utáni ismert problémái a
 
 <!-- 1272111 - IS --> 
 - A Azure Stack ezen verziójának telepítése vagy frissítése után előfordulhat, hogy nem tudja megtekinteni Azure Stack skálázási egységeket a felügyeleti portálon.  
-  Megkerülő megoldás: a skálázási egységekkel kapcsolatos információk megtekintéséhez használja a PowerShellt. További információ: Azure Stack modul 1.3.0 kapcsolatos [súgótartalom](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) . 
+  Megkerülő megoldás: a skálázási egységekkel kapcsolatos információk megtekintéséhez használja a PowerShellt. További információ: Azure Stack modul 1.3.0 kapcsolatos [súgótartalom](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) . 
 
 <!-- 2332636 - IS -->  
 - Ha AD FSt használ a Azure Stack identitásrendszer számára, és a Azure Stack ezen verziójára frissíti, az alapértelmezett szolgáltatói előfizetés alapértelmezett tulajdonosa visszaáll a beépített **CloudAdmin** -felhasználóra.  
@@ -186,13 +186,13 @@ A Build  **20180513,1**-es verziójának telepítés utáni ismert problémái a
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** Használhatja az az [VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
+  - **Azure CLI:** Használhatja az az [VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
+- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Amikor **új** számítási rendelkezésre állási készlettel hoz létre egy rendelkezésre állási készletet a portálon  >    >  , csak egy tartalék tartományt és 1. frissítési tartományt tartalmazó rendelkezésre állási csoport hozható létre. Megkerülő megoldásként új virtuális gép létrehozásakor hozza létre a rendelkezésre állási készletet a PowerShell, a parancssori felület vagy a portálon belül.

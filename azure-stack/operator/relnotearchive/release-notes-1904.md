@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 77a9bab5e9b501aa54115a7e61d1b9a639c59ec5
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248318"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187299"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítés
 
@@ -71,7 +71,7 @@ A Azure Stack 1904 frissítési Build típusa **expressz**. További informáci�
 - Javított syslog-üzenetek mennyisége a szükségtelen események kiszűrésével és egy konfigurációs paraméter megadásával a továbbított üzenetek kívánt súlyossági szintjének kiválasztásához. További információ a súlyossági szint konfigurálásáról: [Azure stack Datacenter Integration – syslog forwarding](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Új képességet adott hozzá a **Get-AzureStackLog** parancsmaghoz egy további paraméter beépítésével `-OutputSASUri` . Mostantól összegyűjtheti Azure Stack naplókat a környezetből, és tárolhatja azokat a megadott Azure Storage blob-tárolóban. További információ: [Azure stack diagnosztika](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
+- Új képességet adott hozzá a **Get-AzureStackLog** parancsmaghoz egy további paraméter beépítésével `-OutputSASUri` . Mostantól összegyűjtheti Azure Stack naplókat a környezetből, és tárolhatja azokat a megadott Azure Storage blob-tárolóban. További információ: [Azure stack diagnosztika](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#examples).
 
 - Új memória-ellenőrzés hozzáadva a **test-AzureStack** `UpdateReadiness` csoportban, amely ellenőrzi, hogy van-e elegendő memória a veremben a frissítés sikeres befejezéséhez.
 
@@ -88,7 +88,7 @@ A Azure Stack 1904 frissítési Build típusa **expressz**. További informáci�
 - Az infrastruktúra biztonsági mentési műveleti tervének idempotencia fejlesztései.
 
 <!--Bug/Task 3139609 -->
-- A Azure Stack naplózási gyűjteményének fejlesztése. Ezek a tökéletesítések csökkentik a naplók készletének lekéréséhez szükséges időt. Emellett a [Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) parancsmag már nem hozza létre az alapértelmezett naplókat az OEM szerepkörhöz. Végre kell hajtania a [Meghívási-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) parancsmagot, és meg kell adnia a szerepkört az OEM-naplók lekéréséhez. További információ: [Azure stack diagnosztika](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- A Azure Stack naplózási gyűjteményének fejlesztése. Ezek a tökéletesítések csökkentik a naplók készletének lekéréséhez szükséges időt. Emellett a [Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) parancsmag már nem hozza létre az alapértelmezett naplókat az OEM szerepkörhöz. Végre kell hajtania a [Meghívási-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog) parancsmagot, és meg kell adnia a szerepkört az OEM-naplók lekéréséhez. További információ: [Azure stack diagnosztika](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
 - Azure Stack most az ADFS-vel való adatközpont-integrációhoz megadott összevonási adaturl-címet figyeli. Ez növeli a megbízhatóságot az ügyfél ADFS-példányának vagy-farmjának titkos forgása során.
 
@@ -205,5 +205,4 @@ Az infrastruktúra-hálózatról az internetre elérő rendszerekkel rendelkező
 - A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](../azure-stack-updates.md).  
 - A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).
 - A Azure Stack integrált rendszerek karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, tekintse meg [Azure stack karbantartási házirendet](../azure-stack-servicing-policy.md).  
-- Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](../azure-stack-monitor-update.md).  
-
+- Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](../azure-stack-monitor-update.md).

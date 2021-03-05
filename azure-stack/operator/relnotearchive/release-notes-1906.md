@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d62407d1ebca7924466d5cb5e38bb48c79c8ddf
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9a51d7c7b1470e95fd9c8b6905c2ac31f59bf7b9
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248317"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187248"
 ---
 # <a name="azure-stack-updates-1906-release-notes"></a>Azure Stack frissítések: 1906 kibocsátási megjegyzések
 
@@ -44,7 +44,7 @@ A frissítés alkalmazása előtt mindenképpen tekintse át a következő infor
 - [Biztonsági frissítések](../release-notes-security-updates.md)
 - [A frissítés alkalmazása előtti és utáni tevékenységek ellenőrzőlistája](../release-notes-checklist.md)
 
-A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért tekintse meg a [javítások és a frissítési problémák elhárítása Azure stack](../azure-stack-updates-troubleshoot.md).
+A frissítésekkel és a frissítési folyamattal kapcsolatos segítségért tekintse meg a [javítások és a frissítési problémák elhárítása Azure stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1906-build-reference"></a>1906-Build referenciája
 

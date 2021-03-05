@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248297"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187231"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 frissítés
 
@@ -129,7 +129,7 @@ A Build **20180302,1** -es verziójának telepítés utáni ismert problémái a
     Ez a riasztás nyugodtan figyelmen kívül hagyható. 
 
 <!-- 2253274 --> 
-- A rendszergazdák és a felhasználói portálok esetében a vNet-alhálózatok beállítások panelje nem tölthető be. Áthidaló megoldásként a PowerShell és a [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) parancsmag használatával tekintheti meg és kezelheti ezeket az adatokat.
+- A rendszergazdák és a felhasználói portálok esetében a vNet-alhálózatok beállítások panelje nem tölthető be. Áthidaló megoldásként a PowerShell és a [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) parancsmag használatával tekintheti meg és kezelheti ezeket az adatokat.
 
 - A felügyeleti Portálon és a felhasználói portálon az Áttekintés panel nem töltődik be, amikor kiválasztja a régebbi API-verzióval létrehozott Storage-fiókok áttekintés paneljét (például: 2015-06-15). Ez magában foglalja a rendszer Storage-fiókokat, például a javítás és a frissítés során használt **updateadminaccount** . 
 
@@ -161,7 +161,7 @@ A Build **20180302,1** -es verziójának telepítés utáni ismert problémái a
 - A felhasználók az előfizetés nélkül böngészhetik a teljes piactéren, és a felügyeleti elemeket, például a csomagokat és ajánlatokat láthatják. Ezek az elemek nem működőképesek a felhasználók számára.
 
 #### <a name="compute"></a>Compute
-- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
+- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
 
 <!-- 2290877  --> 
 - Nem méretezhető fel olyan virtuálisgép-méretezési csoport (VMSS), amely a 1802-es verzió előtti Azure Stack használatakor lett létrehozva. Ennek oka a rendelkezésre állási csoportok virtuálisgép-méretezési csoportokkal való használatának támogatása. Ez a támogatás a 1802-es verzióval bővült.  Ha további példányok hozzáadását kísérli meg egy olyan VMSS skálázásához, amely a támogatás hozzáadása előtt lett létrehozva, akkor a művelet meghiúsul, ha az üzenet *kiépítési állapota meghiúsult*. 
@@ -314,7 +314,7 @@ A Azure Stack 1802 frissítési [csomagot innen töltheti le.](https://aka.ms/az
 ## <a name="more-information"></a>További információ
 A Microsoft a 1710-es frissítéssel telepített privilegizált végpont (PEP) használatával figyelheti és folytathatja a frissítéseket.
 
-- Tekintse [meg a frissítések figyelése Azure stack az emelt szintű végpont dokumentációjának használatával](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).
+- Tekintse [meg a frissítések figyelése Azure stack az emelt szintű végpont dokumentációjának használatával](/azure/azure-stack/azure-stack-monitor-update).
 
 ## <a name="see-also"></a>Lásd még
 

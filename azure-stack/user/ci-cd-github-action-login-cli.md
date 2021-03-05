@@ -7,12 +7,12 @@ ms.date: 1/11/2021
 ms.author: mabrigg
 ms.reviewer: gara
 ms.lastreviewed: 1/11/2021
-ms.openlocfilehash: 4413070dc3d55a7a879b5c4589d9f453a617e0e0
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: 1421917f870d09d61f665a2cee6eb9b617ae75f3
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224690"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187350"
 ---
 # <a name="use-the-azure-login-action-with-azure-cli-and-powershell-on-azure-stack-hub"></a>Azure-beli bejelentkezési művelet használata az Azure CLI-vel és a PowerShell-lel Azure Stack központban
 
@@ -136,8 +136,8 @@ A GitHub Secrets használatával titkosíthatja a műveletekben használt bizalm
 1. Hozza létre saját üzemeltetésű futtatójét. 
 
     Ezek az utasítások Windows rendszerű virtuális gépekként hoznak létre egy futót az Azure-ban. Ha egy adatközpontban üzemeltetett Azure Stack hubhoz szeretne csatlakozni, VPN-kapcsolatra lehet szükség. A kapcsolat engedélyezéséről a következő szakaszban talál útmutatást: [Azure stack hub-eszközök telepítése a saját](#optional-install-azure-stack-hub-tools-on-your-self-hosted-runner) üzemeltetésű virtuális gépen, amely VPN-kapcsolatra lehet szükség.
-    - A Windows rendszerű virtuális gépek Azure-beli létrehozásával kapcsolatos útmutatásért lásd: gyors útmutató [: Windowsos virtuális gép létrehozása a Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Ha követi ezeket az utasításokat, telepítse a Windows Server 2016 Core-ot.
-    - A Windows rendszerű virtuális gépek Azure Stack hub-beli létrehozásával kapcsolatos útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub Portalon](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal). Ha követi ezeket az utasításokat, telepítse a Windows Server 2016 Core-ot.
+    - A Windows rendszerű virtuális gépek Azure-beli létrehozásával kapcsolatos útmutatásért lásd: gyors útmutató [: Windowsos virtuális gép létrehozása a Azure Portal](/azure/virtual-machines/windows/quick-create-portal). Ha követi ezeket az utasításokat, telepítse a Windows Server 2016 Core-ot.
+    - A Windows rendszerű virtuális gépek Azure Stack hub-beli létrehozásával kapcsolatos útmutatásért lásd: gyors útmutató [: Windows Server rendszerű virtuális gép létrehozása az Azure stack hub Portalon](./azure-stack-quick-windows-portal.md). Ha követi ezeket az utasításokat, telepítse a Windows Server 2016 Core-ot.
 1. Távoli kapcsolat használata a Windows 2016 kiszolgálóhoz való csatlakozáshoz a számítógép létrehozásakor megadott kiszolgálói IP-cím, Felhasználónév és jelszó használatával.
 1. Telepítse a chocolatey-t. A chocolatey egy Windowsos csomagkezelő, amely a parancssorból való függőségek telepítésére és kezelésére használható. Egy rendszergazda jogú PowerShell-parancssorba írja be a következőt:
     ```powershell
@@ -159,7 +159,7 @@ A GitHub Secrets használatával titkosíthatja a műveletekben használt bizalm
     Install-AzProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
     ```
-    Az Azure Stack hub az modulok használatával kapcsolatos további információkért lásd: a [PowerShell telepítése az Azure stack hub modulhoz](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module).
+    Az Azure Stack hub az modulok használatával kapcsolatos további információkért lásd: a [PowerShell telepítése az Azure stack hub modulhoz](../operator/powershell-install-az-module.md).
 7. Indítsa újra a gépet. Egy rendszergazda jogú PowerShell-parancssorba írja be a következőt:
     ```powershell  
     shutdown /r
@@ -172,7 +172,7 @@ A GitHub Secrets használatával titkosíthatja a műveletekben használt bizalm
 
 ### <a name="optional-install-azure-stack-hub-tools-on-your-self-hosted-runner"></a>Opcionális: telepítse az Azure Stack hub-eszközöket a saját üzemeltetésű futtató eszközre
 
-A cikkben szereplő utasítások nem igénylik a [Azure stack hub-eszközök](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az)elérését, de a saját munkafolyamatok fejlesztése során előfordulhat, hogy az eszközöket kell használnia. Az alábbi utasítások segítségével telepítheti az eszközöket a Windows saját üzemeltetésű futtató rendszerére. További információ az Azure Stack Hub-eszközökről: [Azure stack hub-eszközök letöltése a githubról](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az). Ezek az utasítások feltételezik, hogy telepítette a csomagkezelő csokoládét.
+A cikkben szereplő utasítások nem igénylik a [Azure stack hub-eszközök](../operator/azure-stack-powershell-download.md?tabs=az)elérését, de a saját munkafolyamatok fejlesztése során előfordulhat, hogy az eszközöket kell használnia. Az alábbi utasítások segítségével telepítheti az eszközöket a Windows saját üzemeltetésű futtató rendszerére. További információ az Azure Stack Hub-eszközökről: [Azure stack hub-eszközök letöltése a githubról](../operator/azure-stack-powershell-download.md?tabs=az). Ezek az utasítások feltételezik, hogy telepítette a csomagkezelő csokoládét.
 
 1. Telepítse a git-t.
     ```powershell  
@@ -199,7 +199,7 @@ A cikkben szereplő utasítások nem igénylik a [Azure stack hub-eszközök](ht
     cd AzureStack-Tools-az
     ```
 
-3. Ha az Azure Stack hub-példányhoz való kapcsolódásra van szüksége, a PowerShellt használhatja. Az útmutató a [kapcsolódás Azure stack hubhoz a PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-configure-admin?&tabs=az1%2Caz2%2Caz3)használatával című cikkben található.
+3. Ha az Azure Stack hub-példányhoz való kapcsolódásra van szüksége, a PowerShellt használhatja. Az útmutató a [kapcsolódás Azure stack hubhoz a PowerShell](../operator/azure-stack-powershell-configure-admin.md?tabs=az1%2Caz2%2Caz3)használatával című cikkben található.
 
 ## <a name="create-a-self-hosted-runner"></a>Saját üzemeltetésű Runner létrehozása
 
@@ -295,4 +295,4 @@ Megjegyzések a munkafolyamat-fájlhoz és a művelethez:
 - További műveleteket a [GitHub piactéren](https://github.com/marketplace)találhat.
 - További információ [az Azure stack hub általános telepítéséről](azure-stack-dev-start-deploy-app.md)  
 - Tudnivalók a [Azure stack Hub Azure Resource Manager sablonjainak használatáról](azure-stack-arm-templates.md)  
-- Tekintse át a DevOps Hybrid Cloud Pattern, [DevOps minta](https://docs.microsoft.com/hybrid/app-solutions/pattern-cicd-pipeline)
+- Tekintse át a DevOps Hybrid Cloud Pattern, [DevOps minta](/hybrid/app-solutions/pattern-cicd-pipeline)

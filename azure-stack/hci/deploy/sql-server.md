@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.openlocfilehash: 8f93a56840d4e4410a42aafe117f6cb1eebe84b4
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: 433a9b8b7bf6f57cac936b24d7654b94b8e8c050
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571551"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186806"
 ---
 # <a name="deploy-sql-server-on-azure-stack-hci"></a>SQL Server üzembe helyezése Azure Stack HCI-ben
 
@@ -37,35 +37,35 @@ Ezután a Windows felügyeleti központban [hozzon létre egy Azure stack HCI-f�
 A követelményektől függően a Windows Servert vagy a Linuxot futtató virtuális gépeken SQL Server is telepíthet.
 
 A SQL Server telepítésére vonatkozó utasításokért lásd:
-- [SQL Server telepítési útmutató a Windowshoz](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver15&preserve-view=true).
-- [SQL Server on Linux telepítési útmutatója](https://docs.microsoft.com/sql/linux/sql-server-linux-setup?view=sql-server-ver15&preserve-view=true).
+- [SQL Server telepítési útmutató a Windowshoz](/sql/database-engine/install-windows/install-sql-server?preserve-view=true&view=sql-server-ver15).
+- [SQL Server on Linux telepítési útmutatója](/sql/linux/sql-server-linux-setup?preserve-view=true&view=sql-server-ver15).
 
 ### <a name="step-3-monitor-and-performance-tune-sql-server"></a>3. lépés: a monitorozás és a teljesítmény finomhangolása SQL Server
 A Microsoft átfogó eszközkészletet biztosít az események figyeléséhez SQL Server és a fizikai adatbázis kialakításának finomhangolásához. Az eszköz választása a végrehajtani kívánt figyelési vagy hangolási típustól függ.
 
-A SQL Server-példányok teljesítményének és állapotának a Azure Stack HCI-ben való ellátásához tekintse meg a [Teljesítményfigyelés és-hangolás eszközeivel](https://docs.microsoft.com/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver15&preserve-view=true)foglalkozó témakört.
+A SQL Server-példányok teljesítményének és állapotának a Azure Stack HCI-ben való ellátásához tekintse meg a [Teljesítményfigyelés és-hangolás eszközeivel](/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?preserve-view=true&view=sql-server-ver15)foglalkozó témakört.
 
 A 2017-es és a SQL Server 2016-es SQL Server hangoláshoz lásd: [SQL Server 2017 és 2016 ajánlott frissítései és konfigurációs lehetőségei nagy teljesítményű munkaterhelésekkel](https://support.microsoft.com/help/4465518/recommended-updates-and-configurations-for-sql-server).
 
 ### <a name="step-4-use-sql-server-high-availability-features"></a>4. lépés: a SQL Server magas rendelkezésre állású funkcióinak használata
-Azure Stack HCI a [Windows Server feladatátvételi fürtszolgáltatást a SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC) szolgáltatással használja a virtuális gépeken futó SQL Server hardveres meghibásodás esetén történő támogatásához. A SQL Server [Always On rendelkezésre állási csoportokat](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG-ket) is biztosít, amelyek az alkalmazás-és szoftver-meghibásodások segítésére szolgáló adatbázis-szintű magas rendelkezésre állást biztosítanak. A WSFC és az AG mellett Azure Stack HCI az [Always On feladatátvételi fürtszolgáltatást](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) is használhatja, amely [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) technológián alapul a megosztott tároláshoz.
+Azure Stack HCI a [Windows Server feladatátvételi fürtszolgáltatást a SQL Server](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC) szolgáltatással használja a virtuális gépeken futó SQL Server hardveres meghibásodás esetén történő támogatásához. A SQL Server [Always On rendelkezésre állási csoportokat](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG-ket) is biztosít, amelyek az alkalmazás-és szoftver-meghibásodások segítésére szolgáló adatbázis-szintű magas rendelkezésre állást biztosítanak. A WSFC és az AG mellett Azure Stack HCI az [Always On feladatátvételi fürtszolgáltatást](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) is használhatja, amely [közvetlen tárolóhelyek](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) technológián alapul a megosztott tároláshoz.
 
-Ezek a lehetőségek mind a Microsoft Azure [Felhőbeli tanúsító](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) a kvórum vezérlésére használhatók. Az Always On rendelkezésre állási csoportok konfigurálásakor azt javasoljuk, hogy a különböző fizikai csomópontokra helyezett virtuális gépek esetében a fürt WSFC [-szabályait](https://docs.microsoft.com/windows-server/failover-clustering/cluster-affinity) a fürtök közötti kapcsolati szabályok fenntartásával SQL Server.
+Ezek a lehetőségek mind a Microsoft Azure [Felhőbeli tanúsító](/windows-server/failover-clustering/deploy-cloud-witness) a kvórum vezérlésére használhatók. Az Always On rendelkezésre állási csoportok konfigurálásakor azt javasoljuk, hogy a különböző fizikai csomópontokra helyezett virtuális gépek esetében a fürt WSFC [-szabályait](/windows-server/failover-clustering/cluster-affinity) a fürtök közötti kapcsolati szabályok fenntartásával SQL Server.
 
 ### <a name="step-5-set-up-azure-hybrid-services"></a>5. lépés: az Azure Hybrid Services beállítása
-Több Azure Hybrid-szolgáltatás is használható, amelyek segítségével megőrizheti SQL Server adatait és alkalmazásait. [Azure site Recovery](https://azure.microsoft.com/services/site-recovery/) a vész-helyreállítási szolgáltatás (DRaaS). Ha további információt szeretne arról, hogy a szolgáltatás hogyan gondoskodik az alkalmazások SQL Serverának védelméről a munkaterhelések online megőrzéséhez, olvassa el a vész- [helyreállítás beállítása SQL Serverhoz](https://docs.microsoft.com/azure/site-recovery/site-recovery-sql)című témakört.
+Több Azure Hybrid-szolgáltatás is használható, amelyek segítségével megőrizheti SQL Server adatait és alkalmazásait. [Azure site Recovery](https://azure.microsoft.com/services/site-recovery/) a vész-helyreállítási szolgáltatás (DRaaS). Ha további információt szeretne arról, hogy a szolgáltatás hogyan gondoskodik az alkalmazások SQL Serverának védelméről a munkaterhelések online megőrzéséhez, olvassa el a vész- [helyreállítás beállítása SQL Serverhoz](/azure/site-recovery/site-recovery-sql)című témakört.
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) lehetővé teszi biztonsági mentési szabályzatok megadását a vállalati munkaterhelések megóvása érdekében, és támogatja a SQL Server konzisztencia biztonsági mentését és visszaállítását. További információ a helyszíni SQL-adatok biztonsági mentéséről: [Install Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup).
+[Azure Backup](https://azure.microsoft.com/services/backup/) lehetővé teszi biztonsági mentési szabályzatok megadását a vállalati munkaterhelések megóvása érdekében, és támogatja a SQL Server konzisztencia biztonsági mentését és visszaállítását. További információ a helyszíni SQL-adatok biztonsági mentéséről: [Install Azure Backup Server](/azure/backup/backup-azure-microsoft-azure-backup).
 
-Azt is megteheti, hogy a SQL Server [SQL Server felügyelt biztonsági mentési](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&preserve-view=true) funkciójával felügyeli az Azure Blob Storage biztonsági másolatait.
+Azt is megteheti, hogy a SQL Server [SQL Server felügyelt biztonsági mentési](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?preserve-view=true&view=sql-server-ver15) funkciójával felügyeli az Azure Blob Storage biztonsági másolatait.
 
 A helyszíni archiválásra alkalmas lehetőség használatáról további információt a következő témakörben talál: 
 
-- [Oktatóanyag: Azure Blob Storage-szolgáltatás használata az SQL Server 2016-tal](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?view=sql-server-ver15&preserve-view=true)
-- [Gyors útmutató: az SQL biztonsági mentése és visszaállítása az Azure Blob Storage szolgáltatásba](https://docs.microsoft.com/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?view=sql-server-ver15&tabs=SSMS&preserve-view=true)
+- [Oktatóanyag: Azure Blob Storage-szolgáltatás használata az SQL Server 2016-tal](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?preserve-view=true&view=sql-server-ver15)
+- [Gyors útmutató: az SQL biztonsági mentése és visszaállítása az Azure Blob Storage szolgáltatásba](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?preserve-view=true&tabs=SSMS&view=sql-server-ver15)
 
-Ezen biztonsági mentési forgatókönyvek mellett más adatbázis-szolgáltatásokat is beállíthat, amelyek SQL Server ajánlatokat, beleértve [az integrációs szolgáltatások (SSIS) Azure Data Factory és az Azure Feature Pack csomagot](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15&preserve-view=true). [](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-sql-azure-adf)
+Ezen biztonsági mentési forgatókönyvek mellett más adatbázis-szolgáltatásokat is beállíthat, amelyek SQL Server ajánlatokat, beleértve [az integrációs szolgáltatások (SSIS) Azure Data Factory és az Azure Feature Pack csomagot](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?preserve-view=true&view=sql-server-ver15). [](/azure/machine-learning/team-data-science-process/move-sql-azure-adf)
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 A SQL Server használatáról további információt a következő témakörben talál:
-- [Oktatóanyag: Első lépések a adatbázismotor](https://docs.microsoft.com/sql/relational-databases/tutorial-getting-started-with-the-database-engine?view=sql-server-ver15&preserve-view=true)
+- [Oktatóanyag: Első lépések a adatbázismotor](/sql/relational-databases/tutorial-getting-started-with-the-database-engine?preserve-view=true&view=sql-server-ver15)

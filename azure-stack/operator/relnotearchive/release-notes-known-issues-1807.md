@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9dd3647f607dc743c6eff5907ae4a47fa097e764
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248197"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187061"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 frissítés
 
@@ -53,9 +53,9 @@ Ez a frissítés a Azure Stack következő tökéletesítéseit tartalmazza.
 - **Bővítse a kapacitást** [további méretezési egység csomópontjainak hozzáadásával](../azure-stack-add-scale-node.md).
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **A Azure Resource Manager-sablonok mostantól támogatják a feltétel elemet** – egy feltétel használatával üzembe helyezhet egy erőforrást egy Azure Resource Manger-sablonban. A sablon úgy is megtervezhető, hogy egy adott feltétel alapján telepítsen egy erőforrást, például ha van egy paraméter értéke. További információ a sablon feltételként való használatáról: Azure Resource Manager-sablonok [feltételes üzembe helyezése](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) [című rész](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) az Azure dokumentációjában. 
+- **A Azure Resource Manager-sablonok mostantól támogatják a feltétel elemet** – egy feltétel használatával üzembe helyezhet egy erőforrást egy Azure Resource Manger-sablonban. A sablon úgy is megtervezhető, hogy egy adott feltétel alapján telepítsen egy erőforrást, például ha van egy paraméter értéke. További információ a sablon feltételként való használatáról: Azure Resource Manager-sablonok [feltételes üzembe helyezése](/azure/architecture/building-blocks/extending-templates/conditional-deploy) [című rész](/azure/azure-resource-manager/resource-manager-templates-variables) az Azure dokumentációjában. 
 
-   A sablonok használatával [több előfizetéshez vagy erőforráscsoporthoz is telepíthet erőforrásokat](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
+   A sablonok használatával [több előfizetéshez vagy erőforráscsoporthoz is telepíthet erőforrásokat](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
 - **A Microsoft. Network API-erőforrás támogatott verziójának támogatása frissítve lett** , és támogatja az API 2017-10-01-es verzióját a 2015-06-15-es verzióról Azure stack hálózati erőforrásokhoz.  Ebben a kiadásban nem szerepel a 2017-10-01 és 2015-06-15 közötti erőforrás-verziók támogatása.  A funkcionalitással kapcsolatos különbségek [Azure stack hálózatkezelési szempontokat](../../user/azure-stack-network-differences.md) ismertető témakörben talál.
@@ -64,7 +64,7 @@ Ez a frissítés a Azure Stack következő tökéletesítéseit tartalmazza.
 - **Azure stack támogatja a fordított DNS-kereséseket a külsőleg megjelenő Azure stack infrastruktúra-végpontok számára** (a portál, a adminportal, a felügyelet és a adminmanagement esetében). Ez lehetővé teszi Azure Stack külső végpontok nevének feloldását IP-címről.
 
 <!-- 2780899 |  IS, ASDK   --> 
-- **Azure Stack mostantól támogatja a további hálózati adapterek hozzáadását egy meglévő virtuális géphez.**  Ez a funkció a portál, a PowerShell és a parancssori felület használatával érhető el. További információ: [hálózati adapterek hozzáadása vagy eltávolítása](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) az Azure-dokumentációban. 
+- **Azure Stack mostantól támogatja a további hálózati adapterek hozzáadását egy meglévő virtuális géphez.**  Ez a funkció a portál, a PowerShell és a parancssori felület használatával érhető el. További információ: [hálózati adapterek hozzáadása vagy eltávolítása](/azure/virtual-network/virtual-network-network-interface-vm) az Azure-dokumentációban. 
 
 <!-- 2222444 | IS, ASDK   -->  
 - A **hálózati használat mérőszámai között a pontosság és a rugalmasság fejlesztése** is megtörtént.  A hálózati használat mérőszámai pontosabbak, és figyelembe veszik a felfüggesztett előfizetéseket, a leállás időtartamát és a versenyhelyzet feltételeit.
@@ -86,7 +86,7 @@ Ez a frissítés a Azure Stack következő tökéletesítéseit tartalmazza.
   További információ: [Azure stack syslog továbbítása](../azure-stack-integrate-security.md).
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager tartalmazza a régió nevét.** Ebben a kiadásban a Azure Resource Manager beolvasott objektumok mostantól a régió neve attribútumot is tartalmazzák. Ha egy meglévő PowerShell-parancsfájl közvetlenül átadja az objektumot egy másik parancsmagnak, a parancsfájl hibát eredményezhet, és sikertelen lesz. Ez Azure Resource Manager megfelelő viselkedés, és megköveteli, hogy a hívó ügyfél kivonja a régió attribútumot. További információ a Azure Resource Managerről: [Azure Resource Manager dokumentáció](https://docs.microsoft.com/azure/azure-resource-manager/). Ellenőrizze az 8-10-es mdb->
+- **Azure Resource Manager tartalmazza a régió nevét.** Ebben a kiadásban a Azure Resource Manager beolvasott objektumok mostantól a régió neve attribútumot is tartalmazzák. Ha egy meglévő PowerShell-parancsfájl közvetlenül átadja az objektumot egy másik parancsmagnak, a parancsfájl hibát eredményezhet, és sikertelen lesz. Ez Azure Resource Manager megfelelő viselkedés, és megköveteli, hogy a hívó ügyfél kivonja a régió attribútumot. További információ a Azure Resource Managerről: [Azure Resource Manager dokumentáció](/azure/azure-resource-manager/). Ellenőrizze az 8-10-es mdb->
 
 <!-- TBD | IS, ASDK -->  
 - **A delegált szolgáltatók funkcióinak módosításai.** A 1807-től kezdődően a delegált szolgáltatók modellje egyszerűbbé válik az Azure-viszonteladói modell és a delegált szolgáltatók jobb összehangolása érdekében, és nem hozhat létre más delegált szolgáltatókat, lényegében egyengeti a modellt, és egyetlen szinten elérhetővé teszi a delegált szolgáltatói funkciót. Az új modellre való áttérés és az előfizetések kezelésének engedélyezéséhez a felhasználó-előfizetések mostantól áthelyezhetők az új vagy meglévő delegált szolgáltatói előfizetések között, amelyek ugyanahhoz a címtár-bérlőhöz tartoznak. Az alapértelmezett szolgáltatói előfizetéshez tartozó felhasználói előfizetések is áthelyezhetők a delegált szolgáltatói előfizetésekre ugyanabban a címtár-bérlőben.  További információ: [ajánlatok delegálása Azure Stackban](../azure-stack-delegated-provider.md).
@@ -275,13 +275,13 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** Használhatja az az [VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
+  - **Azure CLI:** Használhatja az az [VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) parancsot, és megadhatja a virtuális gép méretét paraméterként, hasonlóan a következőhöz: `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** A PowerShell használatával a [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) is használható a virtuális gép méretét megadó paraméterrel, amely a következőhöz hasonló: `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
+- A virtuálisgép-méretezési csoportokra vonatkozó méretezési beállítások nem érhetők el a portálon. Megkerülő megoldásként használhatja a [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A PowerShell verziójának eltérései miatt a helyett a `-Name` paramétert kell használnia `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Amikor **új** számítási rendelkezésre állási készlettel hoz létre egy rendelkezésre állási készletet a portálon  >    >  , csak egy tartalék tartományt és 1. frissítési tartományt tartalmazó rendelkezésre állási csoport hozható létre. Megkerülő megoldásként új virtuális gép létrehozásakor hozza létre a rendelkezésre állási készletet a PowerShell, a parancssori felület vagy a portálon belül.
@@ -367,4 +367,4 @@ A Azure Stack 1807 frissítési [csomagot innen töltheti le.](https://aka.ms/az
 - A Azure Stack integrált rendszerek karbantartási szabályzatának áttekintéséhez, valamint arról, hogy mit kell tennie, hogy a rendszer támogatott állapotban maradjon, tekintse meg [Azure stack karbantartási házirendet](../azure-stack-servicing-policy.md).  
 - Ha a jogosultsági szintű végpontot (PEP) szeretné használni a frissítések figyeléséhez és folytatásához, tekintse meg a következő témakört: [frissítések figyelése Azure stack az emelt szintű végpont használatával](../azure-stack-monitor-update.md).  
 - A Azure Stack Update Management áttekintését lásd: a [frissítések kezelése Azure stack áttekintés](../azure-stack-updates.md).  
-- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).  
+- A frissítések Azure Stack használatával történő alkalmazásával kapcsolatos további információkért lásd: [frissítések alkalmazása a Azure Stackban](../azure-stack-apply-updates.md).
