@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487391"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250308"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Tűzfalak konfigurálása Azure Stack HCI-hez
 
@@ -24,7 +24,7 @@ Azure Stack HCI-nek rendszeresen kapcsolódnia kell az Azure-hoz. A hozzáféré
 - Kimenő irány
 - 443-es port (HTTPS)
 
-További információ: "Azure Stack HCI connectivity" című rész, [Azure stack HCI – gyakori kérdések](../faq.md)
+További információ: "Azure Stack HCI connectivity" című rész, [Azure stack HCI – gyakori kérdések](../faq.yml)
 
 Ez a témakör azt ismerteti, hogyan lehet egy nagyszámú zárolt tűzfal-konfigurációt használni az összes célhelyre irányuló forgalom letiltására, kivéve az engedélyezési listán szereplőket.
 
@@ -122,4 +122,4 @@ Ha a fürt létrehozásához a Windows felügyeleti központban a fürt létreho
 
 ## <a name="next-steps"></a>Következő lépések
 További információért lásd még:
-- A Azure Stack HCI kapcsolódási szakasza [– Gyakori kérdések](../faq.md)
+- A Azure Stack HCI kapcsolódási szakasza [– Gyakori kérdések](../faq.yml)

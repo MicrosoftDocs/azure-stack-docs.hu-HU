@@ -3,16 +3,16 @@ title: Azure Stack hub ismert problémái
 description: Ismerje meg Azure Stack hub-kiadások ismert problémáit.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/28/2021
+ms.date: 03/05/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.openlocfilehash: f094fbba546821378a804e081ace7460ba651f73
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554148"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250339"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack hub ismert problémái
 
@@ -99,6 +99,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Ok: a előtér-portnak és a háttér-portnak meg kell egyeznie a terheléselosztási szabályban, ha a lebegőpontos IP engedélyezve van. Ez az elvárt működés.
 - Előfordulás: gyakori
 
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate virtuális gép az MTU-konfigurációt eredményezi
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a virtuális gép **Leállítás utáni felszabadítása** a virtuális GÉPEN az MTU-konfiguráció eltávolítását eredményezi. Ez a viselkedés nem konzisztens az Azure-ban.
+- Előfordulás: gyakori
+
 <!-- ## Compute -->
 
 <!-- ## Storage -->
@@ -174,6 +180,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
 - Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
 - Ok: egy terheléselosztó **IdleTimeoutInMinutes** tartozó nyilvános IP-cím értéke nem módosítható. A művelet a nyilvános IP-címet sikertelen állapotba helyezi.
 - Szervizelés: ahhoz, hogy a nyilvános IP-cím sikeres állapotba kerüljön, módosítsa a **IdleTimeoutInMinutes** értékét a nyilvános IP-címet az eredeti értékre hivatkozó terheléselosztó szabályban (az alapértelmezett érték 4 perc).
+- Előfordulás: gyakori
+
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate virtuális gép az MTU-konfigurációt eredményezi
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a virtuális gép **Leállítás utáni felszabadítása** a virtuális GÉPEN az MTU-konfiguráció eltávolítását eredményezi. Ez a viselkedés nem konzisztens az Azure-ban.
 - Előfordulás: gyakori
 
 ## <a name="compute"></a>Compute
@@ -364,6 +376,12 @@ Az ismert Azure Stack hub-frissítési problémákkal kapcsolatban lásd: [friss
   - [A BGP konfigurálása Azure Stack hub-on](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute-kapcsolatcsoportok](azure-stack-connect-expressroute.md)
   - [Egyéni IPsec/IKE-szabályzatok meghatározása](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate virtuális gép az MTU-konfigurációt eredményezi
+
+- Alkalmazható: Ez a probléma az összes támogatott kiadásra vonatkozik.
+- Ok: a virtuális gép **Leállítás utáni felszabadítása** a virtuális GÉPEN az MTU-konfiguráció eltávolítását eredményezi. Ez a viselkedés nem konzisztens az Azure-ban.
+- Előfordulás: gyakori
 
 ## <a name="compute"></a>Compute
 

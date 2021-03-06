@@ -13,7 +13,7 @@
     - name: Kibocsátási megjegyzések
       href: 'https://support.microsoft.com/help/4595086'
     - name: GYIK
-      href: faq.md
+      href: faq.yml
 - name: Rövid útmutatók
   items:
     - name: Azure Stack HCI használata a Windows felügyeleti központtal
