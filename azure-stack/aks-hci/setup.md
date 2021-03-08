@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: dawhite
-ms.openlocfilehash: de54cf3f93462cfc63b6f7f2074343feacd25479
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 4f4b06c671df668f3dd99b15a95dc29aae446c55
+ms.sourcegitcommit: 192701cd691d0f13ae65f19627bb8ae7fc81bbc9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840470"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451302"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Gyors útmutató: az Azure Kubernetes szolgáltatás beállítása Azure Stack HCI-ben a Windows felügyeleti központ használatával
 
@@ -29,11 +29,11 @@ Mielőtt elkezdené, győződjön meg arról, hogy teljesítette a [rendszerköv
 
 ## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Az Azure Kubernetes Service letöltése Azure Stack HCI-re
 
-Ha még nem töltötte le az előzetes verziójú szoftvert, tekintse [meg az AK kiértékelése Azure stack HCI](https://aka.ms/AKS-HCI-Evaluate)-ben című témakört. A rendszer a Azure Stack HCI és a Windows felügyeleti központ alkalmazásban is letölti az AK-t.
+Ha még nem töltötte le az előzetes verziójú szoftvert, tekintse [meg az AK kiértékelése Azure stack HCI](https://aka.ms/AKS-HCI-Evaluate)-ben című témakört. A rendszer kérni fogja, hogy töltse le az AK-t Azure Stack HCI-ről. Győződjön meg arról, hogy nem telepíti a Windows felügyeleti központot ezen a lapon, mivel az a 2103-buildre mutat, és egyes AK-HCI-funkciók nem a várt módon működnek, ha a Windows felügyeleti központ Build 2103 lehetőséget választja a telepítéshez. 
 
 ## <a name="setting-up-windows-admin-center"></a>A Windows felügyeleti központ beállítása
 
-Ha még nem telepítette a Windows felügyeleti központot, tekintse meg a [Windows felügyeleti központ telepítése](/windows-server/manage/windows-admin-center/deploy/install)című témakört. Windows felügyeleti központot Windows 10-es gépen vagy kiszolgálón is futtathat. Az Azure Kubernetes Service on Azure Stack HCI funkció csak a Windows felügyeleti központ 2009-es vagy újabb verzióiban érhető el.
+Ha még nem telepítette a Windows felügyeleti központot, tekintse meg a [Windows felügyeleti központ telepítése](http://aka.ms/aks-hci-wac-2009)című témakört. Windows felügyeleti központot Windows 10-es gépen vagy kiszolgálón is futtathat. **Az Azure Kubernetes Service on Azure Stack HCI funkció a legjobb megoldás a Windows felügyeleti központban a 2009-es verzióban. Győződjön meg arról, hogy letöltötte és telepíti az 2009-es buildet az AK-fürtök üzembe helyezéséhez Azure Stack HCI-ben.** Dolgozunk az AK-HCI és a Windows felügyeleti központ Build 2103 integrálásán, és bizonyos funkciók nem a várt módon működnek, ha úgy dönt, hogy a Build 2103-et használja a telepítéshez.
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>Az Azure Kubernetes Service bővítmény telepítése
 
