@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77a9bab5e9b501aa54115a7e61d1b9a639c59ec5
-ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
+ms.openlocfilehash: 9ca014878021d0fbe02a8997e1436910557e93f5
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102187299"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515923"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 frissítés
 
@@ -71,7 +71,7 @@ A Azure Stack 1904 frissítési Build típusa **expressz**. További informáci�
 - Javított syslog-üzenetek mennyisége a szükségtelen események kiszűrésével és egy konfigurációs paraméter megadásával a továbbított üzenetek kívánt súlyossági szintjének kiválasztásához. További információ a súlyossági szint konfigurálásáról: [Azure stack Datacenter Integration – syslog forwarding](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Új képességet adott hozzá a **Get-AzureStackLog** parancsmaghoz egy további paraméter beépítésével `-OutputSASUri` . Mostantól összegyűjtheti Azure Stack naplókat a környezetből, és tárolhatja azokat a megadott Azure Storage blob-tárolóban. További információ: [Azure stack diagnosztika](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#examples).
+- Új képességet adott hozzá a **Get-AzureStackLog** parancsmaghoz egy további paraméter beépítésével `-OutputSASUri` . Mostantól összegyűjtheti Azure Stack naplókat a környezetből, és tárolhatja azokat a megadott Azure Storage blob-tárolóban. További információ: [Azure stack diagnosztika](/azure-stack/operator/diagnostic-log-collection).
 
 - Új memória-ellenőrzés hozzáadva a **test-AzureStack** `UpdateReadiness` csoportban, amely ellenőrzi, hogy van-e elegendő memória a veremben a frissítés sikeres befejezéséhez.
 

@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
-ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
+ms.openlocfilehash: 6c40a3be7bddf49166979458e755058b5aba47c9
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102187061"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515940"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 frissítés
 
@@ -53,7 +53,7 @@ Ez a frissítés a Azure Stack következő tökéletesítéseit tartalmazza.
 - **Bővítse a kapacitást** [további méretezési egység csomópontjainak hozzáadásával](../azure-stack-add-scale-node.md).
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **A Azure Resource Manager-sablonok mostantól támogatják a feltétel elemet** – egy feltétel használatával üzembe helyezhet egy erőforrást egy Azure Resource Manger-sablonban. A sablon úgy is megtervezhető, hogy egy adott feltétel alapján telepítsen egy erőforrást, például ha van egy paraméter értéke. További információ a sablon feltételként való használatáról: Azure Resource Manager-sablonok [feltételes üzembe helyezése](/azure/architecture/building-blocks/extending-templates/conditional-deploy) [című rész](/azure/azure-resource-manager/resource-manager-templates-variables) az Azure dokumentációjában. 
+- **A Azure Resource Manager-sablonok mostantól támogatják a feltétel elemet** – egy feltétel használatával üzembe helyezhet egy erőforrást egy Azure Resource Manger-sablonban. A sablon úgy is megtervezhető, hogy egy adott feltétel alapján telepítsen egy erőforrást, például ha van egy paraméter értéke. További információ a sablon feltételként való használatáról: Azure Resource Manager-sablonok [feltételes üzembe helyezése](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy) [című rész](/azure/azure-resource-manager/resource-manager-templates-variables) az Azure dokumentációjában. 
 
    A sablonok használatával [több előfizetéshez vagy erőforráscsoporthoz is telepíthet erőforrásokat](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
@@ -300,7 +300,7 @@ Az alábbiakban a build verziójának ismert problémáit ismertetjük.
 
    A metrikák adatai, például a virtuális gép CPU-százalékos diagramjának megjelenítéséhez nyissa meg a **metrikák** panelt, és jelenítse meg az összes támogatott WINDOWSOS virtuális gép vendég metrikáját.
 
-### <a name="networking"></a>Hálózatkezelés  
+### <a name="networking"></a>Hálózat  
 
 <!-- 1766332 - IS ASDK --> 
 - Ha VPN-kapcsolat beállításához a **létrehozás VPN Gateway** elemre kattint, a **hálózat** területen a **házirend-alapú** beállítás VPN-típusként jelenik meg. Ne jelölje be ezt a beállítást. Azure Stack csak az **útvonalon alapuló** beállítást támogatja.

@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
-ms.openlocfilehash: f194ef78a31722a05742b14b312ea4aad58d3ed3
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 953f8df1ce76b5765ba0c200ea9f2a78c7ee72b6
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049945"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515658"
 ---
 # <a name="prerequisites-for-installing-iot-hub-on-azure-stack-hub"></a>A IoT Hub telepítésének előfeltételei Azure Stack hubhoz
 
@@ -39,9 +39,7 @@ A következő előfeltételeket kell végrehajtania ahhoz, hogy telepíteni tudj
 
 ## <a name="certificate-requirements"></a>Tanúsítványkövetelmények
 
-1. Nyilvános kulcsokra épülő infrastruktúra (PKI) TLS/SSL-tanúsítvány beszerzése Event Hubshoz. A tulajdonos alternatív nevének (SAN) be kell tartania a következő elnevezési mintát: `CN=*.mgmtiothub.<region>.<fqdn>` .
-
-   A tulajdonos neve megadható, de nem használja IoT Hub a tanúsítványok kezelésekor. A rendszer csak a tulajdonos alternatív nevét használja. A részletes követelmények teljes listájáért tekintse meg a [PKI-tanúsítványokra vonatkozó követelményeket](azure-stack-pki-certs.md) .
+1. Nyilvános kulcsokra épülő infrastruktúra (PKI) TLS/SSL-tanúsítvány beszerzése IoT Hubhoz. A tanúsítvány **tárgya** mezőnek meg kell felelnie a következő elnevezési mintának: `CN=*.mgmtiothub.<region>.<fqdn>` . A részletes követelmények teljes listájáért tekintse meg a [PKI-tanúsítványokra vonatkozó követelményeket](azure-stack-pki-certs.md) .
 
    ![IOT hub-tanúsítvány – példa](media\iot-hub-rp-prerequisites\certificate.png)
 
@@ -51,6 +49,6 @@ A következő előfeltételeket kell végrehajtania ahhoz, hogy telepíteni tudj
  
 Ahhoz, hogy a IoT Hub megfelelően működjön a hálózaton a Azure Stack központban, a hálózati rendszergazdának konfigurálnia kell a DNS-t. Keresse meg a DNS-kezelő eszköz DNS feltételes továbbítás beállítását, és adjon hozzá egy feltételes továbbítási szabályt, amely engedélyezi a forgalmat a következőhöz: `<region>.cloudapp.<externaldomainname>` . Például: `ussouth.cloudapp.contoso.com`.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Ezután telepítse a IoT Hub erőforrás-szolgáltatót a [csatlakoztatott Azure stack](iot-hub-rp-install.md).

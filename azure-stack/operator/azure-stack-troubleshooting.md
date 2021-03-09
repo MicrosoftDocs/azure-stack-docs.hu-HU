@@ -8,12 +8,12 @@ ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
-ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
+ms.openlocfilehash: b16582d6f4dad324d1c748034dad902907e669b4
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102116954"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515719"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack hub hibáinak elhárítása
 
@@ -83,7 +83,7 @@ Válassza ki a Azure Stack hub-hoz használt megosztott szolgáltatási fiók t�
 A PowerShell használatával lekérheti a Stamp kihasználtsági információit a Microsoft ügyfélszolgálata súgója nélkül. A bélyegző kihasználtságának beszerzése:
 
 1. Hozzon létre egy PEP-munkamenetet.
-2. Futtassa a `test-azurestack` parancsot.
+2. Futtassa az `test-azurestack` parancsot.
 3. Lépjen ki a PEP-munkamenetből.
 4. Futtassa `get-azurestacklog -filterbyrole seedring` a parancsot egy meghívó hívásával.
 5. Bontsa ki a seedring. zip fájlt. Az ellenőrzési jelentést a futtatott ERCS mappából szerezheti be `test-azurestack` .
@@ -205,7 +205,7 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 2. Ha nem tudta feloldani a problémát, hozzon létre egy [Azure stack hub támogatási jegyet](./azure-stack-help-and-support-overview.md). Győződjön meg arról, hogy a probléma előfordulásakor a rendszer a [naplókat gyűjti](./diagnostic-log-collection.md#send-logs-now) az időtartományhoz. Ha egy frissítés sikertelen, kritikus riasztással vagy figyelmeztetéssel, fontos, hogy áttekintse a hibát, és forduljon a Microsoft ügyfél-támogatási szolgálatához a riasztás szerint, hogy a skálázási egység hosszú ideig ne maradjon hibás állapotban. Ha egy méretezési egység egy sikertelen frissítési állapotban marad hosszabb ideig, akkor további problémákat okozhat, amelyeket később nehezebb megoldani.
 
-## <a name="common-azure-stack-hub-patch-and-update-issues"></a>A Azure Stack hub általános javítási és frissítési problémái
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Gyakori javítási és frissítési problémák az Azure Stack Hubban
 
 *A következőkre vonatkozik: Azure Stack hub integrált rendszerek*
 
@@ -225,7 +225,7 @@ Az Azure Stack hub javítási és frissítési folyamata úgy lett kialakítva, 
 
 **OK**: a alaplapi felügyeleti vezérlő (bmc) jelszava helytelenül van beállítva.
 
-**Szervizelés**: [frissítse a bmc hitelesítő adatait](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) , és folytassa a frissítést.
+**Szervizelés**: [frissítse a bmc hitelesítő adatait](/azure-stack/operator/azure-stack-rotate-secrets#update-the-bmc-credential) , és folytassa a frissítést.
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>A frissítés során jelentett figyelmeztetések és hibák
 

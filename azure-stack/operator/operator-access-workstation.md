@@ -7,12 +7,12 @@ ms.date: 03/05/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 03/05/2021
-ms.openlocfilehash: 957b5860853b12040bfc13c4380290ad27e53a42
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.openlocfilehash: f4fc9ec002312432bd9f839026eb3ed4254991ea
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250289"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515617"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack hub-operátor hozzáférési munkaállomása
 
@@ -46,14 +46,13 @@ A következő táblázat felsorolja a OAW virtuális gépen előre telepített s
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)                     | [SystemDrive] \\ Program Files (x86) \\ Microsoft Azure Storage Explorer |
 | [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                         | [SystemDrive] \\ VMSoftware \\ azcopy_windows_amd64_10.3.4               |
 | [AzureStack – eszközök](https://github.com/Azure/AzureStack-Tools/tree/az)                                          | [SystemDrive] \\ VMSoftware \\ AzureStack – eszközök                          |
-
 ## <a name="download-files"></a>Fájlok letöltése
-
 A OAW virtuális gép létrehozásához szükséges fájlok [letöltéséhez töltse le](https://aka.ms/OAWDownload)a következőt:. A letöltés előtt tekintse át a [Microsoft adatvédelmi nyilatkozatát](https://privacy.microsoft.com/privacystatement) és [jogi feltételeit](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) .
 
 A megoldás állapot nélküli jellegéből adódóan nincsenek frissítések a OAW virtuális géphez. Minden egyes mérföldkő esetében megjelenik a VM-lemezképfájl új verziója. A legújabb verzió használatával hozzon létre egy új OAW virtuális gépet. A képfájl a Windows Server 2019 legújabb verziójára épül. A telepítés után a Windows Update használatával frissítéseket alkalmazhat, beleértve a kritikus frissítéseket is.
 
-Érvényesítse a letöltött OAW.zip fájl kivonatát, és győződjön meg arról, hogy az nem módosult, mielőtt a OAW virtuális gép létrehozásához használta volna. Futtassa a következő PowerShell-szkriptet. Ha a visszatérési érték a `True` , a letöltött OAW.zip is használhatja:
+Érvényesítse a letöltött OAW.zip fájl kivonatát, és győződjön meg arról, hogy az nem módosult, mielőtt a OAW virtuális gép létrehozásához használta volna. Futtassa a következő PowerShell-szkriptet. Ha a visszatérési érték TRUE (igaz), használhatja a letöltött OAW.zip:
+
 
 > [!NOTE]  
 > A letöltés kibontása után oldja fel a parancsfájlok zárolását.
@@ -75,7 +74,7 @@ if ($expectedHash -eq $actualHash)
 } 
 else 
 { 
-    Write-Error 'ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again.' 
+    Write-Error "ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again." 
     Write-Error "Actual hash: $actualHash" 
 } 
 ```
@@ -97,7 +96,7 @@ else
     ![Képernyőkép a PowerShell-parancsmagról a OAW virtuális gép verziójának vizsgálatához.](media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 > [!NOTE]  
-> Lehet, hogy ez a PowerShell-parancsmag nem található egy OEM-rendszerkép használatával telepített HLH.
+> Ez a PowerShell-parancsmag nem található egy OEM-rendszerkép használatával telepített HLH.
 
 ## <a name="create-the-oaw-vm-using-a-script"></a>A OAW virtuális gép létrehozása parancsfájl használatával
 
@@ -125,13 +124,10 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword `
-   -AzureStackCertificatePath 'F:\certroot.cer' `
-   -DeploymentDataFilePath 'F:\DeploymentData.json' `
-   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' -DeploymentDataFilePath 'F:\DeploymentData.json' -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
 ```
 
-Ha a fájl DeploymentData.jsa OAW virtuális gép elnevezési előtagját tartalmazza, akkor a paraméterhez a rendszer ezt az értéket fogja használni `VirtualMachineName` . Ellenkező esetben az alapértelmezett név `AzSOAW` vagy a felhasználó által megadott név.
+Ha a ` DeploymentData.json` fájl tartalmazza a OAW virtuális gép elnevezési előtagját, akkor a paraméterhez a rendszer ezt az értéket fogja használni `VirtualMachineName` . Ellenkező esetben az alapértelmezett név `AzSOAW` vagy a felhasználó által megadott név. A a `DeploymentData.json` [rendszerjogosultságú végpont](https://docs.microsoft.com/azure-stack/reference/pep-2002/get-azurestackstampinformation) használatával újra létrehozható abban az esetben, ha az nem szerepel a HLH. 
 
 > [!NOTE]  
 > A paramétert csak akkor kell `AzureStackCertificatePath` használni, ha Azure stack hub vállalati hitelesítésszolgáltatótól kiállított tanúsítványok használatával lett telepítve.
@@ -142,10 +138,7 @@ A Microsoft Hyper-Vt futtató gépnek négy maggal és négy GB szabad memóriá
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword ` 
--AzureStackCertificatePath 'F:\certroot.cer' ` 
--SkipNetworkConfiguration ` 
--VirtualSwitchName Example  
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' `-SkipNetworkConfiguration -VirtualSwitchName Example  
 ```
 
 > [!NOTE]  

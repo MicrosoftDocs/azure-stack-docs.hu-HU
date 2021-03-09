@@ -7,12 +7,12 @@ ms.date: 10/15/2019
 ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1f8b08a83e3597165b8d641b735fd8da070d8b4e
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868863"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515736"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack hub eredeti berendezésgyártó (OEM) frissítéseinek alkalmazása
 
@@ -32,7 +32,7 @@ Egyes hardvergyártók esetében szükség lehet a belső vezérlőprogram friss
 
 Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segédanyagokra mutató hivatkozásokat tartalmazza.
 
-| Hardveres partner | Régió | URL-cím |
+| Hardveres partner | Region | URL-cím |
 |-----|----|-----|
 | Cisco | Mind | [Cisco integrált rendszer Microsoft Azure Stack hub üzemeltetési útmutatóhoz](https://aka.ms/aa708e2)<br><br>[FKR C sorozat Rack-Mount UCS-Managed Server szoftver](https://aka.ms/aa700rq) |
 | Dell EMC | Mind | [Cloud for Microsoft Azure Stack hub 14G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack hub 13G (fiók és bejelentkezés szükséges)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
@@ -40,7 +40,7 @@ Ez a szakasz az OEM kapcsolattartási adatokat és az OEM Azure Stack hub-segéd
 |  | EMEA & EGYESÜLT ÁLLAMOK | [A Fujitsu informatikai termékek és rendszerek támogatása](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 | HPE | Mind | [Microsoft Azure Stack hub HPE-ProLiant](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Mind | [ThinkAgile SXM – legjobb receptek](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://aka.ms/AA6z600)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://aka.ms/aa6zktc)
+| Wortmann |  | [OEM/belső vezérlőprogram csomagja](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[a Terra Azure Stack hub dokumentációja (beleértve a cserélhető adatközpontot)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>OEM-frissítések alkalmazása
 
@@ -81,6 +81,6 @@ További információ a Azure Stack hub Kiemelt jogosultságokkal rendelkező v�
         }
     ```
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - [Azure Stack hub frissítései](azure-stack-updates.md)

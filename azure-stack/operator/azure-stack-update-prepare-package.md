@@ -3,16 +3,16 @@ title: Frissítési csomag előkészítése Azure Stack központban
 description: Megtudhatja, hogyan készítheti elő a frissítési csomagot Azure Stack hub-ban.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 03/10/2021
 ms.reviewer: sranthar
-ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.openlocfilehash: cdc0968519dc5ac50153fb5a14faaafd3b048843
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850921"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515816"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack hub-frissítési csomag előkészítése
 
@@ -69,41 +69,41 @@ Az alábbi eljárás bemutatja, hogyan importálhat és telepíthet frissítési
 > [!IMPORTANT]  
 > Értesítse a felhasználókat minden karbantartási műveletről, és gondoskodjon arról, hogy a szokásos karbantartási időszakok a munkaidőn kívüli órákban legyenek beütemezhetve. A karbantartási műveletek befolyásolhatják a felhasználói munkaterheléseket és a portálon végzett műveleteket is.
 
-1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget. Ezután az **adat + tárolás** kategóriában válassza a Storage- **fiókok** lehetőséget. Vagy a szűrő mezőbe írja be a Storage- **fiókok** kifejezést, majd jelölje ki.
+1. A felügyeleti portálon válassza a **minden szolgáltatás** lehetőséget. Ezután a **tárolási** kategória alatt válassza a **Storage-fiókok** lehetőséget. Vagy a szűrő mezőbe írja be a Storage- **fiókok** kifejezést, majd válassza ki.
 
-    ![Azure Stack hub frissítése](./media/azure-stack-update-prepare-package/image1.png)
+    [![Azure Stack hub frissítése](./media/azure-stack-update-prepare-package/select-storage-small.png)](./media/azure-stack-update-prepare-package/select-storage.png#lightbox)
 
 2. A szűrő mezőbe írja be a **frissítés** értéket, majd válassza ki a **updateadminaccount** .
 
-3. A Storage-fiók adatai alatt, a **szolgáltatások** területen válassza a **Blobok** elemet.
+3. Az **összes szolgáltatásban** az **Essentials** vagy a **blob Service** területen válassza a **tárolók** lehetőséget.
 
-    ![Azure Stack hub frissítése – blob](./media/azure-stack-update-prepare-package/image2.png)
+    [![Azure Stack hub frissítése – blob](./media/azure-stack-update-prepare-package/select-containers-small.png)](./media/azure-stack-update-prepare-package/select-containers.png#lightbox)
 
-4. A tároló létrehozásához a **blob Service** alatt válassza a **+ tároló** elemet. Adjon meg egy nevet (például **Update-1811**), majd kattintson **az OK gombra**.
+4. A **tárolók területen válassza** a **+ tároló** elemet a tároló létrehozásához. Adjon meg egy nevet (például **Update-2102**), majd válassza a **Létrehozás** lehetőséget.
 
-    ![Azure Stack hub frissítése – tároló](./media/azure-stack-update-prepare-package/image3.png)
+    [![Azure Stack hub frissítése – tároló](./media/azure-stack-update-prepare-package/new-container-small.png)](./media/azure-stack-update-prepare-package/new-container.png#lightbox)
 
 5. A tároló létrehozása után válassza ki a tároló nevét, majd válassza a **feltöltés** lehetőséget a csomag fájljainak a tárolóba való feltöltéséhez.
 
-    ![Azure Stack hub frissítése – feltöltés](./media/azure-stack-update-prepare-package/image4.png)
+    [![Azure Stack hub frissítése – feltöltés](./media/azure-stack-update-prepare-package/upload-package-small.png)](./media/azure-stack-update-prepare-package/upload-package.png#lightbox)
 
 6. A **blob feltöltése** területen válassza a mappa ikont, keresse meg a frissítési csomag. zip fájlt, majd kattintson a **Megnyitás** gombra a fájlkezelő ablakban.
 
 7. A **blob feltöltése** területen válassza a **feltöltés** lehetőséget.
 
-    ![Azure Stack hub frissítése – blob feltöltése](./media/azure-stack-update-prepare-package/image5.png)
+    ![Azure Stack hub frissítése – blob feltöltése](./media/azure-stack-update-prepare-package/upload-blob.png)
 
 8. Ismételje meg a 6. és 7. lépést a **Metadata.xml** fájlhoz és a frissítési csomagban található további. zip fájlokhoz. Ha szerepel, ne importálja a **kiegészítő Notice.txt** fájlt.
 
 9. Ha elkészült, tekintse át az értesítéseket (a portál jobb felső sarkában válassza a harang ikont). Egy értesítésnek jeleznie kell, hogy a feltöltés befejeződött.
 
-10. Lépjen vissza az irányítópult **frissítés** paneljére. A panelnek jeleznie kell, hogy van elérhető frissítés. Ez azt jelzi, hogy a frissítés sikeresen előkészített. Válassza ki a panelt az újonnan hozzáadott frissítési csomag áttekintéséhez.
+10. Lépjen vissza az irányítópult **frissítés** paneljére. A panelen látható, hogy a frissítés elérhető. Ez azt jelzi, hogy a frissítés sikeresen előkészített. Válassza ki a panelt az újonnan hozzáadott frissítési csomag áttekintéséhez.
 
-11. A frissítés telepítéséhez jelölje ki a **készként** megjelölt csomagot, és kattintson a jobb gombbal a csomagra, majd válassza a **Frissítés most** lehetőséget, vagy válassza a **Frissítés most** a felül műveletet.
+11. A frissítés telepítéséhez jelölje ki a **készként** megjelölt csomagot, majd válassza a **Frissítés most** lehetőséget.
 
 12. Amikor kiválasztja a frissítési csomag telepítését, megtekintheti az állapotot a **frissítési Futtatás részletei** területen. Innen kiválaszthatja az **Összefoglalás letöltése** lehetőséget is a naplófájlok letöltéséhez. A frissítési folyamatokból származó naplók a kísérlet befejezése után hat hónapig elérhetők.
 
-13. A frissítés befejeződése után a frissítés panelen látható a frissített Azure Stack hub verziója.
+13. A frissítés befejeződése után a **frissítés** panelen látható a frissített Azure stack hub verziója.
 
 Manuálisan is törölheti a frissítéseket a Storage-fiókból, miután telepítette Azure Stack központra. Azure Stack hub rendszeresen ellenőrzi a régebbi frissítési csomagokat, és eltávolítja azokat a tárolóból. A régi csomagok eltávolításához a Azure Stack hub akár két hétig is eltarthat.
 

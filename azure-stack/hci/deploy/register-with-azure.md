@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/10/2020
-ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 56311d959ff0927c49844184da90681f44958478
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487323"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515566"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
@@ -100,11 +100,11 @@ Ha az Azure-előfizetése egy nagyvállalati szerződésen vagy CSP-n keresztül
 
 ### <a name="azure-active-directory-permissions"></a>Engedélyek Azure Active Directory
 
-A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Active Directory engedélyekre is. Ha még nem rendelkezik velük, kérje meg az Azure AD-rendszergazdát, hogy adja meg az engedélyt, vagy delegálja az engedélyeket. További információt az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md#azure-active-directory-app-permissions) című témakörben talál.
+A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Active Directory engedélyekre is. Ha még nem rendelkezik velük, kérje meg az Azure AD-rendszergazdát, hogy adja meg az engedélyt, vagy delegálja az engedélyeket. További információt az [Azure-regisztráció kezelése](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions) című témakörben talál.
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>Fürt regisztrálása a Windows felügyeleti központtal
 
-Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását.
+Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását.
 
 1. A regisztrációs folyamat megkezdése előtt először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban, ha még nem tette meg.
 
@@ -137,7 +137,7 @@ A következő eljárással regisztrálhat egy Azure Stack HCI-fürtöt az Azure-
 
    Ez a szintaxis regisztrálja a fürtöt (amely a Kiszolgáló1 tagja), az aktuális felhasználóként az alapértelmezett Azure-régióval és felhőalapú környezettel, valamint intelligens alapértelmezett neveket használ az Azure-erőforráshoz és az erőforráscsoporthoz. Ezen `-Region` értékek megadásához a választható, a és a paramétereket is hozzáadhatja `-ResourceName` ehhez a `-ResourceGroupName` parancshoz.
 
-   Ne feledje, hogy a `Register-AzStackHCI` parancsmagot futtató felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#azure-active-directory-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be, hanem kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását. Az engedélyek megadása után egyszerűen futtassa újra `Register-AzStackHCI` a regisztráció befejezését.
+   Ne feledje, hogy a `Register-AzStackHCI` parancsmagot futtató felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be, hanem kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását. Az engedélyek megadása után egyszerűen futtassa újra `Register-AzStackHCI` a regisztráció befejezését.
 
 3. Hitelesítés az Azure-ral
 
