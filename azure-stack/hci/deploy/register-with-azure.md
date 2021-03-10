@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/10/2020
-ms.openlocfilehash: 56311d959ff0927c49844184da90681f44958478
-ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
+ms.openlocfilehash: 68fd911c18b45236980b47e8a587f014367c8be7
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102515566"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532426"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
-> A következőkre vonatkozik: Azure Stack HCI v20H2
+> A következőkre vonatkozik: Azure Stack HCI, Version 20H2
 
 Azure Stack HCI-t Azure-szolgáltatásként szállítjuk, és az Azure Online Services használati feltételeinek megfelelően regisztrálni kell a telepítést követő 30 napon belül. Ez a témakör azt ismerteti, hogyan regisztrálhat a Azure Stack HCI-fürtöt az [Azure arc](https://azure.microsoft.com/services/azure-arc/) használatával figyelésre, támogatásra, számlázásra és hibrid szolgáltatásokra. A regisztráció során egy Azure Resource Manager erőforrás jön létre, amely az egyes helyszíni Azure Stack HCI-fürtöket jelöli, és hatékonyan kiterjeszti az Azure felügyeleti síkot Azure Stack HCI-re. A rendszer rendszeres időközönként szinkronizálja az adatokat az Azure-erőforrás és a helyszíni fürt (ek) között. Az Azure arc-regisztráció a Azure Stack HCI operációs rendszer natív funkciója, így a regisztrációhoz nincs szükség ügynökre.
 
@@ -34,7 +34,8 @@ Nem fog tudni regisztrálni az Azure-ban, amíg létre nem Azure Stack HCI-fürt
 A legegyszerűbb regisztrációs élmény érdekében az Azure AD-rendszergazda a Windows felügyeleti központtal vagy a PowerShell-lel végezheti el a regisztrációt.
 
    > [!IMPORTANT]
-   > Azure Stack HCI-fürt Windows felügyeleti központon keresztüli regisztrálásához először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md) -ba a fürt regisztrálásához használni kívánt Azure Active Directory (bérlői) azonosító használatával.
+   > Azure Stack HCI-fürt Windows felügyeleti központon keresztüli regisztrálásához először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md) -ban, és meg kell adnia a Azure Active Directory (bérlői) azonosítóját. Győződjön meg arról, hogy a Windows felügyeleti központot futtató számítógép ugyanahhoz a Azure Active Directory tartományhoz csatlakozik, amelyben létre kívánja hozni a fürtöt vagy egy megbízható tartományt.
+
 
 ### <a name="internet-access"></a>Internet-hozzáférés
 
@@ -104,12 +105,12 @@ A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Acti
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>Fürt regisztrálása a Windows felügyeleti központtal
 
-Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását.
+Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását, és a felhasználónak újra futtatnia kell a regisztrációs varázslót, ha engedélyeket ad meg.
 
 1. A regisztrációs folyamat megkezdése előtt először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban, ha még nem tette meg.
 
    > [!IMPORTANT]
-   > Ha a Windows felügyeleti központot az Azure-ban regisztrálja, fontos, hogy ugyanazt a Azure Active Directory-(bérlői) azonosítót használja, amelyet a fürt tényleges regisztrálásához kíván használni. Az Azure AD-bérlői azonosító a fiókokat és csoportokat tartalmazó Azure AD-példányokat jelöli, míg az Azure-előfizetés azonosítója az Azure-erőforrások használatára vonatkozó szerződést jelöl, amelyért a díjak felmerülnek. A bérlő AZONOSÍTÓjának megkereséséhez látogasson el a [Portal.Azure.com](https://portal.azure.com) webhelyre, és válassza a **Azure Active Directory** lehetőséget. A bérlői azonosító a **bérlői adatok** területen jelenik meg. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez navigáljon az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából.
+   > Ha a Windows felügyeleti központot az Azure-ban regisztrálja, fontos, hogy ugyanazt a Azure Active Directory-(bérlői) azonosítót használja, amelyet a fürt regisztrálásához használni kíván. Az Azure AD-bérlői azonosító a fiókokat és csoportokat tartalmazó Azure AD-példányokat jelöli, míg az Azure-előfizetés azonosítója az Azure-erőforrások használatára vonatkozó szerződést jelöl, amelyért a díjak felmerülnek. A bérlő AZONOSÍTÓjának megkereséséhez látogasson el a [Portal.Azure.com](https://portal.azure.com) webhelyre, és válassza a **Azure Active Directory** lehetőséget. A bérlői azonosító a **bérlői adatok** területen jelenik meg. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez navigáljon az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából.
 
 2. Nyissa meg a Windows felügyeleti központot, és válassza a bal oldali **eszközök** menü alján található **Beállítások** lehetőséget. Ezután válassza ki **Azure stack HCI regisztráció** elemet a **Beállítások** menü alján. Ha a fürt még nincs regisztrálva az Azure-ban, akkor a **regisztráció állapota** **nem lesz regisztrálva**. A folytatáshoz kattintson a **regisztráció** gombra.
 

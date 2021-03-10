@@ -1,42 +1,40 @@
 ---
-title: Kötetek törlése Azure Stack HCI-ben
-description: Kötetek törlése Azure Stack HCI-ben a Windows felügyeleti központ és a PowerShell használatával.
+title: Kötetek törlése Azure Stack HCI-ben és a Windows Serverben
+description: Kötetek törlése Azure Stack HCI-ben és Windows Serveren a Windows felügyeleti központtal és a PowerShell-lel.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 03/09/2021
+ms.openlocfilehash: fdc7fd4ae102871d534d846dd653af077a75d49a
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866522"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532484"
 ---
-# <a name="deleting-volumes-in-azure-stack-hci"></a>Kötetek törlése Azure Stack HCI-ben
+# <a name="deleting-volumes-in-azure-stack-hci-and-windows-server"></a>Kötetek törlése Azure Stack HCI-ben és a Windows Serverben
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Ez a témakör útmutatást nyújt a kötetek Azure Stack HCI-fürtön való törléséhez a Windows felügyeleti központ használatával.
+Ez a témakör a kötetek Windows felügyeleti központtal vagy a PowerShell használatával történő törlésére vonatkozó utasításokat tartalmazza.
 
-Tekintse meg a Windows felügyeleti központot használó kötetek törlésének rövid videóját.
+## <a name="delete-volumes-with-windows-admin-center"></a>Kötetek törlése a Windows felügyeleti központtal
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/DbjF8r2F6Jo]
-
-## <a name="use-windows-admin-center-to-delete-a-volume"></a>Kötet törlése a Windows felügyeleti központban
-
-1. A Windows felügyeleti központban kapcsolódjon egy Közvetlen tárolóhelyek fürthöz, majd válassza a **kötetek** elemet az **eszközök** ablaktáblán.
+1. A Windows felügyeleti központban kapcsolódjon egy fürthöz, majd válassza a bal oldali **eszközök** panel **kötetek** elemét.
 2. A **kötetek** lapon válassza a **leltár** fület, majd válassza ki a törölni kívánt kötetet.
-3. A kötetek részletei lap tetején válassza a **Törlés**lehetőséget.
-4. A megerősítések párbeszédpanelen jelölje be a jelölőnégyzetet annak megerősítéséhez, hogy törölni kívánja a kötetet, majd válassza a **Törlés**lehetőséget.
+3. A kötetek részletei lap tetején válassza a **Törlés** lehetőséget.
+4. A megerősítések párbeszédpanelen jelölje be a jelölőnégyzetet annak megerősítéséhez, hogy törölni kívánja a kötetet, majd válassza a **Törlés** lehetőséget.
 
-## <a name="delete-volumes-using-powershell"></a>Kötetek törlése a PowerShell használatával
+   :::image type="content" source="media/delete-volumes/delete-volume.png" alt-text="Válassza ki a törölni kívánt kötetet, válassza a Törlés lehetőséget, majd erősítse meg, hogy törölni kívánja a köteten lévő összes adatát." lightbox="media/delete-volumes/delete-volume.png":::
 
-A **Remove-VirtualDisk** parancsmag használatával törölheti közvetlen tárolóhelyek köteteit. Ezzel a parancsmaggal törölheti a **VirtualDisk** objektumot, és visszaküldheti a **VirtualDisk** objektumot közzétevő tárolóhoz használt területet.
+## <a name="delete-volumes-with-powershell"></a>Kötetek törlése a PowerShell-lel
 
-Először indítsa el a PowerShellt a felügyeleti számítógépen, és futtassa a **Get-VirtualDisk** parancsmagot a **CimSession** paraméterrel, amely egy közvetlen tárolóhelyek-fürt vagy-kiszolgáló csomópontjának neve, például *clustername.microsoft.com*:
+A **Remove-VirtualDisk** parancsmag használatával törölje a **VirtualDisk** objektumot, és küldje vissza a **VirtualDisk** -objektumot kihelyező tárolóhoz használt területet.
+
+Először indítsa el a PowerShellt a felügyeleti számítógépen, és futtassa a **Get-VirtualDisk** parancsmagot a **CimSession** paraméterrel, amely a fürt vagy a kiszolgáló csomópontjának neve, például *clustername.contoso.com*:
 
 ```PowerShell
-Get-VirtualDisk -CimSession clustername.microsoft.com
+Get-VirtualDisk -CimSession clustername.contoso.com
 ```
 
 Ez a függvény a **-FriendlyName** paraméter lehetséges értékeinek listáját adja vissza, amelyek a fürtben lévő kötetek neveinek felelnek meg.

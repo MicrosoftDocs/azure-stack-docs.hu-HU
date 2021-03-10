@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b9281e6d29dc83ba7d26df2135ca70e725bed690
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 82c97abf81226c22e2878bb6e6947d53f79cba77
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544010"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532443"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Előfeltételek az App Service-nek az Azure Stack Hubban való üzembe helyezéséhez
 
@@ -56,6 +56,11 @@ Az erőforrás-szolgáltató éles környezetben való futtatásához a követke
 - API-tanúsítvány
 - Tanúsítvány közzététele
 - Identitás tanúsítványa
+
+Az alábbi részekben felsorolt konkrét követelmények mellett egy újabb eszközt is használhat az általános követelmények teszteléséhez. Az érvényesítések teljes listájáért tekintse meg [Azure stack hub PKI-tanúsítványok ellenőrzése](azure-stack-validate-pki-certs.md) című témakört, beleértve a következőket:
+- A **fájlformátuma** . PFX
+- **Kulcshasználat** beállítása kiszolgáló-és ügyfél-hitelesítésre
+- és több más
 
 #### <a name="default-domain-certificate"></a>Alapértelmezett tartományi tanúsítvány
 
@@ -149,7 +154,7 @@ Mostantól elérhető egy, a fájlkiszolgáló és a SQL Server üzembe helyezé
 ##### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Csoportok és fiókok kiépítése munkacsoportban
 
 >[!NOTE]
-> Fájlkiszolgáló konfigurálásakor futtassa a következő parancsokat egy **rendszergazdai parancssorból**. <br>**_Ne használja a PowerShellt._* _
+> Fájlkiszolgáló konfigurálásakor futtassa a következő parancsokat egy **rendszergazdai parancssorból**. <br>**_Ne használja a PowerShellt._**
 
 A Azure Resource Manager sablon használatakor a felhasználók már létre vannak hozva.
 
@@ -206,7 +211,7 @@ icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
 icacls %WEBSITES_FOLDER% /inheritance:r
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
-icacls %WEBSITES_FOLDER% /grant _S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
+icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Munkacsoport
@@ -379,7 +384,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
 1. Nyissa meg az [előfeltételként](azure-stack-app-service-before-you-get-started.md)letöltött és kibontott parancsfájlok helyét.
 1. [Telepítse a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 1. Futtassa az **Create-AADIdentityApp.ps1** szkriptet. Amikor a rendszer kéri, adja meg az Azure Stack hub üzembe helyezéséhez használt Azure AD-bérlői azonosítót. Írja be például a következőt: **myazurestack.onmicrosoft.com**.
-1. A **hitelesítő adatok** ablakban adja meg az Azure ad-szolgáltatás rendszergazdai fiókját és jelszavát. Kattintson az **OK** gombra.
+1. A **hitelesítő adatok** ablakban adja meg az Azure ad-szolgáltatás rendszergazdai fiókját és jelszavát. Válassza az **OK** lehetőséget.
 1. Adja meg a tanúsítvány fájljának elérési útját és a tanúsítvány jelszavát a [korábban létrehozott tanúsítványhoz](azure-stack-app-service-before-you-get-started.md). Az ehhez a lépéshez létrehozott tanúsítvány alapértelmezés szerint **SSO. appservice. local. azurestack. external. pfx**.
 1. Jegyezze fel a PowerShell kimenetében visszaadott alkalmazás AZONOSÍTÓját. A következő lépésekben szereplő AZONOSÍTÓval megadhatja az alkalmazás engedélyeit, és a telepítés során. 
 1. Nyisson meg egy új böngészőablakot, és jelentkezzen be a [Azure Portalba](https://portal.azure.com) Azure Active Directory szolgáltatás-rendszergazdaként.
@@ -388,7 +393,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
 1. Keresse meg a 7. lépésben feljegyzett alkalmazás AZONOSÍTÓját. 
 1. Válassza ki a App Service alkalmazás regisztrációját a listából.
 1. Válassza ki az **API-engedélyeket** a bal oldali ablaktáblán.
-1. Jelölje be a **rendszergazdai jóváhagyás \<tenant\> megadása a következőhöz:** , ahol az az \<tenant\> Azure ad-bérlő neve. Az **Igen gombra** kattintva erősítse meg a jóváhagyást.
+1. Jelölje be a **rendszergazdai jóváhagyás \<tenant\> megadása a következőhöz:**, ahol az az \<tenant\> Azure ad-bérlő neve. Az **Igen gombra** kattintva erősítse meg a jóváhagyást.
 
 ```powershell
     Create-AADIdentityApp.ps1
@@ -411,7 +416,7 @@ Az alábbi lépéseket követve hozza létre az egyszerű szolgáltatásnevet az
 1. Nyissa meg az [előfeltételként](azure-stack-app-service-before-you-get-started.md)letöltött és kibontott parancsfájlok helyét.
 1. [Telepítse a powershellt Azure stack hubhoz](powershell-install-az-module.md).
 1. Futtassa az **Create-ADFSIdentityApp.ps1** szkriptet.
-1. A **hitelesítő adatok** ablakban adja meg AD FS Felhőbeli rendszergazdai fiókját és jelszavát. Kattintson az **OK** gombra.
+1. A **hitelesítő adatok** ablakban adja meg AD FS Felhőbeli rendszergazdai fiókját és jelszavát. Válassza az **OK** lehetőséget.
 1. Adja meg a tanúsítvány fájljának elérési útját és a tanúsítvány jelszavát a [korábban létrehozott tanúsítványhoz](azure-stack-app-service-before-you-get-started.md). Az ehhez a lépéshez létrehozott tanúsítvány alapértelmezés szerint **SSO. appservice. local. azurestack. external. pfx**.
 
 ```powershell
