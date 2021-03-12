@@ -9,12 +9,12 @@ ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69c20b3dfd410032be74eb4caa0ae3e2ddd33b18
-ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
+ms.openlocfilehash: d473301265c8b7c1c3b48386cfbc8f4986283a8e
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102606346"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637595"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Az Azure Stack Hub titkos kulcsainak rotálása
 
@@ -46,7 +46,7 @@ A riasztások figyelésével és szervizelésével kapcsolatos további informá
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-1. Javasoljuk, hogy az Azure Stack hub támogatott verzióját futtassa, és győződjön meg arról, hogy a példányának Azure Stack hub verziójának legújabb elérhető gyorsjavítását futtatja. Ha például a 2008-es verzióját futtatja, győződjön meg arról, hogy telepítette a 2008-hoz [elérhető legújabb gyorsjavítást](release-notes.md?view=azs-2008#hotfixes) .
+1. Javasoljuk, hogy az Azure Stack hub támogatott verzióját futtassa, és győződjön meg arról, hogy a példányának Azure Stack hub verziójának legújabb elérhető gyorsjavítását futtatja. Ha például a 2008-es verzióját futtatja, győződjön meg arról, hogy telepítette a 2008-hoz elérhető legújabb gyorsjavítást.
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
