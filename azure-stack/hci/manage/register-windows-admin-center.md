@@ -4,13 +4,13 @@ description: A Windows felügyeleti központ átjárójának regisztrálása az 
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/05/2021
-ms.openlocfilehash: 699ad4b3bcfe9c1c7738ecf9bcedbdea50a25ab2
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.date: 03/10/2021
+ms.openlocfilehash: 79b90f028c61319535a7f5ddacdbd7cb1cf25081
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250380"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637629"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>A Windows felügyeleti központ regisztrálása az Azure-ban
 
@@ -19,7 +19,7 @@ ms.locfileid: "102250380"
 Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné használni, először [telepítenie kell a Windows felügyeleti központot](/windows-server/manage/windows-admin-center/deploy/install) egy felügyeleti számítógépre, és regisztrálnia kell a Windows felügyeleti központ átjáróját. Ez a fürt Azure-ban való [regisztrálásának](../deploy/register-with-azure.md) előfeltétele.
 
    > [!IMPORTANT]
-   > Ha a Windows felügyeleti központot a Azure Stack HCI-fürtök regisztrálásához szeretné használni, a Windows felügyeleti központ átjáróját regisztrálni kell egy Azure AD-alkalmazás AZONOSÍTÓjában, amelyet a szervezete Azure AD-rendszergazdája jóváhagy. regisztrálja a Windows felügyeleti központot ugyanazon a felügyeleti számítógépen, amelyet a fürt (ek) ugyanazon Azure Active Directory (bérlő) azonosítója és az alkalmazás-azonosító használatával szeretne regisztrálni.
+   > Ha a Windows felügyeleti központot a Azure Stack HCI-fürtök regisztrálásához szeretné használni, a Windows felügyeleti központ átjáróját regisztrálni kell egy olyan Azure Active Directory (Azure AD) alkalmazás-AZONOSÍTÓban, amelyet a szervezete Azure AD-rendszergazdája jóváhagy. regisztrálja a Windows felügyeleti központot ugyanazon a felügyeleti számítógépen, amelyet a fürt (ek) ugyanazon Azure Active Directory (bérlő) AZONOSÍTÓjának használatával szeretne regisztrálni.
 
 ## <a name="complete-the-registration-process"></a>A regisztrációs folyamat befejezése
 
@@ -43,7 +43,7 @@ Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné hasz
 
    :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Kapcsolódás Azure Active Directoryhoz a meglévő Azure Active Directory (bérlői) azonosító és alkalmazás-azonosító beszerzésével, vagy új alkalmazás-azonosító létrehozásával" lightbox="media/register-wac/connect-to-aad.png":::
 
-5. Kattintson a **Kapcsolódás** gombra az Azure-hoz való kapcsolódáshoz. Ha Ön Azure AD-rendszergazda, vagy ha már használta az alkalmazás AZONOSÍTÓját, akkor meg kell jelennie arról, hogy az Azure AD-hez csatlakozik, ami azt jelzi, hogy a folyamat befejeződött. Ha nem, akkor a rendszergazdai jóváhagyást igénylő üzenet jelenik meg. Ha ez az eset áll fenn, válassza a **Visszatérés az alkalmazásba a jóváhagyás megadása nélkül** lehetőséget, és kérje meg az Azure ad-rendszergazdát, hogy adja meg az engedélyt a regisztráció során létrehozott új alkalmazás-azonosítóhoz az alábbi 6. lépés utasításait követve.
+5. Kattintson a **Csatlakozás** gombra. Ha Ön Azure AD-rendszergazda, vagy meglévő alkalmazás-azonosítót használt, akkor meg kell jelennie arról, hogy most már csatlakozik az Azure AD-hez. Ha nem, akkor a rendszergazdai jóváhagyást igénylő üzenet jelenik meg. Ha ez az eset áll fenn, válassza a **Visszatérés az alkalmazásba a jóváhagyás megadása nélkül** lehetőséget, és kérje meg az Azure ad-rendszergazdát, hogy adja meg az engedélyt a regisztráció során létrehozott új alkalmazás-azonosítóhoz az alábbi 6. lépés utasításait követve.
 
 6. Ha Ön Azure AD-rendszergazda, adja meg az engedélyeket az Azure-ban a **Azure Active Directoryra** való navigáláshoz, majd **Alkalmazásregisztrációk**. Válassza a **minden alkalmazás** lehetőséget, és keresse meg a **WindowsAdminCenter**. Válassza ki a regisztrálni kívánt átjáró megjelenítendő nevét. Jegyezze fel az **alkalmazás (ügyfél) azonosítóját** , amely az oldal tetején jelenik meg, ahogy a felhasználónak meg kell adnia. Ezután navigáljon az **API-engedélyek** elemre. A **jóváhagyás engedélyezése** területen válassza a **rendszergazdai jóváhagyás megadása** lehetőséget. Ezután adja meg az alkalmazás AZONOSÍTÓját a felhasználónak. Ha több felhasználó esetében ugyanazt az azonosítót tervezi használni, folytassa a 7. lépéssel; Ellenkező esetben ugorjon a 8. lépésre.
 
@@ -56,9 +56,15 @@ Ha az Azure-szolgáltatásokat a Windows felügyeleti központtal szeretné hasz
    > [!IMPORTANT]
    > Ha az Azure AD rendszergazdája nem ad hozzá átirányítási URI-t, és több felhasználó is megpróbál regisztrálni a Windows felügyeleti központot ugyanarra az alkalmazás-AZONOSÍTÓra, a felhasználó hibaüzenetet kap, hogy a válasz URL-címe nem egyezik.
 
-7. Ezen a ponton a felhasználónak meg kell ismételnie a regisztrációs folyamatot, ezúttal a meglévő alkalmazás-azonosító **használata** lehetőséget kell választania, és meg kell adnia az Azure ad-rendszergazda által biztosított alkalmazás-azonosítót.
+7. Ezen a ponton a felhasználónak újra futtatnia kell a regisztrációs varázslót, ezúttal a meglévő alkalmazás-azonosító **használata** lehetőséget kell választania, és meg kell adnia az Azure ad-rendszergazda által biztosított alkalmazás-azonosítót.
 
 8. A **Bejelentkezés** lehetőség kiválasztásával jelentkezzen be a Windows felügyeleti központba az Azure-fiókjával.
+
+## <a name="unregister-windows-admin-center"></a>A Windows felügyeleti központ regisztrációjának törlése
+
+A Windows felügyeleti központ átjárójának regisztrációjának megszüntetéséhez kattintson a jobb felső sarokban található **Beállítások** fogaskerék ikonra. Ezután a bal oldali **átjáró** menüjében válassza az **Azure** lehetőséget, majd törölje a **regisztrációt**, és **erősítse meg**. 
+
+Ezzel eltávolítja a Windows felügyeleti központ és az Azure ad-alkalmazás AZONOSÍTÓját, amelyet az Azure AD-rendszergazda adott meg, vagy amely az átjáró regisztrálása során lett létrehozva. Nem törli az Azure AD alkalmazást, és nem érinti a Windows felügyeleti központ által kezelt kiszolgálók vagy fürtök által használt összes Azure-szolgáltatást.
 
 ## <a name="next-steps"></a>Következő lépések
 

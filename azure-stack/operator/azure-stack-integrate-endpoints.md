@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-szolgáltatások közzététele az adatközpontban
 description: Ismerje meg, hogyan tehet közzé Azure Stack hub-szolgáltatásokat az adatközpontjában.
-author: myoung
+author: patricka
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 03/02/2021
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 928e3fe6fbaa5c41d52d89617796ac726afcf2d6
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570616"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606397"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban
 
@@ -52,7 +52,7 @@ A [bővítmény-gazdagép](azure-stack-extension-host-prepare.md)hozzáadásáva
 |Graph|Graph. *&lt; régió>. &lt; teljes tartománynév>*|HTTPS|443|
 |Tanúsítvány-visszavonási lista|CRL.*&lt; region>. &lt; teljes tartománynév>*|HTTP|80|
 |DNS|&#42;. *&lt; régió>. &lt; teljes tartománynév>*|TCP & UDP|53|
-|Hosting | *. hosting. \<region> .\<fqdn> | HTTPS | 443 |
+|Üzemeltetés | *. hosting. \<region> .\<fqdn> | HTTPS | 443 |
 |Key Vault (felhasználó)|&#42;. Vault. *&lt; régió>. &lt; teljes tartománynév>*|HTTPS|443|
 |Key Vault (rendszergazda)|&#42;. adminvault. *&lt; régió>. &lt; teljes tartománynév>*|HTTPS|443|
 |Tárolási üzenetsor|&#42;. üzenetsor. *&lt; régió>. &lt; teljes tartománynév>*|HTTP<br>HTTPS|80<br>443|
@@ -74,27 +74,26 @@ Azure Stack hub csak transzparens proxykiszolgálók használatát támogatja. E
 Az SSL-forgalom elfogása [nem támogatott](azure-stack-firewall.md#ssl-interception) , és a végpontok elérésekor a szolgáltatás meghibásodásához vezethet. Az identitáshoz szükséges végpontokkal folytatott kommunikáció maximális támogatott időtúllépése 60-as.
 
 > [!Note]  
-> Azure Stack hub nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra.
+> Azure Stack hub nem támogatja a ExpressRoute használatát az alábbi táblázatban felsorolt Azure-szolgáltatások eléréséhez, mert előfordulhat, hogy a ExpressRoute nem tudja átirányítani a forgalmat az összes végpontra. 
 
-|Cél|Cél URL-címe|Protokoll|Portok|Forrásoldali hálózat|
+|Cél|Cél URL-címe|Protokoll/portok|Forrásoldali hálózat|Követelmény|
 |---------|---------|---------|---------|---------|
-|Identitás|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https: \/ /Management.Core.Windows.net<br>ARMUri = https: \/ /Management.Azure.com<br>https: \/ / \* . msftauth.net<br>https: \/ / \* . msauth.net<br>https: \/ / \* . msocdn.com<br>**Azure Government**<br>https: \/ /login.microsoftonline.us/<br>https: \/ /Graph.Windows.net/<br>**Azure China 21Vianet**<br>https: \/ /login.chinacloudapi.cn/<br>https: \/ /Graph.chinacloudapi.cn/<br>**Azure Germany**<br>https: \/ /login.microsoftonline.de/<br>https: \/ /Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|Piactéri hírszolgáltatás|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.core.windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.net/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https: \/ /Management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
-|Javítás & frissítés|https://&#42;. azureedge.net<br>https: \/ /aka.MS/azurestackautomaticupdate|HTTPS|443|Nyilvános VIP-/27|
-|Regisztráció|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https: \/ /Management.chinacloudapi.cn|HTTPS|443|Nyilvános VIP-/27|
-|Használat|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Nyilvános VIP-/27|
-|Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br><br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|
-|NTP|(Az üzemelő példányhoz megadott NTP-kiszolgáló IP-címe)|UDP|123|Nyilvános VIP-/27|
-|DNS|(Az üzembe helyezéshez megadott DNS-kiszolgáló IP-címe)|TCP<br>UDP|53|Nyilvános VIP-/27|
-|SYSLOG|(Az üzembe helyezéshez megadott SYSLOG-kiszolgáló IP-címe)|TCP<br>UDP|6514<br>514|Nyilvános VIP-/27|
-|CRL|(URL-cím a CRL terjesztési pontok alatt a tanúsítványon)<br>http://crl.microsoft.com/pki/crl/products<br>http://mscrl.microsoft.com/pki/mscorp<br>http://www.microsoft.com/pki/certs<br>http://www.microsoft.com/pki/mscorp<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>|HTTP|80|Nyilvános VIP-/27|
-|LDAP|A Graph-integrációhoz megadott Active Directory erdő|TCP<br>UDP|389|Nyilvános VIP-/27|
-|LDAP SSL|A Graph-integrációhoz megadott Active Directory erdő|TCP|636|Nyilvános VIP-/27|
-|LDAP GC|A Graph-integrációhoz megadott Active Directory erdő|TCP|3268|Nyilvános VIP-/27|
-|LDAP GC SSL|A Graph-integrációhoz megadott Active Directory erdő|TCP|3269|Nyilvános VIP-/27|
-|AD FS|AD FS-integrációhoz megadott AD FS metaadat-végpont|TCP|443|Nyilvános VIP-/27|
-| Diagnosztikai naplók gyűjteménye |https://*. blob. Core. Windows. net<br>https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | Nyilvános VIP-/27 |
-|     |     |     |     |     |
+|**Identitás**<br>Lehetővé teszi Azure Stack hub számára, hogy a felhasználói & szolgáltatás hitelesítéséhez kapcsolódjon Azure Active Directoryhoz.|**Azure**<br>`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`<br>`https://secure.aadcdn.microsoftonline-p.com`<br>`www.office.com`<br>ManagementServiceUri = `https://management.core.windows.net`<br>ARMUri = `https://management.azure.com`<br>`https://*.msftauth.net`<br>`https://*.msauth.net`<br>`https://*.msocdn.com`<br>**Azure Government**<br>`https://login.microsoftonline.us/`<br>`https://graph.windows.net/`<br>**Azure China 21Vianet**<br>`https://login.chinacloudapi.cn/`<br>`https://graph.chinacloudapi.cn/`<br>**Azure Germany**<br>`https://login.microsoftonline.de/`<br>`https://graph.cloudapi.de/`|HTTP 80,<br>HTTPS 443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|Egy csatlakoztatott üzemelő példány esetében kötelező.|
+|**Piactéri hírszolgáltatás**<br>Lehetővé teszi az elemek letöltését Azure Stack hubhoz a piactéren, és az Azure Stack hub-környezetet használó összes felhasználó számára elérhetővé teheti őket.|**Azure**<br>`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>**Azure Government**<br>`https://management.usgovcloudapi.net/`<br>`https://*.blob.core.usgovcloudapi.net/`<br>**Azure China 21Vianet**<br>`https://management.chinacloudapi.cn/`<br>`http://*.blob.core.chinacloudapi.cn`|HTTPS 443|Nyilvános VIP-/27|Nem szükségesek. A [leválasztott forgatókönyv utasítások](azure-stack-download-azure-marketplace-item.md) segítségével tölthet fel képeket Azure stack hubhoz.|
+|**Javítás & frissítés**<br>A frissítési végpontokhoz való csatlakozáskor Azure Stack hub-szoftverfrissítések és-gyorsjavítások a letöltéshez elérhetőként jelennek meg.|`https://*.azureedge.net`<br>`https://aka.ms/azurestackautomaticupdate`|HTTPS 443|Nyilvános VIP-/27|Nem szükségesek. A frissítés manuális letöltéséhez és előkészítéséhez használja a [leválasztott központi telepítési kapcsolat utasításait](azure-stack-update-prepare-package.md) .|
+|**Regisztráció**<br>Lehetővé teszi, hogy regisztrálja Azure Stack hubot az Azure-ban az Azure Marketplace-elemek letöltéséhez és a Microsoft felé irányuló kereskedelmi adatok jelentésének beállításához. |**Azure**<br>`https://management.azure.com`<br>**Azure Government**<br>`https://management.usgovcloudapi.net/`<br>**Azure China 21Vianet**<br>`https://management.chinacloudapi.cn`|HTTPS 443|Nyilvános VIP-/27|Nem szükségesek. A [kapcsolat nélküli regisztrációhoz](azure-stack-registration.md)használható a leválasztott forgatókönyv.|
+|**Használat**<br>Lehetővé teszi Azure Stack hub-operátorok számára a Azure Stack hub-példány konfigurálását a használati adatok Azure-ba való jelentéséhez.|**Azure**<br>`https://*.trafficmanager.net`<br>**Azure Government**<br>`https://*.usgovtrafficmanager.net`<br>**Azure China 21Vianet**<br>`https://*.trafficmanager.cn`|HTTPS 443|Nyilvános VIP-/27|Azure Stack hub-alapú licencelési modellhez szükséges.|
+|**Windows Defender**<br>Lehetővé teszi a frissítési erőforrás-szolgáltató számára, hogy naponta többször letöltse a kártevő-definíciókat és a motor-frissítéseket.|`*.wdcp.microsoft.com`<br>`*.wdcpalt.microsoft.com`<br>`*.wd.microsoft.com`<br>`*.update.microsoft.com`<br>`*.download.microsoft.com`<br><br>`https://secure.aadcdn.microsoftonline-p.com`<br>|HTTPS 80, 443|Nyilvános VIP-/27<br>Nyilvános infrastruktúra hálózata|Nem szükségesek. A [leválasztott forgatókönyv segítségével frissítheti a víruskereső-aláírási fájlokat](azure-stack-security-av.md#disconnected-scenario).|
+|**NTP**<br>Lehetővé teszi Azure Stack hub számára az időkiszolgálók kapcsolódását.|(Az üzemelő példányhoz megadott NTP-kiszolgáló IP-címe)|UDP 123|Nyilvános VIP-/27|Kötelező|
+|**DNS**<br>Lehetővé teszi Azure Stack hub számára a DNS-kiszolgáló továbbítójának való kapcsolódást.|(Az üzembe helyezéshez megadott DNS-kiszolgáló IP-címe)|TCP & UDP 53|Nyilvános VIP-/27|Kötelező|
+|**SYSLOG**<br>Lehetővé teszi, hogy Azure Stack hub syslog-üzenetet küldjön a figyelési vagy biztonsági célokra.|(Az üzembe helyezéshez megadott SYSLOG-kiszolgáló IP-címe)|TCP 6514,<br>UDP 514|Nyilvános VIP-/27|Választható|
+|**CRL**<br>Lehetővé teszi, hogy Azure Stack hub érvényesítse a tanúsítványokat, és ellenőrizze a visszavont tanúsítványokat.|(URL-cím a CRL terjesztési pontok alatt a tanúsítványon)<br>`http://crl.microsoft.com/pki/crl/products`<br>`http://mscrl.microsoft.com/pki/mscorp`<br>`http://www.microsoft.com/pki/certs`<br>`http://www.microsoft.com/pki/mscorp`<br>`http://www.microsoft.com/pkiops/crl`<br>`http://www.microsoft.com/pkiops/certs`<br>|HTTP 80|Nyilvános VIP-/27|Nem szükségesek. Kifejezetten ajánlott biztonsági eljárás.|
+|**LDAP**<br>Lehetővé teszi Azure Stack hub számára a helyszíni kommunikációt a Microsoft Active Directoryval.|A Graph-integrációhoz megadott Active Directory erdő|TCP & UDP 389|Nyilvános VIP-/27|Akkor szükséges, ha a Azure Stack hub AD FS használatával van telepítve.|
+|**LDAP SSL**<br>Lehetővé teszi Azure Stack hub számára, hogy a helyszíni kommunikációt a Microsoft Active Directoryával titkosítsa.|A Graph-integrációhoz megadott Active Directory erdő|TCP 636|Nyilvános VIP-/27|Akkor szükséges, ha a Azure Stack hub AD FS használatával van telepítve.|
+|**LDAP GC**<br>Lehetővé teszi Azure Stack hub számára a kommunikációt a Microsoft Active globáliskatalógus-kiszolgálókkal.|A Graph-integrációhoz megadott Active Directory erdő|TCP 3268|Nyilvános VIP-/27|Akkor szükséges, ha a Azure Stack hub AD FS használatával van telepítve.|
+|**LDAP GC SSL**<br>Lehetővé teszi, hogy Azure Stack hub titkosított kommunikációt folytasson a Microsoft Active Directory a globáliskatalógus-kiszolgálókkal.|A Graph-integrációhoz megadott Active Directory erdő|TCP 3269|Nyilvános VIP-/27|Akkor szükséges, ha a Azure Stack hub AD FS használatával van telepítve.|
+|**AD FS**<br>Lehetővé teszi, hogy Azure Stack hub kommunikáljon a helyszíni AD FSokkal.|AD FS-integrációhoz megadott AD FS metaadat-végpont|TCP 443|Nyilvános VIP-/27|Választható. A AD FS jogcím-szolgáltatói megbízhatósága egy [metaadat-fájllal](azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)hozható létre.|
+|**Diagnosztikai naplók gyűjteménye**<br>Lehetővé teszi, hogy Azure Stack hub proaktív módon vagy manuálisan küldje el a naplókat a Microsoft támogatási szolgálatának.|`https://*.blob.core.windows.net`<br>`https://azsdiagprdlocalwestus02.blob.core.windows.net`<br>`https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com`<br>`https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com` | HTTPS 443 | Nyilvános VIP-/27 |Nem szükségesek. A [naplók helyileg is menthetők](diagnostic-log-collection.md#save-logs-locally).|
 
 A kimenő URL-címek terheléselosztása az Azure Traffic Managerrel történik, hogy a lehető legjobb kapcsolatot biztosítsa a földrajzi hely alapján. Elosztott terhelésű URL-címek esetén a Microsoft a háttérbeli végpontokat a felhasználók befolyásolása nélkül tudja frissíteni és módosítani. A Microsoft nem osztja meg a terheléselosztási URL-címek IP-címeinek listáját. Használjon olyan eszközt, amely támogatja az URL-címek szerinti szűrést, nem pedig az IP-címet.
 

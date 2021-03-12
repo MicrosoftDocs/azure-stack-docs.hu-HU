@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/10/2020
-ms.openlocfilehash: 68fd911c18b45236980b47e8a587f014367c8be7
-ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
+ms.date: 03/10/2021
+ms.openlocfilehash: c8b10d02b64185cd0965c358e0d22661f3275342
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102532426"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637568"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Az Azure Stack HCI csatlakoztatása az Azure-hoz
 
@@ -35,7 +35,6 @@ A legegyszerűbb regisztrációs élmény érdekében az Azure AD-rendszergazda 
 
    > [!IMPORTANT]
    > Azure Stack HCI-fürt Windows felügyeleti központon keresztüli regisztrálásához először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md) -ban, és meg kell adnia a Azure Active Directory (bérlői) azonosítóját. Győződjön meg arról, hogy a Windows felügyeleti központot futtató számítógép ugyanahhoz a Azure Active Directory tartományhoz csatlakozik, amelyben létre kívánja hozni a fürtöt vagy egy megbízható tartományt.
-
 
 ### <a name="internet-access"></a>Internet-hozzáférés
 
@@ -107,14 +106,21 @@ A regisztrációs folyamat befejezéséhez szükség van a megfelelő Azure Acti
 
 Azure Stack HCI-fürt regisztrálásának legegyszerűbb módja a Windows felügyeleti központ használata. Ne feledje, hogy a felhasználónak [Azure Active Directory engedélyekkel](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions)kell rendelkeznie, vagy a regisztrációs folyamat nem fejeződik be; Ehelyett kilép, és elhagyja a regisztráció függőben lévő rendszergazdai jóváhagyását, és a felhasználónak újra futtatnia kell a regisztrációs varázslót, ha engedélyeket ad meg.
 
-1. A regisztrációs folyamat megkezdése előtt először [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md)-ban, ha még nem tette meg.
+1. A regisztrációs folyamat megkezdése előtt [regisztrálnia kell a Windows felügyeleti központot az Azure](../manage/register-windows-admin-center.md) -ban, és be kell jelentkeznie a Windows felügyeleti központba az Azure-fiókjával.
 
    > [!IMPORTANT]
    > Ha a Windows felügyeleti központot az Azure-ban regisztrálja, fontos, hogy ugyanazt a Azure Active Directory-(bérlői) azonosítót használja, amelyet a fürt regisztrálásához használni kíván. Az Azure AD-bérlői azonosító a fiókokat és csoportokat tartalmazó Azure AD-példányokat jelöli, míg az Azure-előfizetés azonosítója az Azure-erőforrások használatára vonatkozó szerződést jelöl, amelyért a díjak felmerülnek. A bérlő AZONOSÍTÓjának megkereséséhez látogasson el a [Portal.Azure.com](https://portal.azure.com) webhelyre, és válassza a **Azure Active Directory** lehetőséget. A bérlői azonosító a **bérlői adatok** területen jelenik meg. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez navigáljon az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából.
 
-2. Nyissa meg a Windows felügyeleti központot, és válassza a bal oldali **eszközök** menü alján található **Beállítások** lehetőséget. Ezután válassza ki **Azure stack HCI regisztráció** elemet a **Beállítások** menü alján. Ha a fürt még nincs regisztrálva az Azure-ban, akkor a **regisztráció állapota** **nem lesz regisztrálva**. A folytatáshoz kattintson a **regisztráció** gombra.
+2. Nyissa meg a Windows felügyeleti központot, és válassza a bal oldali **eszközök** menü alján található **Beállítások** lehetőséget. Ezután válassza ki **Azure stack HCI regisztráció** elemet a **Beállítások** menü alján. Ha a fürt még nincs regisztrálva az Azure-ban, akkor a **regisztráció állapota** **nem lesz regisztrálva**. A folytatáshoz kattintson a **regisztráció** gombra. A **fürt regisztrálása** a Windows felügyeleti központ irányítópultján is megadható.
 
-3. A regisztrációs folyamat befejezéséhez hitelesítenie kell magát (bejelentkezést) az Azure-fiókjával. A fióknak hozzáféréssel kell rendelkeznie ahhoz az Azure-előfizetéshez, amelyet a Windows felügyeleti központ átjárójának regisztrálásakor adott meg a regisztráció folytatásához. Másolja a megadott kódot, navigáljon a microsoft.com/devicelogin egy másik eszközön (például a SZÁMÍTÓGÉPén vagy a telefonján), írja be a kódot, és jelentkezzen be. A regisztrációs munkafolyamat érzékeli, amikor bejelentkezik, és folytatja a folyamat befejezését. A fürt ezután megtalálható lesz az Azure Portalon.
+   > [!NOTE]
+   > Ha nem regisztrálta a Windows felügyeleti központot az 1. lépésben, a rendszer erre kéri. A fürt regisztrálása varázsló helyett a Windows felügyeleti központ regisztrációs varázslója jelenik meg.
+
+3. Itt adhatja meg azt az Azure-előfizetési azonosítót, amelyhez regisztrálni kívánja a fürtöt. Az Azure-előfizetés AZONOSÍTÓjának beszerzéséhez látogasson el a [Portal.Azure.com](https://portal.azure.com)címre, lépjen az **előfizetések** elemre, és másolja/illessze be az azonosítót a listából. Ha az Azure AD-rendszergazda a használni kívánt Azure-erőforráscsoportot adta meg, válassza ki a legördülő menüből; Ellenkező esetben válassza az **új létrehozása** lehetőséget. Válassza ki az Azure-régiót a legördülő menüből, majd kattintson a **regisztráció** elemre.
+
+   :::image type="content" source="media/register/register-with-azure.png" alt-text="A fürt regisztrálása varázsló kérni fogja az Azure-előfizetés AZONOSÍTÓját, az erőforráscsoportot és a régiót" lightbox="media/register/register-with-azure.png":::
+
+4. Ha rendelkezik a megfelelő Azure Active Directory engedélyekkel, a fürt regisztrálási munkafolyamatának most el kell végeznie a befejezést, és látnia kell a fürtöt a Azure Portalban. Ha a rendszergazdai jóváhagyást igénylő üzenet jelenik meg, kérje meg az Azure AD-rendszergazdát, hogy [Adjon engedélyt az alkalmazásnak](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions), majd futtassa újra a fenti 2. lépéssel kezdődő varázslót.
 
 ## <a name="register-a-cluster-using-powershell"></a>Fürt regisztrálása a PowerShell-lel
 

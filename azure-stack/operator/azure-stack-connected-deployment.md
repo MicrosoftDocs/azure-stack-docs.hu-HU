@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 6812ac4b0841e44b760ce3397c5a06b2051e0036
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: f929654eb723f900ebe8a2beefd84afb064e7056
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99495516"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606380"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure-csatlakozású üzembe helyezési tervezési döntések az Azure Stack hub integrált rendszereihez
 Miután eldöntötte, [hogyan integrálja Azure stack hubot a hibrid felhőalapú környezetbe](azure-stack-connection-models.md), véglegesítheti a Azure stack hub telepítési döntéseit.
@@ -48,16 +48,16 @@ Válassza ezt a lehetőséget, ha saját identitás-tárolót szeretne használn
 Kiválaszthatja az **Ön által használt fizetés** vagy a **kapacitás** számlázási modelljét. Az utólagos használatú számlázási modell telepítéseknek képesnek kell lenniük arra, hogy a használatot az Azure-hoz legalább 30 naponta egyszer kell jelenteni. Ezért a használaton kívüli számlázási modell csak a csatlakoztatott üzemelő példányok esetében érhető el.  
 
 ### <a name="pay-as-you-use"></a>Használatalapú fizetés
-Az utólagos használatú számlázási modell használata esetén az Azure-előfizetésért kell fizetnie. Csak az Azure Stack hub-szolgáltatások használatakor kell fizetnie. Ha ezt a modellt választja, szüksége lesz egy Azure-előfizetésre és az ehhez az előfizetéshez hozzárendelt fiók-AZONOSÍTÓra (például: serviceadmin@contoso.onmicrosoft.com ). Az EA, CSP és CSL-előfizetések támogatottak. A használati jelentéskészítés [Azure stack hub-regisztráció](azure-stack-registration.md)során van konfigurálva.
+Az utólagos használatú számlázási modell használata esetén az Azure-előfizetésért kell fizetnie. Csak az Azure Stack hub-szolgáltatások használatakor kell fizetnie. Ha ezt a modellt választja, szüksége lesz egy Azure-előfizetésre és az ehhez az előfizetéshez hozzárendelt fiók-AZONOSÍTÓra (például: serviceadmin@contoso.onmicrosoft.com ). Az EA, CSP és CSP megosztott szolgáltatások előfizetései támogatottak. A használati jelentéskészítés [Azure stack hub-regisztráció](azure-stack-registration.md)során van konfigurálva.
 
 > [!NOTE]
-> A legtöbb esetben a nagyvállalati ügyfelek az EA-előfizetéseket fogják használni, és a szolgáltatók CSP-vagy CSL-előfizetéseket használnak.
+> A legtöbb esetben a nagyvállalati ügyfelek az EA-előfizetéseket fogják használni, és a szolgáltatók a CSP-vagy CSP közös szolgáltatások előfizetéseit használják.
 
 Ha CSP-előfizetést fog használni, tekintse át az alábbi táblázatot a használni kívánt CSP-előfizetés azonosításához, mivel a helyes módszer a pontos CSP-forgatókönyvtől függ:
 
 |Eset|Tartomány-és előfizetési lehetőségek|
 |-----|-----|
-|Ön egy **közvetlen CSP-partner** vagy egy **közvetett CSP-szolgáltató**, és az Azure stack hubot fogja használni|Használjon CSL (Common Service Layer) előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A &lt; Szervezete például>CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
+|Ön egy **közvetlen CSP-partner** vagy egy **közvetett CSP-szolgáltató**, és az Azure stack hubot fogja használni|Használjon CSP megosztott szolgáltatások előfizetést.<br>     vagy<br>Hozzon létre egy Azure AD-bérlőt egy leíró névvel a partner Centerben. A &lt; Szervezete például>CSPAdmin egy hozzá társított Azure CSP-előfizetéssel.|
 |Ön egy **közvetett CSP-viszonteladó**, és az Azure stack hubot fogja használni|Kérje meg a közvetett CSP-szolgáltatót, hogy hozzon létre egy Azure AD-bérlőt a szervezete számára a partner Center használatával társított Azure CSP-előfizetéssel.|
 
 ### <a name="capacity-based-billing"></a>Kapacitás alapú számlázás

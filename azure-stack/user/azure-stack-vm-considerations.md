@@ -7,12 +7,12 @@ ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 6a534e0bf0a3afe9bc15e7be6476f55d3d7d389a
+ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840847"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103202238"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack hub VM-funkciók
 
@@ -37,6 +37,7 @@ Azure Stack hub virtuális gépek (VM-EK) igény szerinti, méretezhető számí
 | Felhőbeli tanúsító | Válassza ki a Azure Stack központban elérhető Storage-fiók tulajdonságaiból származó végpontokat. | A [Felhőbeli tanúsító](/windows-server/failover-clustering/deploy-cloud-witness) a feladatátvevő fürt Kvórumának olyan típusa, amely Microsoft Azure használatával szavaz a fürt kvórumáról.<br>Az Azure Stack hub-hoz képest a globális Azure-beli végpontok a következőkhöz hasonlóak:<br>Globális Azure esetén:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack hub esetében:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Virtuálisgép-diagnosztika | A Linux rendszerű virtuális gépek diagnosztikája támogatott. | A Linux rendszerű virtuális gépek diagnosztikája nem támogatott Azure Stack központban. Ha olyan linuxos virtuális gépet telepít, amelyen engedélyezve van a virtuálisgép-diagnosztika, a telepítés sikertelen lesz. A központi telepítés akkor is meghiúsul, ha a Linux virtuális gép alapmetrikáit a diagnosztikai beállítások segítségével engedélyezi. |
 | Beágyazott virtualizációs VM-méretek | Támogatott | A 2102-es és újabb kiadásokban támogatott. |
+| Fenntartott virtuálisgép-példányok | Támogatott | Nem támogatott |
 
 ## <a name="vm-sizes"></a>A virtuális gépek mérete
 
@@ -65,6 +66,9 @@ A következő táblázat felsorolja az Azure Stack hub által támogatott virtu�
 |Számításra optimalizált|F-sorozat       |[F1 – F16](azure-stack-vm-sizes.md#f-series)    |
 |Számításra optimalizált|FS sorozat      |[F1s – F16s](azure-stack-vm-sizes.md#fs-series)    |
 |Számításra optimalizált|Fsv2 sorozat    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|GPU | NCv3 sorozat |[NC6s_v3 – NC24s_v3](gpu-vms-about.md#ncv3) |
+|GPU | NVv4 sorozat |[NV4as_v4](gpu-vms-about.md#nvv4) |
+|GPU | NCasT4_v3 sorozat |[NC4as_T4_v3 – NC64as_T4_v3](gpu-vms-about.md#ncast4_v3)
 
 A virtuálisgép-méretek és a hozzájuk tartozó erőforrás-mennyiségek konzisztensek Azure Stack hub és az Azure között. Ez a konzisztencia magában foglalja a memória mennyiségét, a magok számát, valamint a létrehozható adatlemezek számát/méretét. Az azonos méretű virtuális gépek teljesítménye azonban egy adott Azure Stack hub-környezet mögöttes jellemzőitől függ.
 

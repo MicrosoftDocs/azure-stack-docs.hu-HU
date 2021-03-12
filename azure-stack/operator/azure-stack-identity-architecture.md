@@ -3,16 +3,16 @@ title: Azure Stack hub identitás-architektúrája
 description: Ismerje meg az Azure Stack hub identitás-architektúráját, valamint az Azure AD és a AD FS közötti különbségeket.
 author: BryanLa
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 07/20/2020
-ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 03/10/2021
+ms.openlocfilehash: 5f03c3b1f5ca6aa24c2d54acaa090984ff4db90a
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566192"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637612"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack hub identitás-architektúrája
 
@@ -27,11 +27,11 @@ A választott identitás-szolgáltató korlátozhatja a beállításokat, beleé
 |Csatlakozik az internethez     |Yes       |Választható|
 |Több-bérlős támogatás támogatása     |Igen       |Nem      |
 |Ajánlati elemek a piactéren |Yes       |Igen (az [Offline Marketplace Syndication](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) eszköz használatát igényli)|
-|Active Directory-hitelesítési tár támogatása (ADAL) |Igen |Igen|
-|Támogatás olyan eszközökhöz, mint az Azure CLI, a Visual Studio és a PowerShell  |Igen |Igen|
+|Active Directory-hitelesítési tár támogatása (ADAL) |Igen |Yes|
+|Támogatás olyan eszközökhöz, mint az Azure CLI, a Visual Studio és a PowerShell  |Igen |Yes|
 |Egyszerű szolgáltatás létrehozása a Azure Portal     |Igen |Nem|
-|Egyszerű szolgáltatások létrehozása tanúsítványokkal      |Igen |Igen|
-|Egyszerű szolgáltatás létrehozása a Secrets (kulcsok) használatával    |Igen |Igen|
+|Egyszerű szolgáltatások létrehozása tanúsítványokkal      |Igen |Yes|
+|Egyszerű szolgáltatás létrehozása a Secrets (kulcsok) használatával    |Igen |Yes|
 |Az alkalmazások használhatják a Graph szolgáltatást           |Igen |Nem|
 |Az alkalmazások használhatják az Identitáskezelő szolgáltatást a bejelentkezéshez |Yes |Igen (az alkalmazásoknak a helyszíni AD FS-példányokkal való összevonása szükségesek) |
 | Felügyelt rendszeridentitások | Nem | Nem |
@@ -87,9 +87,9 @@ Ez a topológia a következő jellemzőkkel rendelkezik:
 - Ahhoz, hogy támogassa ennek a topológiának a használatát az éles környezetben, integrálnia kell a beépített Azure Stack hub AD FS példányt egy olyan meglévő AD FS-példánnyal, amelyet Active Directory egy összevonási megbízhatósági kapcsolaton keresztül támogat.
 - A Graph szolgáltatást Azure Stack hubhoz integrálhatja meglévő Active Directory-példánnyal. Használhatja a OData-alapú Graph API szolgáltatást is, amely támogatja az Azure AD-Graph API konzisztens API-kat.
 
-  A Active Directory-példánnyal való kommunikációhoz a Graph API felhasználói hitelesítő adatokat igényel az Active Directory-példánytól, amely csak olvasási jogosultsággal rendelkezik.
-  - A beépített AD FS példány a Windows Server 2016-es verzióján alapul.
-  - A AD FS-és Active Directory-példányok Windows Server 2012-es vagy újabb verzión alapulnak.
+  A Active Directory-példánnyal való kommunikációhoz a Graph API felhasználói hitelesítő adatokra van szüksége az Active Directory-példányra vonatkozó írásvédett engedélyekkel, és hozzáfér a következőhöz:  
+  - A beépített AD FS példánya.
+  - A AD FS és Active Directory példányok, amelyek a Windows Server 2012-es vagy újabb verzióján alapulnak.
   
   A Active Directory-példány és a beépített AD FS-példány között az interakciók nem korlátozódnak az OpenID Connect használatára, és bármilyen kölcsönösen támogatott protokollt használhatnak.
   - A felhasználói fiókok létrehozása és kezelése a helyszíni Active Directory-példányban történik.

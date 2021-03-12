@@ -3,16 +3,16 @@ title: Marketplace-elemek létrehozása és közzététele Azure Stack központb
 description: Megtudhatja, hogyan hozhat létre és tehet közzé Azure Stack hub Marketplace-elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/09/2021
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 1ca64f3d6084ca4f28967070c344b286e858cb9d
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.openlocfilehash: deb0c21a6e352d2e2fa4fdab3cab718512746591
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534079"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606451"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Egyéni Azure Stack hub Marketplace-elemek létrehozása és közzététele
 
@@ -26,26 +26,30 @@ A jelen cikkben szereplő példák bemutatják, hogyan hozhat létre Windows vag
 
 A virtuális gép Marketplace-elemének létrehozása előtt tegye a következőket:
 
-1. Töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását. 
+1. Töltse fel az egyéni virtuálisgép-rendszerképet a Azure Stack hub-portálra, és kövesse a virtuálisgép- [rendszerkép hozzáadása Azure stack hub-hoz](azure-stack-add-vm-image.md)című témakör útmutatását.
 2. A cikk utasításait követve csomagolja ki a rendszerképet (hozzon létre egy. azpkg), és töltse fel az Azure Stack hub piactérre.
 
 ## <a name="create-a-marketplace-item"></a>Piactér-elemek létrehozása
 
 Egyéni Piactéri elem létrehozásához tegye a következőket:
 
-1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem) és a minta Azure stack hub Gallery csomagot. Ez a letöltés egyéni virtuálisgép-sablonokat tartalmaz. Bontsa ki a. zip fájlt, és az **Egyéni virtuális gépek** mappa alatt használhatja a Linux vagy az elérhető Windows-sablonokat. Dönthet úgy, hogy újra felhasználja az előre elkészített sablonokat, és módosítja a megfelelő paramétereket az Azure Stack hub-portálon megjelenő elem termék adataival. Vagy egyszerűen újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
+1. Töltse le az [Azure Gallery Packager eszközt](https://aka.ms/azsmarketplaceitem):
 
-2. Hozzon létre egy Azure Resource Manager sablont, vagy használja a Windows/Linux rendszerhez készült minta sablonokat. Ezek a sablonok az 1. lépésben letöltött csomagoló Tool. zip fájlban találhatók. Használhatja a sablont, és módosíthatja a szövegmezőket, vagy letöltheti az előre konfigurált sablont a GitHubról. Azure Resource Manager-sablonokkal kapcsolatos további információkért lásd: [Azure Resource Manager sablonok](/azure/azure-resource-manager/resource-group-authoring-templates).
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/samples-tool.png" alt-text="Katalógus-csomagoló":::
 
-3. A katalógus csomagjának a következő struktúrát kell tartalmaznia:
+2. Az eszköz a. azpk formátumú csomagokat tartalmazza, amelyeket először ki kell kinyerni. A fájlkiterjesztés a ". azpk" fájlból a ". zip" névre nevezhető át, vagy az Ön által választott archiváló eszköz használatára van lehetősége:
+
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/sample-packages.png" alt-text="Minták csomagjai":::
+
+3. A kibontás után a. zip fájl tartalmazza a rendelkezésre álló Linux-vagy Windows Azure Resource Manager-sablonokat. Újra felhasználhatja az előre elkészített Resource Manager-sablonokat, és módosíthatja a megfelelő paramétereket az Azure Stack hub-portálon megjelenő elem termék adataival. Vagy újra használhatja a. azpkg fájlt, és kihagyhatja a következő lépéseket a saját katalógus-csomag testreszabásához.
+
+4. Hozzon létre egy Azure Resource Manager sablont, vagy használja a Windows/Linux rendszerhez készült minta sablonokat. Ezek a sablonok az 1. lépésben letöltött csomagoló Tool. zip fájlban találhatók. Használhatja a sablont, és módosíthatja a szövegmezőket, vagy letöltheti az előre konfigurált sablont a GitHubról. Azure Resource Manager-sablonokkal kapcsolatos további információkért lásd: [Azure Resource Manager sablonok](/azure/azure-resource-manager/resource-group-authoring-templates).
+
+5. A katalógus csomagjának a következő struktúrát kell tartalmaznia:
 
    ![Képernyőfelvétel a katalógus-csomag struktúrájáról](media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png)
 
-   A központi telepítési sablonok fájljának szerkezete a következőképpen jelenik meg:
-
-   ![Képernyőfelvétel a telepítési sablonok struktúrájáról](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
-
-4. Cserélje le a következő Kiemelt értékeket (számokat) a sablon Manifest.jsaz [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md#add-a-platform-image)megadott értékre.
+6. Cserélje le a következő Kiemelt értékeket (számokat) a sablon **Manifest.js** az [Egyéni rendszerkép feltöltésekor](azure-stack-add-vm-image.md#add-a-platform-image)megadott értékre.
 
    > [!NOTE]  
    > A Azure Resource Manager sablonban soha ne végezzen semmilyen titkos kulcsot, például a termékkulcsot, a jelszót vagy az ügyfél által azonosítható adatokat. A sablon JSON-fájljai a katalógusban közzétett egyszeri hitelesítés nélkül érhetők el. Tárolja [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) összes titkát, és hívja meg őket a sablonból.
@@ -111,7 +115,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     - (6) – a közzétevő jogi neve.
     - (7) – az egyes ikonok elérési útja és neve.
 
-5. Az **MS-Resource** értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
+7. Az **MS-Resource** értékre hivatkozó összes mező esetében módosítania kell a megfelelő értékeket a **karakterlánc/resources.js** fájlon belül:
 
     ```json
     {
@@ -124,23 +128,29 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
     }
     ```
 
-6. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
+8. A központi telepítési sablonok fájljának szerkezete a következőképpen jelenik meg:
 
-7. Ha a sablon egy virtuálisgép-(VM-) rendszerképre támaszkodik, kövesse az utasításokat, és [adjon hozzá egy VM-rendszerképet Azure stack hubhoz](azure-stack-add-vm-image.md).
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/deployment-templates.png" alt-text="Üzembehelyezési sablonok":::
 
-8. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
+   Cserélje le a rendszerkép értékeit a **createuidefinition.js** fájlban az egyéni rendszerkép feltöltésekor megadott értékre.
 
-9. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis**, **közepes**, **nagy** és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
+9. Az erőforrás sikeres üzembe helyezésének biztosításához tesztelje a sablont az [Azure stack hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md)-kkal.
+
+10. Ha a sablon egy virtuálisgép-(VM-) rendszerképre támaszkodik, kövesse az utasításokat, és [adjon hozzá egy VM-rendszerképet Azure stack hubhoz](azure-stack-add-vm-image.md).
+
+11. Mentse a Azure Resource Manager sablont a **/contoso.TodoList/DeploymentTemplates/** mappába.
+
+12. Válassza ki a Marketplace-elem ikonjait és szövegét. Adjon hozzá ikonokat az **ikonok** mappához, és adjon hozzá szöveget az **erőforrások** fájlhoz a **karakterláncok** mappában. Az ikonokhoz használjon **kis**, **közepes**, **nagy** és **széles körű** elnevezési konvenciót. A méretek részletes leírását a [Marketplace-elemek felhasználói felületének dokumentációjában](#reference-marketplace-item-ui) tekintheti meg.
 
     > [!NOTE]
     > A Piactéri elem megfelelő létrehozásához mind a négy ikon mérete (kis, közepes, nagy, széles) szükséges.
 
-10. A Manifest.jstovábbi szerkesztését a következő témakörben tekintheti meg [: a Piactéri elem manifest.js](#reference-marketplace-item-manifestjson):.
+13. A **Manifest.js** további szerkesztését a következő témakörben tekintheti meg [: a piactéri elem manifest.js](#reference-marketplace-item-manifestjson):.
 
-11. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery.exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
+14. Amikor befejezte a fájlok módosítását, alakítsa át egy. azpkg fájlba. A konverziót a **AzureGallery.exe** eszköz és a korábban letöltött minta-katalógus használatával hajtja végre. Futtassa az alábbi parancsot:
 
     ```shell
-    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
+    .\AzureGalleryHubGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -184,7 +194,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
+7. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -227,7 +237,7 @@ Egyéni Piactéri elem létrehozásához tegye a következőket:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
+7. A Piactéri elemeket a **Remove-AzGalleryItem** parancsmag használatával távolíthatja el. Például:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

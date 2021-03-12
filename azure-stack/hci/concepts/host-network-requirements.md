@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: a32d673d62975ea4e59cb3651acb1f3bc71ab9d6
+ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255299"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103202251"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI gazdagép hálózati követelményei
 
@@ -86,12 +86,9 @@ A szállítók nem minden hálózati adaptere támogatja a RDMA. A következő t
 |----|----|----|
 |Broadcom|Nem|Igen|
 |Chelsio|Igen|Nem|
-|Intel|Igen|Igen (egyes modellek)|
-|Marvell (Qlogic/Cavium)|Igen|Igen|
+|Intel|Yes|Igen (egyes modellek)|
+|Marvell (Qlogic/Cavium)|Igen|Yes|
 |NVIDIA (Mellanox)|Nem|Igen|
-
-> [!NOTE]
-> A szállítók nem minden adapter támogatja a RDMA. Ellenőrizze, hogy a RDMA-támogatás megfelel-e az adott hálózati kártya gyártójával.
 
 A RDMA telepítésével kapcsolatos további információkért töltse le a Word Doc alkalmazást az [Sdn GitHub](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx)-adattárból.
 
@@ -109,18 +106,18 @@ Javasoljuk, hogy a iWARP a következőket használja:
 
 #### <a name="rdma-over-converged-ethernet-roce"></a>RDMA konvergált Etherneten (RoCE)
 
-A RoCE a User Datagram Protocol (UDP) protokollt használja, és megköveteli, hogy az adatközpont-áthidalás a PFC és az ETS használatával biztosítson megbízhatóságot.
+A RoCE a User Datagram Protocol (UDP) protokollt használja, és az adatközpont-áthidaló (DCB) PFC és az ETS használatát igényli a megbízhatóság biztosításához.
 
 Javasoljuk, hogy a RoCE a következőket használja:
 
 - Már rendelkezik a RoCE-vel rendelkező üzemelő példányokkal az adatközpontban
-- Ön ismeri a fizikai hálózati követelményeket
+- A DCB hálózati követelményeinek kezelése kényelmes
 
 ### <a name="guest-rdma"></a>Vendég RDMA
 
 A vendég RDMA lehetővé teszi az SMB-munkaterhelések számára a virtuális gépek számára, hogy ugyanazokat az előnyöket használják a gazdagépeken a RDMA használatával.
 
-**Alkalmazható adatforgalmi típusok**: számítás
+**Kapcsolódó forgalmi típusok**: Guest-based Storage
 
 **Szükséges minősítések**: prémium
 
@@ -294,7 +291,7 @@ A kiterjesztett fürtök a következő követelményekkel és jellemzőkkel rend
     - Meg kell felelnie a tárolási replika további követelményeinek.
 -   Ha feladatátvételt hajt végre egy másik helyre, gondoskodnia kell arról, hogy elegendő sávszélesség álljon rendelkezésre a munkaterhelések futtatásához a másik helyen. A biztonságos megoldás az, ha a helyek a rendelkezésre álló kapacitásuk 50%-ában vannak kiépítve. Ez nem nehéz követelmény, ha a feladatátvétel során el tudja viselni az alacsonyabb teljesítményt.
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 - A hálózati kapcsolók és a fizikai hálózati követelmények megismerése. Lásd: [fizikai hálózati követelmények](physical-network-requirements.md).
 - A feladatátvételi fürtszolgáltatás alapjai. Lásd: a [feladatátvételi fürtszolgáltatás hálózatkezelésének alapjai](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)

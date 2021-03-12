@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Megtudhatja, hogyan forgathatja el a titkokat Azure Stack hub-ban.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/09/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: 69c20b3dfd410032be74eb4caa0ae3e2ddd33b18
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571348"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606346"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Az Azure Stack Hub titkos kulcsainak rotálása
 
@@ -46,7 +46,7 @@ A riasztások figyelésével és szervizelésével kapcsolatos további informá
 
 ## <a name="prerequisites"></a>Előfeltételek
 
-1. Javasoljuk, hogy először frissítse a Azure Stack hub-példányt a [legújabb verzióra](release-notes.md).
+1. Javasoljuk, hogy az Azure Stack hub támogatott verzióját futtassa, és győződjön meg arról, hogy a példányának Azure Stack hub verziójának legújabb elérhető gyorsjavítását futtatja. Ha például a 2008-es verzióját futtatja, győződjön meg arról, hogy telepítette a 2008-hoz [elérhető legújabb gyorsjavítást](release-notes.md?view=azs-2008#hotfixes) .
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
@@ -418,6 +418,6 @@ Remove-PSSession -Session $PEPSession
 Ez a parancs elforgatja Azure Stack hub belső hálózata számára elérhető infrastruktúra-titkokat, valamint a Azure Stack hub külső hálózati infrastruktúra-végpontokhoz használt TLS-tanúsítványokat. Start-SecretRotation elforgatja az összes verem által generált titkot, és mivel vannak megadott tanúsítványok, a külső végponti tanúsítványok is el lesznek forgatva.  
 ::: moniker-end
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 [További információ a Azure Stack hub biztonságáról](azure-stack-security-foundations.md)
