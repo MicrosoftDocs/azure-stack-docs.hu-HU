@@ -4,13 +4,13 @@ description: Ez a témakör útmutatást nyújt a Azure Stack HCI operációs re
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.date: 03/1/2021
+ms.openlocfilehash: aa09fd93e24a4c592c7bb8b0e05c140d975f0ad6
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250308"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103234722"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Tűzfalak konfigurálása Azure Stack HCI-hez
 
@@ -31,7 +31,6 @@ Ez a témakör azt ismerteti, hogyan lehet egy nagyszámú zárolt tűzfal-konfi
    >[!IMPORTANT]
    > Ha a kimenő kapcsolatot a külső vállalati tűzfal vagy a proxykiszolgáló korlátozza, ügyeljen arra, hogy az alábbi táblázatban szereplő URL-címek ne legyenek letiltva. Kapcsolódó információk: az [Azure arc-kompatibilis kiszolgálók ügynökének áttekintését](/azure/azure-arc/servers/agent-overview#networking-configuration)ismertető témakör "hálózati konfiguráció" szakasza.
 
-
 Ahogy az alábbi ábrán is látható, Azure Stack a HCI több tűzfallal is hozzáfér az Azure-hoz.
 
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="A diagram megjeleníti Azure Stack HCI eléréséhez a szolgáltatás-címkézési végpontokat a tűzfalak 443-as (HTTPS) portján keresztül." lightbox="./media/configure-firewalls/firewalls-diagram.png":::
@@ -42,7 +41,7 @@ A *szolgáltatási címke* az adott Azure-szolgáltatás IP-címeinek egy csopor
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Szükséges végponti napi hozzáférés (az Azure-regisztráció után)
 Az Azure jól ismert IP-címeket tart fenn az Azure-szolgáltatások számára, amelyek szolgáltatás-címkék használatával vannak rendszerezve. Az Azure minden szolgáltatás IP-címének heti JSON-fájlját közzéteszi. Az IP-címek gyakran változnak, de évente néhány alkalommal változnak. A következő táblázat az operációs rendszer eléréséhez szükséges szolgáltatási címke végpontokat mutatja be.
 
-| Description                   | Az IP-címtartomány szolgáltatási címkéje  | URL-cím                                                                                 |
+| Leírás                   | Az IP-címtartomány szolgáltatási címkéje  | URL-cím                                                                                 |
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
@@ -80,15 +79,20 @@ Az Azure regisztrációs folyamata során `Register-AzStackHCI` a vagy a Windows
 Bár a PowerShell-galéria az Azure-ban üzemelteti, jelenleg nincs szolgáltatás címkéje. Ha nem tudja futtatni a `Register-AzStackHCI` parancsmagot egy kiszolgáló-csomópontról, mert nincs internet-hozzáférés, javasoljuk, hogy töltse le a modulokat a felügyeleti számítógépére, majd manuálisan vigye át azokat a kiszolgálói csomópontra, amelyen a parancsmagot futtatni szeretné.
 
 ## <a name="set-up-a-proxy-server"></a>Proxykiszolgáló beállítása
-Ha Azure Stack HCI-hez szeretne proxykiszolgálót beállítani, futtassa a következő PowerShell-parancsot rendszergazdaként:
+Ha Azure Stack HCI-hez szeretne proxykiszolgálót beállítani, futtassa a következő PowerShell-parancsot rendszergazdaként a fürt minden kiszolgálóján:
 
 ```powershell
 Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
 ```
 
-Használja a `ProxySettingsPerUser 0` jelzőt, hogy a proxy konfigurációs kiszolgálóját felhasználónként nem, felhasználónként, ez az alapértelmezett érték legyen. 
+Használja a `ProxySettingsPerUser 0` jelzőt, hogy a proxy konfigurációs kiszolgálóját felhasználónként nem, felhasználónként, ez az alapértelmezett érték legyen.
+
+A proxy konfigurációjának eltávolításához futtassa a PowerShell-parancsot `Set-WinInetProxy` argumentumok nélkül.
 
 Töltse le a WinInetProxy. psm1 szkriptet a következő címen: [PowerShell-Galéria | WinInetProxy. psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1).
+
+   >[!NOTE]
+   > A Windows felügyeleti központban a **proxy** beállítással átirányítja a Windows felügyeleti központ kimenő forgalmát (például a bővítmények letöltése, az Azure-hoz való csatlakozást stb.).
 
 ## <a name="network-port-requirements"></a>Hálózati portokra vonatkozó követelmények
 Győződjön meg arról, hogy a megfelelő hálózati portok nyitva vannak az összes kiszolgáló-csomópont között egy helyen és a helyek között (a kifeszített fürtök esetében). Szüksége lesz a megfelelő tűzfal-és útválasztó-szabályokra az ICMP, az SMB (445-es port, a 5445-es port, az SMB Direct esetében) és a WS-MAN (port 5985) kétirányú forgalom engedélyezéséhez a fürt összes kiszolgálója között.

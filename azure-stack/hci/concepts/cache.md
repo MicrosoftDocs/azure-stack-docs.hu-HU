@@ -1,24 +1,24 @@
 ---
-title: A Storage-készlet gyorsítótárának megismerése Azure Stack HCI-ben
-description: Az olvasási és írási gyorsítótárazás működése a Közvetlen tárolóhelyek és Azure Stack HCI teljesítményének felgyorsításához.
+title: A Storage-készlet gyorsítótárának megismerése Azure Stack HCI-és Windows Server-fürtökben
+description: Az olvasási és írási gyorsítótárazás működése a Közvetlen tárolóhelyek teljesítményének felgyorsításához.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 03/11/2021
-ms.openlocfilehash: 61e5008bfebdb3260d3fe177f12d16bf2938052b
-ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
+ms.openlocfilehash: 8d01b9ad6d606e3013f9723867d96c9590b5f670
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202271"
+ms.locfileid: "103234739"
 ---
-# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>A Storage-készlet gyorsítótárának megismerése Azure Stack HCI-ben
+# <a name="understanding-the-storage-pool-cache"></a>A Storage-készlet gyorsítótárának ismertetése
 
 > A következőkre vonatkozik: Azure Stack HCI, Version 20H2; Windows Server 2019
 
-Közvetlen tárolóhelyek, a Azure Stack HCI mögött található alapszintű tárolási virtualizációs technológia egy beépített kiszolgálóoldali gyorsítótárat tartalmaz a tárolási teljesítmény maximalizálása érdekében a költségek csökkentése mellett. Ez egy nagy, állandó, valós idejű olvasási *és* írási gyorsítótár. A gyorsítótár a Azure Stack HCI telepítésekor automatikusan konfigurálva van. A legtöbb esetben nincs szükség manuális felügyeletre. A gyorsítótár működése a meghajtók típusaitól függ.
+Közvetlen tárolóhelyek, a Azure Stack HCI mögött található alapszintű tárolási virtualizációs technológia egy beépített kiszolgálóoldali gyorsítótárat tartalmaz a tárolási teljesítmény maximalizálása érdekében a költségek csökkentése mellett. Ez egy nagy, állandó, valós idejű olvasási *és* írási gyorsítótár, amelyet a rendszer automatikusan konfigurál az üzembe helyezés után. A legtöbb esetben nincs szükség manuális felügyeletre. A gyorsítótár működése a meghajtók típusaitól függ.
 
 ## <a name="drive-types-and-deployment-options"></a>Meghajtók típusai és üzembe helyezési lehetőségek
 
@@ -27,9 +27,9 @@ Közvetlen tárolóhelyek jelenleg négy típusú meghajtóval működik:
 | Meghajtó típusa | Leírás |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|A **PMem** az állandó memóriára, egy új, kis késleltetésű, nagy teljesítményű tárterületre utal.|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|A **NVMe** (nem felejtő memória expressz) olyan SSD-meghajtókra utal, amelyek közvetlenül a PCIe-buszon ülnek. Az általános alaki tényezők a következők: 2,5 "U. 2, PCIe add-in-Card (AIC) és M. 2. A NVMe magasabb IOPS és IO-átviteli sebességet kínál, amely alacsonyabb késéssel rendelkezik, mint bármely más típusú meghajtó, amelyet ma támogatunk, kivéve a PMem.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|A **NVMe** (nem felejtő memória expressz) olyan SSD-meghajtókra utal, amelyek közvetlenül a PCIe-buszon ülnek. Az általános alaki tényezők a következők: 2,5 "U. 2, PCIe add-in-Card (AIC) és M. 2. A NVMe nagyobb IOPS és I/O-átviteli sebességet kínál, mint a PMem-t jelenleg támogató más típusú meghajtóknál.|
 |![SSD](media/choose-drives/SSD-100-px.png)|Az **SSD** olyan SSD-meghajtókra utal, amelyek hagyományos SATA-vagy sas-kapcsolaton keresztül csatlakoznak.|
-|![HDD](media/choose-drives/HDD-100-px.png)|A **HDD** olyan rotációs, mágneses merevlemez-meghajtókra utal, amelyek nagy kapacitású tárolókapacitást kínálnak.|
+|![HDD](media/choose-drives/HDD-100-px.png)|A **HDD** olyan rotációs, mágneses merevlemez-meghajtókra utal, amelyek alacsony áron kínálják a nagy kapacitású tárolókapacitást.|
 
 Ezek különböző módokon kombinálhatók, amelyeket két kategóriába csoportosítunk: "All-Flash" és "Hybrid". Az összes HDD-vel üzemelő példányok nem támogatottak.
 
@@ -63,17 +63,17 @@ Ha SSD-k és HDD-k is vannak, akkor az SSD-k gyorsítótárazva lesznek a HDD-k 
 Ha az összes meghajtó azonos típusú, a rendszer nem konfigurálja automatikusan a gyorsítótárat. Lehetősége van arra, hogy manuálisan konfigurálja a nagyobb teljesítményű meghajtókat az azonos típusú alacsonyabb tartósságú meghajtók gyorsítótárazásához – lásd a [manuális konfigurációs](#manual-configuration) szakaszt, amelyből megtudhatja, hogyan.
 
    >[!TIP]
-   > A NVMe vagy az összes SSD üzemelő példányban – különösen nagyon kis méretekben – a gyorsítótárban lévő "elköltött" meghajtókkal nem lehet javítani a tárolási hatékonyságot.
+   > Bizonyos esetekben a Storage-készlet gyorsítótárának használata nem logikus. Például a NVMe vagy az összes SSD üzemelő példányban – különösen a nagyon kis méretekben –, ha a gyorsítótárban nem található "költött" meghajtó, a tárolás hatékonysága és a teljesítmény maximalizálása javítható. Hasonlóképpen, a kis-és nagyvállalati iroda üzembe helyezése korlátozott lemezterülettel rendelkezhet a gyorsítótár-meghajtókon.
 
 ## <a name="cache-behavior-is-set-automatically"></a>A gyorsítótár viselkedése automatikusan be van állítva
 
-A gyorsítótár viselkedését a rendszer a gyorsítótárban lévő meghajtók típusa (i) alapján automatikusan meghatározza. A flash meghajtók (például az SSD-NVMe gyorsítótárazása) gyorsítótárazásakor a rendszer csak az írásokat gyorsítótárazza. A merevlemez-meghajtók gyorsítótárazása (például SSD-meghajtók gyorsítótárazása) esetén az olvasás és az írás is gyorsítótárazva van.
+A gyorsítótár viselkedését a rendszer a gyorsítótárban lévő meghajtók típusa (i) alapján automatikusan meghatározza. A flash meghajtók (például az SSD-NVMe gyorsítótárazása) gyorsítótárazásakor a rendszer csak az írásokat gyorsítótárazza. A lemezmeghajtók (például az SSD-meghajtók gyorsítótárazása) gyorsítótárazásakor a rendszer az olvasási és írási műveleteket is gyorsítótárazza.
 
 ![Az összes Flash esetében a gyorsítótárazást hasonlító diagram, amely az írásokat gyorsítótárazza, és az olvasások nem, hibrid, ahol az olvasások és az írások is gyorsítótárazva vannak.](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Írásvédett gyorsítótárazás az összes Flash-telepítéshez
 
-SSD-meghajtók (NVMe vagy SSD-k) gyorsítótárazásakor a rendszer csak az írásokat gyorsítótárazza. Ez csökkenti a kapacitás-meghajtók kopását, mivel számos írás és újraírás egyesíthető a gyorsítótárban, majd csak szükség szerint elvégezhető, így csökkentve a kapacitás-meghajtók összesített forgalmát és az élettartamuk kiterjesztését. Ezért javasoljuk, hogy a gyorsítótárhoz [nagyobb teljesítményű, írásra optimalizált](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) meghajtók legyenek kiválasztva. Előfordulhat, hogy a kapacitási meghajtók alacsonyabb írási állóképességtel rendelkeznek.
+A gyorsítótárazás egy teljes Flash-forgatókönyvben használható, például a NVMe as cache használatával az SSD-k teljesítményének felgyorsításához. Az összes Flash-telepítés gyorsítótárazásakor a rendszer csak az írásokat gyorsítótárazza. Ez csökkenti a kapacitás-meghajtók kopását, mivel számos írás és újraírás egyesíthető a gyorsítótárban, majd csak szükség szerint elvégezhető, így csökkentve a kapacitás-meghajtók összesített forgalmát, és meghosszabbíthatja az élettartamot. Ezért javasoljuk, hogy a gyorsítótárhoz [nagyobb teljesítményű, írásra optimalizált](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) meghajtók legyenek kiválasztva. Előfordulhat, hogy a kapacitási meghajtók alacsonyabb írási állóképességtel rendelkeznek.
 
 Mivel az olvasások nem befolyásolják jelentősen a Flash élettartamát, és mivel az SSD-k univerzálisan alacsony olvasási késést kínálnak, az olvasások nem lesznek gyorsítótárazva: a rendszer közvetlenül a kapacitás-meghajtókról kézbesíti őket (kivéve, ha az adatokat olyan legutóbb írták, hogy még nem lettek elrendezve). Ez lehetővé teszi, hogy a gyorsítótár kizárólag írásra legyen kijelölve, maximalizálva a hatékonyságot.
 
@@ -87,7 +87,7 @@ Közvetlen tárolóhelyek olyan algoritmust valósít meg, amely egy véletlensz
 
 ### <a name="caching-in-deployments-with-nvme-ssd-and-hdd"></a>Gyorsítótárazás a NVMe, SSD és HDD környezetekben üzemelő példányokban
 
-Ha mindhárom típusú meghajtó megtalálható, a NVMe-meghajtók gyorsítótárazást biztosítanak az SSD-k és a HDD-k számára egyaránt. A viselkedés a fent leírtak szerint történik: csak a (z) rendszerű meghajtók gyorsítótárazva vannak az SSD-k számára A HDD-k gyorsítótárazásának terhét egyenletesen osztják el a gyorsítótár-meghajtók között.
+Ha mindhárom típusú meghajtó megtalálható, a NVMe-meghajtók gyorsítótárazást biztosítanak mind az SSD-k, mind a HDD-k számára. A viselkedés a fent leírtak szerint történik: csak a (z) rendszerű meghajtók gyorsítótárazva vannak az SSD-k számára A HDD-k gyorsítótárazásának terhét egyenletesen osztják el a gyorsítótár-meghajtók között.
 
 ## <a name="summary"></a>Összefoglalás
 
@@ -110,7 +110,7 @@ Mivel a gyorsítótár nem éri el a Windows szoftver által definiált tárolá
 
 Mivel a Közvetlen tárolóhelyek rugalmassága legalább kiszolgálói szintű (vagyis az adatmásolatok mindig különböző kiszolgálókra vannak írva; kiszolgálónként legfeljebb egy másolat), a gyorsítótárban lévő adatok ugyanolyan rugalmassággal rendelkeznek, mint a gyorsítótárban lévő adatok.
 
-![A diagram három, a tárolóhelyek rétegében található háromutas tükrözéssel összekapcsolt kiszolgálót jelöl, amely a nem címkézett kapacitású meghajtók eléréséhez hozzáférő N V M e meghajtók gyorsítótári rétegéhez fér hozzá.](media/cache/Cache-Server-Side-Architecture.png)
+![A diagram három, a tárolóhelyek rétegében egy háromutas tükrözéssel összekapcsolt kiszolgálót jelöl, amely a NVMe-meghajtók olyan gyorsítótár-rétegét jeleníti meg, amely a címkézetlen kapacitás-meghajtókhoz fér hozzá.](media/cache/Cache-Server-Side-Architecture.png)
 
 Például, ha háromutas tükrözést használ, az összes adattal kapcsolatos három másolat különböző kiszolgálókra kerül, ahol a gyorsítótárba kerülnek. Függetlenül attól, hogy későbbiek-e vagy sem, három másolat mindig létezik.
 
@@ -118,7 +118,7 @@ Például, ha háromutas tükrözést használ, az összes adattal kapcsolatos h
 
 A gyorsítótár és a kapacitás-meghajtók közötti kötés bármilyen arányban lehet, 1:1 és 1:12 között. Dinamikusan módosítja a meghajtók hozzáadását vagy eltávolítását, például a hibák felskálázásakor vagy a meghibásodások után. Ez azt jelenti, hogy a gyorsítótár-meghajtók vagy a kapacitás-meghajtók egymástól függetlenül vehetők fel, ha szeretné.
 
-![Az animált ábrán két N V M e gyorsítótár-meghajtó dinamikusan van hozzárendelve az első négyhez, majd hat, majd nyolc kapacitású meghajtóhoz.](media/cache/Dynamic-Binding.gif)
+![Az animált ábrán két NVMe cache-meghajtó dinamikusan van hozzárendelve az első négyhez, majd hat, majd nyolc kapacitású meghajtóhoz.](media/cache/Dynamic-Binding.gif)
 
 Azt javasoljuk, hogy a kapacitások számának többszöröse legyen a gyorsítótár-meghajtók száma a szimmetria szempontjából. Ha például 4 gyorsítótár-meghajtóval rendelkezik, még nagyobb teljesítményt fog tapasztalni 8 kapacitású meghajtóval (1:2 arány), mint 7 vagy 9.
 
@@ -130,7 +130,7 @@ Egy rövid ideig az elveszett gyorsítótár-meghajtóhoz kötött kapacitási m
 
 Ennek a forgatókönyvnek az az oka, hogy a teljesítmény megőrzése érdekében a kiszolgálón legalább két gyorsítótár-meghajtó szükséges.
 
-![Az animált ábrán két, legfeljebb hat kapacitású meghajtóra leképezett gyorsítótár-meghajtó látható, amíg az egyik gyorsítótár-meghajtó meghibásodik, ami miatt mind a hat meghajtó le lesz képezve a fennmaradó gyorsítótár-meghajtóra.](media/cache/Handling-Failure.gif)
+![Az animált ábrán két SSD-meghajtó hat kapacitású meghajtóra van leképezve, amíg az egyik gyorsítótár-meghajtó meghibásodik, ami azt eredményezi, hogy az összes hat meghajtó le lesz képezve a fennmaradó gyorsítótár-meghajtó](media/cache/Handling-Failure.gif)
 
 Ezt követően a gyorsítótár-meghajtót ugyanúgy helyettesítheti, mint bármely más meghajtó cseréjét.
 

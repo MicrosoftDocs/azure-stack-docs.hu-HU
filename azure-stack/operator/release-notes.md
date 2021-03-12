@@ -3,16 +3,16 @@ title: Azure Stack hub kibocsátási megjegyzései
 description: Kibocsátási megjegyzések a Azure Stack hub integrált rendszereihez, beleértve a frissítéseket és a hibajavításokat is.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 5d0a32551ee7faee2403c7433754cffcff3e50e3
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840830"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103234705"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack hub kibocsátási megjegyzései
 
@@ -136,7 +136,7 @@ Mivel Azure Stack hub-gyorsjavítások összesítő jellegűek, ajánlott eljár
 
 Ha a 2008-es verzió telepítése után a rendszer a 2008-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2008.26.116](hotfix-1-2008-26-116.md)
+- [Azure Stack hub gyorsjavítási 1.2008.27.118](hotfix-1-2008-27-118.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -228,7 +228,7 @@ Azure Stack hub-gyorsjavítások csak Azure Stack hub integrált rendszerekre é
 
 Azure Stack hub 2005-es kiadását a 2002-es kiadásra kell alkalmazni a következő gyorsjavításokkal:
 
-- [Azure Stack hub gyorsjavítási 1.2002.66.173](hotfix-1-2002-66-173.md)
+- [Azure Stack hub gyorsjavítási 1.2002.66.173](hotfix-1-2002-67-175.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Az 2005-es frissítés sikeres alkalmazása után
 
@@ -236,7 +236,7 @@ Az 2005-es kiadástól kezdve, amikor új főverzióra frissít (például: 1.20
 
 Ha a 2005-es verzió telepítése után a rendszer a 2005-es gyorsjavításokat is felszabadítja, telepítse őket:
 
-- [Azure Stack hub gyorsjavítási 1.2005.30.102](hotfix-1-2005-30-102.md)
+- [Azure Stack hub gyorsjavítási 1.2005.32.106](hotfix-1-2005-32-106.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -365,7 +365,7 @@ Azure Stack hub 2002-es kiadását a 1910-es kiadásra kell alkalmazni a követk
 A frissítés telepítése után telepítse az összes vonatkozó gyorsjavítást.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack hub gyorsjavítási 1.2002.66.173](hotfix-1-2002-66-173.md)
+- [Azure Stack hub gyorsjavítási 1.2002.67.175](hotfix-1-2002-67-175.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

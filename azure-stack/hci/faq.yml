@@ -8,12 +8,12 @@ metadata:
   ms.service: azure-stack
   ms.subservice: azure-stack-hci
   ms.date: 1/21/2021
-  ms.openlocfilehash: f967b009d59ecad4ed8cc53c5a59da6c740a8fd8
-  ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+  ms.openlocfilehash: 6840744908ab204c047e9c6a2473a3c44849e663
+  ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
   ms.translationtype: MT
   ms.contentlocale: hu-HU
-  ms.lasthandoff: 03/06/2021
-  ms.locfileid: "102250637"
+  ms.lasthandoff: 03/12/2021
+  ms.locfileid: "103234688"
 title: Azure Stack HCI – gyakori kérdések
 summary: A Azure Stack HCI GYIK tartalmaz egy szakaszt Azure Stack HCI-kapcsolatról és egy általános gyakori kérdések szakaszáról.
 sections:
@@ -24,7 +24,10 @@ sections:
       A Azure Stack HCI egy Azure Hybrid Service-ként szállított helyszíni hiperkonvergens infrastruktúra-verem. Telepíti a Azure Stack HCI szoftvert a helyszínen felügyelt fizikai kiszolgálókon. Ezután kapcsolódhat az Azure-hoz felhőalapú figyelési, támogatási, számlázási és opcionális felügyeleti és biztonsági funkciókkal. Ez a gyakori kérdések azt ismertetik, hogy Azure Stack HCI hogyan használja a felhőt a kapcsolódási követelményekkel és viselkedéssel kapcsolatos gyakori kérdések megválaszolásával.
   - question: A rendszer elküldi a Azure Stack HCI-ben tárolt adataikat a felhőbe?
     answer: >
-      Nem. A vásárlói adatokat, például a helyszíni virtuális gépek nevét, metaadatait, konfigurációját és tartalmát soha nem küldi el a felhőbe, hacsak nem kapcsol be kifejezetten erre a célra olyan további szolgáltatásokat, mint például a Azure Backup vagy a Azure Site Recovery, vagy ha nem regisztrálja ezeket a virtuális gépeket külön a felhőalapú felügyeleti szolgáltatásokhoz, például az Azure archoz.
+      Nem. A vásárlói adatokat, például a helyszíni virtuális gépek (VM-EK) nevét, metaadatait, konfigurációját és tartalmát soha nem küldi el a felhőbe, hacsak nem kapcsol be további szolgáltatásokat, például Azure Backup vagy Azure Site Recovery, vagy ha nem regisztrálja ezeket a virtuális gépeket külön a Cloud Management Services, például az Azure arc számára.
+
+
+      Mivel Azure Stack HCI nem tárolja az ügyféladatokat a felhőben, az üzletmenet folytonosságának vész-helyreállítását (BCDR) az ügyfél helyszíni adatkezelési idejére, és az ügyfél vezérli. Ha saját helyek közötti replikálást szeretne beállítani egy kibővített fürt használatával, tekintse meg a [kiterjesztett fürtök áttekintése](concepts/stretched-clusters.md)című témakört.
 
 
       Ha többet szeretne megtudni a gyűjtött diagnosztikai adatokról, hogy Azure Stack HCI biztonságos, naprakész és a várt módon működjön, tekintse meg a következőt: [Azure stack HCI adatgyűjtési](concepts/data-collection.md) és [-adattárolási szolgáltatás az Azure-ban](https://azure.microsoft.com/global-infrastructure/data-residency/).
