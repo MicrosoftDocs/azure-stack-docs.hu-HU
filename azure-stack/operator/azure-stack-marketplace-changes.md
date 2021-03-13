@@ -3,16 +3,16 @@ title: Az Azure Stack hub piactér újdonságai
 description: Tekintse meg a Azure Stack hub-piactér újdonságait, beleértve az új, elavult és frissített Piactéri elemeket.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/12/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 4308e6edc48f48803b762b88dff107c4954db36f
+ms.sourcegitcommit: a0a4a009300c3c5d67b8ba2f81c3c1f3ddb536df
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256013"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417212"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack hub piactér-változások
 
@@ -55,6 +55,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="deprecated-marketplace-items"></a>Elavult Piactéri elemek
 
+- 03/01/2021: SLES 15 (BYOS), SUSE Linux Enterprise Server 15
 - 08/21/2020: Windows 10 Enterprise, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
 - 08/21/2020: Windows 10 Pro, 1903-es verzió – saját licenc-verzió 18362.959.2007101755
 - 08/21/2020: Windows 10 Enterprise, 1909-es verzió – saját licenc-verzió 18363.959.2007101752
@@ -167,6 +168,14 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 
 ## <a name="updated-marketplace-items"></a>Marketplace-elemek frissítve
 
+- 03/11/2021: Data Box Gateway virtuális eszköz – verzió 1.0.2103
+- 03/08/2021: AK Base Ubuntu 16,04-LTS rendszerkép-disztribúció, január 2021 – 2021.01.28 verzió
+- 03/08/2021: AK Base Ubuntu 18,04-LTS rendszerkép-disztribúció, 2021 Q1 – Version 2021.01.28
+- 03/08/2021: AK-alapú alapszintű Windows-rendszerkép, január 28 2021 – 17763.1697.210129 verzió
+- 02/22/2021: F5 Networks, Inc. F5 BIG-IP VE – LTM/DNS (BYOL, 1 rendszerindítási hely) – Version 16.0.101000
+- 02/22/2021: F5 Networks, Inc. F5 BIG-IP VE – ALL (BYOL, 1 rendszerindítási hely) – verzió 16.0.101000
+- 02/22/2021: F5 Networks, Inc. F5 BIG-IP VE – LTM/DNS (BYOL, 2 rendszerindítási helyszín) – Version 16.0.101000
+- 02/22/2021: F5 Networks, Inc. F5 BIG-IP VE – ALL (BYOL, 2 rendszerindítási helyszín) – verzió 16.0.101000
 - 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – saját licenc-verzió 14.0.20201111
 - 01/06/2021: SQL Server 2017 standard a Windows Server 2016-on – a go-verzió 14.0.20201111
 - 01/06/2021: SQL Server 2017 standard on Windows Server 2016 – saját licenc-verzió 14.0.20201111
@@ -545,7 +554,7 @@ Az [Azure stack hub Marketplace-cikkek](azure-stack-marketplace-azure-items.md) 
 - 5/21/2020: Windows Server 2019 Datacenter, tárolók BYOL – 17763.1158.2004131759 verzió
 - 5/21/2020: a Windows Server 2019 Datacenter with containers szolgáltatás a 17763.1158.2004131759 verzió használatakor díjköteles
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 
 Az Azure Stack hub Marketplace-ről további információt a következő cikkekben talál:
 

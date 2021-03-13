@@ -4,13 +4,13 @@ description: Ez a témakör útmutatást nyújt a Azure Stack HCI operációs re
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/11/2020
-ms.openlocfilehash: a77e9b2510a8cc035f54033c3e886c8cf9dfca31
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.date: 03/12/2021
+ms.openlocfilehash: 28e480dc8ed310eb60b1614afa50417a9a0c617c
+ms.sourcegitcommit: a0a4a009300c3c5d67b8ba2f81c3c1f3ddb536df
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250281"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417195"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Támogatás kérése Azure Stack HCI-hez
 
@@ -20,7 +20,9 @@ Ez a témakör útmutatást nyújt a Azure Stack HCI operációs rendszer támog
 
 Azure Stack HCI-támogatási kérelem létrehozásához standard vagy Professional Direct Azure-támogatási csomag szükséges. Alapszintű és fejlesztői csomagok nem használhatók.
 
-További információ: [Azure-támogatási csomagok – gyakori kérdések](https://azure.microsoft.com/support/faq/).
+További információkért lásd:
+- [Támogatási csomagok összehasonlítása](https://azure.microsoft.com/support/plans/)
+- [Azure-támogatási csomagok – gyakori kérdések](https://azure.microsoft.com/support/faq/)
 
 ## <a name="azure-support-resources-for-azure-stack-hci"></a>Azure-támogatási erőforrások Azure Stack HCI-hez
 További információ az Azure-ban elérhető más Azure Stack HCI-támogatással kapcsolatban:
