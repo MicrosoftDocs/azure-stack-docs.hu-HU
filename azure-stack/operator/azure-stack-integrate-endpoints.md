@@ -1,18 +1,18 @@
 ---
 title: Azure Stack hub-szolgáltatások közzététele az adatközpontban
 description: Ismerje meg, hogyan tehet közzé Azure Stack hub-szolgáltatásokat az adatközpontjában.
-author: patricka
+author: PatAltimore
 ms.topic: article
 ms.date: 03/02/2021
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 928e3fe6fbaa5c41d52d89617796ac726afcf2d6
-ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
+ms.openlocfilehash: 9553551b0fca461b713951e51b826072c61328a7
+ms.sourcegitcommit: 49f7e8cb691b2d91207d4d394042a5f61d7f2467
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102606397"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487149"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Azure Stack hub-szolgáltatások közzététele az adatközpontban
 

@@ -4,13 +4,13 @@ description: Ez a témakör útmutatást nyújt a Azure Stack HCI operációs re
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 03/15/2021
+ms.openlocfilehash: 84721b32c41d7ee50b0af0725af58f7b7f152386
+ms.sourcegitcommit: 49f7e8cb691b2d91207d4d394042a5f61d7f2467
 ms.translationtype: MT
 ms.contentlocale: hu-HU
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572670"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487132"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI biztonsági megfontolások
 
@@ -81,7 +81,7 @@ Ebből a szakaszból megtudhatja, hogyan használhatja a Windows felügyeleti k�
 
 - A **CredSSP** egy hitelesítési szolgáltató, amelyet a Windows felügyeleti központ néhány esetben használ a hitelesítő adatoknak a felügyelni kívánt kiszolgálón kívüli gépekre való továbbítására. A Windows felügyeleti központban jelenleg a következő CredSSP szükséges:
     - Hozzon létre egy új fürtöt.
-    - A **frissítési** eszköz eléréséhez használja a feladatátvételi fürtszolgáltatást vagy a fürtöket támogató frissítési funkciókat.
+    - Nyissa meg a **frissítések** eszközt a feladatátvételi fürtszolgáltatás vagy Cluster-Aware frissítési funkcióinak használatához.
     - A nem aggregált SMB-tárolók kezelése a virtuális gépeken.
 
     További információ: a [Windows felügyeleti központ használata a CredSSP?](/windows-server/manage/windows-admin-center/understand/faq#does-windows-admin-center-use-credssp)
@@ -103,7 +103,7 @@ Annak kezelése, hogy ki férhet hozzá az Azure-erőforrásokhoz és -előfizet
 
 Az Security Center a Windows felügyeleti központban való használata Azure-előfizetést igényel. Első lépésként tekintse meg [a Azure Security Center integrálása a Windows felügyeleti központtal](/azure/security-center/windows-admin-center-integration)című témakört.
 
-A regisztrálás után a Security Center a Windows felügyeleti központban: a **minden kapcsolat** lapon válasszon ki egy kiszolgálót vagy virtuális gépet, az **eszközök**területen válassza a **Azure Security Center**lehetőséget, majd válassza a **Bejelentkezés az Azure-ba**lehetőséget.
+A regisztrálás után a Security Center a Windows felügyeleti központban: a **minden kapcsolat** lapon válasszon ki egy kiszolgálót vagy virtuális gépet, az **eszközök** területen válassza a **Azure Security Center** lehetőséget, majd válassza a **Bejelentkezés az Azure-ba** lehetőséget.
 
 További információ: [What is Azure Security Center?](/azure/security-center/security-center-intro)
 
@@ -113,16 +113,12 @@ A következő részekben a speciális biztonsági eszközöket és technológiá
 ### <a name="harden-the-environment"></a>A környezet megerősítése
 - A **Microsoft biztonsági** alapkonfigurációi a Microsoft által a kereskedelmi szervezetekkel és az Egyesült Államok kormányával, például a védelmi minisztériumtal való együttműködés során szerzett biztonsági javaslatokon alapulnak. A biztonsági alapkonfigurációk a Windows tűzfal, a Windows Defender és sok más ajánlott biztonsági beállításait tartalmazzák.
 
-    A biztonsági alapkonfigurációk Csoportházirend objektumként (GPO) vannak megadva, amelyeket importálhat Active Directory tartományi szolgáltatásokba (AD DS), majd üzembe helyezheti a tartományhoz csatlakoztatott kiszolgálókon, hogy megerősítse a környezetet. Helyi parancsfájl-eszközöket is használhat a biztonsági alapkonfigurációkkal rendelkező önálló (nem tartományhoz csatlakozó) kiszolgálók konfigurálásához. A biztonsági alapkonfigurációk használatának megkezdéséhez töltse le a [Microsoft biztonsági megfelelőségi eszközkészlet 1,0](https://www.microsoft.com/download/details.aspx?id=55319)-es verziójára.
+    A biztonsági alapkonfigurációk Csoportházirend objektumként (GPO) vannak megadva, amelyeket importálhat Active Directory Domain Servicesba (AD DS), majd üzembe helyezheti a tartományhoz csatlakoztatott kiszolgálókon, hogy megerősítse a környezetet. Helyi parancsfájl-eszközöket is használhat a biztonsági alapkonfigurációkkal rendelkező önálló (nem tartományhoz csatlakozó) kiszolgálók konfigurálásához. A biztonsági alapkonfigurációk használatának megkezdéséhez töltse le a [Microsoft biztonsági megfelelőségi eszközkészlet 1,0](https://www.microsoft.com/download/details.aspx?id=55319)-es verziójára.
 
     További információ: [Microsoft biztonsági](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)alapkonfigurációk.
 
 ### <a name="protect-data"></a>Adatok védelme
 - **A Hyper-V környezet megkeményedése** megköveteli, hogy a virtuális gépen futó Windows Server megerősítse a fizikai kiszolgálón futó operációs rendszert. Mivel a virtuális környezetek jellemzően több, ugyanazon a fizikai gazdagépen található virtuális géppel rendelkeznek, elengedhetetlen a fizikai gazdagép és a rajta futó virtuális gépek elleni védelem. Egy gazdagépet veszélyeztető támadó több virtuális gépre is hatással lehet, és nagyobb hatással van a munkaterhelésekre és szolgáltatásokra. Ez a szakasz a Windows Server Hyper-V környezetben való megerősítő következő módszereit ismerteti:
-
-    - A **védett hálók és a védett virtuális gépek** megerősítik a Hyper-V környezetekben futó virtuális gépek biztonságát azáltal, hogy a támadók nem módosítják a virtuálisgép-fájlokat. A *védett háló* egy olyan gazda Guardian-szolgáltatásból (HGS) áll, amely általában három csomópontból álló fürt, egy vagy több védett gazdagép és egy védett virtuális gép egy készlete. Az igazolási szolgáltatás értékeli a gazdagépek kérelmének érvényességét, míg a kulcskezelő szolgáltatás meghatározza, hogy ki kell-e szabadítani azokat a kulcsokat, amelyeket a védett gazdagépek használhatnak a védett virtuális gép elindításához.
-
-        További információt a [védett hálók és a védett virtuális gépek áttekintése](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms)című témakörben talál.
      
      - A Windows Server **Virtual platformmegbízhatósági modul (vTPM)** támogatja a TPM használatát a virtuális gépek számára, amely lehetővé teszi a speciális biztonsági technológiák, például a BitLocker használata a virtuális gépeken. A TPM-támogatást bármely 2. generációs Hyper-V virtuális gépen engedélyezheti a Hyper-V kezelőjével vagy a `Enable-VMTPM` Windows PowerShell-parancsmag használatával.
      
@@ -131,6 +127,9 @@ A következő részekben a speciális biztonsági eszközöket és technológiá
      - A Azure Stack HCI és a Windows Server rendszerekben a **szoftveres hálózatkezelés (Sdn)** központilag konfigurálja és felügyeli a fizikai és virtuális hálózati eszközöket, például az útválasztókat, a kapcsolókat és az adatközpontban lévő átjárókat. A virtuális hálózati elemek, például a Hyper-V virtuális kapcsoló, a Hyper-V hálózati virtualizálás és a RAS-átjáró úgy vannak kialakítva, hogy az SDN-infrastruktúra szerves elemei legyenek.
 
         További információ: [szoftveresen definiált hálózatkezelés (Sdn)](/windows-server/networking/sdn/).
+
+       >[!NOTE]
+       > Azure Stack HCI nem támogatja a védett virtuális gépeket.
 
 ### <a name="protect-identities"></a>Identitások elleni védelem
 - A **helyi rendszergazda jelszavas megoldás (kör)** egy egyszerű mechanizmus a tartományhoz csatlakoztatott rendszerek Active Directory, amelyek rendszeres időközönként beállítja az egyes számítógépek helyi rendszergazdai fiókjának jelszavát egy új véletlenszerű és egyedi értékre. A jelszavak tárolása a Active Directory megfelelő számítógép-objektumának biztonságos bizalmas attribútumában történik, ahol csak a kifejezetten jogosult felhasználók kérhetik le őket. A körök a távoli számítógépek felügyeletére szolgáló helyi fiókokat használják olyan módon, amely némi előnyt biztosít a tartományi fiókok használatával kapcsolatban. További információ [: a helyi fiókok távoli használata: a körök mindent megváltoztatnak](/archive/blogs/secguide/remote-use-of-local-accounts-laps-changes-everything).
@@ -145,7 +144,7 @@ A következő részekben a speciális biztonsági eszközöket és technológiá
 
     További információ: a [Windows Defender hitelesítőadat-őr kezelése](/windows/security/identity-protection/credential-guard/credential-guard-manage).
 
-## <a name="next-steps"></a>További lépések
+## <a name="next-steps"></a>Következő lépések
 A biztonsággal és a szabályozás megfelelőségével kapcsolatos további információkért lásd még:
 - [Biztonság és ellenőrzés](/windows-server/security/security-and-assurance)
 - [Ajánlott biztonsági eljárások Azure-megoldásokhoz](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/)
